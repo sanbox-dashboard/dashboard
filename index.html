@@ -394,13 +394,17 @@ function processar(peds, itens, metas) {
     }
   }
 
-  // Itens — APENAS para top produtos hoje
+  // Itens — filtra por data diretamente (mais confiável que cruzar por ID)
+  // A aba de itens pode ter dados mais recentes que a aba de pedidos
   const prodMap={}, fornMap={};
   for(let i=1;i<itens.length;i++) {
     const r=itens[i];
     const id=(r[I.ID]||'').trim();
     const sit=(r[I.SIT]||'').toLowerCase().trim();
-    if(!idsHj.has(id)||!VALIDAS.has(sit)) continue;
+    const dat=(r[I.DATA]||'').trim();
+    // Filtra pelo dia ref OU pelo id do pedido (pega o que tiver dados)
+    const isHj = dat===hj || idsHj.has(id);
+    if(!isHj||!VALIDAS.has(sit)) continue;
     const desc=(r[I.DESC]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.')) || 1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.')) || 0;
