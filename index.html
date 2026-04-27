@@ -125,6 +125,20 @@ header{display:flex;align-items:center;justify-content:space-between;background:
   .kr{grid-template-columns:1fr;}
   .kr .kpi:nth-child(1){grid-column:1/2;}
 }
+
+/* FILTRO DE PERÍODO */
+.filtro-wrap{display:flex;align-items:center;gap:8px;background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:7px 14px;box-shadow:var(--sh);}
+.filtro-lbl{font-size:.58rem;font-weight:800;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;white-space:nowrap;}
+.filtro-btns{display:flex;gap:4px;}
+.fb-btn{background:none;border:1px solid var(--bd);border-radius:7px;padding:4px 12px;font-family:'Nunito';font-size:.65rem;font-weight:800;color:var(--mu);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.fb-btn:hover{border-color:var(--or);color:var(--or);}
+.fb-btn.ativo{background:var(--or);border-color:var(--or);color:#fff;}
+.filtro-custom{display:none;align-items:center;gap:6px;margin-left:4px;}
+.filtro-custom.show{display:flex;}
+.filtro-custom input{border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font-family:'Nunito';font-size:.65rem;color:var(--tx);outline:none;width:110px;}
+.filtro-custom input:focus{border-color:var(--or);}
+.fb-apply{background:var(--or);border:none;border-radius:6px;padding:4px 10px;font-family:'Nunito';font-size:.65rem;font-weight:800;color:#fff;cursor:pointer;}
+@media(max-width:768px){.filtro-wrap{flex-wrap:wrap;gap:6px;}.filtro-custom input{width:90px;}}
 </style>
 </head>
 <body>
@@ -162,6 +176,22 @@ header{display:flex;align-items:center;justify-content:space-between;background:
     </div>
   </header>
 
+
+  <!-- FILTRO DE PERÍODO -->
+  <div class="filtro-wrap">
+    <div class="filtro-lbl">Período:</div>
+    <div class="filtro-btns">
+      <button class="fb-btn ativo" id="fBtnDia" onclick="setFiltro('dia')">📅 Dia</button>
+      <button class="fb-btn" id="fBtnMes" onclick="setFiltro('mes')">📆 Mês</button>
+      <button class="fb-btn" id="fBtnCustom" onclick="setFiltro('custom')">🗓 Personalizado</button>
+    </div>
+    <div class="filtro-custom" id="filtroCustom">
+      <input type="date" id="fDtIni" />
+      <span style="font-size:.65rem;color:var(--mu);font-weight:700">até</span>
+      <input type="date" id="fDtFim" />
+      <button class="fb-apply" onclick="aplicarCustom()">Aplicar</button>
+    </div>
+  </div>
   <div class="kr">
     <div class="kpi" style="--kc:var(--or)">
       <div class="kl">Vendas do Dia</div><div class="kv" id="kDia">R$ --</div>
@@ -197,7 +227,7 @@ header{display:flex;align-items:center;justify-content:space-between;background:
       <div class="prl" id="prodsEl"></div>
     </div>
     <div class="pn">
-      <div class="pti"><div class="pdo"></div>Faturamento por Fornecedor — Hoje</div>
+      <div class="pti"><div class="pdo"></div><span id="fornTitulo">Faturamento por Fornecedor — Mês</span></div>
       <div class="fl" id="fornEl"></div>
     </div>
   </div>
@@ -283,8 +313,37 @@ function canal(nome, num) {
 }
 
 function marca(desc) {
-  for(const m of ['Mueller','Midea','Pulse','Amvox','Dako','Mallory','Britania','Multilaser','Intelbras','Knup','SSOUND','LG','Samsung','Mondial','Philco','Electrolux','Brastemp','Consul','Best'])
-    if((desc||'').toLowerCase().includes(m.toLowerCase())) return m;
+  const d=(desc||'').toLowerCase();
+  // Marcas confirmadas na planilha
+  const marcas=[
+    'Mueller','Muller',       // Mueller (com variação)
+    'Imbera',                 // Cervejeiras/Freezers
+    'Itatiaia',               // Fogões
+    'Atlas',                  // Fogões Atlas
+    'Midea',                  // Lavadoras
+    'Pulse',                  // Som
+    'SSOUND','Ssound',        // Som SSOUND
+    'Philco',                 // Eletrônicos
+    'Amvox',                  // Eletrônicos
+    'Dako',                   // Fogões
+    'Mallory',                // Eletrônicos
+    'Britania',               // Eletrônicos
+    'Multilaser',             // Eletrônicos
+    'Intelbras',              // Eletrônicos
+    'Knup',                   // Acessórios
+    'LG',                     // Eletrônicos
+    'Samsung',                // Eletrônicos
+    'Mondial',                // Eletrônicos
+    'Electrolux',             // Eletrodomésticos
+    'Brastemp',               // Eletrodomésticos
+    'Consul',                 // Eletrodomésticos
+    'Best',                   // Eletrônicos
+    'Suggar',                 // Eletrônicos
+    'Cadence',                // Eletrônicos
+    'Arno',                   // Eletrodomésticos
+  ];
+  for(const m of marcas)
+    if(d.includes(m.toLowerCase())) return m==='Muller'?'Mueller':m;
   return 'Outros';
 }
 
@@ -468,7 +527,9 @@ function render(d) {
   document.getElementById('dDate').textContent=dataRef.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase();
 
   document.getElementById('kDia').textContent   =R(hj.tot);
-  document.getElementById('kDiaSub').textContent=`${hj.p} pedidos — situações válidas`;
+  // Label dinâmico baseado no filtro
+  const pLabel = d.periodoLabel||'';
+  document.getElementById('kDiaSub').textContent=`${hj.p} pedidos — ${pLabel}`;
   document.getElementById('kDiaMeta').textContent=R(hj.meta);
   const pd=document.getElementById('kDiaPct'); pd.textContent=`${hj.pct}%`; pd.className=pCls(hj.pct);
 
@@ -510,15 +571,15 @@ function render(d) {
       </div>`).join('')
     : '<div style="color:var(--mu);font-size:.75rem;padding:8px">Sem dados de itens hoje</div>';
 
-  // Fornecedores
+  // Fornecedores — top 10 do mês
   const mF=hj.topF[0]?.f||1;
-  document.getElementById('fornEl').innerHTML=hj.topF.map((f,i)=>`
+  document.getElementById('fornEl').innerHTML=hj.topF.length ? hj.topF.map((f,i)=>`
     <div class="fi"><div class="fr">${i+1}</div>
       <div class="fif"><div class="fnm">${f.n}</div><div class="fsb">${f.p} pedidos</div></div>
-      <div class="fg"><div class="fv">${R(f.f)}</div><div class="fp">${f.pct}% do total</div></div>
+      <div class="fg"><div class="fv">${R(f.f)}</div><div class="fp">${f.pct}% do fat.</div></div>
     </div>
     <div class="fb pt"><div class="pf" style="width:${(f.f/mF*100).toFixed(0)}%;background:var(--or)"></div></div>
-  `).join('');
+  `).join('') : '<div style="color:var(--mu);font-size:.75rem;padding:8px">Sem dados de fornecedores</div>';
 
   // Ticker
   const tC=[...hj.canais].sort((a,b)=>b.f-a.f)[0];
@@ -533,6 +594,169 @@ function render(d) {
     <span class="sp">|</span>`;
 }
 
+// ── ESTADO DO FILTRO ──────────────────────────────────────────
+let _filtro = 'dia'; // 'dia' | 'mes' | 'custom'
+let _fIni = null, _fFim = null;
+let _dadosCache = null; // cache das rows brutas
+
+function setFiltro(tipo) {
+  _filtro = tipo;
+  ['dia','mes','custom'].forEach(t => {
+    document.getElementById('fBtn'+t.charAt(0).toUpperCase()+t.slice(1)).classList.toggle('ativo', t===tipo);
+  });
+  document.getElementById('filtroCustom').classList.toggle('show', tipo==='custom');
+  if(tipo !== 'custom' && _dadosCache) {
+    renderFiltrado();
+  }
+}
+
+function aplicarCustom() {
+  const ini = document.getElementById('fDtIni').value;
+  const fim = document.getElementById('fDtFim').value;
+  if(!ini || !fim) return alert('Selecione as datas de início e fim!');
+  // Converte YYYY-MM-DD para M/D/YYYY
+  function toMDY(s){const p=s.split('-');return `${parseInt(p[1])}/${parseInt(p[2])}/${p[0]}`;}
+  _fIni = toMDY(ini);
+  _fFim = toMDY(fim);
+  if(_dadosCache) renderFiltrado();
+}
+
+// Verifica se uma data M/D/YYYY está no intervalo
+function isNoPeriodo(dat) {
+  if(!dat) return false;
+  function parseD(s){const p=s.split('/');return new Date(parseInt(p[2]),parseInt(p[0])-1,parseInt(p[1]));}
+  const d = parseD(dat);
+  if(_filtro==='dia') return dat===_diaRef;
+  if(_filtro==='mes') return isMesAtual(dat);
+  if(_filtro==='custom' && _fIni && _fFim) return d>=parseD(_fIni) && d<=parseD(_fFim);
+  return false;
+}
+
+let _diaRef = ''; // último dia com dados (global)
+
+function renderFiltrado() {
+  if(!_dadosCache) return;
+  const {pRows, iRows, metas} = _dadosCache;
+  const dados = processarFiltrado(pRows, iRows, metas);
+  render(dados);
+}
+
+// ── PROCESSAMENTO COM FILTRO ──────────────────────────────────
+function processarFiltrado(peds, itens, metas) {
+  // Acha dias ref
+  function parseData(s){const p=(s||'').split('/');return p.length<3?new Date(0):new Date(parseInt(p[2]),parseInt(p[0])-1,parseInt(p[1]));}
+  const datas=new Set();
+  for(let i=1;i<peds.length;i++){const sit=(peds[i][C.SIT]||'').toLowerCase().trim();const dat=(peds[i][C.DATA]||'').trim();if(VALIDAS.has(sit)&&dat)datas.add(dat);}
+  const sorted=[...datas].sort((a,b)=>parseData(b)-parseData(a));
+  _diaRef = sorted[0]||hoje();
+  const ont = sorted[1]||_diaRef;
+
+  // Metas do dia ref
+  const metaH = metas.dias[_diaRef]||{};
+  const cHj={}, cPer={};
+  CANAIS.forEach(cn=>{ cHj[cn]={f:0,p:0}; cPer[cn]={f:0,p:0}; });
+
+  let tPer=0,pPer=0, tHj=0,pHj=0, tOnt=0,pOnt=0, tMes=0,pMes=0;
+  const idsPer=new Set(), idsHj=new Set(), idsOnt=new Set(), idsMes=new Set();
+
+  for(let i=1;i<peds.length;i++){
+    const r=peds[i];
+    const id=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
+    if(!id||!VALIDAS.has(sit)) continue;
+    const fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+    const cn=canal(r[C.ENOME],r[C.ENUM]);
+
+    // Sempre calcula mês (para KPI mês)
+    if(isMesAtual(dat)&&!idsMes.has(id)){idsMes.add(id);tMes+=fat;pMes++;}
+    // Sempre calcula dia ref e ontem
+    if(dat===_diaRef&&!idsHj.has(id)){idsHj.add(id);tHj+=fat;pHj++;if(cHj[cn]){cHj[cn].f+=fat;cHj[cn].p++;}}
+    if(dat===ont&&!idsOnt.has(id)){idsOnt.add(id);tOnt+=fat;pOnt++;}
+
+    // Período filtrado (para canais e KPI principal)
+    if(isNoPeriodo(dat)&&!idsPer.has(id)){
+      idsPer.add(id);tPer+=fat;pPer++;
+      if(cPer[cn]){cPer[cn].f+=fat;cPer[cn].p++;}
+    }
+  }
+
+  // Qual canal usar — se filtro=dia usa cHj, senão cPer
+  const canalUsar = (_filtro==='dia') ? cHj : cPer;
+  const totalUsar = (_filtro==='dia') ? tHj : tPer;
+  const pedsUsar  = (_filtro==='dia') ? pHj : pPer;
+
+  // Itens — top produtos no período filtrado
+  const prodMap={};
+  // Fornecedores sempre do MÊS (independente do filtro)
+  const fornMapMes={};
+
+  for(let i=1;i<itens.length;i++){
+    const r=itens[i];
+    const id=(r[I.ID]||'').trim(),sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
+    if(!VALIDAS.has(sit)) continue;
+
+    const desc=(r[I.DESC]||'').trim();
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const fat=qtd*vu;
+    const mk=marca(desc);
+
+    // Top produtos — usa o período filtrado
+    const isPerItem = (_filtro==='dia') ? (dat===_diaRef||idsHj.has(id)) :
+                      (_filtro==='mes') ? isMesAtual(dat) :
+                      isNoPeriodo(dat)||idsPer.has(id);
+    if(isPerItem){
+      const nm=desc.substring(0,60);
+      if(!prodMap[nm])prodMap[nm]={q:0,f:0};
+      prodMap[nm].q+=qtd; prodMap[nm].f+=fat;
+    }
+
+    // Fornecedores — segue o mesmo filtro de período
+    if(isPerItem){
+      if(!fornMapMes[mk])fornMapMes[mk]={f:0,p:new Set()};
+      fornMapMes[mk].f+=fat; fornMapMes[mk].p.add(id);
+    }
+  }
+
+  const topP=Object.entries(prodMap).sort((a,b)=>b[1].f-a[1].f).slice(0,8).map(([n,d])=>({n,q:d.q,f:d.f}));
+  // Top 10 fornecedores do MÊS
+  const topF=Object.entries(fornMapMes).sort((a,b)=>b[1].f-a[1].f).slice(0,10).map(([n,d])=>({n,f:d.f,p:d.p.size,pct:totalUsar>0?(d.f/totalUsar*100).toFixed(1):0}));
+
+  // Metas
+  const metaTot = (_filtro==='dia') ? (metaH.total||CANAIS.reduce((s,cn)=>s+(metaH[cn]||0),0)) : metas.metaMes;
+  const canais=CANAIS.map(nm=>{
+    const d=canalUsar[nm]||{f:0,p:0};
+    const m=(_filtro==='dia') ? (metaH[nm]||0) : 0;
+    const pct=m>0?Math.min(d.f/m*100,999).toFixed(1):0;
+    return {nm,f:d.f,p:d.p,m,pct:parseFloat(pct)};
+  });
+
+  const pctPer = metaTot>0 ? Math.min(totalUsar/metaTot*100,999).toFixed(1) : 0;
+  const pctMes = metas.metaMes>0 ? Math.min(tMes/metas.metaMes*100,999).toFixed(1) : 0;
+
+  // Label do período
+  let periodoLabel = '';
+  if(_filtro==='dia') {
+    const p=_diaRef.split('/');
+    const dRef=p.length>=3?new Date(parseInt(p[2]),parseInt(p[0])-1,parseInt(p[1])):new Date();
+    periodoLabel=dRef.toLocaleDateString('pt-BR',{day:'2-digit',month:'long'}).toUpperCase();
+  }
+  else if(_filtro==='mes') { const n=new Date(); periodoLabel=n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase(); }
+  else if(_fIni&&_fFim) periodoLabel = `${_fIni} → ${_fFim}`;
+
+  // Atualiza título do fornecedor
+  const fEl=document.getElementById('fornTitulo');
+  if(fEl) fEl.textContent = `Faturamento por Fornecedor — ${d.periodoLabel||'Hoje'}`;
+
+  return {
+    dRef:_diaRef,
+    filtro:_filtro,
+    periodoLabel,
+    hj:{tot:totalUsar, p:pedsUsar, tick:pedsUsar>0?totalUsar/pedsUsar:0, meta:metaTot, pct:parseFloat(pctPer), canais, topP, topF},
+    ont:{tot:tOnt,p:pOnt},
+    mes:{tot:tMes,p:pMes,meta:metas.metaMes,pct:parseFloat(pctMes)}
+  };
+}
+
 // ── MAIN ───────────────────────────────────────────────────────
 async function carregar(force=false) {
   document.getElementById('sLbl').textContent='CARREGANDO';
@@ -544,7 +768,9 @@ async function carregar(force=false) {
     const pedidos = await getPedidos();
     const itens   = await getItens();
     setLoad(90,'Processando...');
-    const dados   = processar(pedidos,itens,metas);
+    // Salva no cache para reuso nos filtros
+    _dadosCache = {pRows:pedidos, iRows:itens, metas};
+    const dados = processarFiltrado(pedidos, itens, metas);
     document.getElementById('ov').style.display='none';
     document.getElementById('dash').style.display='flex';
     render(dados);
