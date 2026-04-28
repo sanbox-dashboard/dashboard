@@ -2,14 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sanbox — Central de Vendas</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 :root{--or:#F5A623;--od:#D4881A;--bg:#F2F5F9;--wh:#fff;--bd:#E2E8F0;--tx:#1A1F2E;--mu:#7A8799;--dm:#E2E8F0;--gr:#16A34A;--re:#DC2626;--sh:0 1px 8px rgba(0,0,0,.07);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);}
-body.scrollable{overflow:auto;}
 body::before{content:'';position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--od),var(--or),#FFC85A,var(--or));z-index:99;}
 
 /* LOADING */
@@ -20,42 +19,53 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:4px;backgroun
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 .pulse{animation:pulse 1.4s ease-in-out infinite;}
 
-/* LAYOUT */
-.page{min-height:100vh;padding:16px 18px 12px;display:flex;flex-direction:column;gap:9px;display:none;}
+/* TABS */
+.app{min-height:100vh;display:flex;flex-direction:column;}
+.tabbar{display:flex;gap:5px;padding:10px 18px 0;background:var(--bg);position:sticky;top:4px;z-index:90;}
+.tab{background:var(--wh);border:1px solid var(--bd);border-radius:8px 8px 0 0;padding:6px 16px;font:800 .65rem 'Nunito';color:var(--mu);cursor:pointer;border-bottom:none;transition:all .15s;}
+.tab.on{background:var(--or);border-color:var(--or);color:#fff;}
+.content{flex:1;padding:0 18px 18px;}
+
+/* PANEL */
+.panel{display:none;flex-direction:column;gap:9px;padding-top:10px;}
+.panel.on{display:flex;}
+
+/* CARD */
+.card{background:var(--wh);border:1px solid var(--bd);border-radius:11px;padding:11px 14px;box-shadow:var(--sh);}
 
 /* HEADER */
-header{display:flex;align-items:center;justify-content:space-between;background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:8px 18px;box-shadow:var(--sh);}
+.hdr{display:flex;align-items:center;justify-content:space-between;}
 .brand{display:flex;align-items:center;gap:10px;}
 .bsep{width:1px;height:24px;background:var(--bd);}
 .bsub{font-size:.58rem;font-weight:800;color:var(--mu);letter-spacing:.2em;text-transform:uppercase;}
-.hcenter{text-align:center;}
-.dlbl{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;}
+.hc{text-align:center;}
+.dlbl{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;}
 .dval{font-family:'Bebas Neue';font-size:.95rem;color:var(--od);}
-.hright{display:flex;align-items:center;gap:12px;}
-.live{display:flex;align-items:center;gap:5px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);padding:3px 10px;border-radius:999px;font-size:.58rem;font-weight:800;color:var(--od);letter-spacing:.12em;}
+.hr{display:flex;align-items:center;gap:10px;}
+.live{display:flex;align-items:center;gap:5px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);padding:3px 10px;border-radius:999px;font-size:.58rem;font-weight:800;color:var(--od);}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--or);animation:sonar 2s ease-in-out infinite;}
 @keyframes sonar{0%{box-shadow:0 0 0 0 rgba(245,166,35,.5);}70%{box-shadow:0 0 0 8px rgba(245,166,35,0);}100%{box-shadow:0 0 0 0 rgba(245,166,35,0);}}
 .clock{font-family:'Bebas Neue';font-size:1.7rem;color:var(--od);}
-.btn-att{background:none;border:1px solid var(--bd);border-radius:7px;padding:3px 9px;font:700 .58rem 'Nunito';color:var(--mu);cursor:pointer;}
-.btn-att:hover{border-color:var(--or);color:var(--or);}
+.btn-sm{background:none;border:1px solid var(--bd);border-radius:6px;padding:3px 9px;font:800 .58rem 'Nunito';color:var(--mu);cursor:pointer;}
+.btn-sm:hover{border-color:var(--or);color:var(--or);}
 
 /* FILTRO */
-.filtro{display:flex;align-items:center;gap:8px;background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:6px 14px;box-shadow:var(--sh);}
-.flbl{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;}
-.fbtns{display:flex;gap:4px;}
-.fbtn{background:none;border:1px solid var(--bd);border-radius:6px;padding:3px 11px;font:800 .62rem 'Nunito';color:var(--mu);cursor:pointer;transition:all .15s;}
+.filtro{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.flbl{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;}
+.fbtns{display:flex;gap:3px;}
+.fbtn{background:none;border:1px solid var(--bd);border-radius:6px;padding:3px 10px;font:800 .62rem 'Nunito';color:var(--mu);cursor:pointer;transition:all .12s;}
 .fbtn:hover{border-color:var(--or);color:var(--or);}
 .fbtn.on{background:var(--or);border-color:var(--or);color:#fff;}
-.fcustom{display:none;align-items:center;gap:6px;}
+.fcustom{display:none;align-items:center;gap:5px;}
 .fcustom.show{display:flex;}
-.fcustom input{border:1px solid var(--bd);border-radius:5px;padding:2px 6px;font:700 .62rem 'Nunito';color:var(--tx);width:105px;}
+.fcustom input{border:1px solid var(--bd);border-radius:5px;padding:2px 6px;font:.62rem 'Nunito';width:105px;}
 .faply{background:var(--or);border:none;border-radius:5px;padding:3px 9px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;}
 
 /* KPIs */
 .kr{display:grid;grid-template-columns:1.6fr 1.6fr 1fr 1fr 1fr;gap:8px;}
 .kpi{background:var(--wh);border:1px solid var(--bd);border-radius:11px;padding:11px 14px;box-shadow:var(--sh);position:relative;overflow:hidden;}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kc,var(--or));}
-.kl{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px;}
+.kl{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px;}
 .kv{font-family:'Bebas Neue';font-size:2rem;line-height:1;color:var(--kc,var(--od));margin-bottom:3px;}
 .ks{font-size:.6rem;font-weight:700;color:var(--mu);}
 .pw{margin-top:6px;}
@@ -80,43 +90,62 @@ header{display:flex;align-items:center;justify-content:space-between;background:
 .dok{background:rgba(22,163,74,.08);color:var(--gr);}.dmi{background:rgba(245,166,35,.1);color:var(--od);}.dlo{background:rgba(220,38,38,.08);color:var(--re);}
 
 /* BOTTOM */
-.br{display:grid;grid-template-columns:1.7fr 1fr;gap:8px;flex:1;min-height:0;}
-.pn{background:var(--wh);border:1px solid var(--bd);border-radius:11px;padding:10px 14px;box-shadow:var(--sh);display:flex;flex-direction:column;overflow:hidden;}
-.pti{font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.br{display:grid;grid-template-columns:1.7fr 1fr;gap:8px;}
+.pn{background:var(--wh);border:1px solid var(--bd);border-radius:11px;padding:10px 14px;box-shadow:var(--sh);display:flex;flex-direction:column;}
+.pti{font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .pti::after{content:'';flex:1;height:1px;background:var(--dm);}
 .pdot{width:5px;height:5px;border-radius:50%;background:var(--or);}
-.prl{display:flex;flex-direction:column;gap:3px;flex:1;overflow:hidden;}
+.prl{display:flex;flex-direction:column;gap:3px;}
 .pi{display:flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--bd);border-radius:7px;padding:4px 8px;}
 .prk{font-family:'Bebas Neue';font-size:.95rem;color:var(--or);min-width:14px;text-align:center;}
 .pif{flex:1;min-width:0;}
 .pnm{font-size:.64rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .psb{font-size:.54rem;font-weight:700;color:var(--mu);}
-.pbw{width:60px;}
-.pbt{height:3px;background:var(--dm);border-radius:9px;overflow:hidden;}
+.pbw{width:58px;}.pbt{height:3px;background:var(--dm);border-radius:9px;overflow:hidden;}
 .pbf{height:100%;border-radius:9px;background:var(--or);}
-.pvl{font-family:'Bebas Neue';font-size:.84rem;color:var(--od);min-width:52px;text-align:right;}
-.fl{display:flex;flex-direction:column;gap:3px;flex:1;overflow:hidden;}
+.pvl{font-family:'Bebas Neue';font-size:.84rem;color:var(--od);min-width:50px;text-align:right;}
+.fl{display:flex;flex-direction:column;gap:3px;}
 .fi{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--bd);border-radius:7px;padding:5px 10px;}
 .fr{font-family:'Bebas Neue';font-size:1.1rem;color:var(--or);min-width:16px;}
-.fif{flex:1;}
-.fnm{font-size:.68rem;font-weight:800;}
-.fsb{font-size:.55rem;font-weight:700;color:var(--mu);}
-.fg{text-align:right;}
-.fv{font-family:'Bebas Neue';font-size:1rem;color:var(--od);}
-.fp{font-size:.55rem;font-weight:800;color:var(--mu);}
+.fif{flex:1;}.fnm{font-size:.68rem;font-weight:800;}.fsb{font-size:.55rem;font-weight:700;color:var(--mu);}
+.fg{text-align:right;}.fv{font-family:'Bebas Neue';font-size:1rem;color:var(--od);}.fp{font-size:.55rem;font-weight:800;color:var(--mu);}
 .fbr{margin:1px 0 2px;}
-
-/* TICKER */
-.tk{background:var(--wh);border:1px solid var(--bd);border-radius:7px;padding:4px 12px;overflow:hidden;white-space:nowrap;box-shadow:var(--sh);flex-shrink:0;}
+.tk{background:var(--wh);border:1px solid var(--bd);border-radius:7px;padding:4px 12px;overflow:hidden;white-space:nowrap;box-shadow:var(--sh);}
 .ti{display:inline-block;animation:tick 55s linear infinite;font-size:.62rem;font-weight:700;color:var(--mu);}
 .ti .hi{color:var(--od);font-weight:900;}.ti .sp{color:var(--bd);margin:0 10px;}
 @keyframes tick{from{transform:translateX(100vw);}to{transform:translateX(-100%);}}
 
+/* ANÁLISE TABLES */
+.atitle{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+.atit{font-size:.58rem;font-weight:900;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.atit::after{content:'';width:40px;height:1px;background:var(--dm);}
+.abtns{display:flex;gap:3px;flex-wrap:wrap;}
+.abtn{background:none;border:1px solid var(--bd);border-radius:6px;padding:3px 10px;font:800 .6rem 'Nunito';color:var(--mu);cursor:pointer;transition:all .12s;}
+.abtn:hover{border-color:var(--or);color:var(--or);}
+.abtn.on{color:#fff;}
+.tscroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.68rem;}
+thead th{padding:5px 10px;text-align:right;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid var(--bd);}
+thead th:first-child{text-align:left;}
+tbody tr{border-bottom:1px solid var(--bg);}
+tbody tr:hover{background:var(--bg);}
+tbody td{padding:5px 10px;text-align:right;font-size:.68rem;font-weight:700;color:var(--tx);}
+tbody td:first-child{text-align:left;}
+tfoot tr{border-top:2px solid var(--bd);}
+tfoot td{padding:5px 10px;text-align:right;font-size:.68rem;font-weight:700;color:var(--tx);background:var(--bg);}
+tfoot td:first-child{text-align:left;}
+.val-z{color:var(--dm);}
+
+/* ESTOQUE */
+.est-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 0;}
+.est-ctrl select,.est-ctrl input[type=text]{border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:700 .68rem 'Nunito';color:var(--tx);}
+.est-ctrl label{display:flex;align-items:center;gap:5px;font-size:.65rem;font-weight:800;color:var(--mu);cursor:pointer;}
+.est-status{margin-left:auto;font-size:.6rem;font-weight:700;color:var(--mu);}
+.est-ok{color:var(--gr);}.est-warn{color:var(--or);}.est-crit{color:var(--re);}
+
 /* MOBILE */
 @media(max-width:768px){
-  body{overflow:auto;}
-  .page{height:auto;padding:10px;}
-  .bsub,.bsep,.hcenter{display:none;}
+  .bsub,.bsep,.hc{display:none;}
   .kr{grid-template-columns:1fr 1fr;}
   .kr .kpi:first-child{grid-column:1/3;}
   .cr{grid-template-columns:1fr 1fr;}
@@ -125,68 +154,7 @@ header{display:flex;align-items:center;justify-content:space-between;background:
   .kv{font-size:1.6rem;}
   .clock{font-size:1.3rem;}
 }
-@media(max-width:420px){
-  .cr{grid-template-columns:1fr;}
-  .kr{grid-template-columns:1fr;}
-  .kr .kpi:first-child{grid-column:1;}
-}
-
-/* ── ABA CATEGORIAS ─────────────────────────────── */
-.tabs{display:flex;gap:6px;background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:5px;box-shadow:var(--sh);}
-.tab{background:none;border:none;border-radius:7px;padding:5px 16px;font:800 .65rem 'Nunito';color:var(--mu);cursor:pointer;transition:all .15s;letter-spacing:.05em;}
-.tab:hover{background:var(--bg);color:var(--tx);}
-.tab.on{background:var(--or);color:#fff;}
-.view{display:none;flex-direction:column;gap:9px;flex:1;min-height:0;}
-.view.on{display:flex;}
-
-/* Tabela categorias */
-.cat-wrap{background:var(--wh);border:1px solid var(--bd);border-radius:11px;padding:12px 16px;box-shadow:var(--sh);flex:1;overflow:auto;}
-.cat-title{font-size:.58rem;font-weight:900;color:var(--mu);letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.cat-title::after{content:'';flex:1;height:1px;background:var(--dm);}
-.cat-dot{width:5px;height:5px;border-radius:50%;background:var(--or);}
-table{width:100%;border-collapse:collapse;font-size:.68rem;}
-thead tr{border-bottom:2px solid var(--bd);}
-thead th{padding:5px 10px;text-align:right;font-size:.58rem;font-weight:900;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;}
-thead th:first-child{text-align:left;}
-tbody tr{border-bottom:1px solid var(--bg);transition:background .1s;}
-tbody tr:hover{background:var(--bg);}
-tbody td{padding:5px 10px;text-align:right;font-weight:700;color:var(--tx);font-size:.68rem;}
-tbody td:first-child{text-align:left;font-weight:800;color:var(--tx);}
-tbody td.canal-ml{color:#C8A000;}
-tbody td.canal-cb{color:#0052A5;}
-tbody td.canal-mg{color:#CC0066;}
-tbody td.canal-sh{color:#EE4D2D;}
-tbody td.canal-amz{color:#E47911;}
-tbody td.total-col{font-size:.68rem;font-weight:700;color:var(--od);}
-tfoot tr{border-top:2px solid var(--bd);background:var(--bg);}
-tfoot td{padding:6px 10px;text-align:right;font-weight:900;font-size:.72rem;color:var(--tx);}
-tfoot td:first-child{text-align:left;}
-
-
-/* Comparativo mensal */
-.hist-scroll table thead th{white-space:nowrap;}
-/* Filtro canal categorias */
-.cat-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.canal-btns{display:flex;gap:4px;flex-wrap:wrap;}
-.cbtn{background:none;border:1px solid var(--bd);border-radius:6px;padding:3px 10px;font:800 .6rem 'Nunito';color:var(--mu);cursor:pointer;transition:all .15s;}
-.cbtn:hover{border-color:var(--or);color:var(--or);}
-.cbtn.on{color:#fff;}
-
-/* Tabela histórico por canal */
-.hist-scroll{overflow-x:auto;}
-table{min-width:600px;}
-thead th.mes-th{min-width:80px;}
-.val-pos{font-weight:700;color:var(--tx);}
-.val-zero{color:var(--dm);font-weight:600;}
-tfoot td{font-size:.68rem;font-weight:700;color:var(--tx);background:var(--bg)!important;}
-
-/* Estoque */
-#estoqueTableWrap table{min-width:900px;}
-.est-ok{color:var(--gr);font-weight:700;}
-.est-warn{color:var(--or);font-weight:700;}
-.est-crit{color:var(--re);font-weight:800;}
-.est-zero{color:var(--mu);font-weight:600;}
-.est-neg{background:rgba(220,38,38,.05);}
+@media(max-width:420px){.cr,.kr{grid-template-columns:1fr;}.kr .kpi:first-child{grid-column:1;}}
 </style>
 </head>
 <body>
@@ -203,466 +171,444 @@ tfoot td{font-size:.68rem;font-weight:700;color:var(--tx);background:var(--bg)!i
   <div class="lt" id="lt">Iniciando...</div>
 </div>
 
-<div class="page" id="dash">
-  <header>
-    <div class="brand">
-      <svg height="32" viewBox="0 0 210 58" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="56" height="56" rx="12" fill="#F5A623"/>
-        <rect x="11" y="11" width="34" height="34" rx="7" fill="white"/>
-        <rect x="19" y="20" width="13" height="7" rx="2" fill="#F5A623"/>
-        <text x="66" y="43" font-family="Nunito" font-weight="900" font-size="36" fill="#1A1A1A">san</text>
-        <text x="130" y="43" font-family="Nunito" font-weight="900" font-size="36" fill="#F5A623">box</text>
-      </svg>
-      <div class="bsep"></div>
-      <div class="bsub">Central de Vendas</div>
-    </div>
-    <div class="hcenter">
-      <div class="dlbl">Referência</div>
-      <div class="dval" id="dRef">--</div>
-    </div>
-    <div class="hright">
-      <button class="btn-att" onclick="load()">⟳ Atualizar</button>
-      <div class="live"><div class="dot"></div><span id="sLbl">AO VIVO</span></div>
-      <div class="clock" id="clock">00:00:00</div>
-    </div>
-  </header>
-
-
-  <!-- ABAS -->
-  <div class="tabs">
-    <button class="tab on" onclick="showView('vDash')">📊 Dashboard</button>
-    <button class="tab" onclick="showView('vCat')">📦 Categorias × Canal</button>
-    <button class="tab" onclick="showView('vMarca')">🏷 Marcas</button>
-    <button class="tab" onclick="showView('vEstoque')">📦 Estoque</button>
-  </div>
-  <div class="view on" id="vDash">
-  <!-- FILTRO -->
-  <div class="filtro">
-    <div class="flbl">Período:</div>
-    <div class="fbtns">
-      <button class="fbtn on" id="fDia" onclick="filtrar('dia')">📅 Dia</button>
-      <button class="fbtn" id="fMes" onclick="filtrar('mes')">📆 Mês</button>
-      <button class="fbtn" id="fCus" onclick="filtrar('custom')">🗓 Personalizado</button>
-    </div>
-    <div class="fcustom" id="fCustom">
-      <input type="date" id="fIni">
-      <span style="font-size:.62rem;color:var(--mu)">até</span>
-      <input type="date" id="fFim">
-      <button class="faply" onclick="aplicar()">Aplicar</button>
-    </div>
+<div class="app" id="app" style="display:none">
+  <div class="tabbar">
+    <button class="tab on"  onclick="aba('vDash',this)">📊 Dashboard</button>
+    <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
+    <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
+    <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
   </div>
 
-  <!-- KPIs -->
-  <div class="kr">
-    <div class="kpi" style="--kc:var(--or)">
-      <div class="kl">Faturamento do Período</div>
-      <div class="kv" id="kFat">R$ --</div>
-      <div class="ks" id="kFatSub">--</div>
-      <div class="pw">
-        <div class="pl"><span>Meta: <span id="kMeta">--</span></span><span id="kPct" class="clow">--%</span></div>
-        <div class="pt"><div class="pf" id="fPct" style="width:0%;background:var(--or)"></div></div>
-      </div>
-    </div>
-    <div class="kpi" style="--kc:var(--od)">
-      <div class="kl">Vendas do Mês</div>
-      <div class="kv" id="kMes">R$ --</div>
-      <div class="ks" id="kMesSub">--</div>
-      <div class="pw">
-        <div class="pl"><span>Meta: <span id="kMetaMes">--</span></span><span id="kPctMes" class="clow">--%</span></div>
-        <div class="pt"><div class="pf" id="fPctMes" style="width:0%;background:var(--od)"></div></div>
-      </div>
-    </div>
-    <div class="kpi" style="--kc:var(--gr)">
-      <div class="kl">Pedidos</div>
-      <div class="kv" id="kPeds" style="font-size:2.4rem">--</div>
-      <div class="ks">no período</div>
-    </div>
-    <div class="kpi" style="--kc:#F0A500">
-      <div class="kl">Ticket Médio</div>
-      <div class="kv" id="kTicket">R$ --</div>
-      <div class="ks">por pedido</div>
-    </div>
-    <div class="kpi" style="--kc:#64748b">
-      <div class="kl">Vendas Ontem</div>
-      <div class="kv" id="kOnt" style="font-size:1.65rem">R$ --</div>
-      <div class="ks" id="kOntSub">-- pedidos</div>
-    </div>
-  </div>
+  <div class="content">
 
-  <!-- CANAIS -->
-  <div class="cr" id="canaisEl"></div>
-
-  <!-- BOTTOM -->
-  <div class="br">
-    <div class="pn">
-      <div class="pti"><div class="pdot"></div><span id="tProd">Top Produtos — Dia</span></div>
-      <div class="prl" id="prodsEl"></div>
-    </div>
-    <div class="pn">
-      <div class="pti"><div class="pdot"></div><span id="tForn">Top Fornecedores — Dia</span></div>
-      <div class="fl" id="fornEl"></div>
-    </div>
-  </div>
-
-  <div class="tk"><div class="ti" id="ticker">Carregando...</div></div>
-  </div><!-- /vDash -->
-
-
-  <!-- VIEW CATEGORIAS -->
-  <div class="view" id="vCat">
-    <!-- Tabela categoria x canal -->
-    <div class="cat-wrap">
-      <div class="cat-header">
-        <div class="cat-title" style="margin-bottom:0"><div class="cat-dot"></div><span id="catTitulo">Faturamento por Categoria × Canal</span></div>
-        <div class="canal-btns" id="canalBtns">
-          <button class="cbtn on" id="cbtnAll" onclick="setCanalFiltro('all',this)" style="background:var(--or);border-color:var(--or)">Todos</button>
-          <button class="cbtn" id="cbtnML"  onclick="setCanalFiltro('Mercado Livre',this)">Mercado Livre</button>
-          <button class="cbtn" id="cbtnCB"  onclick="setCanalFiltro('Casas Bahia',this)">Casas Bahia</button>
-          <button class="cbtn" id="cbtnMG"  onclick="setCanalFiltro('Magazine Luiza',this)">Magazine Luiza</button>
-          <button class="cbtn" id="cbtnSH"  onclick="setCanalFiltro('Shopee',this)">Shopee</button>
-          <button class="cbtn" id="cbtnAMZ" onclick="setCanalFiltro('Amazon',this)">Amazon</button>
+    <!-- ══ DASHBOARD ══════════════════════════════════════════ -->
+    <div class="panel on" id="vDash">
+      <div class="card hdr">
+        <div class="brand">
+          <svg height="32" viewBox="0 0 210 58" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="56" height="56" rx="12" fill="#F5A623"/>
+            <rect x="11" y="11" width="34" height="34" rx="7" fill="white"/>
+            <rect x="19" y="20" width="13" height="7" rx="2" fill="#F5A623"/>
+            <text x="66" y="43" font-family="Nunito" font-weight="900" font-size="36" fill="#1A1A1A">san</text>
+            <text x="130" y="43" font-family="Nunito" font-weight="900" font-size="36" fill="#F5A623">box</text>
+          </svg>
+          <div class="bsep"></div><div class="bsub">Central de Vendas</div>
+        </div>
+        <div class="hc"><div class="dlbl">Referência</div><div class="dval" id="dRef">--</div></div>
+        <div class="hr">
+          <button class="btn-sm" onclick="load()">⟳ Atualizar</button>
+          <div class="live"><div class="dot"></div><span id="sLbl">AO VIVO</span></div>
+          <div class="clock" id="clock">--:--:--</div>
         </div>
       </div>
-      <div class="hist-scroll">
-        <div id="catTableWrap">
-          <div style="color:var(--mu);font-size:.75rem;padding:20px;text-align:center">Carregando dados...</div>
+
+      <div class="card filtro">
+        <div class="flbl">Período:</div>
+        <div class="fbtns">
+          <button class="fbtn on" id="fDia" onclick="filtrar('dia')">📅 Dia</button>
+          <button class="fbtn" id="fMes" onclick="filtrar('mes')">📆 Mês</button>
+          <button class="fbtn" id="fCus" onclick="filtrar('custom')">🗓 Personalizado</button>
+        </div>
+        <div class="fcustom" id="fCustom">
+          <input type="date" id="fIni">
+          <span style="font-size:.62rem;color:var(--mu)">até</span>
+          <input type="date" id="fFim">
+          <button class="faply" onclick="aplicar()">Aplicar</button>
         </div>
       </div>
+
+      <div class="kr">
+        <div class="kpi" style="--kc:var(--or)">
+          <div class="kl">Faturamento do Período</div><div class="kv" id="kFat">R$ --</div>
+          <div class="ks" id="kFatSub">--</div>
+          <div class="pw"><div class="pl"><span>Meta: <span id="kMeta">--</span></span><span id="kPct" class="clow">--%</span></div>
+          <div class="pt"><div class="pf" id="fPct" style="width:0%;background:var(--or)"></div></div></div>
+        </div>
+        <div class="kpi" style="--kc:var(--od)">
+          <div class="kl">Vendas do Mês</div><div class="kv" id="kMes">R$ --</div>
+          <div class="ks" id="kMesSub">--</div>
+          <div class="pw"><div class="pl"><span>Meta: <span id="kMetaMes">--</span></span><span id="kPctMes" class="clow">--%</span></div>
+          <div class="pt"><div class="pf" id="fPctMes" style="width:0%;background:var(--od)"></div></div></div>
+        </div>
+        <div class="kpi" style="--kc:var(--gr)">
+          <div class="kl">Pedidos</div><div class="kv" id="kPeds" style="font-size:2.4rem">--</div>
+          <div class="ks">no período</div>
+        </div>
+        <div class="kpi" style="--kc:#F0A500">
+          <div class="kl">Ticket Médio</div><div class="kv" id="kTicket">R$ --</div>
+          <div class="ks">por pedido</div>
+        </div>
+        <div class="kpi" style="--kc:#64748b">
+          <div class="kl">Vendas Ontem</div><div class="kv" id="kOnt" style="font-size:1.7rem">R$ --</div>
+          <div class="ks" id="kOntSub">--</div>
+        </div>
+      </div>
+
+      <div class="cr" id="canaisEl"></div>
+
+      <div class="br">
+        <div class="pn">
+          <div class="pti"><div class="pdot"></div><span id="tProd">Top Produtos</span></div>
+          <div class="prl" id="prodsEl"></div>
+        </div>
+        <div class="pn">
+          <div class="pti"><div class="pdot"></div><span id="tForn">Top Fornecedores</span></div>
+          <div class="fl" id="fornEl"></div>
+        </div>
+      </div>
+
+      <div class="tk"><div class="ti" id="ticker">Carregando...</div></div>
     </div>
 
-    <!-- Comparativo mensal por canal -->
-    <div class="cat-wrap" style="flex:none">
-      <div class="cat-header">
-        <div class="cat-title" style="margin-bottom:0"><div class="cat-dot"></div>Faturamento por Canal × Mês</div>
-        <div class="canal-btns">
-          <button class="cbtn on" id="anoBtnCur" onclick="setAnoFiltro(2026,this)" style="background:var(--or);border-color:var(--or);color:#fff">2026</button>
-          <button class="cbtn" id="anoBtn2025" onclick="setAnoFiltro(2025,this)">2025</button>
+    <!-- ══ CATEGORIAS ═════════════════════════════════════════ -->
+    <div class="panel" id="vCat">
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div><span id="catTit">Categorias × Canal</span></div>
+          <div class="abtns" id="catBtns">
+            <button class="abtn on" onclick="setCatCanal('all',this)" style="background:var(--or);border-color:var(--or)">Todos</button>
+            <button class="abtn" onclick="setCatCanal('Mercado Livre',this)">Mercado Livre</button>
+            <button class="abtn" onclick="setCatCanal('Casas Bahia',this)">Casas Bahia</button>
+            <button class="abtn" onclick="setCatCanal('Magazine Luiza',this)">Magazine Luiza</button>
+            <button class="abtn" onclick="setCatCanal('Shopee',this)">Shopee</button>
+            <button class="abtn" onclick="setCatCanal('Amazon',this)">Amazon</button>
+          </div>
         </div>
+        <div class="tscroll"><div id="catTbWrap"><div class="lt" style="padding:20px;text-align:center">Abrindo aba de Categorias...</div></div></div>
       </div>
-      <div class="hist-scroll">
-        <div id="compTableWrap">
-          <div style="color:var(--mu);font-size:.75rem;padding:16px;text-align:center">Carregando...</div>
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Canal × Mês</div>
+          <div class="abtns">
+            <button class="abtn on" id="catAno26" onclick="setCatAno(2026,this)" style="background:var(--or);border-color:var(--or)">2026</button>
+            <button class="abtn" id="catAno25" onclick="setCatAno(2025,this)">2025</button>
+          </div>
         </div>
-      </div>
-    </div>
-
-  </div><!-- /vCat -->
-
-  <!-- VIEW MARCAS -->
-  <div class="view" id="vMarca">
-    <!-- Marca x Canal mês atual -->
-    <div class="cat-wrap">
-      <div class="cat-header">
-        <div class="cat-title" style="margin-bottom:0"><div class="cat-dot"></div><span id="marcaTitulo">Faturamento por Marca × Canal</span></div>
-        <div class="canal-btns" id="marcaCanalBtns">
-          <button class="cbtn on" id="mcbtnAll" onclick="setMarcaCanal('all',this)" style="background:var(--or);border-color:var(--or);color:#fff">Todos</button>
-          <button class="cbtn" onclick="setMarcaCanal('Mercado Livre',this)">Mercado Livre</button>
-          <button class="cbtn" onclick="setMarcaCanal('Casas Bahia',this)">Casas Bahia</button>
-          <button class="cbtn" onclick="setMarcaCanal('Magazine Luiza',this)">Magazine Luiza</button>
-          <button class="cbtn" onclick="setMarcaCanal('Shopee',this)">Shopee</button>
-          <button class="cbtn" onclick="setMarcaCanal('Amazon',this)">Amazon</button>
-        </div>
-      </div>
-      <div class="hist-scroll">
-        <div id="marcaTableWrap">
-          <div style="color:var(--mu);font-size:.75rem;padding:20px;text-align:center">Carregando...</div>
-        </div>
+        <div class="tscroll"><div id="catMesTbWrap"><div class="lt" style="padding:16px;text-align:center">Aguardando...</div></div></div>
       </div>
     </div>
 
-    <!-- Marca x Mês histórico -->
-    <div class="cat-wrap" style="flex:none">
-      <div class="cat-header">
-        <div class="cat-title" style="margin-bottom:0"><div class="cat-dot"></div>Faturamento por Marca × Mês</div>
-        <div class="canal-btns">
-          <button class="cbtn on" id="marcaAnoBtnCur" onclick="setMarcaAno(2026,this)" style="background:var(--or);border-color:var(--or);color:#fff">2026</button>
-          <button class="cbtn" id="marcaAnoBtn2025" onclick="setMarcaAno(2025,this)">2025</button>
+    <!-- ══ MARCAS ══════════════════════════════════════════════ -->
+    <div class="panel" id="vMarca">
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div><span id="marcaTit">Marcas × Canal</span></div>
+          <div class="abtns" id="marcaBtns">
+            <button class="abtn on" onclick="setMarcaCanal('all',this)" style="background:var(--or);border-color:var(--or)">Todos</button>
+            <button class="abtn" onclick="setMarcaCanal('Mercado Livre',this)">Mercado Livre</button>
+            <button class="abtn" onclick="setMarcaCanal('Casas Bahia',this)">Casas Bahia</button>
+            <button class="abtn" onclick="setMarcaCanal('Magazine Luiza',this)">Magazine Luiza</button>
+            <button class="abtn" onclick="setMarcaCanal('Shopee',this)">Shopee</button>
+            <button class="abtn" onclick="setMarcaCanal('Amazon',this)">Amazon</button>
+          </div>
         </div>
+        <div class="tscroll"><div id="marcaTbWrap"><div class="lt" style="padding:20px;text-align:center">Abrindo aba de Marcas...</div></div></div>
       </div>
-      <div class="hist-scroll">
-        <div id="marcaHistWrap">
-          <div style="color:var(--mu);font-size:.75rem;padding:16px;text-align:center">Carregando...</div>
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Marca × Mês</div>
+          <div class="abtns">
+            <button class="abtn on" id="marcaAno26" onclick="setMarcaAno(2026,this)" style="background:var(--or);border-color:var(--or)">2026</button>
+            <button class="abtn" id="marcaAno25" onclick="setMarcaAno(2025,this)">2025</button>
+          </div>
         </div>
-      </div>
-    </div>
-  </div><!-- /vMarca -->
-
-  <!-- VIEW ESTOQUE -->
-  <div class="view" id="vEstoque">
-    <!-- Controles -->
-    <div class="cat-wrap" style="flex:none;padding:10px 16px;">
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
-        <div style="display:flex;align-items:center;gap:6px;">
-          <span class="flbl">Período de vendas:</span>
-          <select id="eDias" onchange="renderEstoque()" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:700 .68rem 'Nunito';color:var(--tx);">
-            <option value="7">7 dias</option>
-            <option value="15">15 dias</option>
-            <option value="30" selected>30 dias</option>
-            <option value="45">45 dias</option>
-            <option value="60">60 dias</option>
-            <option value="90">90 dias</option>
-          </select>
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;">
-          <span class="flbl">Marca:</span>
-          <select id="eMarca" onchange="renderEstoque()" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:700 .68rem 'Nunito';color:var(--tx);">
-            <option value="all">Todas</option>
-          </select>
-        </div>
-        <div style="display:flex;align-items:center;gap:6px;">
-          <span class="flbl">SKU:</span>
-          <input type="text" id="eSku" placeholder="Pesquisar SKU..." oninput="renderEstoque()" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.68rem 'Nunito';width:140px;">
-        </div>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.65rem;font-weight:800;color:var(--mu);cursor:pointer;">
-          <input type="checkbox" id="eApenasNeg" onchange="renderEstoque()">
-          Só com falta
-        </label>
-        <label style="display:flex;align-items:center;gap:5px;font-size:.65rem;font-weight:800;color:var(--mu);cursor:pointer;">
-          <input type="checkbox" id="eApenasZero" onchange="renderEstoque()">
-          Zerarão no período
-        </label>
-        <div style="display:flex;align-items:center;gap:6px;">
-          <span class="flbl">Estoque abaixo de:</span>
-          <select id="eMinEstoque" onchange="renderEstoque()" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:700 .68rem 'Nunito';color:var(--tx);">
-            <option value="0">Todos</option>
-            <option value="5">5 unidades</option>
-            <option value="10">10 unidades</option>
-            <option value="20">20 unidades</option>
-          </select>
-        </div>
-        <div style="margin-left:auto;font-size:.6rem;font-weight:700;color:var(--mu)" id="eStatus">--</div>
+        <div class="tscroll"><div id="marcaMesTbWrap"><div class="lt" style="padding:16px;text-align:center">Aguardando...</div></div></div>
       </div>
     </div>
 
-    <!-- Tabela -->
-    <div class="cat-wrap" style="flex:1;overflow:auto;padding:10px 0 0 0;">
-      <div class="hist-scroll" style="height:100%;overflow:auto;">
-        <div id="estoqueTableWrap">
-          <div style="color:var(--mu);font-size:.75rem;padding:30px;text-align:center">⏳ Carregando estoque...</div>
+    <!-- ══ ESTOQUE ══════════════════════════════════════════════ -->
+    <div class="panel" id="vEstoque">
+      <div class="card est-ctrl">
+        <div class="flbl">Período:</div>
+        <select id="eDias" onchange="renderEst()">
+          <option value="7">7 dias</option><option value="15">15 dias</option>
+          <option value="30" selected>30 dias</option><option value="45">45 dias</option>
+          <option value="60">60 dias</option><option value="90">90 dias</option>
+        </select>
+        <div class="flbl">Marca:</div>
+        <select id="eMarca" onchange="renderEst()"><option value="">Todas</option></select>
+        <div class="flbl">SKU:</div>
+        <input type="text" id="eSku" placeholder="Buscar SKU ou nome..." oninput="renderEst()" style="width:140px;">
+        <label><input type="checkbox" id="eNeg" onchange="renderEst()"> Só com falta</label>
+        <label><input type="checkbox" id="eZero" onchange="renderEst()"> Zerarão no período</label>
+        <div class="flbl">Prev. abaixo de:</div>
+        <select id="eMin" onchange="renderEst()">
+          <option value="0">Todos</option><option value="5">5 un</option>
+          <option value="10">10 un</option><option value="20">20 un</option>
+        </select>
+        <div class="est-status" id="eStatus">--</div>
+      </div>
+      <div class="card" style="padding:0;overflow:auto;max-height:70vh;">
+        <div id="estTbWrap" style="overflow-x:auto;">
+          <div class="lt" style="padding:30px;text-align:center">Abrindo aba de Estoque...</div>
         </div>
       </div>
     </div>
-  </div><!-- /vEstoque -->
 
-
-</div>
+  </div><!-- /content -->
+</div><!-- /app -->
 
 <script>
-// ── CONFIG ─────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════════════════════════
 const KEY      = 'AIzaSyCpFaibN_ct8r2ywjIlKByvZkxok5ytqXI';
 const KOND_ID  = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 const METAS_ID = '1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk';
-
-// Colunas tinyerp_pedidos_detalhes
-const C = {ID:0, ENOME:26, ENUM:28, TOTAL:56, SIT:62, DATA:64};
-// Colunas tinyerp_pedidos_detalhes_itens
-const I = {ID:0, DESC:2, QTD:4, VUNIT:6, SIT:9, DATA:11};
+const EST_ID   = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 
 const VALIDAS = new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue']);
 const CANAIS  = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon'];
-const CORES   = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911'};
+const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911'};
 
-// ── ESTADO ─────────────────────────────────────────────────────
-let _modo = 'dia'; // dia | mes | custom
-let _ini  = null, _fim = null;
-let _cache = null; // {pRows, iRows, metas}
-let _diaRef = '', _ontRef = '';
+// Cols: tinyerp_pedidos_detalhes
+const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,SIT:62,DATA:64};
+// Cols: tinyerp_pedidos_detalhes_itens
+const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
-// ── HELPERS ────────────────────────────────────────────────────
-const R   = v => new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v||0);
-const N   = s => parseFloat((s||'0').toString().replace(/\./g,'').replace(',','.')) || 0;
-const pD  = s => { const p=(s||'').split('/'); return p.length<3?new Date(0):new Date(+p[2],+p[0]-1,+p[1]); };
-const fmtD = d => d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase();
+// ── STATE ───────────────────────────────────────────────────
+let _modo='dia',_ini=null,_fim=null;
+let _dRef='',_ontRef='';
+let _cache=null;   // {pRows,iRows,metas}
+let _catC=null;    // categorias cache
+let _marcaC=null;  // marcas cache
+let _estC=null;    // estoque cache
+let _catCanal='all',_catAno=2026;
+let _marcaCanal='all',_marcaAno=2026;
 
-function isMes(s) {
-  const p=(s||'').split('/'), n=new Date();
-  return p.length>=3 && +p[0]===n.getMonth()+1 && +p[2]===n.getFullYear();
-}
-function isRange(s) {
-  if(!_ini||!_fim||!s) return false;
-  const d=pD(s);
-  return d>=pD(_ini) && d<=pD(_fim);
-}
-function isPeriodo(s) {
-  if(_modo==='dia')    return s===_diaRef;
-  if(_modo==='mes')    return isMes(s);
-  if(_modo==='custom') return isRange(s);
-  return false;
-}
+// ── HELPERS ─────────────────────────────────────────────────
+const R=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v||0);
+const N=s=>parseFloat((s||'0').toString().replace(/\./g,'').replace(',','.'))||0;
+const pD=s=>{const p=(s||'').split('/');return p.length<3?new Date(0):new Date(+p[2],+p[0]-1,+p[1]);};
 
-function getCanal(nome, num) {
+function isMes(s){const p=(s||'').split('/'),n=new Date();return p.length>=3&&+p[0]===n.getMonth()+1&&+p[2]===n.getFullYear();}
+function isRange(s){if(!_ini||!_fim||!s)return false;const d=pD(s);return d>=pD(_ini)&&d<=pD(_fim);}
+function isPer(s){return _modo==='dia'?s===_dRef:_modo==='mes'?isMes(s):isRange(s);}
+
+function canal(nome,num){
   const n=(nome||'').toLowerCase();
-  if(n.includes('mercado livre')) return 'Mercado Livre';
-  if(n.includes('shopee'))        return 'Shopee';
-  if(n.includes('amazon'))        return 'Amazon';
-  if(n.includes('casas bahia')||n.includes('via varejo')) return 'Casas Bahia';
-  if(n.includes('magazine')||n.includes('magalu'))        return 'Magazine Luiza';
+  if(n.includes('mercado livre'))return 'Mercado Livre';
+  if(n.includes('shopee'))return 'Shopee';
+  if(n.includes('amazon'))return 'Amazon';
+  if(n.includes('casas bahia')||n.includes('via varejo'))return 'Casas Bahia';
+  if(n.includes('magazine')||n.includes('magalu'))return 'Magazine Luiza';
   const u=num||'';
-  if(u.startsWith('2000'))  return 'Mercado Livre';
-  if(u.startsWith('260'))   return 'Shopee';
-  if(/^\d{3}-\d+/.test(u)) return 'Amazon';
-  if(u.startsWith('51'))    return 'Magazine Luiza';
-  if(u.startsWith('LU-'))   return 'Casas Bahia';
+  if(u.startsWith('2000'))return 'Mercado Livre';
+  if(u.startsWith('260'))return 'Shopee';
+  if(/^\d{3}-\d+/.test(u))return 'Amazon';
+  if(u.startsWith('51'))return 'Magazine Luiza';
+  if(u.startsWith('LU-'))return 'Casas Bahia';
   return 'Outros';
 }
 
-function getMarca(desc) {
+function marca(desc){
   const d=(desc||'').toLowerCase();
-  const lista=[
-    ['Mueller','mueller'],['Mueller','muller'],
-    ['Imbera','imbera'],['Itatiaia','itatiaia'],['Atlas','atlas coliseum'],
-    ['Midea','midea'],['Philco','philco'],['Amvox','amvox'],['Dako','dako'],
-    ['Pulse','pulse'],['SSOUND','ssound'],['Mallory','mallory'],
+  const M=[['Mueller','mueller'],['Mueller','muller'],['Imbera','imbera'],['Itatiaia','itatiaia'],
+    ['Atlas','atlas coliseum'],['Midea','midea'],['Philco','philco'],['Amvox','amvox'],
+    ['Dako','dako'],['Pulse','pulse'],['SSOUND','ssound'],['Mallory','mallory'],
     ['Britania','britania'],['Mondial','mondial'],['Electrolux','electrolux'],
-    ['Brastemp','brastemp'],['Consul','consul'],['LG',' lg '],
-    ['Samsung','samsung'],['Multilaser','multilaser'],['Intelbras','intelbras'],
-    ['Knup','knup'],['Best','best '],['Suggar','suggar'],['Cadence','cadence'],
-    ['Arno','arno'],['Tramontina','tramontina'],['Fischer','fischer'],
-  ];
-  for(const [nome, key] of lista) if(d.includes(key)) return nome;
+    ['Brastemp','brastemp'],['Consul','consul'],['LG',' lg '],['Samsung','samsung'],
+    ['Multilaser','multilaser'],['Intelbras','intelbras'],['Knup','knup'],
+    ['Best','best '],['Suggar','suggar'],['Cadence','cadence'],['Arno','arno'],
+    ['Tramontina','tramontina'],['Fischer','fischer']];
+  for(const[nm,k]of M)if(d.includes(k))return nm;
   return 'Outros';
 }
 
-function periodoLabel() {
-  if(_modo==='dia') return _diaRef ? fmtD(pD(_diaRef)) : 'Dia';
-  if(_modo==='mes') { const n=new Date(); return n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase(); }
-  if(_modo==='custom'&&_ini&&_fim) return `${_ini.split('/').reverse().join('/')} → ${_fim.split('/').reverse().join('/')}`;
-  return '';
+function catTiny(cat){
+  const c=(cat||'').toLowerCase();
+  if(c.includes('audio')||c.includes('som amplif')||c.includes('mini system')||c.includes('home theater'))return 'Audio';
+  if(c.includes('coifa')||c.includes('depurador'))return 'Coifas e Depuradores';
+  if(c.includes('pequenos eletro')||c.includes('fritadeira')||c.includes('liquidif')||c.includes('cafeteira'))return 'Pequenos Eletroportateis';
+  if(c.includes('fogao')||c.includes('fogão'))return 'Fogao de Chao';
+  if(c.includes('lavad')||c.includes('maquina de lavar'))return 'Lavadoras';
+  if(c.includes('ar condicionado'))return 'Ar Condicionado';
+  if(c.includes('climatizador'))return 'Climatizador de Ar';
+  if(c.includes('cooktop')||c.includes('cook top'))return 'CookTop';
+  if(c.includes('micro-ondas')||c.includes('microondas'))return 'Microondas';
+  if(c.includes('forno'))return 'Fornos Eletrico';
+  if(c.includes('freezer'))return 'Freezer';
+  if(c.includes('frigobar'))return 'Frigobar';
+  if(c.includes('geladeira'))return 'Geladeira';
+  if(c.includes('refrigerador industrial')||c.includes('cervejeira')||c.includes('expositor'))return 'Refrigerador Industrial';
+  return 'Outros';
 }
 
-// ── SHEETS API ──────────────────────────────────────────────────
-function setLoad(p,t) {
-  document.getElementById('lb').style.width=p+'%';
-  if(t) document.getElementById('lt').textContent=t;
-}
+const CATS=['Audio','Coifas e Depuradores','Pequenos Eletroportateis','Fogao de Chao','Lavadoras',
+  'Ar Condicionado','Climatizador de Ar','CookTop','Fornos Eletrico','Freezer','Frigobar',
+  'Geladeira','Microondas','Refrigerador Industrial','Outros'];
 
-async function fetchSheet(id, range, aba) {
-  const enc = aba ? encodeURIComponent(aba+'!'+range) : range;
-  const r = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${enc}?key=${KEY}`);
-  const d = await r.json();
-  if(d.error) throw new Error(d.error.message);
+const MARCAS_LISTA=['Mueller','Imbera','Itatiaia','Atlas','Midea','Philco','Amvox','Dako','Pulse',
+  'SSOUND','Mallory','Britania','Mondial','Electrolux','Brastemp','Consul','LG','Samsung',
+  'Multilaser','Intelbras','Knup','Best','Suggar','Cadence','Arno','Tramontina','Fischer','Outros'];
+
+function mesKey(dat){const p=dat.split('/');return`${+p[0]}/${p[2]}`;}
+function nomeMes(k){const[m,y]=k.split('/');return['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'][+m]+'/'+y.slice(2);}
+function sortMeses(arr){return arr.sort((a,b)=>{const[ma,ya]=a.split('/');const[mb,yb]=b.split('/');return new Date(+ya,+ma-1)-new Date(+yb,+mb-1);});}
+
+function setLoad(p,t){document.getElementById('lb').style.width=p+'%';if(t)document.getElementById('lt').textContent=t;}
+
+async function fetchSheet(id,range,aba){
+  const enc=aba?encodeURIComponent(aba+'!'+range):range;
+  const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${enc}?key=${KEY}`);
+  const d=await r.json();
+  if(d.error)throw new Error(d.error.message);
   return d.values||[];
 }
 
-// ── METAS ───────────────────────────────────────────────────────
-async function getMetas() {
-  setLoad(10,'Lendo metas...');
-  try {
-    const rows = await fetchSheet(METAS_ID,'A1:G45');
-    let metaMes=0; const dias={};
-    for(const r of rows) {
-      const c0=(r[0]||'').trim();
-      if(c0.match(/^[a-zA-ZÀ-ú]+\/\d{4}$/i)&&r[1]) metaMes=N(r[1]);
-      if(c0.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
-        const p=c0.split('/');
-        const key=`${+p[1]}/${+p[0]}/${p[2]}`;
-        const ml=N(r[1]),cb=N(r[2]),mg=N(r[3]),sh=N(r[4]),amz=N(r[5]);
-        dias[key]={'Mercado Livre':ml,'Casas Bahia':cb,'Magazine Luiza':mg,'Shopee':sh,'Amazon':amz,'total':N(r[6])||ml+cb+mg+sh+amz};
-      }
-    }
-    return {metaMes, dias};
-  } catch(e) { console.warn('[Metas]',e.message); return {metaMes:0, dias:{}}; }
+// ── TABLE HELPERS ────────────────────────────────────────────
+function th(txt,cor,left){return`<th style="text-align:${left?'left':'right'};${cor?'color:'+cor:''}">${txt}</th>`;}
+function td(val,cor,bold,left){return`<td style="text-align:${left?'left':'right'};${cor?'color:'+cor:''}${bold?';font-weight:800':''}">${val}</td>`;}
+function tdZ(val){return val>0?`<td style="text-align:right">${R(val)}</td>`:`<td class="val-z" style="text-align:right">—</td>`;}
+
+function btnOn(btnsEl,btn,cor){
+  btnsEl.querySelectorAll('.abtn').forEach(b=>{b.classList.remove('on');b.style.background='';b.style.borderColor='';b.style.color='';});
+  btn.classList.add('on');btn.style.background=cor||'var(--or)';btn.style.borderColor=cor||'var(--or)';btn.style.color='#fff';
 }
 
-// ── PROCESSAR ───────────────────────────────────────────────────
-function processar(pRows, iRows, metas) {
-  // Acha dia ref (último dia com dados válidos)
+// ── METAS ────────────────────────────────────────────────────
+async function getMetas(){
+  setLoad(10,'Metas...');
+  try{
+    // Estrutura confirmada:
+    // Linha com "mes/ano" + valor = meta do mês (ex: "abril/2026", "6.783.181,30")
+    // Linha com header "Data | Mercado Livre | Casas Bahia | Magazine Luiza | Shopee | Amazon | Meta Total Dia"
+    // Linhas seguintes = dados por dia: "DD/MM/YYYY | ml | cb | mg | sh | amz | total"
+    const rows=await fetchSheet(METAS_ID,'A1:H200');
+    let metaMes=0;const dias={};
+    let iML=-1,iCB=-1,iMG=-1,iSH=-1,iAMZ=-1,iTOT=-1,iDATA=-1;
+
+    for(const r of rows){
+      const c0=(r[0]||'').trim();
+
+      // Header da tabela de dias — detecta colunas dinamicamente
+      if(c0.toLowerCase()==='data'){
+        iDATA=0;
+        r.forEach((v,i)=>{
+          const vl=v.toLowerCase();
+          if(vl.includes('mercado'))iML=i;
+          else if(vl.includes('casas'))iCB=i;
+          else if(vl.includes('magazine'))iMG=i;
+          else if(vl.includes('shopee'))iSH=i;
+          else if(vl.includes('amazon'))iAMZ=i;
+          else if(vl.includes('total'))iTOT=i;
+        });
+        continue;
+      }
+
+      // Meta do mês: "mes/ano" ou "mes/ano" formato
+      if(c0.match(/^[a-zA-ZÀ-ú]+\/\d{4}$/i)&&r[1]){
+        metaMes=N(r[1]);continue;
+      }
+
+      // Meta por dia: DD/MM/YYYY
+      if(c0.match(/^\d{2}\/\d{2}\/\d{4}$/)){
+        const p=c0.split('/');
+        // Converte DD/MM/YYYY → M/D/YYYY (formato Kondado)
+        const key=`${+p[1]}/${+p[0]}/${p[2]}`;
+        const ml =iML >=0?N(r[iML ]):0;
+        const cb =iCB >=0?N(r[iCB ]):0;
+        const mg =iMG >=0?N(r[iMG ]):0;
+        const sh =iSH >=0?N(r[iSH ]):0;
+        const amz=iAMZ>=0?N(r[iAMZ]):0;
+        const tot=iTOT>=0?N(r[iTOT]):ml+cb+mg+sh+amz;
+        dias[key]={'Mercado Livre':ml,'Casas Bahia':cb,'Magazine Luiza':mg,'Shopee':sh,'Amazon':amz,'total':tot||ml+cb+mg+sh+amz};
+      }
+    }
+    console.log('[Metas] Mês:',metaMes,'| Dias com meta:',Object.keys(dias).length);
+    if(Object.keys(dias).length>0) console.log('[Metas] Exemplo:',Object.entries(dias)[0]);
+    return{metaMes,dias};
+  }catch(e){console.warn('[Metas]',e.message);return{metaMes:0,dias:{}};}
+}
+
+// ── PROCESS DASH ─────────────────────────────────────────────
+function processDash(pRows,iRows,metas){
   const datas=new Set();
-  for(let i=1;i<pRows.length;i++) {
-    const sit=(pRows[i][C.SIT]||'').toLowerCase().trim();
-    const dat=(pRows[i][C.DATA]||'').trim();
-    if(VALIDAS.has(sit)&&dat) datas.add(dat);
-  }
+  for(let i=1;i<pRows.length;i++){const s=(pRows[i][C.SIT]||'').toLowerCase().trim();const d=(pRows[i][C.DATA]||'').trim();if(VALIDAS.has(s)&&d)datas.add(d);}
   const sorted=[...datas].sort((a,b)=>pD(b)-pD(a));
-  _diaRef = sorted[0]||'';
-  _ontRef = sorted[1]||'';
+  _dRef=sorted[0]||'';_ontRef=sorted[1]||'';
 
-  // Acumuladores
-  const cPer={}, cMes={};
-  CANAIS.forEach(c=>{cPer[c]={f:0,p:0};cMes[c]={f:0,p:0};});
-  let tPer=0,nPer=0, tMes=0,nMes=0, tOnt=0,nOnt=0;
-  const idsPer=new Set(), idsMes=new Set(), idsOnt=new Set();
+  const cPer={},cMes={};CANAIS.forEach(c=>{cPer[c]={f:0,p:0};cMes[c]={f:0,p:0};});
+  let tP=0,nP=0,tM=0,nM=0,tO=0,nO=0;
+  const idsPer=new Set(),idsMes=new Set(),idsOnt=new Set();
 
-  for(let i=1;i<pRows.length;i++) {
+  for(let i=1;i<pRows.length;i++){
     const r=pRows[i];
-    const id=(r[C.ID]||'').trim();
-    const sit=(r[C.SIT]||'').toLowerCase().trim();
-    const dat=(r[C.DATA]||'').trim();
-    if(!id||!VALIDAS.has(sit)) continue;
+    const id=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
+    if(!id||!VALIDAS.has(sit))continue;
     const fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
-    const cn=getCanal(r[C.ENOME],r[C.ENUM]);
-
-    // Período selecionado
-    if(isPeriodo(dat)&&!idsPer.has(id)) {
-      idsPer.add(id); tPer+=fat; nPer++;
-      if(cPer[cn]){cPer[cn].f+=fat;cPer[cn].p++;}
-    }
-    // Mês (sempre)
-    if(isMes(dat)&&!idsMes.has(id)) {
-      idsMes.add(id); tMes+=fat; nMes++;
-      if(cMes[cn]){cMes[cn].f+=fat;cMes[cn].p++;}
-    }
-    // Ontem
-    if(dat===_ontRef&&!idsOnt.has(id)) {
-      idsOnt.add(id); tOnt+=fat; nOnt++;
-    }
+    const cn=canal(r[C.ENOME],r[C.ENUM]);
+    if(isPer(dat)&&!idsPer.has(id)){idsPer.add(id);tP+=fat;nP++;if(cPer[cn]){cPer[cn].f+=fat;cPer[cn].p++;}}
+    if(isMes(dat)&&!idsMes.has(id)){idsMes.add(id);tM+=fat;nM++;if(cMes[cn]){cMes[cn].f+=fat;cMes[cn].p++;}}
+    if(dat===_ontRef&&!idsOnt.has(id)){idsOnt.add(id);tO+=fat;nO++;}
   }
 
-  // Itens — top produtos e fornecedores do período
-  const prodMap={}, fornMap={};
-  for(let i=1;i<iRows.length;i++) {
+  // Itens
+  const prodMap={},fornMap={};
+  for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
-    const id=(r[I.ID]||'').trim();
-    const sit=(r[I.SIT]||'').toLowerCase().trim();
-    const dat=(r[I.DATA]||'').trim();
-    if(!VALIDAS.has(sit)) continue;
-
-    // Verifica se está no período (por data ou por id do pedido)
-    const inPer = isPeriodo(dat) || idsPer.has(id);
-    if(!inPer) continue;
-
+    const id=(r[I.ID]||'').trim(),sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
+    const inP=isPer(dat)||idsPer.has(id);
+    if(!VALIDAS.has(sit)||!inP)continue;
     const desc=(r[I.DESC]||'').trim();
+    const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;
-    const mk=getMarca(desc);
-    const nm=desc.substring(0,58);
-
-    if(!prodMap[nm])prodMap[nm]={q:0,f:0};
-    prodMap[nm].q+=qtd; prodMap[nm].f+=fat;
-
-    if(!fornMap[mk])fornMap[mk]={f:0,peds:new Set()};
-    fornMap[mk].f+=fat; fornMap[mk].peds.add(id);
+    const fat=qtd*vu;const mk=marca(desc);const nm=desc.substring(0,58);
+    if(!prodMap[nm])prodMap[nm]={q:0,f:0,idProd};
+    prodMap[nm].q+=qtd;prodMap[nm].f+=fat;
+    if(!fornMap[mk])fornMap[mk]={f:0,p:new Set()};
+    fornMap[mk].f+=fat;fornMap[mk].p.add(id);
   }
 
   const topP=Object.entries(prodMap).sort((a,b)=>b[1].f-a[1].f).slice(0,8)
-    .map(([n,d])=>({n,q:d.q,f:d.f}));
+    .map(([n,d])=>({n,q:d.q,f:d.f,sku:_estC?.skuMap?.[d.idProd]||''}));
   const topF=Object.entries(fornMap).sort((a,b)=>b[1].f-a[1].f).slice(0,10)
-    .map(([n,d])=>({n,f:d.f,p:d.peds.size,pct:tPer>0?(d.f/tPer*100).toFixed(1):0}));
+    .map(([n,d])=>({n,f:d.f,p:d.p.size,pct:tP>0?(d.f/tP*100).toFixed(1):0}));
 
-  // Metas
-  const metaDia = metas.dias[_diaRef]||{};
-  const metaTot = _modo==='dia' ? (metaDia.total||CANAIS.reduce((s,c)=>s+(metaDia[c]||0),0)) :
-                  _modo==='mes' ? metas.metaMes : 0;
-  const pctPer = metaTot>0 ? Math.min(tPer/metaTot*100,999).toFixed(1) : 0;
-  const pctMes = metas.metaMes>0 ? Math.min(tMes/metas.metaMes*100,999).toFixed(1) : 0;
+  const metaDia=metas.dias[_dRef]||{};
+  // Meta total: no dia usa meta do dia ref, no mês usa meta mensal
+  const metaTot=_modo==='dia'
+    ?(metaDia.total||CANAIS.reduce((s,c)=>s+(metaDia[c]||0),0))
+    :_modo==='mes'?metas.metaMes:0;
+  const pctP=metaTot>0?Math.min(tP/metaTot*100,999).toFixed(1):0;
+  const pctM=metas.metaMes>0?Math.min(tM/metas.metaMes*100,999).toFixed(1):0;
 
+  // Meta por canal: no modo dia usa meta do dia ref, no modo mês divide meta mensal proporcionalmente
+  const diasNoMes=new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();
+  const diasPassados=new Date().getDate();
   const canais=CANAIS.map(nm=>{
     const d=cPer[nm]||{f:0,p:0};
-    const m=_modo==='dia'?(metaDia[nm]||0):0;
+    let m=0;
+    if(_modo==='dia'){
+      m=metaDia[nm]||0;
+    } else if(_modo==='mes'){
+      // Usa meta mensal proporcional se não tiver meta por canal no dia
+      // Tenta somar todas as metas dos dias do mês para o canal
+      const totalMetaCanal=Object.entries(metas.dias)
+        .filter(([k])=>{const p=k.split('/');return +p[0]===new Date().getMonth()+1&&+p[2]===new Date().getFullYear();})
+        .reduce((s,[,v])=>s+(v[nm]||0),0);
+      m=totalMetaCanal;
+    }
     const pct=m>0?Math.min(d.f/m*100,999).toFixed(1):0;
-    return {nm,f:d.f,p:d.p,m,pct:+pct};
+    return{nm,f:d.f,p:d.p,m,pct:+pct};
   });
 
-  return {tPer,nPer,tMes,nMes,tOnt,nOnt,metaTot,metaMes:metas.metaMes,pctPer:+pctPer,pctMes:+pctMes,canais,topP,topF};
+  return{tP,nP,tM,nM,tO,nO,metaTot,metaMes:metas.metaMes,pctP:+pctP,pctM:+pctM,canais,topP,topF};
 }
 
-// ── RENDER ──────────────────────────────────────────────────────
+// ── RENDER DASH ───────────────────────────────────────────────
 function pCls(p){return p>=70?'cok':p>=35?'cmid':'clow';}
 function dCls(p){return p>=70?'dok':p>=35?'dmi':'dlo';}
-function dLbl(p){return p>=100?'✓ Meta!':p>=70?`→${(100-p).toFixed(0)}%`:` ↓${(100-p).toFixed(0)}%`;}
+function dLbl(p){return p>=100?'✓ Meta!':p>=70?`→${(100-p).toFixed(0)}%`:`↓${(100-p).toFixed(0)}%`;}
+const perLbl=()=>{
+  if(_modo==='dia')return _dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'Dia';
+  if(_modo==='mes'){const n=new Date();return n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();}
+  if(_ini&&_fim)return`${_ini.split('/').reverse().join('/')} → ${_fim.split('/').reverse().join('/')}`;
+  return'';
+};
 
-const LOGOS = {
+const LOGOS={
   'Mercado Livre':`<svg height="18" viewBox="0 0 110 20"><ellipse cx="9" cy="10" rx="9" ry="9" fill="#FFE600"/><path d="M4 8l5 4 5-4" fill="none" stroke="#333399" stroke-width="1.8" stroke-linecap="round"/><text x="22" y="8" font-family="Arial" font-weight="700" font-size="7.5" fill="#333399">Mercado</text><text x="22" y="17" font-family="Arial" font-weight="700" font-size="7.5" fill="#333399">Livre</text></svg>`,
   'Casas Bahia':`<svg height="18" viewBox="0 0 110 20"><rect x="0" y="1" width="18" height="18" rx="4" fill="#0052A5"/><text x="2" y="14" font-family="Arial" font-weight="900" font-size="10" fill="white">CB</text><text x="22" y="8" font-family="Arial" font-weight="700" font-size="7.5" fill="#0052A5">Casas</text><text x="22" y="17" font-family="Arial" font-weight="700" font-size="7.5" fill="#0052A5">Bahia</text></svg>`,
   'Magazine Luiza':`<svg height="18" viewBox="0 0 110 20"><rect x="0" y="1" width="18" height="18" rx="4" fill="#CC0066"/><text x="1" y="14" font-family="Arial" font-weight="900" font-size="10" fill="white">ML</text><text x="22" y="8" font-family="Arial" font-weight="700" font-size="7.5" fill="#CC0066">Magazine</text><text x="22" y="17" font-family="Arial" font-weight="700" font-size="7.5" fill="#CC0066">Luiza</text></svg>`,
@@ -670,924 +616,427 @@ const LOGOS = {
   'Amazon':`<svg height="18" viewBox="0 0 110 20"><text x="0" y="13" font-family="Arial" font-weight="900" font-size="13" fill="#1A1A1A">amazon</text><path d="M1 17 Q26 23 52 17" stroke="#FF9900" stroke-width="2" fill="none" stroke-linecap="round"/><polygon points="50,15 54,18 50,21" fill="#FF9900"/></svg>`,
 };
 
-function render(d) {
-  const lbl = periodoLabel();
+function renderDash(d){
+  const lbl=perLbl();
+  const n=new Date();
+  document.getElementById('dRef').textContent=_dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'--';
+  document.getElementById('kFat').textContent=R(d.tP);
+  document.getElementById('kFatSub').textContent=`${d.nP} pedidos — ${lbl}`;
+  document.getElementById('kMeta').textContent=R(d.metaTot);
+  const pk=document.getElementById('kPct');pk.textContent=`${d.pctP}%`;pk.className=pCls(d.pctP);
+  document.getElementById('kMes').textContent=R(d.tM);
+  document.getElementById('kMesSub').textContent=n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();
+  document.getElementById('kMetaMes').textContent=R(d.metaMes);
+  const pm=document.getElementById('kPctMes');pm.textContent=`${d.pctM}%`;pm.className=pCls(d.pctM);
+  document.getElementById('kPeds').textContent=d.nP;
+  document.getElementById('kTicket').textContent=R(d.nP>0?d.tP/d.nP:0);
+  document.getElementById('kOnt').textContent=R(d.tO);
+  document.getElementById('kOntSub').textContent=`${d.nO} pedidos ontem`;
+  setTimeout(()=>{document.getElementById('fPct').style.width=Math.min(d.pctP,100)+'%';document.getElementById('fPctMes').style.width=Math.min(d.pctM,100)+'%';},200);
 
-  // Header data ref
-  document.getElementById('dRef').textContent = _diaRef ? fmtD(pD(_diaRef)) : '--';
+  document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{const cor=COR[c.nm]||'#999';return`<div class="cn">
+    <div class="ct"><div class="clogo">${LOGOS[c.nm]||c.nm}</div><span class="cpct" style="color:${cor}">${c.pct}%</span></div>
+    <div class="cv" style="color:${cor}">${R(c.f)}</div>
+    <div class="cm"><span class="cml">Meta Dia</span><span class="cmv">${R(c.m)}</span></div>
+    <div class="pt"><div class="pf" style="width:${Math.min(c.pct,100)}%;background:${cor}"></div></div>
+    <div class="cf"><span class="cpe">${c.p} pedidos</span><span class="dl ${dCls(c.pct)}">${dLbl(c.pct)}</span></div>
+  </div>`;}).join('');
 
-  // KPIs
-  document.getElementById('kFat').textContent    = R(d.tPer);
-  document.getElementById('kFatSub').textContent = `${d.nPer} pedidos — ${lbl}`;
-  document.getElementById('kMeta').textContent   = R(d.metaTot);
-  const pk=document.getElementById('kPct'); pk.textContent=`${d.pctPer}%`; pk.className=pCls(d.pctPer);
-
-  document.getElementById('kMes').textContent    = R(d.tMes);
-  document.getElementById('kMesSub').textContent = new Date().toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();
-  document.getElementById('kMetaMes').textContent= R(d.metaMes);
-  const pm=document.getElementById('kPctMes'); pm.textContent=`${d.pctMes}%`; pm.className=pCls(d.pctMes);
-
-  document.getElementById('kPeds').textContent  = d.nPer;
-  document.getElementById('kTicket').textContent= R(d.nPer>0?d.tPer/d.nPer:0);
-  document.getElementById('kOnt').textContent   = R(d.tOnt);
-  document.getElementById('kOntSub').textContent= `${d.nOnt} pedidos ontem`;
-
-  setTimeout(()=>{
-    document.getElementById('fPct').style.width   = Math.min(d.pctPer,100)+'%';
-    document.getElementById('fPctMes').style.width= Math.min(d.pctMes,100)+'%';
-  },200);
-
-  // Canais
-  document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{
-    const cor=CORES[c.nm]||'#999';
-    return `<div class="cn">
-      <div class="ct"><div class="clogo">${LOGOS[c.nm]||c.nm}</div><span class="cpct" style="color:${cor}">${c.pct}%</span></div>
-      <div class="cv" style="color:${cor}">${R(c.f)}</div>
-      <div class="cm"><span class="cml">Meta Dia</span><span class="cmv">${R(c.m)}</span></div>
-      <div class="pt"><div class="pf" style="width:${Math.min(c.pct,100)}%;background:${cor}"></div></div>
-      <div class="cf"><span class="cpe">${c.p} pedidos</span><span class="dl ${dCls(c.pct)}">${dLbl(c.pct)}</span></div>
-    </div>`;
-  }).join('');
-
-  // Títulos dinâmicos
-  document.getElementById('tProd').textContent = `Top Produtos — ${lbl}`;
-  document.getElementById('tForn').textContent = `Top Fornecedores — ${lbl}`;
-
-  // Top Produtos
+  document.getElementById('tProd').textContent=`Top Produtos — ${lbl}`;
   const mP=d.topP[0]?.f||1;
-  document.getElementById('prodsEl').innerHTML = d.topP.length
-    ? d.topP.map((p,i)=>`<div class="pi">
-        <div class="prk">${i+1}</div>
-        <div class="pif"><div class="pnm">${p.n}</div><div class="psb">${p.q} un</div></div>
-        <div class="pbw"><div class="pbt"><div class="pbf" style="width:${(p.f/mP*100).toFixed(0)}%"></div></div></div>
-        <div class="pvl">${R(p.f)}</div>
-      </div>`).join('')
-    : '<div style="color:var(--mu);font-size:.72rem;padding:8px">Sem dados no período</div>';
+  document.getElementById('prodsEl').innerHTML=d.topP.length?d.topP.map((p,i)=>`<div class="pi">
+    <div class="prk">${i+1}</div>
+    <div class="pif"><div class="pnm">${p.n}</div><div class="psb">${p.sku?p.sku+' · ':''}${p.q} un</div></div>
+    <div class="pbw"><div class="pbt"><div class="pbf" style="width:${(p.f/mP*100).toFixed(0)}%"></div></div></div>
+    <div class="pvl">${R(p.f)}</div>
+  </div>`).join(''):'<div style="color:var(--mu);font-size:.72rem;padding:8px">Sem dados no período</div>';
 
-  // Top Fornecedores
+  document.getElementById('tForn').textContent=`Top Fornecedores — ${lbl}`;
   const mF=d.topF[0]?.f||1;
-  document.getElementById('fornEl').innerHTML = d.topF.length
-    ? d.topF.map((f,i)=>`
-      <div class="fi">
-        <div class="fr">${i+1}</div>
-        <div class="fif"><div class="fnm">${f.n}</div><div class="fsb">${f.p} pedidos</div></div>
-        <div class="fg"><div class="fv">${R(f.f)}</div><div class="fp">${f.pct}%</div></div>
-      </div>
-      <div class="fbr pt"><div class="pf" style="width:${(f.f/mF*100).toFixed(0)}%;background:var(--or)"></div></div>
-    `).join('')
-    : '<div style="color:var(--mu);font-size:.72rem;padding:8px">Sem dados no período</div>';
+  document.getElementById('fornEl').innerHTML=d.topF.length?d.topF.map((f,i)=>`
+    <div class="fi"><div class="fr">${i+1}</div>
+      <div class="fif"><div class="fnm">${f.n}</div><div class="fsb">${f.p} pedidos</div></div>
+      <div class="fg"><div class="fv">${R(f.f)}</div><div class="fp">${f.pct}%</div></div>
+    </div>
+    <div class="fbr pt"><div class="pf" style="width:${(f.f/mF*100).toFixed(0)}%;background:var(--or)"></div></div>`).join(''):'';
 
-  // Ticker
-  const tC=[...d.canais].sort((a,b)=>b.f-a.f)[0];
-  const tP=d.topP[0];
-  const tF=d.topF[0];
+  const tC=[...d.canais].sort((a,b)=>b.f-a.f)[0];const tP2=d.topP[0];
   document.getElementById('ticker').innerHTML=`
-    <span class="hi">🏆 MELHOR CANAL:</span> ${tC?.nm} — ${R(tC?.f)} (${tC?.pct}% da meta)
-    <span class="sp">|</span>
-    ${tP?`<span class="hi">🔥 TOP PRODUTO:</span> ${tP.n} — ${tP.q}un — ${R(tP.f)} <span class="sp">|</span>`:''}
-    ${tF?`<span class="hi">🥇 TOP FORNECEDOR:</span> ${tF.n} — ${R(tF.f)} <span class="sp">|</span>`:''}
-    <span class="hi">💰 ${lbl}:</span> ${R(d.tPer)} (${d.pctPer}%) · Ticket ${R(d.nPer>0?d.tPer/d.nPer:0)}
-    <span class="sp">|</span>
-    <span class="hi">📅 MÊS:</span> ${R(d.tMes)} / Meta ${R(d.metaMes)} (${d.pctMes}%)
-    <span class="sp">|</span>`;
+    <span class="hi">🏆 ${tC?.nm}</span> — ${R(tC?.f)} (${tC?.pct}% da meta)<span class="sp">|</span>
+    ${tP2?`<span class="hi">🔥 ${tP2.n}</span> — ${tP2.q}un — ${R(tP2.f)}<span class="sp">|</span>`:''}
+    <span class="hi">💰 ${lbl}:</span> ${R(d.tP)} (${d.pctP}%) · Ticket ${R(d.nP>0?d.tP/d.nP:0)}<span class="sp">|</span>
+    <span class="hi">📅 MÊS:</span> ${R(d.tM)} / Meta ${R(d.metaMes)} (${d.pctM}%)<span class="sp">|</span>`;
 }
 
-// ── FILTROS ─────────────────────────────────────────────────────
-function filtrar(modo) {
-  _modo = modo;
-  ['dia','mes','custom'].forEach(m=>{
-    document.getElementById('f'+m.charAt(0).toUpperCase()+m.slice(1)).classList.toggle('on',m===modo);
-  });
-  document.getElementById('fCustom').classList.toggle('show',modo==='custom');
-  if(modo!=='custom'&&_cache) renderComCache();
+// ── FILTROS DASHBOARD ────────────────────────────────────────
+function filtrar(m){
+  _modo=m;
+  ['dia','mes','custom'].forEach(x=>{document.getElementById('f'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('on',x===m);});
+  document.getElementById('fCustom').classList.toggle('show',m==='custom');
+  if(m!=='custom'&&_cache){const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);renderDash(d);}
 }
-
-function aplicar() {
-  const ini=document.getElementById('fIni').value;
-  const fim=document.getElementById('fFim').value;
+function aplicar(){
+  const ini=document.getElementById('fIni').value,fim=document.getElementById('fFim').value;
   if(!ini||!fim){alert('Selecione início e fim!');return;}
-  // Converte YYYY-MM-DD → M/D/YYYY
-  const conv=s=>{const p=s.split('-');return `${+p[1]}/${+p[2]}/${p[0]}`;};
-  _ini=conv(ini); _fim=conv(fim);
-  if(_cache) renderComCache();
+  const conv=s=>{const p=s.split('-');return`${+p[1]}/${+p[2]}/${p[0]}`;};
+  _ini=conv(ini);_fim=conv(fim);
+  if(_cache){const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);renderDash(d);}
 }
 
-function renderComCache() {
-  if(!_cache) return;
-  document.getElementById('sLbl').textContent='CALCULANDO';
-  setTimeout(()=>{
-    const d=processar(_cache.pRows,_cache.iRows,_cache.metas);
-    render(d);
-    document.getElementById('sLbl').textContent='AO VIVO';
-  },10);
+// ── CATEGORIAS ───────────────────────────────────────────────
+function processarCat(pRows,iRows,prodRows){
+  const pedCanal={};
+  for(let i=1;i<pRows.length;i++){const r=pRows[i];const id=(r[C.ID]||'').trim();if(id)pedCanal[id]=canal(r[C.ENOME],r[C.ENUM]);}
+
+  const pHeader=prodRows[0]||[];
+  const iCat=pHeader.indexOf('categoria');
+  const catMap={};
+  for(let i=1;i<prodRows.length;i++){const r=prodRows[i];const id=(r[0]||'').trim();if(id&&r[iCat])catMap[id]=catTiny(r[iCat]);}
+
+  const data={};const meses=new Set();
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];
+    const idPed=(r[0]||'').trim(),idProd=(r[I.IDPROD]||'').trim();
+    const sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const fat=qtd*vu;
+    if(!VALIDAS.has(sit)||!dat||fat===0)continue;
+    const p=dat.split('/');if(p.length<3)continue;
+    const mk=`${+p[0]}/${p[2]}`;meses.add(mk);
+    const cat=catMap[idProd]||'Outros';
+    const cn=pedCanal[idPed]||'Outros';
+    if(!data[cat])data[cat]={};if(!data[cat][cn])data[cat][cn]={};
+    data[cat][cn][mk]=(data[cat][cn][mk]||0)+fat;
+  }
+  const mesesArr=sortMeses([...meses]);
+
+  // Canal×mes para comparativo
+  const canalMes={};
+  for(const cat of Object.keys(data)){
+    for(const cn of Object.keys(data[cat])){
+      if(!canalMes[cn])canalMes[cn]={};
+      for(const m of Object.keys(data[cat][cn])){
+        canalMes[cn][m]=(canalMes[cn][m]||0)+data[cat][cn][m];
+      }
+    }
+  }
+  return{data,meses:mesesArr,canalMes};
 }
 
-// ── LOAD ────────────────────────────────────────────────────────
-async function load() {
+function renderCatTable(){
+  if(!_catC)return;
+  const{data,meses,canalMes}=_catC;
+  const n=new Date();const mesA=`${n.getMonth()+1}/${n.getFullYear()}`;
+
+  if(_catCanal==='all'){
+    document.getElementById('catTit').textContent=`Categorias × Canal — ${nomeMes(mesA)}`;
+    let h=`<table><thead><tr>${th('Categoria','',true)}${CANAIS.map(c=>th(c.split(' ')[0]==='Magazine'?'Magalu':c.split(' ')[0],COR[c])).join('')}${th('Total')}</tr></thead><tbody>`;
+    const tots={total:0};CANAIS.forEach(c=>tots[c]=0);
+    for(const cat of CATS){
+      const cData=data[cat]||{};let total=0;
+      const vals=CANAIS.map(c=>{const v=cData[c]?.[mesA]||0;total+=v;tots[c]+=v;return v;});
+      tots.total+=total;if(total===0)continue;
+      h+=`<tr>${td(cat,'',true,true)}${vals.map((v,i)=>tdZ(v)).join('')}${td(R(total),'var(--od)')}`;
+    }
+    h+=`</tbody><tfoot><tr>${td('TOTAL','',true,true)}${CANAIS.map(c=>td(R(tots[c]))).join('')}${td(R(tots.total))}</tr></tfoot></table>`;
+    document.getElementById('catTbWrap').innerHTML=h;
+  } else {
+    const cor=COR[_catCanal];
+    document.getElementById('catTit').textContent=`${_catCanal} — Categorias por Mês`;
+    let h=`<table><thead><tr>${th('Categoria','',true)}${meses.map(m=>th(nomeMes(m),cor)).join('')}${th('Total')}</tr></thead><tbody>`;
+    const tots={};meses.forEach(m=>tots[m]=0);let gT=0;
+    for(const cat of CATS){
+      const cData=data[cat]?.[_catCanal]||{};let total=0;
+      const cells=meses.map(m=>{const v=cData[m]||0;tots[m]+=v;total+=v;return tdZ(v);}).join('');
+      gT+=total;if(total===0)continue;
+      h+=`<tr>${td(cat,'',true,true)}${cells}${td(R(total),cor)}</tr>`;
+    }
+    h+=`</tbody><tfoot><tr>${td('TOTAL','',true,true)}${meses.map(m=>td(R(tots[m]))).join('')}${td(R(gT))}</tr></tfoot></table>`;
+    document.getElementById('catTbWrap').innerHTML=h;
+  }
+
+  // Canal × Mês
+  const mesesAno=meses.filter(m=>+m.split('/')[1]===_catAno);
+  if(!mesesAno.length){document.getElementById('catMesTbWrap').innerHTML=`<div class="lt" style="padding:12px;text-align:center">Sem dados para ${_catAno}</div>`;return;}
+  const NM=['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  let h2=`<table><thead><tr>${th('Canal','',true)}${mesesAno.map(m=>th(NM[+m.split('/')[0]])).join('')}${th('Total')}</tr></thead><tbody>`;
+  const tots2={};mesesAno.forEach(m=>tots2[m]=0);let gT2=0;
+  for(const cn of CANAIS){
+    const cor=COR[cn];let total=0;
+    const cells=mesesAno.map(m=>{const v=canalMes[cn]?.[m]||0;tots2[m]+=v;total+=v;return v>0?`<td style="text-align:right;color:${cor};font-weight:700">${R(v)}</td>`:`<td class="val-z" style="text-align:right">—</td>`;}).join('');
+    gT2+=total;if(total===0)continue;
+    h2+=`<tr>${td(cn,cor,true,true)}${cells}${td(R(total),cor)}</tr>`;
+  }
+  h2+=`</tbody><tfoot><tr>${td('TOTAL','',true,true)}${mesesAno.map(m=>td(R(tots2[m]))).join('')}${td(R(gT2))}</tr></tfoot></table>`;
+  document.getElementById('catMesTbWrap').innerHTML=h2;
+}
+
+function setCatCanal(cn,btn){_catCanal=cn;btnOn(document.getElementById('catBtns'),btn,COR[cn]);renderCatTable();}
+function setCatAno(a,btn){_catAno=a;btnOn(btn.parentElement,btn);renderCatTable();}
+
+// ── MARCAS ───────────────────────────────────────────────────
+function processarMarcas(pRows,iRows){
+  const pedCanal={};
+  for(let i=1;i<pRows.length;i++){const r=pRows[i];const id=(r[C.ID]||'').trim();if(id)pedCanal[id]=canal(r[C.ENOME],r[C.ENUM]);}
+  const data={};const meses=new Set();
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];
+    const idPed=(r[0]||'').trim(),sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;const fat=qtd*vu;
+    if(!VALIDAS.has(sit)||!dat||fat===0)continue;
+    const p=dat.split('/');if(p.length<3)continue;
+    const mk2=`${+p[0]}/${p[2]}`;meses.add(mk2);
+    const m=marca(r[I.DESC]||''),cn=pedCanal[idPed]||'Outros';
+    if(!data[m])data[m]={};if(!data[m][cn])data[m][cn]={};
+    data[m][cn][mk2]=(data[m][cn][mk2]||0)+fat;
+  }
+  return{data,meses:sortMeses([...meses])};
+}
+
+function renderMarcaTable(){
+  if(!_marcaC)return;
+  const{data,meses}=_marcaC;
+  const n=new Date();const mesA=`${n.getMonth()+1}/${n.getFullYear()}`;
+
+  if(_marcaCanal==='all'){
+    document.getElementById('marcaTit').textContent=`Marcas × Canal — ${nomeMes(mesA)}`;
+    let h=`<table><thead><tr>${th('Marca','',true)}${CANAIS.map(c=>th(c.split(' ')[0]==='Magazine'?'Magalu':c.split(' ')[0],COR[c])).join('')}${th('Total')}</tr></thead><tbody>`;
+    const tots={total:0};CANAIS.forEach(c=>tots[c]=0);
+    const mkOrd=[...MARCAS_LISTA].sort((a,b)=>CANAIS.reduce((s,c)=>s+(data[b]?.[c]?.[mesA]||0),0)-CANAIS.reduce((s,c)=>s+(data[a]?.[c]?.[mesA]||0),0));
+    for(const mk of mkOrd){
+      const mData=data[mk]||{};let total=0;
+      const vals=CANAIS.map(c=>{const v=mData[c]?.[mesA]||0;total+=v;tots[c]+=v;return v;});
+      tots.total+=total;if(total===0)continue;
+      h+=`<tr>${td(mk,'',true,true)}${vals.map(v=>tdZ(v)).join('')}${td(R(total),'var(--od)')}</tr>`;
+    }
+    h+=`</tbody><tfoot><tr>${td('TOTAL','',true,true)}${CANAIS.map(c=>td(R(tots[c]))).join('')}${td(R(tots.total))}</tr></tfoot></table>`;
+    document.getElementById('marcaTbWrap').innerHTML=h;
+  } else {
+    const cor=COR[_marcaCanal];
+    document.getElementById('marcaTit').textContent=`${_marcaCanal} — Marcas por Mês`;
+    let h=`<table><thead><tr>${th('Marca','',true)}${meses.map(m=>th(nomeMes(m),cor)).join('')}${th('Total')}</tr></thead><tbody>`;
+    const tots={};meses.forEach(m=>tots[m]=0);let gT=0;
+    const mkOrd=[...MARCAS_LISTA].sort((a,b)=>meses.reduce((s,m)=>s+(data[b]?.[_marcaCanal]?.[m]||0),0)-meses.reduce((s,m)=>s+(data[a]?.[_marcaCanal]?.[m]||0),0));
+    for(const mk of mkOrd){
+      const cData=data[mk]?.[_marcaCanal]||{};let total=0;
+      const cells=meses.map(m=>{const v=cData[m]||0;tots[m]+=v;total+=v;return tdZ(v);}).join('');
+      gT+=total;if(total===0)continue;
+      h+=`<tr>${td(mk,'',true,true)}${cells}${td(R(total),cor)}</tr>`;
+    }
+    h+=`</tbody><tfoot><tr>${td('TOTAL','',true,true)}${meses.map(m=>td(R(tots[m]))).join('')}${td(R(gT))}</tr></tfoot></table>`;
+    document.getElementById('marcaTbWrap').innerHTML=h;
+  }
+
+  // Marca × Mês
+  const mesesAno=meses.filter(m=>+m.split('/')[1]===_marcaAno);
+  if(!mesesAno.length){document.getElementById('marcaMesTbWrap').innerHTML=`<div class="lt" style="padding:12px;text-align:center">Sem dados para ${_marcaAno}</div>`;return;}
+  const NM=['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  let h2=`<table><thead><tr>${th('Marca','',true)}${mesesAno.map(m=>th(NM[+m.split('/')[0]])).join('')}${th('Total')}</tr></thead><tbody>`;
+  const tots2={};mesesAno.forEach(m=>tots2[m]=0);let gT2=0;
+  const mkOrd2=[...MARCAS_LISTA].sort((a,b)=>mesesAno.reduce((s,m)=>s+CANAIS.reduce((ss,c)=>ss+(data[b]?.[c]?.[m]||0),0),0)-mesesAno.reduce((s,m)=>s+CANAIS.reduce((ss,c)=>ss+(data[a]?.[c]?.[m]||0),0),0));
+  for(const mk of mkOrd2){
+    let total=0;
+    const cells=mesesAno.map(m=>{const v=CANAIS.reduce((s,c)=>s+(data[mk]?.[c]?.[m]||0),0);tots2[m]+=v;total+=v;return tdZ(v);}).join('');
+    gT2+=total;if(total===0)continue;
+    h2+=`<tr>${td(mk,'',true,true)}${cells}${td(R(total),'var(--od)')}</tr>`;
+  }
+  h2+=`</tbody><tfoot><tr>${td('TOTAL','',true,true)}${mesesAno.map(m=>td(R(tots2[m]))).join('')}${td(R(gT2))}</tr></tfoot></table>`;
+  document.getElementById('marcaMesTbWrap').innerHTML=h2;
+}
+
+function setMarcaCanal(cn,btn){_marcaCanal=cn;btnOn(document.getElementById('marcaBtns'),btn,COR[cn]);renderMarcaTable();}
+function setMarcaAno(a,btn){_marcaAno=a;btnOn(btn.parentElement,btn);renderMarcaTable();}
+
+// ── ESTOQUE ──────────────────────────────────────────────────
+const DEPOS_OK=new Set(['deposito amazonfull','novo galpao']);
+
+async function loadEstoque(){
+  document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando estoque...</div>';
+  try{
+    const[depoRows,prodRows]=await Promise.all([
+      fetchSheet(EST_ID,'A:G','tinyerp_estoque_produto_depo'),
+      fetchSheet(EST_ID,'A:Z','tinyerp_produtos'),
+    ]);
+    // SKU e marca por id
+    const pHeader=prodRows[0]||[];
+    const iSku=pHeader.indexOf('codigo'),iMarca=pHeader.indexOf('marca');
+    const prodMap={};// id → {sku,marca}
+    for(let i=1;i<prodRows.length;i++){
+      const r=prodRows[i];const id=(r[0]||'').trim();if(!id)continue;
+      prodMap[id]={sku:(r[iSku]||'').trim(),marca:(r[iMarca]||'').trim()};
+    }
+    // Estoque
+    const estMap={};
+    for(let i=1;i<depoRows.length;i++){
+      const r=depoRows[i];const id=(r[0]||'').trim();
+      const dep=(r[3]||'').toLowerCase().trim();const sal=parseFloat(r[4]||'0')||0;
+      if(!id||sal===0)continue;
+      if(DEPOS_OK.has(dep))estMap[id]=(estMap[id]||0)+sal;
+    }
+    // Nome real do produto via itens
+    const iRows=_cache?.iRows||[];
+    const nomeMap={};
+    for(let i=1;i<iRows.length;i++){
+      const r=iRows[i];const id=(r[I.IDPROD]||'').trim();const desc=(r[I.DESC]||'').trim();
+      if(id&&desc&&!nomeMap[id])nomeMap[id]=desc;
+    }
+    // skuMap para top produtos
+    const skuMap={};
+    for(const[id,p]of Object.entries(prodMap))skuMap[id]=p.sku;
+    _estC={prodMap,estMap,iRows,skuMap};
+    if(_cache)_cache.metas; // já carregado
+
+    // Popula select de marcas
+    const marcasSet=new Set();
+    Object.values(prodMap).forEach(p=>{if(p.marca)marcasSet.add(p.marca);});
+    const sel=document.getElementById('eMarca');
+    sel.innerHTML='<option value="">Todas</option>';
+    [...marcasSet].sort().forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});
+
+    // Adiciona nomeMap e skuMap ao cache compartilhado
+    _estC.nomeMap=nomeMap;
+
+    renderEst();
+  }catch(e){
+    console.error('[Est]',e);
+    document.getElementById('estTbWrap').innerHTML=`<div style="color:var(--re);padding:20px">❌ ${e.message}</div>`;
+  }
+}
+
+function renderEst(){
+  if(!_estC)return;
+  const{prodMap,estMap,iRows,nomeMap}=_estC;
+  const dias=parseInt(document.getElementById('eDias').value)||30;
+  const filtM=document.getElementById('eMarca').value;
+  const filtS=document.getElementById('eSku').value.trim().toLowerCase();
+  const sNeg=document.getElementById('eNeg').checked;
+  const sZero=document.getElementById('eZero').checked;
+  const minPrev=parseInt(document.getElementById('eMin').value)||0;
+
+  const dInicio=new Date();dInicio.setDate(dInicio.getDate()-dias);
+  const vendasMap={};
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];const sit=(r[I.SIT]||'').toLowerCase().trim();const dat=(r[I.DATA]||'').trim();
+    const idP=(r[I.IDPROD]||'').trim();if(!VALIDAS.has(sit)||!idP)continue;
+    const p=dat.split('/');if(p.length<3)continue;
+    const dItem=new Date(+p[2],+p[0]-1,+p[1]);if(dItem<dInicio)continue;
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    vendasMap[idP]=(vendasMap[idP]||0)+qtd;
+  }
+
+  let prods=Object.entries(prodMap).map(([id,p])=>{
+    const sku=p.sku||'';
+    // Exclui KIT e ML
+    if(sku.toUpperCase().startsWith('KIT'))return null;
+    if(sku.toUpperCase().endsWith('ML'))return null;
+    const est=estMap[id]||0;const vend=vendasMap[id]||0;
+    const falta=vend-est;
+    const mediaDia=vend/dias;
+    const prev=Math.max(0,est-mediaDia*dias);
+    const nome=nomeMap[id]||sku||id;
+    const mk=p.marca||marca(nome);
+    return{id,sku,nome,mk,est,vend,falta,prev};
+  }).filter(Boolean);
+
+  if(filtM)prods=prods.filter(p=>p.mk===filtM);
+  if(filtS)prods=prods.filter(p=>p.sku.toLowerCase().includes(filtS)||p.nome.toLowerCase().includes(filtS));
+  if(sNeg)prods=prods.filter(p=>p.falta>0);
+  if(sZero)prods=prods.filter(p=>p.prev===0);
+  if(minPrev>0)prods=prods.filter(p=>p.prev<minPrev&&(p.est>0||p.vend>0));
+
+  prods.sort((a,b)=>b.falta-a.falta);
+  const lista=prods.filter(p=>p.est>0||p.vend>0);
+
+  document.getElementById('eStatus').textContent=`${lista.length} produtos | ${dias} dias`;
+
+  if(!lista.length){document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Nenhum produto encontrado</div>';return;}
+
+  const ths=(txt,cor)=>`<th style="text-align:${['SKU','Produto','Marca'].includes(txt)?'left':'center'};padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid var(--bd);color:${cor||'var(--mu)'}">${txt}</th>`;
+  let h=`<table style="width:100%;border-collapse:collapse;font-size:.68rem;min-width:800px;">
+    <thead style="position:sticky;top:0;background:var(--wh);z-index:2;"><tr>
+      ${ths('SKU')}${ths('Produto')}${ths('Marca')}${ths('Estoque','var(--or)')}${ths(`Vendas (${dias}d)`)}${ths('Falta ▼','var(--re)')}${ths(`Prev. ${dias}d`,'#7C3AED')}
+    </tr></thead><tbody>`;
+
+  for(const p of lista){
+    const faltaC=p.falta<=0?'var(--gr)':p.falta<=5?'var(--or)':'var(--re)';
+    const faltaT=p.falta>0?`+${p.falta.toFixed(0)}`:p.falta<0?p.falta.toFixed(0):'0';
+    const prevC=p.prev===0?'var(--re)':p.prev<5?'var(--or)':p.prev<10?'#D97706':'#7C3AED';
+    const prevI=p.prev===0?'🔴':p.prev<5?'🟠':p.prev<10?'🟡':'🟢';
+    const rowBg=p.falta>0?'background:rgba(220,38,38,.03);':'';
+    const tdc=(v,c,al)=>`<td style="padding:5px 10px;text-align:${al||'center'};font-weight:700;color:${c||'var(--tx)'}">${v}</td>`;
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${tdc(p.sku||'—','var(--or)','left')}
+      ${tdc(p.nome.substring(0,65),'','left')}
+      ${tdc(p.mk||'—')}
+      ${tdc(p.est.toFixed(0))}
+      ${tdc(p.vend.toFixed(0),'var(--mu)')}
+      ${tdc(faltaT,faltaC)}
+      ${tdc(`${prevI} ${p.prev.toFixed(0)}`,prevC)}
+    </tr>`;
+  }
+  h+=`</tbody></table>`;
+  document.getElementById('estTbWrap').innerHTML=h;
+}
+
+// ── ABA SWITCH ───────────────────────────────────────────────
+function aba(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+
+  if(id==='vCat'&&!_catC&&_cache){
+    document.getElementById('catTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando categorias...</div>';
+    fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pRows=>{
+      _catC=processarCat(_cache.pRows,_cache.iRows,pRows);
+      renderCatTable();
+    }).catch(e=>document.getElementById('catTbWrap').innerHTML=`<div style="color:var(--re);padding:12px">❌ ${e.message}</div>`);
+  } else if(id==='vCat'&&_catC) renderCatTable();
+
+  if(id==='vMarca'&&!_marcaC&&_cache){
+    document.getElementById('marcaTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando marcas...</div>';
+    setTimeout(()=>{_marcaC=processarMarcas(_cache.pRows,_cache.iRows);renderMarcaTable();},10);
+  } else if(id==='vMarca'&&_marcaC) renderMarcaTable();
+
+  if(id==='vEstoque'&&!_estC)loadEstoque();
+}
+
+// ── LOAD PRINCIPAL ───────────────────────────────────────────
+async function load(){
   document.getElementById('sLbl').textContent='CARREGANDO';
   document.getElementById('ov').style.display='flex';
-  document.getElementById('dash').style.display='none';
-  try {
-    setLoad(5,'Conectando...');
-    const metas = await getMetas();
-    setLoad(30,'Buscando pedidos...');
-    const pRows = await fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes');
-    console.log('[Pedidos]',pRows.length,'linhas');
-    setLoad(70,'Buscando itens...');
+  document.getElementById('app').style.display='none';
+  _catC=null;_marcaC=null;// força reprocessar
+  try{
+    setLoad(5,'Metas...');
+    const metas=await getMetas();
+    setLoad(25,'Pedidos...');
+    const pRows=await fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes');
+    setLoad(65,'Itens...');
     let iRows=[];
-    try { iRows=await fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens'); console.log('[Itens]',iRows.length,'linhas'); }
-    catch(e){ console.warn('[Itens]',e.message); }
+    try{iRows=await fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens');}catch(e){console.warn('[Itens]',e);}
     setLoad(90,'Processando...');
     _cache={pRows,iRows,metas};
-    const d=processar(pRows,iRows,metas);
+    const d=processDash(pRows,iRows,metas);
     document.getElementById('ov').style.display='none';
-    document.getElementById('dash').style.display='flex';
-    render(d);
+    document.getElementById('app').style.display='flex';
+    renderDash(d);
     document.getElementById('sLbl').textContent='AO VIVO';
     setLoad(100);
-    console.log(`[OK] Período: R$${d.tPer.toFixed(2)} | Mês: R$${d.tMes.toFixed(2)}`);
-  } catch(e) {
-    console.error('[Erro]',e);
+    console.log(`[OK] R$${d.tP.toFixed(2)} | Mês R$${d.tM.toFixed(2)}`);
+  }catch(e){
+    console.error('[Load]',e);
     document.getElementById('lt').textContent='❌ '+e.message;
     document.getElementById('sLbl').textContent='ERRO';
   }
 }
 
-
-// ── ABA CATEGORIAS ─────────────────────────────────────────────
-const ANALISE_ID = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
-const CANAIS_CAT = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon'];
-const CORES_CAT  = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911'};
-const CLS_CAT    = {'Mercado Livre':'canal-ml','Casas Bahia':'canal-cb','Magazine Luiza':'canal-mg','Shopee':'canal-sh','Amazon':'canal-amz'};
-
-// Mapeamento categoria Tiny → categoria display
-function mapCategoria(catTiny) {
-  const c = (catTiny||'').toLowerCase();
-  // Extrai segundo nível: "Eletrodomesticos >> Lavadoras >> ..." → "Lavadoras"
-  const partes = catTiny.split('>>').map(s=>s.trim());
-  const seg = (partes[1]||partes[0]||'').trim();
-  
-  if(c.includes('audio') || c.includes('som') || c.includes('fone') || c.includes('caixa de som') || c.includes('mini system') || c.includes('home theater')) return 'Audio';
-  if(c.includes('coifa') || c.includes('depurador')) return 'Coifas e Depuradores';
-  if(c.includes('pequenos eletro') || c.includes('fritadeira') || c.includes('liquidificador') || c.includes('batedeira') || c.includes('torradeira') || c.includes('sanduicheira') || c.includes('cafeteira') || c.includes('espremedor')) return 'Pequenos Eletroportateis';
-  if(c.includes('fogao de chao') || c.includes('fogão de chão')) return 'Fogao de Chao';
-  if(c.includes('fogao') || c.includes('fogão')) return 'Fogao de Chao';
-  if(c.includes('lavador') || c.includes('maquina de lavar') || c.includes('lavanderia')) return 'Lavadoras';
-  if(c.includes('ar condicionado')) return 'Ar Condicionado';
-  if(c.includes('climatizador')) return 'Climatizador de Ar';
-  if(c.includes('cooktop') || c.includes('cook top')) return 'CookTop';
-  if(c.includes('forno eletrico') || c.includes('forno elétrico') || c.includes('micro-ondas') || c.includes('microondas')) {
-    if(c.includes('micro')) return 'Microondas';
-    return 'Fornos Eletrico';
-  }
-  if(c.includes('freezer')) return 'Freezer';
-  if(c.includes('frigobar') || c.includes('frigoba')) return 'Frigobar';
-  if(c.includes('geladeira') || c.includes('refrigerador') && !c.includes('industrial')) return 'Geladeira';
-  if(c.includes('refrigerador industrial') || c.includes('cervejeira') || c.includes('expositor')) return 'Refrigerador Industrial';
-  if(c.includes('microondas') || c.includes('micro-ondas')) return 'Microondas';
-  return 'Outros';
-}
-
-const CATS_ORDEM = [
-  'Audio','Coifas e Depuradores','Pequenos Eletroportateis','Fogao de Chao',
-  'Lavadoras','Ar Condicionado','Climatizador de Ar','CookTop',
-  'Fornos Eletrico','Freezer','Frigobar','Geladeira','Microondas',
-  'Refrigerador Industrial','Outros'
-];
-
-let _prodMap = null; // cache id_produto → categoria
-let _catCache = null; // cache dos dados processados de categorias
-
-async function loadProdutos() {
-  if(_prodMap) return _prodMap;
-  const rows = await fetchSheet(ANALISE_ID,'A:C','tinyerp_produtos');
-  _prodMap = {};
-  for(let i=1;i<rows.length;i++) {
-    const id=(rows[i][0]||'').trim();
-    const cat=(rows[i][2]||'').trim();
-    if(id && cat) _prodMap[id] = mapCategoria(cat);
-  }
-  console.log('[Produtos] Mapa de categorias:', Object.keys(_prodMap).length, 'produtos');
-  return _prodMap;
-}
-
-function processarCategorias(iRows, pMap) {
-  // Agrupa por categoria × canal × mês
-  // catData[categoria][canal][mes] = faturamento
-  const catData = {};
-  const mesesSet = new Set();
-
-  for(let i=1;i<iRows.length;i++) {
-    const r = iRows[i];
-    const idProd = (r[3]||'').trim(); // itens_id_produto
-    const sit    = (r[I.SIT]||'').toLowerCase().trim();
-    const dat    = (r[I.DATA]||'').trim();
-    if(!VALIDAS.has(sit)||!dat) continue;
-
-    // Mês formato M/YYYY
-    const partes = dat.split('/');
-    if(partes.length<3) continue;
-    const mes = `${+partes[0]}/${partes[2]}`; // ex: "4/2026"
-    mesesSet.add(mes);
-
-    const cat   = pMap[idProd] || mapCategoria('');
-    const canal = getCanal(r[I.ID+8]||'', ''); // usa pedido_numero_ecommerce col 8... 
-    // Na verdade precisamos do canal — vamos usar o id_pedido para cruzar
-    // Por ora usamos "Outros" e cruzamos depois
-  }
-  return {catData, meses: [...mesesSet]};
-}
-
-// Processa categorias cruzando itens com pedidos (para pegar canal)
-function processarCatComPedidos(pRows, iRows, prodMap) {
-  // Monta mapa id_pedido → canal
-  const pedCanal = {};
-  for(let i=1;i<pRows.length;i++) {
-    const r=pRows[i];
-    const id=(r[C.ID]||'').trim();
-    if(id) pedCanal[id] = getCanal(r[C.ENOME],r[C.ENUM]);
-  }
-
-  // Agora processa itens
-  const catData = {}; // catData[cat][canal][mesKey] = fat
-  const mesesSet = new Set();
-  const mesesData = {}; // mesesData[mesKey][canal] = fat total
-
-  for(let i=1;i<iRows.length;i++) {
-    const r=iRows[i];
-    const idPed  = (r[0]||'').trim();
-    const idProd = (r[3]||'').trim();
-    const sit    = (r[9]||'').toLowerCase().trim();
-    const dat    = (r[11]||'').trim();
-    const qtd    = parseFloat((r[4]||'1').replace(',','.'))||1;
-    const vu     = parseFloat((r[6]||'0').replace(',','.'))||0;
-    const fat    = qtd*vu;
-
-    if(!VALIDAS.has(sit)||!dat||fat===0) continue;
-
-    const partes = dat.split('/');
-    if(partes.length<3) continue;
-    const mesKey = `${+partes[0]}/${partes[2]}`; // M/YYYY
-    mesesSet.add(mesKey);
-
-    const cat   = prodMap[idProd] || 'Outros';
-    const canal = pedCanal[idPed] || 'Outros';
-
-    if(!catData[cat]) catData[cat]={};
-    if(!catData[cat][canal]) catData[cat][canal]={};
-    catData[cat][canal][mesKey] = (catData[cat][canal][mesKey]||0) + fat;
-
-    if(!mesesData[mesKey]) mesesData[mesKey]={};
-    mesesData[mesKey][canal] = (mesesData[mesKey][canal]||0) + fat;
-  }
-
-  // Ordena meses cronologicamente
-  const meses = [...mesesSet].sort((a,b)=>{
-    const [ma,ya]=a.split('/'); const [mb,yb]=b.split('/');
-    return new Date(+ya,+ma-1) - new Date(+yb,+mb-1);
-  });
-
-  return {catData, meses, mesesData};
-}
-
-function nomeMes(mesKey) {
-  const [m,y]=mesKey.split('/');
-  const meses=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-  return `${meses[+m-1]}/${y.slice(2)}`;
-}
-
-// Renderiza a tabela de categorias
-function renderCategorias(catData, meses, mesesData) {
-  const n = new Date();
-  const mesAtual = `${n.getMonth()+1}/${n.getFullYear()}`;
-
-  if(_canalAtivo === 'all') {
-    // ── MODO TODOS: mostra categorias × 5 canais do mês atual ──
-    document.getElementById('catTitulo').textContent = `Faturamento por Categoria × Canal — ${nomeMes(mesAtual)}`;
-
-    let html = `<table><thead><tr>
-      <th style="text-align:left">Categoria</th>
-      <th style="color:${CORES_CAT['Mercado Livre']}">Mercado Livre</th>
-      <th style="color:${CORES_CAT['Casas Bahia']}">Casas Bahia</th>
-      <th style="color:${CORES_CAT['Magazine Luiza']}">Magazine Luiza</th>
-      <th style="color:${CORES_CAT['Shopee']}">Shopee</th>
-      <th style="color:${CORES_CAT['Amazon']}">Amazon</th>
-      <th>Total</th>
-    </tr></thead><tbody>`;
-
-    const totais = {'Mercado Livre':0,'Casas Bahia':0,'Magazine Luiza':0,'Shopee':0,'Amazon':0,total:0};
-
-    for(const cat of CATS_ORDEM) {
-      const cData = catData[cat]||{};
-      let total = 0;
-      const vals = {};
-      for(const canal of CANAIS_CAT) {
-        vals[canal] = cData[canal]?.[mesAtual]||0;
-        total += vals[canal];
-        totais[canal] += vals[canal];
-      }
-      totais.total += total;
-      if(total === 0) continue;
-      html += `<tr>
-        <td>${cat}</td>
-        <td class="${CLS_CAT['Mercado Livre']}">${R(vals['Mercado Livre'])}</td>
-        <td class="${CLS_CAT['Casas Bahia']}">${R(vals['Casas Bahia'])}</td>
-        <td class="${CLS_CAT['Magazine Luiza']}">${R(vals['Magazine Luiza'])}</td>
-        <td class="${CLS_CAT['Shopee']}">${R(vals['Shopee'])}</td>
-        <td class="${CLS_CAT['Amazon']}">${R(vals['Amazon'])}</td>
-        <td style='font-size:.68rem;font-weight:700;color:var(--od)'>${R(total)}</td>
-      </tr>`;
-    }
-
-    html += `</tbody><tfoot><tr>
-      <td>TOTAL</td>
-      <td>${R(totais['Mercado Livre'])}</td>
-      <td>${R(totais['Casas Bahia'])}</td>
-      <td>${R(totais['Magazine Luiza'])}</td>
-      <td>${R(totais['Shopee'])}</td>
-      <td>${R(totais['Amazon'])}</td>
-      <td>${R(totais.total)}</td>
-    </tr></tfoot></table>`;
-    document.getElementById('catTableWrap').innerHTML = html;
-
-  } else {
-    // ── MODO CANAL: mostra categorias × meses (Jan/26 → hoje) ──
-    const canal = _canalAtivo;
-    const cor   = CORES_CAT[canal];
-    document.getElementById('catTitulo').textContent = `${canal} — Faturamento por Categoria (Jan/26 → hoje)`;
-
-    // Colunas = meses disponíveis
-    let html = `<table><thead><tr>
-      <th style="text-align:left">Categoria</th>
-      ${meses.map(m=>`<th class="mes-th" style="color:${cor}">${nomeMes(m)}</th>`).join('')}
-      <th>Total</th>
-    </tr></thead><tbody>`;
-
-    const totaisMes = {};
-    meses.forEach(m=>totaisMes[m]=0);
-    let grandTotal = 0;
-
-    for(const cat of CATS_ORDEM) {
-      const cData = catData[cat]?.[canal]||{};
-      let total = 0;
-      const cells = meses.map(m=>{
-        const v = cData[m]||0;
-        total += v;
-        totaisMes[m] += v;
-        return v>0
-          ? `<td class="val-pos" style="color:${cor}">${R(v)}</td>`
-          : `<td class="val-zero">—</td>`;
-      }).join('');
-      grandTotal += total;
-      if(total === 0) continue;
-      html += `<tr><td>${cat}</td>${cells}<td class="total-col" style="color:${cor}">${R(total)}</td></tr>`;
-    }
-
-    const totaisCells = meses.map(m=>`<td>${R(totaisMes[m])}</td>`).join('');
-    html += `</tbody><tfoot><tr>
-      <td>TOTAL</td>${totaisCells}<td>${R(grandTotal)}</td>
-    </tr></tfoot></table>`;
-    document.getElementById('catTableWrap').innerHTML = html;
-  }
-}
-
-// ── FILTRO CANAL ───────────────────────────────────────────────
-let _canalAtivo = 'all';
-
-function setCanalFiltro(canal, btn) {
-  _canalAtivo = canal;
-  // Atualiza botões
-  document.querySelectorAll('.cbtn').forEach(b => {
-    b.classList.remove('on');
-    b.style.background = '';
-    b.style.borderColor = '';
-    b.style.color = '';
-  });
-  btn.classList.add('on');
-  const cor = CORES_CAT[canal] || 'var(--or)';
-  btn.style.background = cor;
-  btn.style.borderColor = cor;
-  btn.style.color = '#fff';
-
-  if(_catCache) renderCategorias(_catCache.catData, _catCache.meses, _catCache.mesesData);
-}
-
-// Troca de aba
-function showView(id) {
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  event.target.classList.add('on');
-  // Permite scroll nas abas de análise
-  document.body.classList.add('scrollable');
-
-  // Carrega ao abrir pela primeira vez
-  if(id==='vCat' && !_catCache && _cache) loadCategorias();
-  if(id==='vMarca' && !_marcaCache && _cache) loadMarcas();
-  if(id==='vEstoque' && !_estCache) loadEstoque();
-}
-
-// ── ANO FILTER ─────────────────────────────────────────────────
-let _anoAtivo = 2026;
-
-function setAnoFiltro(ano, btn) {
-  _anoAtivo = ano;
-  document.querySelectorAll('#compTableWrap').forEach(()=>{});
-  // Atualiza botões
-  [document.getElementById('anoBtnCur'), document.getElementById('anoBtn2025')].forEach(b=>{
-    if(!b) return;
-    b.classList.remove('on');
-    b.style.background=''; b.style.borderColor=''; b.style.color='';
-  });
-  btn.classList.add('on');
-  btn.style.background='var(--or)'; btn.style.borderColor='var(--or)'; btn.style.color='#fff';
-  if(_catCache) renderComparativo(_catCache.mesesData);
-}
-
-function renderComparativo(mesesData) {
-  // Filtra meses do ano selecionado
-  const mesesAno = (_catCache?.meses||[]).filter(m=>{
-    const [,y]=m.split('/'); return +y===_anoAtivo;
-  });
-  if(!mesesAno.length) {
-    document.getElementById('compTableWrap').innerHTML=
-      `<div style="color:var(--mu);font-size:.72rem;padding:12px;text-align:center">Sem dados para ${_anoAtivo}</div>`;
-    return;
-  }
-
-  const NOMES_MESES=['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-
-  let html = `<table><thead><tr>
-    <th style="text-align:left;min-width:130px">Canal</th>
-    ${mesesAno.map(m=>{
-      const [mm]=m.split('/');
-      return `<th class="mes-th">${NOMES_MESES[+mm]}</th>`;
-    }).join('')}
-    <th>Total</th>
-  </tr></thead><tbody>`;
-
-  const totaisMes = {};
-  mesesAno.forEach(m=>totaisMes[m]=0);
-  let grandTotal = 0;
-
-  for(const canal of CANAIS_CAT) {
-    const cor = CORES_CAT[canal];
-    let totalCanal = 0;
-    const cells = mesesAno.map(m=>{
-      const v=(mesesData[m]?.[canal])||0;
-      totaisMes[m]+=v; totalCanal+=v;
-      return v>0
-        ? `<td style="color:${cor};font-weight:700">${R(v)}</td>`
-        : `<td class="val-zero">—</td>`;
-    }).join('');
-    grandTotal+=totalCanal;
-    html+=`<tr>
-      <td style="font-weight:800;color:${cor}">${canal}</td>
-      ${cells}
-      <td style="font-family:'Bebas Neue';font-size:.85rem;color:${cor}">${R(totalCanal)}</td>
-    </tr>`;
-  }
-
-  const totCells = mesesAno.map(m=>`<td>${R(totaisMes[m])}</td>`).join('');
-  html+=`</tbody><tfoot><tr>
-    <td>TOTAL</td>${totCells}<td>${R(grandTotal)}</td>
-  </tr></tfoot></table>`;
-
-  document.getElementById('compTableWrap').innerHTML=html;
-}
-
-async function loadCategorias() {
-  document.getElementById('catTableWrap').innerHTML='<div style="color:var(--mu);font-size:.75rem;padding:20px;text-align:center">⏳ Carregando produtos e categorias...</div>';
-  try {
-    const prodMap = await loadProdutos();
-    const result  = processarCatComPedidos(_cache.pRows, _cache.iRows, prodMap);
-    _catCache = result;
-    renderCategorias(result.catData, result.meses, result.mesesData);
-    renderComparativo(result.mesesData);
-  } catch(e) {
-    console.error('[Cat]',e);
-    document.getElementById('catTableWrap').innerHTML=`<div style="color:var(--re);font-size:.72rem;padding:12px">❌ Erro: ${e.message}</div>`;
-  }
-}
-
-
-
-// ── ESTOQUE ─────────────────────────────────────────────────────
-const ESTOQUE_ID  = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
-const DEPOSITOS_OK= new Set(['deposito amazonfull','novo galpao']);
-
-let _estCache = null; // {produtos, estDepo, itensRows, produtosRows}
-
-async function loadEstoque() {
-  document.getElementById('estoqueTableWrap').innerHTML =
-    '<div style="color:var(--mu);font-size:.75rem;padding:30px;text-align:center">⏳ Carregando estoque e produtos...</div>';
-  try {
-    const depoRows = await fetchSheet(ESTOQUE_ID,'A:G','tinyerp_estoque_produto_depo');
-    const prodRows = await fetchSheet(ESTOQUE_ID,'A:Z','tinyerp_produtos');
-
-    // Índices confirmados:
-    // id=0, codigo(SKU)=7, marca=24
-    const iId=0, iSku=7, iMarca=24;
-
-    // Monta mapa id_produto → {sku, marca}
-    const prodMap = {};
-    for(let i=1;i<prodRows.length;i++){
-      const r=prodRows[i];
-      const id=(r[iId]||'').trim();
-      if(!id) continue;
-      prodMap[id]={
-        sku:  (r[iSku]||'').trim(),
-        marca:(r[iMarca]||'').trim(),
-        nome: '' // será preenchido a partir dos itens de pedido
-      };
-    }
-
-    // Pega nome real do produto a partir dos itens de pedido (itens_descricao)
-    // Usa o cache de itens já carregado
-    const iRows = _cache?.iRows || [];
-    const nomeMap = {}; // id_produto → nome mais frequente
-    for(let i=1;i<iRows.length;i++){
-      const r=iRows[i];
-      const idProd=(r[3]||'').trim();
-      const desc=(r[2]||'').trim();
-      if(idProd && desc && !nomeMap[idProd]) nomeMap[idProd]=desc;
-    }
-    // Aplica nome ao prodMap
-    for(const id of Object.keys(prodMap)){
-      if(nomeMap[id]) prodMap[id].nome=nomeMap[id];
-      // Fallback: usa SKU se não tiver nome
-      if(!prodMap[id].nome) prodMap[id].nome=prodMap[id].sku||id;
-      // Fallback de marca: extrai da descrição
-      if(!prodMap[id].marca && prodMap[id].nome) prodMap[id].marca=getMarca(prodMap[id].nome);
-    }
-
-    // Agrega estoque por id_produto somando só depósitos válidos
-    const estoqueMap = {};
-    for(let i=1;i<depoRows.length;i++){
-      const r=depoRows[i];
-      const id=(r[0]||'').trim();
-      const depo=(r[3]||'').toLowerCase().trim();
-      const saldo=parseFloat(r[4]||'0')||0;
-      if(!id||saldo===0) continue;
-      if(DEPOSITOS_OK.has(depo)) estoqueMap[id]=(estoqueMap[id]||0)+saldo;
-    }
-
-    _estCache = {prodMap, estoqueMap, iRows};
-
-    // Popula filtro de marcas
-    const marcasSet = new Set();
-    Object.values(prodMap).forEach(p=>{ if(p.marca) marcasSet.add(p.marca); });
-    const sel = document.getElementById('eMarca');
-    sel.innerHTML = '<option value="all">Todas</option>';
-    [...marcasSet].sort().forEach(m=>{
-      const o=document.createElement('option');
-      o.value=m; o.textContent=m; sel.appendChild(o);
-    });
-
-    renderEstoque();
-  } catch(e) {
-    console.error('[Estoque]',e);
-    document.getElementById('estoqueTableWrap').innerHTML=
-      `<div style="color:var(--re);font-size:.72rem;padding:20px">❌ Erro: ${e.message}</div>`;
-  }
-}
-
-function renderEstoque() {
-  if(!_estCache) return;
-  const {prodMap, estoqueMap, iRows} = _estCache;
-
-  const dias       = parseInt(document.getElementById('eDias').value)||30;
-  const filtMarca  = document.getElementById('eMarca').value;
-  const filtSku    = document.getElementById('eSku').value.trim().toLowerCase();
-  const apenasNeg  = document.getElementById('eApenasNeg').checked;
-  const apenasZero = document.getElementById('eApenasZero').checked;
-  const minEstoque = parseInt(document.getElementById('eMinEstoque').value)||0;
-
-  // Data de início do período
-  const dataInicio = new Date();
-  dataInicio.setDate(dataInicio.getDate()-dias);
-
-  // Conta vendas por id_produto no período
-  const vendasMap = {};
-  for(let i=1;i<iRows.length;i++){
-    const r=iRows[i];
-    const sit=(r[9]||'').toLowerCase().trim();
-    const dat=(r[11]||'').trim();
-    const idProd=(r[3]||'').trim();
-    if(!VALIDAS.has(sit)||!idProd) continue;
-    const parts=dat.split('/');
-    if(parts.length<3) continue;
-    const d=new Date(+parts[2],+parts[0]-1,+parts[1]);
-    if(d<dataInicio) continue;
-    const qtd=parseFloat((r[4]||'1').replace(',','.'))||1;
-    vendasMap[idProd]=(vendasMap[idProd]||0)+qtd;
-  }
-
-  // Monta lista
-  let produtos = Object.entries(prodMap).map(([id,p])=>{
-    const estoque  = estoqueMap[id]||0;
-    const vendas   = vendasMap[id]||0;
-    const falta    = vendas - estoque; // positivo = precisa repor
-    // Previsão: estoque daqui X dias seguindo mesma média diária
-    const mediaDia = vendas/dias;
-    const previsto = Math.max(0, estoque - mediaDia*dias); // não fica negativo
-    return {id, ...p, estoque, vendas, falta, mediaDia, previsto};
-  });
-
-  // Filtros
-  if(filtMarca!=='all') produtos=produtos.filter(p=>p.marca===filtMarca);
-  if(filtSku)           produtos=produtos.filter(p=>(p.sku||'').toLowerCase().includes(filtSku)||(p.nome||'').toLowerCase().includes(filtSku));
-  if(apenasNeg)         produtos=produtos.filter(p=>p.falta>0);
-  if(apenasZero)        produtos=produtos.filter(p=>p.previsto===0);
-  if(minEstoque>0)      produtos=produtos.filter(p=>p.previsto<minEstoque&&(p.estoque>0||p.vendas>0));
-
-  // Ordena por falta desc
-  produtos.sort((a,b)=>b.falta-a.falta);
-
-  // Só produtos com algum dado
-  // Remove sempre: SKUs que começam com KIT ou terminam com ML
-  const comDados=produtos.filter(p=>{
-    const sku=(p.sku||'').toUpperCase().trim();
-    if(sku.startsWith('KIT')) return false;
-    if(sku.endsWith('ML')) return false;
-    return p.estoque>0||p.vendas>0;
-  });
-
-  document.getElementById('eStatus').textContent=
-    `${comDados.length} produtos | Últimos ${dias} dias | Previsão: próximos ${dias} dias`;
-
-  if(!comDados.length){
-    document.getElementById('estoqueTableWrap').innerHTML=
-      '<div style="color:var(--mu);font-size:.75rem;padding:30px;text-align:center">Nenhum produto encontrado com os filtros selecionados</div>';
-    return;
-  }
-
-  let html=`<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
-    <thead><tr style="border-bottom:2px solid var(--bd);position:sticky;top:0;background:var(--wh);z-index:2;">
-      <th style="text-align:left;padding:6px 10px;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">SKU</th>
-      <th style="text-align:left;padding:6px 10px;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;min-width:240px">Produto</th>
-      <th style="padding:6px 10px;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Marca</th>
-      <th style="padding:6px 10px;font-size:.56rem;font-weight:900;color:var(--or);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Estoque</th>
-      <th style="padding:6px 10px;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Vendas (${dias}d)</th>
-      <th style="padding:6px 10px;font-size:.56rem;font-weight:900;color:var(--re);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Falta ▼</th>
-      <th style="padding:6px 10px;font-size:.56rem;font-weight:900;color:#7C3AED;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Previsão ${dias}d</th>
-    </tr></thead><tbody>`;
-
-  for(const p of comDados){
-    const faltaCls = p.falta<=0?'est-ok':p.falta<=5?'est-warn':'est-crit';
-    const rowBg    = p.falta>0?'background:rgba(220,38,38,.04);':'';
-
-    // Previsão: verde = ok, laranja = baixo (<5 ou <10), vermelho = zerado
-    const prevVal  = p.previsto.toFixed(0);
-    const prevCls  = p.previsto===0?'color:var(--re);font-weight:900':
-                     p.previsto<5 ?'color:var(--or);font-weight:800':
-                     p.previsto<10?'color:#D97706;font-weight:700':
-                     'color:#7C3AED;font-weight:700';
-    const prevIcon = p.previsto===0?'🔴':p.previsto<5?'🟠':p.previsto<10?'🟡':'🟢';
-    const faltaTxt = p.falta>0?`+${p.falta.toFixed(0)}`:p.falta<0?p.falta.toFixed(0):'0';
-
-    html+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
-      <td style="padding:5px 10px;text-align:left;font-weight:800;color:var(--or);white-space:nowrap">${p.sku||'—'}</td>
-      <td style="padding:5px 10px;text-align:left;font-weight:700;color:var(--tx)">${(p.nome||'').substring(0,65)}</td>
-      <td style="padding:5px 10px;text-align:center;font-weight:700;color:var(--mu)">${p.marca||'—'}</td>
-      <td style="padding:5px 10px;text-align:center;font-weight:700;color:var(--tx)">${p.estoque.toFixed(0)}</td>
-      <td style="padding:5px 10px;text-align:center;font-weight:700;color:var(--mu)">${p.vendas.toFixed(0)}</td>
-      <td style="padding:5px 10px;text-align:center;" class="${faltaCls}">${faltaTxt}</td>
-      <td style="padding:5px 10px;text-align:center;${prevCls}">${prevIcon} ${prevVal}</td>
-    </tr>`;
-  }
-
-  html+=`</tbody></table>`;
-  document.getElementById('estoqueTableWrap').innerHTML=html;
-}
-
-// ── MARCAS ─────────────────────────────────────────────────────
-let _marcaCanalAtivo = 'all';
-let _marcaAnoAtivo   = 2026;
-let _marcaCache      = null;
-
-const MARCAS_LISTA = [
-  'Mueller','Imbera','Itatiaia','Atlas','Midea','Philco','Amvox','Dako',
-  'Pulse','SSOUND','Mallory','Britania','Mondial','Electrolux','Brastemp',
-  'Consul','LG','Samsung','Multilaser','Intelbras','Knup','Best','Suggar',
-  'Cadence','Arno','Tramontina','Fischer','Outros'
-];
-
-function processarMarcas(pRows, iRows) {
-  // Mapa id_pedido → canal
-  const pedCanal = {};
-  for(let i=1;i<pRows.length;i++){
-    const r=pRows[i];
-    const id=(r[C.ID]||'').trim();
-    if(id) pedCanal[id]=getCanal(r[C.ENOME],r[C.ENUM]);
-  }
-
-  // Agrupa marca × canal × mes
-  const data = {}; // data[marca][canal][mesKey] = fat
-  const mesesSet = new Set();
-
-  for(let i=1;i<iRows.length;i++){
-    const r=iRows[i];
-    const idPed=(r[0]||'').trim();
-    const sit=(r[9]||'').toLowerCase().trim();
-    const dat=(r[11]||'').trim();
-    const qtd=parseFloat((r[4]||'1').replace(',','.'))||1;
-    const vu=parseFloat((r[6]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;
-    if(!VALIDAS.has(sit)||!dat||fat===0) continue;
-
-    const partes=dat.split('/');
-    if(partes.length<3) continue;
-    const mesKey=`${+partes[0]}/${partes[2]}`;
-    mesesSet.add(mesKey);
-
-    const mk=getMarca(r[2]||'');
-    const cn=pedCanal[idPed]||'Outros';
-
-    if(!data[mk])data[mk]={};
-    if(!data[mk][cn])data[mk][cn]={};
-    data[mk][cn][mesKey]=(data[mk][cn][mesKey]||0)+fat;
-  }
-
-  const meses=[...mesesSet].sort((a,b)=>{
-    const [ma,ya]=a.split('/');const [mb,yb]=b.split('/');
-    return new Date(+ya,+ma-1)-new Date(+yb,+mb-1);
-  });
-
-  return {data, meses};
-}
-
-function setMarcaCanal(canal, btn) {
-  _marcaCanalAtivo=canal;
-  document.querySelectorAll('#marcaCanalBtns .cbtn').forEach(b=>{
-    b.classList.remove('on');b.style.background='';b.style.borderColor='';b.style.color='';
-  });
-  btn.classList.add('on');
-  const cor=CORES_CAT[canal]||'var(--or)';
-  btn.style.background=cor;btn.style.borderColor=cor;btn.style.color='#fff';
-  if(_marcaCache) renderMarcaTabela(_marcaCache);
-}
-
-function setMarcaAno(ano, btn) {
-  _marcaAnoAtivo=ano;
-  ['marcaAnoBtnCur','marcaAnoBtn2025'].forEach(id=>{
-    const b=document.getElementById(id);
-    if(!b)return;
-    b.classList.remove('on');b.style.background='';b.style.borderColor='';b.style.color='';
-  });
-  btn.classList.add('on');
-  btn.style.background='var(--or)';btn.style.borderColor='var(--or)';btn.style.color='#fff';
-  if(_marcaCache) renderMarcaHist(_marcaCache);
-}
-
-function renderMarcaTabela({data, meses}) {
-  const n=new Date();
-  const mesAtual=`${n.getMonth()+1}/${n.getFullYear()}`;
-
-  if(_marcaCanalAtivo==='all') {
-    // Marca × 5 canais do mês atual
-    document.getElementById('marcaTitulo').textContent=`Faturamento por Marca × Canal — ${nomeMes(mesAtual)}`;
-
-    let html=`<table><thead><tr>
-      <th style="text-align:left">Marca</th>
-      ${CANAIS_CAT.map(c=>`<th style="color:${CORES_CAT[c]}">${c.split(' ')[0]==='Magazine'?'Magalu':c.split(' ')[0]}</th>`).join('')}
-      <th>Total</th>
-    </tr></thead><tbody>`;
-
-    const totais={total:0};CANAIS_CAT.forEach(c=>totais[c]=0);
-
-    // Ordena marcas por total do mês
-    const marcasOrdenadas=[...MARCAS_LISTA].sort((a,b)=>{
-      const ta=CANAIS_CAT.reduce((s,c)=>s+(data[a]?.[c]?.[mesAtual]||0),0);
-      const tb=CANAIS_CAT.reduce((s,c)=>s+(data[b]?.[c]?.[mesAtual]||0),0);
-      return tb-ta;
-    });
-
-    for(const mk of marcasOrdenadas){
-      let total=0;
-      const vals={};
-      for(const cn of CANAIS_CAT){vals[cn]=(data[mk]?.[cn]?.[mesAtual]||0);total+=vals[cn];totais[cn]+=vals[cn];}
-      totais.total+=total;
-      if(total===0) continue;
-      html+=`<tr>
-        <td style="font-weight:800">${mk}</td>
-        ${CANAIS_CAT.map(cn=>vals[cn]>0
-          ?`<td class="${CLS_CAT[cn]}">${R(vals[cn])}</td>`
-          :`<td class="val-zero">—</td>`).join('')}
-        <td style='font-size:.68rem;font-weight:700;color:var(--od)'>${R(total)}</td>
-      </tr>`;
-    }
-
-    html+=`</tbody><tfoot><tr><td>TOTAL</td>
-      ${CANAIS_CAT.map(c=>`<td>${R(totais[c])}</td>`).join('')}
-      <td>${R(totais.total)}</td>
-    </tr></tfoot></table>`;
-    document.getElementById('marcaTableWrap').innerHTML=html;
-
-  } else {
-    // Marca × meses para canal selecionado
-    const canal=_marcaCanalAtivo;
-    const cor=CORES_CAT[canal];
-    document.getElementById('marcaTitulo').textContent=`${canal} — Faturamento por Marca (Jan/26 → hoje)`;
-
-    let html=`<table><thead><tr>
-      <th style="text-align:left">Marca</th>
-      ${meses.map(m=>`<th class="mes-th" style="color:${cor}">${nomeMes(m)}</th>`).join('')}
-      <th>Total</th>
-    </tr></thead><tbody>`;
-
-    const totaisMes={};meses.forEach(m=>totaisMes[m]=0);
-    let grandTotal=0;
-
-    const marcasOrdenadas=[...MARCAS_LISTA].sort((a,b)=>{
-      const ta=meses.reduce((s,m)=>s+(data[a]?.[canal]?.[m]||0),0);
-      const tb=meses.reduce((s,m)=>s+(data[b]?.[canal]?.[m]||0),0);
-      return tb-ta;
-    });
-
-    for(const mk of marcasOrdenadas){
-      let total=0;
-      const cells=meses.map(m=>{
-        const v=data[mk]?.[canal]?.[m]||0;
-        totaisMes[m]+=v;total+=v;
-        return v>0?`<td style="color:${cor};font-weight:700">${R(v)}</td>`:`<td class="val-zero">—</td>`;
-      }).join('');
-      grandTotal+=total;
-      if(total===0) continue;
-      html+=`<tr><td style="font-weight:800">${mk}</td>${cells}<td style='font-size:.68rem;font-weight:700;color:${cor}'>${R(total)}</td></tr>`;
-    }
-
-    html+=`</tbody><tfoot><tr><td>TOTAL</td>
-      ${meses.map(m=>`<td>${R(totaisMes[m])}</td>`).join('')}
-      <td>${R(grandTotal)}</td>
-    </tr></tfoot></table>`;
-    document.getElementById('marcaTableWrap').innerHTML=html;
-  }
-}
-
-function renderMarcaHist({data, meses}) {
-  const mesesAno=meses.filter(m=>{const[,y]=m.split('/');return +y===_marcaAnoAtivo;});
-  if(!mesesAno.length){
-    document.getElementById('marcaHistWrap').innerHTML=`<div style="color:var(--mu);font-size:.72rem;padding:12px;text-align:center">Sem dados para ${_marcaAnoAtivo}</div>`;
-    return;
-  }
-  const NOMES_MESES=['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-
-  let html=`<table><thead><tr>
-    <th style="text-align:left">Marca</th>
-    ${mesesAno.map(m=>{const[mm]=m.split('/');return`<th class="mes-th">${NOMES_MESES[+mm]}</th>`;}).join('')}
-    <th>Total</th>
-  </tr></thead><tbody>`;
-
-  const totaisMes={};mesesAno.forEach(m=>totaisMes[m]=0);
-  let grandTotal=0;
-
-  // Ordena por total do ano
-  const marcasOrdenadas=[...MARCAS_LISTA].sort((a,b)=>{
-    const ta=mesesAno.reduce((s,m)=>s+CANAIS_CAT.reduce((ss,c)=>ss+(data[a]?.[c]?.[m]||0),0),0);
-    const tb=mesesAno.reduce((s,m)=>s+CANAIS_CAT.reduce((ss,c)=>ss+(data[b]?.[c]?.[m]||0),0),0);
-    return tb-ta;
-  });
-
-  for(const mk of marcasOrdenadas){
-    let total=0;
-    const cells=mesesAno.map(m=>{
-      const v=CANAIS_CAT.reduce((s,c)=>s+(data[mk]?.[c]?.[m]||0),0);
-      totaisMes[m]+=v;total+=v;
-      return v>0?`<td style="color:var(--od);font-weight:700">${R(v)}</td>`:`<td class="val-zero">—</td>`;
-    }).join('');
-    grandTotal+=total;
-    if(total===0) continue;
-    html+=`<tr><td style="font-weight:800">${mk}</td>${cells}<td style='font-size:.68rem;font-weight:700;color:var(--od)'>${R(total)}</td></tr>`;
-  }
-
-  html+=`</tbody><tfoot><tr><td>TOTAL</td>
-    ${mesesAno.map(m=>`<td>${R(totaisMes[m])}</td>`).join('')}
-    <td>${R(grandTotal)}</td>
-  </tr></tfoot></table>`;
-  document.getElementById('marcaHistWrap').innerHTML=html;
-}
-
-async function loadMarcas() {
-  document.getElementById('marcaTableWrap').innerHTML='<div style="color:var(--mu);font-size:.75rem;padding:20px;text-align:center">⏳ Processando marcas...</div>';
-  document.getElementById('marcaHistWrap').innerHTML='<div style="color:var(--mu);font-size:.75rem;padding:16px;text-align:center">⏳ Processando...</div>';
-  try {
-    if(!_cache) throw new Error('Dados principais não carregados ainda');
-    _marcaCache=processarMarcas(_cache.pRows,_cache.iRows);
-    renderMarcaTabela(_marcaCache);
-    renderMarcaHist(_marcaCache);
-  } catch(e) {
-    console.error('[Marcas]',e);
-    document.getElementById('marcaTableWrap').innerHTML=`<div style="color:var(--re);font-size:.72rem;padding:12px">❌ Erro: ${e.message}</div>`;
-  }
-}
-
 // Clock
 setInterval(()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR'),1000);
-
-// Init
 load();
-setInterval(load, 5*60*1000);
+setInterval(load,5*60*1000);
 </script>
 </body>
 </html>
