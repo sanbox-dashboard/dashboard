@@ -188,6 +188,11 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
     <button class="tab"     onclick="aba('vML',this)">🟡 Mercado Livre</button>
+    <button class="tab"     onclick="aba('vCB',this)">🔵 Casas Bahia</button>
+    <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
+    <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
+    <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
+    <button class="tab"     onclick="aba('vAF',this)">📦 Amazon Full</button>
   </div>
 
   <div class="content">
@@ -410,6 +415,255 @@ tfoot td:first-child{text-align:left;}
 
     </div><!-- /vML -->
 
+
+    <!-- ══ CASAS BAHIA ══════════════════════════════════════════ -->
+    <div class="panel" id="vCB">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#0052A5"><div class="kl">Dia A (raiz)</div><div class="kv" id="vCBFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBQtdA">--</div></div>
+        <div class="kpi" style="--kc:#0052A5"><div class="kl">Dia B (comparação)</div><div class="kv" id="vCBFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBQtdB">--</div></div>
+        <div class="kpi" style="--kc:#0052A5"><div class="kl">Mês Atual</div><div class="kv" id="vCBFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBProjMes">--</div></div>
+        <div class="kpi" style="--kc:#0052A5"><div class="kl">Vendas Hoje</div><div class="kv" id="vCBFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBQtdHoje">--</div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vCBCompTit">Comparativo Top 10</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span>
+            <input type="date" id="vCBDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span>
+            <input type="date" id="vCBDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalComp('Casas Bahia','vCB')">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on"  id="vCBFAll" onclick="setCanalFilt('Casas Bahia','vCB','all',this)"  style="background:#0052A5;border-color:#0052A5;color:#fff">Todos</button>
+            <button class="abtn"     id="vCBFUp"  onclick="setCanalFilt('Casas Bahia','vCB','up',this)">▲ Subiram</button>
+            <button class="abtn"     id="vCBFDn"  onclick="setCanalFilt('Casas Bahia','vCB','dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vCBCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vCBListaTit">Todos Produtos</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span>
+            <input type="date" id="vCBDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalLista('Casas Bahia','vCB')">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vCBListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vCBTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
+        <div class="tscroll"><div id="vCBTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+    </div><!-- /vCB -->
+
+    <!-- ══ MAGAZINE LUIZA ══════════════════════════════════════════ -->
+    <div class="panel" id="vMG">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#CC0066"><div class="kl">Dia A (raiz)</div><div class="kv" id="vMGFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGQtdA">--</div></div>
+        <div class="kpi" style="--kc:#CC0066"><div class="kl">Dia B (comparação)</div><div class="kv" id="vMGFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGQtdB">--</div></div>
+        <div class="kpi" style="--kc:#CC0066"><div class="kl">Mês Atual</div><div class="kv" id="vMGFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGProjMes">--</div></div>
+        <div class="kpi" style="--kc:#CC0066"><div class="kl">Vendas Hoje</div><div class="kv" id="vMGFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGQtdHoje">--</div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vMGCompTit">Comparativo Top 10</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span>
+            <input type="date" id="vMGDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span>
+            <input type="date" id="vMGDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalComp('Magazine Luiza','vMG')">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on"  id="vMGFAll" onclick="setCanalFilt('Magazine Luiza','vMG','all',this)"  style="background:#CC0066;border-color:#CC0066;color:#fff">Todos</button>
+            <button class="abtn"     id="vMGFUp"  onclick="setCanalFilt('Magazine Luiza','vMG','up',this)">▲ Subiram</button>
+            <button class="abtn"     id="vMGFDn"  onclick="setCanalFilt('Magazine Luiza','vMG','dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vMGCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vMGListaTit">Todos Produtos</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span>
+            <input type="date" id="vMGDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalLista('Magazine Luiza','vMG')">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vMGListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vMGTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
+        <div class="tscroll"><div id="vMGTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+    </div><!-- /vMG -->
+
+    <!-- ══ SHOPEE ══════════════════════════════════════════ -->
+    <div class="panel" id="vSH">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Dia A (raiz)</div><div class="kv" id="vSHFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHQtdA">--</div></div>
+        <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Dia B (comparação)</div><div class="kv" id="vSHFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHQtdB">--</div></div>
+        <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Mês Atual</div><div class="kv" id="vSHFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHProjMes">--</div></div>
+        <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Vendas Hoje</div><div class="kv" id="vSHFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHQtdHoje">--</div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vSHCompTit">Comparativo Top 10</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span>
+            <input type="date" id="vSHDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span>
+            <input type="date" id="vSHDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalComp('Shopee','vSH')">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on"  id="vSHFAll" onclick="setCanalFilt('Shopee','vSH','all',this)"  style="background:#EE4D2D;border-color:#EE4D2D;color:#fff">Todos</button>
+            <button class="abtn"     id="vSHFUp"  onclick="setCanalFilt('Shopee','vSH','up',this)">▲ Subiram</button>
+            <button class="abtn"     id="vSHFDn"  onclick="setCanalFilt('Shopee','vSH','dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vSHCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vSHListaTit">Todos Produtos</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span>
+            <input type="date" id="vSHDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalLista('Shopee','vSH')">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vSHListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vSHTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
+        <div class="tscroll"><div id="vSHTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+    </div><!-- /vSH -->
+
+    <!-- ══ AMAZON ══════════════════════════════════════════ -->
+    <div class="panel" id="vAMZ">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#E47911"><div class="kl">Dia A (raiz)</div><div class="kv" id="vAMZFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZQtdA">--</div></div>
+        <div class="kpi" style="--kc:#E47911"><div class="kl">Dia B (comparação)</div><div class="kv" id="vAMZFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZQtdB">--</div></div>
+        <div class="kpi" style="--kc:#E47911"><div class="kl">Mês Atual</div><div class="kv" id="vAMZFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZProjMes">--</div></div>
+        <div class="kpi" style="--kc:#E47911"><div class="kl">Vendas Hoje</div><div class="kv" id="vAMZFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZQtdHoje">--</div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vAMZCompTit">Comparativo Top 10</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span>
+            <input type="date" id="vAMZDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span>
+            <input type="date" id="vAMZDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalComp('Amazon','vAMZ')">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on"  id="vAMZFAll" onclick="setCanalFilt('Amazon','vAMZ','all',this)"  style="background:#E47911;border-color:#E47911;color:#fff">Todos</button>
+            <button class="abtn"     id="vAMZFUp"  onclick="setCanalFilt('Amazon','vAMZ','up',this)">▲ Subiram</button>
+            <button class="abtn"     id="vAMZFDn"  onclick="setCanalFilt('Amazon','vAMZ','dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vAMZCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vAMZListaTit">Todos Produtos</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span>
+            <input type="date" id="vAMZDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalLista('Amazon','vAMZ')">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vAMZListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vAMZTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
+        <div class="tscroll"><div id="vAMZTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+    </div><!-- /vAMZ -->
+
+    <!-- ══ AMAZON FULFILLMENT ══════════════════════════════════════════ -->
+    <div class="panel" id="vAF">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia A (raiz)</div><div class="kv" id="vAFFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdA">--</div></div>
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia B (comparação)</div><div class="kv" id="vAFFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdB">--</div></div>
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Mês Atual</div><div class="kv" id="vAFFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFProjMes">--</div></div>
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Vendas Hoje</div><div class="kv" id="vAFFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdHoje">--</div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vAFCompTit">Comparativo Top 10</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span>
+            <input type="date" id="vAFDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span>
+            <input type="date" id="vAFDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalComp('Amazon Fulfillment','vAF')">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on"  id="vAFFAll" onclick="setCanalFilt('Amazon Fulfillment','vAF','all',this)"  style="background:#FF9900;border-color:#FF9900;color:#fff">Todos</button>
+            <button class="abtn"     id="vAFFUp"  onclick="setCanalFilt('Amazon Fulfillment','vAF','up',this)">▲ Subiram</button>
+            <button class="abtn"     id="vAFFDn"  onclick="setCanalFilt('Amazon Fulfillment','vAF','dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vAFCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vAFListaTit">Todos Produtos</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span>
+            <input type="date" id="vAFDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalLista('Amazon Fulfillment','vAF')">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vAFListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vAFTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
+        <div class="tscroll"><div id="vAFTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+    </div><!-- /vAF -->
+
+    <!-- ══ AMAZON FULFILLMENT ══════════════════════════════════════════ -->
+    <div class="panel" id="vAF">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia A (raiz)</div><div class="kv" id="vAFFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdA">--</div></div>
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia B (comparação)</div><div class="kv" id="vAFFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdB">--</div></div>
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Mês Atual</div><div class="kv" id="vAFFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFProjMes">--</div></div>
+        <div class="kpi" style="--kc:#FF9900"><div class="kl">Vendas Hoje</div><div class="kv" id="vAFFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdHoje">--</div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vAFCompTit">Comparativo Top 10</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span><input type="date" id="vAFDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span><input type="date" id="vAFDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalComp('Amazon Fulfillment','vAF')">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on" id="vAFFAll" onclick="setCanalFilt('Amazon Fulfillment','vAF','all',this)" style="background:#FF9900;border-color:#FF9900;color:#fff">Todos</button>
+            <button class="abtn" id="vAFFUp" onclick="setCanalFilt('Amazon Fulfillment','vAF','up',this)">▲ Subiram</button>
+            <button class="abtn" id="vAFFDn" onclick="setCanalFilt('Amazon Fulfillment','vAF','dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vAFCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="vAFListaTit">Todos Produtos Amazon Full</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span><input type="date" id="vAFDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCanalLista('Amazon Fulfillment','vAF')">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="vAFListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+      <div class="card">
+        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vAFTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
+        <div class="tscroll"><div id="vAFTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+    </div><!-- /vAF -->
   </div><!-- /content -->
 </div><!-- /app -->
 
@@ -424,7 +678,7 @@ const EST_ID   = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 
 const VALIDAS = new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue']);
 const CANAIS  = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon'];
-const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911'};
+const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911','Amazon Fulfillment':'#FF9900'};
 
 // Cols: tinyerp_pedidos_detalhes
 const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,SIT:62,DATA:64};
@@ -433,6 +687,7 @@ const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
 // ── STATE ───────────────────────────────────────────────────
 let _modo='dia',_ini=null,_fim=null;
+const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null,'Amazon Fulfillment':null};
 let _dRef='',_ontRef='';
 let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
@@ -1080,6 +1335,11 @@ function aba(id,btn){
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
   if(id==='vML')loadML();
+  if(id==='vCB')loadCanal('Casas Bahia','vCB');
+  if(id==='vMG')loadCanal('Magazine Luiza','vMG');
+  if(id==='vSH')loadCanal('Shopee','vSH');
+  if(id==='vAMZ')loadCanal('Amazon','vAMZ');
+  if(id==='vAF')loadCanal('Amazon Fulfillment','vAF');
 }
 
 // ── LOAD PRINCIPAL ───────────────────────────────────────────
@@ -1087,18 +1347,19 @@ async function load(){
   document.getElementById('sLbl').textContent='CARREGANDO';
   document.getElementById('ov').style.display='flex';
   document.getElementById('app').style.display='none';
-  _catC=null;_marcaC=null;// força reprocessar
+  _catC=null;_marcaC=null;_mlC=null;
+  for(const k of Object.keys(_canalCache)) _canalCache[k]=null;
   try{
-    setLoad(5,'Metas...');
-    const metas=await getMetas();
-    setLoad(25,'Pedidos...');
-    const pRows=await fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes');
-    setLoad(65,'Itens...');
-    let iRows=[];
-    try{iRows=await fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens');}catch(e){console.warn('[Itens]',e);}
+    setLoad(5,'Conectando...');
+    // Busca tudo em PARALELO para máxima velocidade
+    const [metas, pRows, iRowsResult] = await Promise.all([
+      getMetas(),
+      fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes'),
+      fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
+    ]);
     setLoad(90,'Processando...');
-    _cache={pRows,iRows,metas};
-    const d=processDash(pRows,iRows,metas);
+    _cache={pRows,iRows:iRowsResult,metas};
+    const d=processDash(pRows,iRowsResult,metas);
     document.getElementById('ov').style.display='none';
     document.getElementById('app').style.display='flex';
     renderDash(d);
@@ -1112,6 +1373,208 @@ async function load(){
   }
 }
 
+
+
+// ── ENGINE GENÉRICA PARA ABAS DE CANAL ───────────────────────
+// Funciona para CB, MG, Shopee, Amazon, Amazon Fulfillment
+const _canalState = {}; // canal → {diaA, diaB, diaL, filt}
+
+function isCanal(eNome, eNum, canalNome){
+  const n=(eNome||'').toLowerCase();
+  const c=canalNome.toLowerCase();
+  if(c==='casas bahia')     return n.includes('casas bahia')||n.includes('via varejo');
+  if(c==='magazine luiza')  return n.includes('magazine')||n.includes('magalu');
+  if(c==='shopee')          return n.includes('shopee');
+  if(c==='amazon fulfillment') return n.includes('amazon fulfillment');
+  if(c==='amazon')          return n.includes('amazon')&&!n.includes('fulfillment');
+  return false;
+}
+
+function processarCanal(pRows, iRows, canalNome){
+  if(_canalCache[canalNome]) return _canalCache[canalNome];
+
+  const pedCanal=new Set();
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];const id=(r[C.ID]||'').trim();
+    if(id&&isCanal(r[C.ENOME],r[C.ENUM],canalNome)) pedCanal.add(id);
+  }
+
+  const hoje=_dRef;
+  const ontem=mlOffset(hoje,-1);
+  const ante=mlOffset(hoje,-2);
+
+  const dRef2=pD(hoje);
+  const mesPrev=dRef2.getMonth()===0?12:dRef2.getMonth();
+  const anoPrev=dRef2.getMonth()===0?dRef2.getFullYear()-1:dRef2.getFullYear();
+  const mesAtual=dRef2.getMonth()+1,anoAtual=dRef2.getFullYear();
+  const diasMesAtual=new Date(anoAtual,mesAtual,0).getDate();
+  const diasPassados=dRef2.getDate();
+  const diasMesPrev=new Date(anoPrev,mesPrev,0).getDate();
+
+  const byDia={};const mesPrevData={};const mesAtualData={};
+
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];
+    const idPed=(r[0]||'').trim();
+    if(!pedCanal.has(idPed))continue;
+    const sit=(r[I.SIT]||'').toLowerCase().trim();
+    if(!VALIDAS.has(sit))continue;
+    const dat=(r[I.DATA]||'').trim();
+    const sku=(r[1]||'').trim();
+    const desc=(r[I.DESC]||'').trim();
+    const idProd=(r[I.IDPROD]||'').trim();
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const fat=qtd*vu;
+    if(!byDia[dat])byDia[dat]={};
+    if(!byDia[dat][sku])byDia[dat][sku]={desc,qtd:0,fat:0,idProd};
+    byDia[dat][sku].qtd+=qtd;byDia[dat][sku].fat+=fat;
+    const dI=pD(dat);
+    if(dI.getMonth()+1===mesPrev&&dI.getFullYear()===anoPrev){
+      if(!mesPrevData[sku])mesPrevData[sku]={desc,qtd:0,fat:0,idProd};
+      mesPrevData[sku].qtd+=qtd;mesPrevData[sku].fat+=fat;
+    }
+    if(dI.getMonth()+1===mesAtual&&dI.getFullYear()===anoAtual){
+      if(!mesAtualData[sku])mesAtualData[sku]={desc,qtd:0,fat:0,idProd};
+      mesAtualData[sku].qtd+=qtd;mesAtualData[sku].fat+=fat;
+    }
+  }
+
+  const result={byDia,hoje,ontem,ante,mesPrevData,mesAtualData,
+    diasMesAtual,diasPassados,diasMesPrev,mesPrev,anoPrev,mesAtual,anoAtual};
+  _canalCache[canalNome]=result;
+  return result;
+}
+
+function renderCanalKpis(vid, data){
+  const{byDia,hoje,mesAtualData,diasMesAtual,diasPassados}=data;
+  const st=_canalState[vid]||{};
+  const sumD=d=>Object.values(byDia[d]||{}).reduce((s,v)=>({fat:s.fat+v.fat,qtd:s.qtd+v.qtd}),{fat:0,qtd:0});
+  const sA=sumD(st.diaA||data.ontem),sB=sumD(st.diaB||hoje);
+  const sH=sumD(hoje);
+  const sMes=Object.values(mesAtualData).reduce((s,v)=>({fat:s.fat+v.fat}),{fat:0});
+  const proj=diasPassados>0?sMes.fat/diasPassados*diasMesAtual:0;
+  const g=id=>document.getElementById(vid+id);
+  g('FatA').textContent=R(sA.fat);g('QtdA').textContent=`${sA.qtd} un — ${fmtDia(st.diaA||data.ontem)}`;
+  g('FatB').textContent=R(sB.fat);g('QtdB').textContent=`${sB.qtd} un — ${fmtDia(st.diaB||hoje)}`;
+  g('FatMes').textContent=R(sMes.fat);g('ProjMes').textContent=`proj. final: ${R(proj)}`;
+  g('FatHoje').textContent=R(sH.fat);g('QtdHoje').textContent=`${sH.qtd} un hoje`;
+}
+
+function renderCanalComp(canal, vid, data){
+  const st=_canalState[vid]||{};
+  const dA=st.diaA||data.ontem, dB=st.diaB||data.hoje;
+  const filt=st.filt||'all';
+  const g=id=>document.getElementById(vid+id);
+  g('CompTit').textContent=`Comparativo Top 10 — ${fmtDia(dA)} vs ${fmtDia(dB)}`;
+  const dAData=data.byDia[dA]||{};
+  let lista=Object.entries(dAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10)
+    .map(([sku,a])=>{const b=data.byDia[dB]?.[sku]||{qtd:0,fat:0};return{sku,desc:a.desc,idProd:a.idProd,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};});
+  if(filt==='up')lista=lista.filter(d=>d.qtdB>d.qtdA);
+  if(filt==='dn')lista=lista.filter(d=>d.qtdB<d.qtdA);
+  if(!lista.length){g('CompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados</div>';return;}
+  let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR(fmtDia(dA))}${THR(fmtDia(dB))}${THL('Variação')}${THR('Faturamento')}${THL('Estoque')}</tr></thead><tbody>`;
+  lista.forEach((d,i)=>{
+    const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${TDL(i+1,'var(--or)',true)}${TDL(d.sku,'var(--od)',true)}${TDL(d.desc.substring(0,50),'')}
+      ${TDR(d.qtdA+' un','var(--mu)')}${TDR(d.qtdB+' un',COR[canal]||'#999',true)}
+      ${TDX(diffIcon(d.qtdB,d.qtdA))}${TDR(R(d.fatA),'var(--od)')}${TDX(estBadge(d.idProd))}</tr>`;
+  });
+  g('CompWrap').innerHTML=h+'</tbody></table>';
+}
+
+function renderCanalLista(canal, vid, data){
+  const st=_canalState[vid]||{};
+  const dat=st.diaL||data.ontem;
+  const g=id=>document.getElementById(vid+id);
+  g('ListaTit').textContent=`Todos Produtos ${canal} — ${fmtDia(dat)}`;
+  const lista=Object.entries(data.byDia[dat]||{}).sort((a,b)=>b[1].qtd-a[1].qtd);
+  if(!lista.length){g('ListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas em ${fmtDia(dat)}</div>`;return;}
+  let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR('Qtd')}${THR('Faturamento')}${THL('')}${THL('')}${THL('Estoque')}</tr></thead><tbody>`;
+  lista.forEach(([sku,d],i)=>{
+    const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${TDL(i+1,'var(--or)',true)}${TDL(sku,'var(--od)',true)}${TDL(d.desc.substring(0,50),'')}
+      ${TDR(d.qtd+' un',COR[canal]||'#999',true)}${TDR(R(d.fat),'var(--od)')}
+      <td></td><td></td>${TDX(estBadge(d.idProd))}</tr>`;
+  });
+  g('ListaWrap').innerHTML=h+'</tbody></table>';
+}
+
+function renderCanalTop5(canal, vid, data){
+  const{mesPrevData,mesAtualData,diasMesAtual,diasPassados,diasMesPrev,mesPrev,anoPrev,mesAtual,anoAtual}=data;
+  const NM=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const g=id=>document.getElementById(vid+id);
+  g('Top5Tit').textContent=`Top 5 ${NM[mesPrev]}/${anoPrev} vs Projeção ${NM[mesAtual]}/${anoAtual}`;
+  const top5=Object.entries(mesPrevData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
+  if(!top5.length){g('Top5Wrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados mês anterior</div>';return;}
+  const cor=COR[canal]||'#999';
+  let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR(NM[mesPrev].substring(0,3)+'/'+anoPrev)}${THR('Média/dia')}${THR(NM[mesAtual].substring(0,3)+' atual')}${THR('Proj. final')}${THL('Tendência')}</tr></thead><tbody>`;
+  top5.forEach(([sku,prev],i)=>{
+    const atual=mesAtualData[sku]||{qtd:0,fat:0};
+    const mdP=diasMesPrev>0?prev.qtd/diasMesPrev:0;
+    const mdA=diasPassados>0?atual.qtd/diasPassados:0;
+    const pj=Math.round(mdA*diasMesAtual);
+    const pu=prev.qtd>0?prev.fat/prev.qtd:0;
+    const rowBg=((_estC?.estMap[prev.idProd]||0)===0&&prev.idProd)?'background:rgba(220,38,38,.04);':'';
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${TDL(i+1,'var(--or)',true)}${TDL(sku,'var(--od)',true)}${TDL(prev.desc.substring(0,50),'')}
+      <td style="padding:5px 10px;text-align:right;font-weight:700">${prev.qtd} un<br><small style="color:var(--mu)">${R(prev.fat)}</small></td>
+      ${TDR(mdP.toFixed(1)+'/dia','var(--mu)')}${TDR(atual.qtd+' un',cor,true)}
+      <td style="padding:5px 10px;text-align:right;font-weight:700">${pj} un<br><small style="color:var(--mu)">${R(pj*pu)}</small></td>
+      ${TDX(diffIcon(mdA,mdP))}</tr>`;
+  });
+  g('Top5Wrap').innerHTML=h+'</tbody></table>';
+}
+
+function loadCanal(canal, vid){
+  if(!_cache){document.getElementById(vid+'CompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Aguardando dados...</div>';return;}
+  const data=processarCanal(_cache.pRows,_cache.iRows,canal);
+  // Init state defaults
+  if(!_canalState[vid]){
+    _canalState[vid]={diaA:data.ante,diaB:data.ontem,diaL:data.ontem,filt:'all'};
+    document.getElementById(vid+'DiaA').value=toISO(data.ante);
+    document.getElementById(vid+'DiaB').value=toISO(data.ontem);
+    document.getElementById(vid+'DiaL').value=toISO(data.ontem);
+  }
+  if(!_estC)loadEstoque().catch(e=>console.warn('[Est]',e));
+  renderCanalKpis(vid,data);
+  renderCanalComp(canal,vid,data);
+  renderCanalLista(canal,vid,data);
+  renderCanalTop5(canal,vid,data);
+}
+
+function aplicarCanalComp(canal, vid){
+  const dA=toMDY(document.getElementById(vid+'DiaA').value);
+  const dB=toMDY(document.getElementById(vid+'DiaB').value);
+  if(!dA||!dB)return;
+  if(!_canalState[vid])_canalState[vid]={};
+  _canalState[vid].diaA=dA;_canalState[vid].diaB=dB;
+  const data=_canalCache[canal];if(!data)return;
+  renderCanalKpis(vid,data);renderCanalComp(canal,vid,data);
+}
+
+function aplicarCanalLista(canal, vid){
+  const dL=toMDY(document.getElementById(vid+'DiaL').value);
+  if(!dL)return;
+  if(!_canalState[vid])_canalState[vid]={};
+  _canalState[vid].diaL=dL;
+  const data=_canalCache[canal];if(!data)return;
+  renderCanalLista(canal,vid,data);
+}
+
+function setCanalFilt(canal, vid, filt, btn){
+  if(!_canalState[vid])_canalState[vid]={};
+  _canalState[vid].filt=filt;
+  // Reset button styles in this panel
+  const panel=document.getElementById(vid);
+  panel.querySelectorAll('.abtn').forEach(b=>{b.classList.remove('on');b.style.background='';b.style.borderColor='';b.style.color='';});
+  btn.classList.add('on');const cor=COR[canal]||'var(--or)';
+  btn.style.background=cor;btn.style.borderColor=cor;btn.style.color='#fff';
+  const data=_canalCache[canal];if(!data)return;
+  renderCanalComp(canal,vid,data);
+}
 
 // ── MERCADO LIVRE ─────────────────────────────────────────────
 let _mlC=null, _mlFilt='all';
