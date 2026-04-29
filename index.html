@@ -155,6 +155,16 @@ tfoot td:first-child{text-align:left;}
   .clock{font-size:1.3rem;}
 }
 @media(max-width:420px){.cr,.kr{grid-template-columns:1fr;}.kr .kpi:first-child{grid-column:1;}}
+
+/* ML */
+.ml-up{color:var(--gr);font-weight:800;}
+.ml-dn{color:var(--re);font-weight:800;}
+.ml-eq{color:var(--mu);font-weight:700;}
+.sem-est{background:rgba(220,38,38,.06);}
+.badge{font-size:.54rem;font-weight:800;padding:1px 6px;border-radius:99px;}
+.badge-ok{background:rgba(22,163,74,.1);color:var(--gr);}
+.badge-no{background:rgba(220,38,38,.1);color:var(--re);}
+.badge-low{background:rgba(245,166,35,.1);color:var(--or);}
 </style>
 </head>
 <body>
@@ -177,6 +187,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
+    <button class="tab"     onclick="aba('vML',this)">🟡 Mercado Livre</button>
   </div>
 
   <div class="content">
@@ -345,6 +356,60 @@ tfoot td:first-child{text-align:left;}
       </div>
     </div>
 
+
+    <!-- ══ MERCADO LIVRE ═══════════════════════════════════════ -->
+    <div class="panel" id="vML">
+
+      <!-- KPIs -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:#C8A000"><div class="kl">Dia A (raiz)</div><div class="kv" id="mlFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlQtdA">--</div></div>
+        <div class="kpi" style="--kc:#C8A000"><div class="kl">Dia B (comparação)</div><div class="kv" id="mlFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlQtdB">--</div></div>
+        <div class="kpi" style="--kc:#C8A000"><div class="kl">Mês Atual (ML)</div><div class="kv" id="mlFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlProjMes">--</div></div>
+        <div class="kpi" style="--kc:#C8A000"><div class="kl">Vendas Hoje (ML)</div><div class="kv" id="mlFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlQtdHoje">--</div></div>
+      </div>
+
+      <!-- COMPARATIVO (primeiro, raiz) -->
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="mlCompTit">Comparativo Top 10 — Ontem vs Anteontem</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">Dia A:</span>
+            <input type="date" id="mlDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">vs Dia B:</span>
+            <input type="date" id="mlDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarMLComp()">Aplicar</button>
+            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
+            <button class="abtn on"  id="mlFiltAll" onclick="setMLFilt('all',this)"  style="background:var(--or);border-color:var(--or);color:#fff">Todos</button>
+            <button class="abtn"     id="mlFiltUp"  onclick="setMLFilt('up',this)">▲ Subiram</button>
+            <button class="abtn"     id="mlFiltDn"  onclick="setMLFilt('dn',this)">▼ Caíram</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="mlCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+
+      <!-- PRODUTOS DO DIA A -->
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
+          <div class="atit"><div class="pdot"></div><span id="mlListaTit">Todos Produtos — Ontem</span></div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="flbl">Data:</span>
+            <input type="date" id="mlDiaLista" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarMLLista()">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="mlListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+      </div>
+
+      <!-- TOP 5 MÊS ANTERIOR -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div><span id="mlTop5Tit">Top 5 Mês Anterior vs Projeção Mês Atual</span></div>
+        </div>
+        <div class="tscroll"><div id="mlTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
+      </div>
+
+    </div><!-- /vML -->
+
   </div><!-- /content -->
 </div><!-- /app -->
 
@@ -382,7 +447,12 @@ const N=s=>parseFloat((s||'0').toString().replace(/\./g,'').replace(',','.'))||0
 const pD=s=>{const p=(s||'').split('/');return p.length<3?new Date(0):new Date(+p[2],+p[0]-1,+p[1]);};
 
 function isMes(s){const p=(s||'').split('/'),n=new Date();return p.length>=3&&+p[0]===n.getMonth()+1&&+p[2]===n.getFullYear();}
-function isRange(s){if(!_ini||!_fim||!s)return false;const d=pD(s);return d>=pD(_ini)&&d<=pD(_fim);}
+function isRange(s){
+  if(!_ini||!_fim||!s)return false;
+  const ymd=toYMD(s),ymdI=toYMD(_ini),ymdF=toYMD(_fim);
+  return ymd>=ymdI&&ymd<=ymdF;
+}
+function toYMD(s){const p=(s||'').split('/');if(p.length<3)return'';return p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0');}
 function isPer(s){return _modo==='dia'?s===_dRef:_modo==='mes'?isMes(s):isRange(s);}
 
 function canal(nome,num){
@@ -568,9 +638,25 @@ function processDash(pRows,iRows,metas){
 
   const metaDia=metas.dias[_dRef]||{};
   // Meta total: no dia usa meta do dia ref, no mês usa meta mensal
-  const metaTot=_modo==='dia'
-    ?(metaDia.total||CANAIS.reduce((s,c)=>s+(metaDia[c]||0),0))
-    :_modo==='mes'?metas.metaMes:0;
+  // Função auxiliar: busca meta somando todos os dias no período usando toYMD para comparação segura
+  function getMetaPeriodo(campo){
+    if(_modo==='dia') return metaDia[campo]||0;
+    if(_modo==='mes'){
+      const n=new Date();
+      return Object.entries(metas.dias)
+        .filter(([k])=>{const p=k.split('/');return +p[0]===n.getMonth()+1&&+p[2]===n.getFullYear();})
+        .reduce((s,[,v])=>s+(v[campo]||0),0);
+    }
+    if(_modo==='custom'&&_ini&&_fim){
+      const ymdI=toYMD(_ini),ymdF=toYMD(_fim);
+      return Object.entries(metas.dias)
+        .filter(([k])=>{const y=toYMD(k);return y>=ymdI&&y<=ymdF;})
+        .reduce((s,[,v])=>s+(v[campo]||0),0);
+    }
+    return 0;
+  }
+
+  const metaTot=_modo==='mes'?metas.metaMes:(getMetaPeriodo('total')||CANAIS.reduce((s,c)=>s+getMetaPeriodo(c),0));
   const pctP=metaTot>0?Math.min(tP/metaTot*100,999).toFixed(1):0;
   const pctM=metas.metaMes>0?Math.min(tM/metas.metaMes*100,999).toFixed(1):0;
 
@@ -579,17 +665,7 @@ function processDash(pRows,iRows,metas){
   const diasPassados=new Date().getDate();
   const canais=CANAIS.map(nm=>{
     const d=cPer[nm]||{f:0,p:0};
-    let m=0;
-    if(_modo==='dia'){
-      m=metaDia[nm]||0;
-    } else if(_modo==='mes'){
-      // Usa meta mensal proporcional se não tiver meta por canal no dia
-      // Tenta somar todas as metas dos dias do mês para o canal
-      const totalMetaCanal=Object.entries(metas.dias)
-        .filter(([k])=>{const p=k.split('/');return +p[0]===new Date().getMonth()+1&&+p[2]===new Date().getFullYear();})
-        .reduce((s,[,v])=>s+(v[nm]||0),0);
-      m=totalMetaCanal;
-    }
+    const m=getMetaPeriodo(nm);
     const pct=m>0?Math.min(d.f/m*100,999).toFixed(1):0;
     return{nm,f:d.f,p:d.p,m,pct:+pct};
   });
@@ -678,8 +754,10 @@ function filtrar(m){
 function aplicar(){
   const ini=document.getElementById('fIni').value,fim=document.getElementById('fFim').value;
   if(!ini||!fim){alert('Selecione início e fim!');return;}
+  // Converte YYYY-MM-DD → M/D/YYYY (mesmo formato das chaves de metas)
   const conv=s=>{const p=s.split('-');return`${+p[1]}/${+p[2]}/${p[0]}`;};
   _ini=conv(ini);_fim=conv(fim);
+  console.log('[Filtro] ini='+_ini+' fim='+_fim+' modo='+_modo);
   if(_cache){const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);renderDash(d);}
 }
 
@@ -1001,6 +1079,7 @@ function aba(id,btn){
   } else if(id==='vMarca'&&_marcaC) renderMarcaTable();
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
+  if(id==='vML')loadML();
 }
 
 // ── LOAD PRINCIPAL ───────────────────────────────────────────
@@ -1031,6 +1110,295 @@ async function load(){
     document.getElementById('lt').textContent='❌ '+e.message;
     document.getElementById('sLbl').textContent='ERRO';
   }
+}
+
+
+// ── MERCADO LIVRE ─────────────────────────────────────────────
+let _mlC=null, _mlFilt='all';
+let _mlDiaA='', _mlDiaB='', _mlDiaLista='';
+
+// Converte YYYY-MM-DD → M/D/YYYY
+const toMDY=s=>{if(!s)return'';const p=s.split('-');return`${+p[1]}/${+p[2]}/${p[0]}`;};
+// Converte M/D/YYYY → YYYY-MM-DD para input date
+const toISO=s=>{if(!s)return'';const p=s.split('/');return`${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;};
+
+function isML(eNome,eNum){
+  if((eNome||'').toLowerCase().includes('mercado livre'))return true;
+  if((eNum||'').startsWith('2000'))return true;
+  return false;
+}
+
+function mlOffset(base,n){
+  const d=pD(base);d.setDate(d.getDate()+n);
+  return`${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
+}
+
+function processarML(pRows,iRows){
+  // Mapa id_pedido → ML?
+  const pedML={};
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];const id=(r[C.ID]||'').trim();
+    if(id&&isML(r[C.ENOME],r[C.ENUM]))pedML[id]=true;
+  }
+
+  // Datas ref
+  const hoje=_dRef;
+  const ontem=mlOffset(hoje,-1);
+  const ante =mlOffset(hoje,-2);
+
+  // Defaults de interface
+  if(!_mlDiaA){_mlDiaA=ante; document.getElementById('mlDiaA').value=toISO(ante);}
+  if(!_mlDiaB){_mlDiaB=ontem;document.getElementById('mlDiaB').value=toISO(ontem);}
+  if(!_mlDiaLista){_mlDiaLista=ontem;document.getElementById('mlDiaLista').value=toISO(ontem);}
+
+  // Mês anterior e atual
+  const dRef=pD(hoje);
+  const mesPrev=dRef.getMonth()===0?12:dRef.getMonth();
+  const anoPrev=dRef.getMonth()===0?dRef.getFullYear()-1:dRef.getFullYear();
+  const mesAtual=dRef.getMonth()+1,anoAtual=dRef.getFullYear();
+  const diasMesAtual=new Date(anoAtual,mesAtual,0).getDate();
+  const diasPassados=dRef.getDate();
+  const diasMesPrev=new Date(anoPrev,mesPrev,0).getDate();
+
+  // Agrupa por dia→sku
+  const byDia={};
+  const mesPrevData={},mesAtualData={};
+
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];
+    const idPed=(r[0]||'').trim();
+    if(!pedML[idPed])continue;
+    const sit=(r[I.SIT]||'').toLowerCase().trim();
+    if(!VALIDAS.has(sit))continue;
+    const dat=(r[I.DATA]||'').trim();
+    const sku=(r[1]||'').trim();
+    const desc=(r[I.DESC]||'').trim();
+    const idProd=(r[I.IDPROD]||'').trim();
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const fat=qtd*vu;
+
+    if(!byDia[dat])byDia[dat]={};
+    if(!byDia[dat][sku])byDia[dat][sku]={desc,qtd:0,fat:0,idProd};
+    byDia[dat][sku].qtd+=qtd;byDia[dat][sku].fat+=fat;
+
+    const dItem=pD(dat);
+    if(dItem.getMonth()+1===mesPrev&&dItem.getFullYear()===anoPrev){
+      if(!mesPrevData[sku])mesPrevData[sku]={desc,qtd:0,fat:0,idProd};
+      mesPrevData[sku].qtd+=qtd;mesPrevData[sku].fat+=fat;
+    }
+    if(dItem.getMonth()+1===mesAtual&&dItem.getFullYear()===anoAtual){
+      if(!mesAtualData[sku])mesAtualData[sku]={desc,qtd:0,fat:0,idProd};
+      mesAtualData[sku].qtd+=qtd;mesAtualData[sku].fat+=fat;
+    }
+  }
+
+  return{byDia,hoje,ontem,ante,mesPrevData,mesAtualData,
+    diasMesAtual,diasPassados,diasMesPrev,mesPrev,anoPrev,mesAtual,anoAtual};
+}
+
+function estBadge(idProd){
+  if(!_estC)return'';
+  const est=_estC.estMap[idProd]||0;
+  if(est===0)return`<span class="badge badge-no">SEM ESTOQUE</span>`;
+  if(est<=5) return`<span class="badge badge-low">Est: ${est}</span>`;
+  return`<span class="badge badge-ok">Est: ${est}</span>`;
+}
+
+function diffIcon(agora,antes){
+  if(antes===0&&agora===0)return'<span class="ml-eq">—</span>';
+  if(antes===0)return`<span class="ml-up">▲ NOVO</span>`;
+  if(agora===0)return`<span class="ml-dn">▼ ZEROU</span>`;
+  const pct=((agora-antes)/antes*100).toFixed(0);
+  if(agora>antes)return`<span class="ml-up">▲ +${pct}%</span>`;
+  if(agora<antes)return`<span class="ml-dn">▼ ${pct}%</span>`;
+  return`<span class="ml-eq">= 0%</span>`;
+}
+
+// Colunas alinhadas — larguras fixas
+// Helpers ML — colunas alinhadas entre quadros
+const CG='<colgroup><col style="width:36px"><col style="width:95px"><col><col style="width:95px"><col style="width:95px"><col style="width:95px"><col style="width:115px"><col style="width:95px"></colgroup>';
+const TS=`style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:.68rem;"`;
+const THL=(t)=>`<th style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:left;overflow:hidden;white-space:nowrap">${t}</th>`;
+const THR=(t)=>`<th style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;overflow:hidden;white-space:nowrap">${t}</th>`;
+const TDL=(v,c,b)=>`<td style="padding:5px 10px;font-size:.68rem;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;${c?'color:'+c+';':''}font-weight:${b?800:700}">${v}</td>`;
+const TDR=(v,c,b)=>`<td style="padding:5px 10px;font-size:.68rem;text-align:right;overflow:hidden;white-space:nowrap;${c?'color:'+c+';':''}font-weight:${b?800:700}">${v}</td>`;
+const TDX=(v)=>`<td style="padding:5px 10px;font-size:.68rem;text-align:left">${v}</td>`;
+
+function setMLFilt(f,btn){
+  _mlFilt=f;
+  document.querySelectorAll('#vML .abtn').forEach(b=>{b.classList.remove('on');b.style.background='';b.style.borderColor='';b.style.color='';});
+  btn.classList.add('on');btn.style.background='var(--or)';btn.style.borderColor='var(--or)';btn.style.color='#fff';
+  renderMLComp();
+}
+
+function aplicarMLComp(){
+  _mlDiaA=toMDY(document.getElementById('mlDiaA').value);
+  _mlDiaB=toMDY(document.getElementById('mlDiaB').value);
+  renderMLComp();renderMLKpis();
+}
+
+function aplicarMLLista(){
+  _mlDiaLista=toMDY(document.getElementById('mlDiaLista').value);
+  renderMLLista();
+}
+
+function fmtDia(s){if(!s)return'--';const p=s.split('/');return`${p[1].padStart(2,'0')}/${p[0].padStart(2,'0')}/${p[2]}`;}
+
+function renderMLKpis(){
+  if(!_mlC)return;
+  const{byDia,hoje,mesAtualData,diasMesAtual,diasPassados}=_mlC;
+  const sumDia=d=>Object.values(byDia[d]||{}).reduce((s,v)=>({fat:s.fat+v.fat,qtd:s.qtd+v.qtd}),{fat:0,qtd:0});
+  const sA=sumDia(_mlDiaA),sB=sumDia(_mlDiaB),sH=sumDia(hoje);
+  const sMes=Object.values(mesAtualData).reduce((s,v)=>({fat:s.fat+v.fat}),{fat:0});
+  const proj=diasPassados>0?sMes.fat/diasPassados*diasMesAtual:0;
+  document.getElementById('mlFatA').textContent=R(sA.fat);
+  document.getElementById('mlQtdA').textContent=`${sA.qtd} un — ${fmtDia(_mlDiaA)}`;
+  document.getElementById('mlFatB').textContent=R(sB.fat);
+  document.getElementById('mlQtdB').textContent=`${sB.qtd} un — ${fmtDia(_mlDiaB)}`;
+  document.getElementById('mlFatMes').textContent=R(sMes.fat);
+  document.getElementById('mlProjMes').textContent=`proj. final: ${R(proj)}`;
+  document.getElementById('mlFatHoje').textContent=R(sH.fat);
+  document.getElementById('mlQtdHoje').textContent=`${sH.qtd} un — hoje`;
+}
+
+function renderMLComp(){
+  if(!_mlC)return;
+  const{byDia}=_mlC;
+  const diaA=_mlDiaA,diaB=_mlDiaB;
+  document.getElementById('mlCompTit').textContent=`Comparativo Top 10 — ${fmtDia(diaA)} vs ${fmtDia(diaB)}`;
+
+  // Top 10 do Dia A
+  const diaAData=byDia[diaA]||{};
+  const top10=Object.entries(diaAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10);
+
+  // Filtra por tendência
+  let lista=top10.map(([sku,a])=>{
+    const b=byDia[diaB]?.[sku]||{qtd:0,fat:0};
+    return{sku,desc:a.desc,idProd:a.idProd,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd,fatB:b.fat};
+  });
+  if(_mlFilt==='up') lista=lista.filter(d=>d.qtdA>d.qtdB);
+  if(_mlFilt==='dn') lista=lista.filter(d=>d.qtdA<d.qtdB);
+
+  if(!lista.length){
+    document.getElementById('mlCompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados para os filtros selecionados</div>';
+    return;
+  }
+
+  let h=`<table ${TS}>${CG}<thead><tr>
+      ${THL('#')}${THL('SKU')}${THL('Produto')}
+      ${THR(fmtDia(diaB))}${THR(fmtDia(diaA))}${THL('Variação')}${THR('Faturamento')}${THL('Estoque')}
+    </tr></thead><tbody>`;
+
+  lista.forEach((d,i)=>{
+    const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${TDL(i+1,'var(--or)',true)}
+      ${TDL(d.sku,'var(--od)',true)}
+      ${TDL(d.desc.substring(0,50),'')}
+      ${TDR(d.qtdB+' un','var(--mu)')}
+      ${TDR(d.qtdA+' un','#C8A000',true)}
+      ${TDX(diffIcon(d.qtdB,d.qtdA))}
+      ${TDR(R(d.fatA),'var(--od)')}
+      ${TDX(estBadge(d.idProd))}
+    </tr>`;
+  });
+  h+='</tbody></table>';
+  document.getElementById('mlCompWrap').innerHTML=h;
+}
+
+function renderMLLista(){
+  if(!_mlC)return;
+  const{byDia}=_mlC;
+  const dat=_mlDiaLista;
+  document.getElementById('mlListaTit').textContent=`Todos Produtos ML — ${fmtDia(dat)}`;
+  const lista=Object.entries(byDia[dat]||{}).sort((a,b)=>b[1].qtd-a[1].qtd);
+
+  if(!lista.length){
+    document.getElementById('mlListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas ML em ${fmtDia(dat)}</div>`;
+    return;
+  }
+
+  let h=`<table ${TS}>${CG}<thead><tr>
+      ${THL('#')}${THL('SKU')}${THL('Produto')}
+      ${THR('Qtd')}${THR('Faturamento')}${THL('')}${THL('')}${THL('Estoque')}
+    </tr></thead><tbody>`;
+
+  lista.forEach(([sku,d],i)=>{
+    const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${TDL(i+1,'var(--or)',true)}
+      ${TDL(sku,'var(--od)',true)}
+      ${TDL(d.desc.substring(0,50),'')}
+      ${TDR(d.qtd+' un','#C8A000',true)}
+      ${TDR(R(d.fat),'var(--od)')}
+      <td style="padding:5px 10px;"></td>
+      <td style="padding:5px 10px;"></td>
+      ${TDX(estBadge(d.idProd))}
+    </tr>`;
+  });
+  h+='</tbody></table>';
+  document.getElementById('mlListaWrap').innerHTML=h;
+}
+
+function renderMLTop5(){
+  if(!_mlC)return;
+  const{mesPrevData,mesAtualData,diasMesAtual,diasPassados,diasMesPrev,mesPrev,anoPrev,mesAtual,anoAtual}=_mlC;
+  const NM=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  document.getElementById('mlTop5Tit').textContent=`Top 5 ${NM[mesPrev]}/${anoPrev} vs Projeção ${NM[mesAtual]}/${anoAtual}`;
+
+  const top5=Object.entries(mesPrevData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
+  if(!top5.length){document.getElementById('mlTop5Wrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados do mês anterior</div>';return;}
+
+  let h=`<table ${TS}>${CG}<thead><tr>
+      ${THL('#')}${THL('SKU')}${THL('Produto')}
+      ${THR(NM[mesPrev].substring(0,3)+'/'+anoPrev)}
+      ${THR('Média/dia')}
+      ${THR(NM[mesAtual].substring(0,3)+' atual')}
+      ${THR('Proj. final')}
+      ${THL('Tendência')}
+    </tr></thead><tbody>`;
+
+  top5.forEach(([sku,prev],i)=>{
+    const atual=mesAtualData[sku]||{qtd:0,fat:0,idProd:prev.idProd};
+    const mediaDiaPrev=diasMesPrev>0?prev.qtd/diasMesPrev:0;
+    const mediaDiaAtual=diasPassados>0?atual.qtd/diasPassados:0;
+    const projQtd=Math.round(mediaDiaAtual*diasMesAtual);
+    const precoUnit=prev.qtd>0?prev.fat/prev.qtd:0;
+    const projFat=projQtd*precoUnit;
+    const rowBg=((_estC?.estMap[prev.idProd]||0)===0&&prev.idProd)?'background:rgba(220,38,38,.04);':'';
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+      ${TDL(i+1,'var(--or)',true)}
+      ${TDL(sku,'var(--od)',true)}
+      ${TDL(prev.desc.substring(0,50),'')}
+      <td style="padding:5px 10px;text-align:right;font-weight:700">${prev.qtd} un<br><small style="color:var(--mu)">${R(prev.fat)}</small></td>
+      ${TDR(mediaDiaPrev.toFixed(1)+'/dia','var(--mu)')}
+      ${TDR(atual.qtd+' un','#C8A000',true)}
+      <td style="padding:5px 10px;text-align:right;font-weight:700">${projQtd} un<br><small style="color:var(--mu)">${R(projFat)}</small></td>
+      ${TDX(diffIcon(mediaDiaAtual,mediaDiaPrev))}
+    </tr>`;
+  });
+  h+='</tbody></table>';
+  // Adiciona coluna de estoque inline no top5
+  document.getElementById('mlTop5Wrap').innerHTML=h;
+}
+
+function renderML(){
+  renderMLKpis();
+  renderMLComp();
+  renderMLLista();
+  renderMLTop5();
+}
+
+async function loadML(){
+  if(!_cache){
+    document.getElementById('mlCompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Aguardando dados principais...</div>';
+    return;
+  }
+  _mlDiaA='';_mlDiaB='';_mlDiaLista=''; // reset para defaults
+  _mlC=processarML(_cache.pRows,_cache.iRows);
+  if(!_estC){try{await loadEstoque();}catch(e){console.warn('[ML]',e);}}
+  renderML();
 }
 
 // Clock
