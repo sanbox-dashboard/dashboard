@@ -165,6 +165,12 @@ tfoot td:first-child{text-align:left;}
 .badge-ok{background:rgba(22,163,74,.1);color:var(--gr);}
 .badge-no{background:rgba(220,38,38,.1);color:var(--re);}
 .badge-low{background:rgba(245,166,35,.1);color:var(--or);}
+
+/* Vendas Geral */
+#vgTableWrap table{min-width:900px;}
+#vgTableWrap thead th{cursor:pointer;user-select:none;position:sticky;top:0;background:var(--wh);z-index:2;}
+#vgTableWrap thead th:hover{color:var(--or);}
+.col-sort{color:var(--or)!important;}
 </style>
 </head>
 <body>
@@ -187,6 +193,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
+    <button class="tab"     onclick="aba('vVG',this)">📊 Vendas Geral</button>
     <button class="tab"     onclick="aba('vML',this)">🟡 Mercado Livre</button>
     <button class="tab"     onclick="aba('vCB',this)">🔵 Casas Bahia</button>
     <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
@@ -361,6 +368,39 @@ tfoot td:first-child{text-align:left;}
       </div>
     </div>
 
+
+
+    <!-- ══ VENDAS GERAL ════════════════════════════════════════ -->
+    <div class="panel" id="vVG">
+      <!-- Filtros -->
+      <div class="card" style="padding:10px 16px;">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span class="flbl">Período:</span>
+          <input type="date" id="vgIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
+          <span class="flbl">até</span>
+          <input type="date" id="vgFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
+          <button class="faply" onclick="aplicarVG()">Aplicar</button>
+          <div style="width:1px;height:20px;background:var(--bd);"></div>
+          <span class="flbl">Ordenar por:</span>
+          <div style="display:flex;gap:3px;flex-wrap:wrap;" id="vgOrdBtns">
+            <button class="abtn on" id="vgOrdTotal" onclick="ordenarVG('total',this)" style="background:var(--or);border-color:var(--or);color:#fff">Total ▼</button>
+            <button class="abtn" id="vgOrdML"  onclick="ordenarVG('ML',this)">Mercado Livre</button>
+            <button class="abtn" id="vgOrdCB"  onclick="ordenarVG('CB',this)">Casas Bahia</button>
+            <button class="abtn" id="vgOrdMG"  onclick="ordenarVG('MG',this)">Magazine Luiza</button>
+            <button class="abtn" id="vgOrdSH"  onclick="ordenarVG('SH',this)">Shopee</button>
+            <button class="abtn" id="vgOrdAMZ" onclick="ordenarVG('AMZ',this)">Amazon</button>
+            <button class="abtn" id="vgOrdFat" onclick="ordenarVG('fat',this)">Faturamento</button>
+          </div>
+          <div style="margin-left:auto;font-size:.6rem;font-weight:700;color:var(--mu)" id="vgStatus">--</div>
+        </div>
+      </div>
+      <!-- Tabela -->
+      <div class="card" style="padding:0;overflow:auto;max-height:75vh;">
+        <div id="vgTableWrap" style="overflow-x:auto;">
+          <div class="lt" style="padding:30px;text-align:center">Abrindo aba Vendas Geral...</div>
+        </div>
+      </div>
+    </div><!-- /vVG -->
 
     <!-- ══ MERCADO LIVRE ═══════════════════════════════════════ -->
     <div class="panel" id="vML">
@@ -1347,6 +1387,7 @@ function aba(id,btn){
   } else if(id==='vMarca'&&_marcaC) renderMarcaTable();
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
+  if(id==='vVG')loadVG();
   if(id==='vML')loadML();
   if(id==='vCB')loadCanal('Casas Bahia','vCB');
   if(id==='vMG')loadCanal('Magazine Luiza','vMG');
@@ -1357,36 +1398,224 @@ function aba(id,btn){
 
 // ── LOAD PRINCIPAL ───────────────────────────────────────────
 async function load(){
-  document.getElementById('sLbl').textContent='CARREGANDO';
-  document.getElementById('ov').style.display='flex';
-  document.getElementById('app').style.display='none';
+  const firstLoad = !_cache;
+  // Primeira carga: mostra overlay. Atualizações seguintes: só troca o badge
+  if(firstLoad){
+    document.getElementById('ov').style.display='flex';
+    document.getElementById('app').style.display='none';
+    setLoad(5,'Conectando...');
+  }
+  document.getElementById('sLbl').textContent='ATUALIZANDO';
   _catC=null;_marcaC=null;_mlC=null;
   for(const k of Object.keys(_canalCache)) _canalCache[k]=null;
   try{
-    setLoad(5,'Conectando...');
-    // Busca tudo em PARALELO para máxima velocidade
+    if(firstLoad) setLoad(20,'Buscando dados...');
     const [metas, pRows, iRowsResult] = await Promise.all([
       getMetas(),
       fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes'),
       fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
     ]);
-    setLoad(90,'Processando...');
+    if(firstLoad) setLoad(90,'Processando...');
     _cache={pRows,iRows:iRowsResult,metas};
     const d=processDash(pRows,iRowsResult,metas);
-    document.getElementById('ov').style.display='none';
-    document.getElementById('app').style.display='flex';
+    if(firstLoad){
+      document.getElementById('ov').style.display='none';
+      document.getElementById('app').style.display='flex';
+    }
     renderDash(d);
     document.getElementById('sLbl').textContent='AO VIVO';
-    setLoad(100);
+    if(firstLoad) setLoad(100);
     console.log(`[OK] R$${d.tP.toFixed(2)} | Mês R$${d.tM.toFixed(2)}`);
   }catch(e){
     console.error('[Load]',e);
-    document.getElementById('lt').textContent='❌ '+e.message;
+    if(firstLoad) document.getElementById('lt').textContent='❌ '+e.message;
     document.getElementById('sLbl').textContent='ERRO';
   }
 }
 
 
+
+
+// ── VENDAS GERAL ──────────────────────────────────────────────
+let _vgOrdem='total';
+let _vgIni='', _vgFim='';
+let _vgCache=null;
+
+// Mapeamento canal nome → chave curta
+const VG_CANAIS=[
+  {key:'ML', nome:'Mercado Livre', cor:'#C8A000'},
+  {key:'CB', nome:'Casas Bahia',   cor:'#0052A5'},
+  {key:'MG', nome:'Magazine Luiza',cor:'#CC0066'},
+  {key:'SH', nome:'Shopee',        cor:'#EE4D2D'},
+  {key:'AMZ',nome:'Amazon',        cor:'#E47911'},
+];
+
+function canalKeyVG(eNome, eNum){
+  const n=(eNome||'').toLowerCase();
+  if(n.includes('mercado livre'))return'ML';
+  if(n.includes('casas bahia')||n.includes('via varejo'))return'CB';
+  if(n.includes('magazine')||n.includes('magalu'))return'MG';
+  if(n.includes('shopee'))return'SH';
+  if(n.includes('amazon'))return'AMZ';
+  const u=eNum||'';
+  if(u.startsWith('2000'))return'ML';
+  if(u.startsWith('51'))return'MG';
+  if(u.startsWith('LU-'))return'CB';
+  if(u.startsWith('260'))return'SH';
+  if(/^\d{3}-\d+/.test(u))return'AMZ';
+  return'OUT';
+}
+
+function processarVG(pRows, iRows, ymdI, ymdF){
+  // Mapa id_pedido → {canal, valido}
+  const pedMap={};
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const id=(r[C.ID]||'').trim();
+    const sit=(r[C.SIT]||'').toLowerCase().trim();
+    const dat=(r[C.DATA]||'').trim();
+    if(!id||!VALIDAS.has(sit))continue;
+    const ymd=toYMD(dat);
+    if(ymd<ymdI||ymd>ymdF)continue;
+    pedMap[id]=canalKeyVG(r[C.ENOME],r[C.ENUM]);
+  }
+
+  // Agrega por SKU
+  const skuMap={}; // sku → {desc, total, ML, CB, MG, SH, AMZ, fat}
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];
+    const idPed=(r[0]||'').trim();
+    const cnKey=pedMap[idPed];
+    if(!cnKey)continue;
+    const sit=(r[I.SIT]||'').toLowerCase().trim();
+    if(!VALIDAS.has(sit))continue;
+    const sku=(r[1]||'').trim();
+    if(!sku)continue;
+    // Exclui KIT e ML
+    if(sku.toUpperCase().startsWith('KIT'))continue;
+    if(sku.toUpperCase().endsWith('ML'))continue;
+    const desc=(r[I.DESC]||'').trim();
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const fat=qtd*vu;
+    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0};
+    skuMap[sku].total+=qtd;
+    skuMap[sku].fat+=fat;
+    if(skuMap[sku][cnKey]!==undefined) skuMap[sku][cnKey]+=qtd;
+  }
+  return skuMap;
+}
+
+function ordenarVG(campo, btn){
+  _vgOrdem=campo;
+  document.querySelectorAll('#vgOrdBtns .abtn').forEach(b=>{
+    b.classList.remove('on');b.style.background='';b.style.borderColor='';b.style.color='';
+  });
+  btn.classList.add('on');btn.style.background='var(--or)';btn.style.borderColor='var(--or)';btn.style.color='#fff';
+  if(_vgCache) renderVG(_vgCache);
+}
+
+function aplicarVG(){
+  const ini=document.getElementById('vgIni').value;
+  const fim=document.getElementById('vgFim').value;
+  if(!ini||!fim){alert('Selecione período!');return;}
+  _vgIni=toYMD(toMDY(ini));
+  _vgFim=toYMD(toMDY(fim));
+  if(!_cache)return;
+  document.getElementById('vgStatus').textContent='Processando...';
+  setTimeout(()=>{
+    _vgCache=processarVG(_cache.pRows,_cache.iRows,_vgIni,_vgFim);
+    renderVG(_vgCache);
+  },10);
+}
+
+function renderVG(skuMap){
+  // Ordena
+  let lista=Object.entries(skuMap);
+  lista.sort((a,b)=>b[1][_vgOrdem]-a[1][_vgOrdem]);
+
+  document.getElementById('vgStatus').textContent=`${lista.length} produtos`;
+
+  if(!lista.length){
+    document.getElementById('vgTableWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Sem dados no período</div>';
+    return;
+  }
+
+  const sortIcon=(k)=>_vgOrdem===k?' ▼':'';
+  const thS=(txt,k,cor)=>`<th onclick="ordenarVG('${k}',this)" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:${k==='desc'?'left':'right'};white-space:nowrap;${cor?'color:'+cor:''};${_vgOrdem===k?'color:var(--or)':''}">${txt}${sortIcon(k)}</th>`;
+
+  let h=`<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
+    <thead><tr>
+      ${thS('#','#','',true)}
+      ${thS('SKU','sku','')}
+      ${thS('Produto','desc','')}
+      ${thS('Total','total','')}
+      ${thS('Mercado Livre','ML','#C8A000')}
+      ${thS('Casas Bahia','CB','#0052A5')}
+      ${thS('Magazine Luiza','MG','#CC0066')}
+      ${thS('Shopee','SH','#EE4D2D')}
+      ${thS('Amazon','AMZ','#E47911')}
+      ${thS('Faturamento','fat','')}
+    </tr></thead><tbody>`;
+
+  // Totais rodapé
+  const tots={total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0};
+
+  lista.forEach(([sku,d],i)=>{
+    tots.total+=d.total;tots.ML+=d.ML;tots.CB+=d.CB;tots.MG+=d.MG;tots.SH+=d.SH;tots.AMZ+=d.AMZ;tots.fat+=d.fat;
+    const tdN=(v,cor)=>v>0
+      ?`<td style="padding:5px 10px;text-align:right;font-weight:700;${cor?'color:'+cor:''}">${v}</td>`
+      :`<td style="padding:5px 10px;text-align:right;color:var(--dm)">—</td>`;
+    h+=`<tr style="border-bottom:1px solid var(--bg);">
+      <td style="padding:5px 10px;text-align:right;font-weight:800;color:var(--or)">${i+1}</td>
+      <td style="padding:5px 10px;text-align:left;font-weight:800;color:var(--od);white-space:nowrap">${sku}</td>
+      <td style="padding:5px 10px;text-align:left;font-weight:700;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.desc.substring(0,65)}</td>
+      ${tdN(Math.round(d.total),_vgOrdem==='total'?'var(--or)':'')}
+      ${tdN(Math.round(d.ML),_vgOrdem==='ML'?'#C8A000':'')}
+      ${tdN(Math.round(d.CB),_vgOrdem==='CB'?'#0052A5':'')}
+      ${tdN(Math.round(d.MG),_vgOrdem==='MG'?'#CC0066':'')}
+      ${tdN(Math.round(d.SH),_vgOrdem==='SH'?'#EE4D2D':'')}
+      ${tdN(Math.round(d.AMZ),_vgOrdem==='AMZ'?'#E47911':'')}
+      <td style="padding:5px 10px;text-align:right;font-weight:700;${_vgOrdem==='fat'?'color:var(--od)':''}">${R(d.fat)}</td>
+    </tr>`;
+  });
+
+  h+=`</tbody><tfoot><tr style="border-top:2px solid var(--bd);">
+    <td colspan="3" style="padding:5px 10px;font-size:.68rem;font-weight:900;text-align:left">TOTAL</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700">${Math.round(tots.total)}</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:#C8A000">${Math.round(tots.ML)}</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:#0052A5">${Math.round(tots.CB)}</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:#CC0066">${Math.round(tots.MG)}</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:#EE4D2D">${Math.round(tots.SH)}</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:#E47911">${Math.round(tots.AMZ)}</td>
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:var(--od)">${R(tots.fat)}</td>
+  </tr></tfoot></table>`;
+
+  document.getElementById('vgTableWrap').innerHTML=h;
+}
+
+function loadVG(){
+  if(!_cache){
+    document.getElementById('vgTableWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Aguardando dados principais...</div>';
+    return;
+  }
+  // Default: mês atual
+  if(!_vgIni){
+    const n=new Date();
+    const y=n.getFullYear(),m=String(n.getMonth()+1).padStart(2,'0');
+    const ini=`${y}-${m}-01`;
+    const fim=`${y}-${m}-${String(new Date(y,n.getMonth()+1,0).getDate()).padStart(2,'0')}`;
+    document.getElementById('vgIni').value=ini;
+    document.getElementById('vgFim').value=fim;
+    _vgIni=`${y}${m}01`;
+    _vgFim=`${y}${m}${String(new Date(y,n.getMonth()+1,0).getDate()).padStart(2,'0')}`;
+  }
+  document.getElementById('vgStatus').textContent='Processando...';
+  setTimeout(()=>{
+    _vgCache=processarVG(_cache.pRows,_cache.iRows,_vgIni,_vgFim);
+    renderVG(_vgCache);
+  },10);
+}
 
 // ── ENGINE GENÉRICA PARA ABAS DE CANAL ───────────────────────
 // Funciona para CB, MG, Shopee, Amazon, Amazon Fulfillment
