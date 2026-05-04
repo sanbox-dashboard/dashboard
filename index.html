@@ -395,10 +395,12 @@ tfoot td:first-child{text-align:left;}
       <!-- PRODUTOS DO DIA A -->
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="mlListaTit">Todos Produtos — Ontem</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span>
-            <input type="date" id="mlDiaLista" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+          <div class="atit"><div class="pdot"></div><span id="mlListaTit">Todos Produtos ML</span></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">De:</span>
+            <input type="date" id="mlDiaListaIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span>
+            <input type="date" id="mlDiaListaFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarMLLista()">Aplicar</button>
           </div>
         </div>
@@ -444,9 +446,11 @@ tfoot td:first-child{text-align:left;}
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
           <div class="atit"><div class="pdot"></div><span id="vCBListaTit">Todos Produtos</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span>
-            <input type="date" id="vCBDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">De:</span>
+            <input type="date" id="vCBDiaLIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span>
+            <input type="date" id="vCBDiaLFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalLista('Casas Bahia','vCB')">Aplicar</button>
           </div>
         </div>
@@ -486,9 +490,11 @@ tfoot td:first-child{text-align:left;}
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
           <div class="atit"><div class="pdot"></div><span id="vMGListaTit">Todos Produtos</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span>
-            <input type="date" id="vMGDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">De:</span>
+            <input type="date" id="vMGDiaLIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span>
+            <input type="date" id="vMGDiaLFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalLista('Magazine Luiza','vMG')">Aplicar</button>
           </div>
         </div>
@@ -528,9 +534,11 @@ tfoot td:first-child{text-align:left;}
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
           <div class="atit"><div class="pdot"></div><span id="vSHListaTit">Todos Produtos</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span>
-            <input type="date" id="vSHDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">De:</span>
+            <input type="date" id="vSHDiaLIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span>
+            <input type="date" id="vSHDiaLFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalLista('Shopee','vSH')">Aplicar</button>
           </div>
         </div>
@@ -570,9 +578,11 @@ tfoot td:first-child{text-align:left;}
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
           <div class="atit"><div class="pdot"></div><span id="vAMZListaTit">Todos Produtos</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span>
-            <input type="date" id="vAMZDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">De:</span>
+            <input type="date" id="vAMZDiaLIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span>
+            <input type="date" id="vAMZDiaLFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalLista('Amazon','vAMZ')">Aplicar</button>
           </div>
         </div>
@@ -652,8 +662,9 @@ tfoot td:first-child{text-align:left;}
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
           <div class="atit"><div class="pdot"></div><span id="vAFListaTit">Todos Produtos Amazon Full</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span><input type="date" id="vAFDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="flbl">De:</span><input type="date" id="vAFDiaLIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span><input type="date" id="vAFDiaLFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalLista('Amazon Fulfillment','vAF')">Aplicar</button>
           </div>
         </div>
@@ -688,6 +699,8 @@ const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 // ── STATE ───────────────────────────────────────────────────
 let _modo='dia',_ini=null,_fim=null;
 const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null,'Amazon Fulfillment':null};
+const _canalVidMap={'vCB':'Casas Bahia','vMG':'Magazine Luiza','vSH':'Shopee','vAMZ':'Amazon','vAF':'Amazon Fulfillment','vML':'Mercado Livre'};
+const SKUS_EXCLUIR_PROJ=new Set(['TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4']);
 let _dRef='',_ontRef='';
 let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
@@ -1457,8 +1470,26 @@ function renderCanalKpis(vid, data){
   const g=id=>document.getElementById(vid+id);
   g('FatA').textContent=R(sA.fat);g('QtdA').textContent=`${sA.qtd} un — ${fmtDia(st.diaA||data.ontem)}`;
   g('FatB').textContent=R(sB.fat);g('QtdB').textContent=`${sB.qtd} un — ${fmtDia(st.diaB||hoje)}`;
-  g('FatMes').textContent=R(sMes.fat);g('ProjMes').textContent=`proj. final: ${R(proj)}`;
-  g('FatHoje').textContent=R(sH.fat);g('QtdHoje').textContent=`${sH.qtd} un hoje`;
+
+  // Meta por canal a partir do cache de metas
+  if(_cache?.metas){
+    const canal=_canalVidMap[vid]||'';
+    const metaDiaCanal=(_cache.metas.dias[_dRef]||{})[canal]||0;
+    // Soma meta do canal em todos os dias do mês atual
+    const n=new Date();
+    const metaMesCanal=Object.entries(_cache.metas.dias)
+      .filter(([k])=>{const p=k.split('/');return +p[0]===n.getMonth()+1&&+p[2]===n.getFullYear();})
+      .reduce((s,[,v])=>s+(v[canal]||0),0);
+    const pctMes=metaMesCanal>0?Math.min(sMes.fat/metaMesCanal*100,999).toFixed(1):0;
+    const pctDia=metaDiaCanal>0?Math.min(sH.fat/metaDiaCanal*100,999).toFixed(1):0;
+    g('FatMes').textContent=R(sMes.fat);
+    g('ProjMes').textContent=`Meta mês: ${R(metaMesCanal)} (${pctMes}%) · proj: ${R(proj)}`;
+    g('FatHoje').textContent=R(sH.fat);
+    g('QtdHoje').textContent=`${sH.qtd} un · Meta dia: ${R(metaDiaCanal)} (${pctDia}%)`;
+  } else {
+    g('FatMes').textContent=R(sMes.fat);g('ProjMes').textContent=`proj. final: ${R(proj)}`;
+    g('FatHoje').textContent=R(sH.fat);g('QtdHoje').textContent=`${sH.qtd} un hoje`;
+  }
 }
 
 function renderCanalComp(canal, vid, data){
@@ -1486,11 +1517,24 @@ function renderCanalComp(canal, vid, data){
 
 function renderCanalLista(canal, vid, data){
   const st=_canalState[vid]||{};
-  const dat=st.diaL||data.ontem;
+  const dIni=st.diaLIni||data.ontem, dFim=st.diaLFim||data.ontem;
+  const ymdI=toYMD(dIni), ymdF=toYMD(dFim);
   const g=id=>document.getElementById(vid+id);
-  g('ListaTit').textContent=`Todos Produtos ${canal} — ${fmtDia(dat)}`;
-  const lista=Object.entries(data.byDia[dat]||{}).sort((a,b)=>b[1].qtd-a[1].qtd);
-  if(!lista.length){g('ListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas em ${fmtDia(dat)}</div>`;return;}
+  const label=dIni===dFim?fmtDia(dIni):`${fmtDia(dIni)} → ${fmtDia(dFim)}`;
+  g('ListaTit').textContent=`Todos Produtos ${canal} — ${label}`;
+
+  // Agrega todos os dias no período
+  const agregado={};
+  for(const [dat,prods] of Object.entries(data.byDia)){
+    if(toYMD(dat)<ymdI||toYMD(dat)>ymdF) continue;
+    for(const [sku,d] of Object.entries(prods)){
+      if(!agregado[sku])agregado[sku]={desc:d.desc,qtd:0,fat:0,idProd:d.idProd};
+      agregado[sku].qtd+=d.qtd; agregado[sku].fat+=d.fat;
+    }
+  }
+
+  const lista=Object.entries(agregado).sort((a,b)=>b[1].qtd-a[1].qtd);
+  if(!lista.length){g('ListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas em ${label}</div>`;return;}
   let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR('Qtd')}${THR('Faturamento')}${THL('')}${THL('')}${THL('Estoque')}</tr></thead><tbody>`;
   lista.forEach(([sku,d],i)=>{
     const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
@@ -1507,7 +1551,7 @@ function renderCanalTop5(canal, vid, data){
   const NM=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const g=id=>document.getElementById(vid+id);
   g('Top5Tit').textContent=`Top 5 ${NM[mesPrev]}/${anoPrev} vs Projeção ${NM[mesAtual]}/${anoAtual}`;
-  const top5=Object.entries(mesPrevData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
+  const top5=Object.entries(mesPrevData).filter(([sku])=>!SKUS_EXCLUIR_PROJ.has(sku)).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
   if(!top5.length){g('Top5Wrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados mês anterior</div>';return;}
   const cor=COR[canal]||'#999';
   let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR(NM[mesPrev].substring(0,3)+'/'+anoPrev)}${THR('Média/dia')}${THR(NM[mesAtual].substring(0,3)+' atual')}${THR('Proj. final')}${THL('Tendência')}</tr></thead><tbody>`;
@@ -1533,10 +1577,13 @@ function loadCanal(canal, vid){
   const data=processarCanal(_cache.pRows,_cache.iRows,canal);
   // Init state defaults
   if(!_canalState[vid]){
-    _canalState[vid]={diaA:data.ante,diaB:data.ontem,diaL:data.ontem,filt:'all'};
+    _canalState[vid]={diaA:data.ante,diaB:data.ontem,diaLIni:data.ontem,diaLFim:data.ontem,filt:'all'};
     document.getElementById(vid+'DiaA').value=toISO(data.ante);
     document.getElementById(vid+'DiaB').value=toISO(data.ontem);
-    document.getElementById(vid+'DiaL').value=toISO(data.ontem);
+    const iniEl=document.getElementById(vid+'DiaLIni');
+    const fimEl=document.getElementById(vid+'DiaLFim');
+    if(iniEl)iniEl.value=toISO(data.ontem);
+    if(fimEl)fimEl.value=toISO(data.ontem);
   }
   if(!_estC)loadEstoque().catch(e=>console.warn('[Est]',e));
   renderCanalKpis(vid,data);
@@ -1556,10 +1603,15 @@ function aplicarCanalComp(canal, vid){
 }
 
 function aplicarCanalLista(canal, vid){
-  const dL=toMDY(document.getElementById(vid+'DiaL').value);
-  if(!dL)return;
+  // Suporta input com sufixo Ini/Fim (período) ou sem (dia único)
+  const iniEl=document.getElementById(vid+'DiaLIni');
+  const fimEl=document.getElementById(vid+'DiaLFim');
+  const ini=iniEl?toMDY(iniEl.value):toMDY((document.getElementById(vid+'DiaL')||{}).value||'');
+  const fim=fimEl?toMDY(fimEl.value):ini;
+  if(!ini)return;
   if(!_canalState[vid])_canalState[vid]={};
-  _canalState[vid].diaL=dL;
+  _canalState[vid].diaLIni=ini;
+  _canalState[vid].diaLFim=fim||ini;
   const data=_canalCache[canal];if(!data)return;
   renderCanalLista(canal,vid,data);
 }
@@ -1578,7 +1630,7 @@ function setCanalFilt(canal, vid, filt, btn){
 
 // ── MERCADO LIVRE ─────────────────────────────────────────────
 let _mlC=null, _mlFilt='all';
-let _mlDiaA='', _mlDiaB='', _mlDiaLista='';
+let _mlDiaA='', _mlDiaB='', _mlDiaLista='', _mlDiaListaIni='', _mlDiaListaFim='';
 
 // Converte YYYY-MM-DD → M/D/YYYY
 const toMDY=s=>{if(!s)return'';const p=s.split('-');return`${+p[1]}/${+p[2]}/${p[0]}`;};
@@ -1612,7 +1664,13 @@ function processarML(pRows,iRows){
   // Defaults de interface
   if(!_mlDiaA){_mlDiaA=ante; document.getElementById('mlDiaA').value=toISO(ante);}
   if(!_mlDiaB){_mlDiaB=ontem;document.getElementById('mlDiaB').value=toISO(ontem);}
-  if(!_mlDiaLista){_mlDiaLista=ontem;document.getElementById('mlDiaLista').value=toISO(ontem);}
+  if(!_mlDiaListaIni){
+    _mlDiaListaIni=ontem;_mlDiaListaFim=ontem;_mlDiaLista=ontem;
+    const ini2=document.getElementById('mlDiaListaIni');
+    const fim2=document.getElementById('mlDiaListaFim');
+    if(ini2)ini2.value=toISO(ontem);
+    if(fim2)fim2.value=toISO(ontem);
+  }
 
   // Mês anterior e atual
   const dRef=pD(hoje);
@@ -1702,7 +1760,11 @@ function aplicarMLComp(){
 }
 
 function aplicarMLLista(){
-  _mlDiaLista=toMDY(document.getElementById('mlDiaLista').value);
+  const iniEl=document.getElementById('mlDiaListaIni');
+  const fimEl=document.getElementById('mlDiaListaFim');
+  _mlDiaListaIni=iniEl?toMDY(iniEl.value):'';
+  _mlDiaListaFim=fimEl?toMDY(fimEl.value):'';
+  _mlDiaLista=_mlDiaListaIni;
   renderMLLista();
 }
 
@@ -1720,9 +1782,23 @@ function renderMLKpis(){
   document.getElementById('mlFatB').textContent=R(sB.fat);
   document.getElementById('mlQtdB').textContent=`${sB.qtd} un — ${fmtDia(_mlDiaB)}`;
   document.getElementById('mlFatMes').textContent=R(sMes.fat);
-  document.getElementById('mlProjMes').textContent=`proj. final: ${R(proj)}`;
-  document.getElementById('mlFatHoje').textContent=R(sH.fat);
-  document.getElementById('mlQtdHoje').textContent=`${sH.qtd} un — hoje`;
+  // Meta ML
+  if(_cache?.metas){
+    const n=new Date();
+    const metaMesML=Object.entries(_cache.metas.dias)
+      .filter(([k])=>{const p=k.split('/');return +p[0]===n.getMonth()+1&&+p[2]===n.getFullYear();})
+      .reduce((s,[,v])=>s+(v['Mercado Livre']||0),0);
+    const metaDiaML=(_cache.metas.dias[_dRef]||{})['Mercado Livre']||0;
+    const pctMes=metaMesML>0?Math.min(sMes.fat/metaMesML*100,999).toFixed(1):0;
+    const pctDia=metaDiaML>0?Math.min(sH.fat/metaDiaML*100,999).toFixed(1):0;
+    document.getElementById('mlProjMes').textContent=`Meta mês: ${R(metaMesML)} (${pctMes}%) · proj: ${R(proj)}`;
+    document.getElementById('mlFatHoje').textContent=R(sH.fat);
+    document.getElementById('mlQtdHoje').textContent=`${sH.qtd} un · Meta dia: ${R(metaDiaML)} (${pctDia}%)`;
+  } else {
+    document.getElementById('mlProjMes').textContent=`proj. final: ${R(proj)}`;
+    document.getElementById('mlFatHoje').textContent=R(sH.fat);
+    document.getElementById('mlQtdHoje').textContent=`${sH.qtd} un — hoje`;
+  }
 }
 
 function renderMLComp(){
@@ -1773,9 +1849,20 @@ function renderMLComp(){
 function renderMLLista(){
   if(!_mlC)return;
   const{byDia}=_mlC;
-  const dat=_mlDiaLista;
-  document.getElementById('mlListaTit').textContent=`Todos Produtos ML — ${fmtDia(dat)}`;
-  const lista=Object.entries(byDia[dat]||{}).sort((a,b)=>b[1].qtd-a[1].qtd);
+  const dIni=_mlDiaListaIni||_mlDiaLista, dFim=_mlDiaListaFim||_mlDiaLista;
+  const ymdI=toYMD(dIni),ymdF=toYMD(dFim);
+  const label=dIni===dFim?fmtDia(dIni):`${fmtDia(dIni)} → ${fmtDia(dFim)}`;
+  document.getElementById('mlListaTit').textContent=`Todos Produtos ML — ${label}`;
+  // Agrega período
+  const agg={};
+  for(const[dat,prods]of Object.entries(byDia)){
+    if(toYMD(dat)<ymdI||toYMD(dat)>ymdF)continue;
+    for(const[sku,d]of Object.entries(prods)){
+      if(!agg[sku])agg[sku]={desc:d.desc,qtd:0,fat:0,idProd:d.idProd};
+      agg[sku].qtd+=d.qtd;agg[sku].fat+=d.fat;
+    }
+  }
+  const lista=Object.entries(agg).sort((a,b)=>b[1].qtd-a[1].qtd);
 
   if(!lista.length){
     document.getElementById('mlListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas ML em ${fmtDia(dat)}</div>`;
@@ -1810,7 +1897,7 @@ function renderMLTop5(){
   const NM=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   document.getElementById('mlTop5Tit').textContent=`Top 5 ${NM[mesPrev]}/${anoPrev} vs Projeção ${NM[mesAtual]}/${anoAtual}`;
 
-  const top5=Object.entries(mesPrevData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
+  const top5=Object.entries(mesPrevData).filter(([sku])=>!SKUS_EXCLUIR_PROJ.has(sku)).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
   if(!top5.length){document.getElementById('mlTop5Wrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados do mês anterior</div>';return;}
 
   let h=`<table ${TS}>${CG}<thead><tr>
