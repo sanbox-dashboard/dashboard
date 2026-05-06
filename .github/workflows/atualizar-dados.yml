@@ -5,6 +5,10 @@ on:
     - cron: '0 * * * *'  # Toda hora
   workflow_dispatch:       # Permite rodar manualmente
 
+# PERMISSÃO NECESSÁRIA para fazer commit
+permissions:
+  contents: write
+
 jobs:
   atualizar:
     runs-on: ubuntu-latest
@@ -19,38 +23,33 @@ jobs:
           METAS_ID="1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk"
 
           echo "Buscando pedidos..."
-          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values/tinyerp_pedidos_detalhes!A:BQ?key=${API_KEY}" \
-            -o /tmp/pedidos_raw.json
+          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values/tinyerp_pedidos_detalhes!A:BQ?key=${API_KEY}" -o /tmp/pedidos_raw.json
 
           echo "Buscando itens..."
-          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values/tinyerp_pedidos_detalhes_itens!A:N?key=${API_KEY}" \
-            -o /tmp/itens_raw.json
+          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values/tinyerp_pedidos_detalhes_itens!A:N?key=${API_KEY}" -o /tmp/itens_raw.json
 
           echo "Buscando estoque..."
-          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values/tinyerp_estoque_produto_depo!A:G?key=${API_KEY}" \
-            -o /tmp/estoque_raw.json
+          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values/tinyerp_estoque_produto_depo!A:G?key=${API_KEY}" -o /tmp/estoque_raw.json
 
           echo "Buscando metas..."
-          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${METAS_ID}/values/A1:H200?key=${API_KEY}" \
-            -o /tmp/metas_raw.json
+          curl -s "https://sheets.googleapis.com/v4/spreadsheets/${METAS_ID}/values/A1:H200?key=${API_KEY}" -o /tmp/metas_raw.json
 
           echo "Processando dados com Node.js..."
           node -e "
           const fs = require('fs');
 
-          // Lê os dados brutos
           const pedidos = JSON.parse(fs.readFileSync('/tmp/pedidos_raw.json')).values || [];
           const itens   = JSON.parse(fs.readFileSync('/tmp/itens_raw.json')).values || [];
           const estoque = JSON.parse(fs.readFileSync('/tmp/estoque_raw.json')).values || [];
           const metasRaw= JSON.parse(fs.readFileSync('/tmp/metas_raw.json')).values || [];
 
-          // Helpers
           const N = s => parseFloat((s||'0').toString().replace(/\./g,'').replace(',','.')) || 0;
           const ymd = s => { const p=(s||'').split('/'); if(p.length<3)return''; return p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0'); };
           const dmy = s => { const p=(s||'').split('/'); if(p.length<3)return s; return p[1].padStart(2,'0')+'/'+p[0].padStart(2,'0')+'/'+p[2]; };
           const VALIDAS = new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue']);
           const DEPOSITOS = new Set(['deposito amazonfull','novo galpao']);
           const CANAIS = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon','Amazon Fulfillment'];
+          const EXCLUIR = new Set(['TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4']);
 
           function getCanal(nome, num) {
             const n = (nome||'').toLowerCase();
@@ -75,10 +74,9 @@ jobs:
           for(let i=1;i<pedidos.length;i++){
             const r=pedidos[i];
             const id=(r[0]||'').trim(), sit=(r[62]||'').toLowerCase().trim(), dat=(r[64]||'').trim();
-            const fat=N(r[56]);
             if(!id||!VALIDAS.has(sit)||!dat) continue;
             const cn=getCanal(r[26],r[28]);
-            pedMap[id]={data:dat,canal:cn,fat};
+            pedMap[id]={data:dat,canal:cn,fat:N(r[56])};
             datasSet.add(dat);
           }
           const datas=[...datasSet].sort((a,b)=>ymd(b).localeCompare(ymd(a)));
@@ -86,12 +84,12 @@ jobs:
           const diaOntem=datas[1]||'';
           const now=new Date();
 
-          // Totais por dia (últimos 30 dias)
+          // Totais por dia
           const porDia={};
           for(const p of Object.values(pedMap)){
-            if(!porDia[p.data]) porDia[p.data]={fat:0,peds:0,canais:{}};
+            if(!porDia[p.data]) { porDia[p.data]={fat:0,peds:0,canais:{}}; CANAIS.forEach(c=>porDia[p.data].canais[c]=0); }
             porDia[p.data].fat+=p.fat; porDia[p.data].peds++;
-            porDia[p.data].canais[p.canal]=(porDia[p.data].canais[p.canal]||0)+p.fat;
+            if(porDia[p.data].canais[p.canal]!==undefined) porDia[p.data].canais[p.canal]+=p.fat;
           }
 
           // Totais dia ref e mês
@@ -99,24 +97,27 @@ jobs:
           CANAIS.forEach(c=>{resCanaisDia[c]={fat:0,peds:0};resCanaisMes[c]={fat:0,peds:0};});
           let fatDia=0,pedsDia=0,fatMes=0,pedsMes=0,fatOntem=0,pedsOntem=0;
           for(const p of Object.values(pedMap)){
-            const d=new Date(p.data.split('/')[2],p.data.split('/')[0]-1,p.data.split('/')[1]);
+            const parts=p.data.split('/');
+            const d=new Date(+parts[2],+parts[0]-1,+parts[1]);
             const isMes=d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();
             if(p.data===diaRef){fatDia+=p.fat;pedsDia++;if(resCanaisDia[p.canal]){resCanaisDia[p.canal].fat+=p.fat;resCanaisDia[p.canal].peds++;}}
             if(p.data===diaOntem){fatOntem+=p.fat;pedsOntem++;}
             if(isMes){fatMes+=p.fat;pedsMes++;if(resCanaisMes[p.canal]){resCanaisMes[p.canal].fat+=p.fat;resCanaisMes[p.canal].peds++;}}
           }
 
-          // Top 30 produtos (últimos 30 dias)
-          const EXCLUIR=new Set(['TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4']);
-          const dFim=new Date(diaRef.split('/')[2],diaRef.split('/')[0]-1,diaRef.split('/')[1]);
+          // Top 30 produtos (30 dias)
+          const refParts=diaRef.split('/');
+          const dFim=new Date(+refParts[2],+refParts[0]-1,+refParts[1]);
           const dIni=new Date(dFim); dIni.setDate(dIni.getDate()-30);
           const skuMap={};
           for(let i=1;i<itens.length;i++){
             const r=itens[i];
-            const id=(r[0]||'').trim(), sku=(r[1]||'').trim().toUpperCase(), sit=(r[9]||'').toLowerCase().trim(), dat=(r[11]||'').trim();
+            const id=(r[0]||'').trim(), sku=(r[1]||'').trim().toUpperCase();
+            const sit=(r[9]||'').toLowerCase().trim(), dat=(r[11]||'').trim();
             if(!VALIDAS.has(sit)||!pedMap[id]) continue;
             if(sku.startsWith('KIT')||sku.endsWith('ML')||EXCLUIR.has(sku)) continue;
-            const d=new Date(dat.split('/')[2],dat.split('/')[0]-1,dat.split('/')[1]);
+            const dp=dat.split('/');
+            const d=new Date(+dp[2],+dp[0]-1,+dp[1]);
             if(d<dIni||d>dFim) continue;
             const qtd=N(r[4]),vu=N(r[6]);
             if(!skuMap[sku]) skuMap[sku]={desc:(r[2]||'').trim(),qtd:0,fat:0,canais:{}};
@@ -125,24 +126,15 @@ jobs:
             skuMap[sku].canais[cn]=(skuMap[sku].canais[cn]||0)+qtd;
           }
           const top30=Object.entries(skuMap).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,30)
-            .map(([sku,d])=>({sku,desc:d.desc,qtd:d.qtd,fat:d.fat,canais:d.canais}));
+            .map(([sku,d])=>({sku,desc:d.desc,qtd:d.qtd,fat:Math.round(d.fat*100)/100,canais:d.canais}));
 
-          // Estoque com alertas
+          // Estoque
           const estMap={};
           for(let i=1;i<estoque.length;i++){
             const r=estoque[i];
-            const id=(r[0]||'').trim(), dep=(r[3]||'').toLowerCase().trim();
+            const id=(r[0]||'').trim(),dep=(r[3]||'').toLowerCase().trim();
             if(!id) continue;
             if(DEPOSITOS.has(dep)) estMap[id]=(estMap[id]||0)+N(r[4]);
-          }
-          const vendasMap={};
-          for(let i=1;i<itens.length;i++){
-            const r=itens[i];
-            const id=(r[0]||'').trim(),idP=(r[3]||'').trim(),sit=(r[9]||'').toLowerCase().trim();
-            if(!VALIDAS.has(sit)||!pedMap[id]||!idP) continue;
-            const d=new Date((r[11]||'').split('/')[2],(r[11]||'').split('/')[0]-1,(r[11]||'').split('/')[1]);
-            if(d<dIni||d>dFim) continue;
-            vendasMap[idP]=(vendasMap[idP]||0)+N(r[4]);
           }
 
           // Metas
@@ -157,8 +149,8 @@ jobs:
                 else if(vl.includes('amazon'))iAMZ=i; else if(vl.includes('total'))iTOT=i;
               }); continue;
             }
-            if(c0.match(/^[a-zA-ZÀ-ú]+\/\d{4}$/)&&r[1]){metaMes=N(r[1]);continue;}
-            if(c0.match(/^\d{2}\/\d{2}\/\d{4}$/)){
+            if(c0.match(/^[a-zA-ZÀ-ú]+\/\d{4}\$/)&&r[1]){metaMes=N(r[1]);continue;}
+            if(c0.match(/^\d{2}\/\d{2}\/\d{4}\$/)){
               const p=c0.split('/'),key=p[1]+'/'+p[0]+'/'+p[2];
               const ml=iML>=0?N(r[iML]):0,cb=iCB>=0?N(r[iCB]):0,mg=iMG>=0?N(r[iMG]):0;
               const sh=iSH>=0?N(r[iSH]):0,amz=iAMZ>=0?N(r[iAMZ]):0,tot=iTOT>=0?N(r[iTOT]):0;
@@ -170,45 +162,53 @@ jobs:
           const diasMes=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
           const diasPass=now.getDate();
 
-          // Monta JSON final
           const dados={
             gerado_em: new Date().toISOString(),
             gerado_em_br: new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'}),
             dia_referencia: dmy(diaRef),
             dia_ontem: dmy(diaOntem),
             resumo_dia:{
-              faturamento: fatDia, pedidos: pedsDia,
-              ticket_medio: pedsDia>0?+(fatDia/pedsDia).toFixed(2):0,
+              faturamento: Math.round(fatDia*100)/100,
+              pedidos: pedsDia,
+              ticket_medio: pedsDia>0?Math.round(fatDia/pedsDia*100)/100:0,
               meta_total: metaDia.total||0,
-              pct_meta: metaDia.total>0?+((fatDia/metaDia.total)*100).toFixed(1):null,
+              pct_meta: metaDia.total>0?Math.round(fatDia/metaDia.total*1000)/10:null,
               por_canal: Object.fromEntries(CANAIS.map(c=>[c,{
-                faturamento: resCanaisDia[c]?.fat||0, pedidos: resCanaisDia[c]?.peds||0,
+                faturamento: Math.round((resCanaisDia[c]?.fat||0)*100)/100,
+                pedidos: resCanaisDia[c]?.peds||0,
                 meta: metaDia[c]||0,
-                pct_meta: metaDia[c]>0?+((resCanaisDia[c]?.fat||0)/metaDia[c]*100).toFixed(1):null
+                pct_meta: metaDia[c]>0?Math.round((resCanaisDia[c]?.fat||0)/metaDia[c]*1000)/10:null
               }]))
             },
-            ontem:{ faturamento: fatOntem, pedidos: pedsOntem },
+            ontem:{ faturamento: Math.round(fatOntem*100)/100, pedidos: pedsOntem },
             resumo_mes:{
               mes: (now.getMonth()+1)+'/'+now.getFullYear(),
-              faturamento: fatMes, pedidos: pedsMes,
+              faturamento: Math.round(fatMes*100)/100,
+              pedidos: pedsMes,
               meta_mensal: metaMes,
-              pct_meta: metaMes>0?+(fatMes/metaMes*100).toFixed(1):null,
-              projecao_final: diasPass>0?+(fatMes/diasPass*diasMes).toFixed(2):0,
-              por_canal: Object.fromEntries(CANAIS.map(c=>[c,{faturamento:resCanaisMes[c]?.fat||0,pedidos:resCanaisMes[c]?.peds||0}]))
+              pct_meta: metaMes>0?Math.round(fatMes/metaMes*1000)/10:null,
+              projecao_final: diasPass>0?Math.round(fatMes/diasPass*diasMes*100)/100:0,
+              por_canal: Object.fromEntries(CANAIS.map(c=>[c,{
+                faturamento: Math.round((resCanaisMes[c]?.fat||0)*100)/100,
+                pedidos: resCanaisMes[c]?.peds||0
+              }]))
             },
             top_30_produtos_30d: top30,
             historico_por_dia: Object.fromEntries(
-              Object.entries(porDia).sort((a,b)=>ymd(b[0]).localeCompare(ymd(a[0]))).slice(0,30)
-              .map(([d,v])=>[dmy(d),v])
+              Object.entries(porDia)
+                .sort((a,b)=>ymd(b[0]).localeCompare(ymd(a[0])))
+                .slice(0,30)
+                .map(([d,v])=>[dmy(d),{fat:Math.round(v.fat*100)/100,peds:v.peds,canais:v.canais}])
             ),
+            estoque_ids: estMap,
             metas:{ mensal: metaMes, por_dia: metasDias },
           };
 
           fs.writeFileSync('dados.json', JSON.stringify(dados, null, 2));
-          console.log('✅ dados.json gerado com sucesso!');
+          console.log('✅ dados.json gerado!');
           console.log('Dia ref:', dados.dia_referencia);
-          console.log('Fat dia:', dados.resumo_dia.faturamento);
-          console.log('Fat mês:', dados.resumo_mes.faturamento);
+          console.log('Fat dia: R\$', dados.resumo_dia.faturamento);
+          console.log('Fat mes: R\$', dados.resumo_mes.faturamento);
           "
 
       - name: Commit e push do dados.json
@@ -216,7 +216,7 @@ jobs:
           git config --global user.name "Sanbox Bot"
           git config --global user.email "contato@sanbox.com.br"
           git add dados.json
-          git diff --staged --quiet || git commit -m "📊 Atualizar dados $(date -u '+%d/%m/%Y %H:%M') UTC"
+          git diff --staged --quiet && echo "Sem mudanças" || git commit -m "📊 Dados $(date -u '+%d/%m/%Y %H:%M') UTC"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
