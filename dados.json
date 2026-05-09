@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-05-09T15:15:53.177Z",
-  "gerado_em_br": "09/05/2026, 12:15:53",
+  "gerado_em": "2026-05-09T18:39:53.435Z",
+  "gerado_em_br": "09/05/2026, 15:39:53",
   "dia_referencia": "09/05/2026",
   "dia_ontem": "08/05/2026",
   "resumo_dia": {
-    "faturamento": 2081235,
-    "pedidos": 31,
-    "ticket_medio": 67136.61,
+    "faturamento": 2264959,
+    "pedidos": 34,
+    "ticket_medio": 66616.44,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 72434,
-        "pedidos": 10,
+        "faturamento": 93702,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 267555,
-        "pedidos": 4,
+        "faturamento": 430011,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "5/2026",
-    "faturamento": 71761841,
-    "pedidos": 1216,
+    "faturamento": 71945565,
+    "pedidos": 1219,
     "meta_mensal": 5999999.12,
-    "pct_meta": 1196,
-    "projecao_final": 247179674.56,
+    "pct_meta": 1199.1,
+    "projecao_final": 247812501.67,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8279528,
-        "pedidos": 550
+        "faturamento": 8300796,
+        "pedidos": 552
       },
       "Casas Bahia": {
         "faturamento": 23893193,
@@ -77,8 +77,8 @@
         "pedidos": 106
       },
       "Amazon": {
-        "faturamento": 14917548,
-        "pedidos": 214
+        "faturamento": 15080004,
+        "pedidos": 215
       },
       "Amazon Fulfillment": {
         "faturamento": 688319,
@@ -104,10 +104,10 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 265,
-      "fat": 908978,
+      "qtd": 267,
+      "fat": 917404,
       "canais": {
-        "Mercado Livre": 187,
+        "Mercado Livre": 189,
         "Casas Bahia": 29,
         "Amazon": 3,
         "Shopee": 6,
@@ -117,10 +117,10 @@
     {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 249,
-      "fat": 3561743,
+      "qtd": 250,
+      "fat": 3596097,
       "canais": {
-        "Mercado Livre": 138,
+        "Mercado Livre": 139,
         "Casas Bahia": 67,
         "Amazon Fulfillment": 5,
         "Amazon": 18,
@@ -185,10 +185,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 161,
-      "fat": 4266461,
+      "qtd": 162,
+      "fat": 4283420,
       "canais": {
-        "Mercado Livre": 52,
+        "Mercado Livre": 53,
         "Amazon": 62,
         "Casas Bahia": 24,
         "Shopee": 11,
@@ -463,27 +463,29 @@
       }
     },
     {
-      "sku": "TI1685",
-      "desc": "Forno Eletrico de Bancada Mueller MFB50F Espelhado 50L Vidro Duplo-127v",
+      "sku": "TI516",
+      "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
       "qtd": 27,
-      "fat": 403563,
+      "fat": 1698248,
       "canais": {
-        "Mercado Livre": 15,
-        "Amazon": 5,
-        "Shopee": 7
+        "Amazon": 2,
+        "Magazine Luiza": 4,
+        "Mercado Livre": 5,
+        "Casas Bahia": 13,
+        "Shopee": 3
       }
     }
   ],
   "historico_por_dia": {
     "09/05/2026": {
-      "fat": 2081235,
-      "peds": 31,
+      "fat": 2264959,
+      "peds": 34,
       "canais": {
-        "Mercado Livre": 72434,
+        "Mercado Livre": 93702,
         "Casas Bahia": 544190,
         "Magazine Luiza": 825369,
         "Shopee": 371687,
-        "Amazon": 267555,
+        "Amazon": 430011,
         "Amazon Fulfillment": 0
       }
     },
