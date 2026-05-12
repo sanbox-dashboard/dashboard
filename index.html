@@ -199,7 +199,6 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
     <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
     <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
-    <button class="tab"     onclick="aba('vAF',this)">📦 Amazon Full</button>
   </div>
 
   <div class="content">
@@ -220,6 +219,7 @@ tfoot td:first-child{text-align:left;}
         <div class="hc"><div class="dlbl">Referência</div><div class="dval" id="dRef">--</div></div>
         <div class="hr">
           <button class="btn-sm" onclick="load()">⟳ Atualizar</button>
+          <button class="btn-sm" onclick="exportarParaAnalista()" title="Exportar dados para o Analista de Vendas">📤 Exportar p/ Analista</button>
           <div class="live"><div class="dot"></div><span id="sLbl">AO VIVO</span></div>
           <div class="clock" id="clock">--:--:--</div>
         </div>
@@ -285,6 +285,7 @@ tfoot td:first-child{text-align:left;}
 
     <!-- ══ CATEGORIAS ═════════════════════════════════════════ -->
     <div class="panel" id="vCat">
+      <!-- Categorias x Canal -->
       <div class="card">
         <div class="atitle">
           <div class="atit"><div class="pdot"></div><span id="catTit">Categorias × Canal</span></div>
@@ -299,6 +300,23 @@ tfoot td:first-child{text-align:left;}
         </div>
         <div class="tscroll"><div id="catTbWrap"><div class="lt" style="padding:20px;text-align:center">Abrindo aba de Categorias...</div></div></div>
       </div>
+
+      <!-- Categorias x Mês (últimos 6 meses + filtro) -->
+      <div class="card">
+        <div class="atitle" style="flex-wrap:wrap;gap:8px;">
+          <div class="atit"><div class="pdot"></div>Faturamento por Categoria × Mês</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+            <span class="flbl">De:</span>
+            <input type="month" id="catMesIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <span class="flbl">até:</span>
+            <input type="month" id="catMesFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
+            <button class="faply" onclick="aplicarCatMeses()">Aplicar</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="catMesWrap"><div class="lt" style="padding:16px;text-align:center">Aguardando...</div></div></div>
+      </div>
+
+      <!-- Canal x Mês (por último) -->
       <div class="card">
         <div class="atitle">
           <div class="atit"><div class="pdot"></div>Canal × Mês</div>
@@ -381,6 +399,14 @@ tfoot td:first-child{text-align:left;}
           <input type="date" id="vgFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
           <button class="faply" onclick="aplicarVG()">Aplicar</button>
           <div style="width:1px;height:20px;background:var(--bd);"></div>
+          <span class="flbl">Categoria:</span>
+          <select id="vgCat" onchange="renderVG(_vgCache)" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';color:var(--tx);">
+            <option value="">Todas</option>
+          </select>
+          <span class="flbl">Marca:</span>
+          <select id="vgMarca" onchange="renderVG(_vgCache)" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';color:var(--tx);">
+            <option value="">Todas</option>
+          </select>
           <span class="flbl">Ordenar por:</span>
           <div style="display:flex;gap:3px;flex-wrap:wrap;" id="vgOrdBtns">
             <button class="abtn on" id="vgOrdTotal" onclick="ordenarVG('total',this)" style="background:var(--or);border-color:var(--or);color:#fff">Total ▼</button>
@@ -633,88 +659,6 @@ tfoot td:first-child{text-align:left;}
         <div class="tscroll"><div id="vAMZTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
       </div>
     </div><!-- /vAMZ -->
-
-    <!-- ══ AMAZON FULFILLMENT ══════════════════════════════════════════ -->
-    <div class="panel" id="vAF">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia A (raiz)</div><div class="kv" id="vAFFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdA">--</div></div>
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia B (comparação)</div><div class="kv" id="vAFFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdB">--</div></div>
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Mês Atual</div><div class="kv" id="vAFFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFProjMes">--</div></div>
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Vendas Hoje</div><div class="kv" id="vAFFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdHoje">--</div></div>
-      </div>
-      <div class="card">
-        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vAFCompTit">Comparativo Top 10</span></div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="flbl">Dia A:</span>
-            <input type="date" id="vAFDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <span class="flbl">vs Dia B:</span>
-            <input type="date" id="vAFDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <button class="faply" onclick="aplicarCanalComp('Amazon Fulfillment','vAF')">Aplicar</button>
-            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
-            <button class="abtn on"  id="vAFFAll" onclick="setCanalFilt('Amazon Fulfillment','vAF','all',this)"  style="background:#FF9900;border-color:#FF9900;color:#fff">Todos</button>
-            <button class="abtn"     id="vAFFUp"  onclick="setCanalFilt('Amazon Fulfillment','vAF','up',this)">▲ Subiram</button>
-            <button class="abtn"     id="vAFFDn"  onclick="setCanalFilt('Amazon Fulfillment','vAF','dn',this)">▼ Caíram</button>
-          </div>
-        </div>
-        <div class="tscroll"><div id="vAFCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
-      </div>
-      <div class="card">
-        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vAFListaTit">Todos Produtos</span></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="flbl">Data:</span>
-            <input type="date" id="vAFDiaL" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <button class="faply" onclick="aplicarCanalLista('Amazon Fulfillment','vAF')">Aplicar</button>
-          </div>
-        </div>
-        <div class="tscroll"><div id="vAFListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
-      </div>
-      <div class="card">
-        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vAFTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
-        <div class="tscroll"><div id="vAFTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
-      </div>
-    </div><!-- /vAF -->
-
-    <!-- ══ AMAZON FULFILLMENT ══════════════════════════════════════════ -->
-    <div class="panel" id="vAF">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia A (raiz)</div><div class="kv" id="vAFFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdA">--</div></div>
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Dia B (comparação)</div><div class="kv" id="vAFFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdB">--</div></div>
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Mês Atual</div><div class="kv" id="vAFFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFProjMes">--</div></div>
-        <div class="kpi" style="--kc:#FF9900"><div class="kl">Vendas Hoje</div><div class="kv" id="vAFFatHoje" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAFQtdHoje">--</div></div>
-      </div>
-      <div class="card">
-        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vAFCompTit">Comparativo Top 10</span></div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="flbl">Dia A:</span><input type="date" id="vAFDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <span class="flbl">vs Dia B:</span><input type="date" id="vAFDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <button class="faply" onclick="aplicarCanalComp('Amazon Fulfillment','vAF')">Aplicar</button>
-            <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
-            <button class="abtn on" id="vAFFAll" onclick="setCanalFilt('Amazon Fulfillment','vAF','all',this)" style="background:#FF9900;border-color:#FF9900;color:#fff">Todos</button>
-            <button class="abtn" id="vAFFUp" onclick="setCanalFilt('Amazon Fulfillment','vAF','up',this)">▲ Subiram</button>
-            <button class="abtn" id="vAFFDn" onclick="setCanalFilt('Amazon Fulfillment','vAF','dn',this)">▼ Caíram</button>
-          </div>
-        </div>
-        <div class="tscroll"><div id="vAFCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
-      </div>
-      <div class="card">
-        <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vAFListaTit">Todos Produtos Amazon Full</span></div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span class="flbl">De:</span><input type="date" id="vAFDiaLIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <span class="flbl">até:</span><input type="date" id="vAFDiaLFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
-            <button class="faply" onclick="aplicarCanalLista('Amazon Fulfillment','vAF')">Aplicar</button>
-          </div>
-        </div>
-        <div class="tscroll"><div id="vAFListaWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
-      </div>
-      <div class="card">
-        <div class="atitle"><div class="atit"><div class="pdot"></div><span id="vAFTop5Tit">Top 5 Mês Anterior vs Projeção</span></div></div>
-        <div class="tscroll"><div id="vAFTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
-      </div>
-    </div><!-- /vAF -->
   </div><!-- /content -->
 </div><!-- /app -->
 
@@ -738,9 +682,9 @@ const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
 // ── STATE ───────────────────────────────────────────────────
 let _modo='dia',_ini=null,_fim=null;
-const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null,'Amazon Fulfillment':null};
-const _canalVidMap={'vCB':'Casas Bahia','vMG':'Magazine Luiza','vSH':'Shopee','vAMZ':'Amazon','vAF':'Amazon Fulfillment','vML':'Mercado Livre'};
-const SKUS_EXCLUIR_PROJ=new Set(['TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4']);
+const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null};
+const _canalVidMap={'vCB':'Casas Bahia','vMG':'Magazine Luiza','vSH':'Shopee','vAMZ':'Amazon','vML':'Mercado Livre'};
+const SKUS_EXCLUIR_PROJ=new Set(['TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI287-5','TI287-6','TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4','TI733-5']);
 let _dRef='',_ontRef='';
 let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
@@ -933,14 +877,17 @@ function processDash(pRows,iRows,metas){
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const fat=qtd*vu;const mk=marca(desc);const nm=desc.substring(0,58);
-    if(!prodMap[nm])prodMap[nm]={q:0,f:0,idProd};
+    const skuItem=(r[I.SKU]||r[1]||'').trim();
+    if(SKUS_EXCLUIR_PROJ.has(skuItem.toUpperCase()))continue; // exclui SKUs proibidos
+    if(!prodMap[nm])prodMap[nm]={q:0,f:0,idProd,sku:skuItem};
     prodMap[nm].q+=qtd;prodMap[nm].f+=fat;
+    if(!prodMap[nm].sku&&skuItem)prodMap[nm].sku=skuItem;
     if(!fornMap[mk])fornMap[mk]={f:0,p:new Set()};
     fornMap[mk].f+=fat;fornMap[mk].p.add(id);
   }
 
   const topP=Object.entries(prodMap).sort((a,b)=>b[1].f-a[1].f).slice(0,8)
-    .map(([n,d])=>({n,q:d.q,f:d.f,sku:_estC?.skuMap?.[d.idProd]||''}));
+    .map(([n,d])=>({n,q:d.q,f:d.f,sku:d.sku||_estC?.skuMap?.[d.idProd]||''}));
   const topF=Object.entries(fornMap).sort((a,b)=>b[1].f-a[1].f).slice(0,10)
     .map(([n,d])=>({n,f:d.f,p:d.p.size,pct:tP>0?(d.f/tP*100).toFixed(1):0}));
 
@@ -1009,13 +956,34 @@ function renderDash(d){
   document.getElementById('kMeta').textContent=R(d.metaTot);
   const pk=document.getElementById('kPct');pk.textContent=`${d.pctP}%`;pk.className=pCls(d.pctP);
   document.getElementById('kMes').textContent=R(d.tM);
-  document.getElementById('kMesSub').textContent=n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();
+  {
+    const _diasMes=new Date(n.getFullYear(),n.getMonth()+1,0).getDate();
+    const _diaAtual=n.getDate();
+    let _metaAcum=0;
+    for(const[_k,_v] of Object.entries(_cache?.metas?.dias||{})){
+      const _pp=_k.split('/');if(_pp.length<3)continue;
+      const _dd=new Date(+_pp[2],+_pp[0]-1,+_pp[1]);
+      if(_dd.getMonth()===n.getMonth()&&_dd.getFullYear()===n.getFullYear()&&+_pp[1]<=_diaAtual)
+        _metaAcum+=(_v.total||0);
+    }
+    const _pctEsp=d.metaMes>0?(_metaAcum/d.metaMes*100).toFixed(1):null;
+    const _pctReal=d.metaMes>0?(d.tM/d.metaMes*100).toFixed(1):null;
+    let _diffHtml='';
+    if(_pctEsp&&_pctReal){
+      const _df=(parseFloat(_pctReal)-parseFloat(_pctEsp)).toFixed(1);
+      const _cls=_df>=0?'cok':'clow';
+      _diffHtml=` · esp. ${_pctEsp}% <span class="${_cls}">${_df>=0?'▲':'▼'}${Math.abs(_df)}%</span>`;
+    }
+    document.getElementById('kMesSub').innerHTML=n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase()+_diffHtml;
+  }
   document.getElementById('kMetaMes').textContent=R(d.metaMes);
   const pm=document.getElementById('kPctMes');pm.textContent=`${d.pctM}%`;pm.className=pCls(d.pctM);
   document.getElementById('kPeds').textContent=d.nP;
   document.getElementById('kTicket').textContent=R(d.nP>0?d.tP/d.nP:0);
   document.getElementById('kOnt').textContent=R(d.tO);
-  document.getElementById('kOntSub').textContent=`${d.nO} pedidos ontem`;
+  const _metaOnt=(_cache?.metas?.dias[_ontRef]||{}).total||0;
+  const _pctOnt=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999).toFixed(1):null;
+  document.getElementById('kOntSub').textContent=`${d.nO} pedidos${_pctOnt?` · ${_pctOnt}% da meta`:''}`;
   setTimeout(()=>{document.getElementById('fPct').style.width=Math.min(d.pctP,100)+'%';document.getElementById('fPctMes').style.width=Math.min(d.pctM,100)+'%';},200);
 
   document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{const cor=COR[c.nm]||'#999';return`<div class="cn">
@@ -1030,7 +998,7 @@ function renderDash(d){
   const mP=d.topP[0]?.f||1;
   document.getElementById('prodsEl').innerHTML=d.topP.length?d.topP.map((p,i)=>`<div class="pi">
     <div class="prk">${i+1}</div>
-    <div class="pif"><div class="pnm">${p.n}</div><div class="psb">${p.sku?p.sku+' · ':''}${p.q} un</div></div>
+    <div class="pif"><div class="pnm">${p.n}</div><div class="psb">${p.sku?`<span style="color:var(--od);font-weight:800">${p.sku}</span> · `:''}<span>${p.q} un</span></div></div>
     <div class="pbw"><div class="pbt"><div class="pbf" style="width:${(p.f/mP*100).toFixed(0)}%"></div></div></div>
     <div class="pvl">${R(p.f)}</div>
   </div>`).join(''):'<div style="color:var(--mu);font-size:.72rem;padding:8px">Sem dados no período</div>';
@@ -1117,9 +1085,22 @@ function renderCatTable(){
 
   if(_catCanal==='all'){
     document.getElementById('catTit').textContent=`Categorias × Canal — ${nomeMes(mesA)}`;
-    let h=`<table><thead><tr>${th('Categoria','',true)}${CANAIS.map(c=>th(c.split(' ')[0]==='Magazine'?'Magalu':c.split(' ')[0],COR[c])).join('')}${th('Total')}</tr></thead><tbody>`;
+    const thCS=(txt,campo,cor,left)=>{
+      const ativo=_catCanalOrd.campo===campo;
+      return`<th onclick="sortCatCanal('${campo}')" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:${left?'left':'right'};white-space:nowrap;cursor:pointer;color:${ativo?'var(--or)':cor||'var(--mu)'}">${txt}${ativo?(_catCanalOrd.dir===-1?' ▼':' ▲'):''}</th>`;
+    };
+    let h=`<table><thead><tr>
+      ${thCS('Categoria','cat','',true)}
+      ${CANAIS.map(c=>thCS(c.split(' ')[0]==='Magazine'?'Magalu':c.split(' ')[0],c,COR[c])).join('')}
+      ${thCS('Total','total','')}
+    </tr></thead><tbody>`;
     const tots={total:0};CANAIS.forEach(c=>tots[c]=0);
-    for(const cat of CATS){
+    // Ordena categorias
+    let catsOrd=[...CATS];
+    if(_catCanalOrd.campo==='cat') catsOrd.sort((a,b)=>_catCanalOrd.dir*a.localeCompare(b));
+    else if(_catCanalOrd.campo==='total') catsOrd.sort((a,b)=>_catCanalOrd.dir*(CANAIS.reduce((s,c)=>s+(data[b]?.[c]?.[mesA]||0),0)-CANAIS.reduce((s,c)=>s+(data[a]?.[c]?.[mesA]||0),0)));
+    else catsOrd.sort((a,b)=>_catCanalOrd.dir*((data[b]?.[_catCanalOrd.campo]?.[mesA]||0)-(data[a]?.[_catCanalOrd.campo]?.[mesA]||0)));
+    for(const cat of catsOrd){
       const cData=data[cat]||{};let total=0;
       const vals=CANAIS.map(c=>{const v=cData[c]?.[mesA]||0;total+=v;tots[c]+=v;return v;});
       tots.total+=total;if(total===0)continue;
@@ -1160,6 +1141,116 @@ function renderCatTable(){
 
 function setCatCanal(cn,btn){_catCanal=cn;btnOn(document.getElementById('catBtns'),btn,COR[cn]);renderCatTable();}
 function setCatAno(a,btn){_catAno=a;btnOn(btn.parentElement,btn);renderCatTable();}
+
+// ── CATEGORIAS × MESES ──────────────────────────────────────
+let _catMesIni='', _catMesFim='';
+let _catMesOrd={campo:'total',dir:-1}; // ordenação
+let _catCanalOrd={campo:'total',dir:-1}; // ordenação da tabela canal x canal
+
+function aplicarCatMeses(){
+  _catMesIni=document.getElementById('catMesIni').value;
+  _catMesFim=document.getElementById('catMesFim').value;
+  if(!_catMesIni||!_catMesFim){alert('Selecione o período!');return;}
+  renderCatMeses();
+}
+
+function sortCatMes(campo){
+  if(_catMesOrd.campo===campo)_catMesOrd.dir*=-1;
+  else{_catMesOrd.campo=campo;_catMesOrd.dir=-1;}
+  renderCatMeses();
+}
+
+function sortCatCanal(campo){
+  if(_catCanalOrd.campo===campo)_catCanalOrd.dir*=-1;
+  else{_catCanalOrd.campo=campo;_catCanalOrd.dir=-1;}
+  if(_catC)renderCatTable();
+}
+
+function renderCatMeses(){
+  if(!_catC)return;
+  const{data,meses}=_catC;
+
+  // Determina período: filtro ou últimos 6 meses
+  let mesesFiltro=[];
+  if(_catMesIni&&_catMesFim){
+    // Converte YYYY-MM → M/YYYY
+    const toMK=s=>{const[y,m]=s.split('-');return`${+m}/${y}`;};
+    const ymdMK=s=>{const[m,y]=s.split('/');return y+m.padStart(2,'0');};
+    const ini=toMK(_catMesIni), fim=toMK(_catMesFim);
+    mesesFiltro=meses.filter(m=>ymdMK(m)>=ymdMK(ini)&&ymdMK(m)<=ymdMK(fim));
+  } else {
+    // Padrão: últimos 6 meses + mês atual
+    mesesFiltro=meses.slice(-7);
+  }
+
+  if(!mesesFiltro.length){
+    document.getElementById('catMesWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados no período</div>';
+    return;
+  }
+
+  const NM=['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const thSort=(txt,c)=>{
+    const ativo=_catMesOrd.campo===c;
+    return`<th onclick="sortCatMes('${c}')" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;cursor:pointer;color:${ativo?'var(--or)':'var(--mu)'}">${txt}${ativo?(_catMesOrd.dir===-1?' ▼':' ▲'):''}</th>`;
+  };
+  const thSortL=(txt,c)=>{
+    const ativo=_catMesOrd.campo===c;
+    return`<th onclick="sortCatMes('${c}')" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:left;white-space:nowrap;cursor:pointer;color:${ativo?'var(--or)':'var(--mu)'}">${txt}${ativo?(_catMesOrd.dir===-1?' ▼':' ▲'):''}</th>`;
+  };
+
+  // Calcula total por categoria para cada mês filtrado
+  const catTotais={};
+  for(const cat of CATS){
+    const cData=data[cat]||{};
+    catTotais[cat]={};
+    let total=0;
+    for(const m of mesesFiltro){
+      const v=Object.values(cData).reduce((s,cn)=>s+(cn[m]||0),0);
+      catTotais[cat][m]=v;
+      total+=v;
+    }
+    catTotais[cat]._total=total;
+  }
+
+  // Ordena
+  let catOrdem=[...CATS];
+  if(_catMesOrd.campo==='cat'){
+    catOrdem.sort((a,b)=>_catMesOrd.dir*(a.localeCompare(b)));
+  } else if(_catMesOrd.campo==='total'){
+    catOrdem.sort((a,b)=>_catMesOrd.dir*(catTotais[b]._total-catTotais[a]._total));
+  } else {
+    // Ordena por mês específico
+    catOrdem.sort((a,b)=>_catMesOrd.dir*((catTotais[b][_catMesOrd.campo]||0)-(catTotais[a][_catMesOrd.campo]||0)));
+  }
+
+  let h=`<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
+    <thead><tr>
+      ${thSortL('Categoria','cat')}
+      ${mesesFiltro.map(m=>thSort(NM[+m.split('/')[0]]+'/'+m.split('/')[1].slice(2),m)).join('')}
+      ${thSort('Total','total')}
+    </tr></thead><tbody>`;
+
+  const tots={};mesesFiltro.forEach(m=>tots[m]=0);let gT=0;
+
+  for(const cat of catOrdem){
+    const v=catTotais[cat];
+    let total=v._total;
+    if(total===0)continue;
+    gT+=total;
+    const cells=mesesFiltro.map(m=>{tots[m]+=v[m]||0;return v[m]>0?`<td style="padding:5px 10px;text-align:right;font-weight:700">${R(v[m])}</td>`:`<td class="val-z" style="text-align:right;padding:5px 10px">—</td>`;}).join('');
+    h+=`<tr style="border-bottom:1px solid var(--bg);">
+      <td style="padding:5px 10px;text-align:left;font-weight:800">${cat}</td>
+      ${cells}
+      <td style="padding:5px 10px;text-align:right;font-weight:700;color:var(--od)">${R(total)}</td>
+    </tr>`;
+  }
+  h+=`</tbody><tfoot><tr style="border-top:2px solid var(--bd);">
+    <td style="padding:5px 10px;font-weight:900;text-align:left">TOTAL</td>
+    ${mesesFiltro.map(m=>`<td style="padding:5px 10px;text-align:right;font-weight:700">${R(tots[m])}</td>`).join('')}
+    <td style="padding:5px 10px;text-align:right;font-weight:700;color:var(--od)">${R(gT)}</td>
+  </tr></tfoot></table>`;
+  document.getElementById('catMesWrap').innerHTML=h;
+}
 
 // ── MARCAS ───────────────────────────────────────────────────
 function processarMarcas(pRows,iRows){
@@ -1291,6 +1382,25 @@ async function loadEstoque(){
   }
 }
 
+function sortEst(campo){
+  if((window._estOrdCampo||'falta')===campo){
+    window._estOrdDir=(window._estOrdDir||-1)*-1;
+  } else {
+    window._estOrdCampo=campo;
+    window._estOrdDir=-1;
+  }
+  renderEst();
+}
+// Helper para header de estoque clicável
+function estTH(txt,campo,cor){
+  const oc=window._estOrdCampo||'falta';
+  const od=window._estOrdDir||-1;
+  const ativo=oc===campo;
+  const isStr=['sku','nome','mk'].includes(campo);
+  const sortLabel=ativo?(od===-1?(isStr?' A→Z':' ▼'):(isStr?' Z→A':' ▲')):'';
+  return`<th onclick="sortEst('${campo}')" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid var(--bd);text-align:${isStr?'left':'center'};cursor:pointer;color:${ativo?'var(--or)':cor||'var(--mu)'}">${txt}${sortLabel}</th>`;
+}
+
 function renderEst(){
   if(!_estC)return;
   const{prodMap,estMap,iRows,nomeMap}=_estC;
@@ -1323,7 +1433,7 @@ function renderEst(){
     const prev=Math.max(0,est-mediaDia*dias);
     const nome=nomeMap[id]||sku||id;
     const mk=p.marca||marca(nome);
-    return{id,sku,nome,mk,est,vend,falta,prev};
+    return{id,sku,nome,mk,est,vend,falta,prev,estoque:est};
   }).filter(Boolean);
 
   if(filtM)prods=prods.filter(p=>p.mk===filtM);
@@ -1332,7 +1442,14 @@ function renderEst(){
   if(sZero)prods=prods.filter(p=>p.prev===0);
   if(minPrev>0)prods=prods.filter(p=>p.prev<minPrev&&(p.est>0||p.vend>0));
 
-  prods.sort((a,b)=>b.falta-a.falta);
+  // Ordenação dinâmica — suporta strings A-Z e números
+  const _oc=window._estOrdCampo||'falta';
+  const _od=window._estOrdDir||-1;
+  const _strCols=new Set(['sku','nome','mk']);
+  prods.sort((a,b)=>{
+    if(_strCols.has(_oc)){const va=(a[_oc]||'').toLowerCase(),vb=(b[_oc]||'').toLowerCase();return _od*(va<vb?-1:va>vb?1:0);}
+    return _od*((b[_oc]||0)-(a[_oc]||0));
+  });
   const lista=prods.filter(p=>p.est>0||p.vend>0);
 
   document.getElementById('eStatus').textContent=`${lista.length} produtos | ${dias} dias`;
@@ -1342,7 +1459,13 @@ function renderEst(){
   const ths=(txt,cor)=>`<th style="text-align:${['SKU','Produto','Marca'].includes(txt)?'left':'center'};padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid var(--bd);color:${cor||'var(--mu)'}">${txt}</th>`;
   let h=`<table style="width:100%;border-collapse:collapse;font-size:.68rem;min-width:800px;">
     <thead style="position:sticky;top:0;background:var(--wh);z-index:2;"><tr>
-      ${ths('SKU')}${ths('Produto')}${ths('Marca')}${ths('Estoque','var(--or)')}${ths(`Vendas (${dias}d)`)}${ths('Falta ▼','var(--re)')}${ths(`Prev. ${dias}d`,'#7C3AED')}
+      ${estTH('SKU','sku','')}
+      ${estTH('Produto','nome','')}
+      ${estTH('Marca','mk','')}
+      ${estTH('Estoque','estoque','var(--or)')}
+      ${estTH(`Vendas (${dias}d)`,'vend','')}
+      ${estTH('Falta','falta','var(--re)')}
+      ${estTH(`Prev. ${dias}d`,'prev','#7C3AED')}
     </tr></thead><tbody>`;
 
   for(const p of lista){
@@ -1377,9 +1500,16 @@ function aba(id,btn){
     document.getElementById('catTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando categorias...</div>';
     fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pRows=>{
       _catC=processarCat(_cache.pRows,_cache.iRows,pRows);
+      // Inicia inputs de mês com padrão: últimos 7 meses
+      const now=new Date();
+      const ini=new Date(now.getFullYear(),now.getMonth()-6,1);
+      const toYYYYMM=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+      document.getElementById('catMesIni').value=toYYYYMM(ini);
+      document.getElementById('catMesFim').value=toYYYYMM(now);
       renderCatTable();
+      renderCatMeses();
     }).catch(e=>document.getElementById('catTbWrap').innerHTML=`<div style="color:var(--re);padding:12px">❌ ${e.message}</div>`);
-  } else if(id==='vCat'&&_catC) renderCatTable();
+  } else if(id==='vCat'&&_catC){renderCatTable();renderCatMeses();}
 
   if(id==='vMarca'&&!_marcaC&&_cache){
     document.getElementById('marcaTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando marcas...</div>';
@@ -1393,7 +1523,6 @@ function aba(id,btn){
   if(id==='vMG')loadCanal('Magazine Luiza','vMG');
   if(id==='vSH')loadCanal('Shopee','vSH');
   if(id==='vAMZ')loadCanal('Amazon','vAMZ');
-  if(id==='vAF')loadCanal('Amazon Fulfillment','vAF');
 }
 
 // ── LOAD PRINCIPAL ───────────────────────────────────────────
@@ -1436,6 +1565,110 @@ async function load(){
 
 
 
+
+// ── EXPORTAR PARA ANALISTA ─────────────────────────────────────
+function exportarParaAnalista(){
+  if(!_cache){alert('Aguarde o carregamento dos dados!');return;}
+  const n=new Date();
+  const hoje=_dRef;
+  const ontem=mlOffset(hoje,-1);
+  const metas=_cache.metas;
+
+  // Processa dados do dia de referência
+  const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);
+
+  // Monta resumo por canal
+  const canaisStr=d.canais.map(c=>`  - ${c.nm}: ${R(c.f)} (${c.p} pedidos, meta: ${R(c.m)}, ${c.pct}%)`).join('\n');
+
+  // Top 5 produtos do dia
+  const top5=d.topP.slice(0,5).map((p,i)=>`  ${i+1}. ${p.n} — ${p.q} un — ${R(p.f)}`).join('\n');
+
+  // Top 3 fornecedores
+  const top3F=d.topF.slice(0,3).map((f,i)=>`  ${i+1}. ${f.n} — ${R(f.f)} (${f.pct}%)`).join('\n');
+
+  // Meta do dia
+  const metaDia=metas.dias[hoje]||{};
+  const metaTotDia=metaDia.total||d.canais.reduce((s,c)=>s+(metaDia[c.nm]||0),0);
+
+  // Últimos 7 dias de dados disponíveis
+  const datas=new Set();
+  for(let i=1;i<_cache.pRows.length;i++){
+    const sit=(_cache.pRows[i][C.SIT]||'').toLowerCase().trim();
+    const dat=(_cache.pRows[i][C.DATA]||'').trim();
+    if(VALIDAS.has(sit)&&dat)datas.add(dat);
+  }
+  const ultDias=[...datas].sort((a,b)=>pD(b)-pD(a)).slice(0,7);
+  const histDias=ultDias.map(dia=>{
+    let fat=0,peds=0;const ids=new Set();
+    for(let i=1;i<_cache.pRows.length;i++){
+      const r=_cache.pRows[i];
+      const id=(r[C.ID]||'').trim();
+      const sit=(r[C.SIT]||'').toLowerCase().trim();
+      const dat=(r[C.DATA]||'').trim();
+      if(dat===dia&&VALIDAS.has(sit)&&!ids.has(id)){
+        ids.add(id);
+        fat+=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+        peds++;
+      }
+    }
+    const p=dia.split('/');
+    return `  ${p[1].padStart(2,'0')}/${p[0].padStart(2,'0')}/${p[2]}: ${R(fat)} (${peds} pedidos)`;
+  }).join('\n');
+
+  const texto=`# DADOS SANBOX — EXPORTADO EM ${n.toLocaleString('pt-BR')}
+
+## DIA DE REFERÊNCIA: ${fmtDia(hoje)}
+(Kondado tem atraso de ~1 dia — este é o dado mais recente disponível)
+
+## FATURAMENTO DO DIA DE REFERÊNCIA
+Total: ${R(d.tP)}
+Pedidos: ${d.nP}
+Ticket médio: ${R(d.nP>0?d.tP/d.nP:0)}
+Meta do dia: ${R(metaTotDia)}
+% da meta: ${d.pctP}%
+
+## POR CANAL — DIA DE REFERÊNCIA
+${canaisStr}
+
+## VENDAS DO MÊS ATUAL
+Total: ${R(d.tM)}
+Meta mensal: ${R(d.metaMes)}
+% da meta: ${d.pctM}%
+
+## TOP 5 PRODUTOS — DIA DE REFERÊNCIA
+${top5}
+
+## TOP 3 FORNECEDORES — DIA DE REFERÊNCIA
+${top3F}
+
+## HISTÓRICO DOS ÚLTIMOS 7 DIAS
+${histDias}
+
+## INSTRUÇÕES PARA O ANALISTA
+- Use estes dados como base para sua análise
+- Para dados mais específicos (por SKU, por período, estoque), peça ao usuário que exporte novamente com o filtro desejado
+- Formato de valores: R$ 1.234,56
+- Canais: Mercado Livre, Casas Bahia, Magazine Luiza, Shopee, Amazon, Amazon Fulfillment
+- Situações válidas: aprovado, preparando envio, faturado, pronto para envio, enviando, enviado, entregue`;
+
+  // Copia para clipboard e abre modal
+  navigator.clipboard.writeText(texto).then(()=>{
+    const modal=document.createElement('div');
+    modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;display:flex;align-items:center;justify-content:center;';
+    modal.innerHTML=`<div style="background:#fff;border-radius:14px;padding:24px;max-width:500px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+      <div style="font-size:1.2rem;font-weight:900;color:#1A1F2E;margin-bottom:8px;">✅ Dados copiados!</div>
+      <div style="font-size:.75rem;color:#7A8799;margin-bottom:16px;">O resumo dos dados foi copiado para o clipboard. Cole na conversa do Analista de Vendas no Claude.</div>
+      <div style="background:#F2F5F9;border-radius:8px;padding:10px;font-size:.65rem;color:#444;font-family:monospace;max-height:200px;overflow-y:auto;white-space:pre-wrap;margin-bottom:16px;">${texto.substring(0,600)}...</div>
+      <button onclick="this.parentElement.parentElement.remove()" style="background:#F5A623;border:none;border-radius:8px;padding:8px 20px;font:800 .75rem Nunito;color:#fff;cursor:pointer;width:100%">Fechar</button>
+    </div>`;
+    document.body.appendChild(modal);
+  }).catch(()=>{
+    // Fallback: abre em nova janela
+    const w=window.open('','_blank');
+    w.document.write('<pre style="font-family:monospace;font-size:13px;padding:20px;">'+texto+'</pre>');
+  });
+}
+
 // ── VENDAS GERAL ──────────────────────────────────────────────
 let _vgOrdem='total';
 let _vgIni='', _vgFim='';
@@ -1456,7 +1689,7 @@ function canalKeyVG(eNome, eNum){
   if(n.includes('casas bahia')||n.includes('via varejo'))return'CB';
   if(n.includes('magazine')||n.includes('magalu'))return'MG';
   if(n.includes('shopee'))return'SH';
-  if(n.includes('amazon'))return'AMZ';
+  if(n.includes('amazon'))return'AMZ'; // inclui fulfillment
   const u=eNum||'';
   if(u.startsWith('2000'))return'ML';
   if(u.startsWith('51'))return'MG';
@@ -1491,14 +1724,16 @@ function processarVG(pRows, iRows, ymdI, ymdF){
     if(!VALIDAS.has(sit))continue;
     const sku=(r[1]||'').trim();
     if(!sku)continue;
-    // Exclui KIT e ML
-    if(sku.toUpperCase().startsWith('KIT'))continue;
-    if(sku.toUpperCase().endsWith('ML'))continue;
+    // Exclui KIT, ML e SKUs proibidos
+    const skuUP=sku.toUpperCase();
+    if(skuUP.startsWith('KIT'))continue;
+    if(skuUP.endsWith('ML'))continue;
+    if(SKUS_EXCLUIR_PROJ.has(skuUP))continue;
     const desc=(r[I.DESC]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const fat=qtd*vu;
-    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0};
+    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0,cat:catTiny(desc),mk:marca(desc)};
     skuMap[sku].total+=qtd;
     skuMap[sku].fat+=fat;
     if(skuMap[sku][cnKey]!==undefined) skuMap[sku][cnKey]+=qtd;
@@ -1525,13 +1760,26 @@ function aplicarVG(){
   document.getElementById('vgStatus').textContent='Processando...';
   setTimeout(()=>{
     _vgCache=processarVG(_cache.pRows,_cache.iRows,_vgIni,_vgFim);
+    // Popula selects de categoria e marca
+    const cats=new Set(), mks=new Set();
+    Object.values(_vgCache).forEach(p=>{if(p.cat)cats.add(p.cat);if(p.mk)mks.add(p.mk);});
+    const selCat=document.getElementById('vgCat');
+    const selMk=document.getElementById('vgMarca');
+    selCat.innerHTML='<option value="">Todas</option>';
+    selMk.innerHTML='<option value="">Todas</option>';
+    [...cats].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;selCat.appendChild(o);});
+    [...mks].sort().forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;selMk.appendChild(o);});
     renderVG(_vgCache);
   },10);
 }
 
 function renderVG(skuMap){
-  // Ordena
+  // Filtros categoria e marca
+  const filtCat=document.getElementById('vgCat')?.value||'';
+  const filtMk=document.getElementById('vgMarca')?.value||'';
   let lista=Object.entries(skuMap);
+  if(filtCat) lista=lista.filter(([,d])=>d.cat===filtCat);
+  if(filtMk)  lista=lista.filter(([,d])=>d.mk===filtMk);
   lista.sort((a,b)=>b[1][_vgOrdem]-a[1][_vgOrdem]);
 
   document.getElementById('vgStatus').textContent=`${lista.length} produtos`;
@@ -1613,6 +1861,15 @@ function loadVG(){
   document.getElementById('vgStatus').textContent='Processando...';
   setTimeout(()=>{
     _vgCache=processarVG(_cache.pRows,_cache.iRows,_vgIni,_vgFim);
+    // Popula selects de categoria e marca
+    const cats=new Set(), mks=new Set();
+    Object.values(_vgCache).forEach(p=>{if(p.cat)cats.add(p.cat);if(p.mk)mks.add(p.mk);});
+    const selCat=document.getElementById('vgCat');
+    const selMk=document.getElementById('vgMarca');
+    selCat.innerHTML='<option value="">Todas</option>';
+    selMk.innerHTML='<option value="">Todas</option>';
+    [...cats].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;selCat.appendChild(o);});
+    [...mks].sort().forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;selMk.appendChild(o);});
     renderVG(_vgCache);
   },10);
 }
@@ -1628,7 +1885,7 @@ function isCanal(eNome, eNum, canalNome){
   if(c==='magazine luiza')  return n.includes('magazine')||n.includes('magalu');
   if(c==='shopee')          return n.includes('shopee');
   if(c==='amazon fulfillment') return n.includes('amazon fulfillment');
-  if(c==='amazon')          return n.includes('amazon')&&!n.includes('fulfillment');
+  if(c==='amazon')          return n.includes('amazon'); // inclui fulfillment
   return false;
 }
 
@@ -1663,6 +1920,7 @@ function processarCanal(pRows, iRows, canalNome){
     if(!VALIDAS.has(sit))continue;
     const dat=(r[I.DATA]||'').trim();
     const sku=(r[1]||'').trim();
+    if(SKUS_EXCLUIR_PROJ.has(sku.toUpperCase()))continue; // exclui SKUs proibidos
     const desc=(r[I.DESC]||'').trim();
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
@@ -1712,7 +1970,23 @@ function renderCanalKpis(vid, data){
     const pctMes=metaMesCanal>0?Math.min(sMes.fat/metaMesCanal*100,999).toFixed(1):0;
     const pctDia=metaDiaCanal>0?Math.min(sH.fat/metaDiaCanal*100,999).toFixed(1):0;
     g('FatMes').textContent=R(sMes.fat);
-    g('ProjMes').textContent=`Meta mês: ${R(metaMesCanal)} (${pctMes}%) · proj: ${R(proj)}`;
+    {
+      const _nw=new Date();
+      let _maC=0;
+      for(const[_k,_v] of Object.entries(_cache?.metas?.dias||{})){
+        const _pp=_k.split('/');if(_pp.length<3)continue;
+        const _dd=new Date(+_pp[2],+_pp[0]-1,+_pp[1]);
+        if(_dd.getMonth()===_nw.getMonth()&&_dd.getFullYear()===_nw.getFullYear()&&+_pp[1]<=_nw.getDate())
+          _maC+=(_v[canal]||0);
+      }
+      const _pE=metaMesCanal>0?(_maC/metaMesCanal*100).toFixed(1):null;
+      let _dStr='';
+      if(_pE&&pctMes){const _df=(parseFloat(pctMes)-parseFloat(_pE)).toFixed(1);
+      const _cor2=_df>=0?'#16A34A':'#DC2626';
+      const _seta2=_df>=0?'▲':'▼';
+      _dStr=` · esp.${_pE}% <span style="color:${_cor2};font-weight:900">${_seta2}${_df>=0?'+':''}${_df}%</span>`;}
+      g('ProjMes').innerHTML=`Meta mês: ${R(metaMesCanal)} (${pctMes}%)${_dStr} · proj: ${R(proj)}`;  
+    }
     g('FatHoje').textContent=R(sH.fat);
     g('QtdHoje').textContent=`${sH.qtd} un · Meta dia: ${R(metaDiaCanal)} (${pctDia}%)`;
   } else {
@@ -1723,25 +1997,64 @@ function renderCanalKpis(vid, data){
 
 function renderCanalComp(canal, vid, data){
   const st=_canalState[vid]||{};
-  const dA=st.diaA||data.ontem, dB=st.diaB||data.hoje;
+  const dA=st.diaA||data.ante, dB=st.diaB||data.ontem;
   const filt=st.filt||'all';
   const g=id=>document.getElementById(vid+id);
+
+  // Últimos 10 dias antes do Dia A
+  const diasPrev=[];
+  for(let i=10;i>=1;i--) diasPrev.push(mlOffset(dA,-i));
   g('CompTit').textContent=`Comparativo Top 10 — ${fmtDia(dA)} vs ${fmtDia(dB)}`;
+
   const dAData=data.byDia[dA]||{};
   let lista=Object.entries(dAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10)
-    .map(([sku,a])=>{const b=data.byDia[dB]?.[sku]||{qtd:0,fat:0};return{sku,desc:a.desc,idProd:a.idProd,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};});
+    .map(([sku,a])=>{
+      const b=data.byDia[dB]?.[sku]||{qtd:0,fat:0};
+      const hist=diasPrev.map(d=>(data.byDia[d]?.[sku]?.qtd||0));
+      return{sku,desc:a.desc,idProd:a.idProd,hist,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};
+    });
   if(filt==='up')lista=lista.filter(d=>d.qtdB>d.qtdA);
   if(filt==='dn')lista=lista.filter(d=>d.qtdB<d.qtdA);
   if(!lista.length){g('CompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados</div>';return;}
-  let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR(fmtDia(dA))}${THR(fmtDia(dB))}${THL('Variação')}${THR('Faturamento')}${THL('Estoque')}</tr></thead><tbody>`;
+
+  const cor=COR[canal]||'#999';
+  const cgCols='<col style="width:32px"><col style="width:75px"><col>'
+    +diasPrev.map(()=>'<col style="width:50px">').join('')
+    +'<col style="width:75px"><col style="width:75px"><col style="width:70px"><col style="width:95px"><col style="width:75px">';
+  const CGD=`<colgroup>${cgCols}</colgroup>`;
+  const thDia=d=>`<th style="padding:3px 4px;font-size:.48rem;font-weight:900;letter-spacing:.03em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;color:var(--mu)">${fmtDia(d).slice(0,5)}</th>`;
+
+  let h=`<table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:.65rem;">${CGD}<thead><tr>
+    ${THL('#')}${THL('SKU')}${THL('Produto')}
+    ${diasPrev.map(d=>thDia(d)).join('')}
+    <th style="padding:3px 4px;font-size:.48rem;font-weight:900;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;background:rgba(245,166,35,.08);color:var(--or);white-space:nowrap">${fmtDia(dA).slice(0,5)}▼</th>
+    ${THR(fmtDia(dB).slice(0,5))}${THL('Var')}${THR('Fat')}${THL('Est')}
+  </tr></thead><tbody>`;
+
   lista.forEach((d,i)=>{
     const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+    const hCells=d.hist.map(v=>v>0
+      ?`<td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--mu);font-size:.62rem">${v}</td>`
+      :`<td style="padding:3px 4px;text-align:right;color:var(--dm);font-size:.62rem">—</td>`).join('');
     h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
-      ${TDL(i+1,'var(--or)',true)}${TDL(d.sku,'var(--od)',true)}${TDL(d.desc.substring(0,50),'')}
-      ${TDR(d.qtdA+' un','var(--mu)')}${TDR(d.qtdB+' un',COR[canal]||'#999',true)}
-      ${TDX(diffIcon(d.qtdB,d.qtdA))}${TDR(R(d.fatA),'var(--od)')}${TDX(estBadge(d.idProd))}</tr>`;
+      ${TDL(i+1,'var(--or)',true)}${TDL(d.sku,'var(--od)',true)}${TDL(d.desc.substring(0,30),'')}
+      ${hCells}
+      <td style="padding:3px 4px;text-align:right;font-weight:800;color:${cor};background:rgba(245,166,35,.05)">${d.qtdA}</td>
+      <td style="padding:3px 4px;text-align:right;font-weight:700">${d.qtdB}</td>
+      <td style="padding:3px 4px;text-align:left;font-size:.6rem">${diffIcon(d.qtdB,d.qtdA)}</td>
+      <td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--od)">${R(d.fatA)}</td>
+      <td style="padding:3px 4px;text-align:left">${estBadge(d.idProd)}</td>
+    </tr>`;
   });
   g('CompWrap').innerHTML=h+'</tbody></table>';
+}
+
+function sortCanalLista(vid, campo){
+  if(!_cLO[vid])_cLO[vid]={campo:'qtd',dir:-1};
+  if(_cLO[vid].campo===campo)_cLO[vid].dir*=-1;
+  else{_cLO[vid].campo=campo;_cLO[vid].dir=-1;}
+  const cn=_canalVidMap[vid]||'';
+  if(_canalCache[cn])renderCanalLista(cn,vid,_canalCache[cn]);
 }
 
 function renderCanalLista(canal, vid, data){
@@ -1762,14 +2075,28 @@ function renderCanalLista(canal, vid, data){
     }
   }
 
-  const lista=Object.entries(agregado).sort((a,b)=>b[1].qtd-a[1].qtd);
+  // Ordena
+  const lo=_cLO[vid]||{campo:'qtd',dir:-1};
+  const lista=Object.entries(agregado).sort((a,b)=>lo.dir*(b[1][lo.campo]-a[1][lo.campo]));
   if(!lista.length){g('ListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas em ${label}</div>`;return;}
-  let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR('Qtd')}${THR('Faturamento')}${THL('')}${THL('')}${THL('Estoque')}</tr></thead><tbody>`;
+
+  const cor=COR[canal]||'#999';
+  const si=c=>lo.campo===c?(lo.dir===-1?' ▼':' ▲'):'';
+  const thS=(txt,c,cr,left)=>`<th onclick="sortCanalLista('${vid}','${c}')" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:${left?'left':'right'};white-space:nowrap;cursor:pointer;color:${lo.campo===c?'var(--or)':cr||'var(--mu)'}">${txt}${si(c)}</th>`;
+
+  let h=`<table ${TS}>${CG}<thead><tr>
+    ${thS('#','_n','',true)}${thS('SKU','sku','',true)}${thS('Produto','desc','',true)}
+    ${thS('Qtd','qtd',cor)}${thS('Faturamento','fat','')}
+    <th style="padding:5px 10px;border-bottom:2px solid var(--bd)"></th>
+    <th style="padding:5px 10px;border-bottom:2px solid var(--bd)"></th>
+    <th style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Estoque</th>
+  </tr></thead><tbody>`;
+
   lista.forEach(([sku,d],i)=>{
     const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
     h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
       ${TDL(i+1,'var(--or)',true)}${TDL(sku,'var(--od)',true)}${TDL(d.desc.substring(0,50),'')}
-      ${TDR(d.qtd+' un',COR[canal]||'#999',true)}${TDR(R(d.fat),'var(--od)')}
+      ${TDR(d.qtd+' un',cor,true)}${TDR(R(d.fat),'var(--od)')}
       <td></td><td></td>${TDX(estBadge(d.idProd))}</tr>`;
   });
   g('ListaWrap').innerHTML=h+'</tbody></table>';
@@ -1922,6 +2249,7 @@ function processarML(pRows,iRows){
     if(!VALIDAS.has(sit))continue;
     const dat=(r[I.DATA]||'').trim();
     const sku=(r[1]||'').trim();
+    if(SKUS_EXCLUIR_PROJ.has(sku.toUpperCase()))continue; // exclui SKUs proibidos
     const desc=(r[I.DESC]||'').trim();
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
@@ -1988,6 +2316,13 @@ function aplicarMLComp(){
   renderMLComp();renderMLKpis();
 }
 
+function sortMLLista(campo){
+  if(!window._mlListaOrd)window._mlListaOrd={campo:'qtd',dir:-1};
+  if(window._mlListaOrd.campo===campo)window._mlListaOrd.dir*=-1;
+  else{window._mlListaOrd.campo=campo;window._mlListaOrd.dir=-1;}
+  renderMLLista();
+}
+
 function aplicarMLLista(){
   const iniEl=document.getElementById('mlDiaListaIni');
   const fimEl=document.getElementById('mlDiaListaFim');
@@ -2020,7 +2355,25 @@ function renderMLKpis(){
     const metaDiaML=(_cache.metas.dias[_dRef]||{})['Mercado Livre']||0;
     const pctMes=metaMesML>0?Math.min(sMes.fat/metaMesML*100,999).toFixed(1):0;
     const pctDia=metaDiaML>0?Math.min(sH.fat/metaDiaML*100,999).toFixed(1):0;
-    document.getElementById('mlProjMes').textContent=`Meta mês: ${R(metaMesML)} (${pctMes}%) · proj: ${R(proj)}`;
+    {
+      const _nwML=new Date();
+      let _maML=0;
+      for(const[_k,_v] of Object.entries(_cache?.metas?.dias||{})){
+        const _pp=_k.split('/');if(_pp.length<3)continue;
+        const _dd=new Date(+_pp[2],+_pp[0]-1,+_pp[1]);
+        if(_dd.getMonth()===_nwML.getMonth()&&_dd.getFullYear()===_nwML.getFullYear()&&+_pp[1]<=_nwML.getDate())
+          _maML+=(_v['Mercado Livre']||0);
+      }
+      const _pEML=metaMesML>0?(_maML/metaMesML*100).toFixed(1):null;
+      let _dML='';
+      if(_pEML&&pctMes){
+        const _df=(parseFloat(pctMes)-parseFloat(_pEML)).toFixed(1);
+        const _cor=_df>=0?'#16A34A':'#DC2626';
+        const _seta=_df>=0?'▲':'▼';
+        _dML=` · esp.${_pEML}% <span style="color:${_cor};font-weight:900">${_seta}${_df>=0?'+':''}${_df}%</span>`;
+      }
+      document.getElementById('mlProjMes').innerHTML=`Meta mês: ${R(metaMesML)} (${pctMes}%)${_dML} · proj: ${R(proj)}`;
+    }
     document.getElementById('mlFatHoje').textContent=R(sH.fat);
     document.getElementById('mlQtdHoje').textContent=`${sH.qtd} un · Meta dia: ${R(metaDiaML)} (${pctDia}%)`;
   } else {
@@ -2034,41 +2387,54 @@ function renderMLComp(){
   if(!_mlC)return;
   const{byDia}=_mlC;
   const diaA=_mlDiaA,diaB=_mlDiaB;
+
+  // Últimos 10 dias antes do Dia A
+  const diasPrev=[];
+  for(let i=10;i>=1;i--) diasPrev.push(mlOffset(diaA,-i));
   document.getElementById('mlCompTit').textContent=`Comparativo Top 10 — ${fmtDia(diaA)} vs ${fmtDia(diaB)}`;
 
-  // Top 10 do Dia A
   const diaAData=byDia[diaA]||{};
-  const top10=Object.entries(diaAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10);
-
-  // Filtra por tendência
-  let lista=top10.map(([sku,a])=>{
-    const b=byDia[diaB]?.[sku]||{qtd:0,fat:0};
-    return{sku,desc:a.desc,idProd:a.idProd,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd,fatB:b.fat};
-  });
-  if(_mlFilt==='up') lista=lista.filter(d=>d.qtdA>d.qtdB);
-  if(_mlFilt==='dn') lista=lista.filter(d=>d.qtdA<d.qtdB);
+  let lista=Object.entries(diaAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10)
+    .map(([sku,a])=>{
+      const b=byDia[diaB]?.[sku]||{qtd:0,fat:0};
+      const hist=diasPrev.map(d=>(byDia[d]?.[sku]?.qtd||0));
+      return{sku,desc:a.desc,idProd:a.idProd,hist,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};
+    });
+  if(_mlFilt==='up') lista=lista.filter(d=>d.qtdB>d.qtdA);
+  if(_mlFilt==='dn') lista=lista.filter(d=>d.qtdB<d.qtdA);
 
   if(!lista.length){
     document.getElementById('mlCompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados para os filtros selecionados</div>';
     return;
   }
 
-  let h=`<table ${TS}>${CG}<thead><tr>
+  const cgCols='<col style="width:32px"><col style="width:75px"><col>'
+    +diasPrev.map(()=>'<col style="width:48px">').join('')
+    +'<col style="width:72px"><col style="width:72px"><col style="width:68px"><col style="width:95px"><col style="width:72px">';
+  const CGD=`<colgroup>${cgCols}</colgroup>`;
+  const thD=d=>`<th style="padding:3px 4px;font-size:.48rem;font-weight:900;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;color:var(--mu)">${fmtDia(d).slice(0,5)}</th>`;
+
+  let h=`<table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:.65rem;">${CGD}
+    <thead><tr>
       ${THL('#')}${THL('SKU')}${THL('Produto')}
-      ${THR(fmtDia(diaB))}${THR(fmtDia(diaA))}${THL('Variação')}${THR('Faturamento')}${THL('Estoque')}
+      ${diasPrev.map(d=>thD(d)).join('')}
+      <th style="padding:3px 4px;font-size:.48rem;font-weight:900;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;background:rgba(245,166,35,.08);color:var(--or);white-space:nowrap">${fmtDia(diaA).slice(0,5)}▼</th>
+      ${THR(fmtDia(diaB).slice(0,5))}${THL('Var')}${THR('Fat')}${THL('Est')}
     </tr></thead><tbody>`;
 
   lista.forEach((d,i)=>{
     const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+    const hCells=d.hist.map(v=>v>0
+      ?`<td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--mu);font-size:.6rem">${v}</td>`
+      :`<td style="padding:3px 4px;text-align:right;color:var(--dm);font-size:.6rem">—</td>`).join('');
     h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
-      ${TDL(i+1,'var(--or)',true)}
-      ${TDL(d.sku,'var(--od)',true)}
-      ${TDL(d.desc.substring(0,50),'')}
-      ${TDR(d.qtdB+' un','var(--mu)')}
-      ${TDR(d.qtdA+' un','#C8A000',true)}
-      ${TDX(diffIcon(d.qtdB,d.qtdA))}
-      ${TDR(R(d.fatA),'var(--od)')}
-      ${TDX(estBadge(d.idProd))}
+      ${TDL(i+1,'var(--or)',true)}${TDL(d.sku,'var(--od)',true)}${TDL(d.desc.substring(0,30),'')}
+      ${hCells}
+      <td style="padding:3px 4px;text-align:right;font-weight:800;color:#C8A000;background:rgba(245,166,35,.05)">${d.qtdA}</td>
+      <td style="padding:3px 4px;text-align:right;font-weight:700">${d.qtdB}</td>
+      <td style="padding:3px 4px;text-align:left;font-size:.6rem">${diffIcon(d.qtdB,d.qtdA)}</td>
+      <td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--od)">${R(d.fatA)}</td>
+      <td style="padding:3px 4px;text-align:left">${estBadge(d.idProd)}</td>
     </tr>`;
   });
   h+='</tbody></table>';
@@ -2091,16 +2457,21 @@ function renderMLLista(){
       agg[sku].qtd+=d.qtd;agg[sku].fat+=d.fat;
     }
   }
-  const lista=Object.entries(agg).sort((a,b)=>b[1].qtd-a[1].qtd);
+  // Ordena ML lista
+  const _mlLO=window._mlListaOrd||{campo:'qtd',dir:-1};
+  const lista=Object.entries(agg).sort((a,b)=>_mlLO.dir*(b[1][_mlLO.campo]-a[1][_mlLO.campo]));
 
   if(!lista.length){
-    document.getElementById('mlListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas ML em ${fmtDia(dat)}</div>`;
+    document.getElementById('mlListaWrap').innerHTML=`<div class="lt" style="padding:16px;text-align:center">Sem vendas ML em ${label}</div>`;
     return;
   }
 
+  const _mlSI=c=>{const a=_mlLO.campo===c;return a?(_mlLO.dir===-1?' ▼':' ▲'):''};
+  const _mlTH=(txt,c)=>`<th onclick="sortMLLista('${c}')" style="padding:5px 10px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;cursor:pointer;color:${_mlLO.campo===c?'var(--or)':'var(--mu)'}">${txt}${_mlSI(c)}</th>`;
+
   let h=`<table ${TS}>${CG}<thead><tr>
       ${THL('#')}${THL('SKU')}${THL('Produto')}
-      ${THR('Qtd')}${THR('Faturamento')}${THL('')}${THL('')}${THL('Estoque')}
+      ${_mlTH('Qtd','qtd')}${_mlTH('Faturamento','fat')}${THL('')}${THL('')}${THL('Estoque')}
     </tr></thead><tbody>`;
 
   lista.forEach(([sku,d],i)=>{
