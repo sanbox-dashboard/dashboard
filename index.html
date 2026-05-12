@@ -171,6 +171,14 @@ tfoot td:first-child{text-align:left;}
 #vgTableWrap thead th{cursor:pointer;user-select:none;position:sticky;top:0;background:var(--wh);z-index:2;}
 #vgTableWrap thead th:hover{color:var(--or);}
 .col-sort{color:var(--or)!important;}
+
+/* Metas diárias */
+.md-hoje{background:rgba(245,166,35,.06);}
+.md-ok{color:var(--gr);font-weight:800;}
+.md-low{color:var(--re);font-weight:800;}
+.md-neu{color:var(--mu);font-weight:700;}
+.md-bar{height:5px;background:var(--dm);border-radius:9px;overflow:hidden;margin-top:3px;}
+.md-barf{height:100%;border-radius:9px;transition:width .8s;}
 </style>
 </head>
 <body>
@@ -190,6 +198,7 @@ tfoot td:first-child{text-align:left;}
 <div class="app" id="app" style="display:none">
   <div class="tabbar">
     <button class="tab on"  onclick="aba('vDash',this)">📊 Dashboard</button>
+    <button class="tab"     onclick="aba('vMetas',this)">🎯 Metas Diárias</button>
     <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
@@ -282,6 +291,41 @@ tfoot td:first-child{text-align:left;}
 
       <div class="tk"><div class="ti" id="ticker">Carregando...</div></div>
     </div>
+
+
+    <!-- ══ METAS DIÁRIAS ══════════════════════════════════════ -->
+    <div class="panel" id="vMetas">
+      <!-- KPIs topo -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div class="kpi" style="--kc:var(--or)">
+          <div class="kl">Faturamento Atual (Mês)</div>
+          <div class="kv" id="mFatAtual" style="font-size:1.6rem">R$ --</div>
+          <div class="ks" id="mFatSub">--</div>
+        </div>
+        <div class="kpi" style="--kc:var(--od)">
+          <div class="kl">Meta Mensal</div>
+          <div class="kv" id="mMetaMes" style="font-size:1.6rem">R$ --</div>
+          <div class="ks" id="mMetaSub">--</div>
+        </div>
+        <div class="kpi" style="--kc:#16A34A">
+          <div class="kl">% da Meta até hoje</div>
+          <div class="kv" id="mPctMes" style="font-size:2rem">--%</div>
+          <div class="ks" id="mPctSub">--</div>
+        </div>
+        <div class="kpi" style="--kc:#7C3AED">
+          <div class="kl">Era para estar (até hoje)</div>
+          <div class="kv" id="mEspMes" style="font-size:1.6rem">R$ --</div>
+          <div class="ks" id="mEspSub">soma das metas até hoje</div>
+        </div>
+      </div>
+
+      <!-- Tabela de dias -->
+      <div class="card" style="padding:0;overflow:auto;max-height:72vh;">
+        <div id="metasTbWrap" style="overflow-x:auto;">
+          <div class="lt" style="padding:30px;text-align:center">Abrindo aba Metas Diárias...</div>
+        </div>
+      </div>
+    </div><!-- /vMetas -->
 
     <!-- ══ CATEGORIAS ═════════════════════════════════════════ -->
     <div class="panel" id="vCat">
@@ -1517,6 +1561,7 @@ function aba(id,btn){
   } else if(id==='vMarca'&&_marcaC) renderMarcaTable();
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
+  if(id==='vMetas')loadMetas();
   if(id==='vVG')loadVG();
   if(id==='vML')loadML();
   if(id==='vCB')loadCanal('Casas Bahia','vCB');
@@ -1667,6 +1712,163 @@ ${histDias}
     const w=window.open('','_blank');
     w.document.write('<pre style="font-family:monospace;font-size:13px;padding:20px;">'+texto+'</pre>');
   });
+}
+
+
+// ── METAS DIÁRIAS ──────────────────────────────────────────────
+async function loadMetas(){
+  document.getElementById('metasTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Calculando metas diárias...</div>';
+  try{
+    if(!_cache) throw new Error('Dados não carregados ainda');
+    const{pRows,metas}=_cache;
+    const now=new Date();
+
+    // Constrói mapa de faturamento real por dia (mês atual)
+    const fatPorDia={};
+    const idsSeen=new Set();
+    for(let i=1;i<pRows.length;i++){
+      const r=pRows[i];
+      const id=(r[C.ID]||'').trim();
+      const sit=(r[C.SIT]||'').toLowerCase().trim();
+      const dat=(r[C.DATA]||'').trim();
+      if(!id||!VALIDAS.has(sit)||!dat) continue;
+      const pp=dat.split('/');if(pp.length<3)continue;
+      const d=new Date(+pp[2],+pp[0]-1,+pp[1]);
+      if(d.getMonth()!==now.getMonth()||d.getFullYear()!==now.getFullYear())continue;
+      if(idsSeen.has(id))continue;
+      idsSeen.add(id);
+      fatPorDia[dat]=(fatPorDia[dat]||0)+parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+    }
+
+    // Monta lista de dias do mês com meta e faturado
+    const diasMes=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+    const metaMes=metas.metaMes||0;
+    const dias=[];
+    let fatAcum=0, metaAcum=0, fatTotal=0;
+
+    // Dia de referência dos dados (Kondado tem ~1 dia de atraso)
+    // Usa o _dRef para saber até qual dia temos dados reais
+    let diaRef=now.getDate();
+    if(_dRef){
+      const rp=_dRef.split('/');
+      if(rp.length===3&&+rp[2]===now.getFullYear()&&+rp[0]-1===now.getMonth())
+        diaRef=+rp[1];
+    }
+
+    for(let d=1;d<=diasMes;d++){
+      const dat=`${now.getMonth()+1}/${d}/${now.getFullYear()}`;
+      const metaDia=(metas.dias[dat]||{}).total||0;
+      const fatDia=fatPorDia[dat]||0;
+      const diff=fatDia-metaDia;
+      const isHoje=d===diaRef; // dia com dados mais recentes
+      const isFuturo=d>diaRef; // dias sem dados ainda
+      fatAcum+=fatDia;
+      metaAcum+=metaDia;
+      // fatTotal e metaAcum para KPIs = apenas até diaRef (com dados)
+      if(!isFuturo){ fatTotal+=fatDia; }
+      dias.push({d,dat,dow:new Date(now.getFullYear(),now.getMonth(),d).toLocaleDateString('pt-BR',{weekday:'short'}),metaDia,fatDia,diff,isHoje,isFuturo,fatAcum,metaAcum});
+    }
+
+    // KPIs
+    // metaAcum no loop inclui todos os dias (futuros também)
+    // Recalcula espAcum = soma das metas apenas de 01..hoje
+    let espAcum=0;
+    for(const dia of dias){
+      if(!dia.isFuturo) espAcum+=dia.metaDia;
+    }
+    // fatTotal = soma do faturado de 01..hoje (futuros já excluídos no loop acima)
+    const diffMes=fatTotal-espAcum; // fat - meta acumulada até hoje
+
+    // % da meta: faturado de 01..hoje vs meta acumulada de 01..hoje
+    const pctReal=espAcum>0?(fatTotal/espAcum*100).toFixed(1):0;
+    const diffPct=(parseFloat(pctReal)-100).toFixed(1); // quanto acima/abaixo de 100%
+
+    document.getElementById('mFatAtual').textContent=R(fatTotal);
+    document.getElementById('mFatSub').textContent=`${idsSeen.size} pedidos no mês`;
+
+    document.getElementById('mMetaMes').textContent=R(metaMes);
+    document.getElementById('mMetaSub').textContent=now.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();
+
+    // % da meta até hoje: faturado / meta acumulada 01..hoje
+    // ex: se meta acum é 2M e faturamos 1.8M → 90% → -10% abaixo
+    document.getElementById('mPctMes').textContent=`${pctReal}%`;
+    document.getElementById('mPctMes').style.color=diffMes>=0?'var(--gr)':'var(--re)';
+    const seta=diffMes>=0?'▲':'▼';
+    const cor2=diffMes>=0?'#16A34A':'#DC2626';
+    const diffPctAbs=Math.abs(diffPct);
+    document.getElementById('mPctSub').innerHTML=`meta até hoje: ${R(espAcum)} &nbsp;<span style="color:${cor2};font-weight:900">${seta} ${diffPct>=0?'+':''}${diffPct}%</span>`;
+
+    // "Era para estar" = soma das metas de 01/mês até HOJE (não o mês todo)
+    document.getElementById('mEspMes').textContent=R(espAcum);
+    document.getElementById('mEspSub').innerHTML=`<span style="color:${cor2};font-weight:900">${seta} ${R(Math.abs(diffMes))} ${diffMes>=0?'acima':'abaixo'} do esperado</span>`;
+
+    // Tabela
+    const THS=`padding:5px 12px;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);white-space:nowrap;`;
+    let h=`<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
+      <thead style="position:sticky;top:0;background:var(--wh);z-index:2;"><tr>
+        <th style="${THS}text-align:center">Dia</th>
+        <th style="${THS}text-align:left">Semana</th>
+        <th style="${THS}text-align:right;color:var(--or)">Meta Dia</th>
+        <th style="${THS}text-align:right;color:var(--gr)">Faturado</th>
+        <th style="${THS}text-align:right">Diferença</th>
+        <th style="${THS}text-align:center">% Meta</th>
+        <th style="${THS}text-align:right;color:#7C3AED">Acum. Meta</th>
+        <th style="${THS}text-align:right;color:var(--od)">Acum. Fat.</th>
+        <th style="${THS}text-align:right">Acum. Diff</th>
+      </tr></thead><tbody>`;
+
+    for(const dia of dias){
+      const pct=dia.metaDia>0?(dia.fatDia/dia.metaDia*100).toFixed(0):0;
+      const diff=dia.diff;
+      const diffCls=dia.isFuturo?'md-neu':diff>=0?'md-ok':'md-low';
+      const diffStr=dia.isFuturo?'—':(diff>=0?'▲ +':'▼ ')+R(Math.abs(diff));
+      const acumDiff=dia.fatAcum-dia.metaAcum;
+      const acumDiffCls=acumDiff>=0?'md-ok':'md-low';
+      const acumDiffStr=(acumDiff>=0?'▲ +':'▼ ')+R(Math.abs(acumDiff));
+      const rowBg=dia.isHoje?'background:rgba(245,166,35,.07);border-left:3px solid var(--or);':'';
+      const pctBar=dia.isFuturo?0:Math.min(+pct,100);
+      const barColor=pct>=100?'var(--gr)':pct>=70?'var(--or)':'var(--re)';
+
+      h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}${dia.isFuturo?'opacity:.45':''}">
+        <td style="padding:5px 12px;text-align:center;font-weight:${dia.isHoje?900:700};color:${dia.isHoje?'var(--or)':'var(--tx)'}">
+          ${String(dia.d).padStart(2,'0')}${dia.isHoje?' ◀':''}
+        </td>
+        <td style="padding:5px 12px;text-align:left;color:var(--mu);font-weight:700">${dia.dow}</td>
+        <td style="padding:5px 12px;text-align:right;font-weight:700">${dia.metaDia>0?R(dia.metaDia):'—'}</td>
+        <td style="padding:5px 12px;text-align:right;font-weight:${dia.fatDia>0?800:400};color:${dia.fatDia>0?'var(--tx)':'var(--dm)'}">${dia.fatDia>0?R(dia.fatDia):'—'}</td>
+        <td style="padding:5px 12px;text-align:right;" class="${diffCls}">${diffStr}</td>
+        <td style="padding:5px 12px;text-align:center;">
+          ${dia.isFuturo?'—':`<span style="font-weight:800;color:${barColor}">${pct}%</span>
+          <div class="md-bar"><div class="md-barf" style="width:${pctBar}%;background:${barColor}"></div></div>`}
+        </td>
+        <td style="padding:5px 12px;text-align:right;font-weight:700;color:#7C3AED">${R(dia.metaAcum)}</td>
+        <td style="padding:5px 12px;text-align:right;font-weight:700;color:var(--od)">${dia.fatAcum>0?R(dia.fatAcum):'—'}</td>
+        <td style="padding:5px 12px;text-align:right;" class="${dia.fatAcum>0?acumDiffCls:'md-neu'}">${dia.fatAcum>0?acumDiffStr:'—'}</td>
+      </tr>`;
+    }
+
+    // Linha de totais
+    const totalFat=dias.reduce((s,d)=>s+d.fatDia,0);
+    const totalMeta=dias.reduce((s,d)=>s+d.metaDia,0);
+    const totalDiff=totalFat-totalMeta;
+    h+=`</tbody><tfoot><tr style="border-top:2px solid var(--bd);background:var(--bg);">
+      <td colspan="2" style="padding:6px 12px;font-weight:900;font-size:.7rem">TOTAL DO MÊS</td>
+      <td style="padding:6px 12px;text-align:right;font-weight:800">${R(totalMeta)}</td>
+      <td style="padding:6px 12px;text-align:right;font-weight:800;color:var(--od)">${R(totalFat)}</td>
+      <td style="padding:6px 12px;text-align:right;font-weight:900;" class="${totalDiff>=0?'md-ok':'md-low'}">${(totalDiff>=0?'▲ +':'▼ ')+R(Math.abs(totalDiff))}</td>
+      <td style="padding:6px 12px;text-align:center;font-weight:900;color:${metaMes>0&&(totalFat/metaMes*100)>=100?'var(--gr)':'var(--or)'}">
+        ${metaMes>0?(totalFat/metaMes*100).toFixed(1)+'%':'—'}
+      </td>
+      <td style="padding:6px 12px;text-align:right;font-weight:800;color:#7C3AED">${R(totalMeta)}</td>
+      <td style="padding:6px 12px;text-align:right;font-weight:800;color:var(--od)">${R(totalFat)}</td>
+      <td style="padding:6px 12px;text-align:right;font-weight:900;" class="${totalDiff>=0?'md-ok':'md-low'}">${(totalDiff>=0?'▲ +':'▼ ')+R(Math.abs(totalDiff))}</td>
+    </tr></tfoot></table>`;
+
+    document.getElementById('metasTbWrap').innerHTML=h;
+  }catch(e){
+    console.error('[Metas]',e);
+    document.getElementById('metasTbWrap').innerHTML=`<div style="color:var(--re);padding:20px">❌ ${e.message}</div>`;
+  }
 }
 
 // ── VENDAS GERAL ──────────────────────────────────────────────
