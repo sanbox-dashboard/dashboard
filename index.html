@@ -325,6 +325,23 @@ tfoot td:first-child{text-align:left;}
           <div class="lt" style="padding:30px;text-align:center">Abrindo aba Metas Diárias...</div>
         </div>
       </div>
+      <!-- Tabela por canal -->
+      <div class="card" style="padding:0;overflow:auto;max-height:72vh;margin-top:0;">
+        <div id="metasCanalWrap" style="overflow-x:auto;">
+          <div class="lt" style="padding:20px;text-align:center">Aguardando...</div>
+        </div>
+      </div>
+      <!-- Canal × Mês -->
+      <div class="card" style="margin-top:0">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Canal × Mês</div>
+          <div class="abtns">
+            <button class="abtn on" id="catAno26" onclick="setCatAno(2026,this)" style="background:var(--or);border-color:var(--or)">2026</button>
+            <button class="abtn" id="catAno25" onclick="setCatAno(2025,this)">2025</button>
+          </div>
+        </div>
+        <div class="tscroll"><div id="catMesTbWrap"><div class="lt" style="padding:16px;text-align:center">Aguardando...</div></div></div>
+      </div>
     </div><!-- /vMetas -->
 
     <!-- ══ CATEGORIAS ═════════════════════════════════════════ -->
@@ -360,17 +377,6 @@ tfoot td:first-child{text-align:left;}
         <div class="tscroll"><div id="catMesWrap"><div class="lt" style="padding:16px;text-align:center">Aguardando...</div></div></div>
       </div>
 
-      <!-- Canal x Mês (por último) -->
-      <div class="card">
-        <div class="atitle">
-          <div class="atit"><div class="pdot"></div>Canal × Mês</div>
-          <div class="abtns">
-            <button class="abtn on" id="catAno26" onclick="setCatAno(2026,this)" style="background:var(--or);border-color:var(--or)">2026</button>
-            <button class="abtn" id="catAno25" onclick="setCatAno(2025,this)">2025</button>
-          </div>
-        </div>
-        <div class="tscroll"><div id="catMesTbWrap"><div class="lt" style="padding:16px;text-align:center">Aguardando...</div></div></div>
-      </div>
     </div>
 
     <!-- ══ MARCAS ══════════════════════════════════════════════ -->
@@ -749,6 +755,7 @@ function isRange(s){
   return ymd>=ymdI&&ymd<=ymdF;
 }
 function toYMD(s){const p=(s||'').split('/');if(p.length<3)return'';return p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0');}
+function toISO(s){const p=(s||'').split('/');if(p.length<3)return'';return`${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;}
 function isPer(s){return _modo==='dia'?s===_dRef:_modo==='mes'?isMes(s):isRange(s);}
 
 function canal(nome,num){
@@ -1186,6 +1193,12 @@ function renderCatTable(){
 function setCatCanal(cn,btn){_catCanal=cn;btnOn(document.getElementById('catBtns'),btn,COR[cn]);renderCatTable();}
 function setCatAno(a,btn){_catAno=a;btnOn(btn.parentElement,btn);renderCatTable();}
 
+function renderCatMesTb(){
+  if(!_catC) return;
+  renderCatTable();
+  renderCatMeses();
+}
+
 // ── CATEGORIAS × MESES ──────────────────────────────────────
 let _catMesIni='', _catMesFim='';
 let _catMesOrd={campo:'total',dir:-1}; // ordenação
@@ -1600,6 +1613,22 @@ async function load(){
     document.getElementById('sLbl').textContent='AO VIVO';
     if(firstLoad) setLoad(100);
     console.log(`[OK] R$${d.tP.toFixed(2)} | Mês R$${d.tM.toFixed(2)}`);
+    // Pré-processa todos os canais em background após carregamento
+    const _canaisParaProcessar=['Casas Bahia','Magazine Luiza','Shopee','Amazon'];
+    let _ci=0;
+    function _preProcessCanal(){
+      if(_ci>=_canaisParaProcessar.length){
+        // Depois de todos canais, processa ML
+        setTimeout(()=>{
+          if(!_mlC) try{ _mlC=processarML(_cache.pRows,_cache.iRows); }catch(e){}
+        },500);
+        return;
+      }
+      const cn=_canaisParaProcessar[_ci++];
+      try{ processarCanal(_cache.pRows,_cache.iRows,cn); }catch(e){ console.warn('[PreProc]',cn,e); }
+      setTimeout(_preProcessCanal, 500); // 500ms entre cada canal
+    }
+    setTimeout(_preProcessCanal, 3000); // começa 3s após o load (deixa UI respirar)
   }catch(e){
     console.error('[Load]',e);
     if(firstLoad) document.getElementById('lt').textContent='❌ '+e.message;
@@ -1865,10 +1894,109 @@ async function loadMetas(){
     </tr></tfoot></table>`;
 
     document.getElementById('metasTbWrap').innerHTML=h;
+
+    // ── Tabela por canal ──────────────────────────────────────
+    renderMetasCanal(dias, metas, pRows);
+    // Canal × Mês no final (só renderiza se já tiver _catC carregado)
+    if(_catC) renderCatMesTb();
+    // Não faz fetch aqui para não bloquear — catMesTbWrap mostrará quando abrir Categorias
   }catch(e){
     console.error('[Metas]',e);
     document.getElementById('metasTbWrap').innerHTML=`<div style="color:var(--re);padding:20px">❌ ${e.message}</div>`;
   }
+}
+
+function renderMetasCanal(dias, metas, pRows){
+  const CANAIS_META=[
+    {key:'Mercado Livre', cor:'#C8A000', label:'Mercado Livre'},
+    {key:'Casas Bahia',   cor:'#0052A5', label:'Casas Bahia'},
+    {key:'Amazon',        cor:'#E47911', label:'Amazon'},
+    {key:'Magazine Luiza',cor:'#CC0066', label:'Magalu'},
+    {key:'Shopee',        cor:'#EE4D2D', label:'Shopee'},
+  ];
+
+  // Agrupa faturamento real por dia × canal
+  const fatCanal={}; // dat → {canal: fat}
+  const idsSeen=new Set();
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const id=(r[C.ID]||'').trim();
+    const sit=(r[C.SIT]||'').toLowerCase().trim();
+    const dat=(r[C.DATA]||'').trim();
+    if(!id||!VALIDAS.has(sit)||!dat||idsSeen.has(id))continue;
+    idsSeen.add(id);
+    const pp=dat.split('/');if(pp.length<3)continue;
+    const now2=new Date(); const d2=new Date(+pp[2],+pp[0]-1,+pp[1]);
+    if(d2.getMonth()!==now2.getMonth()||d2.getFullYear()!==now2.getFullYear())continue;
+    const cn=canal(r[C.ENOME],r[C.ENUM]);
+    if(!fatCanal[dat])fatCanal[dat]={};
+    fatCanal[dat][cn]=(fatCanal[dat][cn]||0)+parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+  }
+
+  // Totais acumulados por canal
+  const totMeta={}, totFat={};
+  CANAIS_META.forEach(c=>{totMeta[c.key]=0;totFat[c.key]=0;});
+
+  const THS=`padding:5px 10px;font-size:.54rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;border-bottom:2px solid var(--bd);white-space:nowrap;`;
+
+  // Cabeçalho
+  let h=`<table style="width:100%;border-collapse:collapse;font-size:.66rem;">
+    <thead style="position:sticky;top:0;background:var(--wh);z-index:2;"><tr>
+      <th style="${THS}text-align:center;min-width:55px">Dia</th>
+      <th style="${THS}text-align:left;min-width:60px">Semana</th>
+      ${CANAIS_META.map(c=>`
+      <th colspan="3" style="${THS}text-align:center;color:${c.cor};border-left:1px solid var(--bd)">${c.label}</th>`).join('')}
+    </tr>
+    <tr>
+      <th style="${THS}text-align:center"></th>
+      <th style="${THS}"></th>
+      ${CANAIS_META.map(()=>`
+      <th style="${THS}text-align:right;color:var(--or);border-left:1px solid var(--bd)">Meta</th>
+      <th style="${THS}text-align:right;color:var(--gr)">Faturado</th>
+      <th style="${THS}text-align:right">Dif.</th>`).join('')}
+    </tr></thead><tbody>`;
+
+  for(const dia of dias){
+    const fatD=fatCanal[dia.dat]||{};
+    const metaDiaObj=metas.dias[dia.dat]||{};
+    const rowBg=dia.isHoje?'background:rgba(245,166,35,.07);border-left:3px solid var(--or);':'';
+
+    const cells=CANAIS_META.map((c,ci)=>{
+      const meta=metaDiaObj[c.key]||0;
+      const fat=fatD[c.key]||0;
+      const diff=fat-meta;
+      totMeta[c.key]+=meta;
+      if(!dia.isFuturo)totFat[c.key]+=fat;
+      const diffCls=dia.isFuturo?'':'';
+      const diffCol=dia.isFuturo?'var(--dm)':diff>=0?'#16A34A':'#DC2626';
+      const diffStr=dia.isFuturo?'—':fat===0&&meta===0?'—':(diff>=0?'+':'')+R(diff);
+      return`<td style="padding:4px 8px;text-align:right;font-weight:700;border-left:1px solid var(--bg)">${meta>0?R(meta):'—'}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:700;color:${fat>0?c.cor:'var(--dm)'}">${fat>0?R(fat):(dia.isFuturo?'—':'—')}</td>
+      <td style="padding:4px 8px;text-align:right;font-weight:800;color:${diffCol};font-size:.62rem">${diffStr}</td>`;
+    }).join('');
+
+    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}${dia.isFuturo?'opacity:.4':''}">
+      <td style="padding:4px 10px;text-align:center;font-weight:${dia.isHoje?900:700};color:${dia.isHoje?'var(--or)':'var(--tx)'}">${String(dia.d).padStart(2,'0')}${dia.isHoje?' ◀':''}</td>
+      <td style="padding:4px 10px;color:var(--mu);font-weight:700">${dia.dow}</td>
+      ${cells}
+    </tr>`;
+  }
+
+  // Linha de totais
+  const totRow=CANAIS_META.map(c=>{
+    const diff=totFat[c.key]-totMeta[c.key];
+    const dc=diff>=0?'#16A34A':'#DC2626';
+    return`<td style="padding:5px 8px;text-align:right;font-weight:800;border-left:1px solid var(--bd)">${R(totMeta[c.key])}</td>
+    <td style="padding:5px 8px;text-align:right;font-weight:800;color:${c.cor}">${R(totFat[c.key])}</td>
+    <td style="padding:5px 8px;text-align:right;font-weight:900;color:${dc};font-size:.62rem">${diff>=0?'+':''+(totFat[c.key]>0?R(diff):'—')}</td>`;
+  }).join('');
+
+  h+=`</tbody><tfoot><tr style="border-top:2px solid var(--bd);background:var(--bg);">
+    <td colspan="2" style="padding:5px 10px;font-weight:900;font-size:.68rem">TOTAL</td>
+    ${totRow}
+  </tr></tfoot></table>`;
+
+  document.getElementById('metasCanalWrap').innerHTML=h;
 }
 
 // ── VENDAS GERAL ──────────────────────────────────────────────
@@ -2079,6 +2207,7 @@ function loadVG(){
 // ── ENGINE GENÉRICA PARA ABAS DE CANAL ───────────────────────
 // Funciona para CB, MG, Shopee, Amazon, Amazon Fulfillment
 const _canalState = {}; // canal → {diaA, diaB, diaL, filt}
+const _cLO = {}; // canal lista ordenação: vid → {campo, dir}
 
 function isCanal(eNome, eNum, canalNome){
   const n=(eNome||'').toLowerCase();
@@ -2094,16 +2223,9 @@ function isCanal(eNome, eNum, canalNome){
 function processarCanal(pRows, iRows, canalNome){
   if(_canalCache[canalNome]) return _canalCache[canalNome];
 
-  const pedCanal=new Set();
-  for(let i=1;i<pRows.length;i++){
-    const r=pRows[i];const id=(r[C.ID]||'').trim();
-    if(id&&isCanal(r[C.ENOME],r[C.ENUM],canalNome)) pedCanal.add(id);
-  }
-
   const hoje=_dRef;
   const ontem=mlOffset(hoje,-1);
   const ante=mlOffset(hoje,-2);
-
   const dRef2=pD(hoje);
   const mesPrev=dRef2.getMonth()===0?12:dRef2.getMonth();
   const anoPrev=dRef2.getMonth()===0?dRef2.getFullYear()-1:dRef2.getFullYear();
@@ -2112,17 +2234,26 @@ function processarCanal(pRows, iRows, canalNome){
   const diasPassados=dRef2.getDate();
   const diasMesPrev=new Date(anoPrev,mesPrev,0).getDate();
 
+  // Constrói pedCanal apenas com IDs do canal (usa pRows que é menor)
+  const pedCanal=new Set();
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const id=(r[C.ID]||'').trim();
+    if(id&&isCanal(r[C.ENOME],r[C.ENUM],canalNome)) pedCanal.add(id);
+  }
+
   const byDia={};const mesPrevData={};const mesAtualData={};
 
+  // Processa iRows — filtra primeiro por pedCanal (Set lookup = O(1))
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
     const idPed=(r[0]||'').trim();
-    if(!pedCanal.has(idPed))continue;
+    if(!pedCanal.has(idPed))continue; // descarta linhas de outros canais rapidamente
     const sit=(r[I.SIT]||'').toLowerCase().trim();
     if(!VALIDAS.has(sit))continue;
     const dat=(r[I.DATA]||'').trim();
     const sku=(r[1]||'').trim();
-    if(SKUS_EXCLUIR_PROJ.has(sku.toUpperCase()))continue; // exclui SKUs proibidos
+    if(SKUS_EXCLUIR_PROJ.has(sku.toUpperCase()))continue;
     const desc=(r[I.DESC]||'').trim();
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
@@ -2131,12 +2262,12 @@ function processarCanal(pRows, iRows, canalNome){
     if(!byDia[dat])byDia[dat]={};
     if(!byDia[dat][sku])byDia[dat][sku]={desc,qtd:0,fat:0,idProd};
     byDia[dat][sku].qtd+=qtd;byDia[dat][sku].fat+=fat;
-    const dI=pD(dat);
-    if(dI.getMonth()+1===mesPrev&&dI.getFullYear()===anoPrev){
+    const mm=+dat.split('/')[0], yy=+dat.split('/')[2];
+    if(mm===mesPrev&&yy===anoPrev){
       if(!mesPrevData[sku])mesPrevData[sku]={desc,qtd:0,fat:0,idProd};
       mesPrevData[sku].qtd+=qtd;mesPrevData[sku].fat+=fat;
     }
-    if(dI.getMonth()+1===mesAtual&&dI.getFullYear()===anoAtual){
+    if(mm===mesAtual&&yy===anoAtual){
       if(!mesAtualData[sku])mesAtualData[sku]={desc,qtd:0,fat:0,idProd};
       mesAtualData[sku].qtd+=qtd;mesAtualData[sku].fat+=fat;
     }
@@ -2332,7 +2463,18 @@ function renderCanalTop5(canal, vid, data){
 
 function loadCanal(canal, vid){
   if(!_cache){document.getElementById(vid+'CompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Aguardando dados...</div>';return;}
+  // Mostra loading e processa em background para não travar o UI
+  if(!_canalCache[canal]){
+    document.getElementById(vid+'CompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">⏳ Processando dados...</div>';
+    setTimeout(()=>_loadCanalExec(canal,vid),30);
+    return;
+  }
+  _loadCanalExec(canal,vid);
+}
+function _loadCanalExec(canal, vid){
+  // processarCanal pode ser pesado — usa setTimeout para não travar UI
   const data=processarCanal(_cache.pRows,_cache.iRows,canal);
+
   // Init state defaults
   if(!_canalState[vid]){
     _canalState[vid]={diaA:data.ante,diaB:data.ontem,diaLIni:data.ontem,diaLFim:data.ontem,filt:'all'};
@@ -2344,10 +2486,19 @@ function loadCanal(canal, vid){
     if(fimEl)fimEl.value=toISO(data.ontem);
   }
   if(!_estC)loadEstoque().catch(e=>console.warn('[Est]',e));
+
+  // Renderiza KPIs e Comparativo imediatamente (rápido)
   renderCanalKpis(vid,data);
   renderCanalComp(canal,vid,data);
-  renderCanalLista(canal,vid,data);
-  renderCanalTop5(canal,vid,data);
+
+  // Renderiza Todos Produtos e Top5 em batches separados com delay
+  // para não travar o browser
+  setTimeout(()=>{
+    try{ renderCanalLista(canal,vid,data); }catch(e){ console.error('[Lista]',e); }
+    setTimeout(()=>{
+      try{ renderCanalTop5(canal,vid,data); }catch(e){ console.error('[Top5]',e); }
+    },50);
+  },50);
 }
 
 function aplicarCanalComp(canal, vid){
@@ -2393,7 +2544,6 @@ let _mlDiaA='', _mlDiaB='', _mlDiaLista='', _mlDiaListaIni='', _mlDiaListaFim=''
 // Converte YYYY-MM-DD → M/D/YYYY
 const toMDY=s=>{if(!s)return'';const p=s.split('-');return`${+p[1]}/${+p[2]}/${p[0]}`;};
 // Converte M/D/YYYY → YYYY-MM-DD para input date
-const toISO=s=>{if(!s)return'';const p=s.split('/');return`${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;};
 
 function isML(eNome,eNum){
   if((eNome||'').toLowerCase().includes('mercado livre'))return true;
@@ -2748,8 +2898,15 @@ async function loadML(){
     return;
   }
   _mlDiaA='';_mlDiaB='';_mlDiaLista=''; // reset para defaults
-  _mlC=processarML(_cache.pRows,_cache.iRows);
-  if(!_estC){try{await loadEstoque();}catch(e){console.warn('[ML]',e);}}
+  if(!_mlC){
+    document.getElementById('mlCompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">⏳ Processando dados ML...</div>';
+    setTimeout(()=>{_mlC=processarML(_cache.pRows,_cache.iRows);_loadMLExec();},30);
+    return;
+  }
+  _loadMLExec();
+}
+function _loadMLExec(){
+  if(!_estC)loadEstoque().catch(e=>console.warn('[ML]',e));
   renderML();
 }
 
