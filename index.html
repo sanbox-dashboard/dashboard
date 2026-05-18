@@ -179,6 +179,174 @@ tfoot td:first-child{text-align:left;}
 .md-neu{color:var(--mu);font-weight:700;}
 .md-bar{height:5px;background:var(--dm);border-radius:9px;overflow:hidden;margin-top:3px;}
 .md-barf{height:100%;border-radius:9px;transition:width .8s;}
+
+/* GE FINANCE MARGEM */
+.ge-token-bar{background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.ge-token-input{flex:1;min-width:200px;border:1px solid var(--bd);border-radius:6px;padding:5px 10px;font:.68rem 'Nunito';color:var(--tx);}
+.ge-status{font-size:.6rem;font-weight:700;padding:3px 8px;border-radius:99px;}
+.ge-ok{background:rgba(22,163,74,.1);color:var(--gr);}
+.ge-err{background:rgba(220,38,38,.1);color:var(--re);}
+.ge-load{background:rgba(245,166,35,.1);color:var(--od);}
+.ge-canal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.ge-card{background:var(--wh);border:1px solid var(--bd);border-radius:11px;padding:14px;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.ge-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kc,var(--or));}
+.ge-label{font-size:.56rem;font-weight:800;color:var(--mu);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;}
+.ge-val{font-family:'Bebas Neue';font-size:1.8rem;line-height:1;color:var(--kc,var(--od));}
+.ge-sub{font-size:.6rem;font-weight:700;color:var(--mu);margin-top:3px;}
+.ge-badge{display:inline-block;font-size:.58rem;font-weight:800;padding:2px 7px;border-radius:99px;margin-top:4px;}
+@media(max-width:768px){.ge-canal-grid{grid-template-columns:1fr 1fr;}}
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE — max-width: 768px
+   ═══════════════════════════════════════════ */
+.canal-kpis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+
+@media (max-width: 768px) {
+
+  /* Tabbar: scroll horizontal, ícones menores */
+  .tabbar {
+    padding: 8px 10px 0;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
+  .tabbar::-webkit-scrollbar { display: none; }
+
+  .tab {
+    padding: 7px 10px;
+    font-size: .6rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  /* Content padding menor */
+  .content { padding: 0 10px 16px; }
+  .panel { gap: 8px; padding-top: 8px; }
+  .card { padding: 10px 12px; }
+
+  /* Header simplificado */
+  .hdr { flex-wrap: wrap; gap: 6px; }
+  .clock { font-size: 1.3rem; }
+  .bsep { display: none; }
+  .bsub { display: none; }
+  .btn-sm { padding: 3px 7px; font-size: .55rem; }
+
+  /* KPIs: 2 colunas no mobile */
+  .kr {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+  .kv { font-size: 1.5rem; }
+
+  /* Canais: 2 colunas */
+  .cr {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  /* Filtros: wrap limpo */
+  .filtro { gap: 6px; }
+  .fcustom { flex-wrap: wrap; }
+  .fcustom input { width: 130px; }
+  .fbtns { flex-wrap: wrap; }
+
+  /* Tabelas: scroll horizontal */
+  .tscroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ticker */
+  #ticker { font-size: .65rem; }
+
+  /* Atitle */
+  .atitle { flex-wrap: wrap; gap: 6px; }
+  .abtns { flex-wrap: wrap; }
+  .abtn { font-size: .58rem; padding: 4px 9px; }
+
+  /* Estoque filtros */
+  .efiltros { flex-wrap: wrap; gap: 6px; }
+
+  /* Cards de canal — KPIs */
+  .canal-kpis-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  /* Comparativo dias — scroll */
+  #mlCompWrap, [id$="CompWrap"] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Header do app */
+  .hdr .hr { gap: 6px; }
+  .live { font-size: .52rem; padding: 2px 7px; }
+
+  /* Metas: tabela por canal scroll */
+  #metasCanalWrap { overflow-x: auto; }
+  #metasCanalWrap table { min-width: 700px; }
+
+  /* Painel de vendas geral */
+  #vgTableWrap { overflow-x: auto; }
+
+  /* Canal × Mês */
+  #catMesTbWrap { overflow-x: auto; }
+
+  /* Botões de filtro de canal */
+  .faply { padding: 4px 10px; font-size: .62rem; }
+}
+
+/* ═══════════════════════════════════
+   EXTRA SMALL — max-width: 420px
+   ═══════════════════════════════════ */
+@media (max-width: 420px) {
+  .kr { grid-template-columns: 1fr 1fr; }
+  .cr { grid-template-columns: 1fr 1fr; }
+  .kv { font-size: 1.3rem; }
+  .tab { font-size: .56rem; padding: 6px 8px; }
+  .card { padding: 9px 10px; }
+  .content { padding: 0 8px 14px; }
+}
+
+
+@media (max-width: 768px) {
+  /* Grids inline de KPI dos canais (4 colunas → 2 colunas) */
+  [id^="vCB"] > div[style*="grid-template-columns:repeat(4"],
+  [id^="vMG"] > div[style*="grid-template-columns:repeat(4"],
+  [id^="vSH"] > div[style*="grid-template-columns:repeat(4"],
+  [id^="vAMZ"] > div[style*="grid-template-columns:repeat(4"],
+  [id^="vML"] > div[style*="grid-template-columns:repeat(5"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Header: quebra em 2 linhas no mobile */
+  .card.hdr {
+    padding: 8px 10px;
+  }
+  .brand svg { height: 24px; }
+  .clock { font-size: 1.1rem; }
+  .hr { flex-wrap: wrap; gap: 5px; }
+  .btn-sm { font-size: .54rem; padding: 3px 7px; }
+
+  /* Filtro datas de Vendas Geral */
+  #vgFiltro { flex-wrap: wrap; gap: 6px; }
+  #vgFiltro input[type="date"] { width: 130px; }
+
+  /* Canal comparativo: scroll */
+  .tscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Estoque — filtros wrap */
+  #eFiltros { flex-wrap: wrap; }
+  #eFiltros input, #eFiltros select { max-width: 140px; }
+
+  /* Metas KPIs */
+  #metasKpis { grid-template-columns: 1fr 1fr !important; }
+}
+
 </style>
 </head>
 <body>
@@ -208,6 +376,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
     <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
     <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
+    <button class="tab"     onclick="aba('vMargem',this)">📈 Margem GE</button>
   </div>
 
   <div class="content">
@@ -296,7 +465,7 @@ tfoot td:first-child{text-align:left;}
     <!-- ══ METAS DIÁRIAS ══════════════════════════════════════ -->
     <div class="panel" id="vMetas">
       <!-- KPIs topo -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="canal-kpis-grid">
         <div class="kpi" style="--kc:var(--or)">
           <div class="kl">Faturamento Atual (Mês)</div>
           <div class="kv" id="mFatAtual" style="font-size:1.6rem">R$ --</div>
@@ -482,7 +651,7 @@ tfoot td:first-child{text-align:left;}
     <div class="panel" id="vML">
 
       <!-- KPIs -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="canal-kpis-grid">
         <div class="kpi" style="--kc:#C8A000"><div class="kl">Dia A (raiz)</div><div class="kv" id="mlFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlQtdA">--</div></div>
         <div class="kpi" style="--kc:#C8A000"><div class="kl">Dia B (comparação)</div><div class="kv" id="mlFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlQtdB">--</div></div>
         <div class="kpi" style="--kc:#C8A000"><div class="kl">Mês Atual (ML)</div><div class="kv" id="mlFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="mlProjMes">--</div></div>
@@ -536,7 +705,7 @@ tfoot td:first-child{text-align:left;}
 
     <!-- ══ CASAS BAHIA ══════════════════════════════════════════ -->
     <div class="panel" id="vCB">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="canal-kpis-grid">
         <div class="kpi" style="--kc:#0052A5"><div class="kl">Dia A (raiz)</div><div class="kv" id="vCBFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBQtdA">--</div></div>
         <div class="kpi" style="--kc:#0052A5"><div class="kl">Dia B (comparação)</div><div class="kv" id="vCBFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBQtdB">--</div></div>
         <div class="kpi" style="--kc:#0052A5"><div class="kl">Mês Atual</div><div class="kv" id="vCBFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vCBProjMes">--</div></div>
@@ -580,7 +749,7 @@ tfoot td:first-child{text-align:left;}
 
     <!-- ══ MAGAZINE LUIZA ══════════════════════════════════════════ -->
     <div class="panel" id="vMG">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="canal-kpis-grid">
         <div class="kpi" style="--kc:#CC0066"><div class="kl">Dia A (raiz)</div><div class="kv" id="vMGFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGQtdA">--</div></div>
         <div class="kpi" style="--kc:#CC0066"><div class="kl">Dia B (comparação)</div><div class="kv" id="vMGFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGQtdB">--</div></div>
         <div class="kpi" style="--kc:#CC0066"><div class="kl">Mês Atual</div><div class="kv" id="vMGFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vMGProjMes">--</div></div>
@@ -624,7 +793,7 @@ tfoot td:first-child{text-align:left;}
 
     <!-- ══ SHOPEE ══════════════════════════════════════════ -->
     <div class="panel" id="vSH">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="canal-kpis-grid">
         <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Dia A (raiz)</div><div class="kv" id="vSHFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHQtdA">--</div></div>
         <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Dia B (comparação)</div><div class="kv" id="vSHFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHQtdB">--</div></div>
         <div class="kpi" style="--kc:#EE4D2D"><div class="kl">Mês Atual</div><div class="kv" id="vSHFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vSHProjMes">--</div></div>
@@ -668,7 +837,7 @@ tfoot td:first-child{text-align:left;}
 
     <!-- ══ AMAZON ══════════════════════════════════════════ -->
     <div class="panel" id="vAMZ">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div class="canal-kpis-grid">
         <div class="kpi" style="--kc:#E47911"><div class="kl">Dia A (raiz)</div><div class="kv" id="vAMZFatA" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZQtdA">--</div></div>
         <div class="kpi" style="--kc:#E47911"><div class="kl">Dia B (comparação)</div><div class="kv" id="vAMZFatB" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZQtdB">--</div></div>
         <div class="kpi" style="--kc:#E47911"><div class="kl">Mês Atual</div><div class="kv" id="vAMZFatMes" style="font-size:1.6rem">R$ --</div><div class="ks" id="vAMZProjMes">--</div></div>
@@ -709,6 +878,84 @@ tfoot td:first-child{text-align:left;}
         <div class="tscroll"><div id="vAMZTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
       </div>
     </div><!-- /vAMZ -->
+    <!-- ══ MARGEM GE FINANCE ═══════════════════════════════ -->
+    <div class="panel" id="vMargem">
+
+      <!-- Barra de configuração do token -->
+      <div class="ge-token-bar">
+        <div style="display:flex;align-items:center;gap:8px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span style="font-size:.7rem;font-weight:900;color:var(--tx)">GE Finance</span>
+          <span class="ge-status ge-load" id="geStatusBadge">● Desconectado</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex:1">
+          <span class="flbl">Bearer Token:</span>
+          <input type="password" id="geTokenInput" class="ge-token-input"
+            placeholder="Cole o Bearer token do GE Finance aqui..."
+            oninput="geSetToken(this.value)">
+          <button class="faply" onclick="geCarregarDados()">🔄 Carregar</button>
+          <button class="btn-sm" onclick="geTokenHelp()" title="Como obter o token">❓ Ajuda</button>
+        </div>
+        <div style="font-size:.58rem;color:var(--mu)">Período: <span id="gePeriodoLabel">--</span></div>
+      </div>
+
+      <!-- KPI geral de margem -->
+      <div id="geMetasKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div class="ge-card" style="--kc:var(--or)">
+          <div class="ge-label">Faturamento Bruto</div>
+          <div class="ge-val" id="geFatBruto">--</div>
+          <div class="ge-sub" id="geFatBrutoSub">mês atual</div>
+        </div>
+        <div class="ge-card" style="--kc:#E91E8C">
+          <div class="ge-label">Margem Bruta (R$)</div>
+          <div class="ge-val" id="geMargemBruta">--</div>
+          <div class="ge-sub" id="geMargemBrutaSub">--</div>
+        </div>
+        <div class="ge-card" style="--kc:var(--gr)">
+          <div class="ge-label">Margem Bruta (%)</div>
+          <div class="ge-val" id="geMargemPct">--</div>
+          <div class="ge-sub">sobre faturamento</div>
+        </div>
+        <div class="ge-card" style="--kc:#7C3AED">
+          <div class="ge-label">CMV Total</div>
+          <div class="ge-val" id="geCmvTotal">--</div>
+          <div class="ge-sub" id="geCmvPct">% sobre vendas</div>
+        </div>
+      </div>
+
+      <!-- CMV por canal -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>CMV por Canal de Vendas <span style="font-size:.58rem;color:var(--mu);font-weight:600">(% sobre vendas)</span></div>
+          <div id="geUltimaAtualizacao" style="font-size:.58rem;color:var(--mu)"></div>
+        </div>
+        <div id="geCanalWrap">
+          <div class="ge-canal-grid" id="geCanalGrid">
+            <div class="ge-card" style="--kc:#C8A000"><div class="ge-label">🟡 Mercado Livre</div><div class="ge-val" id="geCMV_ML">--</div><div class="ge-sub" id="geSub_ML">--</div></div>
+            <div class="ge-card" style="--kc:#0052A5"><div class="ge-label">🔵 Casas Bahia</div><div class="ge-val" id="geCMV_CB">--</div><div class="ge-sub" id="geSub_CB">--</div></div>
+            <div class="ge-card" style="--kc:#CC0066"><div class="ge-label">🟣 Magazine Luiza</div><div class="ge-val" id="geCMV_MG">--</div><div class="ge-sub" id="geSub_MG">--</div></div>
+            <div class="ge-card" style="--kc:#EE4D2D"><div class="ge-label">🟠 Shopee</div><div class="ge-val" id="geCMV_SH">--</div><div class="ge-sub" id="geSub_SH">--</div></div>
+            <div class="ge-card" style="--kc:#E47911"><div class="ge-label">🟤 Amazon</div><div class="ge-val" id="geCMV_AMZ">--</div><div class="ge-sub" id="geSub_AMZ">--</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela detalhada por canal -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Detalhamento por Canal</div>
+        </div>
+        <div class="tscroll">
+          <div id="geTableWrap">
+            <div class="lt" style="padding:20px;text-align:center;color:var(--mu)">
+              Configure o token acima e clique em Carregar para ver os dados
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /vMargem -->
+
   </div><!-- /content -->
 </div><!-- /app -->
 
@@ -1552,6 +1799,7 @@ function aba(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
   document.getElementById(id).classList.add('on');
   btn.classList.add('on');
+  if(id==='vMargem') setTimeout(abrirMargem,100);
 
   if(id==='vCat'&&!_catC&&_cache){
     document.getElementById('catTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando categorias...</div>';
@@ -2288,12 +2536,25 @@ function renderCanalKpis(vid, data){
   const sMes=Object.values(mesAtualData).reduce((s,v)=>({fat:s.fat+v.fat}),{fat:0});
   const proj=diasPassados>0?sMes.fat/diasPassados*diasMesAtual:0;
   const g=id=>document.getElementById(vid+id);
-  g('FatA').textContent=R(sA.fat);g('QtdA').textContent=`${sA.qtd} un — ${fmtDia(st.diaA||data.ontem)}`;
-  g('FatB').textContent=R(sB.fat);g('QtdB').textContent=`${sB.qtd} un — ${fmtDia(st.diaB||hoje)}`;
+  const canal=_canalVidMap[vid]||'';
+  // % meta para Dia A e Dia B
+  const metaDiaA=(_cache?.metas?.dias[st.diaA||data.ontem]||{})[canal]||0;
+  const metaDiaB=(_cache?.metas?.dias[st.diaB||hoje]||{})[canal]||0;
+  const pctA=metaDiaA>0?Math.min(sA.fat/metaDiaA*100,999).toFixed(1):null;
+  const pctB=metaDiaB>0?Math.min(sB.fat/metaDiaB*100,999).toFixed(1):null;
+  const pctTag=(pct)=>{
+    if(!pct)return'';
+    const v=parseFloat(pct);
+    const cor=v>=100?'#16A34A':v>=70?'#D4881A':'#DC2626';
+    return` <span style="color:${cor};font-weight:900;font-size:.75em">(${pct}%)</span>`;
+  };
+  g('FatA').innerHTML=R(sA.fat)+pctTag(pctA);
+  g('QtdA').textContent=`${sA.qtd} un — ${fmtDia(st.diaA||data.ontem)}${metaDiaA>0?' · Meta: '+R(metaDiaA):''}`;
+  g('FatB').innerHTML=R(sB.fat)+pctTag(pctB);
+  g('QtdB').textContent=`${sB.qtd} un — ${fmtDia(st.diaB||hoje)}${metaDiaB>0?' · Meta: '+R(metaDiaB):''}`;
 
   // Meta por canal a partir do cache de metas
   if(_cache?.metas){
-    const canal=_canalVidMap[vid]||'';
     const metaDiaCanal=(_cache.metas.dias[_dRef]||{})[canal]||0;
     // Soma meta do canal em todos os dias do mês atual
     const n=new Date();
@@ -2688,15 +2949,29 @@ function fmtDia(s){if(!s)return'--';const p=s.split('/');return`${p[1].padStart(
 
 function renderMLKpis(){
   if(!_mlC)return;
-  const{byDia,hoje,mesAtualData,diasMesAtual,diasPassados}=_mlC;
+  const{byDia,hoje,ontem,ante,mesAtualData,diasMesAtual,diasPassados}=_mlC;
+  // Garantir defaults se ainda não setados
+  if(!_mlDiaA) _mlDiaA=ontem||hoje;
+  if(!_mlDiaB) _mlDiaB=hoje;
   const sumDia=d=>Object.values(byDia[d]||{}).reduce((s,v)=>({fat:s.fat+v.fat,qtd:s.qtd+v.qtd}),{fat:0,qtd:0});
   const sA=sumDia(_mlDiaA),sB=sumDia(_mlDiaB),sH=sumDia(hoje);
   const sMes=Object.values(mesAtualData).reduce((s,v)=>({fat:s.fat+v.fat}),{fat:0});
   const proj=diasPassados>0?sMes.fat/diasPassados*diasMesAtual:0;
-  document.getElementById('mlFatA').textContent=R(sA.fat);
-  document.getElementById('mlQtdA').textContent=`${sA.qtd} un — ${fmtDia(_mlDiaA)}`;
-  document.getElementById('mlFatB').textContent=R(sB.fat);
-  document.getElementById('mlQtdB').textContent=`${sB.qtd} un — ${fmtDia(_mlDiaB)}`;
+  // % meta para Dia A e Dia B
+  const metaDiaA=(_cache?.metas?.dias[_mlDiaA]||{})['Mercado Livre']||0;
+  const metaDiaB=(_cache?.metas?.dias[_mlDiaB]||{})['Mercado Livre']||0;
+  const pctA=metaDiaA>0?Math.min(sA.fat/metaDiaA*100,999).toFixed(1):null;
+  const pctB=metaDiaB>0?Math.min(sB.fat/metaDiaB*100,999).toFixed(1):null;
+  const pctTag=pct=>{
+    if(!pct)return'';
+    const v=parseFloat(pct);
+    const cor=v>=100?'#16A34A':v>=70?'#D4881A':'#DC2626';
+    return` <span style="color:${cor};font-weight:900;font-size:.75em">(${pct}%)</span>`;
+  };
+  document.getElementById('mlFatA').innerHTML=R(sA.fat)+pctTag(pctA);
+  document.getElementById('mlQtdA').textContent=`${sA.qtd} un — ${fmtDia(_mlDiaA)}${metaDiaA>0?' · Meta: '+R(metaDiaA):''}`;
+  document.getElementById('mlFatB').innerHTML=R(sB.fat)+pctTag(pctB);
+  document.getElementById('mlQtdB').textContent=`${sB.qtd} un — ${fmtDia(_mlDiaB)}${metaDiaB>0?' · Meta: '+R(metaDiaB):''}`;
   document.getElementById('mlFatMes').textContent=R(sMes.fat);
   // Meta ML
   if(_cache?.metas){
@@ -2906,8 +3181,269 @@ async function loadML(){
   _loadMLExec();
 }
 function _loadMLExec(){
+  // Garantir defaults de datas antes de renderizar
+  if(_mlC){
+    if(!_mlDiaA){_mlDiaA=_mlC.ontem||_mlC.hoje;const el=document.getElementById('mlDiaA');if(el)el.value=toISO(_mlDiaA);}
+    if(!_mlDiaB){_mlDiaB=_mlC.hoje;const el=document.getElementById('mlDiaB');if(el)el.value=toISO(_mlDiaB);}
+    if(!_mlDiaListaIni){_mlDiaListaIni=_mlC.ontem||_mlC.hoje;const el=document.getElementById('mlDiaListaIni');if(el)el.value=toISO(_mlDiaListaIni);}
+    if(!_mlDiaListaFim){_mlDiaListaFim=_mlC.ontem||_mlC.hoje;const el=document.getElementById('mlDiaListaFim');if(el)el.value=toISO(_mlDiaListaFim);}
+  }
   if(!_estC)loadEstoque().catch(e=>console.warn('[ML]',e));
   renderML();
+}
+
+
+// ═══════════════════════════════════════════════════════
+// GE FINANCE — MARGEM CMV POR CANAL
+// ═══════════════════════════════════════════════════════
+
+const GE_CUSTOMER_ID   = '44c8b63b-992d-40d4-88ff-7e8e12637e05';
+const GE_CUSTOMER_PLAN = '12855';
+const GE_BASE          = 'https://gateway-web.ge.finance/api/SellerInfo';
+const GE_STATUSES      = ['Aprovado','Entregue','Enviado','Faturado','Pronto para envio'];
+const GE_CONDITIONS    = [0,1,2,3,4];
+
+// Mapeamento canal GE → IDs dos cards
+const GE_CANAL_MAP = {
+  'Mercado Livre':         {id:'ML',  cor:'#C8A000'},
+  'ML_SANBOX-SHOP':        {id:'ML',  cor:'#C8A000'},
+  'Mercado Livre Fulfillment': {id:'ML', cor:'#C8A000'},
+  'Casas Bahia':           {id:'CB',  cor:'#0052A5'},
+  'FullFilmet Casas Bahia MKP':{id:'CB', cor:'#0052A5'},
+  'Magazine Luiza':        {id:'MG',  cor:'#CC0066'},
+  'Shopee':                {id:'SH',  cor:'#EE4D2D'},
+  'Amazon':                {id:'AMZ', cor:'#E47911'},
+  'Amazon Fulfillment':    {id:'AMZ', cor:'#E47911'},
+};
+
+let _geToken  = '';
+let _geLoaded = false;
+
+function geSetToken(val){
+  _geToken = (val||'').trim();
+  const badge = document.getElementById('geStatusBadge');
+  if(_geToken){
+    badge.textContent = '● Token configurado';
+    badge.className = 'ge-status ge-load';
+  } else {
+    badge.textContent = '● Desconectado';
+    badge.className = 'ge-status ge-err';
+  }
+}
+
+function geBuildURL(endpoint, firstDate, endDate){
+  const ts = new Date().toISOString();
+  let url = `${GE_BASE}/${endpoint}?firstDate=${firstDate}&endDate=${endDate}&refreshDate=${encodeURIComponent(ts)}`;
+  GE_STATUSES.forEach(s => url += `&IncludingStatus=${encodeURIComponent(s)}`);
+  GE_CONDITIONS.forEach(c => url += `&saleConditions=${c}`);
+  url += `&customerId=${GE_CUSTOMER_ID}&customerPlanId=${GE_CUSTOMER_PLAN}&isTrial=false`;
+  return url;
+}
+
+function geGetHeaders(){
+  const h = {'Content-Type':'application/json'};
+  if(_geToken) h['Authorization'] = _geToken.startsWith('Bearer ') ? _geToken : `Bearer ${_geToken}`;
+  return h;
+}
+
+function gePeriodo(){
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth()+1).padStart(2,'0');
+  const d = String(now.getDate()).padStart(2,'0');
+  return {firstDate:`${y}-${m}-01`, endDate:`${y}-${m}-${d}`};
+}
+
+function geR(v){
+  if(v===null||v===undefined||isNaN(v)) return '--';
+  return 'R$ ' + parseFloat(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function gePct(v){
+  if(v===null||v===undefined||isNaN(v)) return '--';
+  return parseFloat(v).toFixed(2).replace('.',',') + '%';
+}
+function geCor(pct){
+  const v = parseFloat(pct);
+  if(v >= 20) return 'var(--gr)';
+  if(v >= 10) return 'var(--or)';
+  return 'var(--re)';
+}
+
+async function geCarregarDados(){
+  if(!_geToken){
+    // Tentar pegar o token do localStorage do GE Finance (se aberto na mesma sessão)
+    const tokenPrompt = prompt('Cole o Bearer token do GE Finance:\n\n(Obtenha em: F12 → Network → qualquer chamada /api/SellerInfo → Headers → Authorization)');
+    if(!tokenPrompt) return;
+    geSetToken(tokenPrompt);
+    document.getElementById('geTokenInput').value = tokenPrompt;
+  }
+
+  const badge = document.getElementById('geStatusBadge');
+  badge.textContent = '⏳ Carregando...';
+  badge.className = 'ge-status ge-load';
+
+  const {firstDate, endDate} = gePeriodo();
+  document.getElementById('gePeriodoLabel').textContent = `${firstDate} → ${endDate}`;
+
+  try {
+    // Buscar margem por canal
+    const urlCanal = geBuildURL('GetMarginPerSalesChannel', firstDate, endDate);
+    const resp = await fetch(urlCanal, {
+      method: 'GET',
+      headers: geGetHeaders(),
+      mode: 'cors',
+      credentials: 'include'
+    });
+
+    if(!resp.ok){
+      throw new Error(`HTTP ${resp.status} — Token inválido ou expirado`);
+    }
+
+    const data = await resp.json();
+    _geLoaded = true;
+    geRenderCanais(data);
+
+    badge.textContent = '✅ Conectado';
+    badge.className = 'ge-status ge-ok';
+    document.getElementById('geUltimaAtualizacao').textContent =
+      `Atualizado: ${new Date().toLocaleTimeString('pt-BR')}`;
+
+  } catch(e){
+    console.error('[GE]', e);
+    badge.textContent = '❌ Erro: ' + e.message;
+    badge.className = 'ge-status ge-err';
+    document.getElementById('geTableWrap').innerHTML =
+      `<div style="color:var(--re);padding:20px;font-size:.75rem">
+        ❌ ${e.message}<br><br>
+        <strong>Como resolver:</strong><br>
+        1. Abra <a href="https://app.ge.finance/minha-conta/dashboard/margem" target="_blank">app.ge.finance</a><br>
+        2. Pressione F12 → aba Network<br>
+        3. Clique em qualquer chamada /api/SellerInfo/<br>
+        4. Aba Headers → copie o valor de <strong>Authorization</strong><br>
+        5. Cole no campo acima e clique Carregar
+      </div>`;
+  }
+}
+
+function geRenderCanais(data){
+  // data é um array de objetos por canal
+  const canais = Array.isArray(data) ? data : (data.result || data.data || []);
+
+  // Agrupa por canal mapeado
+  const agg = {ML:{fat:0,cmv:0,margem:0,n:0}, CB:{fat:0,cmv:0,margem:0,n:0},
+               MG:{fat:0,cmv:0,margem:0,n:0}, SH:{fat:0,cmv:0,margem:0,n:0},
+               AMZ:{fat:0,cmv:0,margem:0,n:0}};
+
+  let totalFat=0, totalCmv=0, totalMargem=0;
+
+  canais.forEach(item => {
+    const nome = item.salesChannelName || item.channelName || item.name || '';
+    const map  = GE_CANAL_MAP[nome];
+    // Campos do GE Finance (nomes reais da API)
+    const fat    = parseFloat(item.totalRevenue    || item.revenue    || item.faturamento || 0);
+    const cmv    = parseFloat(item.totalCost       || item.cost       || item.cmv         || 0);
+    const margem = parseFloat(item.totalMargin     || item.margin     || item.margem      || 0);
+    const pctCMV = parseFloat(item.percentCost     || item.costPercent|| item.pctCmv      || 0);
+    const pctMar = parseFloat(item.percentMargin   || item.marginPct  || item.pctMargem   || 0);
+
+    totalFat    += fat;
+    totalCmv    += cmv;
+    totalMargem += margem;
+
+    if(map){
+      const k = map.id;
+      agg[k].fat    += fat;
+      agg[k].cmv    += cmv;
+      agg[k].margem += margem;
+      agg[k].n++;
+    }
+  });
+
+  // Preencher KPIs globais
+  const pctCmvTotal  = totalFat > 0 ? (totalCmv/totalFat*100)    : 0;
+  const pctMarTotal  = totalFat > 0 ? (totalMargem/totalFat*100) : 0;
+  document.getElementById('geFatBruto').textContent    = geR(totalFat);
+  document.getElementById('geMargemBruta').textContent = geR(totalMargem);
+  document.getElementById('geMargemPct').textContent   = gePct(pctMarTotal);
+  document.getElementById('geCmvTotal').textContent    = geR(totalCmv);
+  document.getElementById('geCmvPct').textContent      = `${gePct(pctCmvTotal)} sobre vendas`;
+
+  // Preencher cards por canal
+  Object.entries(agg).forEach(([id, v]) => {
+    const pctCMV = v.fat > 0 ? (v.cmv/v.fat*100)    : 0;
+    const pctMar = v.fat > 0 ? (v.margem/v.fat*100) : 0;
+    const elCMV = document.getElementById(`geCMV_${id}`);
+    const elSub = document.getElementById(`geSub_${id}`);
+    if(elCMV){
+      elCMV.textContent = gePct(pctCMV);
+      elCMV.style.color = geCor(pctMar);
+    }
+    if(elSub) elSub.innerHTML =
+      `CMV: ${geR(v.cmv)}<br>Fat: ${geR(v.fat)}<br>Margem: ${gePct(pctMar)}`;
+  });
+
+  // Tabela detalhada
+  if(!canais.length){
+    document.getElementById('geTableWrap').innerHTML =
+      '<div style="padding:20px;text-align:center;color:var(--mu)">Sem dados para o período</div>';
+    return;
+  }
+
+  let h = `<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
+    <thead style="position:sticky;top:0;background:var(--wh)"><tr>
+      <th style="padding:6px 12px;text-align:left;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Canal</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Faturamento</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV (R$)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV (%)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem (R$)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem (%)</th>
+    </tr></thead><tbody>`;
+
+  canais.sort((a,b) => {
+    const fa = parseFloat(a.totalRevenue||a.revenue||0);
+    const fb = parseFloat(b.totalRevenue||b.revenue||0);
+    return fb - fa;
+  }).forEach(item => {
+    const nome   = item.salesChannelName || item.channelName || item.name || '—';
+    const fat    = parseFloat(item.totalRevenue||item.revenue||0);
+    const cmv    = parseFloat(item.totalCost||item.cost||0);
+    const margem = parseFloat(item.totalMargin||item.margin||0);
+    const pctCMV = fat > 0 ? cmv/fat*100    : 0;
+    const pctMar = fat > 0 ? margem/fat*100 : 0;
+    const cor    = pctMar >= 20 ? 'var(--gr)' : pctMar >= 10 ? 'var(--or)' : 'var(--re)';
+    h += `<tr style="border-bottom:1px solid var(--bg)">
+      <td style="padding:5px 12px;font-weight:700">${nome}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:700">${geR(fat)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:700;color:var(--re)">${geR(cmv)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:800;color:var(--re)">${gePct(pctCMV)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:700;color:${cor}">${geR(margem)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:800;color:${cor}">${gePct(pctMar)}</td>
+    </tr>`;
+  });
+  h += '</tbody></table>';
+  document.getElementById('geTableWrap').innerHTML = h;
+}
+
+function geTokenHelp(){
+  alert(`Como obter o Bearer Token do GE Finance:
+
+1. Abra app.ge.finance no mesmo navegador
+2. Faça login normalmente
+3. Pressione F12 (DevTools)
+4. Clique na aba "Network"
+5. Filtre por "SellerInfo" na barra de busca
+6. Clique em qualquer requisição da lista
+7. Vá em "Headers" → "Request Headers"
+8. Copie o valor de "Authorization" (começa com "Bearer ey...")
+9. Cole no campo acima e clique Carregar
+
+⚠️ O token expira periodicamente.
+Quando os dados pararem de carregar, repita o processo.`);
+}
+
+// Auto-carregar quando abre a aba se já tiver token
+function abrirMargem(){
+  if(_geToken && !_geLoaded) geCarregarDados();
 }
 
 // Clock
