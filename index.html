@@ -3192,8 +3192,7 @@ function _loadMLExec(){
 // Lê dados sincronizados pelo Apps Script via Google Sheets
 // ═══════════════════════════════════════════════════════
 
-const GE_SHEET_ID  = '1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk';
-const GE_ABA       = 'GEFinance';
+const GE_JSON_URL  = 'https://sanbox-dashboard.github.io/dashboard/ge_finance.json';
 const GE_CANAL_COR = {
   'Mercado Livre':  '#C8A000',
   'Casas Bahia':    '#0052A5',
@@ -3242,22 +3241,23 @@ async function geCarregarDados(){
   badge.className = 'ge-status ge-load';
 
   try {
-    const range = `${GE_ABA}!A1:H50`;
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${GE_SHEET_ID}/values/${encodeURIComponent(range)}?key=${KEY}`;
+    const url = GE_JSON_URL + '?t=' + Date.now();
     const resp = await fetch(url);
-
     if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
 
-    if(!data.values || data.values.length < 4){
-      throw new Error('Dados não encontrados. Execute o Apps Script primeiro.');
-    }
+    if(!data.por_canal) throw new Error('Dados inválidos. Execute o Apps Script primeiro.');
 
-    geProcessarDados(data.values);
+    geProcessarJSON(data);
 
     badge.textContent = '✅ Sincronizado';
     badge.className = 'ge-status ge-ok';
     _geCarregado = true;
+
+    const gerado = (data.gerado_em||'').replace('T',' ').substring(0,16);
+    document.getElementById('geUltimaAtualizacao').textContent = `Sync: ${gerado}`;
+    document.getElementById('gePeriodoLabel').textContent =
+      `${(data.periodo||{}).inicio||''} → ${(data.periodo||{}).fim||''}`;
 
   } catch(e) {
     console.error('[GE]', e);
@@ -3266,50 +3266,23 @@ async function geCarregarDados(){
     document.getElementById('geTableWrap').innerHTML =
       `<div style="padding:20px;color:var(--re);font-size:.75rem">
         <strong>❌ ${e.message}</strong><br><br>
-        O Apps Script ainda não sincronizou os dados.<br>
-        Execute <code>sincronizarGEFinance()</code> no script.google.com
-        e aguarde alguns segundos.
+        O Apps Script sincroniza automaticamente a cada hora.<br>
+        Acesse <a href="https://script.google.com" target="_blank">script.google.com</a>
+        → GE Finance Sync - Sanbox → Executar → sincronizarGEFinance
       </div>`;
   }
 }
 
-function geProcessarDados(rows){
-  // Linha 1: título e metadados
-  const meta = rows[0] || [];
-  const periodo = (rows[0]?.[2] || '').replace('Período: ','');
-  document.getElementById('gePeriodoLabel').textContent = periodo;
-  document.getElementById('geUltimaAtualizacao').textContent =
-    (rows[0]?.[1] || '').replace('Atualizado: ','Sync: ');
-
-  // Linha 3 (índice 2): cabeçalho
-  // Linhas 4+ (índice 3+): dados por canal mapeado
-  // Canal | Faturamento | CMV | CMV% | Margem | Margem% | Pedidos
-  const dadosCanal = {};
-  let totalFat = 0, totalCmv = 0, totalMargem = 0;
-  let separadorIdx = -1;
-
-  for(let i = 3; i < rows.length; i++){
-    const row = rows[i];
-    if(!row || !row[0]) continue;
-    if(row[0].startsWith('---')) { separadorIdx = i; break; }
-
-    const canal   = row[0];
-    const fat     = parseFloat(row[1]) || 0;
-    const cmv     = parseFloat(row[2]) || 0;
-    const pctCMV  = parseFloat(row[3]) || 0;
-    const margem  = parseFloat(row[4]) || 0;
-    const pctMar  = parseFloat(row[5]) || 0;
-    const peds    = parseInt(row[6])   || 0;
-
-    dadosCanal[canal] = {fat, cmv, pctCMV, margem, pctMar, peds};
-    totalFat    += fat;
-    totalCmv    += cmv;
-    totalMargem += margem;
-  }
+function geProcessarJSON(data) {
+  const pc = data.por_canal || {};
+  const det = data.detalhe || [];
 
   // KPIs globais
-  const pctCmvTotal  = totalFat > 0 ? totalCmv    / totalFat * 100 : 0;
-  const pctMarTotal  = totalFat > 0 ? totalMargem / totalFat * 100 : 0;
+  let totalFat=0, totalCmv=0, totalMargem=0;
+  Object.values(pc).forEach(v => { totalFat+=v.faturamento; totalCmv+=v.cmv; totalMargem+=v.margem; });
+
+  const pctCmvTotal  = totalFat>0 ? totalCmv/totalFat*100 : 0;
+  const pctMarTotal  = totalFat>0 ? totalMargem/totalFat*100 : 0;
   document.getElementById('geFatBruto').textContent    = geR(totalFat);
   document.getElementById('geMargemBruta').textContent = geR(totalMargem);
   document.getElementById('geMargemPct').textContent   = gePct(pctMarTotal);
@@ -3317,62 +3290,37 @@ function geProcessarDados(rows){
   document.getElementById('geCmvPct').textContent      = gePct(pctCmvTotal) + ' sobre vendas';
 
   // Cards por canal
-  Object.entries(GE_CANAL_ID).forEach(([nome, id]) => {
-    const v = dadosCanal[nome] || {fat:0,cmv:0,pctCMV:0,margem:0,pctMar:0};
-    const elCMV = document.getElementById(`geCMV_${id}`);
-    const elSub = document.getElementById(`geSub_${id}`);
-    if(elCMV){
-      elCMV.textContent = gePct(v.pctCMV);
-      elCMV.style.color = geCor(v.pctMar);
-    }
-    if(elSub) elSub.innerHTML =
-      `CMV: ${geR(v.cmv)}<br>Fat: ${geR(v.fat)}<br>Margem: ${gePct(v.pctMar)}`;
+  const MAP = {'Mercado Livre':'ML','Casas Bahia':'CB','Magazine Luiza':'MG','Shopee':'SH','Amazon':'AMZ'};
+  Object.entries(MAP).forEach(([nome, id]) => {
+    const v = pc[nome] || {};
+    const el = document.getElementById('geCMV_'+id);
+    const es = document.getElementById('geSub_'+id);
+    if(el){ el.textContent=gePct(v.cmv_pct||0); el.style.color=geCor(v.margem_pct||0); }
+    if(es) es.innerHTML=`CMV: ${geR(v.cmv||0)}<br>Fat: ${geR(v.faturamento||0)}<br>Margem: ${gePct(v.margem_pct||0)}`;
   });
 
-  // Tabela detalhada (após o separador)
-  let detRows = [];
-  if(separadorIdx > 0){
-    // Pular 2 linhas (separador + cabeçalho da tabela detalhada)
-    for(let i = separadorIdx + 2; i < rows.length; i++){
-      const row = rows[i];
-      if(!row || !row[0]) continue;
-      detRows.push(row);
-    }
-  }
-
-  // Se não há detalhes, usar os dados dos canais mapeados
-  if(detRows.length === 0){
-    detRows = Object.entries(dadosCanal).map(([canal, v]) =>
-      [canal, v.fat, v.cmv, v.pctCMV, v.margem, v.pctMar, v.peds, canal]);
-  }
-
+  // Tabela detalhada
+  const GE_EMOJI = {'Mercado Livre':'🟡','Casas Bahia':'🔵','Magazine Luiza':'🟣','Shopee':'🟠','Amazon':'🟤'};
   let h = `<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
     <thead style="position:sticky;top:0;background:var(--wh)"><tr>
-      <th style="padding:6px 12px;text-align:left;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Canal</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Faturamento</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV (R$)</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV %</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem (R$)</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem %</th>
+      <th style="padding:6px 12px;text-align:left;font-size:.56rem;font-weight:900;color:var(--mu);text-transform:uppercase;border-bottom:2px solid var(--bd)">Canal</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--mu);text-transform:uppercase;border-bottom:2px solid var(--bd)">Faturamento</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV (R$)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV %</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem (R$)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem %</th>
     </tr></thead><tbody>`;
 
-  detRows.sort((a,b) => (parseFloat(b[1])||0) - (parseFloat(a[1])||0))
-  .forEach(row => {
-    const nome   = row[0] || '—';
-    const fat    = parseFloat(row[1]) || 0;
-    const cmv    = parseFloat(row[2]) || 0;
-    const pctCMV = parseFloat(row[3]) || 0;
-    const margem = parseFloat(row[4]) || 0;
-    const pctMar = parseFloat(row[5]) || 0;
-    const emoji  = GE_CANAL_EMOJI[row[7]] || GE_CANAL_EMOJI[nome] || '';
-    const cor    = geCor(pctMar);
+  det.forEach(item => {
+    const emoji = GE_EMOJI[item.canal_mapa] || '';
+    const cor = geCor(item.margem_pct||0);
     h += `<tr style="border-bottom:1px solid var(--bg)">
-      <td style="padding:5px 12px;font-weight:700">${emoji} ${nome}</td>
-      <td style="padding:5px 12px;text-align:right;font-weight:700">${geR(fat)}</td>
-      <td style="padding:5px 12px;text-align:right;font-weight:700;color:var(--re)">${geR(cmv)}</td>
-      <td style="padding:5px 12px;text-align:right;font-weight:800;color:var(--re)">${gePct(pctCMV)}</td>
-      <td style="padding:5px 12px;text-align:right;font-weight:700;color:${cor}">${geR(margem)}</td>
-      <td style="padding:5px 12px;text-align:right;font-weight:800;color:${cor}">${gePct(pctMar)}</td>
+      <td style="padding:5px 12px;font-weight:700">${emoji} ${item.nome}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:700">${geR(item.faturamento)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:700;color:var(--re)">${geR(item.cmv)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:800;color:var(--re)">${gePct(item.cmv_pct)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:700;color:${cor}">${geR(item.margem)}</td>
+      <td style="padding:5px 12px;text-align:right;font-weight:800;color:${cor}">${gePct(item.margem_pct)}</td>
     </tr>`;
   });
   h += '</tbody></table>';
