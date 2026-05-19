@@ -881,21 +881,15 @@ tfoot td:first-child{text-align:left;}
     <!-- ══ MARGEM GE FINANCE ═══════════════════════════════ -->
     <div class="panel" id="vMargem">
 
-      <!-- Barra de configuração do token -->
+      <!-- Barra de status GE Finance -->
       <div class="ge-token-bar">
         <div style="display:flex;align-items:center;gap:8px">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           <span style="font-size:.7rem;font-weight:900;color:var(--tx)">GE Finance</span>
-          <span class="ge-status ge-load" id="geStatusBadge">● Desconectado</span>
+          <span class="ge-status ge-load" id="geStatusBadge">⏳ Carregando...</span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;flex:1">
-          <span class="flbl">Bearer Token:</span>
-          <input type="password" id="geTokenInput" class="ge-token-input"
-            placeholder="Cole o Bearer token do GE Finance aqui..."
-            oninput="geSetToken(this.value)">
-          <button class="faply" onclick="geCarregarDados()">🔄 Carregar</button>
-          <button class="btn-sm" onclick="geTokenHelp()" title="Como obter o token">❓ Ajuda</button>
-        </div>
+        <div style="font-size:.6rem;color:var(--mu)">Dados sincronizados automaticamente via Apps Script</div>
+        <button class="btn-sm" onclick="geCarregarDados()">🔄 Atualizar</button>
         <div style="font-size:.58rem;color:var(--mu)">Período: <span id="gePeriodoLabel">--</span></div>
       </div>
 
@@ -3195,198 +3189,161 @@ function _loadMLExec(){
 
 // ═══════════════════════════════════════════════════════
 // GE FINANCE — MARGEM CMV POR CANAL
+// Lê dados sincronizados pelo Apps Script via Google Sheets
 // ═══════════════════════════════════════════════════════
 
-const GE_CUSTOMER_ID   = '44c8b63b-992d-40d4-88ff-7e8e12637e05';
-const GE_CUSTOMER_PLAN = '12855';
-const GE_BASE          = 'https://gateway-web.ge.finance/api/SellerInfo';
-const GE_STATUSES      = ['Aprovado','Entregue','Enviado','Faturado','Pronto para envio'];
-const GE_CONDITIONS    = [0,1,2,3,4];
-
-// Mapeamento canal GE → IDs dos cards
-const GE_CANAL_MAP = {
-  'Mercado Livre':         {id:'ML',  cor:'#C8A000'},
-  'ML_SANBOX-SHOP':        {id:'ML',  cor:'#C8A000'},
-  'Mercado Livre Fulfillment': {id:'ML', cor:'#C8A000'},
-  'Casas Bahia':           {id:'CB',  cor:'#0052A5'},
-  'FullFilmet Casas Bahia MKP':{id:'CB', cor:'#0052A5'},
-  'Magazine Luiza':        {id:'MG',  cor:'#CC0066'},
-  'Shopee':                {id:'SH',  cor:'#EE4D2D'},
-  'Amazon':                {id:'AMZ', cor:'#E47911'},
-  'Amazon Fulfillment':    {id:'AMZ', cor:'#E47911'},
+const GE_SHEET_ID  = '1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk';
+const GE_ABA       = 'GEFinance';
+const GE_CANAL_COR = {
+  'Mercado Livre':  '#C8A000',
+  'Casas Bahia':    '#0052A5',
+  'Magazine Luiza': '#CC0066',
+  'Shopee':         '#EE4D2D',
+  'Amazon':         '#E47911',
+  'Outros':         '#7A8799',
+};
+const GE_CANAL_EMOJI = {
+  'Mercado Livre':  '🟡',
+  'Casas Bahia':    '🔵',
+  'Magazine Luiza': '🟣',
+  'Shopee':         '🟠',
+  'Amazon':         '🟤',
+  'Outros':         '⚫',
+};
+const GE_CANAL_ID = {
+  'Mercado Livre':  'ML',
+  'Casas Bahia':    'CB',
+  'Magazine Luiza': 'MG',
+  'Shopee':         'SH',
+  'Amazon':         'AMZ',
 };
 
-let _geToken  = '';
-let _geLoaded = false;
-
-function geSetToken(val){
-  _geToken = (val||'').trim();
-  const badge = document.getElementById('geStatusBadge');
-  if(_geToken){
-    badge.textContent = '● Token configurado';
-    badge.className = 'ge-status ge-load';
-  } else {
-    badge.textContent = '● Desconectado';
-    badge.className = 'ge-status ge-err';
-  }
-}
-
-function geBuildURL(endpoint, firstDate, endDate){
-  const ts = new Date().toISOString();
-  let url = `${GE_BASE}/${endpoint}?firstDate=${firstDate}&endDate=${endDate}&refreshDate=${encodeURIComponent(ts)}`;
-  GE_STATUSES.forEach(s => url += `&IncludingStatus=${encodeURIComponent(s)}`);
-  GE_CONDITIONS.forEach(c => url += `&saleConditions=${c}`);
-  url += `&customerId=${GE_CUSTOMER_ID}&customerPlanId=${GE_CUSTOMER_PLAN}&isTrial=false`;
-  return url;
-}
-
-function geGetHeaders(){
-  const h = {'Content-Type':'application/json'};
-  if(_geToken) h['Authorization'] = _geToken.startsWith('Bearer ') ? _geToken : `Bearer ${_geToken}`;
-  return h;
-}
-
-function gePeriodo(){
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = String(now.getMonth()+1).padStart(2,'0');
-  const d = String(now.getDate()).padStart(2,'0');
-  return {firstDate:`${y}-${m}-01`, endDate:`${y}-${m}-${d}`};
-}
+let _geCarregado = false;
 
 function geR(v){
-  if(v===null||v===undefined||isNaN(v)) return '--';
+  if(v===null||v===undefined||isNaN(+v)||+v===0) return 'R$ 0,00';
   return 'R$ ' + parseFloat(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 function gePct(v){
-  if(v===null||v===undefined||isNaN(v)) return '--';
+  if(v===null||v===undefined||isNaN(+v)) return '0,00%';
   return parseFloat(v).toFixed(2).replace('.',',') + '%';
 }
-function geCor(pct){
-  const v = parseFloat(pct);
+function geCor(pctMargem){
+  const v = parseFloat(pctMargem);
   if(v >= 20) return 'var(--gr)';
   if(v >= 10) return 'var(--or)';
   return 'var(--re)';
 }
 
+// Carrega dados da aba GEFinance na planilha Metas
 async function geCarregarDados(){
-  if(!_geToken){
-    // Tentar pegar o token do localStorage do GE Finance (se aberto na mesma sessão)
-    const tokenPrompt = prompt('Cole o Bearer token do GE Finance:\n\n(Obtenha em: F12 → Network → qualquer chamada /api/SellerInfo → Headers → Authorization)');
-    if(!tokenPrompt) return;
-    geSetToken(tokenPrompt);
-    document.getElementById('geTokenInput').value = tokenPrompt;
-  }
-
   const badge = document.getElementById('geStatusBadge');
   badge.textContent = '⏳ Carregando...';
   badge.className = 'ge-status ge-load';
 
-  const {firstDate, endDate} = gePeriodo();
-  document.getElementById('gePeriodoLabel').textContent = `${firstDate} → ${endDate}`;
-
   try {
-    // Buscar margem por canal
-    const urlCanal = geBuildURL('GetMarginPerSalesChannel', firstDate, endDate);
-    const resp = await fetch(urlCanal, {
-      method: 'GET',
-      headers: geGetHeaders(),
-      mode: 'cors',
-      credentials: 'include'
-    });
+    const range = `${GE_ABA}!A1:H50`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${GE_SHEET_ID}/values/${encodeURIComponent(range)}?key=${KEY}`;
+    const resp = await fetch(url);
 
-    if(!resp.ok){
-      throw new Error(`HTTP ${resp.status} — Token inválido ou expirado`);
+    if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    if(!data.values || data.values.length < 4){
+      throw new Error('Dados não encontrados. Execute o Apps Script primeiro.');
     }
 
-    const data = await resp.json();
-    _geLoaded = true;
-    geRenderCanais(data);
+    geProcessarDados(data.values);
 
-    badge.textContent = '✅ Conectado';
+    badge.textContent = '✅ Sincronizado';
     badge.className = 'ge-status ge-ok';
-    document.getElementById('geUltimaAtualizacao').textContent =
-      `Atualizado: ${new Date().toLocaleTimeString('pt-BR')}`;
+    _geCarregado = true;
 
-  } catch(e){
+  } catch(e) {
     console.error('[GE]', e);
-    badge.textContent = '❌ Erro: ' + e.message;
+    badge.textContent = '❌ ' + e.message;
     badge.className = 'ge-status ge-err';
     document.getElementById('geTableWrap').innerHTML =
-      `<div style="color:var(--re);padding:20px;font-size:.75rem">
-        ❌ ${e.message}<br><br>
-        <strong>Como resolver:</strong><br>
-        1. Abra <a href="https://app.ge.finance/minha-conta/dashboard/margem" target="_blank">app.ge.finance</a><br>
-        2. Pressione F12 → aba Network<br>
-        3. Clique em qualquer chamada /api/SellerInfo/<br>
-        4. Aba Headers → copie o valor de <strong>Authorization</strong><br>
-        5. Cole no campo acima e clique Carregar
+      `<div style="padding:20px;color:var(--re);font-size:.75rem">
+        <strong>❌ ${e.message}</strong><br><br>
+        O Apps Script ainda não sincronizou os dados.<br>
+        Execute <code>sincronizarGEFinance()</code> no script.google.com
+        e aguarde alguns segundos.
       </div>`;
   }
 }
 
-function geRenderCanais(data){
-  // data é um array de objetos por canal
-  const canais = Array.isArray(data) ? data : (data.result || data.data || []);
+function geProcessarDados(rows){
+  // Linha 1: título e metadados
+  const meta = rows[0] || [];
+  const periodo = (rows[0]?.[2] || '').replace('Período: ','');
+  document.getElementById('gePeriodoLabel').textContent = periodo;
+  document.getElementById('geUltimaAtualizacao').textContent =
+    (rows[0]?.[1] || '').replace('Atualizado: ','Sync: ');
 
-  // Agrupa por canal mapeado
-  const agg = {ML:{fat:0,cmv:0,margem:0,n:0}, CB:{fat:0,cmv:0,margem:0,n:0},
-               MG:{fat:0,cmv:0,margem:0,n:0}, SH:{fat:0,cmv:0,margem:0,n:0},
-               AMZ:{fat:0,cmv:0,margem:0,n:0}};
+  // Linha 3 (índice 2): cabeçalho
+  // Linhas 4+ (índice 3+): dados por canal mapeado
+  // Canal | Faturamento | CMV | CMV% | Margem | Margem% | Pedidos
+  const dadosCanal = {};
+  let totalFat = 0, totalCmv = 0, totalMargem = 0;
+  let separadorIdx = -1;
 
-  let totalFat=0, totalCmv=0, totalMargem=0;
+  for(let i = 3; i < rows.length; i++){
+    const row = rows[i];
+    if(!row || !row[0]) continue;
+    if(row[0].startsWith('---')) { separadorIdx = i; break; }
 
-  canais.forEach(item => {
-    const nome = item.salesChannelName || item.channelName || item.name || '';
-    const map  = GE_CANAL_MAP[nome];
-    // Campos do GE Finance (nomes reais da API)
-    const fat    = parseFloat(item.totalRevenue    || item.revenue    || item.faturamento || 0);
-    const cmv    = parseFloat(item.totalCost       || item.cost       || item.cmv         || 0);
-    const margem = parseFloat(item.totalMargin     || item.margin     || item.margem      || 0);
-    const pctCMV = parseFloat(item.percentCost     || item.costPercent|| item.pctCmv      || 0);
-    const pctMar = parseFloat(item.percentMargin   || item.marginPct  || item.pctMargem   || 0);
+    const canal   = row[0];
+    const fat     = parseFloat(row[1]) || 0;
+    const cmv     = parseFloat(row[2]) || 0;
+    const pctCMV  = parseFloat(row[3]) || 0;
+    const margem  = parseFloat(row[4]) || 0;
+    const pctMar  = parseFloat(row[5]) || 0;
+    const peds    = parseInt(row[6])   || 0;
 
+    dadosCanal[canal] = {fat, cmv, pctCMV, margem, pctMar, peds};
     totalFat    += fat;
     totalCmv    += cmv;
     totalMargem += margem;
+  }
 
-    if(map){
-      const k = map.id;
-      agg[k].fat    += fat;
-      agg[k].cmv    += cmv;
-      agg[k].margem += margem;
-      agg[k].n++;
-    }
-  });
-
-  // Preencher KPIs globais
-  const pctCmvTotal  = totalFat > 0 ? (totalCmv/totalFat*100)    : 0;
-  const pctMarTotal  = totalFat > 0 ? (totalMargem/totalFat*100) : 0;
+  // KPIs globais
+  const pctCmvTotal  = totalFat > 0 ? totalCmv    / totalFat * 100 : 0;
+  const pctMarTotal  = totalFat > 0 ? totalMargem / totalFat * 100 : 0;
   document.getElementById('geFatBruto').textContent    = geR(totalFat);
   document.getElementById('geMargemBruta').textContent = geR(totalMargem);
   document.getElementById('geMargemPct').textContent   = gePct(pctMarTotal);
   document.getElementById('geCmvTotal').textContent    = geR(totalCmv);
-  document.getElementById('geCmvPct').textContent      = `${gePct(pctCmvTotal)} sobre vendas`;
+  document.getElementById('geCmvPct').textContent      = gePct(pctCmvTotal) + ' sobre vendas';
 
-  // Preencher cards por canal
-  Object.entries(agg).forEach(([id, v]) => {
-    const pctCMV = v.fat > 0 ? (v.cmv/v.fat*100)    : 0;
-    const pctMar = v.fat > 0 ? (v.margem/v.fat*100) : 0;
+  // Cards por canal
+  Object.entries(GE_CANAL_ID).forEach(([nome, id]) => {
+    const v = dadosCanal[nome] || {fat:0,cmv:0,pctCMV:0,margem:0,pctMar:0};
     const elCMV = document.getElementById(`geCMV_${id}`);
     const elSub = document.getElementById(`geSub_${id}`);
     if(elCMV){
-      elCMV.textContent = gePct(pctCMV);
-      elCMV.style.color = geCor(pctMar);
+      elCMV.textContent = gePct(v.pctCMV);
+      elCMV.style.color = geCor(v.pctMar);
     }
     if(elSub) elSub.innerHTML =
-      `CMV: ${geR(v.cmv)}<br>Fat: ${geR(v.fat)}<br>Margem: ${gePct(pctMar)}`;
+      `CMV: ${geR(v.cmv)}<br>Fat: ${geR(v.fat)}<br>Margem: ${gePct(v.pctMar)}`;
   });
 
-  // Tabela detalhada
-  if(!canais.length){
-    document.getElementById('geTableWrap').innerHTML =
-      '<div style="padding:20px;text-align:center;color:var(--mu)">Sem dados para o período</div>';
-    return;
+  // Tabela detalhada (após o separador)
+  let detRows = [];
+  if(separadorIdx > 0){
+    // Pular 2 linhas (separador + cabeçalho da tabela detalhada)
+    for(let i = separadorIdx + 2; i < rows.length; i++){
+      const row = rows[i];
+      if(!row || !row[0]) continue;
+      detRows.push(row);
+    }
+  }
+
+  // Se não há detalhes, usar os dados dos canais mapeados
+  if(detRows.length === 0){
+    detRows = Object.entries(dadosCanal).map(([canal, v]) =>
+      [canal, v.fat, v.cmv, v.pctCMV, v.margem, v.pctMar, v.peds, canal]);
   }
 
   let h = `<table style="width:100%;border-collapse:collapse;font-size:.68rem;">
@@ -3394,25 +3351,23 @@ function geRenderCanais(data){
       <th style="padding:6px 12px;text-align:left;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Canal</th>
       <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Faturamento</th>
       <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV (R$)</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV (%)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:#DC2626;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">CMV %</th>
       <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem (R$)</th>
-      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem (%)</th>
+      <th style="padding:6px 12px;text-align:right;font-size:.56rem;font-weight:900;color:var(--gr);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd)">Margem %</th>
     </tr></thead><tbody>`;
 
-  canais.sort((a,b) => {
-    const fa = parseFloat(a.totalRevenue||a.revenue||0);
-    const fb = parseFloat(b.totalRevenue||b.revenue||0);
-    return fb - fa;
-  }).forEach(item => {
-    const nome   = item.salesChannelName || item.channelName || item.name || '—';
-    const fat    = parseFloat(item.totalRevenue||item.revenue||0);
-    const cmv    = parseFloat(item.totalCost||item.cost||0);
-    const margem = parseFloat(item.totalMargin||item.margin||0);
-    const pctCMV = fat > 0 ? cmv/fat*100    : 0;
-    const pctMar = fat > 0 ? margem/fat*100 : 0;
-    const cor    = pctMar >= 20 ? 'var(--gr)' : pctMar >= 10 ? 'var(--or)' : 'var(--re)';
+  detRows.sort((a,b) => (parseFloat(b[1])||0) - (parseFloat(a[1])||0))
+  .forEach(row => {
+    const nome   = row[0] || '—';
+    const fat    = parseFloat(row[1]) || 0;
+    const cmv    = parseFloat(row[2]) || 0;
+    const pctCMV = parseFloat(row[3]) || 0;
+    const margem = parseFloat(row[4]) || 0;
+    const pctMar = parseFloat(row[5]) || 0;
+    const emoji  = GE_CANAL_EMOJI[row[7]] || GE_CANAL_EMOJI[nome] || '';
+    const cor    = geCor(pctMar);
     h += `<tr style="border-bottom:1px solid var(--bg)">
-      <td style="padding:5px 12px;font-weight:700">${nome}</td>
+      <td style="padding:5px 12px;font-weight:700">${emoji} ${nome}</td>
       <td style="padding:5px 12px;text-align:right;font-weight:700">${geR(fat)}</td>
       <td style="padding:5px 12px;text-align:right;font-weight:700;color:var(--re)">${geR(cmv)}</td>
       <td style="padding:5px 12px;text-align:right;font-weight:800;color:var(--re)">${gePct(pctCMV)}</td>
@@ -3424,22 +3379,11 @@ function geRenderCanais(data){
   document.getElementById('geTableWrap').innerHTML = h;
 }
 
-function geTokenHelp(){
-  alert(`Como obter o Bearer Token do GE Finance:
-
-1. Abra app.ge.finance no mesmo navegador
-2. Faça login normalmente
-3. Pressione F12 (DevTools)
-4. Clique na aba "Network"
-5. Filtre por "SellerInfo" na barra de busca
-6. Clique em qualquer requisição da lista
-7. Vá em "Headers" → "Request Headers"
-8. Copie o valor de "Authorization" (começa com "Bearer ey...")
-9. Cole no campo acima e clique Carregar
-
-⚠️ O token expira periodicamente.
-Quando os dados pararem de carregar, repita o processo.`);
+function abrirMargem(){
+  geCarregarDados();
 }
+
+
 
 // Auto-carregar quando abre a aba se já tiver token
 function abrirMargem(){
