@@ -179,6 +179,7 @@ tfoot td:first-child{text-align:left;}
 .md-neu{color:var(--mu);font-weight:700;}
 .md-bar{height:5px;background:var(--dm);border-radius:9px;overflow:hidden;margin-top:3px;}
 .md-barf{height:100%;border-radius:9px;transition:width .8s;}
+.cn-cmv{font-size:.58rem;color:#DC2626;font-weight:700;margin-top:3px;text-align:center;}
 
 /* GE FINANCE MARGEM */
 .ge-token-bar{background:var(--wh);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
@@ -428,6 +429,7 @@ tfoot td:first-child{text-align:left;}
         <div class="kpi" style="--kc:var(--od)">
           <div class="kl">Vendas do Mês</div><div class="kv" id="kMes">R$ --</div>
           <div class="ks" id="kMesSub">--</div>
+          <div id="kMesCmv" style="font-size:.6rem;color:var(--mu);margin-top:2px"></div>
           <div class="pw"><div class="pl"><span>Meta: <span id="kMetaMes">--</span></span><span id="kPctMes" class="clow">--%</span></div>
           <div class="pt"><div class="pf" id="fPctMes" style="width:0%;background:var(--od)"></div></div></div>
         </div>
@@ -1217,7 +1219,26 @@ function processDash(pRows,iRows,metas){
     return{nm,f:d.f,p:d.p,m,pct:+pct};
   });
 
-  return{tP,nP,tM,nM,tO,nO,metaTot,metaMes:metas.metaMes,pctP:+pctP,pctM:+pctM,canais,topP,topF};
+  // canaisMes: já calculado acima no loop principal (cMes)
+  const canaisMes=CANAIS.map(nm=>({nm,f:cMes[nm]?.f||0,p:cMes[nm]?.p||0}));
+
+  // canaisOnt: faturamento de cada canal no dia anterior
+  const _cOnt={};CANAIS.forEach(nm=>{_cOnt[nm]={f:0,p:0};});
+  const _idsOnt2=new Set();
+  for(let _oi=1;_oi<pRows.length;_oi++){
+    const _or=pRows[_oi];
+    const _oId=(_or[C.ID]||'').trim();
+    const _oSit=(_or[C.SIT]||'').toLowerCase().trim();
+    const _oDt=(_or[C.DATA]||'').trim();
+    if(!_oId||!VALIDAS.has(_oSit)||_oDt!==_ontRef||_idsOnt2.has(_oId))continue;
+    _idsOnt2.add(_oId);
+    const _oNm=canal(_or[C.ENOME],_or[C.ENUM]);
+    const _oFat=parseFloat((_or[C.TOTAL]||'0').replace(',','.'))||0;
+    if(_cOnt[_oNm]){_cOnt[_oNm].f+=_oFat;_cOnt[_oNm].p+=1;}
+  }
+  const canaisOnt=CANAIS.map(nm=>({nm,f:_cOnt[nm].f,p:_cOnt[nm].p}));
+
+  return{tP,nP,tM,nM,tO,nO,metaTot,metaMes:metas.metaMes,pctP:+pctP,pctM:+pctM,canais,canaisMes,canaisOnt,topP,topF};
 }
 
 // ── RENDER DASH ───────────────────────────────────────────────
@@ -1244,7 +1265,25 @@ function renderDash(d){
   const n=new Date();
   document.getElementById('dRef').textContent=_dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'--';
   document.getElementById('kFat').textContent=R(d.tP);
-  document.getElementById('kFatSub').textContent=`${d.nP} pedidos — ${lbl}`;
+  {
+    // CMV % período = % do GE Finance por canal * fat do período daquele canal
+    // Quanto mais granular o período, mais preciso (usa o % mensal como proxy)
+    const _gePc=_geData?.por_canal;
+    let _cmvPeriodoHtml='';
+    if(_gePc){
+      let _fatTotal=0,_cmvTotal=0;
+      d.canais.forEach(function(c){
+        const _k=c.nm; // nome direto bate com chaves do GE Finance
+        const _ge=_gePc[_k];
+        if(_ge&&c.f>0){_fatTotal+=c.f;_cmvTotal+=c.f*(_ge.cmv_pct/100);}
+      });
+      if(_fatTotal>0){
+        const _pct=(_cmvTotal/_fatTotal*100).toFixed(2).replace('.',',');
+        _cmvPeriodoHtml=` · <span style="color:#DC2626;font-size:.62rem;font-weight:800">CMV ${_pct}%</span>`;
+      }
+    }
+    document.getElementById('kFatSub').innerHTML=`${d.nP} pedidos — ${lbl}`+_cmvPeriodoHtml;
+  }
   document.getElementById('kMeta').textContent=R(d.metaTot);
   const pk=document.getElementById('kPct');pk.textContent=`${d.pctP}%`;pk.className=pCls(d.pctP);
   document.getElementById('kMes').textContent=R(d.tM);
@@ -1268,6 +1307,36 @@ function renderDash(d){
     }
     document.getElementById('kMesSub').innerHTML=n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase()+_diffHtml;
   }
+  {
+    // CMV % Vendas do Mês (01 até hoje)
+    // Usa d.tM (faturamento do mês) e % médio ponderado dos canais do GE Finance
+    const _gePc2=_geData?.por_canal;
+    const _kMesCmvEl=document.getElementById('kMesCmv');
+    if(_gePc2&&_kMesCmvEl){
+      // Calcular % médio ponderado usando faturamento do mês por canal
+      // d.canaisMes tem o faturamento de cada canal no mês (01 até hoje)
+      let _fatMes=0,_cmvMes=0;
+      // Usar os dados do mês se disponíveis, ou cair no total do mês
+      if(d.canaisMes&&d.canaisMes.length>0){
+        d.canaisMes.forEach(function(c){
+          const _ge=_gePc2[c.nm];
+          if(_ge&&c.f>0){_fatMes+=c.f;_cmvMes+=c.f*(_ge.cmv_pct/100);}
+        });
+      } else {
+        // Fallback: usar d.canais (período atual) se for mês
+        d.canais.forEach(function(c){
+          const _ge=_gePc2[c.nm];
+          if(_ge&&c.f>0){_fatMes+=c.f;_cmvMes+=c.f*(_ge.cmv_pct/100);}
+        });
+      }
+      if(_fatMes>0){
+        const _pctM=(_cmvMes/_fatMes*100).toFixed(2).replace('.',',');
+        _kMesCmvEl.innerHTML=`CMV sobre vendas: <strong style="color:#DC2626">${_pctM}%</strong>`;
+      } else {
+        _kMesCmvEl.innerHTML='';
+      }
+    }
+  }
   document.getElementById('kMetaMes').textContent=R(d.metaMes);
   const pm=document.getElementById('kPctMes');pm.textContent=`${d.pctM}%`;pm.className=pCls(d.pctM);
   document.getElementById('kPeds').textContent=d.nP;
@@ -1275,15 +1344,49 @@ function renderDash(d){
   document.getElementById('kOnt').textContent=R(d.tO);
   const _metaOnt=(_cache?.metas?.dias[_ontRef]||{}).total||0;
   const _pctOnt=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999).toFixed(1):null;
-  document.getElementById('kOntSub').textContent=`${d.nO} pedidos${_pctOnt?` · ${_pctOnt}% da meta`:''}`;
+  {
+    // CMV de ontem: usar faturamento de ontem por canal * % do GE Finance
+    const _gePc3=_geData?.por_canal;
+    let _cmvOntHtml='';
+    if(_gePc3&&d.canaisOnt&&d.canaisOnt.length>0){
+      // Calcular CMV ponderado de ontem por canal
+      let _fatO=0,_cmvO=0;
+      d.canaisOnt.forEach(function(c){
+        const _ge=_gePc3[c.nm];
+        if(_ge&&c.f>0){_fatO+=c.f;_cmvO+=c.f*(_ge.cmv_pct/100);}
+      });
+      if(_fatO>0){
+        const _pctCmvOnt=(_cmvO/_fatO*100).toFixed(2).replace('.',',');
+        _cmvOntHtml=` · <span style="color:#DC2626;font-size:.62rem;font-weight:800">CMV ${_pctCmvOnt}%</span>`;
+      }
+    } else if(_gePc3&&d.tO>0){
+      // Fallback: % médio geral do mês aplicado ao total de ontem
+      let _fatT=0,_cmvT=0;
+      Object.values(_gePc3).forEach(function(v){_fatT+=v.faturamento;_cmvT+=v.faturamento*(v.cmv_pct/100);});
+      if(_fatT>0){
+        const _pctMed=(_cmvT/_fatT*100).toFixed(2).replace('.',',');
+        _cmvOntHtml=` · <span style="color:#DC2626;font-size:.62rem;font-weight:800">CMV ~${_pctMed}%</span>`;
+      }
+    }
+    document.getElementById('kOntSub').innerHTML=`${d.nO} pedidos${_pctOnt?` · ${_pctOnt}% da meta`:''}${_cmvOntHtml}`;
+  }
   setTimeout(()=>{document.getElementById('fPct').style.width=Math.min(d.pctP,100)+'%';document.getElementById('fPctMes').style.width=Math.min(d.pctM,100)+'%';},200);
 
-  document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{const cor=COR[c.nm]||'#999';return`<div class="cn">
+  document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{
+  const cor=COR[c.nm]||'#999';
+  // Buscar CMV % do GE Finance para este canal
+  const _geCanal=_geData?.por_canal;
+  const _cmvMap={'Mercado Livre':'Mercado Livre','Casas Bahia':'Casas Bahia','Magazine Luiza':'Magazine Luiza','Shopee':'Shopee','Amazon':'Amazon','Amazon Fulfillment':'Amazon Fulfillment'};
+  const _cmvKey=_cmvMap[c.nm];
+  const _cmvPct=_geCanal&&_cmvKey&&_geCanal[_cmvKey]?_geCanal[_cmvKey].cmv_pct:null;
+  const _cmvHtml=_cmvPct!=null?`<div class="cn-cmv">CMV: <strong>${_cmvPct.toFixed(2).replace('.',',')}%</strong></div>`:'';
+  return`<div class="cn">
     <div class="ct"><div class="clogo">${LOGOS[c.nm]||c.nm}</div><span class="cpct" style="color:${cor}">${c.pct}%</span></div>
     <div class="cv" style="color:${cor}">${R(c.f)}</div>
     <div class="cm"><span class="cml">Meta Dia</span><span class="cmv">${R(c.m)}</span></div>
     <div class="pt"><div class="pf" style="width:${Math.min(c.pct,100)}%;background:${cor}"></div></div>
     <div class="cf"><span class="cpe">${c.p} pedidos</span><span class="dl ${dCls(c.pct)}">${dLbl(c.pct)}</span></div>
+    ${_cmvHtml}
   </div>`;}).join('');
 
   document.getElementById('tProd').textContent=`Top Produtos — ${lbl}`;
@@ -3218,6 +3321,7 @@ const GE_CANAL_ID = {
 };
 
 let _geCarregado = false;
+let _geData = null; // dados do GE Finance carregados automaticamente
 
 function geR(v){
   if(v===null||v===undefined||isNaN(+v)||+v===0) return 'R$ 0,00';
@@ -3274,6 +3378,7 @@ async function geCarregarDados(){
 }
 
 function geProcessarJSON(data) {
+  _geData = data; // salvar globalmente para uso no dashboard principal
   const pc = data.por_canal || {};
   const det = data.detalhe || [];
 
@@ -3342,6 +3447,27 @@ function abrirMargem(){
 setInterval(()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR'),1000);
 load();
 setInterval(load,5*60*1000);
+
+// Carregar GE Finance automaticamente (sem bloquear o dashboard)
+async function loadGEData() {
+  try {
+    const url = GE_JSON_URL + '?t=' + Date.now();
+    const resp = await fetch(url);
+    if(!resp.ok) return;
+    const data = await resp.json();
+    if(data && data.por_canal) {
+      _geData = data;
+      // Re-renderizar o dashboard se já estiver carregado
+      if(_cache) renderDash(_cache._dashData || _cache);
+      // Atualizar aba GE se estiver aberta
+      if(document.getElementById('vMargem')?.classList.contains('on')) {
+        geProcessarJSON(data);
+      }
+    }
+  } catch(e) { console.warn('[GE]', e.message); }
+}
+loadGEData();
+setInterval(loadGEData, 60*60*1000); // atualizar a cada hora
 </script>
 </body>
 </html>
