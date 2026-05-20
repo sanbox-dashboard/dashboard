@@ -978,7 +978,15 @@ let _modo='dia',_ini=null,_fim=null;
 const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null};
 const _canalVidMap={'vCB':'Casas Bahia','vMG':'Magazine Luiza','vSH':'Shopee','vAMZ':'Amazon','vML':'Mercado Livre'};
 const SKUS_EXCLUIR_PROJ=new Set(['TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI287-5','TI287-6','TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4','TI733-5']);
-let _dRef='',_ontRef='';
+// Função central de exclusão de SKU: exclui lista fixa + sufixos -V e -A
+function skuExcluido(sku){
+  const s=(sku||'').toUpperCase().trim();
+  if(!s) return false;
+  if(SKUS_EXCLUIR_PROJ.has(s)) return true;
+  if(s.endsWith('-V') || s.endsWith('-A')) return true;
+  return false;
+}
+let _dRef='',_ontRef='',_diaRef='';
 let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
 let _marcaC=null;  // marcas cache
@@ -1139,10 +1147,25 @@ async function getMetas(){
 
 // ── PROCESS DASH ─────────────────────────────────────────────
 function processDash(pRows,iRows,metas){
+  // Construir set de datas com faturamento real > 0
   const datas=new Set();
-  for(let i=1;i<pRows.length;i++){const s=(pRows[i][C.SIT]||'').toLowerCase().trim();const d=(pRows[i][C.DATA]||'').trim();if(VALIDAS.has(s)&&d)datas.add(d);}
-  const sorted=[...datas].sort((a,b)=>pD(b)-pD(a));
+  const _fatPorDia={};
+  for(let i=1;i<pRows.length;i++){
+    const s=(pRows[i][C.SIT]||'').toLowerCase().trim();
+    const d=(pRows[i][C.DATA]||'').trim();
+    const fat=parseFloat((pRows[i][C.TOTAL]||'0').replace(',','.'))||0;
+    if(VALIDAS.has(s)&&d){
+      datas.add(d);
+      _fatPorDia[d]=(_fatPorDia[d]||0)+fat;
+    }
+  }
+  // sorted: apenas dias com faturamento > 0, mais recente primeiro
+  const sorted=[...datas].filter(d=>(_fatPorDia[d]||0)>0).sort((a,b)=>pD(b)-pD(a));
+  // _dRef = último dia com faturamento real (fonte da verdade para todos os cálculos)
   _dRef=sorted[0]||'';_ontRef=sorted[1]||'';
+  // _diaRef = data de hoje para exibição no header (muda só após meia-noite)
+  const _hoje2=new Date();
+  _diaRef=(_hoje2.getMonth()+1).toString().padStart(2,'0')+'/'+_hoje2.getDate().toString().padStart(2,'0')+'/'+_hoje2.getFullYear();
 
   const cPer={},cMes={};CANAIS.forEach(c=>{cPer[c]={f:0,p:0};cMes[c]={f:0,p:0};});
   let tP=0,nP=0,tM=0,nM=0,tO=0,nO=0;
@@ -1172,7 +1195,7 @@ function processDash(pRows,iRows,metas){
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const fat=qtd*vu;const mk=marca(desc);const nm=desc.substring(0,58);
     const skuItem=(r[I.SKU]||r[1]||'').trim();
-    if(SKUS_EXCLUIR_PROJ.has(skuItem.toUpperCase()))continue; // exclui SKUs proibidos
+    if(skuExcluido(skuItem))continue; // exclui SKUs proibidos
     if(!prodMap[nm])prodMap[nm]={q:0,f:0,idProd,sku:skuItem};
     prodMap[nm].q+=qtd;prodMap[nm].f+=fat;
     if(!prodMap[nm].sku&&skuItem)prodMap[nm].sku=skuItem;
@@ -1246,7 +1269,7 @@ function pCls(p){return p>=70?'cok':p>=35?'cmid':'clow';}
 function dCls(p){return p>=70?'dok':p>=35?'dmi':'dlo';}
 function dLbl(p){return p>=100?'✓ Meta!':p>=70?`→${(100-p).toFixed(0)}%`:`↓${(100-p).toFixed(0)}%`;}
 const perLbl=()=>{
-  if(_modo==='dia')return _dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'Dia';
+  if(_modo==='dia')return (_diaRef||_dRef)?pD(_diaRef||_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'Dia';
   if(_modo==='mes'){const n=new Date();return n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();}
   if(_ini&&_fim)return`${_ini.split('/').reverse().join('/')} → ${_fim.split('/').reverse().join('/')}`;
   return'';
@@ -1263,7 +1286,7 @@ const LOGOS={
 function renderDash(d){
   const lbl=perLbl();
   const n=new Date();
-  document.getElementById('dRef').textContent=_dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'--';
+  document.getElementById('dRef').textContent=_diaRef?pD(_diaRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():_dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'--';
   document.getElementById('kFat').textContent=R(d.tP);
   {
     // CMV % período = % do GE Finance por canal * fat do período daquele canal
@@ -1825,9 +1848,11 @@ function renderEst(){
 
   let prods=Object.entries(prodMap).map(([id,p])=>{
     const sku=p.sku||'';
-    // Exclui KIT e ML
+    // Exclui KIT, ML e sufixos -V e -A
     if(sku.toUpperCase().startsWith('KIT'))return null;
     if(sku.toUpperCase().endsWith('ML'))return null;
+    if(sku.toUpperCase().endsWith('-V'))return null;
+    if(sku.toUpperCase().endsWith('-A'))return null;
     const est=estMap[id]||0;const vend=vendasMap[id]||0;
     const falta=vend-est;
     const mediaDia=vend/dias;
@@ -2403,7 +2428,7 @@ function processarVG(pRows, iRows, ymdI, ymdF){
     const skuUP=sku.toUpperCase();
     if(skuUP.startsWith('KIT'))continue;
     if(skuUP.endsWith('ML'))continue;
-    if(SKUS_EXCLUIR_PROJ.has(skuUP))continue;
+    if(skuExcluido(skuUP))continue;
     const desc=(r[I.DESC]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
@@ -2598,7 +2623,7 @@ function processarCanal(pRows, iRows, canalNome){
     if(!VALIDAS.has(sit))continue;
     const dat=(r[I.DATA]||'').trim();
     const sku=(r[1]||'').trim();
-    if(SKUS_EXCLUIR_PROJ.has(sku.toUpperCase()))continue;
+    if(skuExcluido(sku))continue;
     const desc=(r[I.DESC]||'').trim();
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
@@ -2798,7 +2823,7 @@ function renderCanalTop5(canal, vid, data){
   const NM=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const g=id=>document.getElementById(vid+id);
   g('Top5Tit').textContent=`Top 5 ${NM[mesPrev]}/${anoPrev} vs Projeção ${NM[mesAtual]}/${anoAtual}`;
-  const top5=Object.entries(mesPrevData).filter(([sku])=>!SKUS_EXCLUIR_PROJ.has(sku)).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
+  const top5=Object.entries(mesPrevData).filter(([sku])=>!skuExcluido(sku)).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
   if(!top5.length){g('Top5Wrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados mês anterior</div>';return;}
   const cor=COR[canal]||'#999';
   let h=`<table ${TS}>${CG}<thead><tr>${THL('#')}${THL('SKU')}${THL('Produto')}${THR(NM[mesPrev].substring(0,3)+'/'+anoPrev)}${THR('Média/dia')}${THR(NM[mesAtual].substring(0,3)+' atual')}${THR('Proj. final')}${THL('Tendência')}</tr></thead><tbody>`;
@@ -2959,7 +2984,7 @@ function processarML(pRows,iRows){
     if(!VALIDAS.has(sit))continue;
     const dat=(r[I.DATA]||'').trim();
     const sku=(r[1]||'').trim();
-    if(SKUS_EXCLUIR_PROJ.has(sku.toUpperCase()))continue; // exclui SKUs proibidos
+    if(skuExcluido(sku))continue; // exclui SKUs proibidos
     const desc=(r[I.DESC]||'').trim();
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
@@ -3221,7 +3246,7 @@ function renderMLTop5(){
   const NM=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   document.getElementById('mlTop5Tit').textContent=`Top 5 ${NM[mesPrev]}/${anoPrev} vs Projeção ${NM[mesAtual]}/${anoAtual}`;
 
-  const top5=Object.entries(mesPrevData).filter(([sku])=>!SKUS_EXCLUIR_PROJ.has(sku)).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
+  const top5=Object.entries(mesPrevData).filter(([sku])=>!skuExcluido(sku)).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,5);
   if(!top5.length){document.getElementById('mlTop5Wrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados do mês anterior</div>';return;}
 
   let h=`<table ${TS}>${CG}<thead><tr>
