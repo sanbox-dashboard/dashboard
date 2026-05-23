@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-05-23T07:40:49.087Z",
-  "gerado_em_br": "23/05/2026, 04:40:49",
+  "gerado_em": "2026-05-23T11:45:40.717Z",
+  "gerado_em_br": "23/05/2026, 08:45:40",
   "dia_referencia": "23/05/2026",
   "dia_ontem": "22/05/2026",
   "resumo_dia": {
-    "faturamento": 152994,
-    "pedidos": 1,
-    "ticket_medio": 152994,
+    "faturamento": 323030,
+    "pedidos": 2,
+    "ticket_medio": 161515,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 170036,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 11556112,
-    "pedidos": 147
+    "faturamento": 11742995,
+    "pedidos": 148
   },
   "resumo_mes": {
     "mes": "5/2026",
-    "faturamento": 213480670,
-    "pedidos": 3214,
+    "faturamento": 213837589,
+    "pedidos": 3216,
     "meta_mensal": 5999999.12,
-    "pct_meta": 3558,
-    "projecao_final": 287734816.09,
+    "pct_meta": 3564,
+    "projecao_final": 288215880.83,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 24146105,
         "pedidos": 1379
       },
       "Casas Bahia": {
-        "faturamento": 77315096,
-        "pedidos": 600
+        "faturamento": 77672015,
+        "pedidos": 602
       },
       "Magazine Luiza": {
         "faturamento": 41416882,
@@ -143,11 +143,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 226,
-      "fat": 7913059,
+      "qtd": 227,
+      "fat": 7929358,
       "canais": {
         "Amazon": 68,
-        "Casas Bahia": 77,
+        "Casas Bahia": 78,
         "Mercado Livre": 41,
         "Magazine Luiza": 28,
         "Shopee": 9,
@@ -487,11 +487,11 @@
   ],
   "historico_por_dia": {
     "23/05/2026": {
-      "fat": 152994,
-      "peds": 1,
+      "fat": 323030,
+      "peds": 2,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Casas Bahia": 170036,
         "Magazine Luiza": 152994,
         "Shopee": 0,
         "Amazon": 0,
@@ -499,11 +499,11 @@
       }
     },
     "22/05/2026": {
-      "fat": 11556112,
-      "peds": 147,
+      "fat": 11742995,
+      "peds": 148,
       "canais": {
         "Mercado Livre": 981254,
-        "Casas Bahia": 3914870,
+        "Casas Bahia": 4101753,
         "Magazine Luiza": 3155705,
         "Shopee": 1518684,
         "Amazon": 1970400,
@@ -2803,7 +2803,7 @@
     "739081085": 1,
     "739081088": 0,
     "739091650": 54,
-    "739126334": 171,
+    "739126334": 170,
     "739148458": 0,
     "739166140": 0,
     "739244163": 0,
