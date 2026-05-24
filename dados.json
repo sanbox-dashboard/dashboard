@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-05-24T09:10:03.536Z",
-  "gerado_em_br": "24/05/2026, 06:10:03",
+  "gerado_em": "2026-05-24T14:49:40.267Z",
+  "gerado_em_br": "24/05/2026, 11:49:40",
   "dia_referencia": "24/05/2026",
   "dia_ontem": "23/05/2026",
   "resumo_dia": {
-    "faturamento": 512613,
-    "pedidos": 6,
-    "ticket_medio": 85435.5,
+    "faturamento": 1034096,
+    "pedidos": 13,
+    "ticket_medio": 79545.85,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 24455,
-        "pedidos": 2,
+        "faturamento": 42909,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 275024,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 99292,
-        "pedidos": 1,
+        "faturamento": 274594,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 52703,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 11068256,
-    "pedidos": 156
+    "faturamento": 11091541,
+    "pedidos": 158
   },
   "resumo_mes": {
     "mes": "5/2026",
-    "faturamento": 225407066,
-    "pedidos": 3384,
+    "faturamento": 225951834,
+    "pedidos": 3393,
     "meta_mensal": 5999999.12,
-    "pct_meta": 3756.8,
-    "projecao_final": 291150793.58,
+    "pct_meta": 3765.9,
+    "projecao_final": 291854452.25,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 25439053,
-        "pedidos": 1453
+        "faturamento": 25480792,
+        "pedidos": 1458
       },
       "Casas Bahia": {
-        "faturamento": 82361560,
-        "pedidos": 638
+        "faturamento": 82636584,
+        "pedidos": 640
       },
       "Magazine Luiza": {
         "faturamento": 44247787,
         "pedidos": 378
       },
       "Shopee": {
-        "faturamento": 27427299,
-        "pedidos": 298
+        "faturamento": 27602601,
+        "pedidos": 299
       },
       "Amazon": {
-        "faturamento": 40697336,
-        "pedidos": 563
+        "faturamento": 40750039,
+        "pedidos": 564
       },
       "Amazon Fulfillment": {
         "faturamento": 821167,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 302,
-      "fat": 9626011,
+      "qtd": 304,
+      "fat": 9629263,
       "canais": {
-        "Mercado Livre": 125,
+        "Mercado Livre": 127,
         "Casas Bahia": 52,
         "Amazon": 111,
         "Magazine Luiza": 13,
@@ -116,13 +116,13 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 234,
-      "fat": 5643632,
+      "qtd": 237,
+      "fat": 5689799,
       "canais": {
-        "Mercado Livre": 114,
-        "Casas Bahia": 36,
+        "Casas Bahia": 37,
+        "Shopee": 9,
+        "Mercado Livre": 115,
         "Magazine Luiza": 30,
-        "Shopee": 8,
         "Amazon": 46
       }
     },
@@ -197,14 +197,14 @@
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 175,
-      "fat": 1859824,
+      "qtd": 176,
+      "fat": 1949815,
       "canais": {
+        "Casas Bahia": 12,
         "Mercado Livre": 85,
         "Shopee": 16,
         "Magazine Luiza": 51,
         "Outros": 2,
-        "Casas Bahia": 11,
         "Amazon": 1,
         "Amazon Fulfillment": 9
       }
@@ -408,6 +408,18 @@
       }
     },
     {
+      "sku": "TI1557",
+      "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-220v",
+      "qtd": 44,
+      "fat": 1168274,
+      "canais": {
+        "Amazon": 9,
+        "Casas Bahia": 11,
+        "Mercado Livre": 14,
+        "Amazon Fulfillment": 10
+      }
+    },
+    {
       "sku": "TI1454",
       "desc": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black 569L-220v",
       "qtd": 43,
@@ -418,18 +430,6 @@
         "Amazon": 1,
         "Magazine Luiza": 1,
         "Outros": 3
-      }
-    },
-    {
-      "sku": "TI1557",
-      "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-220v",
-      "qtd": 43,
-      "fat": 1163445,
-      "canais": {
-        "Casas Bahia": 11,
-        "Amazon": 8,
-        "Mercado Livre": 14,
-        "Amazon Fulfillment": 10
       }
     },
     {
@@ -486,22 +486,22 @@
   ],
   "historico_por_dia": {
     "24/05/2026": {
-      "fat": 512613,
-      "peds": 6,
+      "fat": 1034096,
+      "peds": 13,
       "canais": {
-        "Mercado Livre": 24455,
-        "Casas Bahia": 0,
+        "Mercado Livre": 42909,
+        "Casas Bahia": 275024,
         "Magazine Luiza": 388866,
-        "Shopee": 99292,
-        "Amazon": 0,
+        "Shopee": 274594,
+        "Amazon": 52703,
         "Amazon Fulfillment": 0
       }
     },
     "23/05/2026": {
-      "fat": 11068256,
-      "peds": 156,
+      "fat": 11091541,
+      "peds": 158,
       "canais": {
-        "Mercado Livre": 1172339,
+        "Mercado Livre": 1195624,
         "Casas Bahia": 4859581,
         "Magazine Luiza": 2595033,
         "Shopee": 995921,
