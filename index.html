@@ -348,6 +348,44 @@ tfoot td:first-child{text-align:left;}
   #metasKpis { grid-template-columns: 1fr 1fr !important; }
 }
 
+
+/* ── COMISSÕES v2 ─────────────────────────────────────────── */
+#vComissao{gap:16px;}
+.cv2-header{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.cv2-card{background:var(--wh);border:1px solid var(--bd);border-radius:14px;overflow:hidden;}
+.cv2-card-header{padding:14px 18px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;background:var(--bg);}
+.cv2-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:900;flex-shrink:0;}
+.cv2-total-lbl{font-size:.55rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;}
+.cv2-total-val{font-size:1.15rem;font-weight:900;}
+.cv2-channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;padding:14px 18px;}
+.cv2-ch{background:var(--bg);border-radius:10px;padding:12px 14px;position:relative;}
+.cv2-ch-name{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--mu);margin-bottom:8px;}
+.cv2-ch-fat{font-size:.88rem;font-weight:900;color:var(--tx);margin-bottom:2px;}
+.cv2-ch-meta{font-size:.65rem;color:var(--mu);margin-bottom:10px;}
+/* Termômetro */
+.cv2-thermo{position:relative;height:28px;background:#f1f5f9;border-radius:14px;overflow:hidden;margin-bottom:6px;}
+.cv2-thermo-fill{height:100%;border-radius:14px;transition:width .5s ease,background .3s;}
+.cv2-thermo-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+/* Badges de bônus */
+.cv2-bonuses{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.cv2-badge{font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:20px;}
+.cv2-badge-base{background:#dcfce7;color:#166534;}
+.cv2-badge-extra{background:#dbeafe;color:#1e40af;}
+.cv2-badge-zero{background:var(--bg);color:var(--mu);border:1px solid var(--bd);}
+.cv2-badge-cmv{font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:20px;}
+/* Equilíbrio e total */
+.cv2-footer{padding:12px 18px;border-top:1px solid var(--bd);display:flex;flex-direction:column;gap:8px;}
+.cv2-eq{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:8px;padding:8px 12px;}
+.cv2-grand{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#f0fdf4,#eff6ff);border-radius:8px;padding:10px 14px;border:1px solid #bbf7d0;}
+/* Regras resumo */
+.cv2-rules{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;}
+.cv2-rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:12px;}
+.cv2-rule-box{border:1px solid var(--bd);border-radius:8px;padding:10px 12px;}
+.cv2-rule-pct{font-size:.72rem;font-weight:900;color:var(--tx);}
+.cv2-rule-val{font-size:.88rem;font-weight:900;color:var(--gr);margin-top:2px;}
+.cv2-rule-val.zero{color:var(--mu);}
+.cv2-examples{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+.cv2-ex{background:var(--bg);border-radius:8px;padding:10px 12px;border-left:3px solid var(--or);}
 </style>
 </head>
 <body>
@@ -378,6 +416,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
     <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
     <button class="tab"     onclick="aba('vMargem',this)">📈 Margem GE</button>
+    <button class="tab"     onclick="aba('vComissao',this);renderComissao()">💰 Comissões</button>
   </div>
 
   <div class="content">
@@ -952,6 +991,76 @@ tfoot td:first-child{text-align:left;}
 
     </div><!-- /vMargem -->
 
+
+
+    <!-- ══ COMISSÕES v2 ══════════════════════════════════════════ -->
+    <div class="panel" id="vComissao">
+
+      <!-- Header controles -->
+      <div class="cv2-header">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:.72rem;font-weight:700;color:var(--mu)">MÊS:</span>
+          <select id="comMesSel" style="border:1px solid var(--bd);border-radius:6px;padding:5px 10px;font-size:.72rem;font-weight:700;background:var(--wh);color:var(--tx);" onchange="comMudarMes()"></select>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:.7rem;font-weight:700;color:var(--mu)">CMV mínimo:</span>
+          <input type="number" id="comCmvMin" value="10" min="0" max="100" step="0.1"
+            style="width:60px;border:1px solid var(--bd);border-radius:6px;padding:4px 8px;font-size:.75rem;font-weight:700;"
+            oninput="renderComissao()">
+          <span style="font-size:.7rem;color:var(--mu)">%</span>
+        </div>
+      </div>
+
+      <div id="comWrap" style="display:flex;flex-direction:column;gap:14px;">
+        <div style="text-align:center;padding:40px;color:var(--mu)">⏳ Carregando...</div>
+      </div>
+
+      <!-- Resumo das regras -->
+      <div class="cv2-rules">
+        <div style="font-size:.78rem;font-weight:800;color:var(--tx);margin-bottom:4px">📋 Tabela de Bônus</div>
+        <div style="font-size:.62rem;color:var(--mu);margin-bottom:10px">CMV mínimo obrigatório para qualquer bônus. CMV ≥ 13% dispensa requisito mínimo.</div>
+
+        <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bonificação base (por canal)</div>
+        <div class="cv2-rules-grid">
+          <div class="cv2-rule-box"><div class="cv2-rule-pct">&lt; 90%</div><div class="cv2-rule-val zero">R$ 0</div></div>
+          <div class="cv2-rule-box"><div class="cv2-rule-pct">90% – 99%</div><div class="cv2-rule-val">R$ 250</div></div>
+          <div class="cv2-rule-box"><div class="cv2-rule-pct">100% – 199%</div><div class="cv2-rule-val">R$ 500</div></div>
+          <div class="cv2-rule-box"><div class="cv2-rule-pct">200% – 299%</div><div class="cv2-rule-val">R$ 750</div></div>
+          <div class="cv2-rule-box"><div class="cv2-rule-pct">≥ 300%</div><div class="cv2-rule-val">R$ 1.000</div></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+          <div>
+            <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bônus equilíbrio</div>
+            <div class="cv2-rule-box"><div class="cv2-rule-pct">≥2 canais 100%+ com CMV ok</div><div class="cv2-rule-val" style="color:#2563eb">R$ 500</div></div>
+          </div>
+          <div>
+            <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bônus CMV extra (se ≥100% meta)</div>
+            <div class="cv2-rule-box" style="display:flex;gap:8px;justify-content:space-around">
+              <div><div class="cv2-rule-pct">13%–14%</div><div class="cv2-rule-val" style="color:#d97706">R$ 250</div></div>
+              <div><div class="cv2-rule-pct">≥ 15%</div><div class="cv2-rule-val" style="color:#d97706">R$ 500</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Exemplos rápidos</div>
+        <div class="cv2-examples">
+          <div class="cv2-ex">
+            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">Cenário máximo — 300%+ em ambos + CMV 15%</div>
+            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">R$1.000 × 2 + R$500 equilíbrio + R$500 CMV × 2 = <strong style="color:var(--gr)">R$ 3.500</strong></div>
+          </div>
+          <div class="cv2-ex">
+            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">CMV abaixo do mínimo zera o bônus daquele canal</div>
+            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">Amazon 250% + CMV 7% → R$ 0 (sem equilíbrio também)</div>
+          </div>
+          <div class="cv2-ex">
+            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">110% + CMV 15% | 105% + CMV 13%</div>
+            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">R$500 + R$500 + R$500 eq. + R$500 + R$250 = <strong style="color:var(--gr)">R$ 2.250</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /vComissao -->
   </div><!-- /content -->
 </div><!-- /app -->
 
@@ -3493,6 +3602,250 @@ async function loadGEData() {
 }
 loadGEData();
 setInterval(loadGEData, 60*60*1000); // atualizar a cada hora
+
+
+
+
+// ── COMISSÕES v3 ─────────────────────────────────────────────
+var COM_VEND = [
+  { nome:'Julia', ini:'JU', cor:'#7c3aed', bg:'#ede9fe', canais:['Amazon','Casas Bahia','Magazine Luiza'], eqMin:2 },
+  { nome:'Davi',  ini:'DV', cor:'#0369a1', bg:'#e0f2fe', canais:['Mercado Livre','Shopee'], eqMin:2 }
+];
+
+var _comHist = {};
+var _comMes  = '';
+
+function comMesKey(){
+  var n=new Date();
+  return n.getFullYear()+'-'+(n.getMonth()+1).toString().padStart(2,'0');
+}
+function comMesLabel(k){
+  var m=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  var p=k.split('-');
+  return m[parseInt(p[1])-1]+'/'+p[0];
+}
+function comMudarMes(){
+  var sel=document.getElementById('comMesSel');
+  _comMes=sel?sel.value:comMesKey();
+  renderComissao();
+}
+function comPopMeses(){
+  var sel=document.getElementById('comMesSel');
+  if(!sel) return;
+  var atual=comMesKey(), meses=[], d=new Date();
+  for(var i=0;i<6;i++){
+    var k=d.getFullYear()+'-'+(d.getMonth()+1).toString().padStart(2,'0');
+    meses.push(k);
+    d.setMonth(d.getMonth()-1);
+  }
+  sel.innerHTML=meses.map(function(k){
+    return '<option value="'+k+'"'+(_comMes===k?' selected':'')+'>'+comMesLabel(k)+(k===atual?' ★':'')+'</option>';
+  }).join('');
+}
+
+function comGetDados(){
+  // Retorna {canal: {vend, meta}} usando EXATAMENTE a mesma lógica do dashboard
+  var resultado = {};
+  var mesAtual = _comMes || comMesKey();
+  var ehMesAtual = mesAtual === comMesKey();
+
+  CANAIS.forEach(function(cn){ resultado[cn] = {vend:0, meta:0}; });
+
+  if(!_cache) return resultado;
+
+  var metas = _cache.metas || {};
+  var pRows = _cache.pRows || [];
+
+  // META: soma todos os dias do mês selecionado via metas.dias
+  if(metas.dias){
+    var partes = mesAtual.split('-');
+    var mesNum = parseInt(partes[1]), anoNum = parseInt(partes[0]);
+    Object.entries(metas.dias).forEach(function(entry){
+      var k = entry[0], dia = entry[1];
+      // Formato da chave: M/D/YYYY
+      var p = k.split('/');
+      if(p.length >= 3 && parseInt(p[0]) === mesNum && parseInt(p[2]) === anoNum){
+        if(typeof dia === 'object'){
+          CANAIS.forEach(function(cn){
+            resultado[cn].meta += (parseFloat(dia[cn]) || 0);
+          });
+        }
+      }
+    });
+  }
+
+  // VENDAS: se for mês atual, usa cMes do cache (já calculado pelo dashboard)
+  // Se for mês histórico, recalcula filtrando pRows pelo mês
+  if(ehMesAtual){
+    // Recalcular cMes igual ao processDash
+    var ids = {};
+    for(var i=1;i<pRows.length;i++){
+      var r=pRows[i];
+      var rid=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
+      if(!rid||!VALIDAS.has(sit)||ids[rid]) continue;
+      if(!isMes(dat)) continue;
+      ids[rid]=1;
+      var cn=canal(r[C.ENOME],r[C.ENUM]);
+      var fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+      if(resultado[cn]) resultado[cn].vend += fat;
+    }
+  } else {
+    // Mês histórico: filtrar pRows pelo mês/ano selecionado
+    var partes2 = mesAtual.split('-');
+    var mesH = parseInt(partes2[1]), anoH = parseInt(partes2[0]);
+    var idsH = {};
+    for(var i=1;i<pRows.length;i++){
+      var r=pRows[i];
+      var rid=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
+      if(!rid||!VALIDAS.has(sit)||idsH[rid]) continue;
+      var pp = dat.split('/');
+      if(pp.length<3 || parseInt(pp[0])!==mesH || parseInt(pp[2])!==anoH) continue;
+      idsH[rid]=1;
+      var cn=canal(r[C.ENOME],r[C.ENUM]);
+      var fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+      if(resultado[cn]) resultado[cn].vend += fat;
+    }
+  }
+
+  return resultado;
+}
+
+function comR(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function comRs(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{maximumFractionDigits:0}); }
+
+function comBonBase(pct,cmv,min){
+  if(cmv<min) return 0;
+  if(pct<90)  return 0;
+  if(pct<100) return 250;
+  if(pct<200) return 500;
+  if(pct<300) return 750;
+  return 1000;
+}
+function comBonExtra(pct,cmv){
+  if(pct<100) return 0;
+  if(cmv>=15) return 500;
+  if(cmv>=13) return 250;
+  return 0;
+}
+function comThermoColor(pct){
+  if(pct>=100) return '#16a34a';
+  if(pct>=90)  return '#ca8a04';
+  if(pct>=70)  return '#f97316';
+  return '#dc2626';
+}
+
+function comCalc(v, dados, cmvMin){
+  var gePC = (_geData&&_geData.por_canal)?_geData.por_canal:{};
+  var cd = v.canais.map(function(cn){
+    var d   = dados[cn] || {vend:0,meta:0};
+    var cmv = gePC[cn] ? (gePC[cn].cmv_pct||0) : 0;
+    var pct = d.meta>0 ? d.vend/d.meta*100 : 0;
+    var cmvEf = cmv>=13 ? Math.max(cmv,cmvMin) : cmv;
+    return {
+      canal:cn, meta:d.meta, vend:d.vend, cmv:cmv, pct:pct,
+      cmvOk:cmvEf>=cmvMin,
+      base: comBonBase(pct,cmvEf,cmvMin),
+      extra:comBonExtra(pct,cmv)
+    };
+  });
+  var ok  = cd.filter(function(c){ return c.pct>=100&&c.cmvOk; }).length;
+  var bonEq = ok>=v.eqMin ? 500 : 0;
+  var total = cd.reduce(function(s,c){ return s+c.base+c.extra; },0) + bonEq;
+  return {cd:cd, bonEq:bonEq, ok:ok, total:total};
+}
+
+function renderComissao(){
+  if(!_comMes) _comMes=comMesKey();
+  comPopMeses();
+
+  var cmvMin = parseFloat((document.getElementById('comCmvMin')||{value:'10'}).value)||10;
+  var wrap   = document.getElementById('comWrap');
+  if(!wrap) return;
+  if(!_cache){ wrap.innerHTML='<div style="text-align:center;padding:40px;color:var(--mu)">⏳ Aguardando dados do dashboard...</div>'; return; }
+
+  var dados = comGetDados();
+
+  var out = COM_VEND.map(function(v){
+    var res = comCalc(v, dados, cmvMin);
+
+    var chHtml = res.cd.map(function(c){
+      var pct    = c.pct;
+      var barW   = Math.min(pct,100);
+      var bCol   = comThermoColor(pct);
+      var pctTxt = pct.toFixed(1)+'%';
+      // Cor do texto: escuro para garantir legibilidade
+      var txtCol = pct>=100?'#14532d':pct>=90?'#713f12':pct>=70?'#7c2d12':'#7f1d1d';
+
+      var cmvLbl = c.cmv>=15?'🟢 ≥15%':c.cmv>=13?'🟡 ≥13%':c.cmvOk?'✅ ok':'❌ <mín';
+      var cmvBg  = c.cmvOk?'#dcfce7':'#fee2e2';
+      var cmvCor = c.cmvOk?'#166534':'#991b1b';
+
+      var baseClass  = c.base>0 ?'cv2-badge cv2-badge-base':'cv2-badge cv2-badge-zero';
+      var extraClass = c.extra>0?'cv2-badge cv2-badge-extra':'cv2-badge cv2-badge-zero';
+
+      // Barra de progresso - altura achatada
+      var thermoHtml = '<div style="position:relative;height:16px;background:var(--bd);border-radius:8px;overflow:hidden;margin:6px 0 4px;">'
+        +'<div style="position:absolute;left:0;top:0;height:100%;width:'+barW+'%;background:'+bCol+';border-radius:8px;transition:width .5s;"></div>'
+        +'<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:900;color:'+txtCol+';mix-blend-mode:multiply;">'+pctTxt+'</div>'
+        +'</div>';
+
+      return '<div class="cv2-ch">'
+        +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">'
+          +'<span style="font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:var(--mu)">'+c.canal+'</span>'
+          +'<span style="font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:12px;background:'+cmvBg+';color:'+cmvCor+'">CMV '+c.cmv.toFixed(1)+'% '+cmvLbl+'</span>'
+        +'</div>'
+        +'<div style="font-size:.9rem;font-weight:900;color:var(--tx)">'+comR(c.vend)+'</div>'
+        +'<div style="font-size:.65rem;color:var(--mu);margin-bottom:2px">Meta: '+comR(c.meta)+'</div>'
+        +thermoHtml
+        +'<div class="cv2-bonuses">'
+          +'<span class="'+baseClass+'">Base '+comR(c.base)+'</span>'
+          +'<span class="'+extraClass+'">CMV+ '+comR(c.extra)+'</span>'
+        +'</div>'
+      +'</div>';
+    }).join('');
+
+    var eqOk = res.bonEq>0;
+    var eqTxt = eqOk
+      ? '✅ '+res.ok+'/'+v.eqMin+' canais 100%+ com CMV ok'
+      : '❌ Precisa '+v.eqMin+' canais (atual: '+res.ok+')';
+
+    return '<div class="cv2-card">'
+      +'<div class="cv2-card-header">'
+        +'<div style="display:flex;align-items:center;gap:10px">'
+          +'<div class="cv2-avatar" style="background:'+v.bg+';color:'+v.cor+'">'+v.ini+'</div>'
+          +'<div>'
+            +'<div style="font-size:.88rem;font-weight:900;color:var(--tx)">'+v.nome+'</div>'
+            +'<div style="font-size:.6rem;color:var(--mu)">'+v.canais.join(' · ')+'</div>'
+          +'</div>'
+        +'</div>'
+        +'<div style="text-align:right">'
+          +'<div style="font-size:.55rem;font-weight:700;color:var(--mu);text-transform:uppercase;margin-bottom:2px">Comissão '+comMesLabel(_comMes)+'</div>'
+          +'<div style="font-size:1.1rem;font-weight:900;color:'+(res.total>0?'var(--gr)':'var(--mu)')+'">'+comR(res.total)+'</div>'
+        +'</div>'
+      +'</div>'
+      +'<div class="cv2-channels">'+chHtml+'</div>'
+      +'<div class="cv2-footer">'
+        +'<div class="cv2-eq">'
+          +'<div>'
+            +'<div style="font-size:.7rem;font-weight:800;color:var(--tx)">🤝 Bônus Equilíbrio</div>'
+            +'<div style="font-size:.62rem;color:var(--mu)">'+eqTxt+'</div>'
+          +'</div>'
+          +'<div style="font-size:.9rem;font-weight:900;color:'+(eqOk?'#2563eb':'var(--mu)')+'">'+comR(res.bonEq)+'</div>'
+        +'</div>'
+        +'<div class="cv2-grand">'
+          +'<div>'
+            +'<div style="font-size:.75rem;font-weight:800;color:var(--tx)">💰 Total Comissão</div>'
+            +'<div style="font-size:.62rem;color:var(--mu)">Base + CMV Extra + Equilíbrio</div>'
+          +'</div>'
+          +'<div style="font-size:1.15rem;font-weight:900;color:'+(res.total>0?'var(--gr)':'var(--mu)')+'">'+comR(res.total)+'</div>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+  }).join('');
+
+  wrap.innerHTML = out;
+}
+
 </script>
 </body>
 </html>
