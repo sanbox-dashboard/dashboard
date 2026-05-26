@@ -621,11 +621,17 @@ tfoot td:first-child{text-align:left;}
     <div class="panel" id="vEstoque">
       <div class="card est-ctrl">
         <div class="flbl">Período:</div>
-        <select id="eDias" onchange="renderEst()">
+        <select id="eDias" onchange="estModoChange()">
           <option value="7">7 dias</option><option value="15">15 dias</option>
           <option value="30" selected>30 dias</option><option value="45">45 dias</option>
           <option value="60">60 dias</option><option value="90">90 dias</option>
+          <option value="0">Personalizado...</option>
         </select>
+        <span id="estCustomWrap" style="display:none;align-items:center;gap:4px;">
+          <input type="date" id="eIni" onchange="renderEst()" style="padding:4px 6px;border:1px solid var(--bd);border-radius:6px;font-size:.7rem;">
+          <span style="font-size:.7rem;color:var(--mu)">até</span>
+          <input type="date" id="eFim" onchange="renderEst()" style="padding:4px 6px;border:1px solid var(--bd);border-radius:6px;font-size:.7rem;">
+        </span>
         <div class="flbl">Marca:</div>
         <select id="eMarca" onchange="renderEst()"><option value="">Todas</option></select>
         <div class="flbl">SKU:</div>
@@ -637,6 +643,7 @@ tfoot td:first-child{text-align:left;}
           <option value="0">Todos</option><option value="5">5 un</option>
           <option value="10">10 un</option><option value="20">20 un</option>
         </select>
+        <button onclick="estExportarExcel()" style="margin-left:6px;padding:5px 12px;background:var(--gr);color:#fff;border:none;border-radius:7px;font-size:.68rem;font-weight:800;cursor:pointer;">⬇ Excel</button>
         <div class="est-status" id="eStatus">--</div>
       </div>
       <div class="card" style="padding:0;overflow:auto;max-height:70vh;">
@@ -1073,7 +1080,8 @@ const KOND_ID  = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 const METAS_ID = '1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk';
 const EST_ID   = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 
-const VALIDAS = new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue']);
+const VALIDAS = new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue'])
+const VALIDAS_ML = new Set([...VALIDAS,'em aberto']); // ML inclui 'em aberto';
 const CANAIS  = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon'];
 const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911','Amazon Fulfillment':'#FF9900'};
 
@@ -1118,6 +1126,10 @@ function toYMD(s){const p=(s||'').split('/');if(p.length<3)return'';return p[2]+
 function toISO(s){const p=(s||'').split('/');if(p.length<3)return'';return`${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;}
 function isPer(s){return _modo==='dia'?s===_dRef:_modo==='mes'?isMes(s):isRange(s);}
 
+function validSit(sit,cn){
+  if(cn==='Mercado Livre') return VALIDAS_ML.has(sit);
+  return VALIDAS.has(sit);
+}
 function canal(nome,num){
   const n=(nome||'').toLowerCase();
   if(n.includes('mercado livre'))return 'Mercado Livre';
@@ -1283,9 +1295,9 @@ function processDash(pRows,iRows,metas){
   for(let i=1;i<pRows.length;i++){
     const r=pRows[i];
     const id=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
-    if(!id||!VALIDAS.has(sit))continue;
-    const fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
     const cn=canal(r[C.ENOME],r[C.ENUM]);
+    if(!id||!validSit(sit,cn))continue;
+    const fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
     if(isPer(dat)&&!idsPer.has(id)){idsPer.add(id);tP+=fat;nP++;if(cPer[cn]){cPer[cn].f+=fat;cPer[cn].p++;}}
     if(isMes(dat)&&!idsMes.has(id)){idsMes.add(id);tM+=fat;nM++;if(cMes[cn]){cMes[cn].f+=fat;cMes[cn].p++;}}
     if(dat===_ontRef&&!idsOnt.has(id)){idsOnt.add(id);tO+=fat;nO++;}
@@ -1865,9 +1877,10 @@ const DEPOS_OK=new Set(['deposito amazonfull','novo galpao']);
 async function loadEstoque(){
   document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando estoque...</div>';
   try{
-    const[depoRows,prodRows]=await Promise.all([
-      fetchSheet(EST_ID,'A:G','tinyerp_estoque_produto_depo'),
+    const[depoRows,prodRows,estProdRows]=await Promise.all([
+      fetchSheet(EST_ID,'A:H','tinyerp_estoque_produto_depo'),
       fetchSheet(EST_ID,'A:Z','tinyerp_produtos'),
+      fetchSheet(EST_ID,'A:Z','tinyerp_estoque_produto'),
     ]);
     // SKU e marca por id
     const pHeader=prodRows[0]||[];
@@ -1878,12 +1891,31 @@ async function loadEstoque(){
       prodMap[id]={sku:(r[iSku]||'').trim(),marca:(r[iMarca]||'').trim()};
     }
     // Estoque
+    // Estoque por depósito
     const estMap={};
     for(let i=1;i<depoRows.length;i++){
       const r=depoRows[i];const id=(r[0]||'').trim();
-      const dep=(r[3]||'').toLowerCase().trim();const sal=parseFloat(r[4]||'0')||0;
+      const dep=(r[3]||'').toLowerCase().trim();
+      const sal=parseFloat((r[4]||'0').toString().replace(',','.'))||0;
       if(!id||sal===0)continue;
-      if(DEPOS_OK.has(dep))estMap[id]=(estMap[id]||0)+sal;
+      if(DEPOS_OK.has(dep)) estMap[id]=(estMap[id]||0)+sal;
+    }
+
+    // Saldo reservado: col B (índice 1) = codigo/SKU, col D (índice 3) = saldoreservado
+    const reservPorSku={};
+    for(let i=1;i<estProdRows.length;i++){
+      const r=estProdRows[i];
+      const sku=(r[1]||'').trim().toUpperCase();
+      const res=parseFloat((r[3]||'0').toString().replace(',','.'))||0;
+      if(sku&&res>0) reservPorSku[sku]=(reservPorSku[sku]||0)+res;
+    }
+
+    // Saldo líquido: cruzar por SKU (prodMap[id].sku → reservPorSku)
+    const estLiqMap={};
+    for(const id of Object.keys(estMap)){
+      const sku=(prodMap[id]&&prodMap[id].sku?prodMap[id].sku:'').toUpperCase();
+      const reserv=reservPorSku[sku]||0;
+      estLiqMap[id]=Math.max(0, estMap[id]-reserv);
     }
     // Nome real do produto via itens
     const iRows=_cache?.iRows||[];
@@ -1895,7 +1927,7 @@ async function loadEstoque(){
     // skuMap para top produtos
     const skuMap={};
     for(const[id,p]of Object.entries(prodMap))skuMap[id]=p.sku;
-    _estC={prodMap,estMap,iRows,skuMap};
+    _estC={prodMap,estMap:estLiqMap,estMapBruto:estMap,reservPorSku,iRows,skuMap};
     if(_cache)_cache.metas; // já carregado
 
     // Popula select de marcas
@@ -1917,10 +1949,10 @@ async function loadEstoque(){
 
 function sortEst(campo){
   if((window._estOrdCampo||'falta')===campo){
-    window._estOrdDir=(window._estOrdDir||-1)*-1;
+    window._estOrdDir=(window._estOrdDir||(campo==='falta'?1:-1))*-1;
   } else {
     window._estOrdCampo=campo;
-    window._estOrdDir=-1;
+    window._estOrdDir=campo==='falta'?1:-1; // falta: ascendente (mais negativo primeiro)
   }
   renderEst();
 }
@@ -1937,22 +1969,39 @@ function estTH(txt,campo,cor){
 function renderEst(){
   if(!_estC)return;
   const{prodMap,estMap,iRows,nomeMap}=_estC;
-  const dias=parseInt(document.getElementById('eDias').value)||30;
+  const diasSel=parseInt(document.getElementById('eDias').value);
   const filtM=document.getElementById('eMarca').value;
   const filtS=document.getElementById('eSku').value.trim().toLowerCase();
   const sNeg=document.getElementById('eNeg').checked;
   const sZero=document.getElementById('eZero').checked;
   const minPrev=parseInt(document.getElementById('eMin').value)||0;
 
-  const dInicio=new Date();dInicio.setDate(dInicio.getDate()-dias);
-  const vendasMap={};
+  // Período: padrão ou personalizado
+  let dias, dInicio, dFim=new Date();
+  if(diasSel===0){
+    const iniV=document.getElementById('eIni').value;
+    const fimV=document.getElementById('eFim').value;
+    dInicio=iniV?new Date(iniV):new Date(dFim.getFullYear(),dFim.getMonth(),1);
+    dFim=fimV?new Date(fimV):new Date();
+    dFim.setHours(23,59,59);
+    dias=Math.max(1,Math.round((dFim-dInicio)/(1000*60*60*24)));
+  } else {
+    dias=diasSel||30;
+    dInicio=new Date();
+    dInicio.setDate(dInicio.getDate()-dias);
+  }
+
+  const vendasMap={},fatMap={};
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];const sit=(r[I.SIT]||'').toLowerCase().trim();const dat=(r[I.DATA]||'').trim();
     const idP=(r[I.IDPROD]||'').trim();if(!VALIDAS.has(sit)||!idP)continue;
     const p=dat.split('/');if(p.length<3)continue;
-    const dItem=new Date(+p[2],+p[0]-1,+p[1]);if(dItem<dInicio)continue;
+    const dItem=new Date(+p[2],+p[0]-1,+p[1]);
+    if(dItem<dInicio||dItem>dFim)continue;
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vunit=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     vendasMap[idP]=(vendasMap[idP]||0)+qtd;
+    fatMap[idP]=(fatMap[idP]||0)+(qtd*vunit);
   }
 
   let prods=Object.entries(prodMap).map(([id,p])=>{
@@ -1968,24 +2017,27 @@ function renderEst(){
     const prev=Math.max(0,est-mediaDia*dias);
     const nome=nomeMap[id]||sku||id;
     const mk=p.marca||marca(nome);
-    return{id,sku,nome,mk,est,vend,falta,prev,estoque:est};
+    const fat=fatMap[id]||0;
+    return{id,sku,nome,mk,est,vend,falta,fat,estoque:est};
   }).filter(Boolean);
 
   if(filtM)prods=prods.filter(p=>p.mk===filtM);
   if(filtS)prods=prods.filter(p=>p.sku.toLowerCase().includes(filtS)||p.nome.toLowerCase().includes(filtS));
   if(sNeg)prods=prods.filter(p=>p.falta>0);
-  if(sZero)prods=prods.filter(p=>p.prev===0);
-  if(minPrev>0)prods=prods.filter(p=>p.prev<minPrev&&(p.est>0||p.vend>0));
+  if(sZero)prods=prods.filter(p=>p.fat===0);
+  if(minPrev>0)prods=prods.filter(p=>p.fat<minPrev&&(p.est>0||p.vend>0));
 
   // Ordenação dinâmica — suporta strings A-Z e números
   const _oc=window._estOrdCampo||'falta';
-  const _od=window._estOrdDir||-1;
+  const _od=window._estOrdDir||((_oc==='falta')?1:-1);
   const _strCols=new Set(['sku','nome','mk']);
   prods.sort((a,b)=>{
     if(_strCols.has(_oc)){const va=(a[_oc]||'').toLowerCase(),vb=(b[_oc]||'').toLowerCase();return _od*(va<vb?-1:va>vb?1:0);}
     return _od*((b[_oc]||0)-(a[_oc]||0));
   });
   const lista=prods.filter(p=>p.est>0||p.vend>0);
+  window._estListaFiltrada=lista; // para exportação
+  window._estDias=dias;
 
   document.getElementById('eStatus').textContent=`${lista.length} produtos | ${dias} dias`;
 
@@ -1998,16 +2050,17 @@ function renderEst(){
       ${estTH('Produto','nome','')}
       ${estTH('Marca','mk','')}
       ${estTH('Estoque','estoque','var(--or)')}
-      ${estTH(`Vendas (${dias}d)`,'vend','')}
       ${estTH('Falta','falta','var(--re)')}
-      ${estTH(`Prev. ${dias}d`,'prev','#7C3AED')}
+      ${estTH(`Vendas (${dias}d)`,'vend','')}
+      ${estTH(`Fat. (${dias}d)`,'fat','#7C3AED')}
     </tr></thead><tbody>`;
 
   for(const p of lista){
-    const faltaC=p.falta<=0?'var(--gr)':p.falta<=5?'var(--or)':'var(--re)';
-    const faltaT=p.falta>0?`+${p.falta.toFixed(0)}`:p.falta<0?p.falta.toFixed(0):'0';
-    const prevC=p.prev===0?'var(--re)':p.prev<5?'var(--or)':p.prev<10?'#D97706':'#7C3AED';
-    const prevI=p.prev===0?'🔴':p.prev<5?'🟠':p.prev<10?'🟡':'🟢';
+    // Exibição: negativo = falta repor (vermelho), positivo = sobra (verde)
+    const _faltaDisp=-p.falta; // inverte: sobra fica +, falta fica -
+    const faltaC=_faltaDisp>=0?'var(--gr)':_faltaDisp>=-5?'var(--or)':'var(--re)';
+    const faltaT=_faltaDisp>0?'+'+_faltaDisp.toFixed(0):_faltaDisp<0?_faltaDisp.toFixed(0):'0';
+    const fatC='#7C3AED';
     const rowBg=p.falta>0?'background:rgba(220,38,38,.03);':'';
     const tdc=(v,c,al)=>`<td style="padding:5px 10px;text-align:${al||'center'};font-weight:700;color:${c||'var(--tx)'}">${v}</td>`;
     h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
@@ -2015,9 +2068,9 @@ function renderEst(){
       ${tdc(p.nome.substring(0,65),'','left')}
       ${tdc(p.mk||'—')}
       ${tdc(p.est.toFixed(0))}
-      ${tdc(p.vend.toFixed(0),'var(--mu)')}
       ${tdc(faltaT,faltaC)}
-      ${tdc(`${prevI} ${p.prev.toFixed(0)}`,prevC)}
+      ${tdc(p.vend.toFixed(0),'var(--mu)')}
+      ${tdc(p.fat>0?'R$ '+p.fat.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):'—',fatC)}
     </tr>`;
   }
   h+=`</tbody></table>`;
@@ -2239,7 +2292,8 @@ async function loadMetas(){
       const id=(r[C.ID]||'').trim();
       const sit=(r[C.SIT]||'').toLowerCase().trim();
       const dat=(r[C.DATA]||'').trim();
-      if(!id||!VALIDAS.has(sit)||!dat) continue;
+      const _cnFD=canal(r[C.ENOME],r[C.ENUM]);
+      if(!id||!validSit(sit,_cnFD)||!dat) continue;
       const pp=dat.split('/');if(pp.length<3)continue;
       const d=new Date(+pp[2],+pp[0]-1,+pp[1]);
       if(d.getMonth()!==now.getMonth()||d.getFullYear()!==now.getFullYear())continue;
@@ -2402,7 +2456,8 @@ function renderMetasCanal(dias, metas, pRows){
     const id=(r[C.ID]||'').trim();
     const sit=(r[C.SIT]||'').toLowerCase().trim();
     const dat=(r[C.DATA]||'').trim();
-    if(!id||!VALIDAS.has(sit)||!dat||idsSeen.has(id))continue;
+    const _cnVG=canal(r[C.ENOME],r[C.ENUM]);
+    if(!id||!validSit(sit,_cnVG)||!dat||idsSeen.has(id))continue;
     idsSeen.add(id);
     const pp=dat.split('/');if(pp.length<3)continue;
     const now2=new Date(); const d2=new Date(+pp[2],+pp[0]-1,+pp[1]);
@@ -2516,7 +2571,8 @@ function processarVG(pRows, iRows, ymdI, ymdF){
     const id=(r[C.ID]||'').trim();
     const sit=(r[C.SIT]||'').toLowerCase().trim();
     const dat=(r[C.DATA]||'').trim();
-    if(!id||!VALIDAS.has(sit))continue;
+    const _cnPM=canal(r[C.ENOME],r[C.ENUM]);
+    if(!id||!validSit(sit,_cnPM))continue;
     const ymd=toYMD(dat);
     if(ymd<ymdI||ymd>ymdF)continue;
     pedMap[id]=canalKeyVG(r[C.ENOME],r[C.ENUM]);
@@ -3090,7 +3146,7 @@ function processarML(pRows,iRows){
     const idPed=(r[0]||'').trim();
     if(!pedML[idPed])continue;
     const sit=(r[I.SIT]||'').toLowerCase().trim();
-    if(!VALIDAS.has(sit))continue;
+    if(!VALIDAS_ML.has(sit))continue; // ML inclui 'em aberto'
     const dat=(r[I.DATA]||'').trim();
     const sku=(r[1]||'').trim();
     if(skuExcluido(sku))continue; // exclui SKUs proibidos
@@ -3682,7 +3738,8 @@ function comGetDados(){
     for(var i=1;i<pRows.length;i++){
       var r=pRows[i];
       var rid=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
-      if(!rid||!VALIDAS.has(sit)||ids[rid]) continue;
+      var _cnC=canal(r[C.ENOME],r[C.ENUM]);
+      if(!rid||!validSit(sit,_cnC)||ids[rid]) continue;
       if(!isMes(dat)) continue;
       ids[rid]=1;
       var cn=canal(r[C.ENOME],r[C.ENUM]);
@@ -3697,7 +3754,8 @@ function comGetDados(){
     for(var i=1;i<pRows.length;i++){
       var r=pRows[i];
       var rid=(r[C.ID]||'').trim(),sit=(r[C.SIT]||'').toLowerCase().trim(),dat=(r[C.DATA]||'').trim();
-      if(!rid||!VALIDAS.has(sit)||idsH[rid]) continue;
+      var _cnH=canal(r[C.ENOME],r[C.ENUM]);
+      if(!rid||!validSit(sit,_cnH)||idsH[rid]) continue;
       var pp = dat.split('/');
       if(pp.length<3 || parseInt(pp[0])!==mesH || parseInt(pp[2])!==anoH) continue;
       idsH[rid]=1;
@@ -3844,6 +3902,76 @@ function renderComissao(){
   }).join('');
 
   wrap.innerHTML = out;
+}
+
+// ── ESTOQUE: modo personalizado + exportação ─────────────────
+function estModoChange(){
+  var sel=document.getElementById('eDias');
+  var wrap=document.getElementById('estCustomWrap');
+  if(!sel||!wrap) return;
+  if(sel.value==='0'){
+    wrap.style.display='flex';
+    // Preencher datas padrão: início do mês até hoje
+    var hoje=new Date();
+    var iniDef=hoje.getFullYear()+'-'+(hoje.getMonth()+1).toString().padStart(2,'0')+'-01';
+    var fimDef=hoje.getFullYear()+'-'+(hoje.getMonth()+1).toString().padStart(2,'0')+'-'+hoje.getDate().toString().padStart(2,'0');
+    if(!document.getElementById('eIni').value) document.getElementById('eIni').value=iniDef;
+    if(!document.getElementById('eFim').value) document.getElementById('eFim').value=fimDef;
+  } else {
+    wrap.style.display='none';
+  }
+  renderEst();
+}
+
+function estExportarExcel(){
+  var lista=window._estListaFiltrada||[];
+  var dias=window._estDias||30;
+  if(!lista.length){alert('Nenhum dado para exportar.');return;}
+
+  // Cabeçalho
+  var linhas=[['SKU','Produto','Marca','Estoque Atual','Necessidade','Vendas ('+dias+'d)','Faturamento ('+dias+'d)']];
+
+  lista.forEach(function(p){
+    linhas.push([
+      p.sku,
+      p.nome,
+      p.mk||'',
+      p.est,
+      p.falta<0?(-p.falta):0, // falta repor (positivo na planilha)
+      p.vend,
+      p.fat>0?p.fat.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):''
+    ]);
+  });
+
+  // Gerar CSV com BOM UTF-8 para Excel reconhecer acentos
+  var csv='\uFEFF';
+  linhas.forEach(function(row){
+    csv+=row.map(function(c){
+      var s=String(c===null||c===undefined?'':c);
+      if(s.includes(';')||s.includes('"')||s.includes('\n')) s='"'+s.replace(/"/g,'""')+'"';
+      return s;
+    }).join(';')+'\r\n';
+  });
+
+  // Montar nome do arquivo com filtros aplicados
+  var filtM=document.getElementById('eMarca').value||'';
+  var filtS=(document.getElementById('eSku').value||'').trim();
+  var diasSel=document.getElementById('eDias').value;
+  var sufixo='';
+  if(filtM) sufixo+='_'+filtM;
+  if(filtS) sufixo+='_'+filtS;
+
+  var dtHoje=new Date();
+  var dtStr=dtHoje.getFullYear()+'-'+(dtHoje.getMonth()+1).toString().padStart(2,'0')+'-'+dtHoje.getDate().toString().padStart(2,'0');
+  var nomeArq='estoque_sanbox_'+dtStr+sufixo+'.csv';
+
+  var blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;a.download=nomeArq;
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 </script>
