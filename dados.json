@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-05-30T07:40:17.947Z",
-  "gerado_em_br": "30/05/2026, 04:40:18",
+  "gerado_em": "2026-05-30T09:59:03.483Z",
+  "gerado_em_br": "30/05/2026, 06:59:03",
   "dia_referencia": "30/05/2026",
   "dia_ontem": "29/05/2026",
   "resumo_dia": {
-    "faturamento": 201663,
-    "pedidos": 3,
-    "ticket_medio": 67221,
+    "faturamento": 204342,
+    "pedidos": 4,
+    "ticket_medio": 51085.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9999,
-        "pedidos": 1,
+        "faturamento": 12678,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "5/2026",
-    "faturamento": 297079646,
-    "pedidos": 4299,
+    "faturamento": 297082325,
+    "pedidos": 4300,
     "meta_mensal": 5999999.12,
-    "pct_meta": 4951.3,
-    "projecao_final": 306982300.87,
+    "pct_meta": 4951.4,
+    "projecao_final": 306985069.17,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 36610582,
-        "pedidos": 1879
+        "faturamento": 36613261,
+        "pedidos": 1880
       },
       "Casas Bahia": {
         "faturamento": 105946296,
@@ -114,6 +114,19 @@
       }
     },
     {
+      "sku": "TI673",
+      "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
+      "qtd": 253,
+      "fat": 2457464,
+      "canais": {
+        "Mercado Livre": 212,
+        "Casas Bahia": 35,
+        "Magazine Luiza": 3,
+        "Amazon Fulfillment": 1,
+        "Amazon": 2
+      }
+    },
+    {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
       "qtd": 253,
@@ -125,19 +138,6 @@
         "Amazon": 30,
         "Casas Bahia": 91,
         "Outros": 3
-      }
-    },
-    {
-      "sku": "TI673",
-      "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 252,
-      "fat": 2454785,
-      "canais": {
-        "Mercado Livre": 211,
-        "Casas Bahia": 35,
-        "Magazine Luiza": 3,
-        "Amazon Fulfillment": 1,
-        "Amazon": 2
       }
     },
     {
@@ -490,10 +490,10 @@
   ],
   "historico_por_dia": {
     "30/05/2026": {
-      "fat": 201663,
-      "peds": 3,
+      "fat": 204342,
+      "peds": 4,
       "canais": {
-        "Mercado Livre": 9999,
+        "Mercado Livre": 12678,
         "Casas Bahia": 0,
         "Magazine Luiza": 191664,
         "Shopee": 0,
