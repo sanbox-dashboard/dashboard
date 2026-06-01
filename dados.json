@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-01T06:00:33.560Z",
-  "gerado_em_br": "01/06/2026, 03:00:33",
+  "gerado_em": "2026-06-01T12:34:55.554Z",
+  "gerado_em_br": "01/06/2026, 09:34:55",
   "dia_referencia": "01/06/2026",
   "dia_ontem": "31/05/2026",
   "resumo_dia": {
-    "faturamento": 174645,
-    "pedidos": 1,
-    "ticket_medio": 174645,
+    "faturamento": 280925,
+    "pedidos": 3,
+    "ticket_medio": 93641.67,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 3239,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 103041,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 174645,
-    "pedidos": 1,
-    "meta_mensal": 5999999.12,
-    "pct_meta": 2.9,
-    "projecao_final": 5239350,
+    "faturamento": 280925,
+    "pedidos": 3,
+    "meta_mensal": 6000000.03,
+    "pct_meta": 4.7,
+    "projecao_final": 8427750,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0
+        "faturamento": 3239,
+        "pedidos": 1
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -77,8 +77,8 @@
         "pedidos": 0
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0
+        "faturamento": 103041,
+        "pedidos": 1
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -103,10 +103,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 323,
-      "fat": 8446167,
+      "qtd": 322,
+      "fat": 8430598,
       "canais": {
-        "Mercado Livre": 152,
+        "Mercado Livre": 151,
         "Casas Bahia": 62,
         "Magazine Luiza": 43,
         "Amazon": 56,
@@ -158,10 +158,10 @@
     {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 241,
-      "fat": 2252345,
+      "qtd": 240,
+      "fat": 2225176,
       "canais": {
-        "Mercado Livre": 206,
+        "Mercado Livre": 205,
         "Casas Bahia": 29,
         "Magazine Luiza": 3,
         "Amazon Fulfillment": 1,
@@ -185,11 +185,11 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 180,
-      "fat": 608105,
+      "qtd": 179,
+      "fat": 604774,
       "canais": {
         "Casas Bahia": 32,
-        "Mercado Livre": 132,
+        "Mercado Livre": 131,
         "Magazine Luiza": 8,
         "Shopee": 4,
         "Outros": 1,
@@ -491,14 +491,14 @@
   ],
   "historico_por_dia": {
     "01/06/2026": {
-      "fat": 174645,
-      "peds": 1,
+      "fat": 280925,
+      "peds": 3,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 3239,
         "Casas Bahia": 0,
         "Magazine Luiza": 174645,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 103041,
         "Amazon Fulfillment": 0
       }
     },
@@ -599,10 +599,10 @@
       }
     },
     "23/05/2026": {
-      "fat": 11455044,
-      "peds": 155,
+      "fat": 11439475,
+      "peds": 154,
       "canais": {
-        "Mercado Livre": 1170348,
+        "Mercado Livre": 1154779,
         "Casas Bahia": 5248360,
         "Magazine Luiza": 2595033,
         "Shopee": 995921,
@@ -791,10 +791,10 @@
       }
     },
     "07/05/2026": {
-      "fat": 7547427,
-      "peds": 127,
+      "fat": 7547122,
+      "peds": 126,
       "canais": {
-        "Mercado Livre": 730596,
+        "Mercado Livre": 730291,
         "Casas Bahia": 2603657,
         "Magazine Luiza": 1860740,
         "Shopee": 739246,
@@ -2991,10 +2991,30 @@
     "740397930": 0,
     "740397933": 127,
     "740397936": 0,
-    "740419494": 1
+    "740419494": 1,
+    "740505878": 0,
+    "740505881": 0,
+    "740505884": 0,
+    "740505891": 0,
+    "740505894": 0,
+    "740505897": 0,
+    "740505902": 0,
+    "740505905": 0,
+    "740505908": 0,
+    "740505919": 0,
+    "740505922": 0,
+    "740505925": 0,
+    "740505938": 0,
+    "740505941": 0,
+    "740505944": 0,
+    "740505949": 0,
+    "740505952": 0,
+    "740505955": 0,
+    "740505965": 0,
+    "740505967": 0
   },
   "metas": {
-    "mensal": 5999999.12,
+    "mensal": 6000000.03,
     "por_dia": {
       "04/01/2026": {
         "Mercado Livre": 109015.41,
@@ -3483,6 +3503,246 @@
         "Shopee": 24100.84,
         "Amazon": 38561.34,
         "total": 241008.39
+      },
+      "06/01/2026": {
+        "Mercado Livre": 113376.44,
+        "Casas Bahia": 51534.75,
+        "Magazine Luiza": 29632.48,
+        "Shopee": 21902.27,
+        "Amazon": 41227.8,
+        "total": 257673.74
+      },
+      "06/02/2026": {
+        "Mercado Livre": 115712.35,
+        "Casas Bahia": 52596.52,
+        "Magazine Luiza": 30243,
+        "Shopee": 22353.52,
+        "Amazon": 42077.22,
+        "total": 262982.61
+      },
+      "06/03/2026": {
+        "Mercado Livre": 106455.36,
+        "Casas Bahia": 48388.8,
+        "Magazine Luiza": 27823.56,
+        "Shopee": 20565.24,
+        "Amazon": 38711.04,
+        "total": 241944
+      },
+      "06/04/2026": {
+        "Mercado Livre": 47986.59,
+        "Casas Bahia": 21812.09,
+        "Magazine Luiza": 12541.95,
+        "Shopee": 9270.14,
+        "Amazon": 17449.67,
+        "total": 109060.44
+      },
+      "06/05/2026": {
+        "Mercado Livre": 53537.07,
+        "Casas Bahia": 24335.03,
+        "Magazine Luiza": 13992.64,
+        "Shopee": 10342.39,
+        "Amazon": 19468.03,
+        "total": 121675.16
+      },
+      "06/06/2026": {
+        "Mercado Livre": 61695.72,
+        "Casas Bahia": 28043.51,
+        "Magazine Luiza": 16125.02,
+        "Shopee": 11918.49,
+        "Amazon": 22434.81,
+        "total": 140217.55
+      },
+      "06/07/2026": {
+        "Mercado Livre": 68836.47,
+        "Casas Bahia": 31289.3,
+        "Magazine Luiza": 17991.35,
+        "Shopee": 13297.95,
+        "Amazon": 25031.44,
+        "total": 156446.51
+      },
+      "06/08/2026": {
+        "Mercado Livre": 106425.61,
+        "Casas Bahia": 48375.28,
+        "Magazine Luiza": 27815.78,
+        "Shopee": 20559.49,
+        "Amazon": 38700.22,
+        "total": 241876.38
+      },
+      "06/09/2026": {
+        "Mercado Livre": 114594.91,
+        "Casas Bahia": 52088.6,
+        "Magazine Luiza": 29950.94,
+        "Shopee": 22137.65,
+        "Amazon": 41670.88,
+        "total": 260442.98
+      },
+      "06/10/2026": {
+        "Mercado Livre": 105427.32,
+        "Casas Bahia": 47921.51,
+        "Magazine Luiza": 27554.87,
+        "Shopee": 20366.64,
+        "Amazon": 38337.21,
+        "total": 239607.55
+      },
+      "06/11/2026": {
+        "Mercado Livre": 90520.35,
+        "Casas Bahia": 41145.61,
+        "Magazine Luiza": 23658.73,
+        "Shopee": 17486.89,
+        "Amazon": 32916.49,
+        "total": 205728.07
+      },
+      "06/12/2026": {
+        "Mercado Livre": 79349.75,
+        "Casas Bahia": 36068.07,
+        "Magazine Luiza": 20739.14,
+        "Shopee": 15328.93,
+        "Amazon": 28854.46,
+        "total": 180340.35
+      },
+      "06/13/2026": {
+        "Mercado Livre": 75305.23,
+        "Casas Bahia": 34229.65,
+        "Magazine Luiza": 19682.05,
+        "Shopee": 14547.6,
+        "Amazon": 27383.72,
+        "total": 171148.25
+      },
+      "06/14/2026": {
+        "Mercado Livre": 75176.83,
+        "Casas Bahia": 34171.29,
+        "Magazine Luiza": 19648.49,
+        "Shopee": 14522.8,
+        "Amazon": 27337.03,
+        "total": 170856.44
+      },
+      "06/15/2026": {
+        "Mercado Livre": 108270.63,
+        "Casas Bahia": 49213.92,
+        "Magazine Luiza": 28298,
+        "Shopee": 20915.92,
+        "Amazon": 39371.14,
+        "total": 246069.61
+      },
+      "06/16/2026": {
+        "Mercado Livre": 105478.55,
+        "Casas Bahia": 47944.79,
+        "Magazine Luiza": 27568.26,
+        "Shopee": 20376.54,
+        "Amazon": 38355.84,
+        "total": 239723.98
+      },
+      "06/17/2026": {
+        "Mercado Livre": 97040.26,
+        "Casas Bahia": 44109.21,
+        "Magazine Luiza": 25362.8,
+        "Shopee": 18746.41,
+        "Amazon": 35287.37,
+        "total": 220546.05
+      },
+      "06/18/2026": {
+        "Mercado Livre": 87485.15,
+        "Casas Bahia": 39765.98,
+        "Magazine Luiza": 22865.44,
+        "Shopee": 16900.54,
+        "Amazon": 31812.78,
+        "total": 198829.89
+      },
+      "06/19/2026": {
+        "Mercado Livre": 76689.11,
+        "Casas Bahia": 34858.69,
+        "Magazine Luiza": 20043.74,
+        "Shopee": 14814.94,
+        "Amazon": 27886.95,
+        "total": 174293.43
+      },
+      "06/20/2026": {
+        "Mercado Livre": 72780.2,
+        "Casas Bahia": 33081.91,
+        "Magazine Luiza": 19022.1,
+        "Shopee": 14059.81,
+        "Amazon": 26465.53,
+        "total": 165409.55
+      },
+      "06/21/2026": {
+        "Mercado Livre": 72656.11,
+        "Casas Bahia": 33025.5,
+        "Magazine Luiza": 18989.66,
+        "Shopee": 14035.84,
+        "Amazon": 26420.4,
+        "total": 165127.51
+      },
+      "06/22/2026": {
+        "Mercado Livre": 105967,
+        "Casas Bahia": 48166.82,
+        "Magazine Luiza": 27695.92,
+        "Shopee": 20470.9,
+        "Amazon": 38533.45,
+        "total": 240834.09
+      },
+      "06/23/2026": {
+        "Mercado Livre": 103234.32,
+        "Casas Bahia": 46924.69,
+        "Magazine Luiza": 26981.7,
+        "Shopee": 19942.99,
+        "Amazon": 37539.75,
+        "total": 234623.45
+      },
+      "06/24/2026": {
+        "Mercado Livre": 94975.58,
+        "Casas Bahia": 43170.72,
+        "Magazine Luiza": 24823.16,
+        "Shopee": 18347.55,
+        "Amazon": 34536.57,
+        "total": 215853.58
+      },
+      "06/25/2026": {
+        "Mercado Livre": 85623.76,
+        "Casas Bahia": 38919.89,
+        "Magazine Luiza": 22378.94,
+        "Shopee": 16540.95,
+        "Amazon": 31135.91,
+        "total": 194599.45
+      },
+      "06/26/2026": {
+        "Mercado Livre": 75057.43,
+        "Casas Bahia": 34117.01,
+        "Magazine Luiza": 19617.28,
+        "Shopee": 14499.73,
+        "Amazon": 27293.61,
+        "total": 170585.06
+      },
+      "06/27/2026": {
+        "Mercado Livre": 71231.68,
+        "Casas Bahia": 32378.04,
+        "Magazine Luiza": 18617.37,
+        "Shopee": 13760.67,
+        "Amazon": 25902.43,
+        "total": 161890.19
+      },
+      "06/28/2026": {
+        "Mercado Livre": 71110.23,
+        "Casas Bahia": 32322.83,
+        "Magazine Luiza": 18585.63,
+        "Shopee": 13737.2,
+        "Amazon": 25858.27,
+        "total": 161614.16
+      },
+      "06/29/2026": {
+        "Mercado Livre": 100293.18,
+        "Casas Bahia": 45587.81,
+        "Magazine Luiza": 26212.99,
+        "Shopee": 19374.82,
+        "Amazon": 36470.25,
+        "total": 227939.05
+      },
+      "06/30/2026": {
+        "Mercado Livre": 97706.82,
+        "Casas Bahia": 44412.19,
+        "Magazine Luiza": 25537.01,
+        "Shopee": 18875.18,
+        "Amazon": 35529.75,
+        "total": 222060.95
       }
     }
   }
