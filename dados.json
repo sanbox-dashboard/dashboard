@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-02T08:27:47.713Z",
-  "gerado_em_br": "02/06/2026, 05:27:47",
+  "gerado_em": "2026-06-02T12:39:56.439Z",
+  "gerado_em_br": "02/06/2026, 09:39:56",
   "dia_referencia": "02/06/2026",
   "dia_ontem": "01/06/2026",
   "resumo_dia": {
-    "faturamento": 1023815,
-    "pedidos": 10,
-    "ticket_medio": 102381.5,
+    "faturamento": 1451142,
+    "pedidos": 19,
+    "ticket_medio": 76375.89,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 71326,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 196993,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 202430,
-        "pedidos": 4,
+        "faturamento": 361438,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 9566960,
-    "pedidos": 140
+    "faturamento": 9656839,
+    "pedidos": 141
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 10590775,
-    "pedidos": 150,
+    "faturamento": 11107981,
+    "pedidos": 160,
     "meta_mensal": 6000000.03,
-    "pct_meta": 176.5,
-    "projecao_final": 158861625,
+    "pct_meta": 185.1,
+    "projecao_final": 166619715,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1191028,
-        "pedidos": 51
+        "faturamento": 1262354,
+        "pedidos": 55
       },
       "Casas Bahia": {
         "faturamento": 2403734,
@@ -73,12 +73,12 @@
         "pedidos": 24
       },
       "Shopee": {
-        "faturamento": 467637,
-        "pedidos": 6
+        "faturamento": 754509,
+        "pedidos": 9
       },
       "Amazon": {
-        "faturamento": 3553187,
-        "pedidos": 45
+        "faturamento": 3712195,
+        "pedidos": 48
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 367,
-      "fat": 13006948,
+      "qtd": 368,
+      "fat": 13023477,
       "canais": {
-        "Amazon": 100,
+        "Amazon": 101,
         "Casas Bahia": 58,
         "Mercado Livre": 184,
         "Magazine Luiza": 23,
@@ -103,14 +103,14 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 330,
-      "fat": 8432133,
+      "qtd": 332,
+      "fat": 8461096,
       "canais": {
+        "Amazon": 57,
+        "Mercado Livre": 154,
         "Magazine Luiza": 45,
         "Shopee": 11,
-        "Casas Bahia": 65,
-        "Mercado Livre": 153,
-        "Amazon": 56
+        "Casas Bahia": 65
       }
     },
     {
@@ -128,6 +128,20 @@
       }
     },
     {
+      "sku": "TI1571",
+      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
+      "qtd": 258,
+      "fat": 4904181,
+      "canais": {
+        "Shopee": 67,
+        "Casas Bahia": 84,
+        "Amazon": 33,
+        "Mercado Livre": 59,
+        "Magazine Luiza": 12,
+        "Outros": 3
+      }
+    },
+    {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
       "qtd": 257,
@@ -142,26 +156,12 @@
       }
     },
     {
-      "sku": "TI1571",
-      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 257,
-      "fat": 4895982,
-      "canais": {
-        "Casas Bahia": 84,
-        "Amazon": 33,
-        "Shopee": 66,
-        "Mercado Livre": 59,
-        "Magazine Luiza": 12,
-        "Outros": 3
-      }
-    },
-    {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 235,
-      "fat": 2308376,
+      "qtd": 236,
+      "fat": 2334165,
       "canais": {
-        "Mercado Livre": 203,
+        "Mercado Livre": 204,
         "Casas Bahia": 27,
         "Magazine Luiza": 3,
         "Amazon Fulfillment": 1,
@@ -362,11 +362,11 @@
     {
       "sku": "TI1457",
       "desc": "Fogao a Gas Itatiaia Itaglass Plus 4 Bocas Forno 48 litros Pto-Bivolt",
-      "qtd": 53,
-      "fat": 454316,
+      "qtd": 54,
+      "fat": 464415,
       "canais": {
         "Amazon": 44,
-        "Shopee": 7,
+        "Shopee": 8,
         "Magazine Luiza": 2
       }
     },
@@ -488,25 +488,25 @@
   ],
   "historico_por_dia": {
     "02/06/2026": {
-      "fat": 1023815,
-      "peds": 10,
+      "fat": 1451142,
+      "peds": 19,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 71326,
         "Casas Bahia": 0,
         "Magazine Luiza": 821385,
-        "Shopee": 0,
-        "Amazon": 202430,
+        "Shopee": 196993,
+        "Amazon": 361438,
         "Amazon Fulfillment": 0
       }
     },
     "01/06/2026": {
-      "fat": 9566960,
-      "peds": 140,
+      "fat": 9656839,
+      "peds": 141,
       "canais": {
         "Mercado Livre": 1191028,
         "Casas Bahia": 2403734,
         "Magazine Luiza": 2137440,
-        "Shopee": 467637,
+        "Shopee": 557516,
         "Amazon": 3350757,
         "Amazon Fulfillment": 15999
       }
@@ -2804,7 +2804,7 @@
     "739081085": 1,
     "739081088": 0,
     "739091650": 54,
-    "739126334": 164,
+    "739126334": 163,
     "739148458": 0,
     "739166140": 0,
     "739244163": 0,
