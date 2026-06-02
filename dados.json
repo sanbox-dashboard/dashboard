@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-02T03:43:30.864Z",
-  "gerado_em_br": "02/06/2026, 00:43:30",
+  "gerado_em": "2026-06-02T08:27:47.713Z",
+  "gerado_em_br": "02/06/2026, 05:27:47",
   "dia_referencia": "02/06/2026",
   "dia_ontem": "01/06/2026",
   "resumo_dia": {
-    "faturamento": 814405,
-    "pedidos": 6,
-    "ticket_medio": 135734.17,
+    "faturamento": 1023815,
+    "pedidos": 10,
+    "ticket_medio": 102381.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 743447,
-        "pedidos": 5,
+        "faturamento": 821385,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 70958,
-        "pedidos": 1,
+        "faturamento": 202430,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 10381365,
-    "pedidos": 146,
+    "faturamento": 10590775,
+    "pedidos": 150,
     "meta_mensal": 6000000.03,
-    "pct_meta": 173,
-    "projecao_final": 155720475,
+    "pct_meta": 176.5,
+    "projecao_final": 158861625,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 1191028,
@@ -69,16 +69,16 @@
         "pedidos": 22
       },
       "Magazine Luiza": {
-        "faturamento": 2880887,
-        "pedidos": 23
+        "faturamento": 2958825,
+        "pedidos": 24
       },
       "Shopee": {
         "faturamento": 467637,
         "pedidos": 6
       },
       "Amazon": {
-        "faturamento": 3421715,
-        "pedidos": 42
+        "faturamento": 3553187,
+        "pedidos": 45
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 366,
-      "fat": 12990419,
+      "qtd": 367,
+      "fat": 13006948,
       "canais": {
-        "Amazon": 99,
+        "Amazon": 100,
         "Casas Bahia": 58,
         "Mercado Livre": 184,
         "Magazine Luiza": 23,
@@ -128,6 +128,20 @@
       }
     },
     {
+      "sku": "TI1562",
+      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
+      "qtd": 257,
+      "fat": 8243911,
+      "canais": {
+        "Amazon": 63,
+        "Magazine Luiza": 41,
+        "Mercado Livre": 54,
+        "Casas Bahia": 83,
+        "Shopee": 11,
+        "Outros": 5
+      }
+    },
+    {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
       "qtd": 257,
@@ -139,20 +153,6 @@
         "Mercado Livre": 59,
         "Magazine Luiza": 12,
         "Outros": 3
-      }
-    },
-    {
-      "sku": "TI1562",
-      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 256,
-      "fat": 8227952,
-      "canais": {
-        "Magazine Luiza": 41,
-        "Amazon": 62,
-        "Mercado Livre": 54,
-        "Casas Bahia": 83,
-        "Shopee": 11,
-        "Outros": 5
       }
     },
     {
@@ -199,14 +199,14 @@
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 153,
-      "fat": 1764450,
+      "qtd": 154,
+      "fat": 1773549,
       "canais": {
+        "Amazon": 5,
         "Mercado Livre": 55,
         "Magazine Luiza": 58,
         "Shopee": 20,
         "Casas Bahia": 10,
-        "Amazon": 4,
         "Outros": 2,
         "Amazon Fulfillment": 4
       }
@@ -460,6 +460,19 @@
       }
     },
     {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 43,
+      "fat": 361549,
+      "canais": {
+        "Magazine Luiza": 4,
+        "Shopee": 22,
+        "Amazon": 5,
+        "Mercado Livre": 8,
+        "Casas Bahia": 4
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 43,
@@ -471,31 +484,18 @@
         "Casas Bahia": 4,
         "Outros": 2
       }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 42,
-      "fat": 354320,
-      "canais": {
-        "Shopee": 22,
-        "Amazon": 5,
-        "Mercado Livre": 8,
-        "Casas Bahia": 4,
-        "Magazine Luiza": 3
-      }
     }
   ],
   "historico_por_dia": {
     "02/06/2026": {
-      "fat": 814405,
-      "peds": 6,
+      "fat": 1023815,
+      "peds": 10,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
-        "Magazine Luiza": 743447,
+        "Magazine Luiza": 821385,
         "Shopee": 0,
-        "Amazon": 70958,
+        "Amazon": 202430,
         "Amazon Fulfillment": 0
       }
     },
