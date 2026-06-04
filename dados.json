@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-04T08:19:14.986Z",
-  "gerado_em_br": "04/06/2026, 05:19:14",
+  "gerado_em": "2026-06-04T11:51:43.911Z",
+  "gerado_em_br": "04/06/2026, 08:51:43",
   "dia_referencia": "04/06/2026",
   "dia_ontem": "03/06/2026",
   "resumo_dia": {
-    "faturamento": 168226,
-    "pedidos": 1,
-    "ticket_medio": 168226,
+    "faturamento": 237822,
+    "pedidos": 3,
+    "ticket_medio": 79274,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 69596,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 13790763,
-    "pedidos": 145
+    "faturamento": 13913957,
+    "pedidos": 151
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 39283410,
-    "pedidos": 483,
+    "faturamento": 39476200,
+    "pedidos": 491,
     "meta_mensal": 6000000.03,
-    "pct_meta": 654.7,
-    "projecao_final": 294625575,
+    "pct_meta": 657.9,
+    "projecao_final": 296071500,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 4695866,
-        "pedidos": 166
+        "faturamento": 4819060,
+        "pedidos": 172
       },
       "Casas Bahia": {
         "faturamento": 10650564,
@@ -73,8 +73,8 @@
         "pedidos": 53
       },
       "Shopee": {
-        "faturamento": 5282784,
-        "pedidos": 54
+        "faturamento": 5352380,
+        "pedidos": 56
       },
       "Amazon": {
         "faturamento": 11029332,
@@ -90,14 +90,14 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 381,
-      "fat": 13451391,
+      "qtd": 382,
+      "fat": 13469390,
       "canais": {
+        "Shopee": 3,
         "Amazon": 104,
         "Mercado Livre": 190,
         "Casas Bahia": 64,
-        "Magazine Luiza": 21,
-        "Shopee": 2
+        "Magazine Luiza": 21
       }
     },
     {
@@ -144,13 +144,13 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 256,
-      "fat": 7971748,
+      "qtd": 257,
+      "fat": 7989987,
       "canais": {
         "Magazine Luiza": 44,
+        "Mercado Livre": 56,
         "Casas Bahia": 80,
         "Amazon": 61,
-        "Mercado Livre": 55,
         "Shopee": 11,
         "Outros": 5
       }
@@ -158,11 +158,11 @@
     {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 218,
-      "fat": 2224049,
+      "qtd": 219,
+      "fat": 2255725,
       "canais": {
+        "Mercado Livre": 189,
         "Casas Bahia": 26,
-        "Mercado Livre": 188,
         "Magazine Luiza": 3,
         "Amazon Fulfillment": 1
       }
@@ -185,10 +185,10 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 141,
-      "fat": 486889,
+      "qtd": 143,
+      "fat": 494811,
       "canais": {
-        "Mercado Livre": 100,
+        "Mercado Livre": 102,
         "Shopee": 3,
         "Magazine Luiza": 10,
         "Casas Bahia": 27,
@@ -211,10 +211,10 @@
     {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
-      "qtd": 94,
-      "fat": 1061942,
+      "qtd": 95,
+      "fat": 1070191,
       "canais": {
-        "Mercado Livre": 67,
+        "Mercado Livre": 68,
         "Casas Bahia": 17,
         "Magazine Luiza": 7,
         "Shopee": 2,
@@ -344,6 +344,19 @@
       }
     },
     {
+      "sku": "TI1565",
+      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
+      "qtd": 56,
+      "fat": 456078,
+      "canais": {
+        "Shopee": 36,
+        "Mercado Livre": 1,
+        "Casas Bahia": 10,
+        "Magazine Luiza": 3,
+        "Amazon": 6
+      }
+    },
+    {
       "sku": "TI1457",
       "desc": "Fogao a Gas Itatiaia Itaglass Plus 4 Bocas Forno 48 litros Pto-Bivolt",
       "qtd": 56,
@@ -352,19 +365,6 @@
         "Amazon": 46,
         "Shopee": 8,
         "Magazine Luiza": 2
-      }
-    },
-    {
-      "sku": "TI1565",
-      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 55,
-      "fat": 450379,
-      "canais": {
-        "Mercado Livre": 1,
-        "Shopee": 35,
-        "Casas Bahia": 10,
-        "Magazine Luiza": 3,
-        "Amazon": 6
       }
     },
     {
@@ -485,22 +485,22 @@
   ],
   "historico_por_dia": {
     "04/06/2026": {
-      "fat": 168226,
-      "peds": 1,
+      "fat": 237822,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 168226,
-        "Shopee": 0,
+        "Shopee": 69596,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "03/06/2026": {
-      "fat": 13790763,
-      "peds": 145,
+      "fat": 13913957,
+      "peds": 151,
       "canais": {
-        "Mercado Livre": 1379447,
+        "Mercado Livre": 1502641,
         "Casas Bahia": 4154767,
         "Magazine Luiza": 1780954,
         "Shopee": 2304735,
