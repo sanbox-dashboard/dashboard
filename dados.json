@@ -1,42 +1,42 @@
 {
-  "gerado_em": "2026-06-04T11:51:43.911Z",
-  "gerado_em_br": "04/06/2026, 08:51:43",
+  "gerado_em": "2026-06-04T14:55:33.009Z",
+  "gerado_em_br": "04/06/2026, 11:55:33",
   "dia_referencia": "04/06/2026",
   "dia_ontem": "03/06/2026",
   "resumo_dia": {
-    "faturamento": 237822,
-    "pedidos": 3,
-    "ticket_medio": 79274,
+    "faturamento": 1342212,
+    "pedidos": 14,
+    "ticket_medio": 95872.29,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
-        "meta": 0,
-        "pct_meta": null
-      },
-      "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
-        "meta": 0,
-        "pct_meta": null
-      },
-      "Magazine Luiza": {
-        "faturamento": 168226,
+        "faturamento": 8399,
         "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
+      "Casas Bahia": {
+        "faturamento": 279032,
+        "pedidos": 3,
+        "meta": 0,
+        "pct_meta": null
+      },
+      "Magazine Luiza": {
+        "faturamento": 797092,
+        "pedidos": 5,
+        "meta": 0,
+        "pct_meta": null
+      },
       "Shopee": {
-        "faturamento": 69596,
-        "pedidos": 2,
+        "faturamento": 157285,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 100404,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 13913957,
-    "pedidos": 151
+    "faturamento": 13984419,
+    "pedidos": 153
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 39476200,
-    "pedidos": 491,
+    "faturamento": 40651052,
+    "pedidos": 504,
     "meta_mensal": 6000000.03,
-    "pct_meta": 657.9,
-    "projecao_final": 296071500,
+    "pct_meta": 677.5,
+    "projecao_final": 304882890,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 4819060,
-        "pedidos": 172
+        "faturamento": 4827459,
+        "pedidos": 173
       },
       "Casas Bahia": {
-        "faturamento": 10650564,
-        "pedidos": 75
+        "faturamento": 10929596,
+        "pedidos": 78
       },
       "Magazine Luiza": {
-        "faturamento": 6916504,
-        "pedidos": 53
+        "faturamento": 7545370,
+        "pedidos": 57
       },
       "Shopee": {
-        "faturamento": 5352380,
-        "pedidos": 56
+        "faturamento": 5493132,
+        "pedidos": 58
       },
       "Amazon": {
-        "faturamento": 11029332,
-        "pedidos": 132
+        "faturamento": 11147135,
+        "pedidos": 135
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 382,
-      "fat": 13469390,
+      "qtd": 383,
+      "fat": 13486789,
       "canais": {
         "Shopee": 3,
-        "Amazon": 104,
+        "Amazon": 105,
         "Mercado Livre": 190,
         "Casas Bahia": 64,
         "Magazine Luiza": 21
@@ -116,11 +116,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 269,
-      "fat": 4620730,
+      "qtd": 270,
+      "fat": 4627889,
       "canais": {
+        "Shopee": 77,
         "Amazon": 37,
-        "Shopee": 76,
         "Magazine Luiza": 13,
         "Casas Bahia": 83,
         "Mercado Livre": 58,
@@ -128,41 +128,41 @@
       }
     },
     {
-      "sku": "TI1524",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 258,
-      "fat": 2732846,
-      "canais": {
-        "Casas Bahia": 7,
-        "Amazon": 23,
-        "Mercado Livre": 89,
-        "Magazine Luiza": 120,
-        "Shopee": 17,
-        "Outros": 2
-      }
-    },
-    {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 257,
-      "fat": 7989987,
+      "qtd": 260,
+      "fat": 8039104,
       "canais": {
-        "Magazine Luiza": 44,
+        "Casas Bahia": 81,
+        "Magazine Luiza": 45,
+        "Amazon": 62,
         "Mercado Livre": 56,
-        "Casas Bahia": 80,
-        "Amazon": 61,
         "Shopee": 11,
         "Outros": 5
       }
     },
     {
+      "sku": "TI1524",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
+      "qtd": 259,
+      "fat": 2742145,
+      "canais": {
+        "Magazine Luiza": 121,
+        "Casas Bahia": 7,
+        "Amazon": 23,
+        "Mercado Livre": 89,
+        "Shopee": 17,
+        "Outros": 2
+      }
+    },
+    {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 219,
-      "fat": 2255725,
+      "qtd": 220,
+      "fat": 2258624,
       "canais": {
+        "Casas Bahia": 27,
         "Mercado Livre": 189,
-        "Casas Bahia": 26,
         "Magazine Luiza": 3,
         "Amazon Fulfillment": 1
       }
@@ -251,13 +251,13 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 83,
-      "fat": 1855876,
+      "qtd": 84,
+      "fat": 1864905,
       "canais": {
+        "Magazine Luiza": 33,
         "Amazon": 14,
         "Shopee": 6,
         "Mercado Livre": 26,
-        "Magazine Luiza": 32,
         "Casas Bahia": 4,
         "Outros": 1
       }
@@ -291,6 +291,20 @@
       }
     },
     {
+      "sku": "SS001",
+      "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
+      "qtd": 72,
+      "fat": 679124,
+      "canais": {
+        "Mercado Livre": 41,
+        "Shopee": 11,
+        "Amazon": 5,
+        "Magazine Luiza": 5,
+        "Casas Bahia": 7,
+        "Amazon Fulfillment": 3
+      }
+    },
+    {
       "sku": "TI1556",
       "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
       "qtd": 72,
@@ -302,20 +316,6 @@
         "Shopee": 1,
         "Magazine Luiza": 2,
         "Amazon Fulfillment": 2
-      }
-    },
-    {
-      "sku": "SS001",
-      "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 71,
-      "fat": 670725,
-      "canais": {
-        "Shopee": 11,
-        "Mercado Livre": 40,
-        "Amazon": 5,
-        "Magazine Luiza": 5,
-        "Casas Bahia": 7,
-        "Amazon Fulfillment": 3
       }
     },
     {
@@ -419,6 +419,18 @@
       }
     },
     {
+      "sku": "TI1564",
+      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
+      "qtd": 45,
+      "fat": 331946,
+      "canais": {
+        "Casas Bahia": 3,
+        "Shopee": 21,
+        "Magazine Luiza": 3,
+        "Mercado Livre": 18
+      }
+    },
+    {
       "sku": "TI1550",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
       "qtd": 45,
@@ -460,18 +472,6 @@
       }
     },
     {
-      "sku": "TI1564",
-      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
-      "qtd": 43,
-      "fat": 319348,
-      "canais": {
-        "Shopee": 20,
-        "Magazine Luiza": 3,
-        "Casas Bahia": 2,
-        "Mercado Livre": 18
-      }
-    },
-    {
       "sku": "TI1461",
       "desc": "Fogao a Gas Itatiaia Star New 5 Bocas Mesa Inox Forno 82 Litros -Preto",
       "qtd": 41,
@@ -485,26 +485,26 @@
   ],
   "historico_por_dia": {
     "04/06/2026": {
-      "fat": 237822,
-      "peds": 3,
+      "fat": 1342212,
+      "peds": 14,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 0,
-        "Magazine Luiza": 168226,
-        "Shopee": 69596,
-        "Amazon": 0,
+        "Mercado Livre": 8399,
+        "Casas Bahia": 279032,
+        "Magazine Luiza": 797092,
+        "Shopee": 157285,
+        "Amazon": 100404,
         "Amazon Fulfillment": 0
       }
     },
     "03/06/2026": {
-      "fat": 13913957,
-      "peds": 151,
+      "fat": 13984419,
+      "peds": 153,
       "canais": {
         "Mercado Livre": 1502641,
         "Casas Bahia": 4154767,
         "Magazine Luiza": 1780954,
-        "Shopee": 2304735,
-        "Amazon": 3478864,
+        "Shopee": 2357798,
+        "Amazon": 3496263,
         "Amazon Fulfillment": 0
       }
     },
