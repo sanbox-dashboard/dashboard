@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-05T05:15:03.843Z",
-  "gerado_em_br": "05/06/2026, 02:15:03",
+  "gerado_em": "2026-06-05T09:42:48.702Z",
+  "gerado_em_br": "05/06/2026, 06:42:48",
   "dia_referencia": "05/06/2026",
   "dia_ontem": "04/06/2026",
   "resumo_dia": {
-    "faturamento": 315978,
-    "pedidos": 3,
-    "ticket_medio": 105326,
+    "faturamento": 332507,
+    "pedidos": 4,
+    "ticket_medio": 83126.75,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 16529,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 50609649,
-    "pedidos": 637,
+    "faturamento": 50626178,
+    "pedidos": 638,
     "meta_mensal": 6000000.03,
-    "pct_meta": 843.5,
-    "projecao_final": 303657894,
+    "pct_meta": 843.8,
+    "projecao_final": 303757068,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 5722943,
@@ -77,8 +77,8 @@
         "pedidos": 83
       },
       "Amazon": {
-        "faturamento": 12890218,
-        "pedidos": 159
+        "faturamento": 12906747,
+        "pedidos": 160
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 386,
-      "fat": 13393259,
+      "qtd": 387,
+      "fat": 13409788,
       "canais": {
-        "Amazon": 106,
+        "Amazon": 107,
         "Mercado Livre": 187,
         "Casas Bahia": 68,
         "Magazine Luiza": 22,
@@ -479,14 +479,14 @@
   ],
   "historico_por_dia": {
     "05/06/2026": {
-      "fat": 315978,
-      "peds": 3,
+      "fat": 332507,
+      "peds": 4,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 315978,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 16529,
         "Amazon Fulfillment": 0
       }
     },
