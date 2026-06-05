@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-05T09:42:48.702Z",
-  "gerado_em_br": "05/06/2026, 06:42:48",
+  "gerado_em": "2026-06-05T12:35:27.821Z",
+  "gerado_em_br": "05/06/2026, 09:35:27",
   "dia_referencia": "05/06/2026",
   "dia_ontem": "04/06/2026",
   "resumo_dia": {
-    "faturamento": 332507,
-    "pedidos": 4,
-    "ticket_medio": 83126.75,
+    "faturamento": 526141,
+    "pedidos": 6,
+    "ticket_medio": 87690.17,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9999,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 16529,
-        "pedidos": 1,
+        "faturamento": 200164,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 50626178,
-    "pedidos": 638,
+    "faturamento": 50819812,
+    "pedidos": 640,
     "meta_mensal": 6000000.03,
-    "pct_meta": 843.8,
-    "projecao_final": 303757068,
+    "pct_meta": 847,
+    "projecao_final": 304918872,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 5722943,
-        "pedidos": 217
+        "faturamento": 5732942,
+        "pedidos": 218
       },
       "Casas Bahia": {
         "faturamento": 13891795,
@@ -77,8 +77,8 @@
         "pedidos": 83
       },
       "Amazon": {
-        "faturamento": 12906747,
-        "pedidos": 160
+        "faturamento": 13090382,
+        "pedidos": 161
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -364,10 +364,10 @@
     {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 48,
-      "fat": 1269005,
+      "qtd": 49,
+      "fat": 1284204,
       "canais": {
-        "Amazon": 27,
+        "Amazon": 28,
         "Shopee": 6,
         "Mercado Livre": 10,
         "Casas Bahia": 4,
@@ -479,14 +479,14 @@
   ],
   "historico_por_dia": {
     "05/06/2026": {
-      "fat": 332507,
-      "peds": 4,
+      "fat": 526141,
+      "peds": 6,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 9999,
         "Casas Bahia": 0,
         "Magazine Luiza": 315978,
         "Shopee": 0,
-        "Amazon": 16529,
+        "Amazon": 200164,
         "Amazon Fulfillment": 0
       }
     },
