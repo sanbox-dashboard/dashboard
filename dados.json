@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-06T06:29:47.490Z",
-  "gerado_em_br": "06/06/2026, 03:29:47",
+  "gerado_em": "2026-06-06T09:24:10.329Z",
+  "gerado_em_br": "06/06/2026, 06:24:10",
   "dia_referencia": "06/06/2026",
   "dia_ontem": "05/06/2026",
   "resumo_dia": {
-    "faturamento": 500677,
-    "pedidos": 6,
-    "ticket_medio": 83446.17,
+    "faturamento": 593835,
+    "pedidos": 7,
+    "ticket_medio": 84833.57,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 75847,
-        "pedidos": 1,
+        "faturamento": 169005,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 64258497,
-    "pedidos": 812,
+    "faturamento": 64351655,
+    "pedidos": 813,
     "meta_mensal": 6000000.03,
-    "pct_meta": 1071,
-    "projecao_final": 321292485,
+    "pct_meta": 1072.5,
+    "projecao_final": 321758275,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 6677344,
@@ -73,8 +73,8 @@
         "pedidos": 88
       },
       "Shopee": {
-        "faturamento": 10027107,
-        "pedidos": 109
+        "faturamento": 10120265,
+        "pedidos": 110
       },
       "Amazon": {
         "faturamento": 15616852,
@@ -277,13 +277,13 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 73,
-      "fat": 2222524,
+      "qtd": 74,
+      "fat": 2232923,
       "canais": {
+        "Shopee": 10,
         "Casas Bahia": 39,
         "Mercado Livre": 18,
         "Magazine Luiza": 2,
-        "Shopee": 9,
         "Amazon": 5
       }
     },
@@ -479,13 +479,13 @@
   ],
   "historico_por_dia": {
     "06/06/2026": {
-      "fat": 500677,
-      "peds": 6,
+      "fat": 593835,
+      "peds": 7,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 184676,
         "Magazine Luiza": 160518,
-        "Shopee": 75847,
+        "Shopee": 169005,
         "Amazon": 79636,
         "Amazon Fulfillment": 0
       }
