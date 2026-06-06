@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-06-06T13:27:54.195Z",
-  "gerado_em_br": "06/06/2026, 10:27:54",
+  "gerado_em": "2026-06-06T15:13:13.418Z",
+  "gerado_em_br": "06/06/2026, 12:13:13",
   "dia_referencia": "06/06/2026",
   "dia_ontem": "05/06/2026",
   "resumo_dia": {
-    "faturamento": 3733473,
-    "pedidos": 35,
-    "ticket_medio": 106670.66,
+    "faturamento": 4372968,
+    "pedidos": 42,
+    "ticket_medio": 104118.29,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 29548,
-        "pedidos": 2,
+        "faturamento": 39677,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 725093,
-        "pedidos": 5,
+        "faturamento": 1118456,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 2014407,
-        "pedidos": 14,
+        "faturamento": 2151384,
+        "pedidos": 15,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 550711,
-        "pedidos": 11,
+        "faturamento": 649737,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 67656169,
-    "pedidos": 840,
+    "faturamento": 68295664,
+    "pedidos": 847,
     "meta_mensal": 6000000.03,
-    "pct_meta": 1127.6,
-    "projecao_final": 338280845,
+    "pct_meta": 1138.3,
+    "projecao_final": 341478320,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 6670024,
-        "pedidos": 272
+        "faturamento": 6680153,
+        "pedidos": 273
       },
       "Casas Bahia": {
-        "faturamento": 20057217,
-        "pedidos": 147
+        "faturamento": 20450580,
+        "pedidos": 151
       },
       "Magazine Luiza": {
         "faturamento": 12166974,
         "pedidos": 90
       },
       "Shopee": {
-        "faturamento": 11965667,
-        "pedidos": 122
+        "faturamento": 12102644,
+        "pedidos": 123
       },
       "Amazon": {
-        "faturamento": 16087927,
-        "pedidos": 206
+        "faturamento": 16186953,
+        "pedidos": 207
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 380,
-      "fat": 8939522,
+      "qtd": 381,
+      "fat": 8954021,
       "canais": {
+        "Casas Bahia": 71,
         "Magazine Luiza": 51,
         "Shopee": 13,
         "Mercado Livre": 182,
-        "Casas Bahia": 70,
         "Amazon": 64
       }
     },
@@ -130,13 +130,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 263,
-      "fat": 4206035,
+      "qtd": 266,
+      "fat": 4233322,
       "canais": {
+        "Casas Bahia": 78,
+        "Mercado Livre": 59,
         "Shopee": 78,
         "Amazon": 36,
-        "Casas Bahia": 76,
-        "Mercado Livre": 58,
         "Magazine Luiza": 13,
         "Outros": 2
       }
@@ -157,10 +157,10 @@
     {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 180,
-      "fat": 1833231,
+      "qtd": 181,
+      "fat": 1859322,
       "canais": {
-        "Casas Bahia": 19,
+        "Casas Bahia": 20,
         "Mercado Livre": 158,
         "Magazine Luiza": 3
       }
@@ -326,6 +326,17 @@
       }
     },
     {
+      "sku": "TI1457",
+      "desc": "Fogao a Gas Itatiaia Itaglass Plus 4 Bocas Forno 48 litros Pto-Bivolt",
+      "qtd": 53,
+      "fat": 449956,
+      "canais": {
+        "Amazon": 46,
+        "Shopee": 6,
+        "Magazine Luiza": 1
+      }
+    },
+    {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
       "qtd": 53,
@@ -348,17 +359,6 @@
         "Mercado Livre": 21,
         "Amazon Fulfillment": 4,
         "Casas Bahia": 12
-      }
-    },
-    {
-      "sku": "TI1457",
-      "desc": "Fogao a Gas Itatiaia Itaglass Plus 4 Bocas Forno 48 litros Pto-Bivolt",
-      "qtd": 52,
-      "fat": 441502,
-      "canais": {
-        "Amazon": 45,
-        "Shopee": 6,
-        "Magazine Luiza": 1
       }
     },
     {
@@ -479,14 +479,14 @@
   ],
   "historico_por_dia": {
     "06/06/2026": {
-      "fat": 3733473,
-      "peds": 35,
+      "fat": 4372968,
+      "peds": 42,
       "canais": {
-        "Mercado Livre": 29548,
-        "Casas Bahia": 725093,
+        "Mercado Livre": 39677,
+        "Casas Bahia": 1118456,
         "Magazine Luiza": 413714,
-        "Shopee": 2014407,
-        "Amazon": 550711,
+        "Shopee": 2151384,
+        "Amazon": 649737,
         "Amazon Fulfillment": 0
       }
     },
