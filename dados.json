@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-07T03:40:14.617Z",
-  "gerado_em_br": "07/06/2026, 00:40:14",
+  "gerado_em": "2026-06-07T07:52:49.339Z",
+  "gerado_em_br": "07/06/2026, 04:52:49",
   "dia_referencia": "07/06/2026",
   "dia_ontem": "06/06/2026",
   "resumo_dia": {
-    "faturamento": 74451,
-    "pedidos": 1,
-    "ticket_medio": 74451,
+    "faturamento": 440060,
+    "pedidos": 3,
+    "ticket_medio": 146686.67,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 74451,
-        "pedidos": 1,
+        "faturamento": 440060,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 81162920,
-    "pedidos": 1015,
+    "faturamento": 81528529,
+    "pedidos": 1017,
     "meta_mensal": 6000000.03,
-    "pct_meta": 1352.7,
-    "projecao_final": 347841085.71,
+    "pct_meta": 1358.8,
+    "projecao_final": 349407981.43,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 7479920,
@@ -69,8 +69,8 @@
         "pedidos": 179
       },
       "Magazine Luiza": {
-        "faturamento": 13535677,
-        "pedidos": 101
+        "faturamento": 13901286,
+        "pedidos": 103
       },
       "Shopee": {
         "faturamento": 15743047,
@@ -208,6 +208,19 @@
       }
     },
     {
+      "sku": "TI287-1",
+      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
+      "qtd": 98,
+      "fat": 344145,
+      "canais": {
+        "Magazine Luiza": 26,
+        "Mercado Livre": 32,
+        "Amazon": 3,
+        "Casas Bahia": 25,
+        "Shopee": 12
+      }
+    },
+    {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
       "qtd": 97,
@@ -218,19 +231,6 @@
         "Casas Bahia": 23,
         "Magazine Luiza": 12,
         "Outros": 1
-      }
-    },
-    {
-      "sku": "TI287-1",
-      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 96,
-      "fat": 336475,
-      "canais": {
-        "Mercado Livre": 32,
-        "Amazon": 3,
-        "Casas Bahia": 25,
-        "Magazine Luiza": 24,
-        "Shopee": 12
       }
     },
     {
@@ -290,11 +290,11 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 72,
-      "fat": 1774034,
+      "qtd": 73,
+      "fat": 1794023,
       "canais": {
+        "Magazine Luiza": 18,
         "Mercado Livre": 45,
-        "Magazine Luiza": 17,
         "Casas Bahia": 9,
         "Amazon": 1
       }
@@ -440,6 +440,19 @@
       }
     },
     {
+      "sku": "TI516",
+      "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
+      "qtd": 42,
+      "fat": 2662369,
+      "canais": {
+        "Magazine Luiza": 10,
+        "Mercado Livre": 13,
+        "Casas Bahia": 16,
+        "Shopee": 1,
+        "Amazon": 2
+      }
+    },
+    {
       "sku": "TI1552",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem-127v",
       "qtd": 42,
@@ -450,19 +463,6 @@
         "Shopee": 5,
         "Amazon": 6,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI516",
-      "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
-      "qtd": 41,
-      "fat": 2645517,
-      "canais": {
-        "Mercado Livre": 13,
-        "Casas Bahia": 16,
-        "Magazine Luiza": 9,
-        "Shopee": 1,
-        "Amazon": 2
       }
     },
     {
@@ -481,12 +481,12 @@
   ],
   "historico_por_dia": {
     "07/06/2026": {
-      "fat": 74451,
-      "peds": 1,
+      "fat": 440060,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
-        "Magazine Luiza": 74451,
+        "Magazine Luiza": 440060,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
