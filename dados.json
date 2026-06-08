@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-06-08T00:05:09.869Z",
-  "gerado_em_br": "07/06/2026, 21:05:09",
+  "gerado_em": "2026-06-08T05:29:12.597Z",
+  "gerado_em_br": "08/06/2026, 02:29:12",
   "dia_referencia": "07/06/2026",
   "dia_ontem": "06/06/2026",
   "resumo_dia": {
-    "faturamento": 11287756,
-    "pedidos": 132,
-    "ticket_medio": 85513.3,
+    "faturamento": 12872719,
+    "pedidos": 151,
+    "ticket_medio": 85249.79,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 735599,
-        "pedidos": 37,
+        "faturamento": 789875,
+        "pedidos": 41,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 3709329,
-        "pedidos": 28,
+        "faturamento": 3823280,
+        "pedidos": 30,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 1502375,
-        "pedidos": 15,
+        "faturamento": 2339930,
+        "pedidos": 22,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 2651735,
-        "pedidos": 29,
+        "faturamento": 3230916,
+        "pedidos": 35,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 92542478,
-    "pedidos": 1146,
+    "faturamento": 94127441,
+    "pedidos": 1165,
     "meta_mensal": 6000000.03,
-    "pct_meta": 1542.4,
-    "projecao_final": 347034292.5,
+    "pct_meta": 1568.8,
+    "projecao_final": 352977903.75,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8194481,
-        "pedidos": 361
+        "faturamento": 8248757,
+        "pedidos": 365
       },
       "Casas Bahia": {
-        "faturamento": 28279152,
-        "pedidos": 208
+        "faturamento": 28393103,
+        "pedidos": 210
       },
       "Magazine Luiza": {
         "faturamento": 16149944,
         "pedidos": 123
       },
       "Shopee": {
-        "faturamento": 17245422,
-        "pedidos": 174
+        "faturamento": 18082977,
+        "pedidos": 181
       },
       "Amazon": {
-        "faturamento": 21965119,
-        "pedidos": 277
+        "faturamento": 22544300,
+        "pedidos": 283
       },
       "Amazon Fulfillment": {
         "faturamento": 15999,
@@ -90,13 +90,13 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 426,
-      "fat": 14078579,
+      "qtd": 429,
+      "fat": 14130506,
       "canais": {
-        "Amazon": 130,
+        "Shopee": 6,
+        "Amazon": 132,
         "Mercado Livre": 189,
         "Casas Bahia": 80,
-        "Shopee": 5,
         "Magazine Luiza": 22
       }
     },
@@ -130,14 +130,14 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 283,
-      "fat": 8258008,
+      "qtd": 286,
+      "fat": 8295313,
       "canais": {
+        "Mercado Livre": 69,
+        "Shopee": 13,
         "Amazon": 62,
         "Casas Bahia": 91,
-        "Mercado Livre": 67,
         "Magazine Luiza": 48,
-        "Shopee": 12,
         "Outros": 3
       }
     },
@@ -169,14 +169,14 @@
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 151,
-      "fat": 1731394,
+      "qtd": 152,
+      "fat": 1741293,
       "canais": {
+        "Casas Bahia": 14,
         "Amazon": 19,
         "Magazine Luiza": 53,
         "Mercado Livre": 38,
         "Shopee": 24,
-        "Casas Bahia": 13,
         "Outros": 2,
         "Amazon Fulfillment": 2
       }
@@ -184,14 +184,14 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 131,
-      "fat": 2183211,
+      "qtd": 134,
+      "fat": 2208858,
       "canais": {
-        "Mercado Livre": 55,
+        "Casas Bahia": 9,
+        "Shopee": 22,
+        "Mercado Livre": 56,
         "Amazon": 17,
-        "Magazine Luiza": 30,
-        "Shopee": 21,
-        "Casas Bahia": 8
+        "Magazine Luiza": 30
       }
     },
     {
@@ -236,13 +236,13 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 86,
-      "fat": 1718201,
+      "qtd": 87,
+      "fat": 1727390,
       "canais": {
+        "Mercado Livre": 28,
         "Shopee": 9,
         "Amazon": 15,
         "Magazine Luiza": 33,
-        "Mercado Livre": 27,
         "Casas Bahia": 2
       }
     },
@@ -302,13 +302,13 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 72,
-      "fat": 606798,
+      "qtd": 73,
+      "fat": 614197,
       "canais": {
+        "Shopee": 13,
         "Magazine Luiza": 5,
         "Mercado Livre": 46,
         "Casas Bahia": 5,
-        "Shopee": 12,
         "Amazon": 4
       }
     },
@@ -328,10 +328,10 @@
     {
       "sku": "TI1457",
       "desc": "Fogao a Gas Itatiaia Itaglass Plus 4 Bocas Forno 48 litros Pto-Bivolt",
-      "qtd": 57,
-      "fat": 486752,
+      "qtd": 58,
+      "fat": 495206,
       "canais": {
-        "Amazon": 49,
+        "Amazon": 50,
         "Shopee": 7,
         "Magazine Luiza": 1
       }
@@ -402,6 +402,18 @@
       }
     },
     {
+      "sku": "TI1527",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
+      "qtd": 47,
+      "fat": 493505,
+      "canais": {
+        "Shopee": 2,
+        "Amazon": 23,
+        "Mercado Livre": 16,
+        "Magazine Luiza": 6
+      }
+    },
+    {
       "sku": "TI516",
       "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
       "qtd": 47,
@@ -424,18 +436,6 @@
         "Shopee": 12,
         "Amazon": 15,
         "Mercado Livre": 15
-      }
-    },
-    {
-      "sku": "TI1527",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
-      "qtd": 46,
-      "fat": 484706,
-      "canais": {
-        "Amazon": 23,
-        "Mercado Livre": 16,
-        "Shopee": 1,
-        "Magazine Luiza": 6
       }
     },
     {
@@ -481,14 +481,14 @@
   ],
   "historico_por_dia": {
     "07/06/2026": {
-      "fat": 11287756,
-      "peds": 132,
+      "fat": 12872719,
+      "peds": 151,
       "canais": {
-        "Mercado Livre": 735599,
-        "Casas Bahia": 3709329,
+        "Mercado Livre": 789875,
+        "Casas Bahia": 3823280,
         "Magazine Luiza": 2688718,
-        "Shopee": 1502375,
-        "Amazon": 2651735,
+        "Shopee": 2339930,
+        "Amazon": 3230916,
         "Amazon Fulfillment": 0
       }
     },
