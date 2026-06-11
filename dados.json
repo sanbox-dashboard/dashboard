@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-11T03:43:40.261Z",
-  "gerado_em_br": "11/06/2026, 00:43:40",
+  "gerado_em": "2026-06-11T08:44:26.866Z",
+  "gerado_em_br": "11/06/2026, 05:44:26",
   "dia_referencia": "11/06/2026",
   "dia_ontem": "10/06/2026",
   "resumo_dia": {
-    "faturamento": 602131,
-    "pedidos": 5,
-    "ticket_medio": 120426.2,
+    "faturamento": 1019509,
+    "pedidos": 9,
+    "ticket_medio": 113278.78,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 10129,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 407249,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 13146352,
-    "pedidos": 155
+    "faturamento": 13168442,
+    "pedidos": 158
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 140927125,
-    "pedidos": 1701,
+    "faturamento": 141366593,
+    "pedidos": 1708,
     "meta_mensal": 6000000.03,
-    "pct_meta": 2348.8,
-    "projecao_final": 384346704.55,
+    "pct_meta": 2356.1,
+    "projecao_final": 385545253.64,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 12288306,
-        "pedidos": 564
+        "faturamento": 12319253,
+        "pedidos": 567
       },
       "Casas Bahia": {
         "faturamento": 48915602,
         "pedidos": 337
       },
       "Magazine Luiza": {
-        "faturamento": 24527587,
-        "pedidos": 191
+        "faturamento": 24528859,
+        "pedidos": 192
       },
       "Shopee": {
-        "faturamento": 25689662,
-        "pedidos": 264
+        "faturamento": 26096911,
+        "pedidos": 267
       },
       "Amazon": {
         "faturamento": 28781609,
@@ -116,11 +116,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 310,
-      "fat": 3739446,
+      "qtd": 311,
+      "fat": 3746605,
       "canais": {
+        "Shopee": 115,
         "Mercado Livre": 87,
-        "Shopee": 114,
         "Casas Bahia": 60,
         "Magazine Luiza": 11,
         "Amazon": 37,
@@ -130,14 +130,14 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 277,
-      "fat": 7243923,
+      "qtd": 278,
+      "fat": 7245490,
       "canais": {
+        "Shopee": 12,
         "Mercado Livre": 72,
         "Amazon": 52,
         "Casas Bahia": 95,
         "Magazine Luiza": 46,
-        "Shopee": 11,
         "Outros": 1
       }
     },
@@ -480,24 +480,24 @@
   ],
   "historico_por_dia": {
     "11/06/2026": {
-      "fat": 602131,
-      "peds": 5,
+      "fat": 1019509,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 10129,
         "Casas Bahia": 0,
         "Magazine Luiza": 602131,
-        "Shopee": 0,
+        "Shopee": 407249,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "10/06/2026": {
-      "fat": 13146352,
-      "peds": 155,
+      "fat": 13168442,
+      "peds": 158,
       "canais": {
-        "Mercado Livre": 1199685,
+        "Mercado Livre": 1220503,
         "Casas Bahia": 6623666,
-        "Magazine Luiza": 2120455,
+        "Magazine Luiza": 2121727,
         "Shopee": 2113174,
         "Amazon": 1089372,
         "Amazon Fulfillment": 0
