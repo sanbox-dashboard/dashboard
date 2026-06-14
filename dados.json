@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-14T03:51:17.982Z",
-  "gerado_em_br": "14/06/2026, 00:51:18",
+  "gerado_em": "2026-06-14T08:14:44.595Z",
+  "gerado_em_br": "14/06/2026, 05:14:44",
   "dia_referencia": "14/06/2026",
   "dia_ontem": "13/06/2026",
   "resumo_dia": {
-    "faturamento": 103895,
-    "pedidos": 1,
-    "ticket_medio": 103895,
+    "faturamento": 117144,
+    "pedidos": 2,
+    "ticket_medio": 58572,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 13249,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 9378881,
-    "pedidos": 161
+    "faturamento": 9405995,
+    "pedidos": 163
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 170460397,
-    "pedidos": 2167,
+    "faturamento": 170500760,
+    "pedidos": 2170,
     "meta_mensal": 6000000.03,
-    "pct_meta": 2841,
-    "projecao_final": 365272279.29,
+    "pct_meta": 2841.7,
+    "projecao_final": 365358771.43,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 16932490,
-        "pedidos": 821
+        "faturamento": 16955868,
+        "pedidos": 823
       },
       "Casas Bahia": {
         "faturamento": 60041457,
@@ -77,8 +77,8 @@
         "pedidos": 327
       },
       "Amazon": {
-        "faturamento": 32751073,
-        "pedidos": 378
+        "faturamento": 32768058,
+        "pedidos": 379
       },
       "Amazon Fulfillment": {
         "faturamento": 31998,
@@ -116,10 +116,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 351,
-      "fat": 4014896,
+      "qtd": 352,
+      "fat": 4025025,
       "canais": {
-        "Mercado Livre": 133,
+        "Mercado Livre": 134,
         "Shopee": 116,
         "Amazon": 35,
         "Casas Bahia": 56,
@@ -130,12 +130,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 277,
-      "fat": 6568652,
+      "qtd": 278,
+      "fat": 6585637,
       "canais": {
+        "Amazon": 51,
         "Mercado Livre": 73,
         "Magazine Luiza": 46,
-        "Amazon": 50,
         "Casas Bahia": 96,
         "Shopee": 12
       }
@@ -470,10 +470,10 @@
   ],
   "historico_por_dia": {
     "14/06/2026": {
-      "fat": 103895,
-      "peds": 1,
+      "fat": 117144,
+      "peds": 2,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 13249,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
         "Shopee": 103895,
@@ -482,14 +482,14 @@
       }
     },
     "13/06/2026": {
-      "fat": 9378881,
-      "peds": 161,
+      "fat": 9405995,
+      "peds": 163,
       "canais": {
-        "Mercado Livre": 1510011,
+        "Mercado Livre": 1520140,
         "Casas Bahia": 2942726,
         "Magazine Luiza": 1981898,
         "Shopee": 1712285,
-        "Amazon": 1231961,
+        "Amazon": 1248946,
         "Amazon Fulfillment": 0
       }
     },
