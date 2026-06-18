@@ -456,7 +456,7 @@ const ACTIVE_TAB_KEY = 'dashboard-reputacao-tab';
 
 // Versão do schema — apenas marcação, NÃO apaga mais dados locais (pra não perder
 // nada que ainda não foi sincronizado). O "GitHub é canônico" agora vem da init logic.
-const SCHEMA_VERSION = '9';
+const SCHEMA_VERSION = '10';
 const SCHEMA_KEY = 'dashboard-reputacao-schema';
 try{ localStorage.setItem(SCHEMA_KEY, SCHEMA_VERSION); }catch(e){}
 
@@ -560,6 +560,8 @@ function renderTodayCards(){
     const todayEntry = state.entries[today]?.[key] || {};
     const todayTickets = todayEntry.tickets ?? data.tickets;
     const todaySac = todayEntry.sacForaPrazo ?? data.sacForaPrazo;
+    const todayCriticos = todayEntry.casosCriticos ?? data.casosCriticos;
+    const todayDevolucao = todayEntry.solicitacaoDevolucao ?? data.solicitacaoDevolucao;
     let worst = 'unknown';
     let metricsHtml = '';
     Object.entries(ch.metrics).forEach(([mKey, m])=>{
@@ -590,7 +592,7 @@ function renderTodayCards(){
       </div>
       <span class="value">${tickets===null?'—':tickets}</span>
     </div>`;
-    // Nova métrica: tickets SAC fora do prazo (30 dias)
+    // Métrica SAC fora do prazo (30 dias)
     const sac = (todaySac===undefined||todaySac===null||todaySac==='')?null:parseInt(todaySac);
     const sacStatus = sac===null ? '' : (sac===0?'green': sac<=3?'yellow':'red');
     const sacHtml = `<div class="tickets-row sac-row ${sacStatus}">
@@ -600,6 +602,32 @@ function renderTodayCards(){
       </div>
       <span class="value">${sac===null?'—':sac}</span>
     </div>`;
+    // Métrica Casos Críticos fora do prazo (10 dias)
+    const criticos = (todayCriticos===undefined||todayCriticos===null||todayCriticos==='')?null:parseInt(todayCriticos);
+    const criticosStatus = criticos===null ? '' : (criticos===0?'green': criticos<=3?'yellow':'red');
+    const criticosHtml = `<div class="tickets-row sac-row ${criticosStatus}">
+      <div class="label-block">
+        <span class="label">🚨 Casos Críticos fora do prazo</span>
+        <span class="meta-info">Casos Críticos > 10 dias (Octadesk)</span>
+      </div>
+      <span class="value">${criticos===null?'—':criticos}</span>
+    </div>`;
+    // Métrica Solicitação de Devolução fora do prazo (20 dias)
+    const devolucao = (todayDevolucao===undefined||todayDevolucao===null||todayDevolucao==='')?null:parseInt(todayDevolucao);
+    const devolucaoStatus = devolucao===null ? '' : (devolucao===0?'green': devolucao<=3?'yellow':'red');
+    const devolucaoHtml = `<div class="tickets-row sac-row ${devolucaoStatus}">
+      <div class="label-block">
+        <span class="label">📦 Solicitação Devolução fora do prazo</span>
+        <span class="meta-info">Solicitação de Devolução > 20 dias (Octadesk)</span>
+      </div>
+      <span class="value">${devolucao===null?'—':devolucao}</span>
+    </div>`;
+    // Inclui as 4 contagens de tickets no cálculo de "worst" pra o alerta inferior
+    [tStatus, sacStatus, criticosStatus, devolucaoStatus].forEach(st => {
+      if(st === 'red') worst = 'red';
+      else if(st === 'yellow' && worst !== 'red') worst = 'yellow';
+      else if(st === 'green' && worst === 'unknown') worst = 'green';
+    });
     const alertHtml = worst==='red' ? `<div class="alert-banner red">⚠️ Métricas críticas — ação imediata</div>`
                   : worst==='yellow' ? `<div class="alert-banner yellow">⚡ Atenção — perto do limite</div>`
                   : worst==='green' ? `<div class="alert-banner green">✓ Tudo dentro da meta</div>`
@@ -617,6 +645,8 @@ function renderTodayCards(){
       <ul class="metric-list">${metricsHtml}</ul>
       ${ticketsHtml}
       ${sacHtml}
+      ${criticosHtml}
+      ${devolucaoHtml}
       ${alertHtml}
     </div>`;
   });
@@ -1197,13 +1227,23 @@ function renderRegistro(){
       const sac = data.sacForaPrazo;
       const sacStatus = (sac===null||sac===undefined) ? '' : (sac===0?'green': sac<=3?'yellow':'red');
       const sacHtml = (sac!==null && sac!==undefined) ?
-        `<div class="mini-tickets ${sacStatus}" style="margin-top:2px">⏱️ ${sac} SAC fora prazo</div>` : '';
+        `<div class="mini-tickets ${sacStatus}" style="margin-top:2px">⏱️ ${sac} SAC +30d</div>` : '';
+      const cri = data.casosCriticos;
+      const criStatus = (cri===null||cri===undefined) ? '' : (cri===0?'green': cri<=3?'yellow':'red');
+      const criHtml = (cri!==null && cri!==undefined) ?
+        `<div class="mini-tickets ${criStatus}" style="margin-top:2px">🚨 ${cri} críticos +10d</div>` : '';
+      const dev = data.solicitacaoDevolucao;
+      const devStatus = (dev===null||dev===undefined) ? '' : (dev===0?'green': dev<=3?'yellow':'red');
+      const devHtml = (dev!==null && dev!==undefined) ?
+        `<div class="mini-tickets ${devStatus}" style="margin-top:2px">📦 ${dev} devol. +20d</div>` : '';
       html += `<div class="mini-card" style="border-top:3px solid ${ch.color}">
         <div class="mini-card-name" style="border-bottom-color:${ch.color}"><span class="channel-tag" style="background:${ch.color};width:8px;height:8px"></span>${ch.name}</div>
         <div class="mini-card-rep"><small>${ch.repLabel}</small>${data.reputacao || '—'}</div>
         ${metricsHtml}
         ${ticketsHtml}
         ${sacHtml}
+        ${criHtml}
+        ${devHtml}
       </div>`;
     });
     html += `</div></div>`;
@@ -1389,7 +1429,7 @@ function carryOverTickets(){
   if(!state.entries[today]) state.entries[today] = {};
   const dates = Object.keys(state.entries).filter(d=> d < today).sort().reverse();
   let changed = 0;
-  const fields = ['tickets', 'sacForaPrazo'];
+  const fields = ['tickets', 'sacForaPrazo', 'casosCriticos', 'solicitacaoDevolucao'];
   Object.keys(channels).forEach(channelKey => {
     fields.forEach(field => {
       const todayData = state.entries[today][channelKey];
