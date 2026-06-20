@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-20T05:11:26.672Z",
-  "gerado_em_br": "20/06/2026, 02:11:26",
+  "gerado_em": "2026-06-20T08:52:22.777Z",
+  "gerado_em_br": "20/06/2026, 05:52:22",
   "dia_referencia": "20/06/2026",
   "dia_ontem": "19/06/2026",
   "resumo_dia": {
-    "faturamento": 99585,
-    "pedidos": 1,
-    "ticket_medio": 99585,
+    "faturamento": 291471,
+    "pedidos": 3,
+    "ticket_medio": 97157,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 191886,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 229753036,
+    "faturamento": 229849638,
     "pedidos": 3144,
     "meta_mensal": 6000000.03,
-    "pct_meta": 3829.2,
-    "projecao_final": 344629554,
+    "pct_meta": 3830.8,
+    "projecao_final": 344774457,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 26810524,
-        "pedidos": 1351
+        "faturamento": 26792655,
+        "pedidos": 1350
       },
       "Casas Bahia": {
         "faturamento": 87471421,
@@ -73,8 +73,8 @@
         "pedidos": 287
       },
       "Shopee": {
-        "faturamento": 42252366,
-        "pedidos": 438
+        "faturamento": 42366837,
+        "pedidos": 439
       },
       "Amazon": {
         "faturamento": 37156588,
@@ -129,11 +129,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 283,
-      "fat": 6131395,
+      "qtd": 282,
+      "fat": 6113526,
       "canais": {
         "Casas Bahia": 107,
-        "Mercado Livre": 77,
+        "Mercado Livre": 76,
         "Magazine Luiza": 44,
         "Amazon": 45,
         "Shopee": 10
@@ -155,12 +155,12 @@
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 140,
-      "fat": 1679833,
+      "qtd": 141,
+      "fat": 1689332,
       "canais": {
+        "Shopee": 40,
         "Magazine Luiza": 40,
         "Amazon": 22,
-        "Shopee": 39,
         "Casas Bahia": 12,
         "Mercado Livre": 27
       }
@@ -468,13 +468,13 @@
   ],
   "historico_por_dia": {
     "20/06/2026": {
-      "fat": 99585,
-      "peds": 1,
+      "fat": 291471,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 99585,
-        "Shopee": 0,
+        "Shopee": 191886,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
@@ -552,13 +552,13 @@
       }
     },
     "13/06/2026": {
-      "fat": 9506066,
-      "peds": 164,
+      "fat": 9428651,
+      "peds": 163,
       "canais": {
         "Mercado Livre": 1503231,
         "Casas Bahia": 3059706,
         "Magazine Luiza": 1981898,
-        "Shopee": 1712285,
+        "Shopee": 1634870,
         "Amazon": 1248946,
         "Amazon Fulfillment": 0
       }
@@ -636,10 +636,10 @@
       }
     },
     "06/06/2026": {
-      "fat": 17272133,
-      "peds": 207,
+      "fat": 17254264,
+      "peds": 206,
       "canais": {
-        "Mercado Livre": 791027,
+        "Mercado Livre": 773158,
         "Casas Bahia": 5374190,
         "Magazine Luiza": 1707966,
         "Shopee": 5622782,
