@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-06-22T06:27:29.691Z",
-  "gerado_em_br": "22/06/2026, 03:27:29",
+  "gerado_em": "2026-06-22T12:48:24.509Z",
+  "gerado_em_br": "22/06/2026, 09:48:24",
   "dia_referencia": "22/06/2026",
   "dia_ontem": "21/06/2026",
   "resumo_dia": {
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 242211496,
-    "pedidos": 3337,
+    "faturamento": 242193537,
+    "pedidos": 3336,
     "meta_mensal": 6000000.03,
-    "pct_meta": 4036.9,
-    "projecao_final": 330288403.64,
+    "pct_meta": 4036.6,
+    "projecao_final": 330263914.09,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 28222519,
-        "pedidos": 1446
+        "faturamento": 28204560,
+        "pedidos": 1445
       },
       "Casas Bahia": {
         "faturamento": 92988479,
@@ -354,18 +354,6 @@
       }
     },
     {
-      "sku": "TI1633",
-      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 56,
-      "fat": 942374,
-      "canais": {
-        "Mercado Livre": 27,
-        "Amazon": 20,
-        "Casas Bahia": 3,
-        "Shopee": 6
-      }
-    },
-    {
       "sku": "TI1568",
       "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
       "qtd": 56,
@@ -376,6 +364,18 @@
         "Magazine Luiza": 16,
         "Casas Bahia": 9,
         "Amazon": 1
+      }
+    },
+    {
+      "sku": "TI1633",
+      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
+      "qtd": 55,
+      "fat": 924415,
+      "canais": {
+        "Mercado Livre": 26,
+        "Amazon": 20,
+        "Casas Bahia": 3,
+        "Shopee": 6
       }
     },
     {
@@ -562,10 +562,10 @@
       }
     },
     "14/06/2026": {
-      "fat": 9309147,
-      "peds": 171,
+      "fat": 9291188,
+      "peds": 170,
       "canais": {
-        "Mercado Livre": 1586434,
+        "Mercado Livre": 1568475,
         "Casas Bahia": 4108008,
         "Magazine Luiza": 1090498,
         "Shopee": 1384134,
@@ -2987,7 +2987,8 @@
     "740505955": 2,
     "740505965": 3,
     "740505967": 2,
-    "740522226": 0
+    "740522226": 0,
+    "740634068": 0
   },
   "metas": {
     "mensal": 6000000.03,
