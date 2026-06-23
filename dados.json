@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-23T04:58:23.128Z",
-  "gerado_em_br": "23/06/2026, 01:58:23",
+  "gerado_em": "2026-06-23T08:32:16.810Z",
+  "gerado_em_br": "23/06/2026, 05:32:16",
   "dia_referencia": "23/06/2026",
   "dia_ontem": "22/06/2026",
   "resumo_dia": {
-    "faturamento": 326996,
-    "pedidos": 4,
-    "ticket_medio": 81749,
+    "faturamento": 439926,
+    "pedidos": 6,
+    "ticket_medio": 73321,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 18999,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 93931,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 249828743,
-    "pedidos": 3457,
+    "faturamento": 249941673,
+    "pedidos": 3459,
     "meta_mensal": 6000000.03,
-    "pct_meta": 4163.8,
-    "projecao_final": 325863577.83,
+    "pct_meta": 4165.7,
+    "projecao_final": 326010877.83,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 29212563,
-        "pedidos": 1505
+        "faturamento": 29231562,
+        "pedidos": 1506
       },
       "Casas Bahia": {
         "faturamento": 96011725,
@@ -73,8 +73,8 @@
         "pedidos": 315
       },
       "Shopee": {
-        "faturamento": 46416058,
-        "pedidos": 492
+        "faturamento": 46509989,
+        "pedidos": 493
       },
       "Amazon": {
         "faturamento": 38772232,
@@ -90,12 +90,12 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 483,
-      "fat": 4801934,
+      "qtd": 484,
+      "fat": 4809093,
       "canais": {
+        "Shopee": 151,
         "Mercado Livre": 244,
         "Magazine Luiza": 13,
-        "Shopee": 150,
         "Casas Bahia": 48,
         "Amazon": 28
       }
@@ -469,13 +469,13 @@
   ],
   "historico_por_dia": {
     "23/06/2026": {
-      "fat": 326996,
-      "peds": 4,
+      "fat": 439926,
+      "peds": 6,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 18999,
         "Casas Bahia": 19972,
         "Magazine Luiza": 113627,
-        "Shopee": 0,
+        "Shopee": 93931,
         "Amazon": 193397,
         "Amazon Fulfillment": 0
       }
