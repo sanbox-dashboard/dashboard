@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-06-24T03:23:29.762Z",
-  "gerado_em_br": "24/06/2026, 00:23:29",
+  "gerado_em": "2026-06-24T07:38:10.241Z",
+  "gerado_em_br": "24/06/2026, 04:38:10",
   "dia_referencia": "24/06/2026",
   "dia_ontem": "23/06/2026",
   "resumo_dia": {
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 7670459,
-    "pedidos": 120
+    "faturamento": 8089686,
+    "pedidos": 125
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 257133373,
-    "pedidos": 3571,
+    "faturamento": 257450726,
+    "pedidos": 3575,
     "meta_mensal": 6000000.03,
-    "pct_meta": 4285.6,
-    "projecao_final": 321416716.25,
+    "pct_meta": 4290.8,
+    "projecao_final": 321813407.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 30225997,
-        "pedidos": 1570
+        "faturamento": 30312764,
+        "pedidos": 1573
       },
       "Casas Bahia": {
         "faturamento": 98045888,
@@ -73,12 +73,12 @@
         "pedidos": 333
       },
       "Shopee": {
-        "faturamento": 46903891,
-        "pedidos": 497
+        "faturamento": 46802017,
+        "pedidos": 496
       },
       "Amazon": {
-        "faturamento": 40371197,
-        "pedidos": 452
+        "faturamento": 40703657,
+        "pedidos": 454
       },
       "Amazon Fulfillment": {
         "faturamento": 42207,
@@ -129,11 +129,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 274,
-      "fat": 5625846,
+      "qtd": 275,
+      "fat": 5644845,
       "canais": {
+        "Mercado Livre": 83,
         "Casas Bahia": 97,
-        "Mercado Livre": 82,
         "Magazine Luiza": 46,
         "Amazon": 39,
         "Shopee": 10
@@ -180,12 +180,12 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 118,
-      "fat": 1956962,
+      "qtd": 117,
+      "fat": 1948663,
       "canais": {
         "Magazine Luiza": 24,
         "Mercado Livre": 53,
-        "Shopee": 21,
+        "Shopee": 20,
         "Casas Bahia": 9,
         "Amazon": 11
       }
@@ -218,10 +218,10 @@
     {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 92,
-      "fat": 1612588,
+      "qtd": 93,
+      "fat": 1615147,
       "canais": {
-        "Mercado Livre": 57,
+        "Mercado Livre": 58,
         "Casas Bahia": 32,
         "Amazon": 1,
         "Shopee": 2
@@ -481,14 +481,14 @@
       }
     },
     "23/06/2026": {
-      "fat": 7670459,
-      "peds": 120,
+      "fat": 8089686,
+      "peds": 125,
       "canais": {
-        "Mercado Livre": 1020263,
+        "Mercado Livre": 1107030,
         "Casas Bahia": 2096988,
         "Magazine Luiza": 1933242,
         "Shopee": 721128,
-        "Amazon": 1898838,
+        "Amazon": 2231298,
         "Amazon Fulfillment": 0
       }
     },
@@ -637,13 +637,13 @@
       }
     },
     "10/06/2026": {
-      "fat": 13677048,
-      "peds": 166,
+      "fat": 13575174,
+      "peds": 165,
       "canais": {
         "Mercado Livre": 1489355,
         "Casas Bahia": 6894419,
         "Magazine Luiza": 2317709,
-        "Shopee": 1905192,
+        "Shopee": 1803318,
         "Amazon": 1070373,
         "Amazon Fulfillment": 0
       }
