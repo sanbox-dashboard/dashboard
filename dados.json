@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-25T05:03:37.495Z",
-  "gerado_em_br": "25/06/2026, 02:03:37",
+  "gerado_em": "2026-06-25T08:58:16.102Z",
+  "gerado_em_br": "25/06/2026, 05:58:16",
   "dia_referencia": "25/06/2026",
   "dia_ontem": "24/06/2026",
   "resumo_dia": {
-    "faturamento": 340106,
-    "pedidos": 2,
-    "ticket_medio": 170053,
+    "faturamento": 348255,
+    "pedidos": 3,
+    "ticket_medio": 116085,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 8149,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 266481635,
+    "faturamento": 266436985,
     "pedidos": 3668,
     "meta_mensal": 6000000.03,
-    "pct_meta": 4441.4,
-    "projecao_final": 319777962,
+    "pct_meta": 4440.6,
+    "projecao_final": 319724382,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 30880285,
-        "pedidos": 1612
+        "faturamento": 30827486,
+        "pedidos": 1611
       },
       "Casas Bahia": {
-        "faturamento": 101353251,
-        "pedidos": 733
+        "faturamento": 101361400,
+        "pedidos": 734
       },
       "Magazine Luiza": {
         "faturamento": 44454179,
@@ -168,10 +168,10 @@
     {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
-      "qtd": 126,
-      "fat": 1015686,
+      "qtd": 127,
+      "fat": 1022285,
       "canais": {
-        "Casas Bahia": 49,
+        "Casas Bahia": 50,
         "Mercado Livre": 70,
         "Magazine Luiza": 6,
         "Shopee": 1
@@ -469,11 +469,11 @@
   ],
   "historico_por_dia": {
     "25/06/2026": {
-      "fat": 340106,
-      "peds": 2,
+      "fat": 348255,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Casas Bahia": 8149,
         "Magazine Luiza": 340106,
         "Shopee": 0,
         "Amazon": 0,
@@ -637,10 +637,10 @@
       }
     },
     "11/06/2026": {
-      "fat": 10551366,
-      "peds": 158,
+      "fat": 10498567,
+      "peds": 157,
       "canais": {
-        "Mercado Livre": 1291831,
+        "Mercado Livre": 1239032,
         "Casas Bahia": 4247321,
         "Magazine Luiza": 771657,
         "Shopee": 2699617,
