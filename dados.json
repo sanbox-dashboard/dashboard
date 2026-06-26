@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-06-26T03:29:33.473Z",
-  "gerado_em_br": "26/06/2026, 00:29:33",
+  "gerado_em": "2026-06-26T07:50:04.176Z",
+  "gerado_em_br": "26/06/2026, 04:50:04",
   "dia_referencia": "26/06/2026",
   "dia_ontem": "25/06/2026",
   "resumo_dia": {
-    "faturamento": 84938,
-    "pedidos": 1,
-    "ticket_medio": 84938,
+    "faturamento": 98737,
+    "pedidos": 2,
+    "ticket_medio": 49368.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 13799,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 7689035,
-    "pedidos": 118
+    "faturamento": 7770422,
+    "pedidos": 121
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 273513423,
-    "pedidos": 3777,
+    "faturamento": 273342262,
+    "pedidos": 3780,
     "meta_mensal": 6000000.03,
-    "pct_meta": 4558.6,
-    "projecao_final": 315592411.15,
+    "pct_meta": 4555.7,
+    "projecao_final": 315394917.69,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 31872838,
-        "pedidos": 1674
+        "faturamento": 31954225,
+        "pedidos": 1677
       },
       "Casas Bahia": {
         "faturamento": 104956087,
@@ -73,12 +73,12 @@
         "pedidos": 364
       },
       "Shopee": {
-        "faturamento": 47805937,
-        "pedidos": 506
+        "faturamento": 47539590,
+        "pedidos": 505
       },
       "Amazon": {
-        "faturamento": 42460968,
-        "pedidos": 466
+        "faturamento": 42474767,
+        "pedidos": 467
       },
       "Amazon Fulfillment": {
         "faturamento": 42207,
@@ -192,12 +192,12 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 113,
-      "fat": 413311,
+      "qtd": 112,
+      "fat": 409610,
       "canais": {
         "Mercado Livre": 74,
         "Casas Bahia": 24,
-        "Shopee": 9,
+        "Shopee": 8,
         "Magazine Luiza": 6
       }
     },
@@ -284,10 +284,10 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 77,
-      "fat": 1492683,
+      "qtd": 78,
+      "fat": 1512682,
       "canais": {
-        "Mercado Livre": 49,
+        "Mercado Livre": 50,
         "Magazine Luiza": 13,
         "Casas Bahia": 9,
         "Amazon": 4,
@@ -457,10 +457,10 @@
     {
       "sku": "TI1486",
       "desc": "Expositor Vertical Imbera VRS16 485 L Porta Vidro Full Black-Bivolt",
-      "qtd": 36,
-      "fat": 2965309,
+      "qtd": 37,
+      "fat": 3018108,
       "canais": {
-        "Mercado Livre": 31,
+        "Mercado Livre": 32,
         "Magazine Luiza": 2,
         "Casas Bahia": 2,
         "Amazon": 1
@@ -469,22 +469,22 @@
   ],
   "historico_por_dia": {
     "26/06/2026": {
-      "fat": 84938,
-      "peds": 1,
+      "fat": 98737,
+      "peds": 2,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 84938,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 13799,
         "Amazon Fulfillment": 0
       }
     },
     "25/06/2026": {
-      "fat": 7689035,
-      "peds": 118,
+      "fat": 7770422,
+      "peds": 121,
       "canais": {
-        "Mercado Livre": 1100079,
+        "Mercado Livre": 1181466,
         "Casas Bahia": 3231043,
         "Magazine Luiza": 1409228,
         "Shopee": 932160,
@@ -589,13 +589,13 @@
       }
     },
     "16/06/2026": {
-      "fat": 13611630,
-      "peds": 239,
+      "fat": 13345283,
+      "peds": 238,
       "canais": {
         "Mercado Livre": 2642375,
         "Casas Bahia": 5628019,
         "Magazine Luiza": 1045689,
-        "Shopee": 3504764,
+        "Shopee": 3238417,
         "Amazon": 790783,
         "Amazon Fulfillment": 0
       }
