@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-28T04:44:35.681Z",
-  "gerado_em_br": "28/06/2026, 01:44:35",
+  "gerado_em": "2026-06-28T08:19:49.002Z",
+  "gerado_em_br": "28/06/2026, 05:19:49",
   "dia_referencia": "28/06/2026",
   "dia_ontem": "27/06/2026",
   "resumo_dia": {
-    "faturamento": 112648,
-    "pedidos": 1,
-    "ticket_medio": 112648,
+    "faturamento": 136816,
+    "pedidos": 3,
+    "ticket_medio": 45605.33,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 24168,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 10328155,
-    "pedidos": 138
+    "faturamento": 10345294,
+    "pedidos": 139
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 292071721,
-    "pedidos": 4023,
+    "faturamento": 292113028,
+    "pedidos": 4026,
     "meta_mensal": 6000000.03,
-    "pct_meta": 4867.9,
-    "projecao_final": 312933986.79,
+    "pct_meta": 4868.6,
+    "projecao_final": 312978244.29,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 34831149,
-        "pedidos": 1801
+        "faturamento": 34872456,
+        "pedidos": 1804
       },
       "Casas Bahia": {
         "faturamento": 111497297,
@@ -103,11 +103,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 365,
-      "fat": 7914318,
+      "qtd": 366,
+      "fat": 7929887,
       "canais": {
+        "Mercado Livre": 172,
         "Shopee": 16,
-        "Mercado Livre": 171,
         "Amazon": 39,
         "Casas Bahia": 95,
         "Magazine Luiza": 44
@@ -228,6 +228,20 @@
       }
     },
     {
+      "sku": "SS001",
+      "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
+      "qtd": 91,
+      "fat": 757059,
+      "canais": {
+        "Mercado Livre": 52,
+        "Magazine Luiza": 10,
+        "Shopee": 17,
+        "Casas Bahia": 7,
+        "Amazon": 4,
+        "Amazon Fulfillment": 1
+      }
+    },
+    {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
       "qtd": 91,
@@ -238,20 +252,6 @@
         "Casas Bahia": 1,
         "Magazine Luiza": 2,
         "Amazon": 3
-      }
-    },
-    {
-      "sku": "SS001",
-      "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 90,
-      "fat": 748460,
-      "canais": {
-        "Magazine Luiza": 10,
-        "Shopee": 17,
-        "Mercado Livre": 51,
-        "Casas Bahia": 7,
-        "Amazon": 4,
-        "Amazon Fulfillment": 1
       }
     },
     {
@@ -469,10 +469,10 @@
   ],
   "historico_por_dia": {
     "28/06/2026": {
-      "fat": 112648,
-      "peds": 1,
+      "fat": 136816,
+      "peds": 3,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 24168,
         "Casas Bahia": 0,
         "Magazine Luiza": 112648,
         "Shopee": 0,
@@ -481,10 +481,10 @@
       }
     },
     "27/06/2026": {
-      "fat": 10328155,
-      "peds": 138,
+      "fat": 10345294,
+      "peds": 139,
       "canais": {
-        "Mercado Livre": 1746436,
+        "Mercado Livre": 1763575,
         "Casas Bahia": 3787339,
         "Magazine Luiza": 1174266,
         "Shopee": 1435483,
