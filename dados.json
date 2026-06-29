@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-06-29T05:29:11.481Z",
-  "gerado_em_br": "29/06/2026, 02:29:11",
+  "gerado_em": "2026-06-29T10:53:23.424Z",
+  "gerado_em_br": "29/06/2026, 07:53:23",
   "dia_referencia": "29/06/2026",
   "dia_ontem": "28/06/2026",
   "resumo_dia": {
-    "faturamento": 16912,
-    "pedidos": 1,
-    "ticket_medio": 16912,
+    "faturamento": 224943,
+    "pedidos": 3,
+    "ticket_medio": 74981,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 8009,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 200022,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "6/2026",
-    "faturamento": 300230416,
-    "pedidos": 4125,
+    "faturamento": 300438447,
+    "pedidos": 4127,
     "meta_mensal": 6000000.03,
-    "pct_meta": 5003.8,
-    "projecao_final": 310583188.97,
+    "pct_meta": 5007.3,
+    "projecao_final": 310798393.45,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 36191063,
-        "pedidos": 1848
+        "faturamento": 36199072,
+        "pedidos": 1849
       },
       "Casas Bahia": {
         "faturamento": 114688199,
@@ -77,8 +77,8 @@
         "pedidos": 549
       },
       "Amazon": {
-        "faturamento": 48689798,
-        "pedidos": 506
+        "faturamento": 48889820,
+        "pedidos": 507
       },
       "Amazon Fulfillment": {
         "faturamento": 42207,
@@ -394,6 +394,18 @@
       }
     },
     {
+      "sku": "TI1643",
+      "desc": "Forno Eletrico de bancada Mueller MFB50B 50 litros com Grill - 127v",
+      "qtd": 46,
+      "fat": 530374,
+      "canais": {
+        "Mercado Livre": 17,
+        "Casas Bahia": 9,
+        "Shopee": 15,
+        "Magazine Luiza": 5
+      }
+    },
+    {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
       "qtd": 45,
@@ -404,18 +416,6 @@
         "Amazon": 3,
         "Casas Bahia": 6,
         "Mercado Livre": 3
-      }
-    },
-    {
-      "sku": "TI1643",
-      "desc": "Forno Eletrico de bancada Mueller MFB50B 50 litros com Grill - 127v",
-      "qtd": 45,
-      "fat": 522365,
-      "canais": {
-        "Mercado Livre": 16,
-        "Casas Bahia": 9,
-        "Shopee": 15,
-        "Magazine Luiza": 5
       }
     },
     {
@@ -469,14 +469,14 @@
   ],
   "historico_por_dia": {
     "29/06/2026": {
-      "fat": 16912,
-      "peds": 1,
+      "fat": 224943,
+      "peds": 3,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 8009,
         "Casas Bahia": 0,
         "Magazine Luiza": 16912,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 200022,
         "Amazon Fulfillment": 0
       }
     },
@@ -2549,13 +2549,13 @@
     "737830897": 0,
     "737830901": 0,
     "737830903": 25,
-    "737830911": 17,
+    "737830911": 48,
     "737830913": 328,
     "737830918": 77,
     "737830920": 109,
     "737830933": 65,
     "737830935": 0,
-    "737830938": 167,
+    "737830938": 506,
     "737830940": 10,
     "737830942": 0,
     "737830944": 0,
@@ -2613,19 +2613,19 @@
     "738043696": 0,
     "738043710": 55,
     "738043721": 0,
-    "738043732": 15,
+    "738043732": 27,
     "738043743": 0,
     "738071828": 0,
     "738095683": 2,
     "738115828": 0,
     "738115837": 0,
-    "738115840": 72,
+    "738115840": 189,
     "738115845": 58,
     "738123527": 17,
     "738123529": 9,
     "738123533": 6,
     "738123539": 15,
-    "738124481": 137,
+    "738124481": 145,
     "738124483": 98,
     "738124485": 46,
     "738124488": 65,
@@ -2634,7 +2634,7 @@
     "738124506": 133,
     "738124509": 94,
     "738124528": 2,
-    "738124530": 2,
+    "738124530": 17,
     "738132124": 0,
     "738152667": 0,
     "738152773": 95,
@@ -2774,7 +2774,7 @@
     "739059588": 1,
     "739059590": 4,
     "739059592": 8,
-    "739059594": 111,
+    "739059594": 118,
     "739059596": 1,
     "739059598": 13,
     "739059605": 21,
@@ -2833,7 +2833,7 @@
     "739668322": 16,
     "739717476": 6,
     "739717526": 3,
-    "739764978": 137,
+    "739764978": 145,
     "739865060": 54,
     "739865072": 0,
     "739866087": 14,
@@ -2887,7 +2887,7 @@
     "740127906": 9,
     "740161390": 100,
     "740161392": 3,
-    "740170697": 3,
+    "740170697": 67,
     "740177307": 5,
     "740177327": 5,
     "740196430": 11,
