@@ -423,6 +423,17 @@ tfoot td:first-child{text-align:left;}
 .fr-chip.up{background:#dcfce7;color:#166534;}
 .fr-chip.dn{background:#fee2e2;color:#991b1b;}
 .fr-chip.eq{background:var(--bg);color:var(--mu);}
+
+/* ── LOGIN ──────────────────────────────────────────────────── */
+#loginOverlay{position:fixed;inset:0;background:#0f172a;display:flex;align-items:center;justify-content:center;z-index:9999;}
+#loginBox{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:40px 36px;width:100%;max-width:360px;text-align:center;}
+#loginLogo{font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:6px;}
+#loginSub{font-size:.72rem;color:#94a3b8;margin-bottom:28px;}
+#loginInput{width:100%;box-sizing:border-box;background:#0f172a;border:1px solid #334155;border-radius:8px;padding:11px 14px;font-size:.85rem;color:#fff;outline:none;margin-bottom:12px;}
+#loginInput:focus{border-color:#f97316;}
+#loginBtn{width:100%;background:#f97316;border:none;border-radius:8px;padding:11px;font-size:.82rem;font-weight:800;color:#fff;cursor:pointer;transition:background .15s;}
+#loginBtn:hover{background:#ea6c00;}
+#loginErr{font-size:.68rem;color:#f87171;margin-top:10px;min-height:16px;}
 </style>
 </head>
 <body>
@@ -760,6 +771,8 @@ tfoot td:first-child{text-align:left;}
             <span class="flbl">vs Dia B:</span>
             <input type="date" id="mlDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarMLComp()">Aplicar</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('ml',7)">7d</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('ml',30)">30d</button>
             <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
             <button class="abtn on"  id="mlFiltAll" onclick="setMLFilt('all',this)"  style="background:var(--or);border-color:var(--or);color:#fff">Todos</button>
             <button class="abtn"     id="mlFiltUp"  onclick="setMLFilt('up',this)">▲ Subiram</button>
@@ -812,6 +825,8 @@ tfoot td:first-child{text-align:left;}
             <span class="flbl">vs Dia B:</span>
             <input type="date" id="vCBDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalComp('Casas Bahia','vCB')">Aplicar</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vCB',7)">7d</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vCB',30)">30d</button>
             <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
             <button class="abtn on"  id="vCBFAll" onclick="setCanalFilt('Casas Bahia','vCB','all',this)"  style="background:#0052A5;border-color:#0052A5;color:#fff">Todos</button>
             <button class="abtn"     id="vCBFUp"  onclick="setCanalFilt('Casas Bahia','vCB','up',this)">▲ Subiram</button>
@@ -856,6 +871,8 @@ tfoot td:first-child{text-align:left;}
             <span class="flbl">vs Dia B:</span>
             <input type="date" id="vMGDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalComp('Magazine Luiza','vMG')">Aplicar</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vMG',7)">7d</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vMG',30)">30d</button>
             <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
             <button class="abtn on"  id="vMGFAll" onclick="setCanalFilt('Magazine Luiza','vMG','all',this)"  style="background:#CC0066;border-color:#CC0066;color:#fff">Todos</button>
             <button class="abtn"     id="vMGFUp"  onclick="setCanalFilt('Magazine Luiza','vMG','up',this)">▲ Subiram</button>
@@ -900,6 +917,8 @@ tfoot td:first-child{text-align:left;}
             <span class="flbl">vs Dia B:</span>
             <input type="date" id="vSHDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalComp('Shopee','vSH')">Aplicar</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vSH',7)">7d</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vSH',30)">30d</button>
             <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
             <button class="abtn on"  id="vSHFAll" onclick="setCanalFilt('Shopee','vSH','all',this)"  style="background:#EE4D2D;border-color:#EE4D2D;color:#fff">Todos</button>
             <button class="abtn"     id="vSHFUp"  onclick="setCanalFilt('Shopee','vSH','up',this)">▲ Subiram</button>
@@ -944,6 +963,8 @@ tfoot td:first-child{text-align:left;}
             <span class="flbl">vs Dia B:</span>
             <input type="date" id="vAMZDiaB" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
             <button class="faply" onclick="aplicarCanalComp('Amazon','vAMZ')">Aplicar</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vAMZ',7)">7d</button>
+            <button class="faply" style="background:var(--bg);color:var(--tx);border:1px solid var(--bd)" onclick="canalAtalho('vAMZ',30)">30d</button>
             <div style="width:1px;height:20px;background:var(--bd);margin:0 2px;"></div>
             <button class="abtn on"  id="vAMZFAll" onclick="setCanalFilt('Amazon','vAMZ','all',this)"  style="background:#E47911;border-color:#E47911;color:#fff">Todos</button>
             <button class="abtn"     id="vAMZFUp"  onclick="setCanalFilt('Amazon','vAMZ','up',this)">▲ Subiram</button>
@@ -1184,7 +1205,7 @@ const CANAIS  = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon
 const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911','Amazon Fulfillment':'#FF9900'};
 
 // Cols: tinyerp_pedidos_detalhes
-const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,SIT:62,DATA:64,TRANSP:42,ESTADO:17};
+const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,FRETE:59,SIT:62,DATA:64,TRANSP:42,ESTADO:17};
 // Cols: tinyerp_pedidos_detalhes_itens
 const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
@@ -1192,10 +1213,11 @@ const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 let _modo='dia',_ini=null,_fim=null;
 const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null};
 const _canalVidMap={'vCB':'Casas Bahia','vMG':'Magazine Luiza','vSH':'Shopee','vAMZ':'Amazon','vML':'Mercado Livre'};
-const SKUS_EXCLUIR_PROJ=new Set(['TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI287-5','TI287-6','TI1287','TI1287-1','TI1287-2','TI1287-3','TI1287-4','TI1287-5','TI733','TI733-1','TI733-2','TI733-3','TI733-4','TI733-5']);
+const SKUS_EXCLUIR_PROJ=new Set(['TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI287-5','TI287-6','TI1287','TI733-3','TI733-4','TI733-5']);
 // SKUs de desmembramento de kit (pedido desmembrado = não contar no frete)
 const SKUS_KIT_DESM=new Set(['TI733','TI733-1','TI733-2','TI733-3','TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI287-5']);
 // Função central de exclusão de SKU: exclui lista fixa + sufixos -V e -A
+// (SKUs TI733, TI733-1, TI733-2, TI1733-1 a 4, TI516-1, TI1287-1 a 5 SÃO incluídos na soma — bate com Tiny)
 function skuExcluido(sku){
   const s=(sku||'').toUpperCase().trim();
   if(!s) return false;
@@ -1259,6 +1281,40 @@ function marca(desc){
   for(const[nm,k]of M)if(d.includes(k))return nm;
   return 'Outros';
 }
+
+// ── FRETE RATEADO ──────────────────────────────────────────
+// Constrói mapa id_pedido → {frete, totalItens} para permitir rateio proporcional
+// de frete por item/marca/categoria (bate com "Total" do Tiny = Valor + Frete)
+function buildPedidoFrete(pRows,iRows){
+  const pedFrete={}; // id → frete
+  const pedTotalItens={}; // id → soma qtd*vu de itens com status válido
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const id=(r[C.ID]||'').trim();
+    if(!id)continue;
+    const frete=parseFloat((r[C.FRETE]||'0').replace(',','.'))||0;
+    pedFrete[id]=frete;
+  }
+  for(let i=1;i<iRows.length;i++){
+    const r=iRows[i];
+    const id=(r[0]||'').trim();
+    const sit=(r[I.SIT]||'').toLowerCase().trim();
+    if(!id||!VALIDAS.has(sit))continue;
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const fat=qtd*vu;
+    if(fat<=0)continue;
+    pedTotalItens[id]=(pedTotalItens[id]||0)+fat;
+  }
+  // Retorna função que calcula frete rateado para um item
+  return function rateioFrete(idPed,valorItem){
+    const total=pedTotalItens[idPed]||0;
+    const frete=pedFrete[idPed]||0;
+    if(total<=0||frete<=0)return 0;
+    return frete*(valorItem/total);
+  };
+}
+
 
 function catTiny(cat){
   const c=(cat||'').toLowerCase();
@@ -1405,6 +1461,7 @@ function processDash(pRows,iRows,metas){
 
   // Itens
   const prodMap={},fornMap={};
+  const rateio=buildPedidoFrete(pRows,iRows);
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
     const id=(r[I.ID]||'').trim(),sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
@@ -1414,7 +1471,9 @@ function processDash(pRows,iRows,metas){
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;const mk=marca(desc);const nm=desc.substring(0,58);
+    const valItem=qtd*vu;
+    const fretRat=rateio(id,valItem);
+    const fat=valItem+fretRat;const mk=marca(desc);const nm=desc.substring(0,58);
     const skuItem=(r[I.SKU]||r[1]||'').trim();
     if(skuExcluido(skuItem))continue; // exclui SKUs proibidos
     if(!prodMap[nm])prodMap[nm]={q:0,f:0,idProd,sku:skuItem};
@@ -1686,6 +1745,7 @@ function processarCat(pRows,iRows,prodRows){
   const catMap={};
   for(let i=1;i<prodRows.length;i++){const r=prodRows[i];const id=(r[0]||'').trim();if(id&&r[iCat])catMap[id]=catTiny(r[iCat]);}
 
+  const rateio=buildPedidoFrete(pRows,iRows);
   const data={};const meses=new Set();
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
@@ -1693,7 +1753,8 @@ function processarCat(pRows,iRows,prodRows){
     const sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;
+    const valItem=qtd*vu;
+    const fat=valItem+rateio(idPed,valItem);
     if(!VALIDAS.has(sit)||!dat||fat===0)continue;
     const p=dat.split('/');if(p.length<3)continue;
     const mk=`${+p[0]}/${p[2]}`;meses.add(mk);
@@ -1901,12 +1962,15 @@ function renderCatMeses(){
 function processarMarcas(pRows,iRows){
   const pedCanal={};
   for(let i=1;i<pRows.length;i++){const r=pRows[i];const id=(r[C.ID]||'').trim();if(id)pedCanal[id]=canal(r[C.ENOME],r[C.ENUM]);}
+  const rateio=buildPedidoFrete(pRows,iRows);
   const data={};const meses=new Set();
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
     const idPed=(r[0]||'').trim(),sit=(r[I.SIT]||'').toLowerCase().trim(),dat=(r[I.DATA]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
-    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;const fat=qtd*vu;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    const valItem=qtd*vu;
+    const fat=valItem+rateio(idPed,valItem);
     if(!VALIDAS.has(sit)||!dat||fat===0)continue;
     const p=dat.split('/');if(p.length<3)continue;
     const mk2=`${+p[0]}/${p[2]}`;meses.add(mk2);
@@ -2711,6 +2775,7 @@ function processarVG(pRows, iRows, ymdI, ymdF){
   }
 
   // Agrega por SKU
+  const rateio=buildPedidoFrete(pRows,iRows);
   const skuMap={}; // sku → {desc, total, ML, CB, MG, SH, AMZ, fat}
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
@@ -2729,7 +2794,8 @@ function processarVG(pRows, iRows, ymdI, ymdF){
     const desc=(r[I.DESC]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;
+    const valItem=qtd*vu;
+    const fat=valItem+rateio(idPed,valItem);
     if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0,cat:catTiny(desc),mk:marca(desc)};
     skuMap[sku].total+=qtd;
     skuMap[sku].fat+=fat;
@@ -2910,6 +2976,7 @@ function processarCanal(pRows, iRows, canalNome){
   }
 
   const byDia={};const mesPrevData={};const mesAtualData={};
+  const rateio=buildPedidoFrete(pRows,iRows);
 
   // Processa iRows — filtra primeiro por pedCanal (Set lookup = O(1))
   for(let i=1;i<iRows.length;i++){
@@ -2925,7 +2992,8 @@ function processarCanal(pRows, iRows, canalNome){
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;
+    const valItem=qtd*vu;
+    const fat=valItem+rateio(idPed,valItem);
     if(!byDia[dat])byDia[dat]={};
     if(!byDia[dat][sku])byDia[dat][sku]={desc,qtd:0,fat:0,idProd};
     byDia[dat][sku].qtd+=qtd;byDia[dat][sku].fat+=fat;
@@ -3272,6 +3340,7 @@ function processarML(pRows,iRows){
   // Agrupa por dia→sku
   const byDia={};
   const mesPrevData={},mesAtualData={};
+  const rateio=buildPedidoFrete(pRows,iRows);
 
   for(let i=1;i<iRows.length;i++){
     const r=iRows[i];
@@ -3286,7 +3355,8 @@ function processarML(pRows,iRows){
     const idProd=(r[I.IDPROD]||'').trim();
     const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    const fat=qtd*vu;
+    const valItem=qtd*vu;
+    const fat=valItem+rateio(idPed,valItem);
 
     if(!byDia[dat])byDia[dat]={};
     if(!byDia[dat][sku])byDia[dat][sku]={desc,qtd:0,fat:0,idProd};
@@ -4478,6 +4548,122 @@ function renderFrete(){
       +t2Html
     +'</div>';
 }
+
+// ── LOGIN ────────────────────────────────────────────────────
+(function(){
+  var HASH = '33aeb9a6d4c1a8d826fb636e0cceeee22212e7d3b9bd9273a680d416bc3f4a6c';
+  var HORAS = 8;
+  var KEY_EXP  = 'sb_exp';
+  var KEY_AUTH = 'sb_auth';
+
+  function hashSHA256(str){
+    // SubtleCrypto (async) — usamos versão síncrona via TextEncoder
+    var buf = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', buf).then(function(h){
+      return Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    });
+  }
+
+  function jaAutenticado(){
+    var exp = sessionStorage.getItem(KEY_EXP);
+    var auth = sessionStorage.getItem(KEY_AUTH);
+    if(!exp||!auth) return false;
+    if(Date.now() > parseInt(exp)) { sessionStorage.removeItem(KEY_EXP); sessionStorage.removeItem(KEY_AUTH); return false; }
+    return auth === HASH;
+  }
+
+  function marcarAutenticado(){
+    var exp = Date.now() + HORAS * 3600 * 1000;
+    sessionStorage.setItem(KEY_EXP,  exp.toString());
+    sessionStorage.setItem(KEY_AUTH, HASH);
+  }
+
+  window.loginCheck = function(){
+    var val = (document.getElementById('loginInput').value||'').trim();
+    if(!val) return;
+    hashSHA256(val).then(function(h){
+      if(h === HASH){
+        marcarAutenticado();
+        var ov = document.getElementById('loginOverlay');
+        if(ov){ ov.style.opacity='0'; ov.style.transition='opacity .3s'; setTimeout(function(){ov.remove();}, 300); }
+      } else {
+        var err = document.getElementById('loginErr');
+        if(err) err.textContent = 'Senha incorreta. Tente novamente.';
+        var inp = document.getElementById('loginInput');
+        if(inp){ inp.value=''; inp.focus(); inp.style.borderColor='#f87171'; setTimeout(function(){inp.style.borderColor='';inp.style.borderColor='#334155';},1500); }
+      }
+    });
+  };
+
+  // Verificar ao carregar
+  if(jaAutenticado()){
+    var ov = document.getElementById('loginOverlay');
+    if(ov) ov.remove();
+  }
+})();
+
+// ── ATALHOS DE PERÍODO no comparativo de canal ───────────────
+function canalAgregaDias(byDia, datas) {
+  var agg = {};
+  datas.forEach(function(dat) {
+    var dia = byDia[dat] || {};
+    Object.keys(dia).forEach(function(sku) {
+      if(!agg[sku]) agg[sku]={qtd:0,fat:0,desc:dia[sku].desc||'',idProd:dia[sku].idProd||''};
+      agg[sku].qtd += (dia[sku].qtd||0);
+      agg[sku].fat += (dia[sku].fat||0);
+    });
+  });
+  return agg;
+}
+
+function canalUltimosDias(n, refStr) {
+  var datas = [], base = pD(refStr);
+  for(var i=0;i<n;i++) {
+    var d=new Date(base); d.setDate(base.getDate()-i);
+    datas.push((d.getMonth()+1).toString().padStart(2,'0')+'/'+d.getDate().toString().padStart(2,'0')+'/'+d.getFullYear());
+  }
+  return datas;
+}
+
+function canalAtalho(vid, dias) {
+  if(!_cache) return;
+  var canalNome, byDia, dataObj;
+  if(vid==='ml') {
+    canalNome='Mercado Livre';
+    if(!_mlC) _mlC=processarML(_cache.pRows,_cache.iRows);
+    byDia=_mlC.byDia; dataObj=_mlC;
+  } else {
+    canalNome=_canalVidMap[vid];
+    if(!canalNome) return;
+    if(!_canalCache[canalNome]) _canalCache[canalNome]=processarCanal(_cache.pRows,_cache.iRows,canalNome);
+    byDia=_canalCache[canalNome].byDia; dataObj=_canalCache[canalNome];
+  }
+  var ref=_dRef||dataObj.hoje||''; if(!ref) return;
+
+  var datasA=canalUltimosDias(dias,ref);
+  var dIni=pD(datasA[datasA.length-1]); dIni.setDate(dIni.getDate()-1);
+  var dIniStr=(dIni.getMonth()+1).toString().padStart(2,'0')+'/'+dIni.getDate().toString().padStart(2,'0')+'/'+dIni.getFullYear();
+  var datasB=canalUltimosDias(dias,dIniStr);
+
+  var keyA='__p'+dias+'a', keyB='__p'+dias+'b';
+  byDia[keyA]=canalAgregaDias(byDia,datasA);
+  byDia[keyB]=canalAgregaDias(byDia,datasB);
+
+  var fD=function(arr){if(!arr.length)return'';var d0=pD(arr[arr.length-1]),d1=pD(arr[0]);return d0.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})+' – '+d1.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});};
+  var lbl='Top 10 — '+fD(datasA)+' vs '+fD(datasB);
+
+  if(vid==='ml'){
+    _mlDiaA=keyA; _mlDiaB=keyB;
+    renderMLComp();
+    var t=document.getElementById('mlCompTit'); if(t) t.textContent=lbl;
+  } else {
+    if(!_canalState[vid]) _canalState[vid]={};
+    _canalState[vid].diaA=keyA; _canalState[vid].diaB=keyB;
+    renderCanalComp(canalNome,vid,dataObj);
+    var t2=document.getElementById(vid+'CompTit'); if(t2) t2.textContent=lbl;
+  }
+}
+
 
 </script>
 </body>
