@@ -2482,7 +2482,8 @@ async function loadMetas(){
       if(d.getMonth()!==now.getMonth()||d.getFullYear()!==now.getFullYear())continue;
       if(idsSeen.has(id))continue;
       idsSeen.add(id);
-      fatPorDia[dat]=(fatPorDia[dat]||0)+parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+      const totFat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+      fatPorDia[dat]=(fatPorDia[dat]||0)+totFat;
     }
 
     // Monta lista de dias do mês com meta e faturado
@@ -2644,6 +2645,10 @@ function renderMetasCanal(dias, metas, pRows){
     {key:'Shopee',        cor:'#EE4D2D', label:'Shopee'},
   ];
 
+  // Constrói Set com as datas do mês selecionado (vindas da lista `dias`)
+  // Isso permite filtrar corretamente independente do mês atual do sistema
+  const datasDoMes=new Set(dias.map(d=>d.dat));
+
   // Agrupa faturamento real por dia × canal
   const fatCanal={}; // dat → {canal: fat}
   const idsSeen=new Set();
@@ -2652,15 +2657,14 @@ function renderMetasCanal(dias, metas, pRows){
     const id=(r[C.ID]||'').trim();
     const sit=(r[C.SIT]||'').toLowerCase().trim();
     const dat=(r[C.DATA]||'').trim();
-    const _cnVG=canal(r[C.ENOME],r[C.ENUM]);
-    if(!id||!validSit(sit,_cnVG)||!dat||idsSeen.has(id))continue;
-    idsSeen.add(id);
-    const pp=dat.split('/');if(pp.length<3)continue;
-    const now2=new Date(); const d2=new Date(+pp[2],+pp[0]-1,+pp[1]);
-    if(d2.getMonth()!==now2.getMonth()||d2.getFullYear()!==now2.getFullYear())continue;
     const cn=canal(r[C.ENOME],r[C.ENUM]);
+    if(!id||!validSit(sit,cn)||!dat||idsSeen.has(id))continue;
+    // Filtra pelo mês SELECIONADO (via lista `dias`), não pelo mês atual do sistema
+    if(!datasDoMes.has(dat))continue;
+    idsSeen.add(id);
+    const totalPed=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
     if(!fatCanal[dat])fatCanal[dat]={};
-    fatCanal[dat][cn]=(fatCanal[dat][cn]||0)+parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+    fatCanal[dat][cn]=(fatCanal[dat][cn]||0)+totalPed;
   }
 
   // Totais acumulados por canal
