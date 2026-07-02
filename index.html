@@ -739,7 +739,12 @@ tfoot td:first-child{text-align:left;}
             <button class="abtn" id="vgOrdAMZ" onclick="ordenarVG('AMZ',this)">Amazon</button>
             <button class="abtn" id="vgOrdFat" onclick="ordenarVG('fat',this)">Faturamento</button>
           </div>
-          <div style="margin-left:auto;font-size:.6rem;font-weight:700;color:var(--mu)" id="vgStatus">--</div>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:.6rem;font-weight:700;color:var(--mu)" id="vgStatus">--</span>
+            <button onclick="exportarVG()" title="Exportar dados filtrados para Excel" style="background:#217346;border:none;border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
+              📥 Exportar Excel
+            </button>
+          </div>
         </div>
       </div>
       <!-- Tabela -->
@@ -2907,6 +2912,105 @@ function renderVG(skuMap){
   </tr></tfoot></table>`;
 
   document.getElementById('vgTableWrap').innerHTML=h;
+}
+
+// ── EXPORTAR VENDAS GERAL PARA EXCEL (CSV UTF-8) ────────────
+function exportarVG(){
+  if(!_vgCache){
+    alert('Nenhum dado carregado. Aplique um período primeiro.');
+    return;
+  }
+  try{
+    // Aplica os MESMOS filtros da renderVG (categoria, marca, ordenação)
+    const filtCat=document.getElementById('vgCat')?.value||'';
+    const filtMk=document.getElementById('vgMarca')?.value||'';
+    let lista=Object.entries(_vgCache);
+    if(filtCat) lista=lista.filter(([,d])=>d.cat===filtCat);
+    if(filtMk)  lista=lista.filter(([,d])=>d.mk===filtMk);
+    lista.sort((a,b)=>b[1][_vgOrdem]-a[1][_vgOrdem]);
+
+    if(!lista.length){
+      alert('Nenhum dado para exportar com os filtros atuais.');
+      return;
+    }
+
+    // Formatação de números (pt-BR: vírgula decimal, ponto milhar)
+    const nBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
+    const rBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+    // Escape CSV: envolve em aspas se contém ";", quebra de linha ou aspas
+    const esc=s=>{
+      const t=String(s||'');
+      if(/[;"\n\r]/.test(t))return`"${t.replace(/"/g,'""')}"`;
+      return t;
+    };
+
+    // Cabeçalho
+    const headers=['#','SKU','Produto','Categoria','Marca','Total (un)','Mercado Livre (un)','Casas Bahia (un)','Magazine Luiza (un)','Shopee (un)','Amazon (un)','Faturamento (R$)'];
+    const linhas=[headers.map(esc).join(';')];
+
+    // Linhas de dados
+    let totais={total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0};
+    lista.forEach(([sku,d],i)=>{
+      totais.total+=d.total;totais.ML+=d.ML;totais.CB+=d.CB;
+      totais.MG+=d.MG;totais.SH+=d.SH;totais.AMZ+=d.AMZ;totais.fat+=d.fat;
+      linhas.push([
+        i+1,
+        sku,
+        d.desc||'',
+        d.cat||'',
+        d.mk||'',
+        nBR(d.total),
+        nBR(d.ML),
+        nBR(d.CB),
+        nBR(d.MG),
+        nBR(d.SH),
+        nBR(d.AMZ),
+        rBR(d.fat)
+      ].map(esc).join(';'));
+    });
+
+    // Linha de TOTAL
+    linhas.push(['','','TOTAL','','',
+      nBR(totais.total),
+      nBR(totais.ML),
+      nBR(totais.CB),
+      nBR(totais.MG),
+      nBR(totais.SH),
+      nBR(totais.AMZ),
+      rBR(totais.fat)
+    ].map(esc).join(';'));
+
+    // BOM UTF-8 para Excel reconhecer acentos + CRLF (padrão CSV Windows)
+    const csv='\uFEFF'+linhas.join('\r\n');
+
+    // Nome do arquivo com período e filtros
+    const fmtDia=s=>{if(!s)return'';const p=s.split('/');return p.length===3?p[1].padStart(2,'0')+p[0].padStart(2,'0')+p[2]:'';};
+    const ini=_vgIni?fmtDia(_vgIni):'inicio';
+    const fim=_vgFim?fmtDia(_vgFim):'fim';
+    let sufixo='';
+    if(filtCat) sufixo+='_'+filtCat.replace(/\s+/g,'-').substring(0,15);
+    if(filtMk)  sufixo+='_'+filtMk.replace(/\s+/g,'-').substring(0,15);
+    const nomeArquivo=`vendas_geral_${ini}_a_${fim}${sufixo}.csv`;
+
+    // Download
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download=nomeArquivo;
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
+
+    // Feedback visual no botão
+    const btn=document.querySelector(`button[onclick="exportarVG()"]`);
+    if(btn){
+      const original=btn.innerHTML;
+      btn.innerHTML='✅ Exportado!';btn.style.background='#16A34A';
+      setTimeout(()=>{btn.innerHTML=original;btn.style.background='#217346';},1800);
+    }
+  }catch(e){
+    console.error('[Export VG]',e);
+    alert('Erro ao exportar: '+e.message);
+  }
 }
 
 function loadVG(){
