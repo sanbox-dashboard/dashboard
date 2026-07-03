@@ -2046,10 +2046,12 @@ const DEPOS_OK=new Set(['deposito amazonfull','novo galpao']);
 async function loadEstoque(){
   document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando estoque...</div>';
   try{
-    const[depoRows,prodRows,estProdRows]=await Promise.all([
+    const[depoRows,prodRows,estProdRows,ocDetRows,ocItRows]=await Promise.all([
       fetchSheet(EST_ID,'A:H','tinyerp_estoque_produto_depo'),
       fetchSheet(EST_ID,'A:Z','tinyerp_produtos'),
       fetchSheet(EST_ID,'A:Z','tinyerp_estoque_produto'),
+      fetchSheet(EST_ID,'A:C','tinyerp_ordem_compra_detalhes'),
+      fetchSheet(EST_ID,'A:F','tinyerp_ordem_compra_detalhes_itens'),
     ]);
     // SKU e marca por id
     const pHeader=prodRows[0]||[];
@@ -2059,7 +2061,30 @@ async function loadEstoque(){
       const r=prodRows[i];const id=(r[0]||'').trim();if(!id)continue;
       prodMap[id]={sku:(r[iSku]||'').trim(),marca:(r[iMarca]||'').trim()};
     }
-    // Estoque
+
+    // ── OCs em situação 3 (aprovada em andamento) ───────────────
+    // 1. Identifica IDs de OC com situacao === '3'
+    const ocIdsAtivas=new Set();
+    for(let i=1;i<ocDetRows.length;i++){
+      const r=ocDetRows[i];
+      const id=(r[0]||'').trim();
+      const sit=(r[2]||'').trim();
+      if(id&&sit==='3')ocIdsAtivas.add(id);
+    }
+    // 2. Soma quantidade por SKU nos itens dessas OCs
+    // Ignora linhas com SKU em branco
+    const ocPorSku={}; // sku (uppercase) → qtd
+    for(let i=1;i<ocItRows.length;i++){
+      const r=ocItRows[i];
+      const ocId=(r[0]||'').trim();
+      const sku=(r[2]||'').trim();
+      if(!sku)continue;                    // ignora sem SKU
+      if(!ocIdsAtivas.has(ocId))continue;  // só OC em situação 3
+      const qtd=parseFloat((r[5]||'0').toString().replace(',','.'))||0;
+      const key=sku.toUpperCase();
+      ocPorSku[key]=(ocPorSku[key]||0)+qtd;
+    }
+
     // Estoque por depósito
     const estMap={};
     for(let i=1;i<depoRows.length;i++){
@@ -2096,7 +2121,7 @@ async function loadEstoque(){
     // skuMap para top produtos
     const skuMap={};
     for(const[id,p]of Object.entries(prodMap))skuMap[id]=p.sku;
-    _estC={prodMap,estMap:estLiqMap,estMapBruto:estMap,reservPorSku,iRows,skuMap};
+    _estC={prodMap,estMap:estLiqMap,estMapBruto:estMap,reservPorSku,ocPorSku,iRows,skuMap};
     if(_cache)_cache.metas; // já carregado
 
     // Popula select de marcas
@@ -2137,7 +2162,7 @@ function estTH(txt,campo,cor){
 
 function renderEst(){
   if(!_estC)return;
-  const{prodMap,estMap,iRows,nomeMap}=_estC;
+  const{prodMap,estMap,iRows,nomeMap,ocPorSku}=_estC;
   const diasSel=parseInt(document.getElementById('eDias').value);
   const filtM=document.getElementById('eMarca').value;
   const filtS=document.getElementById('eSku').value.trim().toLowerCase();
@@ -2187,7 +2212,8 @@ function renderEst(){
     const nome=nomeMap[id]||sku||id;
     const mk=p.marca||marca(nome);
     const fat=fatMap[id]||0;
-    return{id,sku,nome,mk,est,vend,falta,fat,estoque:est};
+    const oc=(ocPorSku&&sku)?(ocPorSku[sku.toUpperCase()]||0):0;
+    return{id,sku,nome,mk,est,vend,falta,fat,oc,estoque:est};
   }).filter(Boolean);
 
   if(filtM)prods=prods.filter(p=>p.mk===filtM);
@@ -2219,6 +2245,7 @@ function renderEst(){
       ${estTH('Produto','nome','')}
       ${estTH('Marca','mk','')}
       ${estTH('Estoque','estoque','var(--or)')}
+      ${estTH('OC','oc','#0891B2')}
       ${estTH('Falta','falta','var(--re)')}
       ${estTH(`Vendas (${dias}d)`,'vend','')}
       ${estTH(`Fat. (${dias}d)`,'fat','#7C3AED')}
@@ -2237,6 +2264,7 @@ function renderEst(){
       ${tdc(p.nome.substring(0,65),'','left')}
       ${tdc(p.mk||'—')}
       ${tdc(p.est.toFixed(0))}
+      ${tdc(p.oc>0?p.oc.toFixed(0):'—',p.oc>0?'#0891B2':'var(--dm)')}
       ${tdc(faltaT,faltaC)}
       ${tdc(p.vend.toFixed(0),'var(--mu)')}
       ${tdc(p.fat>0?'R$ '+p.fat.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):'—',fatC)}
@@ -4366,7 +4394,7 @@ function estExportarExcel(){
   if(!lista.length){alert('Nenhum dado para exportar.');return;}
 
   // Cabeçalho
-  var linhas=[['SKU','Produto','Marca','Estoque Atual','Necessidade','Vendas ('+dias+'d)','Faturamento ('+dias+'d)']];
+  var linhas=[['SKU','Produto','Marca','Estoque Atual','OC (situação 3)','Necessidade','Vendas ('+dias+'d)','Faturamento ('+dias+'d)']];
 
   lista.forEach(function(p){
     linhas.push([
@@ -4374,6 +4402,7 @@ function estExportarExcel(){
       p.nome,
       p.mk||'',
       p.est,
+      p.oc||0,
       p.falta<0?(-p.falta):0, // falta repor (positivo na planilha)
       p.vend,
       p.fat>0?p.fat.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):''
