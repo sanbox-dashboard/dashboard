@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-07-05T10:10:18.229Z",
-  "gerado_em_br": "05/07/2026, 07:10:18",
+  "gerado_em": "2026-07-05T12:14:22.611Z",
+  "gerado_em_br": "05/07/2026, 09:14:22",
   "dia_referencia": "05/07/2026",
   "dia_ontem": "04/07/2026",
   "resumo_dia": {
-    "faturamento": 346676,
-    "pedidos": 5,
-    "ticket_medio": 69335.2,
+    "faturamento": 682168,
+    "pedidos": 8,
+    "ticket_medio": 85271,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9149,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 106211,
-        "pedidos": 1,
+        "faturamento": 272325,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 131462,
-        "pedidos": 3,
+        "faturamento": 291691,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 58412954,
-    "pedidos": 706,
+    "faturamento": 58748446,
+    "pedidos": 709,
     "meta_mensal": 6999999.87,
-    "pct_meta": 834.5,
-    "projecao_final": 362160314.8,
+    "pct_meta": 839.3,
+    "projecao_final": 364240365.2,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8396309,
-        "pedidos": 230
+        "faturamento": 8405458,
+        "pedidos": 231
       },
       "Casas Bahia": {
-        "faturamento": 18119110,
-        "pedidos": 114
+        "faturamento": 18285224,
+        "pedidos": 115
       },
       "Magazine Luiza": {
         "faturamento": 5030308,
@@ -77,8 +77,8 @@
         "pedidos": 48
       },
       "Amazon": {
-        "faturamento": 22663583,
-        "pedidos": 272
+        "faturamento": 22823812,
+        "pedidos": 273
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 388,
-      "fat": 9168695,
+      "qtd": 389,
+      "fat": 9182994,
       "canais": {
+        "Casas Bahia": 106,
         "Mercado Livre": 190,
-        "Casas Bahia": 105,
         "Amazon": 35,
         "Magazine Luiza": 35,
         "Shopee": 23
@@ -130,12 +130,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 290,
-      "fat": 5564123,
+      "qtd": 289,
+      "fat": 5546254,
       "canais": {
         "Casas Bahia": 106,
         "Amazon": 55,
-        "Mercado Livre": 81,
+        "Mercado Livre": 80,
         "Magazine Luiza": 40,
         "Outros": 4,
         "Shopee": 4
@@ -207,6 +207,20 @@
       }
     },
     {
+      "sku": "TI1526",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
+      "qtd": 106,
+      "fat": 1549963,
+      "canais": {
+        "Mercado Livre": 40,
+        "Amazon": 13,
+        "Casas Bahia": 9,
+        "Magazine Luiza": 25,
+        "Shopee": 18,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
       "qtd": 106,
@@ -217,20 +231,6 @@
         "Mercado Livre": 52,
         "Magazine Luiza": 4,
         "Shopee": 1
-      }
-    },
-    {
-      "sku": "TI1526",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 105,
-      "fat": 1540814,
-      "canais": {
-        "Amazon": 13,
-        "Mercado Livre": 39,
-        "Casas Bahia": 9,
-        "Magazine Luiza": 25,
-        "Shopee": 18,
-        "Outros": 1
       }
     },
     {
@@ -374,6 +374,18 @@
       }
     },
     {
+      "sku": "TI1527",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
+      "qtd": 52,
+      "fat": 840128,
+      "canais": {
+        "Amazon": 15,
+        "Shopee": 5,
+        "Mercado Livre": 21,
+        "Magazine Luiza": 11
+      }
+    },
+    {
       "sku": "TI1766",
       "desc": "Micro-Ondas de Embutir Electrolux ME3EP 34L com Painel Digital  Preto - 127v",
       "qtd": 52,
@@ -409,18 +421,6 @@
         "Casas Bahia": 14,
         "Magazine Luiza": 1,
         "Shopee": 1
-      }
-    },
-    {
-      "sku": "TI1527",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
-      "qtd": 50,
-      "fat": 695422,
-      "canais": {
-        "Amazon": 13,
-        "Shopee": 5,
-        "Mercado Livre": 21,
-        "Magazine Luiza": 11
       }
     },
     {
@@ -479,14 +479,14 @@
   ],
   "historico_por_dia": {
     "05/07/2026": {
-      "fat": 346676,
-      "peds": 5,
+      "fat": 682168,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 106211,
+        "Mercado Livre": 9149,
+        "Casas Bahia": 272325,
         "Magazine Luiza": 0,
         "Shopee": 109003,
-        "Amazon": 131462,
+        "Amazon": 291691,
         "Amazon Fulfillment": 0
       }
     },
@@ -587,10 +587,10 @@
       }
     },
     "26/06/2026": {
-      "fat": 6685753,
-      "peds": 113,
+      "fat": 6667884,
+      "peds": 112,
       "canais": {
-        "Mercado Livre": 1150132,
+        "Mercado Livre": 1132263,
         "Casas Bahia": 1734454,
         "Magazine Luiza": 1569856,
         "Shopee": 1558466,
