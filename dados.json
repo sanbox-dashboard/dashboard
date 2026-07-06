@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-06T07:17:33.002Z",
-  "gerado_em_br": "06/07/2026, 04:17:33",
+  "gerado_em": "2026-07-06T12:05:05.449Z",
+  "gerado_em_br": "06/07/2026, 09:05:05",
   "dia_referencia": "06/07/2026",
   "dia_ontem": "05/07/2026",
   "resumo_dia": {
-    "faturamento": 88429,
-    "pedidos": 4,
-    "ticket_medio": 22107.25,
+    "faturamento": 165501,
+    "pedidos": 6,
+    "ticket_medio": 27583.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 29168,
-        "pedidos": 2,
+        "faturamento": 45547,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 59261,
-        "pedidos": 2,
+        "faturamento": 119954,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 68692143,
-    "pedidos": 859,
+    "faturamento": 68769215,
+    "pedidos": 861,
     "meta_mensal": 6999999.87,
-    "pct_meta": 981.3,
-    "projecao_final": 354909405.5,
+    "pct_meta": 982.4,
+    "projecao_final": 355307610.83,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9618404,
-        "pedidos": 287
+        "faturamento": 9634783,
+        "pedidos": 288
       },
       "Casas Bahia": {
         "faturamento": 20951603,
@@ -77,8 +77,8 @@
         "pedidos": 51
       },
       "Amazon": {
-        "faturamento": 27623636,
-        "pedidos": 336
+        "faturamento": 27684329,
+        "pedidos": 337
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 384,
-      "fat": 9356341,
+      "qtd": 385,
+      "fat": 9372720,
       "canais": {
-        "Mercado Livre": 188,
+        "Mercado Livre": 189,
         "Casas Bahia": 106,
         "Shopee": 23,
         "Amazon": 33,
@@ -313,24 +313,24 @@
       }
     },
     {
+      "sku": "TI1700",
+      "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
+      "qtd": 62,
+      "fat": 1741200,
+      "canais": {
+        "Amazon": 33,
+        "Mercado Livre": 5,
+        "Shopee": 20,
+        "Magazine Luiza": 4
+      }
+    },
+    {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
       "qtd": 62,
       "fat": 1275168,
       "canais": {
         "Mercado Livre": 62
-      }
-    },
-    {
-      "sku": "TI1700",
-      "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
-      "qtd": 61,
-      "fat": 1695274,
-      "canais": {
-        "Amazon": 32,
-        "Mercado Livre": 5,
-        "Shopee": 20,
-        "Magazine Luiza": 4
       }
     },
     {
@@ -474,14 +474,14 @@
   ],
   "historico_por_dia": {
     "06/07/2026": {
-      "fat": 88429,
-      "peds": 4,
+      "fat": 165501,
+      "peds": 6,
       "canais": {
-        "Mercado Livre": 29168,
+        "Mercado Livre": 45547,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
         "Shopee": 0,
-        "Amazon": 59261,
+        "Amazon": 119954,
         "Amazon Fulfillment": 0
       }
     },
