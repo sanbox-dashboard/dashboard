@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-07-08T04:12:35.559Z",
-  "gerado_em_br": "08/07/2026, 01:12:35",
+  "gerado_em": "2026-07-08T07:26:30.212Z",
+  "gerado_em_br": "08/07/2026, 04:26:30",
   "dia_referencia": "08/07/2026",
   "dia_ontem": "07/07/2026",
   "resumo_dia": {
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 24048962,
-    "pedidos": 344
+    "faturamento": 24511335,
+    "pedidos": 351
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 107535296,
-    "pedidos": 1399,
+    "faturamento": 107997669,
+    "pedidos": 1406,
     "meta_mensal": 6999999.87,
-    "pct_meta": 1536.2,
-    "projecao_final": 416699272,
+    "pct_meta": 1542.8,
+    "projecao_final": 418490967.38,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 13575159,
-        "pedidos": 483
+        "faturamento": 13619677,
+        "pedidos": 485
       },
       "Casas Bahia": {
         "faturamento": 30555056,
@@ -73,12 +73,12 @@
         "pedidos": 67
       },
       "Shopee": {
-        "faturamento": 10833523,
-        "pedidos": 105
+        "faturamento": 10838764,
+        "pedidos": 106
       },
       "Amazon": {
-        "faturamento": 42423407,
-        "pedidos": 533
+        "faturamento": 42836021,
+        "pedidos": 537
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -394,6 +394,19 @@
       }
     },
     {
+      "sku": "TI1643",
+      "desc": "Forno Eletrico de bancada Mueller MFB50B 50 litros com Grill - 127v",
+      "qtd": 52,
+      "fat": 829288,
+      "canais": {
+        "Shopee": 14,
+        "Amazon": 6,
+        "Magazine Luiza": 3,
+        "Mercado Livre": 21,
+        "Casas Bahia": 8
+      }
+    },
+    {
       "sku": "TI1568",
       "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
       "qtd": 52,
@@ -417,19 +430,6 @@
         "Amazon": 42,
         "Magazine Luiza": 2,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1643",
-      "desc": "Forno Eletrico de bancada Mueller MFB50B 50 litros com Grill - 127v",
-      "qtd": 51,
-      "fat": 823329,
-      "canais": {
-        "Amazon": 6,
-        "Shopee": 13,
-        "Magazine Luiza": 3,
-        "Mercado Livre": 21,
-        "Casas Bahia": 8
       }
     },
     {
@@ -483,14 +483,14 @@
       }
     },
     "07/07/2026": {
-      "fat": 24048962,
-      "peds": 344,
+      "fat": 24511335,
+      "peds": 351,
       "canais": {
-        "Mercado Livre": 2598527,
+        "Mercado Livre": 2643045,
         "Casas Bahia": 5193004,
         "Magazine Luiza": 2261566,
-        "Shopee": 4883334,
-        "Amazon": 9112531,
+        "Shopee": 4888575,
+        "Amazon": 9525145,
         "Amazon Fulfillment": 0
       }
     },
