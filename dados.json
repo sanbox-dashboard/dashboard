@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-07-09T13:47:44.030Z",
-  "gerado_em_br": "09/07/2026, 10:47:44",
+  "gerado_em": "2026-07-09T16:25:43.402Z",
+  "gerado_em_br": "09/07/2026, 13:25:43",
   "dia_referencia": "09/07/2026",
   "dia_ontem": "08/07/2026",
   "resumo_dia": {
-    "faturamento": 1641167,
-    "pedidos": 20,
-    "ticket_medio": 82058.35,
+    "faturamento": 2841744,
+    "pedidos": 38,
+    "ticket_medio": 74782.74,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 138133,
-        "pedidos": 7,
+        "faturamento": 280304,
+        "pedidos": 16,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 571388,
-        "pedidos": 4,
+        "faturamento": 1549886,
+        "pedidos": 10,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 224929,
-        "pedidos": 2,
+        "faturamento": 233634,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 378817,
-        "pedidos": 3,
+        "faturamento": 450020,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 9024129,
-    "pedidos": 158
+    "faturamento": 8794622,
+    "pedidos": 157
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 119356381,
-    "pedidos": 1591,
+    "faturamento": 120233958,
+    "pedidos": 1607,
     "meta_mensal": 6999999.87,
-    "pct_meta": 1705.1,
-    "projecao_final": 411116423.44,
+    "pct_meta": 1717.6,
+    "projecao_final": 414139188.67,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15099526,
-        "pedidos": 566
+        "faturamento": 15241697,
+        "pedidos": 575
       },
       "Casas Bahia": {
-        "faturamento": 35790861,
-        "pedidos": 247
+        "faturamento": 36539852,
+        "pedidos": 252
       },
       "Magazine Luiza": {
-        "faturamento": 10898903,
-        "pedidos": 76
+        "faturamento": 10907608,
+        "pedidos": 77
       },
       "Shopee": {
-        "faturamento": 12470536,
-        "pedidos": 126
+        "faturamento": 12377043,
+        "pedidos": 125
       },
       "Amazon": {
-        "faturamento": 44881016,
-        "pedidos": 572
+        "faturamento": 44952219,
+        "pedidos": 574
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 386,
-      "fat": 9665339,
+      "qtd": 387,
+      "fat": 9679738,
       "canais": {
-        "Casas Bahia": 104,
+        "Casas Bahia": 105,
         "Mercado Livre": 201,
         "Amazon": 30,
         "Shopee": 25,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 319,
-      "fat": 6028351,
+      "qtd": 320,
+      "fat": 6046610,
       "canais": {
+        "Mercado Livre": 92,
         "Magazine Luiza": 35,
         "Casas Bahia": 99,
         "Amazon": 82,
-        "Mercado Livre": 91,
         "Shopee": 7,
         "Outros": 5
       }
@@ -131,12 +131,12 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 308,
-      "fat": 8695242,
+      "qtd": 310,
+      "fat": 8731540,
       "canais": {
+        "Casas Bahia": 142,
+        "Amazon": 84,
         "Mercado Livre": 77,
-        "Casas Bahia": 141,
-        "Amazon": 83,
         "Shopee": 7
       }
     },
@@ -157,10 +157,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 170,
-      "fat": 1451723,
+      "qtd": 171,
+      "fat": 1461522,
       "canais": {
-        "Mercado Livre": 88,
+        "Mercado Livre": 89,
         "Shopee": 53,
         "Amazon": 22,
         "Casas Bahia": 2,
@@ -193,14 +193,14 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 110,
-      "fat": 1161735,
+      "qtd": 111,
+      "fat": 1089529,
       "canais": {
+        "Magazine Luiza": 19,
+        "Casas Bahia": 7,
         "Mercado Livre": 58,
         "Amazon": 4,
-        "Shopee": 23,
-        "Magazine Luiza": 18,
-        "Casas Bahia": 6,
+        "Shopee": 22,
         "Amazon Fulfillment": 1
       }
     },
@@ -218,6 +218,20 @@
       }
     },
     {
+      "sku": "TI1526",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
+      "qtd": 94,
+      "fat": 1930189,
+      "canais": {
+        "Mercado Livre": 37,
+        "Shopee": 14,
+        "Amazon": 17,
+        "Casas Bahia": 8,
+        "Magazine Luiza": 17,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
       "qtd": 94,
@@ -228,20 +242,6 @@
         "Magazine Luiza": 21,
         "Casas Bahia": 7,
         "Shopee": 26
-      }
-    },
-    {
-      "sku": "TI1526",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 93,
-      "fat": 1921040,
-      "canais": {
-        "Shopee": 14,
-        "Amazon": 17,
-        "Mercado Livre": 36,
-        "Casas Bahia": 8,
-        "Magazine Luiza": 17,
-        "Outros": 1
       }
     },
     {
@@ -332,6 +332,18 @@
       }
     },
     {
+      "sku": "TI1768",
+      "desc": "Lava e Seca Electrolux  LSC12 12Kg Cinza Onix Inverter com Agua Quente e Lavagem Inteligente-127v",
+      "qtd": 70,
+      "fat": 3227460,
+      "canais": {
+        "Casas Bahia": 20,
+        "Mercado Livre": 48,
+        "Magazine Luiza": 1,
+        "Shopee": 1
+      }
+    },
+    {
       "sku": "SS003",
       "desc": "Monitor de Audio Ssound SS-003 80W RMS Bluetooth/Optical/USB/RCA-Branco",
       "qtd": 70,
@@ -339,18 +351,6 @@
       "canais": {
         "Mercado Livre": 2,
         "Amazon": 68
-      }
-    },
-    {
-      "sku": "TI1768",
-      "desc": "Lava e Seca Electrolux  LSC12 12Kg Cinza Onix Inverter com Agua Quente e Lavagem Inteligente-127v",
-      "qtd": 68,
-      "fat": 3147172,
-      "canais": {
-        "Casas Bahia": 19,
-        "Mercado Livre": 47,
-        "Magazine Luiza": 1,
-        "Shopee": 1
       }
     },
     {
@@ -471,23 +471,23 @@
   ],
   "historico_por_dia": {
     "09/07/2026": {
-      "fat": 1641167,
-      "peds": 20,
+      "fat": 2841744,
+      "peds": 38,
       "canais": {
-        "Mercado Livre": 138133,
-        "Casas Bahia": 571388,
-        "Magazine Luiza": 224929,
+        "Mercado Livre": 280304,
+        "Casas Bahia": 1549886,
+        "Magazine Luiza": 233634,
         "Shopee": 327900,
-        "Amazon": 378817,
+        "Amazon": 450020,
         "Amazon Fulfillment": 0
       }
     },
     "08/07/2026": {
-      "fat": 9024129,
-      "peds": 158,
+      "fat": 8794622,
+      "peds": 157,
       "canais": {
         "Mercado Livre": 1343415,
-        "Casas Bahia": 4190124,
+        "Casas Bahia": 3960617,
         "Magazine Luiza": 730231,
         "Shopee": 1194540,
         "Amazon": 1565819,
@@ -531,13 +531,13 @@
       }
     },
     "04/07/2026": {
-      "fat": 10640716,
-      "peds": 156,
+      "fat": 10547223,
+      "peds": 155,
       "canais": {
         "Mercado Livre": 1052014,
         "Casas Bahia": 3593371,
         "Magazine Luiza": 536618,
-        "Shopee": 842191,
+        "Shopee": 748698,
         "Amazon": 4616522,
         "Amazon Fulfillment": 0
       }
