@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-07-10T08:20:11.479Z",
-  "gerado_em_br": "10/07/2026, 05:20:11",
+  "gerado_em": "2026-07-10T11:49:24.121Z",
+  "gerado_em_br": "10/07/2026, 08:49:24",
   "dia_referencia": "10/07/2026",
   "dia_ontem": "09/07/2026",
   "resumo_dia": {
-    "faturamento": 651915,
-    "pedidos": 3,
-    "ticket_medio": 217305,
+    "faturamento": 835607,
+    "pedidos": 5,
+    "ticket_medio": 167121.4,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 420304,
-        "pedidos": 1,
+        "faturamento": 502090,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 101906,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 127977311,
-    "pedidos": 1705,
+    "faturamento": 128161003,
+    "pedidos": 1707,
     "meta_mensal": 6999999.87,
-    "pct_meta": 1828.2,
-    "projecao_final": 396729664.1,
+    "pct_meta": 1830.9,
+    "projecao_final": 397299109.3,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 16493877,
         "pedidos": 622
       },
       "Casas Bahia": {
-        "faturamento": 41609779,
-        "pedidos": 284
+        "faturamento": 41691565,
+        "pedidos": 285
       },
       "Magazine Luiza": {
         "faturamento": 11461883,
         "pedidos": 80
       },
       "Shopee": {
-        "faturamento": 12839669,
-        "pedidos": 131
+        "faturamento": 12941575,
+        "pedidos": 132
       },
       "Amazon": {
         "faturamento": 45356564,
@@ -103,11 +103,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 312,
-      "fat": 5921743,
+      "qtd": 313,
+      "fat": 5937242,
       "canais": {
         "Magazine Luiza": 34,
-        "Casas Bahia": 94,
+        "Casas Bahia": 95,
         "Mercado Livre": 92,
         "Amazon": 80,
         "Shopee": 7,
@@ -233,11 +233,11 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 91,
-      "fat": 1899962,
+      "qtd": 92,
+      "fat": 1908261,
       "canais": {
+        "Shopee": 15,
         "Mercado Livre": 34,
-        "Shopee": 14,
         "Amazon": 17,
         "Casas Bahia": 8,
         "Magazine Luiza": 17,
@@ -471,13 +471,13 @@
   ],
   "historico_por_dia": {
     "10/07/2026": {
-      "fat": 651915,
-      "peds": 3,
+      "fat": 835607,
+      "peds": 5,
       "canais": {
         "Mercado Livre": 18869,
-        "Casas Bahia": 420304,
+        "Casas Bahia": 502090,
         "Magazine Luiza": 212742,
-        "Shopee": 0,
+        "Shopee": 101906,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
@@ -819,11 +819,11 @@
       }
     },
     "11/06/2026": {
-      "fat": 9693344,
-      "peds": 150,
+      "fat": 9874006,
+      "peds": 151,
       "canais": {
         "Mercado Livre": 1232033,
-        "Casas Bahia": 4006963,
+        "Casas Bahia": 4187625,
         "Magazine Luiza": 637160,
         "Shopee": 2276248,
         "Amazon": 1540940,
