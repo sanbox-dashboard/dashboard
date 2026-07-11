@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-11T11:02:43.913Z",
-  "gerado_em_br": "11/07/2026, 08:02:43",
+  "gerado_em": "2026-07-11T13:13:32.712Z",
+  "gerado_em_br": "11/07/2026, 10:13:32",
   "dia_referencia": "11/07/2026",
   "dia_ontem": "10/07/2026",
   "resumo_dia": {
-    "faturamento": 239828,
-    "pedidos": 2,
-    "ticket_medio": 119914,
+    "faturamento": 338090,
+    "pedidos": 4,
+    "ticket_medio": 84522.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9649,
-        "pedidos": 1,
+        "faturamento": 29458,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 78453,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,14 +54,14 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 141692453,
-    "pedidos": 1854,
+    "faturamento": 141765516,
+    "pedidos": 1855,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2024.2,
-    "projecao_final": 399315094.82,
+    "pct_meta": 2025.2,
+    "projecao_final": 399520999.64,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 18230176,
+        "faturamento": 18224786,
         "pedidos": 685
       },
       "Casas Bahia": {
@@ -77,8 +77,8 @@
         "pedidos": 153
       },
       "Amazon": {
-        "faturamento": 47358004,
-        "pedidos": 601
+        "faturamento": 47436457,
+        "pedidos": 602
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -286,11 +286,11 @@
     {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 76,
-      "fat": 1153334,
+      "qtd": 75,
+      "fat": 1128135,
       "canais": {
         "Amazon": 2,
-        "Mercado Livre": 74
+        "Mercado Livre": 73
       }
     },
     {
@@ -343,12 +343,12 @@
     {
       "sku": "TI1550",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 68,
-      "fat": 564631,
+      "qtd": 69,
+      "fat": 626313,
       "canais": {
+        "Amazon": 5,
         "Casas Bahia": 6,
         "Shopee": 35,
-        "Amazon": 4,
         "Mercado Livre": 6,
         "Magazine Luiza": 17
       }
@@ -356,11 +356,11 @@
     {
       "sku": "TI1763",
       "desc": "Fogao 5 Bocas Electrolux FE5IG Efficient Tripla Chama PerfectCook Mesa de Inox Cinza-Bivolt",
-      "qtd": 66,
-      "fat": 1333764,
+      "qtd": 67,
+      "fat": 1353573,
       "canais": {
+        "Mercado Livre": 56,
         "Casas Bahia": 10,
-        "Mercado Livre": 55,
         "Magazine Luiza": 1
       }
     },
@@ -470,14 +470,14 @@
   ],
   "historico_por_dia": {
     "11/07/2026": {
-      "fat": 239828,
-      "peds": 2,
+      "fat": 338090,
+      "peds": 4,
       "canais": {
-        "Mercado Livre": 9649,
+        "Mercado Livre": 29458,
         "Casas Bahia": 0,
         "Magazine Luiza": 230179,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 78453,
         "Amazon Fulfillment": 0
       }
     },
@@ -590,10 +590,10 @@
       }
     },
     "01/07/2026": {
-      "fat": 18095954,
-      "peds": 189,
+      "fat": 18070755,
+      "peds": 188,
       "canais": {
-        "Mercado Livre": 1675888,
+        "Mercado Livre": 1650689,
         "Casas Bahia": 4145816,
         "Magazine Luiza": 2071556,
         "Shopee": 982086,
