@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-11T09:26:27.551Z",
-  "gerado_em_br": "11/07/2026, 06:26:27",
+  "gerado_em": "2026-07-11T11:02:43.913Z",
+  "gerado_em_br": "11/07/2026, 08:02:43",
   "dia_referencia": "11/07/2026",
   "dia_ontem": "10/07/2026",
   "resumo_dia": {
-    "faturamento": 230179,
-    "pedidos": 1,
-    "ticket_medio": 230179,
+    "faturamento": 239828,
+    "pedidos": 2,
+    "ticket_medio": 119914,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9649,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 141682804,
-    "pedidos": 1853,
+    "faturamento": 141692453,
+    "pedidos": 1854,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2024,
-    "projecao_final": 399287902.18,
+    "pct_meta": 2024.2,
+    "projecao_final": 399315094.82,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 18220527,
-        "pedidos": 684
+        "faturamento": 18230176,
+        "pedidos": 685
       },
       "Casas Bahia": {
         "faturamento": 48106281,
@@ -103,10 +103,10 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 316,
-      "fat": 6001259,
+      "qtd": 317,
+      "fat": 6015983,
       "canais": {
-        "Casas Bahia": 93,
+        "Casas Bahia": 94,
         "Mercado Livre": 98,
         "Shopee": 8,
         "Magazine Luiza": 33,
@@ -143,11 +143,11 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 197,
-      "fat": 1759281,
+      "qtd": 198,
+      "fat": 1768930,
       "canais": {
+        "Mercado Livre": 68,
         "Shopee": 33,
-        "Mercado Livre": 67,
         "Amazon": 29,
         "Casas Bahia": 27,
         "Magazine Luiza": 39,
@@ -470,10 +470,10 @@
   ],
   "historico_por_dia": {
     "11/07/2026": {
-      "fat": 230179,
-      "peds": 1,
+      "fat": 239828,
+      "peds": 2,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 9649,
         "Casas Bahia": 0,
         "Magazine Luiza": 230179,
         "Shopee": 0,
@@ -758,11 +758,11 @@
       }
     },
     "17/06/2026": {
-      "fat": 8560865,
-      "peds": 122,
+      "fat": 8732134,
+      "peds": 123,
       "canais": {
         "Mercado Livre": 1107881,
-        "Casas Bahia": 4574252,
+        "Casas Bahia": 4745521,
         "Magazine Luiza": 1721144,
         "Shopee": 1130266,
         "Amazon": 27322,
