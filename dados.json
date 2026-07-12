@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-12T10:24:58.699Z",
-  "gerado_em_br": "12/07/2026, 07:24:58",
+  "gerado_em": "2026-07-12T11:57:30.552Z",
+  "gerado_em_br": "12/07/2026, 08:57:30",
   "dia_referencia": "12/07/2026",
   "dia_ontem": "11/07/2026",
   "resumo_dia": {
-    "faturamento": 430911,
-    "pedidos": 5,
-    "ticket_medio": 86182.2,
+    "faturamento": 616778,
+    "pedidos": 10,
+    "ticket_medio": 61677.8,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 44337,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 20772,
-        "pedidos": 1,
+        "faturamento": 94217,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 68085,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 148672738,
-    "pedidos": 1959,
+    "faturamento": 148858605,
+    "pedidos": 1964,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2123.9,
-    "projecao_final": 384071239.83,
+    "pct_meta": 2126.6,
+    "projecao_final": 384551396.25,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 18883602,
-        "pedidos": 730
+        "faturamento": 18927939,
+        "pedidos": 733
       },
       "Casas Bahia": {
         "faturamento": 52693442,
         "pedidos": 361
       },
       "Magazine Luiza": {
-        "faturamento": 12679101,
-        "pedidos": 91
+        "faturamento": 12752546,
+        "pedidos": 92
       },
       "Shopee": {
         "faturamento": 16249539,
         "pedidos": 165
       },
       "Amazon": {
-        "faturamento": 47838776,
-        "pedidos": 607
+        "faturamento": 47906861,
+        "pedidos": 608
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 363,
-      "fat": 8895787,
+      "qtd": 364,
+      "fat": 8912166,
       "canais": {
-        "Mercado Livre": 189,
+        "Mercado Livre": 190,
         "Casas Bahia": 103,
         "Shopee": 23,
         "Magazine Luiza": 21,
@@ -129,13 +129,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 272,
-      "fat": 2889999,
+      "qtd": 273,
+      "fat": 2899698,
       "canais": {
+        "Mercado Livre": 177,
         "Casas Bahia": 27,
         "Amazon": 9,
         "Shopee": 49,
-        "Mercado Livre": 176,
         "Outros": 6,
         "Magazine Luiza": 5
       }
@@ -307,6 +307,16 @@
       }
     },
     {
+      "sku": "SS003",
+      "desc": "Monitor de Audio Ssound SS-003 80W RMS Bluetooth/Optical/USB/RCA-Branco",
+      "qtd": 71,
+      "fat": 2601326,
+      "canais": {
+        "Amazon": 69,
+        "Mercado Livre": 2
+      }
+    },
+    {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
       "qtd": 70,
@@ -317,16 +327,6 @@
         "Magazine Luiza": 3,
         "Casas Bahia": 2,
         "Mercado Livre": 1
-      }
-    },
-    {
-      "sku": "SS003",
-      "desc": "Monitor de Audio Ssound SS-003 80W RMS Bluetooth/Optical/USB/RCA-Branco",
-      "qtd": 70,
-      "fat": 2594827,
-      "canais": {
-        "Mercado Livre": 2,
-        "Amazon": 68
       }
     },
     {
@@ -457,28 +457,29 @@
       }
     },
     {
-      "sku": "TI1705",
-      "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 39,
-      "fat": 1429293,
+      "sku": "TI1454",
+      "desc": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black 569L-220v",
+      "qtd": 40,
+      "fat": 2667375,
       "canais": {
-        "Mercado Livre": 16,
-        "Amazon": 19,
-        "Outros": 2,
-        "Casas Bahia": 2
+        "Magazine Luiza": 2,
+        "Mercado Livre": 19,
+        "Amazon": 4,
+        "Casas Bahia": 14,
+        "Outros": 1
       }
     }
   ],
   "historico_por_dia": {
     "12/07/2026": {
-      "fat": 430911,
-      "peds": 5,
+      "fat": 616778,
+      "peds": 10,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 44337,
         "Casas Bahia": 295398,
-        "Magazine Luiza": 20772,
+        "Magazine Luiza": 94217,
         "Shopee": 114741,
-        "Amazon": 0,
+        "Amazon": 68085,
         "Amazon Fulfillment": 0
       }
     },
