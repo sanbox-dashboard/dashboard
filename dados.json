@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-07-12T08:13:56.173Z",
-  "gerado_em_br": "12/07/2026, 05:13:56",
+  "gerado_em": "2026-07-12T10:24:58.699Z",
+  "gerado_em_br": "12/07/2026, 07:24:58",
   "dia_referencia": "12/07/2026",
   "dia_ontem": "11/07/2026",
   "resumo_dia": {
-    "faturamento": 28021,
-    "pedidos": 2,
-    "ticket_medio": 14010.5,
+    "faturamento": 430911,
+    "pedidos": 5,
+    "ticket_medio": 86182.2,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 295398,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 7249,
-        "pedidos": 1,
+        "faturamento": 114741,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 148269848,
-    "pedidos": 1956,
+    "faturamento": 148672738,
+    "pedidos": 1959,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2118.1,
-    "projecao_final": 383030440.67,
+    "pct_meta": 2123.9,
+    "projecao_final": 384071239.83,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 18883602,
         "pedidos": 730
       },
       "Casas Bahia": {
-        "faturamento": 52398044,
-        "pedidos": 359
+        "faturamento": 52693442,
+        "pedidos": 361
       },
       "Magazine Luiza": {
         "faturamento": 12679101,
         "pedidos": 91
       },
       "Shopee": {
-        "faturamento": 16142047,
-        "pedidos": 164
+        "faturamento": 16249539,
+        "pedidos": 165
       },
       "Amazon": {
         "faturamento": 47838776,
@@ -117,10 +117,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 290,
-      "fat": 8344389,
+      "qtd": 291,
+      "fat": 8361788,
       "canais": {
-        "Casas Bahia": 148,
+        "Casas Bahia": 149,
         "Amazon": 88,
         "Mercado Livre": 47,
         "Shopee": 7
@@ -220,12 +220,12 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 94,
-      "fat": 1923079,
+      "qtd": 95,
+      "fat": 1930978,
       "canais": {
+        "Casas Bahia": 10,
         "Mercado Livre": 37,
         "Magazine Luiza": 17,
-        "Casas Bahia": 9,
         "Shopee": 16,
         "Amazon": 14,
         "Outros": 1
@@ -259,10 +259,10 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 78,
-      "fat": 1579343,
+      "qtd": 79,
+      "fat": 1589742,
       "canais": {
-        "Shopee": 20,
+        "Shopee": 21,
         "Casas Bahia": 44,
         "Magazine Luiza": 3,
         "Amazon": 3,
@@ -471,13 +471,13 @@
   ],
   "historico_por_dia": {
     "12/07/2026": {
-      "fat": 28021,
-      "peds": 2,
+      "fat": 430911,
+      "peds": 5,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Casas Bahia": 295398,
         "Magazine Luiza": 20772,
-        "Shopee": 7249,
+        "Shopee": 114741,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
