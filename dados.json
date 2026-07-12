@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-11T23:52:41.043Z",
-  "gerado_em_br": "11/07/2026, 20:52:41",
+  "gerado_em": "2026-07-12T02:32:11.136Z",
+  "gerado_em_br": "11/07/2026, 23:32:11",
   "dia_referencia": "11/07/2026",
   "dia_ontem": "10/07/2026",
   "resumo_dia": {
-    "faturamento": 6277727,
-    "pedidos": 95,
-    "ticket_medio": 66081.34,
+    "faturamento": 6670816,
+    "pedidos": 100,
+    "ticket_medio": 66708.16,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 735995,
-        "pedidos": 46,
+        "faturamento": 752374,
+        "pedidos": 47,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 354478,
-        "pedidos": 5,
+        "faturamento": 731188,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 147679970,
-    "pedidos": 1945,
+    "faturamento": 148073059,
+    "pedidos": 1950,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2109.7,
-    "projecao_final": 416189006.36,
+    "pct_meta": 2115.3,
+    "projecao_final": 382522069.08,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 18803596,
-        "pedidos": 726
+        "faturamento": 18819975,
+        "pedidos": 727
       },
       "Casas Bahia": {
         "faturamento": 52292903,
@@ -73,8 +73,8 @@
         "pedidos": 90
       },
       "Shopee": {
-        "faturamento": 15758088,
-        "pedidos": 159
+        "faturamento": 16134798,
+        "pedidos": 163
       },
       "Amazon": {
         "faturamento": 47838776,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 376,
-      "fat": 9095204,
+      "qtd": 377,
+      "fat": 9111583,
       "canais": {
-        "Mercado Livre": 198,
+        "Mercado Livre": 199,
         "Casas Bahia": 104,
         "Shopee": 25,
         "Magazine Luiza": 22,
@@ -103,12 +103,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 325,
-      "fat": 6149635,
+      "qtd": 326,
+      "fat": 6166034,
       "canais": {
+        "Shopee": 9,
         "Mercado Livre": 101,
         "Casas Bahia": 99,
-        "Shopee": 8,
         "Magazine Luiza": 33,
         "Amazon": 79,
         "Outros": 5
@@ -368,10 +368,10 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 62,
-      "fat": 1355605,
+      "qtd": 63,
+      "fat": 1364404,
       "canais": {
-        "Shopee": 8,
+        "Shopee": 9,
         "Mercado Livre": 27,
         "Amazon": 13,
         "Magazine Luiza": 9,
@@ -471,13 +471,13 @@
   ],
   "historico_por_dia": {
     "11/07/2026": {
-      "fat": 6277727,
-      "peds": 95,
+      "fat": 6670816,
+      "peds": 100,
       "canais": {
-        "Mercado Livre": 735995,
+        "Mercado Livre": 752374,
         "Casas Bahia": 4186622,
         "Magazine Luiza": 529749,
-        "Shopee": 354478,
+        "Shopee": 731188,
         "Amazon": 470883,
         "Amazon Fulfillment": 0
       }
