@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-13T10:23:12.490Z",
-  "gerado_em_br": "13/07/2026, 07:23:12",
+  "gerado_em": "2026-07-13T13:21:23.729Z",
+  "gerado_em_br": "13/07/2026, 10:21:23",
   "dia_referencia": "13/07/2026",
   "dia_ontem": "12/07/2026",
   "resumo_dia": {
-    "faturamento": 34258,
-    "pedidos": 2,
-    "ticket_medio": 17129,
+    "faturamento": 115185,
+    "pedidos": 5,
+    "ticket_medio": 23037,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 34258,
-        "pedidos": 2,
+        "faturamento": 115185,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 158630594,
-    "pedidos": 2123,
+    "faturamento": 158711521,
+    "pedidos": 2126,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2266.2,
-    "projecao_final": 378272954.92,
+    "pct_meta": 2267.3,
+    "projecao_final": 378465934.69,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 20827060,
-        "pedidos": 827
+        "faturamento": 20907987,
+        "pedidos": 830
       },
       "Casas Bahia": {
         "faturamento": 57159765,
@@ -143,11 +143,11 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 192,
-      "fat": 1692395,
+      "qtd": 193,
+      "fat": 1701994,
       "canais": {
+        "Mercado Livre": 67,
         "Shopee": 35,
-        "Mercado Livre": 66,
         "Casas Bahia": 24,
         "Amazon": 28,
         "Magazine Luiza": 37,
@@ -393,6 +393,20 @@
       }
     },
     {
+      "sku": "TI1568",
+      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
+      "qtd": 52,
+      "fat": 1142139,
+      "canais": {
+        "Mercado Livre": 24,
+        "Shopee": 11,
+        "Casas Bahia": 10,
+        "Amazon": 1,
+        "Outros": 2,
+        "Magazine Luiza": 4
+      }
+    },
+    {
       "sku": "TI1766",
       "desc": "Micro-Ondas de Embutir Electrolux ME3EP 34L com Painel Digital  Preto - 127v",
       "qtd": 52,
@@ -402,20 +416,6 @@
         "Casas Bahia": 6,
         "Magazine Luiza": 2,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1568",
-      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
-      "qtd": 51,
-      "fat": 1127140,
-      "canais": {
-        "Shopee": 11,
-        "Casas Bahia": 10,
-        "Mercado Livre": 23,
-        "Amazon": 1,
-        "Outros": 2,
-        "Magazine Luiza": 4
       }
     },
     {
@@ -472,10 +472,10 @@
   ],
   "historico_por_dia": {
     "13/07/2026": {
-      "fat": 34258,
-      "peds": 2,
+      "fat": 115185,
+      "peds": 5,
       "canais": {
-        "Mercado Livre": 34258,
+        "Mercado Livre": 115185,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
         "Shopee": 0,
