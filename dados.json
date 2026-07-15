@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-15T10:47:06.869Z",
-  "gerado_em_br": "15/07/2026, 07:47:06",
+  "gerado_em": "2026-07-15T12:12:49.730Z",
+  "gerado_em_br": "15/07/2026, 09:12:49",
   "dia_referencia": "15/07/2026",
   "dia_ontem": "14/07/2026",
   "resumo_dia": {
-    "faturamento": 231770,
-    "pedidos": 4,
-    "ticket_medio": 57942.5,
+    "faturamento": 412072,
+    "pedidos": 9,
+    "ticket_medio": 45785.78,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 86746,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1746,
-        "pedidos": 1,
+        "faturamento": 95302,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 179121306,
-    "pedidos": 2433,
+    "faturamento": 179301608,
+    "pedidos": 2438,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2558.9,
-    "projecao_final": 370184032.4,
+    "pct_meta": 2561.5,
+    "projecao_final": 370556656.53,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 23852672,
-        "pedidos": 967
+        "faturamento": 23939418,
+        "pedidos": 971
       },
       "Casas Bahia": {
         "faturamento": 68320041,
@@ -77,8 +77,8 @@
         "pedidos": 221
       },
       "Amazon": {
-        "faturamento": 51129924,
-        "pedidos": 659
+        "faturamento": 51223480,
+        "pedidos": 660
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -129,12 +129,12 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 234,
-      "fat": 2493582,
+      "qtd": 236,
+      "fat": 2512980,
       "canais": {
+        "Mercado Livre": 143,
         "Shopee": 48,
         "Casas Bahia": 29,
-        "Mercado Livre": 141,
         "Amazon": 6,
         "Outros": 5,
         "Magazine Luiza": 5
@@ -448,38 +448,39 @@
     {
       "sku": "TI1527",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
-      "qtd": 42,
-      "fat": 817051,
+      "qtd": 43,
+      "fat": 817851,
       "canais": {
+        "Amazon": 12,
         "Shopee": 4,
         "Mercado Livre": 21,
-        "Amazon": 11,
         "Magazine Luiza": 6
       }
     },
     {
-      "sku": "TI1771",
-      "desc": "Maquina de Lavar Electrolux LES11 11kg Essential Care com Easy Clean e Filtro Fiapos Branca-127v",
-      "qtd": 41,
-      "fat": 1229465,
+      "sku": "TI1454",
+      "desc": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black 569L-220v",
+      "qtd": 42,
+      "fat": 2785403,
       "canais": {
+        "Mercado Livre": 22,
         "Magazine Luiza": 2,
-        "Mercado Livre": 26,
-        "Amazon": 12,
-        "Shopee": 1
+        "Amazon": 4,
+        "Casas Bahia": 13,
+        "Outros": 1
       }
     }
   ],
   "historico_por_dia": {
     "15/07/2026": {
-      "fat": 231770,
-      "peds": 4,
+      "fat": 412072,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 86746,
         "Casas Bahia": 203038,
         "Magazine Luiza": 21237,
         "Shopee": 5749,
-        "Amazon": 1746,
+        "Amazon": 95302,
         "Amazon Fulfillment": 0
       }
     },
