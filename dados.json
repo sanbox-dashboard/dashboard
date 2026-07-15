@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-07-15T08:04:40.544Z",
-  "gerado_em_br": "15/07/2026, 05:04:40",
+  "gerado_em": "2026-07-15T10:47:06.869Z",
+  "gerado_em_br": "15/07/2026, 07:47:06",
   "dia_referencia": "15/07/2026",
   "dia_ontem": "14/07/2026",
   "resumo_dia": {
-    "faturamento": 230024,
-    "pedidos": 3,
-    "ticket_medio": 76674.67,
+    "faturamento": 231770,
+    "pedidos": 4,
+    "ticket_medio": 57942.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 1746,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 179026113,
-    "pedidos": 2431,
+    "faturamento": 179121306,
+    "pedidos": 2433,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2557.5,
-    "projecao_final": 369987300.2,
+    "pct_meta": 2558.9,
+    "projecao_final": 370184032.4,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 23852672,
@@ -73,12 +73,12 @@
         "pedidos": 107
       },
       "Shopee": {
-        "faturamento": 21123091,
-        "pedidos": 220
+        "faturamento": 21216538,
+        "pedidos": 221
       },
       "Amazon": {
-        "faturamento": 51128178,
-        "pedidos": 658
+        "faturamento": 51129924,
+        "pedidos": 659
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -117,11 +117,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 309,
-      "fat": 8566822,
+      "qtd": 310,
+      "fat": 8568568,
       "canais": {
+        "Amazon": 92,
         "Casas Bahia": 174,
-        "Amazon": 91,
         "Mercado Livre": 38,
         "Shopee": 6
       }
@@ -220,12 +220,12 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 97,
-      "fat": 1949976,
+      "qtd": 98,
+      "fat": 1957475,
       "canais": {
         "Casas Bahia": 10,
         "Mercado Livre": 39,
-        "Shopee": 17,
+        "Shopee": 18,
         "Magazine Luiza": 16,
         "Amazon": 14,
         "Outros": 1
@@ -472,14 +472,14 @@
   ],
   "historico_por_dia": {
     "15/07/2026": {
-      "fat": 230024,
-      "peds": 3,
+      "fat": 231770,
+      "peds": 4,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 203038,
         "Magazine Luiza": 21237,
         "Shopee": 5749,
-        "Amazon": 0,
+        "Amazon": 1746,
         "Amazon Fulfillment": 0
       }
     },
@@ -568,13 +568,13 @@
       }
     },
     "07/07/2026": {
-      "fat": 25238436,
-      "peds": 356,
+      "fat": 25331883,
+      "peds": 357,
       "canais": {
         "Mercado Livre": 2583918,
         "Casas Bahia": 5667297,
         "Magazine Luiza": 2372609,
-        "Shopee": 4997907,
+        "Shopee": 5091354,
         "Amazon": 9616705,
         "Amazon Fulfillment": 0
       }
@@ -2997,19 +2997,19 @@
     "740634068": 24,
     "740670730": 0,
     "740713961": 0,
-    "740730564": 0,
-    "740730580": 0,
-    "740730613": 0,
-    "740730640": 0,
-    "740730692": 0,
-    "740730868": 0,
-    "740730890": 0,
-    "740730923": 0,
-    "740731091": 0,
-    "740731210": 0,
-    "740731232": 0,
-    "740731248": 0,
-    "740731262": 0,
+    "740730564": 1,
+    "740730580": 4,
+    "740730613": 2,
+    "740730640": 5,
+    "740730692": 451,
+    "740730868": 4,
+    "740730890": 8,
+    "740730923": 8,
+    "740731091": 6,
+    "740731210": 3,
+    "740731232": 12,
+    "740731248": 7,
+    "740731262": 13,
     "740731772": 100,
     "740739119": 100,
     "740739237": 100,
