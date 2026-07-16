@@ -463,6 +463,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
     <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
     <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
+    <button class="tab"     onclick="aba('vMargem',this)">📈 Margem GE</button>
     <button class="tab"     onclick="aba('vComissao',this);renderComissao()">💰 Comissões</button>
     <button class="tab"     onclick="aba('vFrete',this);renderFrete()">🚚 Frete</button>
   </div>
@@ -527,10 +528,6 @@ tfoot td:first-child{text-align:left;}
         <div class="kpi" style="--kc:#F0A500">
           <div class="kl">Ticket Médio</div><div class="kv" id="kTicket">R$ --</div>
           <div class="ks">por pedido</div>
-          <div style="border-top:1px solid var(--bd);margin-top:7px;padding-top:6px">
-            <div class="kl">Custo Médio</div><div class="kv" id="kCustoMedVal" style="font-size:1.5rem;color:#DC2626">--</div>
-            <div class="ks">custo ÷ vendas (mês)</div>
-          </div>
         </div>
         <div class="kpi" style="--kc:#64748b">
           <div class="kl">Vendas Ontem</div><div class="kv" id="kOnt" style="font-size:1.7rem">R$ --</div>
@@ -999,7 +996,77 @@ tfoot td:first-child{text-align:left;}
         <div class="tscroll"><div id="vAMZTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
       </div>
     </div><!-- /vAMZ -->
+    <!-- ══ MARGEM GE FINANCE ═══════════════════════════════ -->
+    <div class="panel" id="vMargem">
 
+      <!-- Barra de status GE Finance -->
+      <div class="ge-token-bar">
+        <div style="display:flex;align-items:center;gap:8px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span style="font-size:.7rem;font-weight:900;color:var(--tx)">GE Finance</span>
+          <span class="ge-status ge-load" id="geStatusBadge">⏳ Carregando...</span>
+        </div>
+        <div style="font-size:.6rem;color:var(--mu)">Dados sincronizados automaticamente via Apps Script</div>
+        <button class="btn-sm" onclick="geCarregarDados()">🔄 Atualizar</button>
+        <div style="font-size:.58rem;color:var(--mu)">Período: <span id="gePeriodoLabel">--</span></div>
+      </div>
+
+      <!-- KPI geral de margem -->
+      <div id="geMetasKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div class="ge-card" style="--kc:var(--or)">
+          <div class="ge-label">Faturamento Bruto</div>
+          <div class="ge-val" id="geFatBruto">--</div>
+          <div class="ge-sub" id="geFatBrutoSub">mês atual</div>
+        </div>
+        <div class="ge-card" style="--kc:#E91E8C">
+          <div class="ge-label">Margem Bruta (R$)</div>
+          <div class="ge-val" id="geMargemBruta">--</div>
+          <div class="ge-sub" id="geMargemBrutaSub">--</div>
+        </div>
+        <div class="ge-card" style="--kc:var(--gr)">
+          <div class="ge-label">Margem Bruta (%)</div>
+          <div class="ge-val" id="geMargemPct">--</div>
+          <div class="ge-sub">sobre faturamento</div>
+        </div>
+        <div class="ge-card" style="--kc:#7C3AED">
+          <div class="ge-label">CMV Total</div>
+          <div class="ge-val" id="geCmvTotal">--</div>
+          <div class="ge-sub" id="geCmvPct">% sobre vendas</div>
+        </div>
+      </div>
+
+      <!-- CMV por canal -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>CMV por Canal de Vendas <span style="font-size:.58rem;color:var(--mu);font-weight:600">(% sobre vendas)</span></div>
+          <div id="geUltimaAtualizacao" style="font-size:.58rem;color:var(--mu)"></div>
+        </div>
+        <div id="geCanalWrap">
+          <div class="ge-canal-grid" id="geCanalGrid">
+            <div class="ge-card" style="--kc:#C8A000"><div class="ge-label">🟡 Mercado Livre</div><div class="ge-val" id="geCMV_ML">--</div><div class="ge-sub" id="geSub_ML">--</div></div>
+            <div class="ge-card" style="--kc:#0052A5"><div class="ge-label">🔵 Casas Bahia</div><div class="ge-val" id="geCMV_CB">--</div><div class="ge-sub" id="geSub_CB">--</div></div>
+            <div class="ge-card" style="--kc:#CC0066"><div class="ge-label">🟣 Magazine Luiza</div><div class="ge-val" id="geCMV_MG">--</div><div class="ge-sub" id="geSub_MG">--</div></div>
+            <div class="ge-card" style="--kc:#EE4D2D"><div class="ge-label">🟠 Shopee</div><div class="ge-val" id="geCMV_SH">--</div><div class="ge-sub" id="geSub_SH">--</div></div>
+            <div class="ge-card" style="--kc:#E47911"><div class="ge-label">🟤 Amazon</div><div class="ge-val" id="geCMV_AMZ">--</div><div class="ge-sub" id="geSub_AMZ">--</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela detalhada por canal -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Detalhamento por Canal</div>
+        </div>
+        <div class="tscroll">
+          <div id="geTableWrap">
+            <div class="lt" style="padding:20px;text-align:center;color:var(--mu)">
+              Configure o token acima e clique em Carregar para ver os dados
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /vMargem -->
 
 
 
@@ -1134,13 +1201,6 @@ tfoot td:first-child{text-align:left;}
 // ══════════════════════════════════════════════════════════════
 const KEY      = 'AIzaSyCpFaibN_ct8r2ywjIlKByvZkxok5ytqXI';
 const KOND_ID  = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
-// ── NOVA PLANILHA (Relatório de Pedidos) ──────────────────────
-// A partir de 01/01/2026 os dados vêm desta planilha (colunas novas).
-// A planilha antiga (KOND) fica congelada como histórico até 31/12/2025.
-const NOVO_ID  = '1iZgpIyu0n7Vtmqid7NelE540YgbSgSE7r9N4drCGxDg';
-const NOVO_ABA = 'Pedidos';
-const CORTE_OLD_MAX = '20251231'; // planilha antiga: mantém datas <= este YMD
-const CORTE_NEW_MIN = '20260101'; // nova planilha: mantém datas >= este YMD
 const METAS_ID = '1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk';
 const EST_ID   = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 
@@ -1175,7 +1235,6 @@ let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
 let _marcaC=null;  // marcas cache
 let _estC=null;    // estoque cache
-let _novoOrders=[]; // pedidos da nova planilha (>=2026) p/ marcas e categorias
 let _catCanal='all',_catAno=2026;
 let _marcaCanal='all',_marcaAno=2026;
 
@@ -1293,93 +1352,6 @@ function mesKey(dat){const p=dat.split('/');return`${+p[0]}/${p[2]}`;}
 function nomeMes(k){const[m,y]=k.split('/');return['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'][+m]+'/'+y.slice(2);}
 function sortMeses(arr){return arr.sort((a,b)=>{const[ma,ya]=a.split('/');const[mb,yb]=b.split('/');return new Date(+ya,+ma-1)-new Date(+yb,+mb-1);});}
 
-// ══════════════════════════════════════════════════════════════
-// NOVA PLANILHA — transformação p/ formato antigo (pRows/iRows)
-// ══════════════════════════════════════════════════════════════
-// Índices de coluna da nova planilha (aba Pedidos)
-const NV={ID:0,NUMEC:1,DATA:4,ESTADO:6,MKT:8,TRANSP:10,SKU:11,NOME:12,QTD:13,MARCA:14,TOTAL:15,TOTPROD:16,FRETE:18,SIT:19,CUSTOITEM:20,CUSTOSKU:21,CAT:27};
-const VALIDAS_NOVO=new Set(['faturado','aprovado','pronto para envio','enviado','entregue']);
-function novoValid(sit,mkt){
-  const s=(sit||'').toLowerCase().trim();
-  if(VALIDAS_NOVO.has(s))return true;
-  // Somente Mercado Livre considera 'em aberto'
-  if(s==='em aberto' && (mkt||'').toLowerCase().includes('mercado livre'))return true;
-  return false;
-}
-// Numero BR: remove separador de milhar (.) e usa virgula como decimal
-function nNum(v){return parseFloat((v==null?'':v).toString().replace(/\./g,'').replace(',','.'))||0;}
-function isoToYMD(v){const m=(v==null?'':v).toString().match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[1]+m[2]+m[3]:'';}
-function isoToMDY(v){const m=(v==null?'':v).toString().match(/(\d{4})-(\d{2})-(\d{2})/);if(!m)return'';return `${+m[2]}/${+m[3]}/${m[1]}`;}
-// Marca da nova planilha -> normaliza p/ MARCAS_LISTA
-function marcaNovo(o,desc){
-  const norm=x=>(x||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
-  const on=norm(o);
-  if(on){for(const m of MARCAS_LISTA){if(norm(m)===on)return m;}}
-  let mk=marca(o||'');if(mk!=='Outros')return mk;
-  return marca(desc||'');
-}
-// Categoria da nova planilha (col AB) -> normaliza p/ CATS (sem acento)
-function catNovo(cat,desc){
-  const norm=x=>(x||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-  const t=norm(cat)+' | '+norm(desc);
-  if(t.includes('coifa')||t.includes('depurador'))return'Coifas e Depuradores';
-  if(t.includes('cooktop')||t.includes('cook top'))return'CookTop';
-  if(t.includes('micro-ondas')||t.includes('microondas')||t.includes('micro ondas'))return'Microondas';
-  if(t.includes('ar condicionado'))return'Ar Condicionado';
-  if(t.includes('climatizador'))return'Climatizador de Ar';
-  if(t.includes('fogao'))return'Fogao de Chao';
-  if(t.includes('lavad')||t.includes('lavador')||t.includes('tanquinho'))return'Lavadoras';
-  if(t.includes('forno'))return'Fornos Eletrico';
-  if(t.includes('freezer'))return'Freezer';
-  if(t.includes('frigobar'))return'Frigobar';
-  if(t.includes('cervejeira')||t.includes('expositor')||t.includes('refrigerador industrial'))return'Refrigerador Industrial';
-  if(t.includes('geladeira')||t.includes('refrigerador'))return'Geladeira';
-  if(t.includes('audio')||t.includes('caixa de som')||t.includes(' som ')||t.includes('microfone')||t.includes('amplificad')||t.includes('home theater')||t.includes('mini system')||t.includes('fone de ouvido'))return'Audio';
-  if(t.includes('fritadeira')||t.includes('liquidif')||t.includes('cafeteira')||t.includes('pequenos eletro')||t.includes('batedeira')||t.includes('sanduicheira')||t.includes('ventilador')||t.includes('purificador')||t.includes('aspirador')||t.includes('ferro de passar')||t.includes('grill'))return'Pequenos Eletroportateis';
-  return'Outros';
-}
-// Converte linhas da nova planilha em linhas no formato antigo (pRows/iRows)
-// - Dedup por pedido (total_pedido conta 1x)
-// - Custo do pedido = soma da coluna U de todas as linhas
-// - Marca/Categoria do pedido = SKU de maior custo (regra do usuario)
-function transformNovo(rows){
-  const pAdd=[],iAdd=[],novoOrders=[];
-  if(!rows||rows.length<2)return{pAdd,iAdd,novoOrders};
-  const ordMap={},ordList=[];
-  for(let i=1;i<rows.length;i++){
-    const r=rows[i];if(!r)continue;
-    const ymd=isoToYMD(r[NV.DATA]);
-    if(!ymd||ymd<CORTE_NEW_MIN)continue;      // só a partir de 01/01/2026
-    const mkt=(r[NV.MKT]||'').toString();
-    if(!novoValid(r[NV.SIT],mkt))continue;     // filtro de status
-    const id=(r[NV.ID]||'').toString().trim();if(!id)continue;
-    let o=ordMap[id];
-    if(!o){o={id,dmy:isoToMDY(r[NV.DATA]),ymd,mkt,numec:(r[NV.NUMEC]||'').toString().trim(),transp:(r[NV.TRANSP]||'').toString().trim(),estado:(r[NV.ESTADO]||'').toString().trim(),total:nNum(r[NV.TOTAL]),lines:[]};ordMap[id]=o;ordList.push(o);}
-    o.lines.push({sku:(r[NV.SKU]||'').toString().trim(),nome:(r[NV.NOME]||'').toString().trim(),qtd:nNum(r[NV.QTD])||1,marca:(r[NV.MARCA]||'').toString().trim(),cat:(r[NV.CAT]||'').toString().trim(),custoItem:nNum(r[NV.CUSTOITEM]),custoSku:nNum(r[NV.CUSTOSKU])});
-  }
-  for(const o of ordList){
-    const sumCusto=o.lines.reduce((a,l)=>a+l.custoItem,0);
-    let dom=o.lines[0];
-    for(const l of o.lines){if((l.custoSku||l.custoItem)>(dom.custoSku||dom.custoItem))dom=l;}
-    const cn=canal(o.mkt,o.numec);
-    const mkDom=marcaNovo(dom.marca,dom.nome);
-    const catDom=catNovo(dom.cat,dom.nome);
-    // Pedido (formato antigo). index 65=custo total, 66=tag 'NV'
-    const pr=[];pr[C.ID]=o.id;pr[C.ESTADO]=o.estado;pr[C.ENOME]=o.mkt;pr[C.ENUM]=o.numec;pr[C.TRANSP]=o.transp;pr[C.TOTAL]=String(o.total);pr[C.FRETE]='0';pr[C.SIT]='aprovado';pr[C.DATA]=o.dmy;pr[65]=String(sumCusto);pr[66]='NV';
-    pAdd.push(pr);
-    // Itens (formato antigo). Receita da linha = total rateado pelo custo. index 8=tag,12=marca,13=cat,14=custo
-    for(const l of o.lines){
-      const share=sumCusto>0?(l.custoItem/sumCusto):(1/o.lines.length);
-      const lineRev=o.total*share;
-      const vu=l.qtd>0?lineRev/l.qtd:lineRev;
-      const ir=[];ir[0]=o.id;ir[1]=l.sku;ir[2]=l.nome;ir[3]=l.sku;ir[4]=String(l.qtd);ir[6]=String(vu);ir[8]='NV';ir[9]='aprovado';ir[11]=o.dmy;ir[12]=l.marca;ir[13]=l.cat;ir[14]=String(l.custoItem);
-      iAdd.push(ir);
-    }
-    novoOrders.push({dmy:o.dmy,ymd:o.ymd,canalNome:cn,total:o.total,custo:sumCusto,marca:mkDom,categoria:catDom});
-  }
-  return{pAdd,iAdd,novoOrders};
-}
-
 function setLoad(p,t){document.getElementById('lb').style.width=p+'%';if(t)document.getElementById('lt').textContent=t;}
 
 async function fetchSheet(id,range,aba){
@@ -1478,7 +1450,7 @@ function processDash(pRows,iRows,metas){
   _diaRef=(_hoje2.getMonth()+1).toString().padStart(2,'0')+'/'+_hoje2.getDate().toString().padStart(2,'0')+'/'+_hoje2.getFullYear();
 
   const cPer={},cMes={};CANAIS.forEach(c=>{cPer[c]={f:0,p:0};cMes[c]={f:0,p:0};});
-  let tP=0,nP=0,tM=0,nM=0,tO=0,nO=0,custoPer=0,custoMes=0;
+  let tP=0,nP=0,tM=0,nM=0,tO=0,nO=0;
   const idsPer=new Set(),idsMes=new Set(),idsOnt=new Set();
 
   for(let i=1;i<pRows.length;i++){
@@ -1487,8 +1459,8 @@ function processDash(pRows,iRows,metas){
     const cn=canal(r[C.ENOME],r[C.ENUM]);
     if(!id||!validSit(sit,cn))continue;
     const fat=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
-    if(isPer(dat)&&!idsPer.has(id)){idsPer.add(id);tP+=fat;nP++;custoPer+=parseFloat(r[65])||0;if(cPer[cn]){cPer[cn].f+=fat;cPer[cn].p++;}}
-    if(isMes(dat)&&!idsMes.has(id)){idsMes.add(id);tM+=fat;nM++;custoMes+=parseFloat(r[65])||0;if(cMes[cn]){cMes[cn].f+=fat;cMes[cn].p++;}}
+    if(isPer(dat)&&!idsPer.has(id)){idsPer.add(id);tP+=fat;nP++;if(cPer[cn]){cPer[cn].f+=fat;cPer[cn].p++;}}
+    if(isMes(dat)&&!idsMes.has(id)){idsMes.add(id);tM+=fat;nM++;if(cMes[cn]){cMes[cn].f+=fat;cMes[cn].p++;}}
     if(dat===_ontRef&&!idsOnt.has(id)){idsOnt.add(id);tO+=fat;nO++;}
   }
 
@@ -1574,7 +1546,7 @@ function processDash(pRows,iRows,metas){
   }
   const canaisOnt=CANAIS.map(nm=>({nm,f:_cOnt[nm].f,p:_cOnt[nm].p}));
 
-  return{tP,nP,tM,nM,tO,nO,metaTot,metaMes:metas.metaMes,pctP:+pctP,pctM:+pctM,canais,canaisMes,canaisOnt,topP,topF,custoMedPer:(tP>0&&custoPer>0)?custoPer/tP:null,custoMedMes:(tM>0&&custoMes>0)?custoMes/tM:null};
+  return{tP,nP,tM,nM,tO,nO,metaTot,metaMes:metas.metaMes,pctP:+pctP,pctM:+pctM,canais,canaisMes,canaisOnt,topP,topF};
 }
 
 // ── RENDER DASH ───────────────────────────────────────────────
@@ -1677,7 +1649,6 @@ function renderDash(d){
   const pm=document.getElementById('kPctMes');pm.textContent=`${d.pctM}%`;pm.className=pCls(d.pctM);
   document.getElementById('kPeds').textContent=d.nP;
   document.getElementById('kTicket').textContent=R(d.nP>0?d.tP/d.nP:0);
-  {const _cm=d.custoMedMes;const _el=document.getElementById('kCustoMedVal');if(_el)_el.textContent=(_cm!=null)?(_cm*100).toFixed(1).replace('.',',')+'%':'—';}
   document.getElementById('kOnt').textContent=R(d.tO);
   const _metaOnt=(_cache?.metas?.dias[_ontRef]||{}).total||0;
   const _pctOnt=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999).toFixed(1):null;
@@ -1789,22 +1760,13 @@ function processarCat(pRows,iRows,prodRows){
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const valItem=qtd*vu;
     const fat=valItem+rateio(idPed,valItem);
-    if(r[8]==='NV'||!VALIDAS.has(sit)||!dat||fat===0)continue;
+    if(!VALIDAS.has(sit)||!dat||fat===0)continue;
     const p=dat.split('/');if(p.length<3)continue;
     const mk=`${+p[0]}/${p[2]}`;meses.add(mk);
     const cat=catMap[idProd]||'Outros';
     const cn=pedCanal[idPed]||'Outros';
     if(!data[cat])data[cat]={};if(!data[cat][cn])data[cat][cn]={};
     data[cat][cn][mk]=(data[cat][cn][mk]||0)+fat;
-  }
-  if(_novoOrders&&_novoOrders.length){
-    for(const o of _novoOrders){
-      const pp=o.dmy.split('/');if(pp.length<3)continue;
-      const mk=`${+pp[0]}/${pp[2]}`;meses.add(mk);
-      const cat=o.categoria||'Outros',cn=o.canalNome||'Outros';
-      if(!data[cat])data[cat]={};if(!data[cat][cn])data[cat][cn]={};
-      data[cat][cn][mk]=(data[cat][cn][mk]||0)+o.total;
-    }
   }
   const mesesArr=sortMeses([...meses]);
 
@@ -2014,21 +1976,12 @@ function processarMarcas(pRows,iRows){
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const valItem=qtd*vu;
     const fat=valItem+rateio(idPed,valItem);
-    if(r[8]==='NV'||!VALIDAS.has(sit)||!dat||fat===0)continue;
+    if(!VALIDAS.has(sit)||!dat||fat===0)continue;
     const p=dat.split('/');if(p.length<3)continue;
     const mk2=`${+p[0]}/${p[2]}`;meses.add(mk2);
     const m=marca(r[I.DESC]||''),cn=pedCanal[idPed]||'Outros';
     if(!data[m])data[m]={};if(!data[m][cn])data[m][cn]={};
     data[m][cn][mk2]=(data[m][cn][mk2]||0)+fat;
-  }
-  if(_novoOrders&&_novoOrders.length){
-    for(const o of _novoOrders){
-      const pp=o.dmy.split('/');if(pp.length<3)continue;
-      const mk2=`${+pp[0]}/${pp[2]}`;meses.add(mk2);
-      const m=o.marca||'Outros',cn=o.canalNome||'Outros';
-      if(!data[m])data[m]={};if(!data[m][cn])data[m][cn]={};
-      data[m][cn][mk2]=(data[m][cn][mk2]||0)+o.total;
-    }
   }
   return{data,meses:sortMeses([...meses])};
 }
@@ -2373,32 +2326,14 @@ async function load(){
   for(const k of Object.keys(_canalCache)) _canalCache[k]=null;
   try{
     if(firstLoad) setLoad(20,'Buscando dados...');
-    const [metas, pRowsRaw, iRowsRaw, novoRows] = await Promise.all([
+    const [metas, pRows, iRowsResult] = await Promise.all([
       getMetas(),
       fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes'),
-      fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];}),
-      fetchSheet(NOVO_ID,'A:AB',NOVO_ABA).catch(e=>{console.warn('[Nova planilha]',e);return[];})
+      fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
     ]);
     if(firstLoad) setLoad(90,'Processando...');
-    // Congela histórico antigo (<= 2025-12-31) e usa a nova planilha (>= 2026-01-01)
-    const _capOld=(arr,idx)=>{ if(!arr||arr.length<2)return arr||[]; const h=arr[0]; const body=arr.slice(1).filter(r=>{const dd=(r[idx]||'').toString().trim(); if(!dd)return true; return toYMD(dd)<=CORTE_OLD_MAX;}); return [h].concat(body); };
-    const _nv=transformNovo(novoRows);
-    _novoOrders=_nv.novoOrders;
-    let pRows, iRows;
-    if(_nv.pAdd.length===0){
-      // Nova planilha vazia (ex.: em reconstrução) — fallback: usa a planilha antiga integral
-      console.warn('[Nova] planilha vazia — usando planilha antiga como fallback (sem corte de data).');
-      pRows=(pRowsRaw&&pRowsRaw.length)?pRowsRaw:[];
-      iRows=(iRowsRaw&&iRowsRaw.length)?iRowsRaw:[];
-    }else{
-      pRows=_capOld(pRowsRaw,C.DATA);
-      iRows=_capOld(iRowsRaw,I.DATA);
-      for(const _pr of _nv.pAdd)pRows.push(_pr);
-      for(const _ir of _nv.iAdd)iRows.push(_ir);
-    }
-    console.log('[Nova] pedidos '+_nv.pAdd.length+' | itens '+_nv.iAdd.length+' | total pRows '+pRows.length);
-    _cache={pRows,iRows,metas};
-    const d=processDash(pRows,iRows,metas);
+    _cache={pRows,iRows:iRowsResult,metas};
+    const d=processDash(pRows,iRowsResult,metas);
     if(firstLoad){
       document.getElementById('ov').style.display='none';
       document.getElementById('app').style.display='flex';
@@ -2898,7 +2833,7 @@ function processarVG(pRows, iRows, ymdI, ymdF){
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const valItem=qtd*vu;
     const fat=valItem+rateio(idPed,valItem);
-    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0,cat:(r[8]==='NV'?catNovo(r[13],desc):catTiny(desc)),mk:(r[8]==='NV'?marcaNovo(r[12],desc):marca(desc))};
+    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0,cat:catTiny(desc),mk:marca(desc)};
     skuMap[sku].total+=qtd;
     skuMap[sku].fat+=fat;
     if(skuMap[sku][cnKey]!==undefined) skuMap[sku][cnKey]+=qtd;
