@@ -1,42 +1,42 @@
 {
-  "gerado_em": "2026-07-16T14:58:53.039Z",
-  "gerado_em_br": "16/07/2026, 11:58:53",
+  "gerado_em": "2026-07-16T16:23:20.270Z",
+  "gerado_em_br": "16/07/2026, 13:23:20",
   "dia_referencia": "16/07/2026",
   "dia_ontem": "15/07/2026",
   "resumo_dia": {
-    "faturamento": 1850157,
-    "pedidos": 23,
-    "ticket_medio": 80441.61,
+    "faturamento": 3539215,
+    "pedidos": 44,
+    "ticket_medio": 80436.7,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 108771,
-        "pedidos": 9,
+        "faturamento": 370187,
+        "pedidos": 23,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1057181,
-        "pedidos": 5,
+        "faturamento": 1333654,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 390210,
-        "pedidos": 2,
+        "faturamento": 1359402,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 106123,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 293995,
-        "pedidos": 7,
+        "faturamento": 369849,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 193143411,
-    "pedidos": 2664,
+    "faturamento": 194832469,
+    "pedidos": 2685,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2759.2,
-    "projecao_final": 374215358.81,
+    "pct_meta": 2783.3,
+    "projecao_final": 377487908.69,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 25900814,
-        "pedidos": 1083
+        "faturamento": 26162230,
+        "pedidos": 1097
       },
       "Casas Bahia": {
-        "faturamento": 73759860,
-        "pedidos": 513
+        "faturamento": 74036333,
+        "pedidos": 515
       },
       "Magazine Luiza": {
-        "faturamento": 16112108,
-        "pedidos": 117
+        "faturamento": 17081300,
+        "pedidos": 119
       },
       "Shopee": {
-        "faturamento": 22765447,
-        "pedidos": 234
+        "faturamento": 22871570,
+        "pedidos": 235
       },
       "Amazon": {
-        "faturamento": 53519860,
-        "pedidos": 707
+        "faturamento": 53595714,
+        "pedidos": 709
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 379,
-      "fat": 8771376,
+      "qtd": 380,
+      "fat": 8787675,
       "canais": {
-        "Mercado Livre": 193,
+        "Mercado Livre": 194,
         "Shopee": 26,
         "Amazon": 27,
         "Casas Bahia": 114,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 330,
-      "fat": 8739984,
+      "qtd": 333,
+      "fat": 8797161,
       "canais": {
+        "Mercado Livre": 43,
+        "Casas Bahia": 180,
         "Amazon": 103,
-        "Casas Bahia": 179,
         "Magazine Luiza": 1,
-        "Mercado Livre": 41,
         "Shopee": 6
       }
     },
@@ -130,10 +130,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 220,
-      "fat": 2264620,
+      "qtd": 221,
+      "fat": 2274319,
       "canais": {
-        "Mercado Livre": 129,
+        "Mercado Livre": 130,
         "Casas Bahia": 26,
         "Shopee": 49,
         "Amazon": 6,
@@ -144,13 +144,13 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 174,
-      "fat": 1725102,
+      "qtd": 175,
+      "fat": 1735101,
       "canais": {
+        "Mercado Livre": 49,
         "Magazine Luiza": 35,
         "Shopee": 37,
         "Casas Bahia": 26,
-        "Mercado Livre": 48,
         "Amazon": 26,
         "Outros": 2
       }
@@ -197,12 +197,12 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 105,
-      "fat": 2013488,
+      "qtd": 104,
+      "fat": 1994379,
       "canais": {
         "Mercado Livre": 70,
         "Casas Bahia": 9,
-        "Magazine Luiza": 13,
+        "Magazine Luiza": 12,
         "Amazon": 12,
         "Shopee": 1
       }
@@ -247,6 +247,20 @@
       }
     },
     {
+      "sku": "TI1078",
+      "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
+      "qtd": 84,
+      "fat": 1833916,
+      "canais": {
+        "Shopee": 28,
+        "Magazine Luiza": 3,
+        "Casas Bahia": 42,
+        "Mercado Livre": 7,
+        "Amazon": 3,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
       "qtd": 83,
@@ -255,20 +269,6 @@
         "Mercado Livre": 80,
         "Casas Bahia": 1,
         "Amazon": 2
-      }
-    },
-    {
-      "sku": "TI1078",
-      "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 83,
-      "fat": 1823917,
-      "canais": {
-        "Shopee": 27,
-        "Magazine Luiza": 3,
-        "Casas Bahia": 42,
-        "Mercado Livre": 7,
-        "Amazon": 3,
-        "Outros": 1
       }
     },
     {
@@ -369,6 +369,18 @@
       }
     },
     {
+      "sku": "TI1771",
+      "desc": "Maquina de Lavar Electrolux LES11 11kg Essential Care com Easy Clean e Filtro Fiapos Branca-127v",
+      "qtd": 62,
+      "fat": 1616194,
+      "canais": {
+        "Mercado Livre": 40,
+        "Amazon": 19,
+        "Magazine Luiza": 2,
+        "Shopee": 1
+      }
+    },
+    {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
       "qtd": 62,
@@ -379,18 +391,6 @@
         "Magazine Luiza": 13,
         "Casas Bahia": 5,
         "Shopee": 14
-      }
-    },
-    {
-      "sku": "TI1771",
-      "desc": "Maquina de Lavar Electrolux LES11 11kg Essential Care com Easy Clean e Filtro Fiapos Branca-127v",
-      "qtd": 59,
-      "fat": 1560947,
-      "canais": {
-        "Amazon": 18,
-        "Mercado Livre": 38,
-        "Magazine Luiza": 2,
-        "Shopee": 1
       }
     },
     {
@@ -475,14 +475,14 @@
   ],
   "historico_por_dia": {
     "16/07/2026": {
-      "fat": 1850157,
-      "peds": 23,
+      "fat": 3539215,
+      "peds": 44,
       "canais": {
-        "Mercado Livre": 108771,
-        "Casas Bahia": 1057181,
-        "Magazine Luiza": 390210,
-        "Shopee": 0,
-        "Amazon": 293995,
+        "Mercado Livre": 370187,
+        "Casas Bahia": 1333654,
+        "Magazine Luiza": 1359402,
+        "Shopee": 106123,
+        "Amazon": 369849,
         "Amazon Fulfillment": 0
       }
     },
@@ -739,12 +739,12 @@
       }
     },
     "24/06/2026": {
-      "fat": 10513676,
-      "peds": 108,
+      "fat": 10342784,
+      "peds": 107,
       "canais": {
         "Mercado Livre": 602687,
         "Casas Bahia": 4449833,
-        "Magazine Luiza": 3499164,
+        "Magazine Luiza": 3328272,
         "Shopee": 834740,
         "Amazon": 1010457,
         "Amazon Fulfillment": 0
