@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-07-16T07:21:25.705Z",
-  "gerado_em_br": "16/07/2026, 04:21:25",
+  "gerado_em": "2026-07-16T10:06:17.037Z",
+  "gerado_em_br": "16/07/2026, 07:06:17",
   "dia_referencia": "16/07/2026",
   "dia_ontem": "15/07/2026",
   "resumo_dia": {
-    "faturamento": 516369,
-    "pedidos": 3,
-    "ticket_medio": 172123,
+    "faturamento": 743171,
+    "pedidos": 7,
+    "ticket_medio": 106167.29,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 35017,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 126159,
-        "pedidos": 1,
+        "faturamento": 317944,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 191639935,
-    "pedidos": 2643,
+    "faturamento": 191866737,
+    "pedidos": 2647,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2737.7,
-    "projecao_final": 371302374.06,
+    "pct_meta": 2741,
+    "projecao_final": 371741802.94,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 25792043,
-        "pedidos": 1074
+        "faturamento": 25827060,
+        "pedidos": 1077
       },
       "Casas Bahia": {
-        "faturamento": 72659150,
-        "pedidos": 508
+        "faturamento": 72850935,
+        "pedidos": 509
       },
       "Magazine Luiza": {
         "faturamento": 16112108,
@@ -103,11 +103,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 325,
-      "fat": 8699894,
+      "qtd": 326,
+      "fat": 8717293,
       "canais": {
+        "Casas Bahia": 178,
         "Magazine Luiza": 1,
-        "Casas Bahia": 177,
         "Amazon": 100,
         "Mercado Livre": 41,
         "Shopee": 6
@@ -130,13 +130,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 215,
-      "fat": 2218665,
+      "qtd": 216,
+      "fat": 2228364,
       "canais": {
+        "Mercado Livre": 126,
         "Casas Bahia": 26,
         "Shopee": 48,
         "Amazon": 6,
-        "Mercado Livre": 125,
         "Outros": 5,
         "Magazine Luiza": 5
       }
@@ -172,11 +172,11 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 117,
-      "fat": 1105491,
+      "qtd": 118,
+      "fat": 1113090,
       "canais": {
+        "Mercado Livre": 55,
         "Amazon": 8,
-        "Mercado Livre": 54,
         "Magazine Luiza": 19,
         "Shopee": 25,
         "Casas Bahia": 10,
@@ -475,11 +475,11 @@
   ],
   "historico_por_dia": {
     "16/07/2026": {
-      "fat": 516369,
-      "peds": 3,
+      "fat": 743171,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 126159,
+        "Mercado Livre": 35017,
+        "Casas Bahia": 317944,
         "Magazine Luiza": 390210,
         "Shopee": 0,
         "Amazon": 0,
