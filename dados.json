@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-07-17T08:06:03.915Z",
-  "gerado_em_br": "17/07/2026, 05:06:03",
+  "gerado_em": "2026-07-17T10:44:58.298Z",
+  "gerado_em_br": "17/07/2026, 07:44:58",
   "dia_referencia": "17/07/2026",
   "dia_ontem": "16/07/2026",
   "resumo_dia": {
-    "faturamento": 23823,
-    "pedidos": 3,
-    "ticket_medio": 7941,
+    "faturamento": 81707,
+    "pedidos": 4,
+    "ticket_medio": 20426.75,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 57884,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 199331544,
-    "pedidos": 2785,
+    "faturamento": 199389428,
+    "pedidos": 2786,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2847.6,
-    "projecao_final": 363486933.18,
+    "pct_meta": 2848.4,
+    "projecao_final": 363592486.35,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 26874162,
         "pedidos": 1148
       },
       "Casas Bahia": {
-        "faturamento": 75799312,
-        "pedidos": 531
+        "faturamento": 75857196,
+        "pedidos": 532
       },
       "Magazine Luiza": {
         "faturamento": 17398065,
@@ -186,10 +186,10 @@
     {
       "sku": "TI673",
       "desc": "Caixa De Som Portatil Bluetooth Com LED Amvox ACA 221 Gigante II- 220W RMS",
-      "qtd": 109,
-      "fat": 1110801,
+      "qtd": 108,
+      "fat": 1108242,
       "canais": {
-        "Mercado Livre": 94,
+        "Mercado Livre": 93,
         "Casas Bahia": 14,
         "Amazon": 1
       }
@@ -293,6 +293,19 @@
       }
     },
     {
+      "sku": "TI1565",
+      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
+      "qtd": 70,
+      "fat": 768918,
+      "canais": {
+        "Casas Bahia": 4,
+        "Shopee": 18,
+        "Mercado Livre": 2,
+        "Amazon": 43,
+        "Magazine Luiza": 3
+      }
+    },
+    {
       "sku": "TI1700",
       "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
       "qtd": 70,
@@ -302,19 +315,6 @@
         "Magazine Luiza": 1,
         "Mercado Livre": 7,
         "Shopee": 18
-      }
-    },
-    {
-      "sku": "TI1565",
-      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 69,
-      "fat": 763519,
-      "canais": {
-        "Shopee": 18,
-        "Casas Bahia": 3,
-        "Mercado Livre": 2,
-        "Amazon": 43,
-        "Magazine Luiza": 3
       }
     },
     {
@@ -472,11 +472,11 @@
   ],
   "historico_por_dia": {
     "17/07/2026": {
-      "fat": 23823,
-      "peds": 3,
+      "fat": 81707,
+      "peds": 4,
       "canais": {
         "Mercado Livre": 16299,
-        "Casas Bahia": 0,
+        "Casas Bahia": 57884,
         "Magazine Luiza": 0,
         "Shopee": 5778,
         "Amazon": 1746,
@@ -736,10 +736,10 @@
       }
     },
     "25/06/2026": {
-      "fat": 10050537,
-      "peds": 122,
+      "fat": 10047978,
+      "peds": 121,
       "canais": {
-        "Mercado Livre": 1186058,
+        "Mercado Livre": 1183499,
         "Casas Bahia": 4295906,
         "Magazine Luiza": 1409228,
         "Shopee": 916791,
