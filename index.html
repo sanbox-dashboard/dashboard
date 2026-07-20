@@ -1023,12 +1023,20 @@ tfoot td:first-child{text-align:left;}
         </div>
       </div>
 
+      <!-- Info -->
+      <div class="card" style="padding:8px 14px;background:rgba(8,145,178,.05);border-left:3px solid #0891B2;">
+        <div style="font-size:.62rem;color:var(--tx);line-height:1.5;">
+          <b style="color:#0891B2">ℹ️ Sobre a métrica:</b> Contamos apenas <b>cancelamentos reais</b> — pedidos que foram <b>faturados ou enviados</b> antes de serem cancelados.
+          Pedidos que nunca chegaram a ser pagos (o cliente criou e abandonou) <b>NÃO entram aqui</b>, pois não representam venda perdida real. Esses aparecem no KPI abaixo como "não-pagos descartados".
+        </div>
+      </div>
+
       <!-- KPIs -->
       <div id="cancKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0;">
         <div class="card" style="border-left:4px solid var(--re);padding:10px 14px;">
           <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Pedidos Cancelados</div>
           <div id="cancTotQtd" style="font:900 1.6rem 'Bebas Neue';color:var(--re);line-height:1.1;">--</div>
-          <div id="cancTotQtdSub" style="font-size:.58rem;color:var(--mu)">no período</div>
+          <div id="cancTotQtdSub" style="font-size:.58rem;color:var(--mu)">cancelamentos efetivos</div>
         </div>
         <div class="card" style="border-left:4px solid #C2410C;padding:10px 14px;">
           <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Valor Cancelado</div>
@@ -1211,7 +1219,7 @@ const CANAIS  = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon
 const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911','Amazon Fulfillment':'#FF9900'};
 
 // Cols: tinyerp_pedidos_detalhes
-const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,FRETE:59,SIT:62,DATA:64,TRANSP:42,ESTADO:17};
+const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,FRETE:59,SIT:62,DATA:64,TRANSP:42,ESTADO:17,DFAT:21,DENV:20};
 // Cols: tinyerp_pedidos_detalhes_itens
 const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
@@ -4488,7 +4496,9 @@ function renderCancel(){
   const dados={}; // mes → canal → {q, v}
   const mesesSet=new Set();
   const canaisSet=new Set();
-  let totalQtd=0, totalVal=0, totalPedidos=0, totalPedidosPeriodo=0;
+  let totalQtd=0, totalVal=0;
+  let totalCanceladosBrutos=0;  // todos "Cancelado" no período (info)
+  let totalPedidosEfetivos=0;   // pedidos que se materializaram (fat OU env preenchidos, ou cancelado real)
 
   for(let i=1;i<pRows.length;i++){
     const r=pRows[i];
@@ -4498,10 +4508,26 @@ function renderCancel(){
     const pp=dat.split('/');if(pp.length<3)continue;
     const dItem=new Date(+pp[2],+pp[0]-1,+pp[1]);
     if(dItem<dIni||dItem>dFim)continue;
-    totalPedidosPeriodo++;
-    if(sit!=='cancelado')continue;
 
-    const mes=`${+pp[0]}/${pp[2]}`; // ex: "6/2026"
+    const dFat=(r[C.DFAT]||'').trim();
+    const dEnv=(r[C.DENV]||'').trim();
+    const efetivou=(dFat||dEnv)?true:false; // pedido realmente virou venda
+
+    // Denominador da taxa: só pedidos que se materializaram
+    if(efetivou||sit!=='cancelado'){
+      // Pedidos válidos (não cancelados) OU cancelados que chegaram a se efetivar
+      if(sit!=='cancelado'||efetivou) totalPedidosEfetivos++;
+    }
+
+    if(sit!=='cancelado')continue;
+    totalCanceladosBrutos++;
+
+    // ✅ CANCELAMENTO REAL: precisa ter faturado ou enviado antes de cancelar
+    // Pedidos "cancelados" sem envio/faturamento são pedidos abandonados
+    // (cliente não pagou, marketplace cancelou automático, etc)
+    if(!efetivou)continue;
+
+    const mes=`${+pp[0]}/${pp[2]}`;
     const cn=canal(r[C.ENOME],r[C.ENUM])||'Outros';
     const valor=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
     mesesSet.add(mes);
@@ -4514,15 +4540,17 @@ function renderCancel(){
     totalVal+=valor;
   }
 
-  _cancData={dados,mesesSet,canaisSet,totalQtd,totalVal,totalPedidosPeriodo,dIni,dFim};
+  _cancData={dados,mesesSet,canaisSet,totalQtd,totalVal,totalPedidosEfetivos,totalCanceladosBrutos,dIni,dFim};
 
   // KPIs
   document.getElementById('cancTotQtd').textContent=totalQtd.toLocaleString('pt-BR');
   document.getElementById('cancTotVal').textContent='R$ '+totalVal.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
   document.getElementById('cancTkt').textContent=totalQtd>0?'R$ '+(totalVal/totalQtd).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):'R$ 0,00';
-  const taxa=totalPedidosPeriodo>0?(totalQtd/totalPedidosPeriodo*100):0;
+  const taxa=totalPedidosEfetivos>0?(totalQtd/totalPedidosEfetivos*100):0;
   document.getElementById('cancTaxa').textContent=taxa.toFixed(1)+'%';
-  document.getElementById('cancTaxaSub').textContent=`${totalQtd.toLocaleString('pt-BR')} / ${totalPedidosPeriodo.toLocaleString('pt-BR')} pedidos totais`;
+  const abandonados=totalCanceladosBrutos-totalQtd;
+  document.getElementById('cancTaxaSub').textContent=`${totalQtd.toLocaleString('pt-BR')} de ${totalPedidosEfetivos.toLocaleString('pt-BR')} pedidos efetivos`;
+  document.getElementById('cancTotQtdSub').textContent=`+ ${abandonados.toLocaleString('pt-BR')} não-pagos descartados`;
   document.getElementById('cancStatus').textContent=`${mesesSet.size} meses × ${canaisSet.size} canais`;
 
   if(totalQtd===0){
