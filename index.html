@@ -463,7 +463,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
     <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
     <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
-    <button class="tab"     onclick="aba('vMargem',this)">📈 Margem GE</button>
+    <button class="tab"     onclick="aba('vCancel',this);renderCancel()">❌ Cancelamentos</button>
     <button class="tab"     onclick="aba('vComissao',this);renderComissao()">💰 Comissões</button>
     <button class="tab"     onclick="aba('vFrete',this);renderFrete()">🚚 Frete</button>
   </div>
@@ -996,77 +996,78 @@ tfoot td:first-child{text-align:left;}
         <div class="tscroll"><div id="vAMZTop5Wrap"><div class="lt" style="padding:16px;text-align:center">Carregando...</div></div></div>
       </div>
     </div><!-- /vAMZ -->
-    <!-- ══ MARGEM GE FINANCE ═══════════════════════════════ -->
-    <div class="panel" id="vMargem">
+    <!-- ══ CANCELAMENTOS POR MÊS × CANAL ═══════════════════════ -->
+    <div class="panel" id="vCancel">
 
-      <!-- Barra de status GE Finance -->
-      <div class="ge-token-bar">
-        <div style="display:flex;align-items:center;gap:8px">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          <span style="font-size:.7rem;font-weight:900;color:var(--tx)">GE Finance</span>
-          <span class="ge-status ge-load" id="geStatusBadge">⏳ Carregando...</span>
-        </div>
-        <div style="font-size:.6rem;color:var(--mu)">Dados sincronizados automaticamente via Apps Script</div>
-        <button class="btn-sm" onclick="geCarregarDados()">🔄 Atualizar</button>
-        <div style="font-size:.58rem;color:var(--mu)">Período: <span id="gePeriodoLabel">--</span></div>
-      </div>
-
-      <!-- KPI geral de margem -->
-      <div id="geMetasKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-        <div class="ge-card" style="--kc:var(--or)">
-          <div class="ge-label">Faturamento Bruto</div>
-          <div class="ge-val" id="geFatBruto">--</div>
-          <div class="ge-sub" id="geFatBrutoSub">mês atual</div>
-        </div>
-        <div class="ge-card" style="--kc:#E91E8C">
-          <div class="ge-label">Margem Bruta (R$)</div>
-          <div class="ge-val" id="geMargemBruta">--</div>
-          <div class="ge-sub" id="geMargemBrutaSub">--</div>
-        </div>
-        <div class="ge-card" style="--kc:var(--gr)">
-          <div class="ge-label">Margem Bruta (%)</div>
-          <div class="ge-val" id="geMargemPct">--</div>
-          <div class="ge-sub">sobre faturamento</div>
-        </div>
-        <div class="ge-card" style="--kc:#7C3AED">
-          <div class="ge-label">CMV Total</div>
-          <div class="ge-val" id="geCmvTotal">--</div>
-          <div class="ge-sub" id="geCmvPct">% sobre vendas</div>
-        </div>
-      </div>
-
-      <!-- CMV por canal -->
-      <div class="card">
-        <div class="atitle">
-          <div class="atit"><div class="pdot"></div>CMV por Canal de Vendas <span style="font-size:.58rem;color:var(--mu);font-weight:600">(% sobre vendas)</span></div>
-          <div id="geUltimaAtualizacao" style="font-size:.58rem;color:var(--mu)"></div>
-        </div>
-        <div id="geCanalWrap">
-          <div class="ge-canal-grid" id="geCanalGrid">
-            <div class="ge-card" style="--kc:#C8A000"><div class="ge-label">🟡 Mercado Livre</div><div class="ge-val" id="geCMV_ML">--</div><div class="ge-sub" id="geSub_ML">--</div></div>
-            <div class="ge-card" style="--kc:#0052A5"><div class="ge-label">🔵 Casas Bahia</div><div class="ge-val" id="geCMV_CB">--</div><div class="ge-sub" id="geSub_CB">--</div></div>
-            <div class="ge-card" style="--kc:#CC0066"><div class="ge-label">🟣 Magazine Luiza</div><div class="ge-val" id="geCMV_MG">--</div><div class="ge-sub" id="geSub_MG">--</div></div>
-            <div class="ge-card" style="--kc:#EE4D2D"><div class="ge-label">🟠 Shopee</div><div class="ge-val" id="geCMV_SH">--</div><div class="ge-sub" id="geSub_SH">--</div></div>
-            <div class="ge-card" style="--kc:#E47911"><div class="ge-label">🟤 Amazon</div><div class="ge-val" id="geCMV_AMZ">--</div><div class="ge-sub" id="geSub_AMZ">--</div></div>
+      <!-- Filtros -->
+      <div class="card" style="padding:10px 16px;">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span class="flbl">Período:</span>
+          <input type="date" id="cancIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
+          <span class="flbl">até</span>
+          <input type="date" id="cancFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
+          <button class="faply" onclick="renderCancel()">Aplicar</button>
+          <div style="width:1px;height:20px;background:var(--bd);"></div>
+          <span class="flbl">Atalhos:</span>
+          <button class="abtn" onclick="cancPreset('mes')">Este mês</button>
+          <button class="abtn" onclick="cancPreset('anterior')">Mês anterior</button>
+          <button class="abtn" onclick="cancPreset('6meses')">Últimos 6 meses</button>
+          <button class="abtn" onclick="cancPreset('ano')">Ano atual</button>
+          <button class="abtn" onclick="cancPreset('todos')">Todo histórico</button>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:.6rem;font-weight:700;color:var(--mu)" id="cancStatus">--</span>
+            <button onclick="exportarCancel()" title="Exportar dados filtrados para Excel" style="background:#217346;border:none;border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
+              📥 Excel
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Tabela detalhada por canal -->
+      <!-- KPIs -->
+      <div id="cancKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0;">
+        <div class="card" style="border-left:4px solid var(--re);padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Pedidos Cancelados</div>
+          <div id="cancTotQtd" style="font:900 1.6rem 'Bebas Neue';color:var(--re);line-height:1.1;">--</div>
+          <div id="cancTotQtdSub" style="font-size:.58rem;color:var(--mu)">no período</div>
+        </div>
+        <div class="card" style="border-left:4px solid #C2410C;padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Valor Cancelado</div>
+          <div id="cancTotVal" style="font:900 1.6rem 'Bebas Neue';color:#C2410C;line-height:1.1;">--</div>
+          <div id="cancTotValSub" style="font-size:.58rem;color:var(--mu)">valor total (com frete)</div>
+        </div>
+        <div class="card" style="border-left:4px solid #7C3AED;padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Ticket Médio Cancelado</div>
+          <div id="cancTkt" style="font:900 1.6rem 'Bebas Neue';color:#7C3AED;line-height:1.1;">--</div>
+          <div id="cancTktSub" style="font-size:.58rem;color:var(--mu)">valor por pedido</div>
+        </div>
+        <div class="card" style="border-left:4px solid var(--or);padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Taxa Cancelamento</div>
+          <div id="cancTaxa" style="font:900 1.6rem 'Bebas Neue';color:var(--or);line-height:1.1;">--</div>
+          <div id="cancTaxaSub" style="font-size:.58rem;color:var(--mu)">% pedidos cancelados</div>
+        </div>
+      </div>
+
+      <!-- Tabela mensal por canal -->
       <div class="card">
         <div class="atitle">
-          <div class="atit"><div class="pdot"></div>Detalhamento por Canal</div>
+          <div class="atit"><div class="pdot"></div>Cancelamentos por Mês × Canal</div>
         </div>
         <div class="tscroll">
-          <div id="geTableWrap">
-            <div class="lt" style="padding:20px;text-align:center;color:var(--mu)">
-              Configure o token acima e clique em Carregar para ver os dados
-            </div>
+          <div id="cancTableWrap" style="overflow-x:auto;">
+            <div class="lt" style="padding:30px;text-align:center">Abrindo aba Cancelamentos...</div>
           </div>
         </div>
       </div>
 
-    </div><!-- /vMargem -->
+      <!-- Ranking canais -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Ranking de Canais por Cancelamentos</div>
+        </div>
+        <div id="cancRanking" style="padding:8px 0;"></div>
+      </div>
+
+    </div><!-- /vCancel -->
 
 
 
@@ -2280,7 +2281,6 @@ function aba(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
   document.getElementById(id).classList.add('on');
   btn.classList.add('on');
-  if(id==='vMargem') setTimeout(abrirMargem,100);
 
   if(id==='vCat'&&!_catC&&_cache){
     document.getElementById('catTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando categorias...</div>';
@@ -4438,6 +4438,263 @@ function estExportarExcel(){
   document.body.appendChild(a);a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+
+// ═════════════════════════════════════════════════════════════
+// ── ABA CANCELAMENTOS ────────────────────────────────────────
+// ═════════════════════════════════════════════════════════════
+let _cancData = null; // cache do último processamento
+
+function cancPreset(kind){
+  const hoje=new Date();
+  const toISO=d=>d.toISOString().slice(0,10);
+  let ini, fim=hoje;
+  if(kind==='mes'){
+    ini=new Date(hoje.getFullYear(),hoje.getMonth(),1);
+  } else if(kind==='anterior'){
+    ini=new Date(hoje.getFullYear(),hoje.getMonth()-1,1);
+    fim=new Date(hoje.getFullYear(),hoje.getMonth(),0);
+  } else if(kind==='6meses'){
+    ini=new Date(hoje.getFullYear(),hoje.getMonth()-5,1);
+  } else if(kind==='ano'){
+    ini=new Date(hoje.getFullYear(),0,1);
+  } else { // todos
+    ini=new Date(2020,0,1);
+  }
+  document.getElementById('cancIni').value=toISO(ini);
+  document.getElementById('cancFim').value=toISO(fim);
+  renderCancel();
+}
+
+function renderCancel(){
+  if(!_cache||!_cache.pRows){
+    document.getElementById('cancTableWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Aguardando carregamento de pedidos...</div>';
+    return;
+  }
+  // Se ainda não tem período preenchido, padrão = últimos 6 meses
+  const iniInp=document.getElementById('cancIni');
+  const fimInp=document.getElementById('cancFim');
+  if(!iniInp.value||!fimInp.value){
+    const hoje=new Date();
+    const ini=new Date(hoje.getFullYear(),hoje.getMonth()-5,1);
+    iniInp.value=ini.toISOString().slice(0,10);
+    fimInp.value=hoje.toISOString().slice(0,10);
+  }
+  const dIni=new Date(iniInp.value+'T00:00:00');
+  const dFim=new Date(fimInp.value+'T23:59:59');
+
+  const pRows=_cache.pRows;
+  const dados={}; // mes → canal → {q, v}
+  const mesesSet=new Set();
+  const canaisSet=new Set();
+  let totalQtd=0, totalVal=0, totalPedidos=0, totalPedidosPeriodo=0;
+
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const sit=(r[C.SIT]||'').trim().toLowerCase();
+    const dat=(r[C.DATA]||'').trim();
+    if(!dat)continue;
+    const pp=dat.split('/');if(pp.length<3)continue;
+    const dItem=new Date(+pp[2],+pp[0]-1,+pp[1]);
+    if(dItem<dIni||dItem>dFim)continue;
+    totalPedidosPeriodo++;
+    if(sit!=='cancelado')continue;
+
+    const mes=`${+pp[0]}/${pp[2]}`; // ex: "6/2026"
+    const cn=canal(r[C.ENOME],r[C.ENUM])||'Outros';
+    const valor=parseFloat((r[C.TOTAL]||'0').replace(',','.'))||0;
+    mesesSet.add(mes);
+    canaisSet.add(cn);
+    if(!dados[mes])dados[mes]={};
+    if(!dados[mes][cn])dados[mes][cn]={q:0,v:0};
+    dados[mes][cn].q++;
+    dados[mes][cn].v+=valor;
+    totalQtd++;
+    totalVal+=valor;
+  }
+
+  _cancData={dados,mesesSet,canaisSet,totalQtd,totalVal,totalPedidosPeriodo,dIni,dFim};
+
+  // KPIs
+  document.getElementById('cancTotQtd').textContent=totalQtd.toLocaleString('pt-BR');
+  document.getElementById('cancTotVal').textContent='R$ '+totalVal.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  document.getElementById('cancTkt').textContent=totalQtd>0?'R$ '+(totalVal/totalQtd).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):'R$ 0,00';
+  const taxa=totalPedidosPeriodo>0?(totalQtd/totalPedidosPeriodo*100):0;
+  document.getElementById('cancTaxa').textContent=taxa.toFixed(1)+'%';
+  document.getElementById('cancTaxaSub').textContent=`${totalQtd.toLocaleString('pt-BR')} / ${totalPedidosPeriodo.toLocaleString('pt-BR')} pedidos totais`;
+  document.getElementById('cancStatus').textContent=`${mesesSet.size} meses × ${canaisSet.size} canais`;
+
+  if(totalQtd===0){
+    document.getElementById('cancTableWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Nenhum pedido cancelado no período</div>';
+    document.getElementById('cancRanking').innerHTML='';
+    return;
+  }
+
+  // Ordenar meses cronologicamente
+  const meses=[...mesesSet].sort((a,b)=>{
+    const[ma,ya]=a.split('/').map(Number),[mb,yb]=b.split('/').map(Number);
+    return ya!==yb?ya-yb:ma-mb;
+  });
+  // Ordenar canais na ordem padrão
+  const ordemCn=['Mercado Livre','Casas Bahia','Amazon','Magazine Luiza','Shopee','Outros'];
+  const canais=ordemCn.filter(c=>canaisSet.has(c)).concat([...canaisSet].filter(c=>!ordemCn.includes(c)));
+  const CORES={'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Amazon':'#E47911','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Outros':'var(--mu)'};
+
+  // Tabela
+  const nomeMes=m=>{
+    const[mm,yy]=m.split('/');
+    const nomes=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    return `${nomes[+mm-1]}/${yy.slice(-2)}`;
+  };
+  const R=v=>'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+  let h=`<table style="width:100%;border-collapse:collapse;font-size:.65rem;min-width:900px;">
+    <thead style="position:sticky;top:0;background:var(--wh);z-index:2;">
+      <tr>
+        <th style="padding:6px 10px;text-align:left;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu);white-space:nowrap;">Mês</th>`;
+  canais.forEach(cn=>{
+    const cor=CORES[cn]||'var(--mu)';
+    h+=`<th colspan="2" style="padding:6px 10px;text-align:center;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:${cor};white-space:nowrap;">${cn}</th>`;
+  });
+  h+=`<th colspan="2" style="padding:6px 10px;text-align:center;font-size:.56rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--tx);white-space:nowrap;background:rgba(0,0,0,.03)">TOTAL</th>
+      </tr>
+      <tr style="background:rgba(0,0,0,.02)">
+        <th style="padding:4px 10px;font-size:.52rem;color:var(--mu);border-bottom:1px solid var(--bd)"></th>`;
+  canais.forEach(()=>{
+    h+=`<th style="padding:4px 8px;text-align:right;font-size:.52rem;font-weight:800;color:var(--mu);border-bottom:1px solid var(--bd)">Qtd</th>
+        <th style="padding:4px 8px;text-align:right;font-size:.52rem;font-weight:800;color:var(--mu);border-bottom:1px solid var(--bd)">Valor</th>`;
+  });
+  h+=`  <th style="padding:4px 8px;text-align:right;font-size:.52rem;font-weight:800;color:var(--tx);border-bottom:1px solid var(--bd);background:rgba(0,0,0,.03)">Qtd</th>
+        <th style="padding:4px 8px;text-align:right;font-size:.52rem;font-weight:800;color:var(--tx);border-bottom:1px solid var(--bd);background:rgba(0,0,0,.03)">Valor</th>
+      </tr></thead><tbody>`;
+
+  meses.forEach(m=>{
+    let mTotQ=0, mTotV=0;
+    h+=`<tr style="border-bottom:1px solid var(--bg);">
+      <td style="padding:5px 10px;font-weight:800;color:var(--od);white-space:nowrap;text-transform:capitalize;">${nomeMes(m)}</td>`;
+    canais.forEach(cn=>{
+      const d=dados[m]?.[cn]||{q:0,v:0};
+      mTotQ+=d.q;mTotV+=d.v;
+      const cor=CORES[cn]||'var(--mu)';
+      const opa=d.q===0?'color:var(--dm)':'';
+      h+=`<td style="padding:5px 8px;text-align:right;font-weight:700;${opa||`color:${cor}`}">${d.q>0?d.q:'—'}</td>
+          <td style="padding:5px 8px;text-align:right;font-weight:700;${opa||`color:${cor}`}">${d.v>0?R(d.v):'—'}</td>`;
+    });
+    h+=`  <td style="padding:5px 8px;text-align:right;font-weight:900;background:rgba(0,0,0,.03);color:var(--re)">${mTotQ}</td>
+          <td style="padding:5px 8px;text-align:right;font-weight:900;background:rgba(0,0,0,.03);color:var(--re)">${R(mTotV)}</td>
+        </tr>`;
+  });
+
+  // Rodapé - total por canal
+  h+=`<tr style="border-top:2px solid var(--bd);background:rgba(0,0,0,.04)">
+    <td style="padding:6px 10px;font-weight:900;color:var(--tx);text-transform:uppercase;font-size:.6rem;">Total</td>`;
+  canais.forEach(cn=>{
+    let cTQ=0,cTV=0;
+    meses.forEach(m=>{const d=dados[m]?.[cn];if(d){cTQ+=d.q;cTV+=d.v;}});
+    const cor=CORES[cn]||'var(--mu)';
+    h+=`<td style="padding:6px 8px;text-align:right;font-weight:900;color:${cor}">${cTQ}</td>
+        <td style="padding:6px 8px;text-align:right;font-weight:900;color:${cor}">${R(cTV)}</td>`;
+  });
+  h+=`  <td style="padding:6px 8px;text-align:right;font-weight:900;color:var(--re);background:rgba(220,38,38,.08)">${totalQtd}</td>
+        <td style="padding:6px 8px;text-align:right;font-weight:900;color:var(--re);background:rgba(220,38,38,.08)">${R(totalVal)}</td>
+      </tr></tbody></table>`;
+
+  document.getElementById('cancTableWrap').innerHTML=h;
+
+  // Ranking
+  const rank=canais.map(cn=>{
+    let q=0,v=0;
+    meses.forEach(m=>{const d=dados[m]?.[cn];if(d){q+=d.q;v+=d.v;}});
+    return{cn,q,v,share:totalQtd>0?q/totalQtd*100:0};
+  }).sort((a,b)=>b.v-a.v);
+
+  const maxV=Math.max(...rank.map(r=>r.v),1);
+  let hr=`<div style="display:flex;flex-direction:column;gap:6px;padding:0 8px;">`;
+  rank.forEach(r=>{
+    if(r.q===0)return;
+    const cor=CORES[r.cn]||'var(--mu)';
+    const pct=(r.v/maxV*100).toFixed(1);
+    hr+=`<div style="display:grid;grid-template-columns:140px 1fr 90px 110px 60px;gap:10px;align-items:center;font-size:.66rem;">
+      <div style="font-weight:800;color:${cor}">${r.cn}</div>
+      <div style="background:var(--bg);border-radius:4px;height:12px;overflow:hidden;">
+        <div style="background:${cor};height:100%;width:${pct}%;border-radius:4px;"></div>
+      </div>
+      <div style="text-align:right;font-weight:800;color:var(--re)">${r.q} pedidos</div>
+      <div style="text-align:right;font-weight:800;color:${cor}">${R(r.v)}</div>
+      <div style="text-align:right;font-size:.6rem;color:var(--mu)">${r.share.toFixed(1)}%</div>
+    </div>`;
+  });
+  hr+=`</div>`;
+  document.getElementById('cancRanking').innerHTML=hr;
+}
+
+function exportarCancel(){
+  if(!_cancData||_cancData.totalQtd===0){
+    alert('Sem dados de cancelamento no período. Aplique um filtro primeiro.');
+    return;
+  }
+  try{
+    const {dados,mesesSet,canaisSet,totalQtd,totalVal,dIni,dFim}=_cancData;
+    const ordemCn=['Mercado Livre','Casas Bahia','Amazon','Magazine Luiza','Shopee','Outros'];
+    const canais=ordemCn.filter(c=>canaisSet.has(c)).concat([...canaisSet].filter(c=>!ordemCn.includes(c)));
+    const meses=[...mesesSet].sort((a,b)=>{
+      const[ma,ya]=a.split('/').map(Number),[mb,yb]=b.split('/').map(Number);
+      return ya!==yb?ya-yb:ma-mb;
+    });
+    const nomeMes=m=>{
+      const[mm,yy]=m.split('/');
+      const nomes=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+      return `${nomes[+mm-1]}/${yy}`;
+    };
+    const rBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const esc=s=>{const t=String(s||'');return/[;"\n\r]/.test(t)?`"${t.replace(/"/g,'""')}"`:t;};
+
+    // Header duplo: canal | Qtd | Valor
+    const h1=['Mês'];
+    canais.forEach(cn=>{h1.push(cn,'');});
+    h1.push('TOTAL','');
+    const h2=[''];
+    canais.forEach(()=>{h2.push('Qtd','Valor (R$)');});
+    h2.push('Qtd','Valor (R$)');
+
+    const linhas=[h1.map(esc).join(';'),h2.map(esc).join(';')];
+
+    meses.forEach(m=>{
+      const row=[nomeMes(m)];
+      let mTQ=0,mTV=0;
+      canais.forEach(cn=>{
+        const d=dados[m]?.[cn]||{q:0,v:0};
+        row.push(d.q,rBR(d.v));
+        mTQ+=d.q;mTV+=d.v;
+      });
+      row.push(mTQ,rBR(mTV));
+      linhas.push(row.map(esc).join(';'));
+    });
+
+    // Total geral
+    const tot=['TOTAL'];
+    canais.forEach(cn=>{
+      let cQ=0,cV=0;
+      meses.forEach(m=>{const d=dados[m]?.[cn];if(d){cQ+=d.q;cV+=d.v;}});
+      tot.push(cQ,rBR(cV));
+    });
+    tot.push(totalQtd,rBR(totalVal));
+    linhas.push(tot.map(esc).join(';'));
+
+    const csv='\uFEFF'+linhas.join('\r\n');
+    const fmt=d=>d.toISOString().slice(0,10).replace(/-/g,'');
+    const nome=`cancelamentos_${fmt(dIni)}_a_${fmt(dFim)}.csv`;
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download=nome;
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
+  }catch(e){
+    console.error('[ExportCancel]',e);
+    alert('Erro ao exportar: '+e.message);
+  }
 }
 
 
