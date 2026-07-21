@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-07-21T10:23:04.617Z",
-  "gerado_em_br": "21/07/2026, 07:23:04",
+  "gerado_em": "2026-07-21T12:22:12.298Z",
+  "gerado_em_br": "21/07/2026, 09:22:12",
   "dia_referencia": "21/07/2026",
   "dia_ontem": "20/07/2026",
   "resumo_dia": {
-    "faturamento": 647721,
-    "pedidos": 4,
-    "ticket_medio": 161930.25,
+    "faturamento": 701988,
+    "pedidos": 5,
+    "ticket_medio": 140397.6,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 226033,
-        "pedidos": 2,
+        "faturamento": 280300,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 11959784,
-    "pedidos": 195
+    "faturamento": 11980142,
+    "pedidos": 196
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 231141750,
-    "pedidos": 3351,
+    "faturamento": 231216375,
+    "pedidos": 3353,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3302,
-    "projecao_final": 341209250,
+    "pct_meta": 3303.1,
+    "projecao_final": 341319410.71,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 31396013,
         "pedidos": 1438
       },
       "Casas Bahia": {
-        "faturamento": 88367514,
-        "pedidos": 623
+        "faturamento": 88387872,
+        "pedidos": 624
       },
       "Magazine Luiza": {
         "faturamento": 18943787,
         "pedidos": 131
       },
       "Shopee": {
-        "faturamento": 29786633,
-        "pedidos": 300
+        "faturamento": 29840900,
+        "pedidos": 301
       },
       "Amazon": {
         "faturamento": 60844376,
@@ -104,12 +104,12 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 370,
-      "fat": 10939678,
+      "qtd": 371,
+      "fat": 10957077,
       "canais": {
         "Amazon": 133,
         "Mercado Livre": 40,
-        "Casas Bahia": 190,
+        "Casas Bahia": 191,
         "Magazine Luiza": 1,
         "Shopee": 6
       }
@@ -250,11 +250,11 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 77,
-      "fat": 808061,
+      "qtd": 78,
+      "fat": 813760,
       "canais": {
+        "Shopee": 22,
         "Amazon": 45,
-        "Shopee": 21,
         "Mercado Livre": 3,
         "Casas Bahia": 5,
         "Magazine Luiza": 3
@@ -471,23 +471,23 @@
   ],
   "historico_por_dia": {
     "21/07/2026": {
-      "fat": 647721,
-      "peds": 4,
+      "fat": 701988,
+      "peds": 5,
       "canais": {
         "Mercado Livre": 9699,
         "Casas Bahia": 0,
         "Magazine Luiza": 411989,
-        "Shopee": 226033,
+        "Shopee": 280300,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "20/07/2026": {
-      "fat": 11959784,
-      "peds": 195,
+      "fat": 11980142,
+      "peds": 196,
       "canais": {
         "Mercado Livre": 1554202,
-        "Casas Bahia": 3945102,
+        "Casas Bahia": 3965460,
         "Magazine Luiza": 148804,
         "Shopee": 2227562,
         "Amazon": 3989577,
