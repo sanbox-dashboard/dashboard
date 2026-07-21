@@ -1242,6 +1242,7 @@ function skuExcluido(sku){
 let _dRef='',_ontRef='',_diaRef='';
 let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
+let _catMesLoading=false; // flag para evitar fetch duplicado da tabela CANAL × MÊS
 let _marcaC=null;  // marcas cache
 let _estC=null;    // estoque cache
 let _catCanal='all',_catAno=2026;
@@ -2321,35 +2322,65 @@ function aba(id,btn){
 }
 
 // ── LOAD PRINCIPAL ───────────────────────────────────────────
+const DASH_CACHE_KEY='sanbox_dash_cache_v1';
+const DASH_CACHE_TTL=10*60*1000; // 10 minutos
+
 async function load(){
   const firstLoad = !_cache;
-  // Primeira carga: mostra overlay. Atualizações seguintes: só troca o badge
+  let usedCache = false;
+
+  // Tenta usar cache da sessão anterior para renderização instantânea
   if(firstLoad){
+    try{
+      const raw=sessionStorage.getItem(DASH_CACHE_KEY);
+      if(raw){
+        const {ts,d}=JSON.parse(raw);
+        const age=Date.now()-ts;
+        if(age<DASH_CACHE_TTL && d && d.canais){
+          // Renderiza instantâneo com cache
+          document.getElementById('ov').style.display='none';
+          document.getElementById('app').style.display='flex';
+          renderDash(d);
+          document.getElementById('sLbl').textContent='📦 CACHED';
+          usedCache=true;
+          console.log(`[Cache] Renderização instantânea (${Math.round(age/1000)}s atrás)`);
+        }
+      }
+    }catch(e){console.warn('[Cache read]',e);}
+  }
+
+  // Primeira carga sem cache: mostra overlay. Atualizações seguintes: só troca o badge
+  if(firstLoad && !usedCache){
     document.getElementById('ov').style.display='flex';
     document.getElementById('app').style.display='none';
     setLoad(5,'Conectando...');
   }
-  document.getElementById('sLbl').textContent='ATUALIZANDO';
+  document.getElementById('sLbl').textContent=usedCache?'🔄 ATUALIZANDO':'ATUALIZANDO';
   _catC=null;_marcaC=null;_mlC=null;
   for(const k of Object.keys(_canalCache)) _canalCache[k]=null;
   try{
-    if(firstLoad) setLoad(20,'Buscando dados...');
+    if(firstLoad && !usedCache) setLoad(20,'Buscando dados...');
     const [metas, pRows, iRowsResult] = await Promise.all([
       getMetas(),
       fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes'),
       fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
     ]);
-    if(firstLoad) setLoad(90,'Processando...');
+    if(firstLoad && !usedCache) setLoad(90,'Processando...');
     _cache={pRows,iRows:iRowsResult,metas};
     const d=processDash(pRows,iRowsResult,metas);
-    if(firstLoad){
+    if(firstLoad && !usedCache){
       document.getElementById('ov').style.display='none';
       document.getElementById('app').style.display='flex';
     }
     renderDash(d);
     document.getElementById('sLbl').textContent='AO VIVO';
-    if(firstLoad) setLoad(100);
+    if(firstLoad && !usedCache) setLoad(100);
     console.log(`[OK] R$${d.tP.toFixed(2)} | Mês R$${d.tM.toFixed(2)}`);
+
+    // Salva no cache de sessão para próximo acesso ficar instantâneo
+    try{
+      sessionStorage.setItem(DASH_CACHE_KEY,JSON.stringify({ts:Date.now(),d}));
+    }catch(e){console.warn('[Cache write]',e);}
     // Pré-processa todos os canais em background após carregamento
     const _canaisParaProcessar=['Casas Bahia','Magazine Luiza','Shopee','Amazon'];
     let _ci=0;
@@ -2668,9 +2699,22 @@ async function loadMetas(){
 
     // ── Tabela por canal ──────────────────────────────────────
     renderMetasCanal(dias, metas, pRows);
-    // Canal × Mês no final (só renderiza se já tiver _catC carregado)
-    if(_catC) renderCatMesTb();
-    // Não faz fetch aqui para não bloquear — catMesTbWrap mostrará quando abrir Categorias
+    // Canal × Mês no final: carrega em background se ainda não estiver pronto
+    if(_catC){
+      renderCatMesTb();
+    } else if(_cache && !_catMesLoading){
+      _catMesLoading = true;
+      document.getElementById('catMesTbWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">⏳ Carregando categorias em background...</div>';
+      fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pR=>{
+        _catC=processarCat(_cache.pRows,_cache.iRows,pR);
+        renderCatMesTb();
+        _catMesLoading = false;
+      }).catch(e=>{
+        console.warn('[CanalMes]',e);
+        document.getElementById('catMesTbWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center;color:var(--re)">Erro ao carregar. Abra a aba Categorias para tentar novamente.</div>';
+        _catMesLoading = false;
+      });
+    }
   }catch(e){
     console.error('[Metas]',e);
     document.getElementById('metasTbWrap').innerHTML=`<div style="color:var(--re);padding:20px">❌ ${e.message}</div>`;
