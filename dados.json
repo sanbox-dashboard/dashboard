@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-07-21T07:30:46.593Z",
-  "gerado_em_br": "21/07/2026, 04:30:46",
+  "gerado_em": "2026-07-21T10:23:04.617Z",
+  "gerado_em_br": "21/07/2026, 07:23:04",
   "dia_referencia": "21/07/2026",
   "dia_ontem": "20/07/2026",
   "resumo_dia": {
@@ -49,16 +49,16 @@
     }
   },
   "ontem": {
-    "faturamento": 11881423,
-    "pedidos": 194
+    "faturamento": 11959784,
+    "pedidos": 195
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 231063389,
-    "pedidos": 3350,
+    "faturamento": 231141750,
+    "pedidos": 3351,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3300.9,
-    "projecao_final": 341093574.24,
+    "pct_meta": 3302,
+    "projecao_final": 341209250,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 31396013,
@@ -77,8 +77,8 @@
         "pedidos": 300
       },
       "Amazon": {
-        "faturamento": 60766015,
-        "pedidos": 843
+        "faturamento": 60844376,
+        "pedidos": 844
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -104,11 +104,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 371,
-      "fat": 10959047,
+      "qtd": 370,
+      "fat": 10939678,
       "canais": {
         "Amazon": 133,
-        "Mercado Livre": 41,
+        "Mercado Livre": 40,
         "Casas Bahia": 190,
         "Magazine Luiza": 1,
         "Shopee": 6
@@ -343,6 +343,19 @@
       }
     },
     {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 59,
+      "fat": 917924,
+      "canais": {
+        "Mercado Livre": 8,
+        "Amazon": 16,
+        "Magazine Luiza": 10,
+        "Casas Bahia": 6,
+        "Shopee": 19
+      }
+    },
+    {
       "sku": "TI1426",
       "desc": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS - 3500w",
       "qtd": 58,
@@ -366,19 +379,6 @@
         "Amazon": 1,
         "Outros": 3,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 58,
-      "fat": 911565,
-      "canais": {
-        "Mercado Livre": 8,
-        "Amazon": 15,
-        "Magazine Luiza": 10,
-        "Casas Bahia": 6,
-        "Shopee": 19
       }
     },
     {
@@ -483,14 +483,14 @@
       }
     },
     "20/07/2026": {
-      "fat": 11881423,
-      "peds": 194,
+      "fat": 11959784,
+      "peds": 195,
       "canais": {
         "Mercado Livre": 1554202,
         "Casas Bahia": 3945102,
         "Magazine Luiza": 148804,
         "Shopee": 2227562,
-        "Amazon": 3911216,
+        "Amazon": 3989577,
         "Amazon Fulfillment": 0
       }
     },
@@ -759,10 +759,10 @@
       }
     },
     "27/06/2026": {
-      "fat": 10246240,
-      "peds": 135,
+      "fat": 10226871,
+      "peds": 134,
       "canais": {
-        "Mercado Livre": 1684150,
+        "Mercado Livre": 1664781,
         "Casas Bahia": 4358968,
         "Magazine Luiza": 1174266,
         "Shopee": 1253170,
