@@ -457,6 +457,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
+    <button class="tab"     onclick="aba('vGiro',this)">🐢 Baixo Giro</button>
     <button class="tab"     onclick="aba('vVG',this)">📊 Vendas Geral</button>
     <button class="tab"     onclick="aba('vML',this)">🟡 Mercado Livre</button>
     <button class="tab"     onclick="aba('vCB',this)">🔵 Casas Bahia</button>
@@ -708,6 +709,96 @@ tfoot td:first-child{text-align:left;}
       </div>
     </div>
 
+
+    <!-- ══ BAIXO GIRO (PARADOS + CAPITAL MORTO) ═══════════════ -->
+    <div class="panel" id="vGiro">
+
+      <!-- Filtros -->
+      <div class="card" style="padding:10px 16px;">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span class="flbl">Período análise:</span>
+          <select id="giroDias" class="fsel" onchange="renderBaixoGiro()">
+            <option value="30">30 dias</option>
+            <option value="60">60 dias</option>
+            <option value="90" selected>90 dias</option>
+            <option value="180">180 dias</option>
+          </select>
+          <span class="flbl">Parado há mais de:</span>
+          <select id="giroParado" class="fsel" onchange="renderBaixoGiro()">
+            <option value="30">30 dias</option>
+            <option value="60" selected>60 dias</option>
+            <option value="90">90 dias</option>
+          </select>
+          <span class="flbl">Marca:</span>
+          <select id="giroMarca" class="fsel" onchange="renderBaixoGiro()">
+            <option value="">Todas</option>
+          </select>
+          <span class="flbl">Capital mín:</span>
+          <input type="number" id="giroCapMin" value="500" min="0" step="100" style="width:80px;border:1px solid var(--bd);border-radius:6px;padding:3px 6px;font:.65rem 'Nunito';" onchange="renderBaixoGiro()">
+          <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:.6rem;font-weight:700;color:var(--mu)" id="giroStatus">--</span>
+            <button onclick="exportarBaixoGiro()" title="Exportar plano de ação para Excel" style="background:#217346;border:none;border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
+              📥 Excel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="card" style="padding:8px 14px;background:rgba(220,38,38,.05);border-left:3px solid var(--re);">
+        <div style="font-size:.62rem;color:var(--tx);line-height:1.5;">
+          <b style="color:var(--re)">🐢 Sobre a métrica:</b> SKUs com <b>estoque > 0</b> e <b>vendas baixas ou nulas</b> no período, ordenados por urgência de ação.
+          O <b>Desconto Máx</b> mantém margem de contribuição ≥ 10% (custo ÷ 0,90 ÷ preço médio).
+          Preço médio vem das vendas do período; se não houve, usa o histórico completo.
+          <b>Excluídos:</b> SKUs espelho (-V, -A, -ML), kits (KIT*) e marcas Knup/MXT — duplicariam o estoque físico do SKU pai.
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0;">
+        <div class="card" style="border-left:4px solid var(--re);padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">SKUs em Baixo Giro</div>
+          <div id="giroKQtd" style="font:900 1.6rem 'Bebas Neue';color:var(--re);line-height:1.1;">--</div>
+          <div id="giroKQtdSub" style="font-size:.58rem;color:var(--mu)">produtos com estoque parado</div>
+        </div>
+        <div class="card" style="border-left:4px solid #C2410C;padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Capital Parado</div>
+          <div id="giroKCap" style="font:900 1.6rem 'Bebas Neue';color:#C2410C;line-height:1.1;">--</div>
+          <div id="giroKCapSub" style="font-size:.58rem;color:var(--mu)">custo × estoque</div>
+        </div>
+        <div class="card" style="border-left:4px solid #7C3AED;padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Valor Potencial Venda</div>
+          <div id="giroKVenda" style="font:900 1.6rem 'Bebas Neue';color:#7C3AED;line-height:1.1;">--</div>
+          <div id="giroKVendaSub" style="font-size:.58rem;color:var(--mu)">se vender todo estoque</div>
+        </div>
+        <div class="card" style="border-left:4px solid var(--or);padding:10px 14px;">
+          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Urgência Crítica</div>
+          <div id="giroKUrg" style="font:900 1.6rem 'Bebas Neue';color:var(--or);line-height:1.1;">--</div>
+          <div id="giroKUrgSub" style="font-size:.58rem;color:var(--mu)">SKUs em vermelho 🔴</div>
+        </div>
+      </div>
+
+      <!-- Ranking por marca -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Capital Parado por Marca</div>
+        </div>
+        <div id="giroRankMarca" style="padding:8px 0;"></div>
+      </div>
+
+      <!-- Tabela detalhada -->
+      <div class="card">
+        <div class="atitle">
+          <div class="atit"><div class="pdot"></div>Plano de Ação — SKUs para Girar</div>
+        </div>
+        <div class="tscroll">
+          <div id="giroTbWrap" style="overflow-x:auto;max-height:65vh;">
+            <div class="lt" style="padding:30px;text-align:center">Abrindo aba Baixo Giro...</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /vGiro -->
 
 
     <!-- ══ VENDAS GERAL ════════════════════════════════════════ -->
@@ -2058,18 +2149,27 @@ async function loadEstoque(){
   try{
     const[depoRows,prodRows,estProdRows,ocDetRows,ocItRows]=await Promise.all([
       fetchSheet(EST_ID,'A:H','tinyerp_estoque_produto_depo'),
-      fetchSheet(EST_ID,'A:Z','tinyerp_produtos'),
+      fetchSheet(EST_ID,'A:AZ','tinyerp_produtos'),
       fetchSheet(EST_ID,'A:Z','tinyerp_estoque_produto'),
       fetchSheet(EST_ID,'A:C','tinyerp_ordem_compra_detalhes'),
       fetchSheet(EST_ID,'A:F','tinyerp_ordem_compra_detalhes_itens'),
     ]);
-    // SKU e marca por id
+    // SKU, marca, nome, custo e preço por id
     const pHeader=prodRows[0]||[];
     const iSku=pHeader.indexOf('codigo'),iMarca=pHeader.indexOf('marca');
-    const prodMap={};// id → {sku,marca}
+    const iNome=pHeader.indexOf('nome');
+    const iCusto=pHeader.indexOf('preco_custo_medio');
+    const iPreco=pHeader.indexOf('preco');
+    const prodMap={};// id → {sku,marca,nome,custo,preco}
     for(let i=1;i<prodRows.length;i++){
       const r=prodRows[i];const id=(r[0]||'').trim();if(!id)continue;
-      prodMap[id]={sku:(r[iSku]||'').trim(),marca:(r[iMarca]||'').trim()};
+      prodMap[id]={
+        sku:(r[iSku]||'').trim(),
+        marca:(r[iMarca]||'').trim(),
+        nome:iNome>=0?(r[iNome]||'').trim():'',
+        custo:iCusto>=0?(r[iCusto]||'0').replace(',','.'):'0',
+        preco:iPreco>=0?(r[iPreco]||'0').replace(',','.'):'0'
+      };
     }
 
     // ── OCs em situação 3 (aprovada em andamento) ───────────────
@@ -2312,6 +2412,14 @@ function aba(id,btn){
   } else if(id==='vMarca'&&_marcaC) renderMarcaTable();
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
+  if(id==='vGiro'){
+    // Precisa dos dados de estoque para funcionar; carrega se ainda não tiver
+    if(!_estC){
+      loadEstoque().then(()=>renderBaixoGiro());
+    } else {
+      renderBaixoGiro();
+    }
+  }
   if(id==='vMetas')loadMetas();
   if(id==='vVG')loadVG();
   if(id==='vML')loadML();
@@ -4490,6 +4598,279 @@ function estExportarExcel(){
   document.body.appendChild(a);a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+
+// ═════════════════════════════════════════════════════════════
+// ── ABA BAIXO GIRO ────────────────────────────────────────────
+// ═════════════════════════════════════════════════════════════
+// Identifica SKUs com estoque > 0 e giro fraco no período.
+// Usa _estC (produtos + estoque) e _cache.iRows (vendas).
+// Classifica por urgência: 🔴 crítico | 🟡 atenção | 🟢 monitorar
+let _giroData = null; // cache do último processamento
+
+// Exclusão completa (regras universais): lista fixa + sufixos -V/-A/-ML
+// + prefixo KIT + marcas Knup/MXT. SKUs espelho/kit duplicam o estoque
+// físico do SKU pai — contá-los inflaria o capital parado várias vezes.
+const MARCAS_EXCLUIR_GIRO=new Set(['knup','mxt']);
+function skuExcluidoGiro(sku,marca){
+  const s=(sku||'').toUpperCase().trim();
+  if(!s) return true;
+  if(skuExcluido(s)) return true;              // lista fixa + -V + -A
+  if(s.endsWith('-ML')) return true;           // espelho Mercado Livre
+  if(s.startsWith('KIT')) return true;         // kits
+  if(MARCAS_EXCLUIR_GIRO.has((marca||'').toLowerCase().trim())) return true;
+  return false;
+}
+
+function renderBaixoGiro(){
+  if(!_estC){
+    document.getElementById('giroTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando dados de estoque...</div>';
+    return;
+  }
+  if(!_cache||!_cache.iRows){
+    document.getElementById('giroTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Aguardando dados de pedidos...</div>';
+    return;
+  }
+
+  const{prodMap,estMap,iRows,nomeMap}=_estC;
+  const iRowsK=_cache.iRows; // referência primária
+
+  const diasSel=parseInt(document.getElementById('giroDias').value)||90;
+  const paradoMin=parseInt(document.getElementById('giroParado').value)||60;
+  const filtM=document.getElementById('giroMarca').value;
+  const capMin=parseFloat(document.getElementById('giroCapMin').value)||0;
+
+  // Preencher dropdown de marcas 1x
+  const marcaSel=document.getElementById('giroMarca');
+  if(marcaSel.options.length<=1){
+    const marcas=new Set();
+    Object.values(prodMap).forEach(p=>{if(p.marca)marcas.add(p.marca);});
+    [...marcas].sort().forEach(m=>{
+      const o=document.createElement('option');
+      o.value=m;o.textContent=m;marcaSel.appendChild(o);
+    });
+  }
+
+  // Janela de análise
+  const hoje=new Date();
+  const dIni=new Date();dIni.setDate(dIni.getDate()-diasSel);
+
+  // Vendas por SKU no período + última data de venda + histórico completo
+  const vendasMap={};  // id → qtd vendida no período
+  const fatMap={};     // id → faturamento no período
+  const ultVenda={};   // id → data da venda mais recente
+  const vendAll={};    // id → qtd vendida em todo o histórico
+  const fatAll={};     // id → faturamento em todo o histórico
+  const VALIDAS_SET=VALIDAS; // reutiliza global
+  for(let i=1;i<iRowsK.length;i++){
+    const r=iRowsK[i];
+    const idProd=(r[I.IDPROD]||'').trim();
+    const sit=(r[I.SIT]||'').toLowerCase().trim();
+    const datStr=(r[I.DATA]||'').trim();
+    if(!idProd||!datStr||!VALIDAS_SET.has(sit))continue;
+    const pp=datStr.split('/');if(pp.length<3)continue;
+    const d=new Date(+pp[2],+pp[0]-1,+pp[1]);
+    if(!ultVenda[idProd]||d>ultVenda[idProd])ultVenda[idProd]=d;
+    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
+    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
+    // Histórico completo (usado como fallback do preço médio)
+    vendAll[idProd]=(vendAll[idProd]||0)+qtd;
+    fatAll[idProd]=(fatAll[idProd]||0)+qtd*vu;
+    // Só conta vendas dentro do período de análise
+    if(d<dIni)continue;
+    vendasMap[idProd]=(vendasMap[idProd]||0)+qtd;
+    fatMap[idProd]=(fatMap[idProd]||0)+qtd*vu;
+  }
+
+  // Monta lista de baixo giro
+  const lista=[];
+  let totalCap=0, totalPot=0, urgCrit=0;
+  for(const [id,p] of Object.entries(prodMap)){
+    const sku=(p.sku||'').trim();
+    if(!sku)continue;
+    if(skuExcluidoGiro(sku,p.marca))continue;
+    if(filtM&&p.marca!==filtM)continue;
+    const est=estMap[id]||0;
+    if(est<=0)continue; // só quem tem estoque
+
+    const vend=vendasMap[id]||0;
+    const fatPeriodo=fatMap[id]||0;
+    // Dias sem venda: se nunca vendeu, considera 999 (nunca)
+    let diasSem=999;
+    if(ultVenda[id]){
+      diasSem=Math.floor((hoje-ultVenda[id])/(1000*60*60*24));
+    }
+    // Filtro: precisa estar parado há X dias E ter estoque
+    if(diasSem<paradoMin)continue;
+
+    // Custo e capital
+    const custo=parseFloat(p.custo||'0')||0;
+    const capParado=custo*est;
+    if(capParado<capMin)continue;
+
+    // Preço médio: 1) vendas do período → 2) histórico completo → 3) cadastro
+    // O cadastro é o menos confiável (às vezes vem igual ao custo)
+    let precoMedio=0;
+    if(vend>0) precoMedio=fatPeriodo/vend;
+    else if((vendAll[id]||0)>0) precoMedio=fatAll[id]/vendAll[id];
+    else precoMedio=parseFloat(p.preco||'0')||0;
+    // Cobertura estimada: se vendeu, quantos dias durará o estoque no ritmo atual
+    const rateDia=vend/diasSel;
+    const cobertura=rateDia>0?est/rateDia:999;
+    // Valor potencial de venda (se der saída em tudo pelo preço médio)
+    const potVenda=est*precoMedio;
+    // Desconto máximo mantendo margem 10% (custo / 0.90 = preço mínimo)
+    const precoMinComMg=custo>0?custo/0.90:0;
+    const descMax=precoMedio>0&&precoMinComMg>0?Math.max(0,(1-precoMinComMg/precoMedio)*100):0;
+
+    // Urgência
+    let urg='🟢', urgN=1;
+    if(diasSem>=90&&capParado>=5000){urg='🔴';urgN=3;urgCrit++;}
+    else if(diasSem>=60||capParado>=2000){urg='🟡';urgN=2;}
+
+    lista.push({
+      id,sku,nome:(nomeMap&&nomeMap[id])||p.nome||sku,mk:p.marca||'',
+      est,vend,diasSem,cobertura,
+      custo,capParado,precoMedio,potVenda,descMax,
+      urg,urgN,fatPeriodo,
+      ultVenda:ultVenda[id]?ultVenda[id].toLocaleDateString('pt-BR'):'—'
+    });
+    totalCap+=capParado;
+    totalPot+=potVenda;
+  }
+
+  // Ordenar por capital parado desc (mais capital primeiro = maior impacto financeiro)
+  lista.sort((a,b)=>b.urgN*1e12+b.capParado-(a.urgN*1e12+a.capParado));
+
+  _giroData={lista,totalCap,totalPot,urgCrit,diasSel,paradoMin};
+
+  // KPIs
+  const R=v=>'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const diasMedia=lista.length>0?Math.round(lista.reduce((s,l)=>s+Math.min(l.diasSem,365),0)/lista.length):0;
+  document.getElementById('giroKQtd').textContent=lista.length.toLocaleString('pt-BR');
+  document.getElementById('giroKQtdSub').textContent=`média ${diasMedia}d sem venda`;
+  document.getElementById('giroKCap').textContent=R(totalCap);
+  document.getElementById('giroKCapSub').textContent=`${lista.length} SKUs travados`;
+  document.getElementById('giroKVenda').textContent=R(totalPot);
+  document.getElementById('giroKVendaSub').textContent=`margem potencial R$ ${(totalPot-totalCap).toLocaleString('pt-BR',{maximumFractionDigits:0})}`;
+  document.getElementById('giroKUrg').textContent=urgCrit;
+  document.getElementById('giroKUrgSub').textContent=`>90 dias + R$5k capital`;
+  document.getElementById('giroStatus').textContent=`${lista.length} SKUs | período ${diasSel}d`;
+
+  // Ranking por marca
+  const porMarca={};
+  lista.forEach(l=>{
+    if(!l.mk)return;
+    if(!porMarca[l.mk])porMarca[l.mk]={cap:0,qtd:0,pot:0};
+    porMarca[l.mk].cap+=l.capParado;
+    porMarca[l.mk].qtd++;
+    porMarca[l.mk].pot+=l.potVenda;
+  });
+  const rank=Object.entries(porMarca).map(([mk,d])=>({mk,...d})).sort((a,b)=>b.cap-a.cap).slice(0,10);
+  const maxCap=Math.max(...rank.map(r=>r.cap),1);
+  let hr=`<div style="display:flex;flex-direction:column;gap:6px;padding:0 8px;">`;
+  rank.forEach(r=>{
+    const pct=(r.cap/maxCap*100).toFixed(1);
+    hr+=`<div style="display:grid;grid-template-columns:130px 1fr 80px 130px 90px;gap:10px;align-items:center;font-size:.66rem;">
+      <div style="font-weight:800;color:var(--od)">${r.mk}</div>
+      <div style="background:var(--bg);border-radius:4px;height:12px;overflow:hidden;">
+        <div style="background:#C2410C;height:100%;width:${pct}%;border-radius:4px;"></div>
+      </div>
+      <div style="text-align:right;font-weight:800;color:var(--re)">${r.qtd} SKUs</div>
+      <div style="text-align:right;font-weight:800;color:#C2410C">${R(r.cap)}</div>
+      <div style="text-align:right;font-size:.6rem;color:var(--mu)">${(r.cap/totalCap*100).toFixed(1)}%</div>
+    </div>`;
+  });
+  hr+=`</div>`;
+  document.getElementById('giroRankMarca').innerHTML=hr;
+
+  // Tabela detalhada
+  if(lista.length===0){
+    document.getElementById('giroTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center;color:var(--gr)">✅ Nenhum SKU com baixo giro nos filtros aplicados</div>';
+    return;
+  }
+
+  const nBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
+  let h=`<table style="width:100%;border-collapse:collapse;font-size:.62rem;min-width:1200px;">
+    <thead style="position:sticky;top:0;background:var(--wh);z-index:2;">
+      <tr>
+        <th style="padding:5px 8px;text-align:center;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Urg</th>
+        <th style="padding:5px 8px;text-align:left;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--or)">SKU</th>
+        <th style="padding:5px 8px;text-align:left;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Produto</th>
+        <th style="padding:5px 8px;text-align:left;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Marca</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--or)">Estoque</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--re)">Dias s/ venda</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Última venda</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Vendas ${diasSel}d</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Custo Un.</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#C2410C">Capital Parado</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Preço Médio</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#7C3AED">Desc. Máx</th>
+      </tr>
+    </thead><tbody>`;
+
+  lista.forEach((l,i)=>{
+    const bg=i%2===1?'background:rgba(0,0,0,.02);':'';
+    const diasStr=l.diasSem>=999?'Nunca':`${l.diasSem}d`;
+    h+=`<tr style="border-bottom:1px solid var(--bg);${bg}">
+      <td style="padding:5px 8px;text-align:center;font-size:.85rem">${l.urg}</td>
+      <td style="padding:5px 8px;font-weight:800;color:var(--or)">${l.sku}</td>
+      <td style="padding:5px 8px;color:var(--tx)">${l.nome.substring(0,55)}</td>
+      <td style="padding:5px 8px;color:var(--mu);font-weight:700">${l.mk||'—'}</td>
+      <td style="padding:5px 8px;text-align:right;font-weight:800;color:var(--or)">${nBR(l.est)}</td>
+      <td style="padding:5px 8px;text-align:right;font-weight:800;color:${l.diasSem>=90?'var(--re)':(l.diasSem>=60?'#C2410C':'var(--od)')}">${diasStr}</td>
+      <td style="padding:5px 8px;text-align:right;font-size:.58rem;color:var(--mu)">${l.ultVenda}</td>
+      <td style="padding:5px 8px;text-align:right;font-weight:700;color:${l.vend===0?'var(--re)':'var(--tx)'}">${nBR(l.vend)}</td>
+      <td style="padding:5px 8px;text-align:right;color:var(--mu)">${R(l.custo)}</td>
+      <td style="padding:5px 8px;text-align:right;font-weight:900;color:#C2410C">${R(l.capParado)}</td>
+      <td style="padding:5px 8px;text-align:right;color:var(--tx)">${R(l.precoMedio)}</td>
+      <td style="padding:5px 8px;text-align:right;font-weight:800;color:${l.descMax>=30?'var(--gr)':(l.descMax>=15?'#7C3AED':'var(--mu)')}">${l.descMax.toFixed(1)}%</td>
+    </tr>`;
+  });
+
+  h+=`</tbody></table>`;
+  document.getElementById('giroTbWrap').innerHTML=h;
+}
+
+function exportarBaixoGiro(){
+  if(!_giroData||_giroData.lista.length===0){
+    alert('Nenhum dado para exportar. Ajuste os filtros primeiro.');
+    return;
+  }
+  try{
+    const {lista,diasSel,paradoMin}=_giroData;
+    const rBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const esc=s=>{const t=String(s||'');return/[;"\n\r]/.test(t)?`"${t.replace(/"/g,'""')}"`:t;};
+
+    const headers=['Urgência','SKU','Produto','Marca','Estoque','Dias s/ Venda','Última Venda',
+      `Vendas ${diasSel}d`,'Custo Unit (R$)','Capital Parado (R$)','Preço Médio (R$)','Desconto Máx (%)','Valor Potencial (R$)'];
+    const linhas=[headers.map(esc).join(';')];
+
+    let tCap=0,tPot=0;
+    lista.forEach(l=>{
+      tCap+=l.capParado;tPot+=l.potVenda;
+      linhas.push([
+        l.urg,l.sku,l.nome,l.mk||'',l.est,
+        l.diasSem>=999?'Nunca':l.diasSem,l.ultVenda,l.vend,
+        rBR(l.custo),rBR(l.capParado),rBR(l.precoMedio),l.descMax.toFixed(1),rBR(l.potVenda)
+      ].map(esc).join(';'));
+    });
+    linhas.push(['','','TOTAL','','','','','',
+      '',rBR(tCap),'','',rBR(tPot)].map(esc).join(';'));
+
+    const csv='\uFEFF'+linhas.join('\r\n');
+    const dt=new Date().toISOString().slice(0,10).replace(/-/g,'');
+    const nome=`baixo_giro_${dt}_${paradoMin}d.csv`;
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download=nome;
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
+  }catch(e){
+    console.error('[ExportGiro]',e);
+    alert('Erro ao exportar: '+e.message);
+  }
 }
 
 
