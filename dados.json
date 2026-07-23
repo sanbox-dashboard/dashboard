@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-23T10:20:19.466Z",
-  "gerado_em_br": "23/07/2026, 07:20:19",
+  "gerado_em": "2026-07-23T12:22:40.451Z",
+  "gerado_em_br": "23/07/2026, 09:22:40",
   "dia_referencia": "23/07/2026",
   "dia_ontem": "22/07/2026",
   "resumo_dia": {
-    "faturamento": 253862,
-    "pedidos": 5,
-    "ticket_medio": 50772.4,
+    "faturamento": 282120,
+    "pedidos": 7,
+    "ticket_medio": 40302.86,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 86886,
-        "pedidos": 4,
+        "faturamento": 115144,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,19 +49,19 @@
     }
   },
   "ontem": {
-    "faturamento": 9455681,
-    "pedidos": 171
+    "faturamento": 9446682,
+    "pedidos": 170
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 251987494,
-    "pedidos": 3706,
+    "faturamento": 251853179,
+    "pedidos": 3705,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3599.8,
-    "projecao_final": 339635318,
+    "pct_meta": 3597.9,
+    "projecao_final": 339454284.74,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 34409084,
+        "faturamento": 34369234,
         "pedidos": 1629
       },
       "Casas Bahia": {
@@ -73,8 +73,8 @@
         "pedidos": 137
       },
       "Shopee": {
-        "faturamento": 32165747,
-        "pedidos": 324
+        "faturamento": 32071282,
+        "pedidos": 323
       },
       "Amazon": {
         "faturamento": 67993884,
@@ -197,11 +197,11 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 98,
-      "fat": 2038705,
+      "qtd": 99,
+      "fat": 2048704,
       "canais": {
+        "Mercado Livre": 48,
         "Amazon": 17,
-        "Mercado Livre": 47,
         "Casas Bahia": 11,
         "Shopee": 11,
         "Magazine Luiza": 12
@@ -233,11 +233,11 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 86,
-      "fat": 1690055,
+      "qtd": 85,
+      "fat": 1679656,
       "canais": {
         "Casas Bahia": 39,
-        "Shopee": 31,
+        "Shopee": 30,
         "Mercado Livre": 7,
         "Amazon": 5,
         "Magazine Luiza": 3,
@@ -469,10 +469,10 @@
   ],
   "historico_por_dia": {
     "23/07/2026": {
-      "fat": 253862,
-      "peds": 5,
+      "fat": 282120,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 86886,
+        "Mercado Livre": 115144,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
         "Shopee": 166976,
@@ -481,10 +481,10 @@
       }
     },
     "22/07/2026": {
-      "fat": 9455681,
-      "peds": 171,
+      "fat": 9446682,
+      "peds": 170,
       "canais": {
-        "Mercado Livre": 1289464,
+        "Mercado Livre": 1280465,
         "Casas Bahia": 3668443,
         "Magazine Luiza": 391488,
         "Shopee": 868686,
@@ -625,13 +625,13 @@
       }
     },
     "10/07/2026": {
-      "fat": 13884005,
-      "peds": 147,
+      "fat": 13789540,
+      "peds": 146,
       "canais": {
         "Mercado Livre": 1746532,
         "Casas Bahia": 6579914,
         "Magazine Luiza": 879439,
-        "Shopee": 2563941,
+        "Shopee": 2469476,
         "Amazon": 2001440,
         "Amazon Fulfillment": 0
       }
@@ -661,10 +661,10 @@
       }
     },
     "07/07/2026": {
-      "fat": 24976049,
-      "peds": 347,
+      "fat": 24916940,
+      "peds": 346,
       "canais": {
-        "Mercado Livre": 2276777,
+        "Mercado Livre": 2217668,
         "Casas Bahia": 5667297,
         "Magazine Luiza": 2372609,
         "Shopee": 4918340,
