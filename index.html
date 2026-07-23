@@ -2151,7 +2151,7 @@ async function loadEstoque(){
       fetchSheet(EST_ID,'A:H','tinyerp_estoque_produto_depo'),
       fetchSheet(EST_ID,'A:AZ','tinyerp_produtos'),
       fetchSheet(EST_ID,'A:Z','tinyerp_estoque_produto'),
-      fetchSheet(EST_ID,'A:C','tinyerp_ordem_compra_detalhes'),
+      fetchSheet(EST_ID,'A:D','tinyerp_ordem_compra_detalhes'),
       fetchSheet(EST_ID,'A:F','tinyerp_ordem_compra_detalhes_itens'),
     ]);
     // SKU, marca, nome, custo e preço por id
@@ -2173,14 +2173,28 @@ async function loadEstoque(){
     }
 
     // ── OCs em situação 3 (aprovada em andamento) ───────────────
-    // 1. Identifica IDs de OC com situacao === '3'
+    // 1. Identifica IDs de OC com situacao === '3' E data até o mês vigente.
+    //    OCs com data de meses futuros só passam a contar quando aquele mês
+    //    começar (ex: OC de 15/08 só entra a partir de 01/08).
+    const _hojeOC=new Date();
+    const _limiteOC=_hojeOC.getFullYear()*12+_hojeOC.getMonth(); // ano*12+mês vigente
     const ocIdsAtivas=new Set();
+    let _ocFuturasIgnoradas=0;
     for(let i=1;i<ocDetRows.length;i++){
       const r=ocDetRows[i];
       const id=(r[0]||'').trim();
       const sit=(r[2]||'').trim();
-      if(id&&sit==='3')ocIdsAtivas.add(id);
+      if(!id||sit!=='3')continue;
+      // Data no formato M/D/YYYY (col D)
+      const dStr=(r[3]||'').trim();
+      const pp=dStr.split('/');
+      if(pp.length>=3){
+        const mesOC=(+pp[2])*12+(+pp[0]-1);
+        if(mesOC>_limiteOC){_ocFuturasIgnoradas++;continue;} // mês futuro: ignora por ora
+      }
+      ocIdsAtivas.add(id);
     }
+    if(_ocFuturasIgnoradas>0)console.log(`[OC] ${_ocFuturasIgnoradas} OC(s) de meses futuros ignoradas`);
     // 2. Soma quantidade por SKU nos itens dessas OCs
     // Ignora linhas com SKU em branco
     const ocPorSku={}; // sku (uppercase) → qtd
