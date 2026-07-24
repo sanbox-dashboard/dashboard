@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-07-24T09:19:15.303Z",
-  "gerado_em_br": "24/07/2026, 06:19:15",
+  "gerado_em": "2026-07-24T11:39:37.627Z",
+  "gerado_em_br": "24/07/2026, 08:39:37",
   "dia_referencia": "24/07/2026",
   "dia_ontem": "23/07/2026",
   "resumo_dia": {
-    "faturamento": 439419,
-    "pedidos": 3,
-    "ticket_medio": 146473,
+    "faturamento": 448753,
+    "pedidos": 4,
+    "ticket_medio": 112188.25,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9334,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 260596974,
+    "faturamento": 260589209,
     "pedidos": 3854,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3722.8,
-    "projecao_final": 336604424.75,
+    "pct_meta": 3722.7,
+    "projecao_final": 336594394.96,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 35773288,
-        "pedidos": 1715
+        "faturamento": 35756189,
+        "pedidos": 1714
       },
       "Casas Bahia": {
         "faturamento": 99601881,
@@ -73,8 +73,8 @@
         "pedidos": 139
       },
       "Shopee": {
-        "faturamento": 32965383,
-        "pedidos": 330
+        "faturamento": 32974717,
+        "pedidos": 331
       },
       "Amazon": {
         "faturamento": 70465935,
@@ -117,12 +117,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 324,
-      "fat": 6888361,
+      "qtd": 323,
+      "fat": 6871262,
       "canais": {
         "Shopee": 13,
         "Amazon": 90,
-        "Mercado Livre": 95,
+        "Mercado Livre": 94,
         "Casas Bahia": 95,
         "Magazine Luiza": 23,
         "Outros": 8
@@ -144,12 +144,12 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 185,
-      "fat": 1995182,
+      "qtd": 186,
+      "fat": 2003601,
       "canais": {
+        "Shopee": 51,
         "Mercado Livre": 51,
         "Amazon": 31,
-        "Shopee": 50,
         "Magazine Luiza": 32,
         "Casas Bahia": 18,
         "Outros": 3
@@ -469,13 +469,13 @@
   ],
   "historico_por_dia": {
     "24/07/2026": {
-      "fat": 439419,
-      "peds": 3,
+      "fat": 448753,
+      "peds": 4,
       "canais": {
         "Mercado Livre": 9699,
         "Casas Bahia": 0,
         "Magazine Luiza": 408427,
-        "Shopee": 0,
+        "Shopee": 9334,
         "Amazon": 21293,
         "Amazon Fulfillment": 0
       }
@@ -673,10 +673,10 @@
       }
     },
     "07/07/2026": {
-      "fat": 24897131,
-      "peds": 345,
+      "fat": 24880032,
+      "peds": 344,
       "canais": {
-        "Mercado Livre": 2197859,
+        "Mercado Livre": 2180760,
         "Casas Bahia": 5667297,
         "Magazine Luiza": 2372609,
         "Shopee": 4918340,
@@ -769,14 +769,14 @@
       }
     },
     "29/06/2026": {
-      "fat": 10641244,
-      "peds": 153,
+      "fat": 10744977,
+      "peds": 154,
       "canais": {
         "Mercado Livre": 1710784,
         "Casas Bahia": 3706535,
         "Magazine Luiza": 723413,
         "Shopee": 1867087,
-        "Amazon": 2633425,
+        "Amazon": 2737158,
         "Amazon Fulfillment": 0
       }
     },
