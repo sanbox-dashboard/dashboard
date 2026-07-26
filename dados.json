@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-26T06:33:49.342Z",
-  "gerado_em_br": "26/07/2026, 03:33:49",
+  "gerado_em": "2026-07-26T09:10:19.073Z",
+  "gerado_em_br": "26/07/2026, 06:10:19",
   "dia_referencia": "26/07/2026",
   "dia_ontem": "25/07/2026",
   "resumo_dia": {
-    "faturamento": 335958,
-    "pedidos": 4,
-    "ticket_medio": 83989.5,
+    "faturamento": 344327,
+    "pedidos": 5,
+    "ticket_medio": 68865.4,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 23498,
-        "pedidos": 2,
+        "faturamento": 31867,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 277739300,
-    "pedidos": 4121,
+    "faturamento": 277747669,
+    "pedidos": 4122,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3967.7,
-    "projecao_final": 331150703.85,
+    "pct_meta": 3967.8,
+    "projecao_final": 331160682.27,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 38911389,
-        "pedidos": 1860
+        "faturamento": 38919758,
+        "pedidos": 1861
       },
       "Casas Bahia": {
         "faturamento": 108358814,
@@ -90,12 +90,12 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 428,
-      "fat": 8764347,
+      "qtd": 429,
+      "fat": 8780646,
       "canais": {
+        "Mercado Livre": 191,
         "Casas Bahia": 116,
         "Amazon": 76,
-        "Mercado Livre": 190,
         "Magazine Luiza": 9,
         "Shopee": 36,
         "Outros": 1
@@ -320,6 +320,19 @@
       }
     },
     {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 61,
+      "fat": 901999,
+      "canais": {
+        "Mercado Livre": 15,
+        "Shopee": 14,
+        "Amazon": 21,
+        "Magazine Luiza": 8,
+        "Casas Bahia": 3
+      }
+    },
+    {
       "sku": "TI1700",
       "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
       "qtd": 61,
@@ -329,19 +342,6 @@
         "Magazine Luiza": 1,
         "Mercado Livre": 6,
         "Shopee": 11
-      }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 60,
-      "fat": 893630,
-      "canais": {
-        "Mercado Livre": 14,
-        "Shopee": 14,
-        "Amazon": 21,
-        "Magazine Luiza": 8,
-        "Casas Bahia": 3
       }
     },
     {
@@ -468,10 +468,10 @@
   ],
   "historico_por_dia": {
     "26/07/2026": {
-      "fat": 335958,
-      "peds": 4,
+      "fat": 344327,
+      "peds": 5,
       "canais": {
-        "Mercado Livre": 23498,
+        "Mercado Livre": 31867,
         "Casas Bahia": 167818,
         "Magazine Luiza": 144642,
         "Shopee": 0,
