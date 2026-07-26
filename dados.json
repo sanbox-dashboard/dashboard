@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-07-26T03:33:08.298Z",
-  "gerado_em_br": "26/07/2026, 00:33:08",
+  "gerado_em": "2026-07-26T06:33:49.342Z",
+  "gerado_em_br": "26/07/2026, 03:33:49",
   "dia_referencia": "26/07/2026",
   "dia_ontem": "25/07/2026",
   "resumo_dia": {
-    "faturamento": 144642,
-    "pedidos": 1,
-    "ticket_medio": 144642,
+    "faturamento": 335958,
+    "pedidos": 4,
+    "ticket_medio": 83989.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 23498,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 167818,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 8849864,
-    "pedidos": 132
+    "faturamento": 8974416,
+    "pedidos": 134
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 277423432,
-    "pedidos": 4116,
+    "faturamento": 277739300,
+    "pedidos": 4121,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3963.2,
-    "projecao_final": 330774092,
+    "pct_meta": 3967.7,
+    "projecao_final": 331150703.85,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 38763339,
-        "pedidos": 1856
+        "faturamento": 38911389,
+        "pedidos": 1860
       },
       "Casas Bahia": {
-        "faturamento": 108190996,
-        "pedidos": 770
+        "faturamento": 108358814,
+        "pedidos": 771
       },
       "Magazine Luiza": {
         "faturamento": 20796704,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 427,
-      "fat": 8749948,
+      "qtd": 428,
+      "fat": 8764347,
       "canais": {
-        "Casas Bahia": 115,
+        "Casas Bahia": 116,
         "Amazon": 76,
         "Mercado Livre": 190,
         "Magazine Luiza": 9,
@@ -468,11 +468,11 @@
   ],
   "historico_por_dia": {
     "26/07/2026": {
-      "fat": 144642,
-      "peds": 1,
+      "fat": 335958,
+      "peds": 4,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Mercado Livre": 23498,
+        "Casas Bahia": 167818,
         "Magazine Luiza": 144642,
         "Shopee": 0,
         "Amazon": 0,
@@ -480,10 +480,10 @@
       }
     },
     "25/07/2026": {
-      "fat": 8849864,
-      "peds": 132,
+      "fat": 8974416,
+      "peds": 134,
       "canais": {
-        "Mercado Livre": 1099079,
+        "Mercado Livre": 1223631,
         "Casas Bahia": 4624292,
         "Magazine Luiza": 353281,
         "Shopee": 791644,
