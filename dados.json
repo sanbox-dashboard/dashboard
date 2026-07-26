@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-26T09:10:19.073Z",
-  "gerado_em_br": "26/07/2026, 06:10:19",
+  "gerado_em": "2026-07-26T11:17:50.702Z",
+  "gerado_em_br": "26/07/2026, 08:17:50",
   "dia_referencia": "26/07/2026",
   "dia_ontem": "25/07/2026",
   "resumo_dia": {
-    "faturamento": 344327,
-    "pedidos": 5,
-    "ticket_medio": 68865.4,
+    "faturamento": 362586,
+    "pedidos": 6,
+    "ticket_medio": 60431,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 31867,
-        "pedidos": 3,
+        "faturamento": 50126,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 277747669,
-    "pedidos": 4122,
+    "faturamento": 277765928,
+    "pedidos": 4123,
     "meta_mensal": 6999999.87,
-    "pct_meta": 3967.8,
-    "projecao_final": 331160682.27,
+    "pct_meta": 3968.1,
+    "projecao_final": 331182452.62,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 38919758,
-        "pedidos": 1861
+        "faturamento": 38938017,
+        "pedidos": 1862
       },
       "Casas Bahia": {
         "faturamento": 108358814,
@@ -117,12 +117,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 311,
-      "fat": 6680396,
+      "qtd": 312,
+      "fat": 6698655,
       "canais": {
+        "Mercado Livre": 96,
         "Casas Bahia": 88,
         "Amazon": 90,
-        "Mercado Livre": 95,
         "Shopee": 12,
         "Magazine Luiza": 19,
         "Outros": 7
@@ -468,10 +468,10 @@
   ],
   "historico_por_dia": {
     "26/07/2026": {
-      "fat": 344327,
-      "peds": 5,
+      "fat": 362586,
+      "peds": 6,
       "canais": {
-        "Mercado Livre": 31867,
+        "Mercado Livre": 50126,
         "Casas Bahia": 167818,
         "Magazine Luiza": 144642,
         "Shopee": 0,
