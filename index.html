@@ -737,6 +737,9 @@ tfoot td:first-child{text-align:left;}
           <input type="number" id="giroCapMin" value="500" min="0" step="100" style="width:80px;border:1px solid var(--bd);border-radius:6px;padding:3px 6px;font:.65rem 'Nunito';" onchange="renderBaixoGiro()">
           <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
             <span style="font-size:.6rem;font-weight:700;color:var(--mu)" id="giroStatus">--</span>
+            <button onclick="giroResetColunas()" title="Restaurar ordem padrão das colunas" style="background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:var(--mu);cursor:pointer;white-space:nowrap;">
+              ↺ Colunas
+            </button>
             <button onclick="exportarBaixoGiro()" title="Exportar plano de ação para Excel" style="background:#217346;border:none;border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
               📥 Excel
             </button>
@@ -749,7 +752,8 @@ tfoot td:first-child{text-align:left;}
         <div style="font-size:.62rem;color:var(--tx);line-height:1.5;">
           <b style="color:var(--re)">🐢 Sobre a métrica:</b> SKUs com <b>estoque > 0</b> que atendem <b>pelo menos um</b> critério: parado há X dias <b>OU</b> giro ≤ 30% (vendeu ≤30% do estoque no período).
           As colunas <b style="color:var(--re)">10% estoque</b> e <b style="color:#C2410C">30% estoque</b> mostram o giro% na faixa correspondente (giro >10% cai na coluna dos 30%).
-          <b>Excluídos:</b> SKUs espelho (-V, -A, -ML), kits (KIT*) e marcas Knup/MXT.
+          <b>Excluídos:</b> SKUs espelho (-V, -A, -ML), kits (KIT*), marcas Knup/MXT e o SKU TI516-1.
+          <b style="color:var(--or)">💡 Arraste os títulos das colunas</b> para reordená-las como preferir.
         </div>
       </div>
 
@@ -2234,9 +2238,16 @@ async function loadEstoque(){
       const reserv=reservPorSku[sku]||0;
       estLiqMap[id]=Math.max(0, estMap[id]-reserv);
     }
-    // Nome real do produto via itens
+    // Nome real do produto: prioriza o cadastro (prodMap.nome), pois produtos
+    // nunca vendidos não aparecem nos itens de pedido. Usa os itens só como
+    // complemento para quem não tiver nome no cadastro.
     const iRows=_cache?.iRows||[];
     const nomeMap={};
+    // 1ª fonte: cadastro de produtos
+    for(const[id,p]of Object.entries(prodMap)){
+      if(p.nome)nomeMap[id]=p.nome;
+    }
+    // 2ª fonte: descrição dos itens vendidos (só para quem ainda não tem nome)
     for(let i=1;i<iRows.length;i++){
       const r=iRows[i];const id=(r[I.IDPROD]||'').trim();const desc=(r[I.DESC]||'').trim();
       if(id&&desc&&!nomeMap[id])nomeMap[id]=desc;
@@ -4629,6 +4640,7 @@ const MARCAS_EXCLUIR_GIRO=new Set(['knup','mxt']);
 function skuExcluidoGiro(sku,marca){
   const s=(sku||'').toUpperCase().trim();
   if(!s) return true;
+  if(s==='TI516-1') return true;               // exclusão fixa do baixo giro
   if(skuExcluido(s)) return true;              // lista fixa + -V + -A
   if(s.endsWith('-ML')) return true;           // espelho Mercado Livre
   if(s.startsWith('KIT')) return true;         // kits
@@ -4813,49 +4825,80 @@ function renderBaixoGiro(){
   }
 
   const nBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
+
+  // ── Definição das colunas (reordenáveis via drag-and-drop) ──
+  // Cada coluna: key, label, align, e função render(l) que devolve o HTML da célula
+  const COLS_DEF={
+    urg:   {label:'Urg', align:'center', color:'var(--mu)', render:l=>`<span style="font-size:.85rem">${l.urg}</span>`},
+    sku:   {label:'SKU', align:'left', color:'var(--or)', render:l=>`<span style="font-weight:800;color:var(--or)">${l.sku}</span>`},
+    nome:  {label:'Produto', align:'left', color:'var(--mu)', render:l=>`<span style="color:var(--tx)">${l.nome.substring(0,55)}</span>`},
+    mk:    {label:'Marca', align:'left', color:'var(--mu)', render:l=>`<span style="color:var(--mu);font-weight:700">${l.mk||'—'}</span>`},
+    est:   {label:'Estoque', align:'right', color:'var(--or)', render:l=>`<span style="font-weight:800;color:var(--or)">${nBR(l.est)}</span>`},
+    dias:  {label:'Dias s/ venda', align:'right', color:'var(--re)', render:l=>{const s=l.diasSem>=999?'Nunca':`${l.diasSem}d`;return `<span style="font-weight:800;color:${l.diasSem>=90?'var(--re)':(l.diasSem>=60?'#C2410C':'var(--od)')}">${s}</span>`;}},
+    ult:   {label:'Última venda', align:'right', color:'var(--mu)', render:l=>`<span style="font-size:.58rem;color:var(--mu)">${l.ultVenda}</span>`},
+    f10:   {label:'10% estoque', align:'right', color:'var(--re)', title:'Giro ≤ 10% do estoque', render:l=>{const g=l.giroPct>=999?'0%':l.giroPct.toFixed(1)+'%';return l.faixa==='10'?`<span style="font-weight:800;color:var(--re)">${g}</span>`:'<span style="color:var(--dm)">—</span>';}},
+    f30:   {label:'30% estoque', align:'right', color:'#C2410C', title:'Giro entre 10% e 30% do estoque', render:l=>{const g=l.giroPct>=999?'0%':l.giroPct.toFixed(1)+'%';return l.faixa==='30'?`<span style="font-weight:800;color:#C2410C">${g}</span>`:'<span style="color:var(--dm)">—</span>';}},
+    vend:  {label:`Vendas ${diasSel}d`, align:'right', color:'var(--mu)', render:l=>`<span style="font-weight:700;color:${l.vend===0?'var(--re)':'var(--tx)'}">${nBR(l.vend)}</span>`},
+    cap:   {label:'Capital Parado', align:'right', color:'#C2410C', render:l=>`<span style="font-weight:900;color:#C2410C">${R(l.capParado)}</span>`},
+    desc:  {label:'Desc. Máx', align:'right', color:'#7C3AED', render:l=>`<span style="font-weight:800;color:${l.descMax>=30?'var(--gr)':(l.descMax>=15?'#7C3AED':'var(--mu)')}">${l.descMax.toFixed(1)}%</span>`}
+  };
+  // Ordem atual (persiste na sessão). Default = ordem pedida pelo usuário.
+  if(!window._giroColOrder){
+    const saved=sessionStorage.getItem('giro_col_order');
+    window._giroColOrder=saved?JSON.parse(saved):['urg','sku','nome','mk','est','dias','ult','f10','f30','vend','cap','desc'];
+  }
+  const ordem=window._giroColOrder.filter(k=>COLS_DEF[k]); // segurança
+
   let h=`<table style="width:100%;border-collapse:collapse;font-size:.62rem;min-width:1200px;">
     <thead style="position:sticky;top:0;background:var(--wh);z-index:2;">
-      <tr>
-        <th style="padding:5px 8px;text-align:center;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Urg</th>
-        <th style="padding:5px 8px;text-align:left;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--or)">SKU</th>
-        <th style="padding:5px 8px;text-align:left;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Produto</th>
-        <th style="padding:5px 8px;text-align:left;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Marca</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--or)">Estoque</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--re)">Dias s/ venda</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Última venda</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--re)" title="Giro ≤ 10% do estoque">10% estoque</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#C2410C" title="Giro entre 10% e 30% do estoque">30% estoque</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Vendas ${diasSel}d</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#C2410C">Capital Parado</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#7C3AED">Desc. Máx</th>
-      </tr>
-    </thead><tbody>`;
+      <tr>`;
+  ordem.forEach(key=>{
+    const c=COLS_DEF[key];
+    h+=`<th draggable="true" data-col="${key}"
+      ondragstart="giroDragStart(event,'${key}')" ondragover="giroDragOver(event)"
+      ondrop="giroDrop(event,'${key}')" ondragend="giroDragEnd(event)"
+      title="${c.title||'Arraste para reordenar'}"
+      style="padding:5px 8px;text-align:${c.align};font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:${c.color};cursor:grab;user-select:none;white-space:nowrap;">${c.label}</th>`;
+  });
+  h+=`</tr></thead><tbody>`;
 
   lista.forEach((l,i)=>{
     const bg=i%2===1?'background:rgba(0,0,0,.02);':'';
-    const diasStr=l.diasSem>=999?'Nunca':`${l.diasSem}d`;
-    const giroStr=l.giroPct>=999?'0%':l.giroPct.toFixed(1)+'%';
-    // Faixa 10%: só preenche se giro ≤ 10%. Faixa 30%: preenche se entre 10% e 30%.
-    const cel10=l.faixa==='10'?`<span style="font-weight:800;color:var(--re)">${giroStr}</span>`:'<span style="color:var(--dm)">—</span>';
-    const cel30=l.faixa==='30'?`<span style="font-weight:800;color:#C2410C">${giroStr}</span>`:'<span style="color:var(--dm)">—</span>';
-    h+=`<tr style="border-bottom:1px solid var(--bg);${bg}">
-      <td style="padding:5px 8px;text-align:center;font-size:.85rem">${l.urg}</td>
-      <td style="padding:5px 8px;font-weight:800;color:var(--or)">${l.sku}</td>
-      <td style="padding:5px 8px;color:var(--tx)">${l.nome.substring(0,55)}</td>
-      <td style="padding:5px 8px;color:var(--mu);font-weight:700">${l.mk||'—'}</td>
-      <td style="padding:5px 8px;text-align:right;font-weight:800;color:var(--or)">${nBR(l.est)}</td>
-      <td style="padding:5px 8px;text-align:right;font-weight:800;color:${l.diasSem>=90?'var(--re)':(l.diasSem>=60?'#C2410C':'var(--od)')}">${diasStr}</td>
-      <td style="padding:5px 8px;text-align:right;font-size:.58rem;color:var(--mu)">${l.ultVenda}</td>
-      <td style="padding:5px 8px;text-align:right">${cel10}</td>
-      <td style="padding:5px 8px;text-align:right">${cel30}</td>
-      <td style="padding:5px 8px;text-align:right;font-weight:700;color:${l.vend===0?'var(--re)':'var(--tx)'}">${nBR(l.vend)}</td>
-      <td style="padding:5px 8px;text-align:right;font-weight:900;color:#C2410C">${R(l.capParado)}</td>
-      <td style="padding:5px 8px;text-align:right;font-weight:800;color:${l.descMax>=30?'var(--gr)':(l.descMax>=15?'#7C3AED':'var(--mu)')}">${l.descMax.toFixed(1)}%</td>
-    </tr>`;
+    h+=`<tr style="border-bottom:1px solid var(--bg);${bg}">`;
+    ordem.forEach(key=>{
+      const c=COLS_DEF[key];
+      h+=`<td style="padding:5px 8px;text-align:${c.align};">${c.render(l)}</td>`;
+    });
+    h+=`</tr>`;
   });
 
   h+=`</tbody></table>`;
   document.getElementById('giroTbWrap').innerHTML=h;
+}
+
+// ── Drag-and-drop das colunas do Baixo Giro ──
+let _giroDragCol=null;
+function giroDragStart(e,key){_giroDragCol=key;e.dataTransfer.effectAllowed='move';}
+function giroDragOver(e){e.preventDefault();e.dataTransfer.dropEffect='move';
+  const th=e.target.closest('th');if(th)th.style.borderLeft='3px solid var(--or)';}
+function giroDragEnd(e){document.querySelectorAll('#giroTbWrap th').forEach(th=>th.style.borderLeft='');}
+function giroDrop(e,destKey){
+  e.preventDefault();
+  document.querySelectorAll('#giroTbWrap th').forEach(th=>th.style.borderLeft='');
+  if(!_giroDragCol||_giroDragCol===destKey)return;
+  const ord=window._giroColOrder;
+  const from=ord.indexOf(_giroDragCol), to=ord.indexOf(destKey);
+  if(from<0||to<0)return;
+  ord.splice(from,1);           // remove da posição antiga
+  ord.splice(to,0,_giroDragCol);// insere na nova posição
+  sessionStorage.setItem('giro_col_order',JSON.stringify(ord));
+  _giroDragCol=null;
+  renderBaixoGiro(); // re-renderiza com a nova ordem
+}
+function giroResetColunas(){
+  window._giroColOrder=['urg','sku','nome','mk','est','dias','ult','f10','f30','vend','cap','desc'];
+  sessionStorage.removeItem('giro_col_order');
+  renderBaixoGiro();
 }
 
 function exportarBaixoGiro(){
