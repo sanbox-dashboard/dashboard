@@ -747,10 +747,9 @@ tfoot td:first-child{text-align:left;}
       <!-- Info -->
       <div class="card" style="padding:8px 14px;background:rgba(220,38,38,.05);border-left:3px solid var(--re);">
         <div style="font-size:.62rem;color:var(--tx);line-height:1.5;">
-          <b style="color:var(--re)">🐢 Sobre a métrica:</b> SKUs com <b>estoque > 0</b> e <b>vendas baixas ou nulas</b> no período, ordenados por urgência de ação.
-          O <b>Desconto Máx</b> mantém margem de contribuição ≥ 10% (custo ÷ 0,90 ÷ preço médio).
-          Preço médio vem das vendas do período; se não houve, usa o histórico completo.
-          <b>Excluídos:</b> SKUs espelho (-V, -A, -ML), kits (KIT*) e marcas Knup/MXT — duplicariam o estoque físico do SKU pai.
+          <b style="color:var(--re)">🐢 Sobre a métrica:</b> SKUs com <b>estoque > 0</b> que atendem <b>pelo menos um</b> critério: parado há X dias <b>OU</b> giro ≤ 30% (vendeu ≤30% do estoque no período).
+          As colunas <b style="color:var(--re)">10% estoque</b> e <b style="color:#C2410C">30% estoque</b> mostram o giro% na faixa correspondente (giro >10% cai na coluna dos 30%).
+          <b>Excluídos:</b> SKUs espelho (-V, -A, -ML), kits (KIT*) e marcas Knup/MXT.
         </div>
       </div>
 
@@ -4715,8 +4714,15 @@ function renderBaixoGiro(){
     if(ultVenda[id]){
       diasSem=Math.floor((hoje-ultVenda[id])/(1000*60*60*24));
     }
-    // Filtro: precisa estar parado há X dias E ter estoque
-    if(diasSem<paradoMin)continue;
+    // Giro percentual: vendas do período ÷ estoque atual
+    const giroPct=est>0?(vend/est*100):999;
+    // Faixa: até 10% (crítico) ou entre 10% e 30% (atenção)
+    const faixa=giroPct<=10?'10':(giroPct<=30?'30':'');
+
+    // Critério de entrada (OU): parado há X dias OU giro ≤ 30%
+    const paradoOk=diasSem>=paradoMin;
+    const giroFraco=giroPct<=30;
+    if(!paradoOk&&!giroFraco)continue; // gira bem (>30%) e teve venda recente → fora
 
     // Custo e capital
     const custo=parseFloat(p.custo||'0')||0;
@@ -4738,14 +4744,15 @@ function renderBaixoGiro(){
     const precoMinComMg=custo>0?custo/0.90:0;
     const descMax=precoMedio>0&&precoMinComMg>0?Math.max(0,(1-precoMinComMg/precoMedio)*100):0;
 
-    // Urgência
+    // Urgência: 🔴 crítico | 🟡 atenção | 🟢 monitorar
+    // Considera dias parado, capital e giro percentual
     let urg='🟢', urgN=1;
-    if(diasSem>=90&&capParado>=5000){urg='🔴';urgN=3;urgCrit++;}
-    else if(diasSem>=60||capParado>=2000){urg='🟡';urgN=2;}
+    if((diasSem>=90||giroPct<=3)&&capParado>=5000){urg='🔴';urgN=3;urgCrit++;}
+    else if(diasSem>=60||capParado>=2000||giroPct<=5){urg='🟡';urgN=2;}
 
     lista.push({
       id,sku,nome:(nomeMap&&nomeMap[id])||p.nome||sku,mk:p.marca||'',
-      est,vend,diasSem,cobertura,
+      est,vend,diasSem,cobertura,giroPct,faixa,
       custo,capParado,precoMedio,potVenda,descMax,
       urg,urgN,fatPeriodo,
       ultVenda:ultVenda[id]?ultVenda[id].toLocaleDateString('pt-BR'):'—'
@@ -4816,10 +4823,10 @@ function renderBaixoGiro(){
         <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--or)">Estoque</th>
         <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--re)">Dias s/ venda</th>
         <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Última venda</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--re)" title="Giro ≤ 10% do estoque">10% estoque</th>
+        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#C2410C" title="Giro entre 10% e 30% do estoque">30% estoque</th>
         <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Vendas ${diasSel}d</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Custo Un.</th>
         <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#C2410C">Capital Parado</th>
-        <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:var(--mu)">Preço Médio</th>
         <th style="padding:5px 8px;text-align:right;font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:#7C3AED">Desc. Máx</th>
       </tr>
     </thead><tbody>`;
@@ -4827,6 +4834,10 @@ function renderBaixoGiro(){
   lista.forEach((l,i)=>{
     const bg=i%2===1?'background:rgba(0,0,0,.02);':'';
     const diasStr=l.diasSem>=999?'Nunca':`${l.diasSem}d`;
+    const giroStr=l.giroPct>=999?'0%':l.giroPct.toFixed(1)+'%';
+    // Faixa 10%: só preenche se giro ≤ 10%. Faixa 30%: preenche se entre 10% e 30%.
+    const cel10=l.faixa==='10'?`<span style="font-weight:800;color:var(--re)">${giroStr}</span>`:'<span style="color:var(--dm)">—</span>';
+    const cel30=l.faixa==='30'?`<span style="font-weight:800;color:#C2410C">${giroStr}</span>`:'<span style="color:var(--dm)">—</span>';
     h+=`<tr style="border-bottom:1px solid var(--bg);${bg}">
       <td style="padding:5px 8px;text-align:center;font-size:.85rem">${l.urg}</td>
       <td style="padding:5px 8px;font-weight:800;color:var(--or)">${l.sku}</td>
@@ -4835,10 +4846,10 @@ function renderBaixoGiro(){
       <td style="padding:5px 8px;text-align:right;font-weight:800;color:var(--or)">${nBR(l.est)}</td>
       <td style="padding:5px 8px;text-align:right;font-weight:800;color:${l.diasSem>=90?'var(--re)':(l.diasSem>=60?'#C2410C':'var(--od)')}">${diasStr}</td>
       <td style="padding:5px 8px;text-align:right;font-size:.58rem;color:var(--mu)">${l.ultVenda}</td>
+      <td style="padding:5px 8px;text-align:right">${cel10}</td>
+      <td style="padding:5px 8px;text-align:right">${cel30}</td>
       <td style="padding:5px 8px;text-align:right;font-weight:700;color:${l.vend===0?'var(--re)':'var(--tx)'}">${nBR(l.vend)}</td>
-      <td style="padding:5px 8px;text-align:right;color:var(--mu)">${R(l.custo)}</td>
       <td style="padding:5px 8px;text-align:right;font-weight:900;color:#C2410C">${R(l.capParado)}</td>
-      <td style="padding:5px 8px;text-align:right;color:var(--tx)">${R(l.precoMedio)}</td>
       <td style="padding:5px 8px;text-align:right;font-weight:800;color:${l.descMax>=30?'var(--gr)':(l.descMax>=15?'#7C3AED':'var(--mu)')}">${l.descMax.toFixed(1)}%</td>
     </tr>`;
   });
@@ -4858,20 +4869,23 @@ function exportarBaixoGiro(){
     const esc=s=>{const t=String(s||'');return/[;"\n\r]/.test(t)?`"${t.replace(/"/g,'""')}"`:t;};
 
     const headers=['Urgência','SKU','Produto','Marca','Estoque','Dias s/ Venda','Última Venda',
-      `Vendas ${diasSel}d`,'Custo Unit (R$)','Capital Parado (R$)','Preço Médio (R$)','Desconto Máx (%)','Valor Potencial (R$)'];
+      '10% estoque (giro%)','30% estoque (giro%)',`Vendas ${diasSel}d`,'Capital Parado (R$)','Custo Unit (R$)','Preço Médio (R$)','Desconto Máx (%)','Valor Potencial (R$)'];
     const linhas=[headers.map(esc).join(';')];
 
     let tCap=0,tPot=0;
     lista.forEach(l=>{
       tCap+=l.capParado;tPot+=l.potVenda;
+      const giroTxt=(l.giroPct>=999?0:l.giroPct).toFixed(1);
       linhas.push([
         l.urg,l.sku,l.nome,l.mk||'',l.est,
-        l.diasSem>=999?'Nunca':l.diasSem,l.ultVenda,l.vend,
-        rBR(l.custo),rBR(l.capParado),rBR(l.precoMedio),l.descMax.toFixed(1),rBR(l.potVenda)
+        l.diasSem>=999?'Nunca':l.diasSem,l.ultVenda,
+        l.faixa==='10'?giroTxt:'',
+        l.faixa==='30'?giroTxt:'',
+        l.vend,rBR(l.capParado),rBR(l.custo),rBR(l.precoMedio),l.descMax.toFixed(1),rBR(l.potVenda)
       ].map(esc).join(';'));
     });
-    linhas.push(['','','TOTAL','','','','','',
-      '',rBR(tCap),'','',rBR(tPot)].map(esc).join(';'));
+    linhas.push(['','','TOTAL','','','','','','','',
+      rBR(tCap),'','','',rBR(tPot)].map(esc).join(';'));
 
     const csv='\uFEFF'+linhas.join('\r\n');
     const dt=new Date().toISOString().slice(0,10).replace(/-/g,'');
