@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-07-28T09:35:00.042Z",
-  "gerado_em_br": "28/07/2026, 06:35:00",
+  "gerado_em": "2026-07-28T11:56:10.963Z",
+  "gerado_em_br": "28/07/2026, 08:56:11",
   "dia_referencia": "28/07/2026",
   "dia_ontem": "27/07/2026",
   "resumo_dia": {
-    "faturamento": 514442,
-    "pedidos": 5,
-    "ticket_medio": 102888.4,
+    "faturamento": 552730,
+    "pedidos": 7,
+    "ticket_medio": 78961.43,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 38288,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "7/2026",
-    "faturamento": 297692151,
-    "pedidos": 4466,
+    "faturamento": 297710440,
+    "pedidos": 4467,
     "meta_mensal": 6999999.87,
-    "pct_meta": 4252.7,
-    "projecao_final": 329587738.61,
+    "pct_meta": 4253,
+    "projecao_final": 329607987.14,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 42376975,
-        "pedidos": 2038
+        "faturamento": 42395264,
+        "pedidos": 2039
       },
       "Casas Bahia": {
         "faturamento": 114603692,
@@ -88,6 +88,19 @@
   },
   "top_30_produtos_30d": [
     {
+      "sku": "TI1690",
+      "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
+      "qtd": 432,
+      "fat": 14046124,
+      "canais": {
+        "Mercado Livre": 44,
+        "Casas Bahia": 229,
+        "Amazon": 150,
+        "Shopee": 8,
+        "Magazine Luiza": 1
+      }
+    },
+    {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
       "qtd": 431,
@@ -99,19 +112,6 @@
         "Amazon": 77,
         "Magazine Luiza": 6,
         "Outros": 1
-      }
-    },
-    {
-      "sku": "TI1690",
-      "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 431,
-      "fat": 14027405,
-      "canais": {
-        "Casas Bahia": 229,
-        "Amazon": 150,
-        "Mercado Livre": 43,
-        "Shopee": 8,
-        "Magazine Luiza": 1
       }
     },
     {
@@ -236,11 +236,11 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 87,
-      "fat": 1678506,
+      "qtd": 88,
+      "fat": 1698075,
       "canais": {
+        "Mercado Livre": 61,
         "Amazon": 16,
-        "Mercado Livre": 60,
         "Shopee": 3,
         "Casas Bahia": 3,
         "Magazine Luiza": 5
@@ -468,10 +468,10 @@
   ],
   "historico_por_dia": {
     "28/07/2026": {
-      "fat": 514442,
-      "peds": 5,
+      "fat": 552730,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 38288,
         "Casas Bahia": 83656,
         "Magazine Luiza": 0,
         "Shopee": 128187,
@@ -528,10 +528,10 @@
       }
     },
     "23/07/2026": {
-      "fat": 9960932,
-      "peds": 168,
+      "fat": 9940933,
+      "peds": 167,
       "canais": {
-        "Mercado Livre": 1689181,
+        "Mercado Livre": 1669182,
         "Casas Bahia": 4375296,
         "Magazine Luiza": 135574,
         "Shopee": 1309343,
