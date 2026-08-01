@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-01T11:14:34.263Z",
-  "gerado_em_br": "01/08/2026, 08:14:34",
+  "gerado_em": "2026-08-01T13:14:03.823Z",
+  "gerado_em_br": "01/08/2026, 10:14:03",
   "dia_referencia": "01/08/2026",
   "dia_ontem": "31/07/2026",
   "resumo_dia": {
-    "faturamento": 166003,
-    "pedidos": 6,
-    "ticket_medio": 27667.17,
+    "faturamento": 377193,
+    "pedidos": 15,
+    "ticket_medio": 25146.2,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 39387,
-        "pedidos": 3,
+        "faturamento": 127949,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 14977,
-        "pedidos": 2,
+        "faturamento": 137605,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 166003,
-    "pedidos": 6,
+    "faturamento": 377193,
+    "pedidos": 15,
     "meta_mensal": 6999999.87,
-    "pct_meta": 2.4,
-    "projecao_final": 5146093,
+    "pct_meta": 5.4,
+    "projecao_final": 11692983,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 39387,
-        "pedidos": 3
+        "faturamento": 127949,
+        "pedidos": 11
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -77,8 +77,8 @@
         "pedidos": 1
       },
       "Amazon": {
-        "faturamento": 14977,
-        "pedidos": 2
+        "faturamento": 137605,
+        "pedidos": 3
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -460,14 +460,14 @@
   ],
   "historico_por_dia": {
     "01/08/2026": {
-      "fat": 166003,
-      "peds": 6,
+      "fat": 377193,
+      "peds": 15,
       "canais": {
-        "Mercado Livre": 39387,
+        "Mercado Livre": 127949,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
         "Shopee": 111639,
-        "Amazon": 14977,
+        "Amazon": 137605,
         "Amazon Fulfillment": 0
       }
     },
@@ -532,13 +532,13 @@
       }
     },
     "26/07/2026": {
-      "fat": 9855375,
-      "peds": 168,
+      "fat": 9798422,
+      "peds": 167,
       "canais": {
         "Mercado Livre": 1316842,
         "Casas Bahia": 2584172,
         "Magazine Luiza": 144642,
-        "Shopee": 2047068,
+        "Shopee": 1990115,
         "Amazon": 3762651,
         "Amazon Fulfillment": 0
       }
