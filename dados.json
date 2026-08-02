@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-02T10:38:50.418Z",
-  "gerado_em_br": "02/08/2026, 07:38:50",
+  "gerado_em": "2026-08-02T12:00:09.214Z",
+  "gerado_em_br": "02/08/2026, 09:00:09",
   "dia_referencia": "02/08/2026",
   "dia_ontem": "01/08/2026",
   "resumo_dia": {
-    "faturamento": 912775,
-    "pedidos": 10,
-    "ticket_medio": 91277.5,
+    "faturamento": 1157793,
+    "pedidos": 13,
+    "ticket_medio": 89061,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 171924,
-        "pedidos": 1,
+        "faturamento": 299140,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 504287,
-        "pedidos": 4,
+        "faturamento": 622089,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 14431746,
-    "pedidos": 173,
+    "faturamento": 14676764,
+    "pedidos": 176,
     "meta_mensal": 6999999.87,
-    "pct_meta": 206.2,
-    "projecao_final": 223692063,
+    "pct_meta": 209.7,
+    "projecao_final": 227489842,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 629493,
         "pedidos": 39
       },
       "Casas Bahia": {
-        "faturamento": 2467432,
-        "pedidos": 20
+        "faturamento": 2594648,
+        "pedidos": 21
       },
       "Magazine Luiza": {
         "faturamento": 651673,
@@ -77,8 +77,8 @@
         "pedidos": 13
       },
       "Amazon": {
-        "faturamento": 9388936,
-        "pedidos": 95
+        "faturamento": 9506738,
+        "pedidos": 97
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -103,10 +103,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 408,
-      "fat": 6792436,
+      "qtd": 409,
+      "fat": 6793896,
       "canais": {
-        "Amazon": 91,
+        "Amazon": 92,
         "Shopee": 31,
         "Casas Bahia": 100,
         "Mercado Livre": 182,
@@ -269,10 +269,10 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 74,
-      "fat": 3926780,
+      "qtd": 75,
+      "fat": 3935659,
       "canais": {
-        "Amazon": 72,
+        "Amazon": 73,
         "Mercado Livre": 2
       }
     },
@@ -453,14 +453,14 @@
   ],
   "historico_por_dia": {
     "02/08/2026": {
-      "fat": 912775,
-      "peds": 10,
+      "fat": 1157793,
+      "peds": 13,
       "canais": {
         "Mercado Livre": 33967,
-        "Casas Bahia": 171924,
+        "Casas Bahia": 299140,
         "Magazine Luiza": 0,
         "Shopee": 202597,
-        "Amazon": 504287,
+        "Amazon": 622089,
         "Amazon Fulfillment": 0
       }
     },
