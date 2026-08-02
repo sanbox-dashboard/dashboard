@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-02T08:20:22.613Z",
-  "gerado_em_br": "02/08/2026, 05:20:22",
+  "gerado_em": "2026-08-02T10:38:50.418Z",
+  "gerado_em_br": "02/08/2026, 07:38:50",
   "dia_referencia": "02/08/2026",
   "dia_ontem": "01/08/2026",
   "resumo_dia": {
-    "faturamento": 900676,
-    "pedidos": 9,
-    "ticket_medio": 100075.11,
+    "faturamento": 912775,
+    "pedidos": 10,
+    "ticket_medio": 91277.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 21868,
-        "pedidos": 2,
+        "faturamento": 33967,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 14419647,
-    "pedidos": 172,
+    "faturamento": 14431746,
+    "pedidos": 173,
     "meta_mensal": 6999999.87,
-    "pct_meta": 206,
-    "projecao_final": 223504528.5,
+    "pct_meta": 206.2,
+    "projecao_final": 223692063,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 617394,
-        "pedidos": 38
+        "faturamento": 629493,
+        "pedidos": 39
       },
       "Casas Bahia": {
         "faturamento": 2467432,
@@ -209,13 +209,13 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 99,
-      "fat": 2434458,
+      "qtd": 100,
+      "fat": 2551213,
       "canais": {
+        "Mercado Livre": 13,
         "Magazine Luiza": 5,
         "Shopee": 41,
         "Casas Bahia": 36,
-        "Mercado Livre": 12,
         "Amazon": 5
       }
     },
@@ -427,6 +427,18 @@
       }
     },
     {
+      "sku": "TI287-2",
+      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
+      "qtd": 41,
+      "fat": 149482,
+      "canais": {
+        "Mercado Livre": 15,
+        "Magazine Luiza": 9,
+        "Casas Bahia": 6,
+        "Shopee": 11
+      }
+    },
+    {
       "sku": "TI1700",
       "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
       "qtd": 41,
@@ -437,26 +449,14 @@
         "Magazine Luiza": 1,
         "Mercado Livre": 4
       }
-    },
-    {
-      "sku": "TI287-2",
-      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 40,
-      "fat": 145247,
-      "canais": {
-        "Magazine Luiza": 9,
-        "Casas Bahia": 6,
-        "Shopee": 11,
-        "Mercado Livre": 14
-      }
     }
   ],
   "historico_por_dia": {
     "02/08/2026": {
-      "fat": 900676,
-      "peds": 9,
+      "fat": 912775,
+      "peds": 10,
       "canais": {
-        "Mercado Livre": 21868,
+        "Mercado Livre": 33967,
         "Casas Bahia": 171924,
         "Magazine Luiza": 0,
         "Shopee": 202597,
