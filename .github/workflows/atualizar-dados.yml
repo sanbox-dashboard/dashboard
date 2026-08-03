@@ -26,7 +26,7 @@ jobs:
           curl -s "https://sheets.googleapis.com/v4/spreadsheets/$KOND/values/tinyerp_pedidos_detalhes!A:BQ?key=$API_KEY" -o /tmp/p.json
           curl -s "https://sheets.googleapis.com/v4/spreadsheets/$KOND/values/tinyerp_pedidos_detalhes_itens!A:N?key=$API_KEY" -o /tmp/i.json
           curl -s "https://sheets.googleapis.com/v4/spreadsheets/$KOND/values/tinyerp_estoque_produto_depo!A:G?key=$API_KEY" -o /tmp/e.json
-          curl -s "https://sheets.googleapis.com/v4/spreadsheets/$METAS/values/A1:H200?key=$API_KEY" -o /tmp/m.json
+          curl -s "https://sheets.googleapis.com/v4/spreadsheets/$METAS/values/A1:H400?key=$API_KEY" -o /tmp/m.json
 
           echo "Pedidos:" $(cat /tmp/p.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(len(d.get('values',[])),'linhas')")
           echo "Itens:" $(cat /tmp/i.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(len(d.get('values',[])),'linhas')")
