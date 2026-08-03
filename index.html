@@ -1182,13 +1182,6 @@ tfoot td:first-child{text-align:left;}
           <span style="font-size:.72rem;font-weight:700;color:var(--mu)">MÊS:</span>
           <select id="comMesSel" style="border:1px solid var(--bd);border-radius:6px;padding:5px 10px;font-size:.72rem;font-weight:700;background:var(--wh);color:var(--tx);" onchange="comMudarMes()"></select>
         </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:.7rem;font-weight:700;color:var(--mu)">CMV mínimo:</span>
-          <input type="number" id="comCmvMin" value="10" min="0" max="100" step="0.1"
-            style="width:60px;border:1px solid var(--bd);border-radius:6px;padding:4px 8px;font-size:.75rem;font-weight:700;"
-            oninput="renderComissao()">
-          <span style="font-size:.7rem;color:var(--mu)">%</span>
-        </div>
       </div>
 
       <div id="comWrap" style="display:flex;flex-direction:column;gap:14px;">
@@ -1198,7 +1191,7 @@ tfoot td:first-child{text-align:left;}
       <!-- Resumo das regras -->
       <div class="cv2-rules">
         <div style="font-size:.78rem;font-weight:800;color:var(--tx);margin-bottom:4px">📋 Tabela de Bônus</div>
-        <div style="font-size:.62rem;color:var(--mu);margin-bottom:10px">CMV mínimo obrigatório para qualquer bônus. CMV ≥ 13% dispensa requisito mínimo.</div>
+        <div style="font-size:.62rem;color:var(--mu);margin-bottom:10px">Bônus calculado pela % da meta atingida em cada canal.</div>
 
         <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bonificação base (por canal)</div>
         <div class="cv2-rules-grid">
@@ -1209,33 +1202,24 @@ tfoot td:first-child{text-align:left;}
           <div class="cv2-rule-box"><div class="cv2-rule-pct">≥ 300%</div><div class="cv2-rule-val">R$ 1.000</div></div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-          <div>
-            <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bônus equilíbrio</div>
-            <div class="cv2-rule-box"><div class="cv2-rule-pct">≥2 canais 100%+ com CMV ok</div><div class="cv2-rule-val" style="color:#2563eb">R$ 500</div></div>
-          </div>
-          <div>
-            <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bônus CMV extra (se ≥100% meta)</div>
-            <div class="cv2-rule-box" style="display:flex;gap:8px;justify-content:space-around">
-              <div><div class="cv2-rule-pct">13%–14%</div><div class="cv2-rule-val" style="color:#d97706">R$ 250</div></div>
-              <div><div class="cv2-rule-pct">≥ 15%</div><div class="cv2-rule-val" style="color:#d97706">R$ 500</div></div>
-            </div>
-          </div>
+        <div style="margin-top:10px">
+          <div style="font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Bônus equilíbrio</div>
+          <div class="cv2-rule-box"><div class="cv2-rule-pct">≥2 canais atingindo 100%+</div><div class="cv2-rule-val" style="color:#2563eb">R$ 500</div></div>
         </div>
 
         <div style="margin-top:12px;font-size:.62rem;font-weight:800;color:var(--mu);text-transform:uppercase;margin-bottom:6px">Exemplos rápidos</div>
         <div class="cv2-examples">
           <div class="cv2-ex">
-            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">Cenário máximo — 300%+ em ambos + CMV 15%</div>
-            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">R$1.000 × 2 + R$500 equilíbrio + R$500 CMV × 2 = <strong style="color:var(--gr)">R$ 3.500</strong></div>
+            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">Cenário máximo — 300%+ em ambos os canais</div>
+            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">R$1.000 × 2 + R$500 equilíbrio = <strong style="color:var(--gr)">R$ 2.500</strong></div>
           </div>
           <div class="cv2-ex">
-            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">CMV abaixo do mínimo zera o bônus daquele canal</div>
-            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">Amazon 250% + CMV 7% → R$ 0 (sem equilíbrio também)</div>
+            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">Bônus por faixa de meta</div>
+            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">Canal em 250% da meta → R$ 750 de bônus base</div>
           </div>
           <div class="cv2-ex">
-            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">110% + CMV 15% | 105% + CMV 13%</div>
-            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">R$500 + R$500 + R$500 eq. + R$500 + R$250 = <strong style="color:var(--gr)">R$ 2.250</strong></div>
+            <div style="font-size:.65rem;font-weight:800;color:var(--tx)">110% e 105% nos dois canais</div>
+            <div style="font-size:.62rem;color:var(--mu);margin-top:3px">R$500 + R$500 + R$500 equilíbrio = <strong style="color:var(--gr)">R$ 1.500</strong></div>
           </div>
         </div>
       </div>
@@ -1484,7 +1468,7 @@ async function getMetas(){
     // Linha com "mes/ano" + valor = meta do mês (ex: "abril/2026", "6.783.181,30")
     // Linha com header "Data | Mercado Livre | Casas Bahia | Magazine Luiza | Shopee | Amazon | Meta Total Dia"
     // Linhas seguintes = dados por dia: "DD/MM/YYYY | ml | cb | mg | sh | amz | total"
-    const rows=await fetchSheet(METAS_ID,'A1:H200');
+    const rows=await fetchSheet(METAS_ID,'A1:H400');
     let metaMes=0;const dias={};
     let iML=-1,iCB=-1,iMG=-1,iSH=-1,iAMZ=-1,iTOT=-1,iDATA=-1;
 
@@ -1677,25 +1661,7 @@ function renderDash(d){
   const n=new Date();
   document.getElementById('dRef').textContent=_diaRef?pD(_diaRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():_dRef?pD(_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'--';
   document.getElementById('kFat').textContent=R(d.tP);
-  {
-    // CMV % período = % do GE Finance por canal * fat do período daquele canal
-    // Quanto mais granular o período, mais preciso (usa o % mensal como proxy)
-    const _gePc=_geData?.por_canal;
-    let _cmvPeriodoHtml='';
-    if(_gePc){
-      let _fatTotal=0,_cmvTotal=0;
-      d.canais.forEach(function(c){
-        const _k=c.nm; // nome direto bate com chaves do GE Finance
-        const _ge=_gePc[_k];
-        if(_ge&&c.f>0){_fatTotal+=c.f;_cmvTotal+=c.f*(_ge.cmv_pct/100);}
-      });
-      if(_fatTotal>0){
-        const _pct=(_cmvTotal/_fatTotal*100).toFixed(2).replace('.',',');
-        _cmvPeriodoHtml=` · <span style="color:#DC2626;font-size:.62rem;font-weight:800">CMV ${_pct}%</span>`;
-      }
-    }
-    document.getElementById('kFatSub').innerHTML=`${d.nP} pedidos — ${lbl}`+_cmvPeriodoHtml;
-  }
+  document.getElementById('kFatSub').innerHTML=`${d.nP} pedidos — ${lbl}`;
   document.getElementById('kMeta').textContent=R(d.metaTot);
   const pk=document.getElementById('kPct');pk.textContent=`${d.pctP}%`;pk.className=pCls(d.pctP);
   document.getElementById('kMes').textContent=R(d.tM);
@@ -1720,34 +1686,8 @@ function renderDash(d){
     document.getElementById('kMesSub').innerHTML=n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase()+_diffHtml;
   }
   {
-    // CMV % Vendas do Mês (01 até hoje)
-    // Usa d.tM (faturamento do mês) e % médio ponderado dos canais do GE Finance
-    const _gePc2=_geData?.por_canal;
     const _kMesCmvEl=document.getElementById('kMesCmv');
-    if(_gePc2&&_kMesCmvEl){
-      // Calcular % médio ponderado usando faturamento do mês por canal
-      // d.canaisMes tem o faturamento de cada canal no mês (01 até hoje)
-      let _fatMes=0,_cmvMes=0;
-      // Usar os dados do mês se disponíveis, ou cair no total do mês
-      if(d.canaisMes&&d.canaisMes.length>0){
-        d.canaisMes.forEach(function(c){
-          const _ge=_gePc2[c.nm];
-          if(_ge&&c.f>0){_fatMes+=c.f;_cmvMes+=c.f*(_ge.cmv_pct/100);}
-        });
-      } else {
-        // Fallback: usar d.canais (período atual) se for mês
-        d.canais.forEach(function(c){
-          const _ge=_gePc2[c.nm];
-          if(_ge&&c.f>0){_fatMes+=c.f;_cmvMes+=c.f*(_ge.cmv_pct/100);}
-        });
-      }
-      if(_fatMes>0){
-        const _pctM=(_cmvMes/_fatMes*100).toFixed(2).replace('.',',');
-        _kMesCmvEl.innerHTML=`CMV sobre vendas: <strong style="color:#DC2626">${_pctM}%</strong>`;
-      } else {
-        _kMesCmvEl.innerHTML='';
-      }
-    }
+    if(_kMesCmvEl)_kMesCmvEl.innerHTML='';
   }
   document.getElementById('kMetaMes').textContent=R(d.metaMes);
   const pm=document.getElementById('kPctMes');pm.textContent=`${d.pctM}%`;pm.className=pCls(d.pctM);
@@ -1758,47 +1698,18 @@ function renderDash(d){
   const _pctOnt=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999).toFixed(1):null;
   {
     // CMV de ontem: usar faturamento de ontem por canal * % do GE Finance
-    const _gePc3=_geData?.por_canal;
-    let _cmvOntHtml='';
-    if(_gePc3&&d.canaisOnt&&d.canaisOnt.length>0){
-      // Calcular CMV ponderado de ontem por canal
-      let _fatO=0,_cmvO=0;
-      d.canaisOnt.forEach(function(c){
-        const _ge=_gePc3[c.nm];
-        if(_ge&&c.f>0){_fatO+=c.f;_cmvO+=c.f*(_ge.cmv_pct/100);}
-      });
-      if(_fatO>0){
-        const _pctCmvOnt=(_cmvO/_fatO*100).toFixed(2).replace('.',',');
-        _cmvOntHtml=` · <span style="color:#DC2626;font-size:.62rem;font-weight:800">CMV ${_pctCmvOnt}%</span>`;
-      }
-    } else if(_gePc3&&d.tO>0){
-      // Fallback: % médio geral do mês aplicado ao total de ontem
-      let _fatT=0,_cmvT=0;
-      Object.values(_gePc3).forEach(function(v){_fatT+=v.faturamento;_cmvT+=v.faturamento*(v.cmv_pct/100);});
-      if(_fatT>0){
-        const _pctMed=(_cmvT/_fatT*100).toFixed(2).replace('.',',');
-        _cmvOntHtml=` · <span style="color:#DC2626;font-size:.62rem;font-weight:800">CMV ~${_pctMed}%</span>`;
-      }
-    }
-    document.getElementById('kOntSub').innerHTML=`${d.nO} pedidos${_pctOnt?` · ${_pctOnt}% da meta`:''}${_cmvOntHtml}`;
+    document.getElementById('kOntSub').innerHTML=`${d.nO} pedidos${_pctOnt?` · ${_pctOnt}% da meta`:''}`;
   }
   setTimeout(()=>{document.getElementById('fPct').style.width=Math.min(d.pctP,100)+'%';document.getElementById('fPctMes').style.width=Math.min(d.pctM,100)+'%';},200);
 
   document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{
   const cor=COR[c.nm]||'#999';
-  // Buscar CMV % do GE Finance para este canal
-  const _geCanal=_geData?.por_canal;
-  const _cmvMap={'Mercado Livre':'Mercado Livre','Casas Bahia':'Casas Bahia','Magazine Luiza':'Magazine Luiza','Shopee':'Shopee','Amazon':'Amazon','Amazon Fulfillment':'Amazon Fulfillment'};
-  const _cmvKey=_cmvMap[c.nm];
-  const _cmvPct=_geCanal&&_cmvKey&&_geCanal[_cmvKey]?_geCanal[_cmvKey].cmv_pct:null;
-  const _cmvHtml=_cmvPct!=null?`<div class="cn-cmv">CMV: <strong>${_cmvPct.toFixed(2).replace('.',',')}%</strong></div>`:'';
   return`<div class="cn">
     <div class="ct"><div class="clogo">${LOGOS[c.nm]||c.nm}</div><span class="cpct" style="color:${cor}">${c.pct}%</span></div>
     <div class="cv" style="color:${cor}">${R(c.f)}</div>
     <div class="cm"><span class="cml">Meta Dia</span><span class="cmv">${R(c.m)}</span></div>
     <div class="pt"><div class="pf" style="width:${Math.min(c.pct,100)}%;background:${cor}"></div></div>
     <div class="cf"><span class="cpe">${c.p} pedidos</span><span class="dl ${dCls(c.pct)}">${dLbl(c.pct)}</span></div>
-    ${_cmvHtml}
   </div>`;}).join('');
 
   document.getElementById('tProd').textContent=`Top Produtos — ${lbl}`;
@@ -4163,40 +4074,9 @@ setInterval(()=>document.getElementById('clock').textContent=new Date().toLocale
 load();
 setInterval(load,5*60*1000);
 
-// Carregar GE Finance automaticamente (sem bloquear o dashboard)
-async function loadGEData() {
-  try {
-    const url = GE_JSON_URL + '?t=' + Date.now();
-    const resp = await fetch(url);
-    if(!resp.ok) return;
-    const data = await resp.json();
-    if(data && data.por_canal) {
-      _geData = data;
-      // Salvar CMV do mês no histórico localStorage
-      try {
-        var _geDataMes = (data.periodo&&data.periodo.inicio)
-          ? data.periodo.inicio.substring(0,7)
-          : comMesKey();
-        var _cmvHist = JSON.parse(localStorage.getItem('cmvHist')||'{}');
-        var _cmvSnap = {};
-        Object.keys(data.por_canal).forEach(function(cn){
-          if(data.por_canal[cn] && data.por_canal[cn].cmv_pct != null)
-            _cmvSnap[cn] = data.por_canal[cn].cmv_pct;
-        });
-        _cmvHist[_geDataMes] = _cmvSnap;
-        localStorage.setItem('cmvHist', JSON.stringify(_cmvHist));
-      } catch(e){}
-      // Re-renderizar o dashboard se já estiver carregado
-      if(_cache) renderDash(_cache._dashData || _cache);
-      // Atualizar aba GE se estiver aberta
-      if(document.getElementById('vMargem')?.classList.contains('on')) {
-        geProcessarJSON(data);
-      }
-    }
-  } catch(e) { console.warn('[GE]', e.message); }
-}
-loadGEData();
-setInterval(loadGEData, 60*60*1000); // atualizar a cada hora
+// GE Finance desativado — dados de CMV/margem removidos do dashboard
+async function loadGEData() { /* desativado */ }
+// (não chamamos mais loadGEData nem o setInterval)
 
 
 
@@ -4366,18 +4246,16 @@ function comBuscarCmvHistorico(mes) {
 function comR(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function comRs(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{maximumFractionDigits:0}); }
 
-function comBonBase(pct,cmv,min){
-  if(cmv<min) return 0;
+function comBonBase(pct){
+  // Bônus base apenas pela % da meta atingida (sem CMV)
   if(pct<90)  return 0;
   if(pct<100) return 250;
   if(pct<200) return 500;
   if(pct<300) return 750;
   return 1000;
 }
-function comBonExtra(pct,cmv){
-  if(pct<100) return 0;
-  if(cmv>=15) return 500;
-  if(cmv>=13) return 250;
+// Bônus extra por CMV removido — não é mais considerado
+function comBonExtra(){
   return 0;
 }
 function comThermoColor(pct){
@@ -4387,47 +4265,18 @@ function comThermoColor(pct){
   return '#dc2626';
 }
 
-function comCalc(v, dados, cmvMin){
-  // Buscar CMV: mês atual usa _geData, histórico usa cache por mês
-  var _cmvMesRef = _comMes || comMesKey();
-  var gePC = {};
-  // Cache de CMV por mês (localStorage + memória)
-  if(!window._cmvCache) window._cmvCache = {};
-  if(_cmvMesRef === comMesKey() && _geData && _geData.por_canal){
-    // Mês atual: usar _geData direto e salvar no cache
-    gePC = _geData.por_canal;
-    window._cmvCache[_cmvMesRef] = gePC;
-  } else if(window._cmvCache[_cmvMesRef]){
-    // Cache em memória
-    gePC = window._cmvCache[_cmvMesRef];
-  } else {
-    // Tentar localStorage
-    try {
-      var _cmvHistLS = JSON.parse(localStorage.getItem('cmvHist')||'{}');
-      if(_cmvHistLS[_cmvMesRef]){
-        var _snap = {};
-        Object.keys(_cmvHistLS[_cmvMesRef]).forEach(function(cn){
-          _snap[cn] = {cmv_pct: _cmvHistLS[_cmvMesRef][cn]};
-        });
-        gePC = _snap;
-        window._cmvCache[_cmvMesRef] = gePC;
-      }
-    } catch(e){}
-    // Nota: se chegar aqui sem dados, renderComissao já tratou o loading
-  }
+function comCalc(v, dados){
   var cd = v.canais.map(function(cn){
     var d   = dados[cn] || {vend:0,meta:0};
-    var cmv = gePC[cn] ? (gePC[cn].cmv_pct||0) : 0;
     var pct = d.meta>0 ? d.vend/d.meta*100 : 0;
-    var cmvEf = cmv>=13 ? Math.max(cmv,cmvMin) : cmv;
     return {
-      canal:cn, meta:d.meta, vend:d.vend, cmv:cmv, pct:pct,
-      cmvOk:cmvEf>=cmvMin,
-      base: comBonBase(pct,cmvEf,cmvMin),
-      extra:comBonExtra(pct,cmv)
+      canal:cn, meta:d.meta, vend:d.vend, pct:pct,
+      base: comBonBase(pct),
+      extra: 0
     };
   });
-  var ok  = cd.filter(function(c){ return c.pct>=100&&c.cmvOk; }).length;
+  // Bônus equilíbrio: 2+ canais batendo 100%+ (sem exigir CMV)
+  var ok  = cd.filter(function(c){ return c.pct>=100; }).length;
   var bonEq = ok>=v.eqMin ? 500 : 0;
   var total = cd.reduce(function(s,c){ return s+c.base+c.extra; },0) + bonEq;
   return {cd:cd, bonEq:bonEq, ok:ok, total:total};
@@ -4444,36 +4293,10 @@ function renderComissao(){
   var mes = _comMes || comMesKey();
   var ehAtual = mes === comMesKey();
 
-  // Verificar se tem CMV para esse mês
-  if(!ehAtual) {
-    // Checar cache memória
-    if(!window._cmvCache) window._cmvCache = {};
-    var temCache = !!window._cmvCache[mes];
-    // Checar localStorage
-    if(!temCache) {
-      try {
-        var hist = JSON.parse(localStorage.getItem('cmvHist')||'{}');
-        if(hist[mes] && Object.keys(hist[mes]).length) {
-          var snap = {};
-          Object.keys(hist[mes]).forEach(function(cn){ snap[cn] = {cmv_pct: hist[mes][cn]}; });
-          window._cmvCache[mes] = snap;
-          temCache = true;
-        }
-      } catch(e){}
-    }
-    // Se não tem cache, buscar assincronamente e mostrar loading
-    if(!temCache) {
-      wrap.innerHTML = '<div style="text-align:center;padding:40px;color:var(--mu)">⏳ Buscando CMV de ' + comMesLabel(mes) + '...</div>';
-      comBuscarCmvHistorico(mes);
-      return; // Sair - comBuscarCmvHistorico vai chamar renderComissao() de novo quando tiver dados
-    }
-  }
-
-  var cmvMin = parseFloat((document.getElementById('comCmvMin')||{value:'10'}).value)||10;
   var dados = comGetDados();
 
   var out = COM_VEND.map(function(v){
-    var res = comCalc(v, dados, cmvMin);
+    var res = comCalc(v, dados);
 
     var chHtml = res.cd.map(function(c){
       var pct    = c.pct;
@@ -4483,12 +4306,7 @@ function renderComissao(){
       // Cor do texto: escuro para garantir legibilidade
       var txtCol = pct>=100?'#14532d':pct>=90?'#713f12':pct>=70?'#7c2d12':'#7f1d1d';
 
-      var cmvLbl = c.cmv>=15?'🟢 ≥15%':c.cmv>=13?'🟡 ≥13%':c.cmvOk?'✅ ok':'❌ <mín';
-      var cmvBg  = c.cmvOk?'#dcfce7':'#fee2e2';
-      var cmvCor = c.cmvOk?'#166534':'#991b1b';
-
       var baseClass  = c.base>0 ?'cv2-badge cv2-badge-base':'cv2-badge cv2-badge-zero';
-      var extraClass = c.extra>0?'cv2-badge cv2-badge-extra':'cv2-badge cv2-badge-zero';
 
       // Barra de progresso - altura achatada
       var thermoHtml = '<div style="position:relative;height:16px;background:var(--bd);border-radius:8px;overflow:hidden;margin:6px 0 4px;">'
@@ -4499,21 +4317,19 @@ function renderComissao(){
       return '<div class="cv2-ch">'
         +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">'
           +'<span style="font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:var(--mu)">'+c.canal+'</span>'
-          +'<span style="font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:12px;background:'+cmvBg+';color:'+cmvCor+'">CMV '+c.cmv.toFixed(1)+'% '+cmvLbl+'</span>'
         +'</div>'
         +'<div style="font-size:.9rem;font-weight:900;color:var(--tx)">'+comR(c.vend)+'</div>'
         +'<div style="font-size:.65rem;color:var(--mu);margin-bottom:2px">Meta: '+comR(c.meta)+'</div>'
         +thermoHtml
         +'<div class="cv2-bonuses">'
           +'<span class="'+baseClass+'">Base '+comR(c.base)+'</span>'
-          +'<span class="'+extraClass+'">CMV+ '+comR(c.extra)+'</span>'
         +'</div>'
       +'</div>';
     }).join('');
 
     var eqOk = res.bonEq>0;
     var eqTxt = eqOk
-      ? '✅ '+res.ok+'/'+v.eqMin+' canais 100%+ com CMV ok'
+      ? '✅ '+res.ok+'/'+v.eqMin+' canais 100%+'
       : '❌ Precisa '+v.eqMin+' canais (atual: '+res.ok+')';
 
     return '<div class="cv2-card">'
@@ -4542,7 +4358,7 @@ function renderComissao(){
         +'<div class="cv2-grand">'
           +'<div>'
             +'<div style="font-size:.75rem;font-weight:800;color:var(--tx)">💰 Total Comissão</div>'
-            +'<div style="font-size:.62rem;color:var(--mu)">Base + CMV Extra + Equilíbrio</div>'
+            +'<div style="font-size:.62rem;color:var(--mu)">Base + Equilíbrio</div>'
           +'</div>'
           +'<div style="font-size:1.15rem;font-weight:900;color:'+(res.total>0?'var(--gr)':'var(--mu)')+'">'+comR(res.total)+'</div>'
         +'</div>'
