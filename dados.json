@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-04T10:35:32.474Z",
-  "gerado_em_br": "04/08/2026, 07:35:32",
+  "gerado_em": "2026-08-04T12:59:47.647Z",
+  "gerado_em_br": "04/08/2026, 09:59:47",
   "dia_referencia": "04/08/2026",
   "dia_ontem": "03/08/2026",
   "resumo_dia": {
-    "faturamento": 336841,
-    "pedidos": 2,
-    "ticket_medio": 168420.5,
+    "faturamento": 942227,
+    "pedidos": 9,
+    "ticket_medio": 104691.89,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 32697,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 221231,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 145099,
-        "pedidos": 1,
+        "faturamento": 496557,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 15541478,
-    "pedidos": 206
+    "faturamento": 16146145,
+    "pedidos": 209
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 31755239,
-    "pedidos": 450,
+    "faturamento": 32965292,
+    "pedidos": 460,
     "meta_mensal": 8000000,
-    "pct_meta": 396.9,
-    "projecao_final": 246103102.25,
+    "pct_meta": 412.1,
+    "projecao_final": 255481013,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 3553963,
-        "pedidos": 186
+        "faturamento": 3604609,
+        "pedidos": 190
       },
       "Casas Bahia": {
         "faturamento": 10572785,
         "pedidos": 86
       },
       "Magazine Luiza": {
-        "faturamento": 1938564,
-        "pedidos": 14
+        "faturamento": 2159795,
+        "pedidos": 15
       },
       "Shopee": {
         "faturamento": 5151663,
         "pedidos": 48
       },
       "Amazon": {
-        "faturamento": 7938106,
-        "pedidos": 94
+        "faturamento": 8876282,
+        "pedidos": 99
       },
       "Amazon Fulfillment": {
         "faturamento": 2600158,
@@ -90,23 +90,23 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 464,
-      "fat": 17464690,
+      "qtd": 469,
+      "fat": 18025585,
       "canais": {
+        "Amazon": 162,
+        "Mercado Livre": 52,
         "Shopee": 10,
-        "Mercado Livre": 50,
         "Casas Bahia": 244,
-        "Amazon": 159,
         "Magazine Luiza": 1
       }
     },
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 401,
-      "fat": 5965835,
+      "qtd": 402,
+      "fat": 5967295,
       "canais": {
-        "Amazon": 100,
+        "Amazon": 101,
         "Casas Bahia": 97,
         "Mercado Livre": 170,
         "Shopee": 31,
@@ -143,10 +143,10 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 159,
-      "fat": 1323343,
+      "qtd": 160,
+      "fat": 1331342,
       "canais": {
-        "Mercado Livre": 86,
+        "Mercado Livre": 87,
         "Shopee": 28,
         "Casas Bahia": 17,
         "Magazine Luiza": 13,
@@ -356,10 +356,10 @@
     {
       "sku": "TI1456",
       "desc": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244L - Bivolt",
-      "qtd": 55,
-      "fat": 4276948,
+      "qtd": 56,
+      "fat": 4655727,
       "canais": {
-        "Amazon": 10,
+        "Amazon": 11,
         "Mercado Livre": 45
       }
     },
@@ -422,10 +422,10 @@
     {
       "sku": "TI287-1",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 40,
-      "fat": 137145,
+      "qtd": 41,
+      "fat": 139873,
       "canais": {
-        "Magazine Luiza": 6,
+        "Magazine Luiza": 7,
         "Casas Bahia": 19,
         "Shopee": 7,
         "Mercado Livre": 8
@@ -456,26 +456,26 @@
   ],
   "historico_por_dia": {
     "04/08/2026": {
-      "fat": 336841,
-      "peds": 2,
+      "fat": 942227,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 32697,
         "Casas Bahia": 0,
-        "Magazine Luiza": 0,
+        "Magazine Luiza": 221231,
         "Shopee": 191742,
-        "Amazon": 145099,
+        "Amazon": 496557,
         "Amazon Fulfillment": 0
       }
     },
     "03/08/2026": {
-      "fat": 15541478,
-      "peds": 206,
+      "fat": 16146145,
+      "peds": 209,
       "canais": {
-        "Mercado Livre": 1851599,
+        "Mercado Livre": 1869548,
         "Casas Bahia": 4715399,
         "Magazine Luiza": 608831,
         "Shopee": 1307781,
-        "Amazon": 4457710,
+        "Amazon": 5044428,
         "Amazon Fulfillment": 2600158
       }
     },
@@ -564,10 +564,10 @@
       }
     },
     "26/07/2026": {
-      "fat": 9658562,
-      "peds": 164,
+      "fat": 9650653,
+      "peds": 163,
       "canais": {
-        "Mercado Livre": 1259326,
+        "Mercado Livre": 1251417,
         "Casas Bahia": 2584172,
         "Magazine Luiza": 144642,
         "Shopee": 1990115,
