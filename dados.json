@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-05T05:43:27.103Z",
-  "gerado_em_br": "05/08/2026, 02:43:27",
+  "gerado_em": "2026-08-05T08:31:16.463Z",
+  "gerado_em_br": "05/08/2026, 05:31:16",
   "dia_referencia": "05/08/2026",
   "dia_ontem": "04/08/2026",
   "resumo_dia": {
-    "faturamento": 250368,
-    "pedidos": 4,
-    "ticket_medio": 62592,
+    "faturamento": 545706,
+    "pedidos": 6,
+    "ticket_medio": 90951,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 167521,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 17998,
-        "pedidos": 2,
+        "faturamento": 145815,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 50557531,
-    "pedidos": 697,
+    "faturamento": 50852869,
+    "pedidos": 699,
     "meta_mensal": 8000000,
-    "pct_meta": 632,
-    "projecao_final": 313456692.2,
+    "pct_meta": 635.7,
+    "projecao_final": 315287787.8,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 5052542,
@@ -73,12 +73,12 @@
         "pedidos": 20
       },
       "Shopee": {
-        "faturamento": 7067771,
-        "pedidos": 65
+        "faturamento": 7235292,
+        "pedidos": 66
       },
       "Amazon": {
-        "faturamento": 14404784,
-        "pedidos": 158
+        "faturamento": 14532601,
+        "pedidos": 159
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 407,
-      "fat": 5770117,
+      "qtd": 408,
+      "fat": 5785716,
       "canais": {
+        "Shopee": 31,
         "Amazon": 105,
         "Mercado Livre": 171,
         "Casas Bahia": 98,
-        "Shopee": 30,
         "Magazine Luiza": 3
       }
     },
@@ -171,11 +171,11 @@
     {
       "sku": "TI1676",
       "desc": "Cooktop de Inducao Dako Diplomata 4 Bocas Zonas Flexivel Preto - 220v",
-      "qtd": 134,
-      "fat": 6224261,
+      "qtd": 135,
+      "fat": 6344250,
       "canais": {
+        "Amazon": 85,
         "Amazon Fulfillment": 42,
-        "Amazon": 84,
         "Shopee": 4,
         "Casas Bahia": 4
       }
@@ -459,14 +459,14 @@
   ],
   "historico_por_dia": {
     "05/08/2026": {
-      "fat": 250368,
-      "peds": 4,
+      "fat": 545706,
+      "peds": 6,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 232370,
-        "Shopee": 0,
-        "Amazon": 17998,
+        "Shopee": 167521,
+        "Amazon": 145815,
         "Amazon Fulfillment": 0
       }
     },
