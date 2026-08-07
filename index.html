@@ -497,6 +497,7 @@ tfoot td:first-child{text-align:left;}
         <div class="flbl">Período:</div>
         <div class="fbtns">
           <button class="fbtn on" id="fDia" onclick="filtrar('dia')">📅 Dia</button>
+          <button class="fbtn" id="fOntem" onclick="filtrar('ontem')">🌙 Ontem</button>
           <button class="fbtn" id="fMes" onclick="filtrar('mes')">📆 Mês</button>
           <button class="fbtn" id="fCus" onclick="filtrar('custom')">🗓 Personalizado</button>
         </div>
@@ -1317,7 +1318,7 @@ function skuExcluido(sku){
   if(s.endsWith('-V') || s.endsWith('-A')) return true;
   return false;
 }
-let _dRef='',_ontRef='',_diaRef='';
+let _dRef='',_ontRef='',_diaRef='',_ontemRef='';
 let _cache=null;   // {pRows,iRows,metas}
 let _catC=null;    // categorias cache
 let _catMesLoading=false; // flag para evitar fetch duplicado da tabela CANAL × MÊS
@@ -1339,7 +1340,7 @@ function isRange(s){
 }
 function toYMD(s){const p=(s||'').split('/');if(p.length<3)return'';return p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0');}
 function toISO(s){const p=(s||'').split('/');if(p.length<3)return'';return`${p[2]}-${p[0].padStart(2,'0')}-${p[1].padStart(2,'0')}`;}
-function isPer(s){return _modo==='dia'?s===_dRef:_modo==='mes'?isMes(s):isRange(s);}
+function isPer(s){return _modo==='dia'?s===_dRef:_modo==='ontem'?s===_ontemRef:_modo==='mes'?isMes(s):isRange(s);}
 
 function validSit(sit,cn){
   if(cn==='Mercado Livre') return VALIDAS_ML.has(sit);
@@ -1529,13 +1530,21 @@ function processDash(pRows,iRows,metas){
       _fatPorDia[d]=(_fatPorDia[d]||0)+fat;
     }
   }
-  // sorted: apenas dias com faturamento > 0, mais recente primeiro
-  const sorted=[...datas].filter(d=>(_fatPorDia[d]||0)>0).sort((a,b)=>pD(b)-pD(a));
-  // _dRef = último dia com faturamento real (fonte da verdade para todos os cálculos)
+  // Data real de hoje (à meia-noite) para barrar pedidos lançados com data futura
+  const _hojeReal=new Date();_hojeReal.setHours(0,0,0,0);
+  // sorted: dias com faturamento > 0, do mais recente ao mais antigo,
+  // EXCLUINDO qualquer data futura (pedidos do próximo dia lançados antes da virada)
+  const sorted=[...datas]
+    .filter(d=>(_fatPorDia[d]||0)>0 && pD(d)<=_hojeReal)
+    .sort((a,b)=>pD(b)-pD(a));
+  // _dRef = último dia com faturamento real que NÃO seja futuro
   _dRef=sorted[0]||'';_ontRef=sorted[1]||'';
   // _diaRef = data de hoje para exibição no header (muda só após meia-noite)
   const _hoje2=new Date();
   _diaRef=(_hoje2.getMonth()+1).toString().padStart(2,'0')+'/'+_hoje2.getDate().toString().padStart(2,'0')+'/'+_hoje2.getFullYear();
+  // _ontemRef = D-1 de calendário (dia anterior a hoje, exato — não o "último dia com venda")
+  const _ontemDt=new Date();_ontemDt.setDate(_ontemDt.getDate()-1);
+  _ontemRef=(_ontemDt.getMonth()+1)+'/'+_ontemDt.getDate()+'/'+_ontemDt.getFullYear();
 
   const cPer={},cMes={};CANAIS.forEach(c=>{cPer[c]={f:0,p:0};cMes[c]={f:0,p:0};});
   let tP=0,nP=0,tM=0,nM=0,tO=0,nO=0;
@@ -1582,10 +1591,13 @@ function processDash(pRows,iRows,metas){
     .map(([n,d])=>({n,f:d.f,p:d.p.size,pct:tP>0?(d.f/tP*100).toFixed(1):0}));
 
   const metaDia=metas.dias[_dRef]||{};
+  // Meta do dia de ontem (D-1) para o modo 'ontem'
+  const metaOntem=metas.dias[_ontemRef]||{};
   // Meta total: no dia usa meta do dia ref, no mês usa meta mensal
   // Função auxiliar: busca meta somando todos os dias no período usando toYMD para comparação segura
   function getMetaPeriodo(campo){
     if(_modo==='dia') return metaDia[campo]||0;
+    if(_modo==='ontem') return metaOntem[campo]||0;
     if(_modo==='mes'){
       const n=new Date();
       return Object.entries(metas.dias)
@@ -1643,6 +1655,7 @@ function dCls(p){return p>=70?'dok':p>=35?'dmi':'dlo';}
 function dLbl(p){return p>=100?'✓ Meta!':p>=70?`→${(100-p).toFixed(0)}%`:`↓${(100-p).toFixed(0)}%`;}
 const perLbl=()=>{
   if(_modo==='dia')return (_diaRef||_dRef)?pD(_diaRef||_dRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'Dia';
+  if(_modo==='ontem')return _ontemRef?pD(_ontemRef).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase():'Ontem';
   if(_modo==='mes'){const n=new Date();return n.toLocaleDateString('pt-BR',{month:'long',year:'numeric'}).toUpperCase();}
   if(_ini&&_fim)return`${_ini.split('/').reverse().join('/')} → ${_fim.split('/').reverse().join('/')}`;
   return'';
@@ -1694,7 +1707,7 @@ function renderDash(d){
   document.getElementById('kPeds').textContent=d.nP;
   document.getElementById('kTicket').textContent=R(d.nP>0?d.tP/d.nP:0);
   document.getElementById('kOnt').textContent=R(d.tO);
-  const _metaOnt=(_cache?.metas?.dias[_ontRef]||{}).total||0;
+  const _metaOnt=(_cache?.metas?.dias?.[_ontRef]||{}).total||0;
   const _pctOnt=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999).toFixed(1):null;
   {
     // CMV de ontem: usar faturamento de ontem por canal * % do GE Finance
@@ -1741,9 +1754,28 @@ function renderDash(d){
 // ── FILTROS DASHBOARD ────────────────────────────────────────
 function filtrar(m){
   _modo=m;
-  ['dia','mes','custom'].forEach(x=>{document.getElementById('f'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('on',x===m);});
+  // Toggle visual dos botões (Dia, Ontem, Mês, Personalizado)
+  const btnMap={dia:'fDia',ontem:'fOntem',mes:'fMes',custom:'fCus'};
+  Object.keys(btnMap).forEach(k=>{
+    const el=document.getElementById(btnMap[k]);
+    if(el)el.classList.toggle('on',k===m);
+  });
   document.getElementById('fCustom').classList.toggle('show',m==='custom');
-  if(m!=='custom'&&_cache){const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);renderDash(d);}
+  if(m==='custom')return;
+  // Só re-renderiza se o cache estiver completo e válido
+  if(!_cache||!_cache.pRows||_cache.pRows.length<=1){
+    console.warn('[Filtro] cache ainda não pronto — aguardando load');
+    if(!window._loading) load(); // dispara um load se não houver um em andamento
+    return;
+  }
+  try{
+    const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);
+    renderDash(d);
+  }catch(e){
+    console.error('[Filtro] erro ao processar',e);
+    // Não deixa a tela zerada: tenta recarregar os dados
+    if(!window._loading) load();
+  }
 }
 function aplicar(){
   const ini=document.getElementById('fIni').value,fim=document.getElementById('fFim').value;
@@ -1752,7 +1784,18 @@ function aplicar(){
   const conv=s=>{const p=s.split('-');return`${+p[1]}/${+p[2]}/${p[0]}`;};
   _ini=conv(ini);_fim=conv(fim);
   console.log('[Filtro] ini='+_ini+' fim='+_fim+' modo='+_modo);
-  if(_cache){const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);renderDash(d);}
+  if(!_cache||!_cache.pRows||_cache.pRows.length<=1){
+    console.warn('[Aplicar] cache ainda não pronto');
+    if(!window._loading) load();
+    return;
+  }
+  try{
+    const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);
+    renderDash(d);
+  }catch(e){
+    console.error('[Aplicar] erro ao processar',e);
+    if(!window._loading) load();
+  }
 }
 
 // ── CATEGORIAS ───────────────────────────────────────────────
@@ -2369,6 +2412,7 @@ const DASH_CACHE_KEY='sanbox_dash_cache_v1';
 const DASH_CACHE_TTL=10*60*1000; // 10 minutos
 
 async function load(){
+  window._loading = true;
   const firstLoad = !_cache;
   let usedCache = false;
 
@@ -2409,6 +2453,16 @@ async function load(){
       fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
     ]);
     if(firstLoad && !usedCache) setLoad(90,'Processando...');
+    // Proteção: se o fetch voltou vazio (erro momentâneo do Sheets), NÃO sobrescreve
+    // o cache bom que já temos. Evita a tela zerar e exigir refresh manual.
+    if((!pRows||pRows.length<=1)){
+      if(_cache){
+        console.warn('[Load] fetch vazio — mantendo cache anterior');
+        document.getElementById('sLbl').textContent='AO VIVO';
+        return; // sai sem tocar no _cache nem na tela
+      }
+      // sem cache anterior: deixa seguir para mostrar estado (evita travar no 1º load)
+    }
     _cache={pRows,iRows:iRowsResult,metas};
     const d=processDash(pRows,iRowsResult,metas);
     if(firstLoad && !usedCache){
@@ -2444,6 +2498,8 @@ async function load(){
     console.error('[Load]',e);
     if(firstLoad) document.getElementById('lt').textContent='❌ '+e.message;
     document.getElementById('sLbl').textContent='ERRO';
+  }finally{
+    window._loading = false;
   }
 }
 
@@ -4072,7 +4128,15 @@ function abrirMargem(){
 // Clock
 setInterval(()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR'),1000);
 load();
-setInterval(load,5*60*1000);
+
+// Auto-refresh a cada 2 minutos.
+// Só recarrega quando a aba está visível (economiza requisições se estiver em background)
+// e nunca durante uma carga já em andamento.
+setInterval(function(){
+  if(document.hidden) return;      // aba em segundo plano → pula
+  if(window._loading) return;      // já está carregando → pula
+  load();
+}, 2*60*1000);
 
 // GE Finance desativado — dados de CMV/margem removidos do dashboard
 async function loadGEData() { /* desativado */ }
