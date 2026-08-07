@@ -1,42 +1,42 @@
 {
-  "gerado_em": "2026-08-07T11:42:48.021Z",
-  "gerado_em_br": "07/08/2026, 08:42:48",
+  "gerado_em": "2026-08-07T12:56:46.945Z",
+  "gerado_em_br": "07/08/2026, 09:56:46",
   "dia_referencia": "07/08/2026",
   "dia_ontem": "06/08/2026",
   "resumo_dia": {
-    "faturamento": 960827,
-    "pedidos": 11,
-    "ticket_medio": 87347.91,
+    "faturamento": 2475411,
+    "pedidos": 24,
+    "ticket_medio": 103142.13,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 41827,
-        "pedidos": 3,
+        "faturamento": 129554,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 193607,
-        "pedidos": 1,
-        "meta": 0,
-        "pct_meta": null
-      },
-      "Magazine Luiza": {
-        "faturamento": 237689,
-        "pedidos": 3,
-        "meta": 0,
-        "pct_meta": null
-      },
-      "Shopee": {
-        "faturamento": 487704,
+        "faturamento": 648732,
         "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
+      "Magazine Luiza": {
+        "faturamento": 426608,
+        "pedidos": 5,
+        "meta": 0,
+        "pct_meta": null
+      },
+      "Shopee": {
+        "faturamento": 843764,
+        "pedidos": 7,
+        "meta": 0,
+        "pct_meta": null
+      },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 426753,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 82025989,
-    "pedidos": 1094,
+    "faturamento": 83608337,
+    "pedidos": 1108,
     "meta_mensal": 8000000,
-    "pct_meta": 1025.3,
-    "projecao_final": 363257951.29,
+    "pct_meta": 1045.1,
+    "projecao_final": 370265492.43,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8048781,
-        "pedidos": 459
+        "faturamento": 8136508,
+        "pedidos": 462
       },
       "Casas Bahia": {
-        "faturamento": 27103415,
-        "pedidos": 201
+        "faturamento": 27626304,
+        "pedidos": 205
       },
       "Magazine Luiza": {
-        "faturamento": 5452183,
-        "pedidos": 41
+        "faturamento": 5641102,
+        "pedidos": 43
       },
       "Shopee": {
-        "faturamento": 10295327,
-        "pedidos": 93
+        "faturamento": 10651387,
+        "pedidos": 96
       },
       "Amazon": {
-        "faturamento": 26104493,
-        "pedidos": 257
+        "faturamento": 26531246,
+        "pedidos": 259
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 528,
-      "fat": 26475083,
+      "qtd": 530,
+      "fat": 26510081,
       "canais": {
-        "Casas Bahia": 243,
+        "Casas Bahia": 245,
         "Amazon": 187,
         "Mercado Livre": 90,
         "Shopee": 7,
@@ -116,13 +116,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 353,
-      "fat": 3490879,
+      "qtd": 354,
+      "fat": 3500478,
       "canais": {
+        "Shopee": 32,
         "Amazon": 49,
         "Casas Bahia": 58,
         "Mercado Livre": 214,
-        "Shopee": 31,
         "Outros": 1
       }
     },
@@ -193,6 +193,19 @@
       }
     },
     {
+      "sku": "TI1078",
+      "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
+      "qtd": 95,
+      "fat": 2524784,
+      "canais": {
+        "Shopee": 38,
+        "Mercado Livre": 16,
+        "Amazon": 3,
+        "Casas Bahia": 33,
+        "Magazine Luiza": 5
+      }
+    },
+    {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
       "qtd": 94,
@@ -212,19 +225,6 @@
         "Mercado Livre": 91,
         "Amazon": 2,
         "Casas Bahia": 1
-      }
-    },
-    {
-      "sku": "TI1078",
-      "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 93,
-      "fat": 2406613,
-      "canais": {
-        "Mercado Livre": 16,
-        "Amazon": 3,
-        "Shopee": 36,
-        "Casas Bahia": 33,
-        "Magazine Luiza": 5
       }
     },
     {
@@ -267,6 +267,19 @@
       }
     },
     {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 67,
+      "fat": 817844,
+      "canais": {
+        "Magazine Luiza": 3,
+        "Mercado Livre": 36,
+        "Amazon": 24,
+        "Shopee": 2,
+        "Casas Bahia": 2
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 67,
@@ -289,19 +302,6 @@
         "Amazon": 9,
         "Casas Bahia": 2,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 66,
-      "fat": 810945,
-      "canais": {
-        "Mercado Livre": 36,
-        "Amazon": 24,
-        "Magazine Luiza": 2,
-        "Shopee": 2,
-        "Casas Bahia": 2
       }
     },
     {
@@ -339,6 +339,16 @@
       }
     },
     {
+      "sku": "TI1456",
+      "desc": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244L - Bivolt",
+      "qtd": 56,
+      "fat": 5347708,
+      "canais": {
+        "Amazon": 10,
+        "Mercado Livre": 46
+      }
+    },
+    {
       "sku": "TI1147",
       "desc": "Forno De Bancada Eletrico  Philco PFE60I 60Litros 2000W 220V - Cinza",
       "qtd": 55,
@@ -346,16 +356,6 @@
       "canais": {
         "Mercado Livre": 54,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1456",
-      "desc": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244L - Bivolt",
-      "qtd": 55,
-      "fat": 4968929,
-      "canais": {
-        "Mercado Livre": 46,
-        "Amazon": 9
       }
     },
     {
@@ -374,10 +374,10 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 47,
-      "fat": 164301,
+      "qtd": 49,
+      "fat": 172119,
       "canais": {
-        "Shopee": 11,
+        "Shopee": 13,
         "Casas Bahia": 12,
         "Mercado Livre": 15,
         "Magazine Luiza": 9
@@ -459,14 +459,14 @@
   ],
   "historico_por_dia": {
     "07/08/2026": {
-      "fat": 960827,
-      "peds": 11,
+      "fat": 2475411,
+      "peds": 24,
       "canais": {
-        "Mercado Livre": 41827,
-        "Casas Bahia": 193607,
-        "Magazine Luiza": 237689,
-        "Shopee": 487704,
-        "Amazon": 0,
+        "Mercado Livre": 129554,
+        "Casas Bahia": 648732,
+        "Magazine Luiza": 426608,
+        "Shopee": 843764,
+        "Amazon": 426753,
         "Amazon Fulfillment": 0
       }
     },
@@ -495,11 +495,11 @@
       }
     },
     "04/08/2026": {
-      "fat": 19249973,
-      "peds": 240,
+      "fat": 19317737,
+      "peds": 241,
       "canais": {
         "Mercado Livre": 1434624,
-        "Casas Bahia": 5648370,
+        "Casas Bahia": 5716134,
         "Magazine Luiza": 1494585,
         "Shopee": 2107850,
         "Amazon": 6197164,
