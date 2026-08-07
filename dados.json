@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-07T08:56:31.104Z",
-  "gerado_em_br": "07/08/2026, 05:56:31",
+  "gerado_em": "2026-08-07T10:02:45.039Z",
+  "gerado_em_br": "07/08/2026, 07:02:45",
   "dia_referencia": "07/08/2026",
   "dia_ontem": "06/08/2026",
   "resumo_dia": {
-    "faturamento": 529497,
-    "pedidos": 6,
-    "ticket_medio": 88249.5,
+    "faturamento": 654451,
+    "pedidos": 7,
+    "ticket_medio": 93493,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 112735,
-        "pedidos": 2,
+        "faturamento": 237689,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,16 +49,16 @@
     }
   },
   "ontem": {
-    "faturamento": 16173506,
-    "pedidos": 200
+    "faturamento": 16163107,
+    "pedidos": 199
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 81632885,
+    "faturamento": 81747440,
     "pedidos": 1091,
     "meta_mensal": 8000000,
-    "pct_meta": 1020.4,
-    "projecao_final": 361517062.14,
+    "pct_meta": 1021.8,
+    "projecao_final": 362024377.14,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 8026953,
@@ -69,12 +69,12 @@
         "pedidos": 201
       },
       "Magazine Luiza": {
-        "faturamento": 5327229,
-        "pedidos": 40
+        "faturamento": 5452183,
+        "pedidos": 41
       },
       "Shopee": {
-        "faturamento": 10021178,
-        "pedidos": 92
+        "faturamento": 10010779,
+        "pedidos": 91
       },
       "Amazon": {
         "faturamento": 26132320,
@@ -242,19 +242,6 @@
       }
     },
     {
-      "sku": "TI1667",
-      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 86,
-      "fat": 760140,
-      "canais": {
-        "Shopee": 30,
-        "Mercado Livre": 48,
-        "Amazon": 5,
-        "Casas Bahia": 2,
-        "Outros": 1
-      }
-    },
-    {
       "sku": "TI1426",
       "desc": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS - 3500w",
       "qtd": 85,
@@ -264,6 +251,19 @@
         "Casas Bahia": 13,
         "Shopee": 1,
         "Magazine Luiza": 2
+      }
+    },
+    {
+      "sku": "TI1667",
+      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
+      "qtd": 85,
+      "fat": 751141,
+      "canais": {
+        "Shopee": 29,
+        "Mercado Livre": 48,
+        "Amazon": 5,
+        "Casas Bahia": 2,
+        "Outros": 1
       }
     },
     {
@@ -459,25 +459,25 @@
   ],
   "historico_por_dia": {
     "07/08/2026": {
-      "fat": 529497,
-      "peds": 6,
+      "fat": 654451,
+      "peds": 7,
       "canais": {
         "Mercado Livre": 19999,
         "Casas Bahia": 193607,
-        "Magazine Luiza": 112735,
+        "Magazine Luiza": 237689,
         "Shopee": 203156,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "06/08/2026": {
-      "fat": 16173506,
-      "peds": 200,
+      "fat": 16163107,
+      "peds": 199,
       "canais": {
         "Mercado Livre": 1613276,
         "Casas Bahia": 5801571,
         "Magazine Luiza": 832614,
-        "Shopee": 1744975,
+        "Shopee": 1734576,
         "Amazon": 6126818,
         "Amazon Fulfillment": 0
       }
