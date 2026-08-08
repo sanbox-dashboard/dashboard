@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-08T08:37:06.865Z",
-  "gerado_em_br": "08/08/2026, 05:37:06",
+  "gerado_em": "2026-08-08T09:34:46.500Z",
+  "gerado_em_br": "08/08/2026, 06:34:46",
   "dia_referencia": "08/08/2026",
   "dia_ontem": "07/08/2026",
   "resumo_dia": {
-    "faturamento": 864033,
-    "pedidos": 8,
-    "ticket_medio": 108004.13,
+    "faturamento": 1225800,
+    "pedidos": 10,
+    "ticket_medio": 122580,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 6399,
-        "pedidos": 1,
+        "faturamento": 362142,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 454179,
-        "pedidos": 3,
+        "faturamento": 460203,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 93450232,
-    "pedidos": 1234,
+    "faturamento": 93811999,
+    "pedidos": 1236,
     "meta_mensal": 8000000,
-    "pct_meta": 1168.1,
-    "projecao_final": 362119649,
+    "pct_meta": 1172.6,
+    "projecao_final": 363521496.13,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 8731728,
@@ -73,12 +73,12 @@
         "pedidos": 49
       },
       "Shopee": {
-        "faturamento": 12635449,
-        "pedidos": 114
+        "faturamento": 12991192,
+        "pedidos": 115
       },
       "Amazon": {
-        "faturamento": 29674655,
-        "pedidos": 291
+        "faturamento": 29680679,
+        "pedidos": 292
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -409,6 +409,18 @@
       }
     },
     {
+      "sku": "TI1563",
+      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
+      "qtd": 44,
+      "fat": 708082,
+      "canais": {
+        "Amazon": 17,
+        "Casas Bahia": 24,
+        "Shopee": 2,
+        "Magazine Luiza": 1
+      }
+    },
+    {
       "sku": "TI1090",
       "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
       "qtd": 44,
@@ -432,18 +444,6 @@
       }
     },
     {
-      "sku": "TI1563",
-      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 43,
-      "fat": 653933,
-      "canais": {
-        "Amazon": 16,
-        "Casas Bahia": 24,
-        "Shopee": 2,
-        "Magazine Luiza": 1
-      }
-    },
-    {
       "sku": "TI1738",
       "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
       "qtd": 42,
@@ -459,14 +459,14 @@
   ],
   "historico_por_dia": {
     "08/08/2026": {
-      "fat": 864033,
-      "peds": 8,
+      "fat": 1225800,
+      "peds": 10,
       "canais": {
         "Mercado Livre": 20278,
         "Casas Bahia": 192792,
         "Magazine Luiza": 190385,
-        "Shopee": 6399,
-        "Amazon": 454179,
+        "Shopee": 362142,
+        "Amazon": 460203,
         "Amazon Fulfillment": 0
       }
     },
