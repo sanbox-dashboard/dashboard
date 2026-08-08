@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-08T07:46:29.623Z",
-  "gerado_em_br": "08/08/2026, 04:46:29",
+  "gerado_em": "2026-08-08T08:37:06.865Z",
+  "gerado_em_br": "08/08/2026, 05:37:06",
   "dia_referencia": "08/08/2026",
   "dia_ontem": "07/08/2026",
   "resumo_dia": {
-    "faturamento": 670332,
-    "pedidos": 6,
-    "ticket_medio": 111722,
+    "faturamento": 864033,
+    "pedidos": 8,
+    "ticket_medio": 108004.13,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 19369,
-        "pedidos": 1,
+        "faturamento": 20278,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 192792,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 93256531,
-    "pedidos": 1232,
+    "faturamento": 93450232,
+    "pedidos": 1234,
     "meta_mensal": 8000000,
-    "pct_meta": 1165.7,
-    "projecao_final": 361369057.63,
+    "pct_meta": 1168.1,
+    "projecao_final": 362119649,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8730819,
-        "pedidos": 510
+        "faturamento": 8731728,
+        "pedidos": 511
       },
       "Casas Bahia": {
-        "faturamento": 30919392,
-        "pedidos": 225
+        "faturamento": 31112184,
+        "pedidos": 226
       },
       "Magazine Luiza": {
         "faturamento": 6274426,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 531,
-      "fat": 28203137,
+      "qtd": 532,
+      "fat": 28220636,
       "canais": {
+        "Casas Bahia": 243,
         "Amazon": 192,
-        "Casas Bahia": 242,
         "Mercado Livre": 89,
         "Shopee": 7,
         "Magazine Luiza": 1
@@ -459,11 +459,11 @@
   ],
   "historico_por_dia": {
     "08/08/2026": {
-      "fat": 670332,
-      "peds": 6,
+      "fat": 864033,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 19369,
-        "Casas Bahia": 0,
+        "Mercado Livre": 20278,
+        "Casas Bahia": 192792,
         "Magazine Luiza": 190385,
         "Shopee": 6399,
         "Amazon": 454179,
