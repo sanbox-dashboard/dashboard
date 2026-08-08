@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-08T04:53:24.716Z",
-  "gerado_em_br": "08/08/2026, 01:53:24",
+  "gerado_em": "2026-08-08T05:41:44.571Z",
+  "gerado_em_br": "08/08/2026, 02:41:44",
   "dia_referencia": "08/08/2026",
   "dia_ontem": "07/08/2026",
   "resumo_dia": {
-    "faturamento": 338172,
-    "pedidos": 2,
-    "ticket_medio": 169086,
+    "faturamento": 363940,
+    "pedidos": 4,
+    "ticket_medio": 90985,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 19369,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 6399,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 92924371,
-    "pedidos": 1228,
+    "faturamento": 92950139,
+    "pedidos": 1230,
     "meta_mensal": 8000000,
-    "pct_meta": 1161.6,
-    "projecao_final": 360081937.63,
+    "pct_meta": 1161.9,
+    "projecao_final": 360181788.63,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8711450,
-        "pedidos": 509
+        "faturamento": 8730819,
+        "pedidos": 510
       },
       "Casas Bahia": {
         "faturamento": 30919392,
@@ -73,8 +73,8 @@
         "pedidos": 48
       },
       "Shopee": {
-        "faturamento": 12629050,
-        "pedidos": 113
+        "faturamento": 12635449,
+        "pedidos": 114
       },
       "Amazon": {
         "faturamento": 29558648,
@@ -142,11 +142,11 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 184,
-      "fat": 1404735,
+      "qtd": 185,
+      "fat": 1412134,
       "canais": {
+        "Shopee": 33,
         "Mercado Livre": 105,
-        "Shopee": 32,
         "Casas Bahia": 22,
         "Amazon": 13,
         "Magazine Luiza": 10,
@@ -459,13 +459,13 @@
   ],
   "historico_por_dia": {
     "08/08/2026": {
-      "fat": 338172,
-      "peds": 2,
+      "fat": 363940,
+      "peds": 4,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 19369,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
-        "Shopee": 0,
+        "Shopee": 6399,
         "Amazon": 338172,
         "Amazon Fulfillment": 0
       }
