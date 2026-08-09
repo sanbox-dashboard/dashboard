@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-09T10:31:09.072Z",
-  "gerado_em_br": "09/08/2026, 07:31:09",
+  "gerado_em": "2026-08-09T11:25:51.486Z",
+  "gerado_em_br": "09/08/2026, 08:25:51",
   "dia_referencia": "09/08/2026",
   "dia_ontem": "08/08/2026",
   "resumo_dia": {
-    "faturamento": 869291,
-    "pedidos": 5,
-    "ticket_medio": 173858.2,
+    "faturamento": 998986,
+    "pedidos": 8,
+    "ticket_medio": 124873.25,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 59419,
-        "pedidos": 1,
+        "faturamento": 74817,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 80628,
-        "pedidos": 1,
+        "faturamento": 194925,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 115076966,
-    "pedidos": 1479,
+    "faturamento": 115206661,
+    "pedidos": 1482,
     "meta_mensal": 8000000,
-    "pct_meta": 1438.5,
-    "projecao_final": 396376216.22,
+    "pct_meta": 1440.1,
+    "projecao_final": 396822943.44,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9956918,
-        "pedidos": 586
+        "faturamento": 9972316,
+        "pedidos": 588
       },
       "Casas Bahia": {
-        "faturamento": 35932367,
-        "pedidos": 259
+        "faturamento": 36046664,
+        "pedidos": 260
       },
       "Magazine Luiza": {
         "faturamento": 7058921,
@@ -116,13 +116,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 376,
-      "fat": 4201726,
+      "qtd": 377,
+      "fat": 4210725,
       "canais": {
+        "Casas Bahia": 61,
         "Amazon": 56,
         "Shopee": 41,
         "Mercado Livre": 218,
-        "Casas Bahia": 60,
         "Outros": 1
       }
     },
@@ -269,11 +269,11 @@
     {
       "sku": "TI1550",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 74,
-      "fat": 868960,
+      "qtd": 76,
+      "fat": 884358,
       "canais": {
+        "Mercado Livre": 43,
         "Amazon": 25,
-        "Mercado Livre": 41,
         "Magazine Luiza": 4,
         "Shopee": 2,
         "Casas Bahia": 2
@@ -459,11 +459,11 @@
   ],
   "historico_por_dia": {
     "09/08/2026": {
-      "fat": 869291,
-      "peds": 5,
+      "fat": 998986,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 59419,
-        "Casas Bahia": 80628,
+        "Mercado Livre": 74817,
+        "Casas Bahia": 194925,
         "Magazine Luiza": 47074,
         "Shopee": 0,
         "Amazon": 682170,
