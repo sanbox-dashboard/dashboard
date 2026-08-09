@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-09T11:25:51.486Z",
-  "gerado_em_br": "09/08/2026, 08:25:51",
+  "gerado_em": "2026-08-09T12:43:06.061Z",
+  "gerado_em_br": "09/08/2026, 09:43:06",
   "dia_referencia": "09/08/2026",
   "dia_ontem": "08/08/2026",
   "resumo_dia": {
-    "faturamento": 998986,
-    "pedidos": 8,
-    "ticket_medio": 124873.25,
+    "faturamento": 1421356,
+    "pedidos": 17,
+    "ticket_medio": 83609.18,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 74817,
-        "pedidos": 3,
+        "faturamento": 125133,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 194925,
-        "pedidos": 2,
+        "faturamento": 397358,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 10631,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 682170,
-        "pedidos": 2,
+        "faturamento": 841160,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 115206661,
-    "pedidos": 1482,
+    "faturamento": 115436239,
+    "pedidos": 1490,
     "meta_mensal": 8000000,
-    "pct_meta": 1440.1,
-    "projecao_final": 396822943.44,
+    "pct_meta": 1443,
+    "projecao_final": 397613712.11,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9972316,
-        "pedidos": 588
+        "faturamento": 10022632,
+        "pedidos": 592
       },
       "Casas Bahia": {
-        "faturamento": 36046664,
-        "pedidos": 260
+        "faturamento": 36056305,
+        "pedidos": 261
       },
       "Magazine Luiza": {
         "faturamento": 7058921,
         "pedidos": 58
       },
       "Shopee": {
-        "faturamento": 17988418,
-        "pedidos": 166
+        "faturamento": 17999049,
+        "pedidos": 167
       },
       "Amazon": {
-        "faturamento": 39118552,
-        "pedidos": 367
+        "faturamento": 39277542,
+        "pedidos": 369
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -93,8 +93,8 @@
       "qtd": 560,
       "fat": 33288105,
       "canais": {
-        "Amazon": 216,
         "Casas Bahia": 247,
+        "Amazon": 216,
         "Mercado Livre": 89,
         "Shopee": 7,
         "Magazine Luiza": 1
@@ -116,12 +116,12 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 377,
-      "fat": 4210725,
+      "qtd": 378,
+      "fat": 4220324,
       "canais": {
+        "Shopee": 42,
         "Casas Bahia": 61,
         "Amazon": 56,
-        "Shopee": 41,
         "Mercado Livre": 218,
         "Outros": 1
       }
@@ -142,11 +142,11 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 188,
-      "fat": 1425869,
+      "qtd": 189,
+      "fat": 1433468,
       "canais": {
+        "Mercado Livre": 109,
         "Casas Bahia": 22,
-        "Mercado Livre": 108,
         "Shopee": 35,
         "Magazine Luiza": 10,
         "Amazon": 11,
@@ -206,12 +206,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 96,
-      "fat": 2624480,
+      "qtd": 98,
+      "fat": 2644228,
       "canais": {
+        "Casas Bahia": 33,
+        "Mercado Livre": 19,
         "Shopee": 38,
-        "Casas Bahia": 32,
-        "Mercado Livre": 18,
         "Amazon": 3,
         "Magazine Luiza": 5
       }
@@ -246,10 +246,10 @@
     {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 85,
-      "fat": 1141842,
+      "qtd": 86,
+      "fat": 1162141,
       "canais": {
-        "Mercado Livre": 82,
+        "Mercado Livre": 83,
         "Amazon": 2,
         "Casas Bahia": 1
       }
@@ -432,6 +432,19 @@
       }
     },
     {
+      "sku": "TI1738",
+      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
+      "qtd": 44,
+      "fat": 862791,
+      "canais": {
+        "Amazon": 22,
+        "Magazine Luiza": 6,
+        "Shopee": 10,
+        "Outros": 1,
+        "Mercado Livre": 5
+      }
+    },
+    {
       "sku": "TI287-1",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
       "qtd": 44,
@@ -442,31 +455,18 @@
         "Casas Bahia": 16,
         "Mercado Livre": 10
       }
-    },
-    {
-      "sku": "TI1738",
-      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
-      "qtd": 43,
-      "fat": 813792,
-      "canais": {
-        "Magazine Luiza": 6,
-        "Amazon": 21,
-        "Shopee": 10,
-        "Outros": 1,
-        "Mercado Livre": 5
-      }
     }
   ],
   "historico_por_dia": {
     "09/08/2026": {
-      "fat": 998986,
-      "peds": 8,
+      "fat": 1421356,
+      "peds": 17,
       "canais": {
-        "Mercado Livre": 74817,
-        "Casas Bahia": 194925,
+        "Mercado Livre": 125133,
+        "Casas Bahia": 397358,
         "Magazine Luiza": 47074,
-        "Shopee": 0,
-        "Amazon": 682170,
+        "Shopee": 10631,
+        "Amazon": 841160,
         "Amazon Fulfillment": 0
       }
     },
@@ -483,11 +483,11 @@
       }
     },
     "07/08/2026": {
-      "fat": 12549109,
-      "peds": 146,
+      "fat": 12356317,
+      "peds": 145,
       "canais": {
         "Mercado Livre": 721704,
-        "Casas Bahia": 4015498,
+        "Casas Bahia": 3822706,
         "Magazine Luiza": 1786909,
         "Shopee": 2751503,
         "Amazon": 3273495,
