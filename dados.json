@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-09T05:01:44.391Z",
-  "gerado_em_br": "09/08/2026, 02:01:44",
+  "gerado_em": "2026-08-09T06:52:08.468Z",
+  "gerado_em_br": "09/08/2026, 03:52:08",
   "dia_referencia": "09/08/2026",
   "dia_ontem": "08/08/2026",
   "resumo_dia": {
-    "faturamento": 127702,
-    "pedidos": 2,
-    "ticket_medio": 63851,
+    "faturamento": 869291,
+    "pedidos": 5,
+    "ticket_medio": 173858.2,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 59419,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 682170,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 114528984,
-    "pedidos": 1477,
+    "faturamento": 115270573,
+    "pedidos": 1480,
     "meta_mensal": 8000000,
-    "pct_meta": 1431.6,
-    "projecao_final": 394488722.67,
+    "pct_meta": 1440.9,
+    "projecao_final": 397043084.78,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9897499,
-        "pedidos": 585
+        "faturamento": 9956918,
+        "pedidos": 586
       },
       "Casas Bahia": {
         "faturamento": 36125974,
@@ -77,8 +77,8 @@
         "pedidos": 166
       },
       "Amazon": {
-        "faturamento": 38436382,
-        "pedidos": 365
+        "faturamento": 39118552,
+        "pedidos": 367
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 559,
-      "fat": 33116444,
+      "qtd": 560,
+      "fat": 33288105,
       "canais": {
-        "Amazon": 215,
+        "Amazon": 216,
         "Casas Bahia": 247,
         "Mercado Livre": 89,
         "Shopee": 7,
@@ -459,14 +459,14 @@
   ],
   "historico_por_dia": {
     "09/08/2026": {
-      "fat": 127702,
-      "peds": 2,
+      "fat": 869291,
+      "peds": 5,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 59419,
         "Casas Bahia": 80628,
         "Magazine Luiza": 47074,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 682170,
         "Amazon Fulfillment": 0
       }
     },
