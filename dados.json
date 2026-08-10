@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-10T14:54:58.180Z",
-  "gerado_em_br": "10/08/2026, 11:54:58",
+  "gerado_em": "2026-08-10T15:57:51.642Z",
+  "gerado_em_br": "10/08/2026, 12:57:51",
   "dia_referencia": "10/08/2026",
   "dia_ontem": "09/08/2026",
   "resumo_dia": {
-    "faturamento": 2571330,
-    "pedidos": 28,
-    "ticket_medio": 91833.21,
+    "faturamento": 2801477,
+    "pedidos": 33,
+    "ticket_medio": 84893.24,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 189389,
-        "pedidos": 11,
+        "faturamento": 214777,
+        "pedidos": 13,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 336906,
-        "pedidos": 4,
+        "faturamento": 406043,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 589678,
-        "pedidos": 4,
+        "faturamento": 725300,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 128369450,
-    "pedidos": 1656,
+    "faturamento": 128599597,
+    "pedidos": 1661,
     "meta_mensal": 8000000,
-    "pct_meta": 1604.6,
-    "projecao_final": 397945295,
+    "pct_meta": 1607.5,
+    "projecao_final": 398658750.7,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 10964580,
-        "pedidos": 654
+        "faturamento": 10989968,
+        "pedidos": 656
       },
       "Casas Bahia": {
         "faturamento": 39501794,
@@ -73,12 +73,12 @@
         "pedidos": 68
       },
       "Shopee": {
-        "faturamento": 20018200,
-        "pedidos": 187
+        "faturamento": 20087337,
+        "pedidos": 188
       },
       "Amazon": {
-        "faturamento": 44716700,
-        "pedidos": 420
+        "faturamento": 44852322,
+        "pedidos": 422
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -103,22 +103,22 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 382,
-      "fat": 4263220,
+      "qtd": 383,
+      "fat": 4273109,
       "canais": {
+        "Amazon": 60,
         "Shopee": 44,
         "Mercado Livre": 220,
-        "Amazon": 59,
         "Casas Bahia": 59
       }
     },
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 378,
-      "fat": 4759336,
+      "qtd": 379,
+      "fat": 4775195,
       "canais": {
-        "Mercado Livre": 149,
+        "Mercado Livre": 150,
         "Amazon": 117,
         "Casas Bahia": 84,
         "Shopee": 26,
@@ -128,10 +128,10 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 211,
-      "fat": 8585901,
+      "qtd": 212,
+      "fat": 8602400,
       "canais": {
-        "Amazon": 49,
+        "Amazon": 50,
         "Casas Bahia": 81,
         "Mercado Livre": 59,
         "Shopee": 17,
@@ -141,13 +141,13 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 193,
-      "fat": 1462302,
+      "qtd": 194,
+      "fat": 1469701,
       "canais": {
+        "Shopee": 36,
         "Mercado Livre": 113,
         "Casas Bahia": 22,
         "Amazon": 11,
-        "Shopee": 35,
         "Magazine Luiza": 10,
         "Amazon Fulfillment": 1,
         "Outros": 1
@@ -230,17 +230,6 @@
       }
     },
     {
-      "sku": "TI1773-1",
-      "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 86,
-      "fat": 1162241,
-      "canais": {
-        "Mercado Livre": 84,
-        "Amazon": 1,
-        "Casas Bahia": 1
-      }
-    },
-    {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
       "qtd": 85,
@@ -252,6 +241,17 @@
         "Shopee": 5,
         "Magazine Luiza": 3,
         "Outros": 1
+      }
+    },
+    {
+      "sku": "TI1773-1",
+      "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
+      "qtd": 85,
+      "fat": 1141942,
+      "canais": {
+        "Mercado Livre": 83,
+        "Amazon": 1,
+        "Casas Bahia": 1
       }
     },
     {
@@ -269,10 +269,10 @@
     {
       "sku": "TI1550",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 77,
-      "fat": 893497,
+      "qtd": 78,
+      "fat": 901196,
       "canais": {
-        "Mercado Livre": 45,
+        "Mercado Livre": 46,
         "Amazon": 25,
         "Magazine Luiza": 4,
         "Shopee": 2,
@@ -457,14 +457,14 @@
   ],
   "historico_por_dia": {
     "10/08/2026": {
-      "fat": 2571330,
-      "peds": 28,
+      "fat": 2801477,
+      "peds": 33,
       "canais": {
-        "Mercado Livre": 189389,
+        "Mercado Livre": 214777,
         "Casas Bahia": 1073671,
         "Magazine Luiza": 381686,
-        "Shopee": 336906,
-        "Amazon": 589678,
+        "Shopee": 406043,
+        "Amazon": 725300,
         "Amazon Fulfillment": 0
       }
     },
