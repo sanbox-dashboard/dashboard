@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-10T09:16:46.351Z",
-  "gerado_em_br": "10/08/2026, 06:16:46",
+  "gerado_em": "2026-08-10T11:06:57.377Z",
+  "gerado_em_br": "10/08/2026, 08:06:57",
   "dia_referencia": "10/08/2026",
   "dia_ontem": "09/08/2026",
   "resumo_dia": {
-    "faturamento": 178908,
-    "pedidos": 2,
-    "ticket_medio": 89454,
+    "faturamento": 443722,
+    "pedidos": 6,
+    "ticket_medio": 73953.67,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 15859,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,20 +23,20 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 178908,
-        "pedidos": 2,
+        "faturamento": 287072,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 87323,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 53468,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,19 +49,19 @@
     }
   },
   "ontem": {
-    "faturamento": 11803776,
+    "faturamento": 11775457,
     "pedidos": 155
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 125293904,
-    "pedidos": 1624,
+    "faturamento": 125530399,
+    "pedidos": 1628,
     "meta_mensal": 8000000,
-    "pct_meta": 1566.2,
-    "projecao_final": 388411102.4,
+    "pct_meta": 1569.1,
+    "projecao_final": 389144236.9,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 10774352,
+        "faturamento": 10761092,
         "pedidos": 642
       },
       "Casas Bahia": {
@@ -69,16 +69,16 @@
         "pedidos": 275
       },
       "Magazine Luiza": {
-        "faturamento": 7943608,
-        "pedidos": 66
+        "faturamento": 8051772,
+        "pedidos": 67
       },
       "Shopee": {
-        "faturamento": 19681294,
-        "pedidos": 183
+        "faturamento": 19768617,
+        "pedidos": 184
       },
       "Amazon": {
-        "faturamento": 44126222,
-        "pedidos": 415
+        "faturamento": 44180490,
+        "pedidos": 417
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -115,12 +115,12 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 375,
-      "fat": 4726158,
+      "qtd": 376,
+      "fat": 4742017,
       "canais": {
+        "Mercado Livre": 148,
         "Casas Bahia": 84,
         "Amazon": 116,
-        "Mercado Livre": 147,
         "Shopee": 26,
         "Magazine Luiza": 2
       }
@@ -218,9 +218,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 88,
-      "fat": 2110498,
+      "qtd": 89,
+      "fat": 2119897,
       "canais": {
+        "Magazine Luiza": 1,
         "Amazon": 4,
         "Shopee": 41,
         "Mercado Livre": 41,
@@ -279,6 +280,18 @@
       }
     },
     {
+      "sku": "TI1525",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
+      "qtd": 67,
+      "fat": 446039,
+      "canais": {
+        "Shopee": 6,
+        "Amazon": 22,
+        "Mercado Livre": 38,
+        "Casas Bahia": 1
+      }
+    },
+    {
       "sku": "TI1147",
       "desc": "Forno De Bancada Eletrico  Philco PFE60I 60Litros 2000W 220V - Cinza",
       "qtd": 67,
@@ -311,18 +324,6 @@
         "Amazon": 7,
         "Casas Bahia": 2,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1525",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 65,
-      "fat": 436440,
-      "canais": {
-        "Amazon": 21,
-        "Mercado Livre": 38,
-        "Shopee": 5,
-        "Casas Bahia": 1
       }
     },
     {
@@ -362,13 +363,13 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 54,
-      "fat": 191414,
+      "qtd": 53,
+      "fat": 186425,
       "canais": {
-        "Mercado Livre": 14,
         "Magazine Luiza": 11,
         "Shopee": 15,
-        "Casas Bahia": 14
+        "Casas Bahia": 14,
+        "Mercado Livre": 13
       }
     },
     {
@@ -433,10 +434,10 @@
     {
       "sku": "TI1738",
       "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
-      "qtd": 44,
-      "fat": 948921,
+      "qtd": 45,
+      "fat": 953920,
       "canais": {
-        "Amazon": 24,
+        "Amazon": 25,
         "Magazine Luiza": 4,
         "Shopee": 10,
         "Outros": 1,
@@ -456,26 +457,26 @@
   ],
   "historico_por_dia": {
     "10/08/2026": {
-      "fat": 178908,
-      "peds": 2,
+      "fat": 443722,
+      "peds": 6,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 15859,
         "Casas Bahia": 0,
-        "Magazine Luiza": 178908,
-        "Shopee": 0,
-        "Amazon": 0,
+        "Magazine Luiza": 287072,
+        "Shopee": 87323,
+        "Amazon": 53468,
         "Amazon Fulfillment": 0
       }
     },
     "09/08/2026": {
-      "fat": 11803776,
+      "fat": 11775457,
       "peds": 155,
       "canais": {
-        "Mercado Livre": 876853,
+        "Mercado Livre": 847734,
         "Casas Bahia": 2499895,
         "Magazine Luiza": 752853,
         "Shopee": 1692876,
-        "Amazon": 5981299,
+        "Amazon": 5982099,
         "Amazon Fulfillment": 0
       }
     },
