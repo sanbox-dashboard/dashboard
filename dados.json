@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-10T11:06:57.377Z",
-  "gerado_em_br": "10/08/2026, 08:06:57",
+  "gerado_em": "2026-08-10T13:01:12.234Z",
+  "gerado_em_br": "10/08/2026, 10:01:12",
   "dia_referencia": "10/08/2026",
   "dia_ontem": "09/08/2026",
   "resumo_dia": {
-    "faturamento": 443722,
-    "pedidos": 6,
-    "ticket_medio": 73953.67,
+    "faturamento": 568955,
+    "pedidos": 9,
+    "ticket_medio": 63217.22,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15859,
-        "pedidos": 1,
+        "faturamento": 25858,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 115234,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 11775457,
-    "pedidos": 155
+    "faturamento": 11785416,
+    "pedidos": 156
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 125530399,
-    "pedidos": 1628,
+    "faturamento": 126024162,
+    "pedidos": 1633,
     "meta_mensal": 8000000,
-    "pct_meta": 1569.1,
-    "projecao_final": 389144236.9,
+    "pct_meta": 1575.3,
+    "projecao_final": 390674902.2,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 10761092,
-        "pedidos": 642
+        "faturamento": 10781050,
+        "pedidos": 644
       },
       "Casas Bahia": {
-        "faturamento": 37746638,
-        "pedidos": 275
+        "faturamento": 38220443,
+        "pedidos": 278
       },
       "Magazine Luiza": {
         "faturamento": 8051772,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 566,
-      "fat": 35215393,
+      "qtd": 567,
+      "fat": 35232892,
       "canais": {
+        "Casas Bahia": 244,
         "Amazon": 226,
-        "Casas Bahia": 243,
         "Mercado Livre": 89,
         "Shopee": 7,
         "Magazine Luiza": 1
@@ -103,11 +103,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 377,
-      "fat": 4215625,
+      "qtd": 378,
+      "fat": 4225624,
       "canais": {
+        "Mercado Livre": 219,
         "Amazon": 59,
-        "Mercado Livre": 218,
         "Shopee": 43,
         "Casas Bahia": 57
       }
@@ -181,13 +181,13 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 104,
-      "fat": 3177821,
+      "qtd": 105,
+      "fat": 3187020,
       "canais": {
+        "Casas Bahia": 34,
         "Amazon": 8,
         "Mercado Livre": 22,
         "Magazine Luiza": 6,
-        "Casas Bahia": 33,
         "Shopee": 35
       }
     },
@@ -457,11 +457,11 @@
   ],
   "historico_por_dia": {
     "10/08/2026": {
-      "fat": 443722,
-      "peds": 6,
+      "fat": 568955,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 15859,
-        "Casas Bahia": 0,
+        "Mercado Livre": 25858,
+        "Casas Bahia": 115234,
         "Magazine Luiza": 287072,
         "Shopee": 87323,
         "Amazon": 53468,
@@ -469,10 +469,10 @@
       }
     },
     "09/08/2026": {
-      "fat": 11775457,
-      "peds": 155,
+      "fat": 11785416,
+      "peds": 156,
       "canais": {
-        "Mercado Livre": 847734,
+        "Mercado Livre": 857693,
         "Casas Bahia": 2499895,
         "Magazine Luiza": 752853,
         "Shopee": 1692876,
@@ -481,11 +481,11 @@
       }
     },
     "08/08/2026": {
-      "fat": 21892689,
-      "peds": 244,
+      "fat": 22251260,
+      "peds": 245,
       "canais": {
         "Mercado Livre": 1153553,
-        "Casas Bahia": 5527515,
+        "Casas Bahia": 5886086,
         "Magazine Luiza": 927806,
         "Shopee": 5359368,
         "Amazon": 8924447,
