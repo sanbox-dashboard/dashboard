@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-08-10T01:28:06.970Z",
-  "gerado_em_br": "09/08/2026, 22:28:06",
+  "gerado_em": "2026-08-10T03:51:25.187Z",
+  "gerado_em_br": "10/08/2026, 00:51:25",
   "dia_referencia": "10/08/2026",
   "dia_ontem": "09/08/2026",
   "resumo_dia": {
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 10890507,
-    "pedidos": 142
+    "faturamento": 11803776,
+    "pedidos": 155
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 124380635,
-    "pedidos": 1611,
+    "faturamento": 125293904,
+    "pedidos": 1624,
     "meta_mensal": 8000000,
-    "pct_meta": 1554.8,
-    "projecao_final": 385579968.5,
+    "pct_meta": 1566.2,
+    "projecao_final": 388411102.4,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 10714376,
-        "pedidos": 638
+        "faturamento": 10774352,
+        "pedidos": 642
       },
       "Casas Bahia": {
-        "faturamento": 37582912,
-        "pedidos": 274
+        "faturamento": 37746638,
+        "pedidos": 275
       },
       "Magazine Luiza": {
         "faturamento": 7943608,
         "pedidos": 66
       },
       "Shopee": {
-        "faturamento": 19665997,
-        "pedidos": 182
+        "faturamento": 19681294,
+        "pedidos": 183
       },
       "Amazon": {
-        "faturamento": 43451952,
-        "pedidos": 408
+        "faturamento": 44126222,
+        "pedidos": 415
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 564,
-      "fat": 34877221,
+      "qtd": 566,
+      "fat": 35215393,
       "canais": {
-        "Amazon": 224,
+        "Amazon": 226,
         "Casas Bahia": 243,
         "Mercado Livre": 89,
         "Shopee": 7,
@@ -103,23 +103,23 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 376,
-      "fat": 4206626,
+      "qtd": 377,
+      "fat": 4215625,
       "canais": {
+        "Amazon": 59,
         "Mercado Livre": 218,
         "Shopee": 43,
-        "Amazon": 58,
         "Casas Bahia": 57
       }
     },
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 373,
-      "fat": 4710499,
+      "qtd": 375,
+      "fat": 4726158,
       "canais": {
-        "Casas Bahia": 83,
-        "Amazon": 115,
+        "Casas Bahia": 84,
+        "Amazon": 116,
         "Mercado Livre": 147,
         "Shopee": 26,
         "Magazine Luiza": 2
@@ -179,6 +179,19 @@
       }
     },
     {
+      "sku": "TI1078",
+      "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
+      "qtd": 104,
+      "fat": 3177821,
+      "canais": {
+        "Amazon": 8,
+        "Mercado Livre": 22,
+        "Magazine Luiza": 6,
+        "Casas Bahia": 33,
+        "Shopee": 35
+      }
+    },
+    {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
       "qtd": 102,
@@ -189,19 +202,6 @@
         "Mercado Livre": 66,
         "Shopee": 10,
         "Casas Bahia": 7
-      }
-    },
-    {
-      "sku": "TI1078",
-      "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 102,
-      "fat": 3082373,
-      "canais": {
-        "Mercado Livre": 21,
-        "Amazon": 7,
-        "Magazine Luiza": 6,
-        "Casas Bahia": 33,
-        "Shopee": 35
       }
     },
     {
@@ -304,10 +304,10 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 65,
-      "fat": 927292,
+      "qtd": 66,
+      "fat": 943491,
       "canais": {
-        "Mercado Livre": 54,
+        "Mercado Livre": 55,
         "Amazon": 7,
         "Casas Bahia": 2,
         "Shopee": 2
@@ -409,10 +409,10 @@
     {
       "sku": "TI1568",
       "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
-      "qtd": 50,
-      "fat": 856182,
+      "qtd": 51,
+      "fat": 870521,
       "canais": {
-        "Shopee": 15,
+        "Shopee": 16,
         "Casas Bahia": 7,
         "Magazine Luiza": 1,
         "Mercado Livre": 23,
@@ -468,14 +468,14 @@
       }
     },
     "09/08/2026": {
-      "fat": 10890507,
-      "peds": 142,
+      "fat": 11803776,
+      "peds": 155,
       "canais": {
-        "Mercado Livre": 816877,
-        "Casas Bahia": 2336169,
+        "Mercado Livre": 876853,
+        "Casas Bahia": 2499895,
         "Magazine Luiza": 752853,
-        "Shopee": 1677579,
-        "Amazon": 5307029,
+        "Shopee": 1692876,
+        "Amazon": 5981299,
         "Amazon Fulfillment": 0
       }
     },
