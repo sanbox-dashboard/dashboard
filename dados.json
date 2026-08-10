@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-10T18:53:23.450Z",
-  "gerado_em_br": "10/08/2026, 15:53:23",
+  "gerado_em": "2026-08-10T19:53:36.453Z",
+  "gerado_em_br": "10/08/2026, 16:53:36",
   "dia_referencia": "10/08/2026",
   "dia_ontem": "09/08/2026",
   "resumo_dia": {
-    "faturamento": 5609828,
-    "pedidos": 67,
-    "ticket_medio": 83728.78,
+    "faturamento": 6586475,
+    "pedidos": 74,
+    "ticket_medio": 89006.42,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 392111,
-        "pedidos": 29,
+        "faturamento": 402660,
+        "pedidos": 30,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 2528957,
-        "pedidos": 12,
+        "faturamento": 2679064,
+        "pedidos": 14,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 611182,
-        "pedidos": 8,
+        "faturamento": 858288,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1573868,
-        "pedidos": 13,
+        "faturamento": 2142753,
+        "pedidos": 14,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 131765066,
-    "pedidos": 1697,
+    "faturamento": 132898431,
+    "pedidos": 1705,
     "meta_mensal": 8000000,
-    "pct_meta": 1647.1,
-    "projecao_final": 408471704.6,
+    "pct_meta": 1661.2,
+    "projecao_final": 411985136.1,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 11167302,
-        "pedidos": 672
+        "faturamento": 11177851,
+        "pedidos": 673
       },
       "Casas Bahia": {
-        "faturamento": 41142537,
-        "pedidos": 292
+        "faturamento": 41449362,
+        "pedidos": 295
       },
       "Magazine Luiza": {
         "faturamento": 8268410,
         "pedidos": 69
       },
       "Shopee": {
-        "faturamento": 20292476,
-        "pedidos": 191
+        "faturamento": 20539582,
+        "pedidos": 194
       },
       "Amazon": {
-        "faturamento": 45872551,
-        "pedidos": 430
+        "faturamento": 46441436,
+        "pedidos": 431
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -141,12 +141,12 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 195,
-      "fat": 1478300,
+      "qtd": 196,
+      "fat": 1486099,
       "canais": {
         "Mercado Livre": 114,
+        "Casas Bahia": 23,
         "Shopee": 36,
-        "Casas Bahia": 22,
         "Amazon": 11,
         "Magazine Luiza": 10,
         "Amazon Fulfillment": 1,
@@ -457,14 +457,14 @@
   ],
   "historico_por_dia": {
     "10/08/2026": {
-      "fat": 5609828,
-      "peds": 67,
+      "fat": 6586475,
+      "peds": 74,
       "canais": {
-        "Mercado Livre": 392111,
-        "Casas Bahia": 2528957,
+        "Mercado Livre": 402660,
+        "Casas Bahia": 2679064,
         "Magazine Luiza": 503710,
-        "Shopee": 611182,
-        "Amazon": 1573868,
+        "Shopee": 858288,
+        "Amazon": 2142753,
         "Amazon Fulfillment": 0
       }
     },
@@ -493,11 +493,11 @@
       }
     },
     "07/08/2026": {
-      "fat": 12464011,
-      "peds": 146,
+      "fat": 12620729,
+      "peds": 147,
       "canais": {
         "Mercado Livre": 721704,
-        "Casas Bahia": 3930400,
+        "Casas Bahia": 4087118,
         "Magazine Luiza": 1786909,
         "Shopee": 2751503,
         "Amazon": 3273495,
