@@ -1,42 +1,42 @@
 {
-  "gerado_em": "2026-08-12T15:56:43.595Z",
-  "gerado_em_br": "12/08/2026, 12:56:43",
+  "gerado_em": "2026-08-12T16:57:25.147Z",
+  "gerado_em_br": "12/08/2026, 13:57:25",
   "dia_referencia": "12/08/2026",
   "dia_ontem": "11/08/2026",
   "resumo_dia": {
-    "faturamento": 4659101,
-    "pedidos": 47,
-    "ticket_medio": 99129.81,
+    "faturamento": 5861633,
+    "pedidos": 55,
+    "ticket_medio": 106575.15,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 194278,
+        "faturamento": 231718,
         "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1410663,
-        "pedidos": 11,
+        "faturamento": 1794105,
+        "pedidos": 13,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 807642,
-        "pedidos": 4,
+        "faturamento": 958108,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 643562,
-        "pedidos": 7,
+        "faturamento": 739944,
+        "pedidos": 8,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1602956,
-        "pedidos": 13,
+        "faturamento": 2137758,
+        "pedidos": 17,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 161245717,
-    "pedidos": 2014,
+    "faturamento": 162629560,
+    "pedidos": 2023,
     "meta_mensal": 8000000,
-    "pct_meta": 2015.6,
-    "projecao_final": 416551435.58,
+    "pct_meta": 2032.9,
+    "projecao_final": 420126363.33,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 13059638,
+        "faturamento": 13097078,
         "pedidos": 793
       },
       "Casas Bahia": {
-        "faturamento": 51088473,
-        "pedidos": 357
+        "faturamento": 51653226,
+        "pedidos": 360
       },
       "Magazine Luiza": {
-        "faturamento": 11223902,
-        "pedidos": 84
+        "faturamento": 11374368,
+        "pedidos": 85
       },
       "Shopee": {
-        "faturamento": 24048587,
-        "pedidos": 227
+        "faturamento": 24144969,
+        "pedidos": 228
       },
       "Amazon": {
-        "faturamento": 56803327,
-        "pedidos": 510
+        "faturamento": 57338129,
+        "pedidos": 514
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -206,20 +206,6 @@
       }
     },
     {
-      "sku": "TI1667",
-      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 101,
-      "fat": 2240585,
-      "canais": {
-        "Mercado Livre": 45,
-        "Amazon": 6,
-        "Magazine Luiza": 2,
-        "Shopee": 46,
-        "Casas Bahia": 1,
-        "Outros": 1
-      }
-    },
-    {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
       "qtd": 101,
@@ -228,6 +214,20 @@
         "Mercado Livre": 42,
         "Casas Bahia": 58,
         "Amazon": 1
+      }
+    },
+    {
+      "sku": "TI1667",
+      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
+      "qtd": 100,
+      "fat": 2228026,
+      "canais": {
+        "Amazon": 6,
+        "Mercado Livre": 44,
+        "Magazine Luiza": 2,
+        "Shopee": 46,
+        "Casas Bahia": 1,
+        "Outros": 1
       }
     },
     {
@@ -281,10 +281,10 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 74,
-      "fat": 1040545,
+      "qtd": 75,
+      "fat": 1055244,
       "canais": {
-        "Amazon": 11,
+        "Amazon": 12,
         "Mercado Livre": 59,
         "Casas Bahia": 2,
         "Shopee": 2
@@ -441,26 +441,29 @@
       }
     },
     {
-      "sku": "TI1799-1",
-      "desc": "Forno Eletrico de Embutir Philco PFE47E  47L  Com Multifuncoes Inox Esmaltado  - 127v",
+      "sku": "TI1738",
+      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
       "qtd": 47,
-      "fat": 675858,
+      "fat": 1170970,
       "canais": {
-        "Mercado Livre": 40,
-        "Casas Bahia": 7
+        "Amazon": 30,
+        "Magazine Luiza": 4,
+        "Shopee": 9,
+        "Outros": 1,
+        "Mercado Livre": 3
       }
     }
   ],
   "historico_por_dia": {
     "12/08/2026": {
-      "fat": 4659101,
-      "peds": 47,
+      "fat": 5861633,
+      "peds": 55,
       "canais": {
-        "Mercado Livre": 194278,
-        "Casas Bahia": 1410663,
-        "Magazine Luiza": 807642,
-        "Shopee": 643562,
-        "Amazon": 1602956,
+        "Mercado Livre": 231718,
+        "Casas Bahia": 1794105,
+        "Magazine Luiza": 958108,
+        "Shopee": 739944,
+        "Amazon": 2137758,
         "Amazon Fulfillment": 0
       }
     },
@@ -477,11 +480,11 @@
       }
     },
     "10/08/2026": {
-      "fat": 12411354,
-      "peds": 159,
+      "fat": 12592665,
+      "peds": 160,
       "canais": {
         "Mercado Livre": 1068756,
-        "Casas Bahia": 4537410,
+        "Casas Bahia": 4718721,
         "Magazine Luiza": 605087,
         "Shopee": 1477580,
         "Amazon": 4722521,
