@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-12T04:05:07.750Z",
-  "gerado_em_br": "12/08/2026, 01:05:07",
+  "gerado_em": "2026-08-12T06:11:19.648Z",
+  "gerado_em_br": "12/08/2026, 03:11:19",
   "dia_referencia": "12/08/2026",
   "dia_ontem": "11/08/2026",
   "resumo_dia": {
-    "faturamento": 574889,
-    "pedidos": 1,
-    "ticket_medio": 574889,
+    "faturamento": 605365,
+    "pedidos": 3,
+    "ticket_medio": 201788.33,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 574889,
-        "pedidos": 1,
+        "faturamento": 605365,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 156647739,
-    "pedidos": 1966,
+    "faturamento": 156678215,
+    "pedidos": 1968,
     "meta_mensal": 8000000,
-    "pct_meta": 1958.1,
-    "projecao_final": 404673325.75,
+    "pct_meta": 1958.5,
+    "projecao_final": 404752055.42,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 12900218,
@@ -77,8 +77,8 @@
         "pedidos": 220
       },
       "Amazon": {
-        "faturamento": 55389510,
-        "pedidos": 496
+        "faturamento": 55419986,
+        "pedidos": 498
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -128,11 +128,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 201,
-      "fat": 8240050,
+      "qtd": 202,
+      "fat": 8256549,
       "canais": {
+        "Amazon": 57,
         "Mercado Livre": 49,
-        "Amazon": 56,
         "Casas Bahia": 74,
         "Shopee": 16,
         "Magazine Luiza": 5,
@@ -453,14 +453,14 @@
   ],
   "historico_por_dia": {
     "12/08/2026": {
-      "fat": 574889,
-      "peds": 1,
+      "fat": 605365,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
         "Shopee": 0,
-        "Amazon": 574889,
+        "Amazon": 605365,
         "Amazon Fulfillment": 0
       }
     },
