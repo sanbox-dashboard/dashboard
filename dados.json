@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-12T22:37:03.106Z",
-  "gerado_em_br": "12/08/2026, 19:37:03",
+  "gerado_em": "2026-08-12T23:37:39.204Z",
+  "gerado_em_br": "12/08/2026, 20:37:39",
   "dia_referencia": "12/08/2026",
   "dia_ontem": "11/08/2026",
   "resumo_dia": {
-    "faturamento": 10800449,
-    "pedidos": 104,
-    "ticket_medio": 103850.47,
+    "faturamento": 11186013,
+    "pedidos": 114,
+    "ticket_medio": 98122.92,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 514004,
-        "pedidos": 24,
+        "faturamento": 620006,
+        "pedidos": 32,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 3516085,
-        "pedidos": 32,
+        "faturamento": 3795647,
+        "pedidos": 34,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 169317033,
-    "pedidos": 2077,
+    "faturamento": 169702597,
+    "pedidos": 2087,
     "meta_mensal": 8000000,
-    "pct_meta": 2116.5,
-    "projecao_final": 437402335.25,
+    "pct_meta": 2121.3,
+    "projecao_final": 438398375.58,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 13455242,
-        "pedidos": 807
+        "faturamento": 13561244,
+        "pedidos": 815
       },
       "Casas Bahia": {
         "faturamento": 54145955,
@@ -77,8 +77,8 @@
         "pedidos": 234
       },
       "Amazon": {
-        "faturamento": 60389235,
-        "pedidos": 532
+        "faturamento": 60668797,
+        "pedidos": 534
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 397,
-      "fat": 5085345,
+      "qtd": 400,
+      "fat": 5115342,
       "canais": {
+        "Mercado Livre": 226,
         "Amazon": 67,
         "Casas Bahia": 59,
-        "Shopee": 48,
-        "Mercado Livre": 223
+        "Shopee": 48
       }
     },
     {
@@ -193,6 +193,20 @@
       }
     },
     {
+      "sku": "TI1667",
+      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
+      "qtd": 103,
+      "fat": 2255883,
+      "canais": {
+        "Mercado Livre": 45,
+        "Amazon": 8,
+        "Magazine Luiza": 2,
+        "Shopee": 46,
+        "Casas Bahia": 1,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
       "qtd": 103,
@@ -203,20 +217,6 @@
         "Mercado Livre": 63,
         "Shopee": 12,
         "Casas Bahia": 6
-      }
-    },
-    {
-      "sku": "TI1667",
-      "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 102,
-      "fat": 2245884,
-      "canais": {
-        "Amazon": 8,
-        "Mercado Livre": 44,
-        "Magazine Luiza": 2,
-        "Shopee": 46,
-        "Casas Bahia": 1,
-        "Outros": 1
       }
     },
     {
@@ -281,11 +281,11 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 75,
-      "fat": 1055244,
+      "qtd": 77,
+      "fat": 1086092,
       "canais": {
-        "Amazon": 12,
-        "Mercado Livre": 59,
+        "Mercado Livre": 60,
+        "Amazon": 13,
         "Casas Bahia": 2,
         "Shopee": 2
       }
@@ -456,14 +456,14 @@
   ],
   "historico_por_dia": {
     "12/08/2026": {
-      "fat": 10800449,
-      "peds": 104,
+      "fat": 11186013,
+      "peds": 114,
       "canais": {
-        "Mercado Livre": 514004,
+        "Mercado Livre": 620006,
         "Casas Bahia": 4286834,
         "Magazine Luiza": 1218360,
         "Shopee": 1265166,
-        "Amazon": 3516085,
+        "Amazon": 3795647,
         "Amazon Fulfillment": 0
       }
     },
