@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-13T08:18:27.273Z",
-  "gerado_em_br": "13/08/2026, 05:18:27",
+  "gerado_em": "2026-08-13T10:01:39.658Z",
+  "gerado_em_br": "13/08/2026, 07:01:39",
   "dia_referencia": "13/08/2026",
   "dia_ontem": "12/08/2026",
   "resumo_dia": {
-    "faturamento": 362219,
-    "pedidos": 5,
-    "ticket_medio": 72443.8,
+    "faturamento": 452981,
+    "pedidos": 7,
+    "ticket_medio": 64711.57,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 18548,
-        "pedidos": 2,
+        "faturamento": 28547,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 103994,
-        "pedidos": 1,
+        "faturamento": 184757,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 173206075,
-    "pedidos": 2137,
+    "faturamento": 173296837,
+    "pedidos": 2139,
     "meta_mensal": 8000000,
-    "pct_meta": 2165.1,
-    "projecao_final": 413029871.15,
+    "pct_meta": 2166.2,
+    "projecao_final": 413246303.62,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 13914370,
-        "pedidos": 839
+        "faturamento": 13924369,
+        "pedidos": 840
       },
       "Casas Bahia": {
-        "faturamento": 55760881,
-        "pedidos": 388
+        "faturamento": 55841644,
+        "pedidos": 389
       },
       "Magazine Luiza": {
         "faturamento": 11801336,
@@ -142,14 +142,14 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 189,
-      "fat": 1626679,
+      "qtd": 190,
+      "fat": 1634478,
       "canais": {
+        "Casas Bahia": 22,
         "Amazon": 14,
         "Mercado Livre": 104,
         "Shopee": 37,
         "Magazine Luiza": 11,
-        "Casas Bahia": 21,
         "Amazon Fulfillment": 1,
         "Outros": 1
       }
@@ -193,6 +193,19 @@
       }
     },
     {
+      "sku": "TI1526",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
+      "qtd": 104,
+      "fat": 1974155,
+      "canais": {
+        "Mercado Livre": 64,
+        "Magazine Luiza": 6,
+        "Amazon": 16,
+        "Shopee": 12,
+        "Casas Bahia": 6
+      }
+    },
+    {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
       "qtd": 103,
@@ -204,19 +217,6 @@
         "Shopee": 46,
         "Casas Bahia": 1,
         "Outros": 1
-      }
-    },
-    {
-      "sku": "TI1526",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 103,
-      "fat": 1964156,
-      "canais": {
-        "Magazine Luiza": 6,
-        "Amazon": 16,
-        "Mercado Livre": 63,
-        "Shopee": 12,
-        "Casas Bahia": 6
       }
     },
     {
@@ -456,11 +456,11 @@
   ],
   "historico_por_dia": {
     "13/08/2026": {
-      "fat": 362219,
-      "peds": 5,
+      "fat": 452981,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 18548,
-        "Casas Bahia": 103994,
+        "Mercado Livre": 28547,
+        "Casas Bahia": 184757,
         "Magazine Luiza": 166716,
         "Shopee": 0,
         "Amazon": 72961,
