@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-14T09:57:31.749Z",
-  "gerado_em_br": "14/08/2026, 06:57:31",
+  "gerado_em": "2026-08-14T10:59:08.316Z",
+  "gerado_em_br": "14/08/2026, 07:59:08",
   "dia_referencia": "14/08/2026",
   "dia_ontem": "13/08/2026",
   "resumo_dia": {
-    "faturamento": 535606,
-    "pedidos": 7,
-    "ticket_medio": 76515.14,
+    "faturamento": 647428,
+    "pedidos": 10,
+    "ticket_medio": 64742.8,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 11258,
-        "pedidos": 2,
+        "faturamento": 30627,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 19666,
-        "pedidos": 1,
+        "faturamento": 105970,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 169652,
-        "pedidos": 1,
+        "faturamento": 175801,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 184769550,
-    "pedidos": 2292,
+    "faturamento": 184881372,
+    "pedidos": 2295,
     "meta_mensal": 8000000,
-    "pct_meta": 2309.6,
-    "projecao_final": 409132575,
+    "pct_meta": 2311,
+    "projecao_final": 409380180.86,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 14888433,
-        "pedidos": 908
+        "faturamento": 14907802,
+        "pedidos": 909
       },
       "Casas Bahia": {
         "faturamento": 59529499,
@@ -73,12 +73,12 @@
         "pedidos": 96
       },
       "Shopee": {
-        "faturamento": 25793014,
-        "pedidos": 249
+        "faturamento": 25879318,
+        "pedidos": 250
       },
       "Amazon": {
-        "faturamento": 66464499,
-        "pedidos": 582
+        "faturamento": 66470648,
+        "pedidos": 583
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -128,11 +128,11 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 195,
-      "fat": 1668824,
+      "qtd": 196,
+      "fat": 1676223,
       "canais": {
+        "Shopee": 40,
         "Mercado Livre": 107,
-        "Shopee": 39,
         "Casas Bahia": 22,
         "Amazon": 14,
         "Magazine Luiza": 11,
@@ -371,6 +371,18 @@
       }
     },
     {
+      "sku": "TI1563",
+      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
+      "qtd": 52,
+      "fat": 1092656,
+      "canais": {
+        "Amazon": 24,
+        "Casas Bahia": 26,
+        "Shopee": 1,
+        "Magazine Luiza": 1
+      }
+    },
+    {
       "sku": "TI1456",
       "desc": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244L - Bivolt",
       "qtd": 52,
@@ -402,18 +414,6 @@
         "Casas Bahia": 5,
         "Mercado Livre": 45,
         "Outros": 1
-      }
-    },
-    {
-      "sku": "TI1563",
-      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 51,
-      "fat": 1035667,
-      "canais": {
-        "Casas Bahia": 26,
-        "Amazon": 23,
-        "Shopee": 1,
-        "Magazine Luiza": 1
       }
     },
     {
@@ -457,14 +457,14 @@
   ],
   "historico_por_dia": {
     "14/08/2026": {
-      "fat": 535606,
-      "peds": 7,
+      "fat": 647428,
+      "peds": 10,
       "canais": {
-        "Mercado Livre": 11258,
+        "Mercado Livre": 30627,
         "Casas Bahia": 69006,
         "Magazine Luiza": 266024,
-        "Shopee": 19666,
-        "Amazon": 169652,
+        "Shopee": 105970,
+        "Amazon": 175801,
         "Amazon Fulfillment": 0
       }
     },
