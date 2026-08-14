@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-14T10:59:08.316Z",
-  "gerado_em_br": "14/08/2026, 07:59:08",
+  "gerado_em": "2026-08-14T11:51:22.767Z",
+  "gerado_em_br": "14/08/2026, 08:51:22",
   "dia_referencia": "14/08/2026",
   "dia_ontem": "13/08/2026",
   "resumo_dia": {
-    "faturamento": 647428,
-    "pedidos": 10,
-    "ticket_medio": 64742.8,
+    "faturamento": 864820,
+    "pedidos": 14,
+    "ticket_medio": 61772.86,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 30627,
-        "pedidos": 3,
+        "faturamento": 54685,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 69006,
-        "pedidos": 1,
+        "faturamento": 262340,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 184881372,
-    "pedidos": 2295,
+    "faturamento": 185098764,
+    "pedidos": 2299,
     "meta_mensal": 8000000,
-    "pct_meta": 2311,
-    "projecao_final": 409380180.86,
+    "pct_meta": 2313.7,
+    "projecao_final": 409861548.86,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 14907802,
-        "pedidos": 909
+        "faturamento": 14931860,
+        "pedidos": 911
       },
       "Casas Bahia": {
-        "faturamento": 59529499,
-        "pedidos": 414
+        "faturamento": 59722833,
+        "pedidos": 416
       },
       "Magazine Luiza": {
         "faturamento": 13072315,
@@ -103,10 +103,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 402,
-      "fat": 5306020,
+      "qtd": 403,
+      "fat": 5314569,
       "canais": {
-        "Casas Bahia": 60,
+        "Casas Bahia": 61,
         "Mercado Livre": 223,
         "Shopee": 50,
         "Amazon": 69
@@ -115,10 +115,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 363,
-      "fat": 4418424,
+      "qtd": 364,
+      "fat": 4434283,
       "canais": {
-        "Mercado Livre": 140,
+        "Mercado Livre": 141,
         "Casas Bahia": 78,
         "Magazine Luiza": 4,
         "Shopee": 25,
@@ -128,12 +128,12 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 196,
-      "fat": 1676223,
+      "qtd": 197,
+      "fat": 1684022,
       "canais": {
+        "Casas Bahia": 23,
         "Shopee": 40,
         "Mercado Livre": 107,
-        "Casas Bahia": 22,
         "Amazon": 14,
         "Magazine Luiza": 11,
         "Amazon Fulfillment": 1,
@@ -315,10 +315,10 @@
     {
       "sku": "TI1090",
       "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 62,
-      "fat": 495118,
+      "qtd": 63,
+      "fat": 503317,
       "canais": {
-        "Mercado Livre": 59,
+        "Mercado Livre": 60,
         "Shopee": 1,
         "Casas Bahia": 2
       }
@@ -457,11 +457,11 @@
   ],
   "historico_por_dia": {
     "14/08/2026": {
-      "fat": 647428,
-      "peds": 10,
+      "fat": 864820,
+      "peds": 14,
       "canais": {
-        "Mercado Livre": 30627,
-        "Casas Bahia": 69006,
+        "Mercado Livre": 54685,
+        "Casas Bahia": 262340,
         "Magazine Luiza": 266024,
         "Shopee": 105970,
         "Amazon": 175801,
