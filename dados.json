@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-14T13:00:00.088Z",
-  "gerado_em_br": "14/08/2026, 10:00:00",
+  "gerado_em": "2026-08-14T14:17:53.528Z",
+  "gerado_em_br": "14/08/2026, 11:17:53",
   "dia_referencia": "14/08/2026",
   "dia_ontem": "13/08/2026",
   "resumo_dia": {
-    "faturamento": 1302622,
-    "pedidos": 21,
-    "ticket_medio": 62029.62,
+    "faturamento": 2411664,
+    "pedidos": 32,
+    "ticket_medio": 75364.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 262340,
-        "pedidos": 3,
+        "faturamento": 779406,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 105970,
-        "pedidos": 2,
+        "faturamento": 495296,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 228318,
-        "pedidos": 3,
+        "faturamento": 430968,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 10287563,
-    "pedidos": 153
+    "faturamento": 10504119,
+    "pedidos": 155
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 186499867,
-    "pedidos": 2311,
+    "faturamento": 187825465,
+    "pedidos": 2324,
     "meta_mensal": 8000000,
-    "pct_meta": 2331.2,
-    "projecao_final": 412963991.21,
+    "pct_meta": 2347.8,
+    "projecao_final": 415899243.93,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15256709,
-        "pedidos": 918
+        "faturamento": 15264908,
+        "pedidos": 919
       },
       "Casas Bahia": {
-        "faturamento": 59820206,
-        "pedidos": 417
+        "faturamento": 60545629,
+        "pedidos": 422
       },
       "Magazine Luiza": {
         "faturamento": 13617897,
         "pedidos": 98
       },
       "Shopee": {
-        "faturamento": 26260100,
-        "pedidos": 251
+        "faturamento": 26649426,
+        "pedidos": 255
       },
       "Amazon": {
-        "faturamento": 66523165,
-        "pedidos": 584
+        "faturamento": 66725815,
+        "pedidos": 587
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 590,
-      "fat": 41478360,
+      "qtd": 595,
+      "fat": 41718008,
       "canais": {
-        "Amazon": 257,
-        "Casas Bahia": 235,
+        "Casas Bahia": 239,
+        "Amazon": 258,
         "Mercado Livre": 90,
         "Shopee": 7,
         "Magazine Luiza": 1
@@ -128,11 +128,11 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 197,
-      "fat": 1684022,
+      "qtd": 199,
+      "fat": 1698820,
       "canais": {
+        "Shopee": 42,
         "Casas Bahia": 23,
-        "Shopee": 40,
         "Mercado Livre": 107,
         "Amazon": 14,
         "Magazine Luiza": 11,
@@ -143,12 +143,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 195,
-      "fat": 8039105,
+      "qtd": 197,
+      "fat": 8072103,
       "canais": {
+        "Amazon": 61,
         "Mercado Livre": 49,
         "Casas Bahia": 67,
-        "Amazon": 59,
         "Shopee": 15,
         "Magazine Luiza": 4,
         "Outros": 1
@@ -169,10 +169,10 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 119,
-      "fat": 3767626,
+      "qtd": 120,
+      "fat": 3768689,
       "canais": {
-        "Shopee": 32,
+        "Shopee": 33,
         "Mercado Livre": 32,
         "Amazon": 13,
         "Casas Bahia": 37,
@@ -315,10 +315,10 @@
     {
       "sku": "TI1090",
       "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 63,
-      "fat": 503317,
+      "qtd": 64,
+      "fat": 511516,
       "canais": {
-        "Mercado Livre": 60,
+        "Mercado Livre": 61,
         "Shopee": 1,
         "Casas Bahia": 2
       }
@@ -457,23 +457,23 @@
   ],
   "historico_por_dia": {
     "14/08/2026": {
-      "fat": 1302622,
-      "peds": 21,
+      "fat": 2411664,
+      "peds": 32,
       "canais": {
         "Mercado Livre": 359186,
-        "Casas Bahia": 262340,
+        "Casas Bahia": 779406,
         "Magazine Luiza": 346808,
-        "Shopee": 105970,
-        "Amazon": 228318,
+        "Shopee": 495296,
+        "Amazon": 430968,
         "Amazon Fulfillment": 0
       }
     },
     "13/08/2026": {
-      "fat": 10287563,
-      "peds": 153,
+      "fat": 10504119,
+      "peds": 155,
       "canais": {
-        "Mercado Livre": 1011410,
-        "Casas Bahia": 3624911,
+        "Mercado Livre": 1019609,
+        "Casas Bahia": 3833268,
         "Magazine Luiza": 1171671,
         "Shopee": 1355486,
         "Amazon": 3124085,
