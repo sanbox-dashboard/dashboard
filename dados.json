@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-14T11:51:22.767Z",
-  "gerado_em_br": "14/08/2026, 08:51:22",
+  "gerado_em": "2026-08-14T13:00:00.088Z",
+  "gerado_em_br": "14/08/2026, 10:00:00",
   "dia_referencia": "14/08/2026",
   "dia_ontem": "13/08/2026",
   "resumo_dia": {
-    "faturamento": 864820,
-    "pedidos": 14,
-    "ticket_medio": 61772.86,
+    "faturamento": 1302622,
+    "pedidos": 21,
+    "ticket_medio": 62029.62,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 54685,
-        "pedidos": 5,
+        "faturamento": 359186,
+        "pedidos": 10,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 266024,
-        "pedidos": 2,
+        "faturamento": 346808,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 175801,
-        "pedidos": 2,
+        "faturamento": 228318,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 9886433,
-    "pedidos": 150
+    "faturamento": 10287563,
+    "pedidos": 153
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 185098764,
-    "pedidos": 2299,
+    "faturamento": 186499867,
+    "pedidos": 2311,
     "meta_mensal": 8000000,
-    "pct_meta": 2313.7,
-    "projecao_final": 409861548.86,
+    "pct_meta": 2331.2,
+    "projecao_final": 412963991.21,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 14931860,
-        "pedidos": 911
+        "faturamento": 15256709,
+        "pedidos": 918
       },
       "Casas Bahia": {
-        "faturamento": 59722833,
-        "pedidos": 416
+        "faturamento": 59820206,
+        "pedidos": 417
       },
       "Magazine Luiza": {
-        "faturamento": 13072315,
-        "pedidos": 96
+        "faturamento": 13617897,
+        "pedidos": 98
       },
       "Shopee": {
-        "faturamento": 25879318,
-        "pedidos": 250
+        "faturamento": 26260100,
+        "pedidos": 251
       },
       "Amazon": {
-        "faturamento": 66470648,
-        "pedidos": 583
+        "faturamento": 66523165,
+        "pedidos": 584
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -143,10 +143,10 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 194,
-      "fat": 8020606,
+      "qtd": 195,
+      "fat": 8039105,
       "canais": {
-        "Mercado Livre": 48,
+        "Mercado Livre": 49,
         "Casas Bahia": 67,
         "Amazon": 59,
         "Shopee": 15,
@@ -182,10 +182,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 109,
-      "fat": 2314097,
+      "qtd": 110,
+      "fat": 2324096,
       "canais": {
-        "Mercado Livre": 47,
+        "Mercado Livre": 48,
         "Amazon": 12,
         "Magazine Luiza": 2,
         "Shopee": 46,
@@ -207,10 +207,10 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 104,
-      "fat": 1383961,
+      "qtd": 105,
+      "fat": 1391660,
       "canais": {
-        "Casas Bahia": 13,
+        "Casas Bahia": 14,
         "Mercado Livre": 30,
         "Amazon": 20,
         "Magazine Luiza": 11,
@@ -393,6 +393,19 @@
       }
     },
     {
+      "sku": "TI1738",
+      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
+      "qtd": 51,
+      "fat": 1363268,
+      "canais": {
+        "Amazon": 34,
+        "Magazine Luiza": 5,
+        "Shopee": 8,
+        "Outros": 1,
+        "Mercado Livre": 3
+      }
+    },
+    {
       "sku": "TI1694",
       "desc": "Fogao a Gas Itatiaia Star New 6 Bocas Mesa Inox Forno 82 Litros-Preto",
       "qtd": 51,
@@ -417,25 +430,12 @@
       }
     },
     {
-      "sku": "TI1738",
-      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
-      "qtd": 50,
-      "fat": 1316969,
-      "canais": {
-        "Amazon": 33,
-        "Magazine Luiza": 5,
-        "Shopee": 8,
-        "Outros": 1,
-        "Mercado Livre": 3
-      }
-    },
-    {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 49,
-      "fat": 1614537,
+      "qtd": 50,
+      "fat": 1634136,
       "canais": {
-        "Mercado Livre": 30,
+        "Mercado Livre": 31,
         "Amazon": 15,
         "Magazine Luiza": 3,
         "Casas Bahia": 1
@@ -457,36 +457,36 @@
   ],
   "historico_por_dia": {
     "14/08/2026": {
-      "fat": 864820,
-      "peds": 14,
+      "fat": 1302622,
+      "peds": 21,
       "canais": {
-        "Mercado Livre": 54685,
+        "Mercado Livre": 359186,
         "Casas Bahia": 262340,
-        "Magazine Luiza": 266024,
+        "Magazine Luiza": 346808,
         "Shopee": 105970,
-        "Amazon": 175801,
+        "Amazon": 228318,
         "Amazon Fulfillment": 0
       }
     },
     "13/08/2026": {
-      "fat": 9886433,
-      "peds": 150,
+      "fat": 10287563,
+      "peds": 153,
       "canais": {
-        "Mercado Livre": 991062,
+        "Mercado Livre": 1011410,
         "Casas Bahia": 3624911,
         "Magazine Luiza": 1171671,
-        "Shopee": 974704,
+        "Shopee": 1355486,
         "Amazon": 3124085,
         "Amazon Fulfillment": 0
       }
     },
     "12/08/2026": {
-      "fat": 15492997,
-      "peds": 160,
+      "fat": 16055168,
+      "peds": 162,
       "canais": {
         "Mercado Livre": 944875,
-        "Casas Bahia": 5797766,
-        "Magazine Luiza": 1218360,
+        "Casas Bahia": 5895139,
+        "Magazine Luiza": 1683158,
         "Shopee": 1393619,
         "Amazon": 6138377,
         "Amazon Fulfillment": 0
