@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-14T15:48:30.209Z",
-  "gerado_em_br": "14/08/2026, 12:48:30",
+  "gerado_em": "2026-08-14T16:48:35.966Z",
+  "gerado_em_br": "14/08/2026, 13:48:35",
   "dia_referencia": "14/08/2026",
   "dia_ontem": "13/08/2026",
   "resumo_dia": {
-    "faturamento": 2930629,
-    "pedidos": 37,
-    "ticket_medio": 79206.19,
+    "faturamento": 3393571,
+    "pedidos": 40,
+    "ticket_medio": 84839.28,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1184021,
-        "pedidos": 9,
+        "faturamento": 1339585,
+        "pedidos": 10,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 495296,
-        "pedidos": 6,
+        "faturamento": 598408,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 543419,
-        "pedidos": 8,
+        "faturamento": 747685,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 10700839,
-    "pedidos": 157
+    "faturamento": 10717338,
+    "pedidos": 158
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 188541150,
-    "pedidos": 2331,
+    "faturamento": 189020591,
+    "pedidos": 2335,
     "meta_mensal": 8000000,
-    "pct_meta": 2356.8,
-    "projecao_final": 417483975,
+    "pct_meta": 2362.8,
+    "projecao_final": 418545594.36,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 15298206,
         "pedidos": 921
       },
       "Casas Bahia": {
-        "faturamento": 60950244,
-        "pedidos": 424
+        "faturamento": 61105808,
+        "pedidos": 425
       },
       "Magazine Luiza": {
         "faturamento": 13617897,
         "pedidos": 98
       },
       "Shopee": {
-        "faturamento": 26649426,
-        "pedidos": 255
+        "faturamento": 26752538,
+        "pedidos": 256
       },
       "Amazon": {
-        "faturamento": 67003587,
-        "pedidos": 590
+        "faturamento": 67224352,
+        "pedidos": 592
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -143,10 +143,10 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 197,
-      "fat": 8072103,
+      "qtd": 198,
+      "fat": 8088602,
       "canais": {
-        "Amazon": 61,
+        "Amazon": 62,
         "Mercado Livre": 49,
         "Casas Bahia": 67,
         "Shopee": 15,
@@ -182,13 +182,13 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 110,
-      "fat": 2324096,
+      "qtd": 111,
+      "fat": 2333595,
       "canais": {
+        "Shopee": 47,
         "Mercado Livre": 48,
         "Amazon": 12,
         "Magazine Luiza": 2,
-        "Shopee": 46,
         "Casas Bahia": 1,
         "Outros": 1
       }
@@ -371,6 +371,18 @@
       }
     },
     {
+      "sku": "TI1607",
+      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
+      "qtd": 52,
+      "fat": 1018508,
+      "canais": {
+        "Amazon": 1,
+        "Casas Bahia": 5,
+        "Mercado Livre": 45,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1738",
       "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
       "qtd": 52,
@@ -419,17 +431,6 @@
       }
     },
     {
-      "sku": "TI1607",
-      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
-      "qtd": 51,
-      "fat": 1000909,
-      "canais": {
-        "Casas Bahia": 5,
-        "Mercado Livre": 45,
-        "Outros": 1
-      }
-    },
-    {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
       "qtd": 50,
@@ -444,12 +445,12 @@
     {
       "sku": "TI1568",
       "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
-      "qtd": 48,
-      "fat": 971423,
+      "qtd": 49,
+      "fat": 984122,
       "canais": {
+        "Casas Bahia": 8,
         "Mercado Livre": 19,
         "Magazine Luiza": 4,
-        "Casas Bahia": 7,
         "Amazon": 5,
         "Shopee": 13
       }
@@ -457,26 +458,26 @@
   ],
   "historico_por_dia": {
     "14/08/2026": {
-      "fat": 2930629,
-      "peds": 37,
+      "fat": 3393571,
+      "peds": 40,
       "canais": {
         "Mercado Livre": 361085,
-        "Casas Bahia": 1184021,
+        "Casas Bahia": 1339585,
         "Magazine Luiza": 346808,
-        "Shopee": 495296,
-        "Amazon": 543419,
+        "Shopee": 598408,
+        "Amazon": 747685,
         "Amazon Fulfillment": 0
       }
     },
     "13/08/2026": {
-      "fat": 10700839,
-      "peds": 157,
+      "fat": 10717338,
+      "peds": 158,
       "canais": {
         "Mercado Livre": 1051008,
         "Casas Bahia": 3833268,
         "Magazine Luiza": 1171671,
         "Shopee": 1355486,
-        "Amazon": 3289406,
+        "Amazon": 3305905,
         "Amazon Fulfillment": 0
       }
     },
