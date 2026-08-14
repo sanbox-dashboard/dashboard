@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-14T19:45:20.940Z",
-  "gerado_em_br": "14/08/2026, 16:45:20",
+  "gerado_em": "2026-08-14T20:27:32.131Z",
+  "gerado_em_br": "14/08/2026, 17:27:32",
   "dia_referencia": "14/08/2026",
   "dia_ontem": "13/08/2026",
   "resumo_dia": {
-    "faturamento": 5770676,
-    "pedidos": 70,
-    "ticket_medio": 82438.23,
+    "faturamento": 6533151,
+    "pedidos": 78,
+    "ticket_medio": 83758.35,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 493844,
-        "pedidos": 22,
+        "faturamento": 699165,
+        "pedidos": 26,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 2507283,
-        "pedidos": 20,
+        "faturamento": 2735133,
+        "pedidos": 22,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 744233,
-        "pedidos": 5,
+        "faturamento": 1073537,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 191407695,
-    "pedidos": 2366,
+    "faturamento": 192170170,
+    "pedidos": 2374,
     "meta_mensal": 8000000,
-    "pct_meta": 2392.6,
-    "projecao_final": 423831324.64,
+    "pct_meta": 2402.1,
+    "projecao_final": 425519662.14,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15440964,
-        "pedidos": 933
+        "faturamento": 15646285,
+        "pedidos": 937
       },
       "Casas Bahia": {
-        "faturamento": 62273506,
-        "pedidos": 435
+        "faturamento": 62501356,
+        "pedidos": 437
       },
       "Magazine Luiza": {
-        "faturamento": 14015322,
-        "pedidos": 100
+        "faturamento": 14344626,
+        "pedidos": 102
       },
       "Shopee": {
         "faturamento": 26938186,
@@ -115,11 +115,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 367,
-      "fat": 4479780,
+      "qtd": 369,
+      "fat": 4509838,
       "canais": {
-        "Casas Bahia": 80,
-        "Mercado Livre": 142,
+        "Casas Bahia": 81,
+        "Mercado Livre": 143,
         "Magazine Luiza": 4,
         "Shopee": 25,
         "Amazon": 116
@@ -128,10 +128,10 @@
     {
       "sku": "SS001",
       "desc": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 201,
-      "fat": 1715218,
+      "qtd": 202,
+      "fat": 1723817,
       "canais": {
-        "Mercado Livre": 108,
+        "Mercado Livre": 109,
         "Casas Bahia": 24,
         "Shopee": 42,
         "Amazon": 14,
@@ -143,14 +143,14 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 199,
-      "fat": 8105101,
+      "qtd": 200,
+      "fat": 8122400,
       "canais": {
+        "Magazine Luiza": 5,
         "Amazon": 63,
         "Mercado Livre": 49,
         "Casas Bahia": 67,
         "Shopee": 15,
-        "Magazine Luiza": 4,
         "Outros": 1
       }
     },
@@ -169,12 +169,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 123,
-      "fat": 3788950,
+      "qtd": 124,
+      "fat": 3799749,
       "canais": {
+        "Mercado Livre": 33,
         "Casas Bahia": 39,
         "Shopee": 34,
-        "Mercado Livre": 32,
         "Amazon": 13,
         "Magazine Luiza": 5
       }
@@ -458,12 +458,12 @@
   ],
   "historico_por_dia": {
     "14/08/2026": {
-      "fat": 5770676,
-      "peds": 70,
+      "fat": 6533151,
+      "peds": 78,
       "canais": {
-        "Mercado Livre": 493844,
-        "Casas Bahia": 2507283,
-        "Magazine Luiza": 744233,
+        "Mercado Livre": 699165,
+        "Casas Bahia": 2735133,
+        "Magazine Luiza": 1073537,
         "Shopee": 784056,
         "Amazon": 1241260,
         "Amazon Fulfillment": 0
