@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-15T13:27:27.056Z",
-  "gerado_em_br": "15/08/2026, 10:27:27",
+  "gerado_em": "2026-08-15T14:18:55.281Z",
+  "gerado_em_br": "15/08/2026, 11:18:55",
   "dia_referencia": "15/08/2026",
   "dia_ontem": "14/08/2026",
   "resumo_dia": {
-    "faturamento": 1115401,
-    "pedidos": 16,
-    "ticket_medio": 69712.56,
+    "faturamento": 1721942,
+    "pedidos": 26,
+    "ticket_medio": 66228.54,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 122953,
-        "pedidos": 7,
+        "faturamento": 231349,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 434300,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 438153,
-        "pedidos": 4,
+        "faturamento": 501998,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 197516197,
-    "pedidos": 2456,
+    "faturamento": 198122738,
+    "pedidos": 2466,
     "meta_mensal": 8000000,
-    "pct_meta": 2469,
-    "projecao_final": 408200140.47,
+    "pct_meta": 2476.5,
+    "projecao_final": 409453658.53,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 16236877,
-        "pedidos": 975
+        "faturamento": 16345273,
+        "pedidos": 980
       },
       "Casas Bahia": {
         "faturamento": 64358808,
@@ -73,12 +73,12 @@
         "pedidos": 107
       },
       "Shopee": {
-        "faturamento": 27116759,
-        "pedidos": 260
+        "faturamento": 27551059,
+        "pedidos": 263
       },
       "Amazon": {
-        "faturamento": 69936219,
-        "pedidos": 619
+        "faturamento": 70000064,
+        "pedidos": 621
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 401,
-      "fat": 5464271,
+      "qtd": 402,
+      "fat": 5474270,
       "canais": {
+        "Shopee": 50,
         "Amazon": 69,
         "Mercado Livre": 224,
-        "Casas Bahia": 59,
-        "Shopee": 49
+        "Casas Bahia": 59
       }
     },
     {
@@ -157,13 +157,13 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 129,
-      "fat": 3936384,
+      "qtd": 130,
+      "fat": 3937447,
       "canais": {
+        "Shopee": 33,
         "Mercado Livre": 37,
         "Magazine Luiza": 6,
         "Casas Bahia": 41,
-        "Shopee": 32,
         "Amazon": 13
       }
     },
@@ -233,11 +233,11 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 82,
-      "fat": 1163537,
+      "qtd": 83,
+      "fat": 1179686,
       "canais": {
+        "Mercado Livre": 63,
         "Amazon": 15,
-        "Mercado Livre": 62,
         "Magazine Luiza": 1,
         "Casas Bahia": 2,
         "Shopee": 2
@@ -382,6 +382,19 @@
       }
     },
     {
+      "sku": "TI1738",
+      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
+      "qtd": 51,
+      "fat": 1406861,
+      "canais": {
+        "Amazon": 36,
+        "Magazine Luiza": 4,
+        "Shopee": 7,
+        "Outros": 1,
+        "Mercado Livre": 3
+      }
+    },
+    {
       "sku": "TI1563",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
       "qtd": 51,
@@ -418,19 +431,6 @@
       }
     },
     {
-      "sku": "TI1738",
-      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
-      "qtd": 50,
-      "fat": 1360562,
-      "canais": {
-        "Amazon": 35,
-        "Magazine Luiza": 4,
-        "Shopee": 7,
-        "Outros": 1,
-        "Mercado Livre": 3
-      }
-    },
-    {
       "sku": "TI1456",
       "desc": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244L - Bivolt",
       "qtd": 50,
@@ -456,14 +456,14 @@
   ],
   "historico_por_dia": {
     "15/08/2026": {
-      "fat": 1115401,
-      "peds": 16,
+      "fat": 1721942,
+      "peds": 26,
       "canais": {
-        "Mercado Livre": 122953,
+        "Mercado Livre": 231349,
         "Casas Bahia": 193607,
         "Magazine Luiza": 298156,
-        "Shopee": 0,
-        "Amazon": 438153,
+        "Shopee": 434300,
+        "Amazon": 501998,
         "Amazon Fulfillment": 0
       }
     },
