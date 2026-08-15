@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-15T16:20:15.081Z",
-  "gerado_em_br": "15/08/2026, 13:20:15",
+  "gerado_em": "2026-08-15T17:17:35.223Z",
+  "gerado_em_br": "15/08/2026, 14:17:35",
   "dia_referencia": "15/08/2026",
   "dia_ontem": "14/08/2026",
   "resumo_dia": {
-    "faturamento": 2737631,
-    "pedidos": 39,
-    "ticket_medio": 70195.67,
+    "faturamento": 3267898,
+    "pedidos": 46,
+    "ticket_medio": 71041.26,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 294563,
-        "pedidos": 18,
+        "faturamento": 331811,
+        "pedidos": 20,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 738965,
-        "pedidos": 5,
+        "faturamento": 991112,
+        "pedidos": 8,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 298156,
-        "pedidos": 3,
+        "faturamento": 364129,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 909115,
-        "pedidos": 9,
+        "faturamento": 1084014,
+        "pedidos": 10,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 10763777,
-    "pedidos": 144
+    "faturamento": 10747628,
+    "pedidos": 143
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 199138427,
-    "pedidos": 2479,
+    "faturamento": 199652545,
+    "pedidos": 2485,
     "meta_mensal": 8000000,
-    "pct_meta": 2489.2,
-    "projecao_final": 411552749.13,
+    "pct_meta": 2495.7,
+    "projecao_final": 412615259.67,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 16408487,
-        "pedidos": 986
+        "faturamento": 16429586,
+        "pedidos": 987
       },
       "Casas Bahia": {
-        "faturamento": 64904166,
-        "pedidos": 455
+        "faturamento": 65156313,
+        "pedidos": 458
       },
       "Magazine Luiza": {
-        "faturamento": 14783212,
-        "pedidos": 107
+        "faturamento": 14849185,
+        "pedidos": 108
       },
       "Shopee": {
         "faturamento": 27551059,
         "pedidos": 263
       },
       "Amazon": {
-        "faturamento": 70407181,
-        "pedidos": 624
+        "faturamento": 70582080,
+        "pedidos": 625
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 587,
-      "fat": 43130139,
+      "qtd": 588,
+      "fat": 43305038,
       "canais": {
-        "Amazon": 257,
+        "Amazon": 258,
         "Casas Bahia": 237,
         "Mercado Livre": 85,
         "Shopee": 7,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 404,
-      "fat": 5494268,
+      "qtd": 406,
+      "fat": 5512266,
       "canais": {
+        "Casas Bahia": 61,
         "Mercado Livre": 226,
         "Shopee": 50,
-        "Amazon": 69,
-        "Casas Bahia": 59
+        "Amazon": 69
       }
     },
     {
@@ -233,14 +233,28 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 83,
-      "fat": 1179686,
+      "qtd": 82,
+      "fat": 1163537,
       "canais": {
-        "Mercado Livre": 63,
+        "Mercado Livre": 62,
         "Amazon": 15,
         "Magazine Luiza": 1,
         "Casas Bahia": 2,
         "Shopee": 2
+      }
+    },
+    {
+      "sku": "TI1514",
+      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
+      "qtd": 81,
+      "fat": 3050320,
+      "canais": {
+        "Mercado Livre": 52,
+        "Amazon": 17,
+        "Casas Bahia": 4,
+        "Shopee": 6,
+        "Magazine Luiza": 1,
+        "Outros": 1
       }
     },
     {
@@ -254,20 +268,6 @@
         "Mercado Livre": 47,
         "Magazine Luiza": 3,
         "Casas Bahia": 1
-      }
-    },
-    {
-      "sku": "TI1514",
-      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 80,
-      "fat": 3030661,
-      "canais": {
-        "Amazon": 17,
-        "Casas Bahia": 4,
-        "Shopee": 6,
-        "Mercado Livre": 51,
-        "Magazine Luiza": 1,
-        "Outros": 1
       }
     },
     {
@@ -456,22 +456,22 @@
   ],
   "historico_por_dia": {
     "15/08/2026": {
-      "fat": 2737631,
-      "peds": 39,
+      "fat": 3267898,
+      "peds": 46,
       "canais": {
-        "Mercado Livre": 294563,
-        "Casas Bahia": 738965,
-        "Magazine Luiza": 298156,
+        "Mercado Livre": 331811,
+        "Casas Bahia": 991112,
+        "Magazine Luiza": 364129,
         "Shopee": 434300,
-        "Amazon": 909115,
+        "Amazon": 1084014,
         "Amazon Fulfillment": 0
       }
     },
     "14/08/2026": {
-      "fat": 10763777,
-      "peds": 144,
+      "fat": 10747628,
+      "peds": 143,
       "canais": {
-        "Mercado Livre": 1166804,
+        "Mercado Livre": 1150655,
         "Casas Bahia": 4398978,
         "Magazine Luiza": 1213967,
         "Shopee": 962629,
