@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-15T11:17:19.606Z",
-  "gerado_em_br": "15/08/2026, 08:17:19",
+  "gerado_em": "2026-08-15T12:31:56.543Z",
+  "gerado_em_br": "15/08/2026, 09:31:56",
   "dia_referencia": "15/08/2026",
   "dia_ontem": "14/08/2026",
   "resumo_dia": {
-    "faturamento": 871288,
-    "pedidos": 10,
-    "ticket_medio": 87128.8,
+    "faturamento": 982284,
+    "pedidos": 13,
+    "ticket_medio": 75560.31,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 63497,
-        "pedidos": 3,
+        "faturamento": 92795,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 253496,
-        "pedidos": 2,
+        "faturamento": 335194,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 197065437,
-    "pedidos": 2437,
+    "faturamento": 197176433,
+    "pedidos": 2440,
     "meta_mensal": 8000000,
-    "pct_meta": 2463.3,
-    "projecao_final": 407268569.8,
+    "pct_meta": 2464.7,
+    "projecao_final": 407497961.53,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15970774,
-        "pedidos": 958
+        "faturamento": 16000072,
+        "pedidos": 960
       },
       "Casas Bahia": {
         "faturamento": 64358808,
@@ -77,8 +77,8 @@
         "pedidos": 260
       },
       "Amazon": {
-        "faturamento": 69751562,
-        "pedidos": 617
+        "faturamento": 69833260,
+        "pedidos": 618
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -143,11 +143,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 192,
-      "fat": 8036256,
+      "qtd": 193,
+      "fat": 8054755,
       "canais": {
+        "Mercado Livre": 50,
         "Casas Bahia": 64,
-        "Mercado Livre": 49,
         "Amazon": 61,
         "Magazine Luiza": 3,
         "Shopee": 14,
@@ -157,12 +157,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 127,
-      "fat": 3914786,
+      "qtd": 128,
+      "fat": 3925585,
       "canais": {
+        "Mercado Livre": 36,
         "Magazine Luiza": 6,
         "Casas Bahia": 41,
-        "Mercado Livre": 35,
         "Shopee": 32,
         "Amazon": 13
       }
@@ -194,6 +194,19 @@
       }
     },
     {
+      "sku": "TI1526",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
+      "qtd": 105,
+      "fat": 2132372,
+      "canais": {
+        "Amazon": 18,
+        "Mercado Livre": 65,
+        "Magazine Luiza": 7,
+        "Shopee": 11,
+        "Casas Bahia": 4
+      }
+    },
+    {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
       "qtd": 105,
@@ -204,19 +217,6 @@
         "Mercado Livre": 30,
         "Magazine Luiza": 10,
         "Shopee": 30
-      }
-    },
-    {
-      "sku": "TI1526",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 104,
-      "fat": 2050674,
-      "canais": {
-        "Mercado Livre": 65,
-        "Magazine Luiza": 7,
-        "Amazon": 17,
-        "Shopee": 11,
-        "Casas Bahia": 4
       }
     },
     {
@@ -456,14 +456,14 @@
   ],
   "historico_por_dia": {
     "15/08/2026": {
-      "fat": 871288,
-      "peds": 10,
+      "fat": 982284,
+      "peds": 13,
       "canais": {
-        "Mercado Livre": 63497,
+        "Mercado Livre": 92795,
         "Casas Bahia": 193607,
         "Magazine Luiza": 298156,
         "Shopee": 0,
-        "Amazon": 253496,
+        "Amazon": 335194,
         "Amazon Fulfillment": 0
       }
     },
