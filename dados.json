@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-15T12:31:56.543Z",
-  "gerado_em_br": "15/08/2026, 09:31:56",
+  "gerado_em": "2026-08-15T13:27:27.056Z",
+  "gerado_em_br": "15/08/2026, 10:27:27",
   "dia_referencia": "15/08/2026",
   "dia_ontem": "14/08/2026",
   "resumo_dia": {
-    "faturamento": 982284,
-    "pedidos": 13,
-    "ticket_medio": 75560.31,
+    "faturamento": 1115401,
+    "pedidos": 16,
+    "ticket_medio": 69712.56,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 92795,
-        "pedidos": 5,
+        "faturamento": 122953,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 335194,
-        "pedidos": 3,
+        "faturamento": 438153,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 10557130,
-    "pedidos": 131
+    "faturamento": 10763777,
+    "pedidos": 144
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 197176433,
-    "pedidos": 2440,
+    "faturamento": 197516197,
+    "pedidos": 2456,
     "meta_mensal": 8000000,
-    "pct_meta": 2464.7,
-    "projecao_final": 407497961.53,
+    "pct_meta": 2469,
+    "projecao_final": 408200140.47,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 16000072,
-        "pedidos": 960
+        "faturamento": 16236877,
+        "pedidos": 975
       },
       "Casas Bahia": {
         "faturamento": 64358808,
@@ -77,8 +77,8 @@
         "pedidos": 260
       },
       "Amazon": {
-        "faturamento": 69833260,
-        "pedidos": 618
+        "faturamento": 69936219,
+        "pedidos": 619
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -103,11 +103,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 399,
-      "fat": 5444273,
+      "qtd": 401,
+      "fat": 5464271,
       "canais": {
         "Amazon": 69,
-        "Mercado Livre": 222,
+        "Mercado Livre": 224,
         "Casas Bahia": 59,
         "Shopee": 49
       }
@@ -115,10 +115,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 358,
-      "fat": 4436614,
+      "qtd": 359,
+      "fat": 4452473,
       "canais": {
-        "Mercado Livre": 142,
+        "Mercado Livre": 143,
         "Casas Bahia": 78,
         "Magazine Luiza": 4,
         "Shopee": 21,
@@ -157,10 +157,10 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 128,
-      "fat": 3925585,
+      "qtd": 129,
+      "fat": 3936384,
       "canais": {
-        "Mercado Livre": 36,
+        "Mercado Livre": 37,
         "Magazine Luiza": 6,
         "Casas Bahia": 41,
         "Shopee": 32,
@@ -182,13 +182,13 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 114,
-      "fat": 2363542,
+      "qtd": 115,
+      "fat": 2450153,
       "canais": {
+        "Amazon": 13,
         "Magazine Luiza": 3,
         "Shopee": 48,
         "Mercado Livre": 49,
-        "Amazon": 12,
         "Casas Bahia": 1,
         "Outros": 1
       }
@@ -233,11 +233,11 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 81,
-      "fat": 1147388,
+      "qtd": 82,
+      "fat": 1163537,
       "canais": {
         "Amazon": 15,
-        "Mercado Livre": 61,
+        "Mercado Livre": 62,
         "Magazine Luiza": 1,
         "Casas Bahia": 2,
         "Shopee": 2
@@ -456,22 +456,22 @@
   ],
   "historico_por_dia": {
     "15/08/2026": {
-      "fat": 982284,
-      "peds": 13,
+      "fat": 1115401,
+      "peds": 16,
       "canais": {
-        "Mercado Livre": 92795,
+        "Mercado Livre": 122953,
         "Casas Bahia": 193607,
         "Magazine Luiza": 298156,
         "Shopee": 0,
-        "Amazon": 335194,
+        "Amazon": 438153,
         "Amazon Fulfillment": 0
       }
     },
     "14/08/2026": {
-      "fat": 10557130,
-      "peds": 131,
+      "fat": 10763777,
+      "peds": 144,
       "canais": {
-        "Mercado Livre": 960157,
+        "Mercado Livre": 1166804,
         "Casas Bahia": 4398978,
         "Magazine Luiza": 1213967,
         "Shopee": 962629,
