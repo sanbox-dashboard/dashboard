@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-15T05:21:46.205Z",
-  "gerado_em_br": "15/08/2026, 02:21:46",
+  "gerado_em": "2026-08-15T06:33:28.720Z",
+  "gerado_em_br": "15/08/2026, 03:33:28",
   "dia_referencia": "15/08/2026",
   "dia_ontem": "14/08/2026",
   "resumo_dia": {
-    "faturamento": 226965,
-    "pedidos": 2,
-    "ticket_medio": 113482.5,
+    "faturamento": 326671,
+    "pedidos": 4,
+    "ticket_medio": 81667.75,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 31199,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 68507,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 196421114,
-    "pedidos": 2429,
+    "faturamento": 196520820,
+    "pedidos": 2431,
     "meta_mensal": 8000000,
-    "pct_meta": 2455.3,
-    "projecao_final": 405936968.93,
+    "pct_meta": 2456.5,
+    "projecao_final": 406143028,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15907277,
-        "pedidos": 955
+        "faturamento": 15938476,
+        "pedidos": 956
       },
       "Casas Bahia": {
         "faturamento": 64165201,
@@ -77,8 +77,8 @@
         "pedidos": 260
       },
       "Amazon": {
-        "faturamento": 69498066,
-        "pedidos": 615
+        "faturamento": 69566573,
+        "pedidos": 616
       },
       "Amazon Fulfillment": {
         "faturamento": 4967538,
@@ -456,14 +456,14 @@
   ],
   "historico_por_dia": {
     "15/08/2026": {
-      "fat": 226965,
-      "peds": 2,
+      "fat": 326671,
+      "peds": 4,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 31199,
         "Casas Bahia": 0,
         "Magazine Luiza": 226965,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 68507,
         "Amazon Fulfillment": 0
       }
     },
