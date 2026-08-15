@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-15T02:49:06.137Z",
-  "gerado_em_br": "14/08/2026, 23:49:06",
+  "gerado_em": "2026-08-15T03:35:38.158Z",
+  "gerado_em_br": "15/08/2026, 00:35:38",
   "dia_referencia": "15/08/2026",
   "dia_ontem": "14/08/2026",
   "resumo_dia": {
-    "faturamento": 107094,
-    "pedidos": 1,
-    "ticket_medio": 107094,
+    "faturamento": 226965,
+    "pedidos": 2,
+    "ticket_medio": 113482.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 107094,
-        "pedidos": 1,
+        "faturamento": 226965,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 10522225,
+    "faturamento": 10445764,
     "pedidos": 130
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 196266338,
-    "pedidos": 2427,
+    "faturamento": 196309748,
+    "pedidos": 2428,
     "meta_mensal": 8000000,
-    "pct_meta": 2453.3,
-    "projecao_final": 405617098.53,
+    "pct_meta": 2453.9,
+    "projecao_final": 405706812.53,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15923136,
-        "pedidos": 956
+        "faturamento": 15907277,
+        "pedidos": 955
       },
       "Casas Bahia": {
-        "faturamento": 64084131,
-        "pedidos": 448
+        "faturamento": 64165201,
+        "pedidos": 450
       },
       "Magazine Luiza": {
-        "faturamento": 14592150,
-        "pedidos": 105
+        "faturamento": 14712021,
+        "pedidos": 106
       },
       "Shopee": {
-        "faturamento": 27258431,
-        "pedidos": 261
+        "faturamento": 27116759,
+        "pedidos": 260
       },
       "Amazon": {
         "faturamento": 69386700,
@@ -115,10 +115,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 359,
-      "fat": 4452473,
+      "qtd": 358,
+      "fat": 4436614,
       "canais": {
-        "Mercado Livre": 143,
+        "Mercado Livre": 142,
         "Casas Bahia": 78,
         "Magazine Luiza": 4,
         "Shopee": 21,
@@ -157,14 +157,14 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 125,
-      "fat": 3798189,
+      "qtd": 127,
+      "fat": 3914786,
       "canais": {
+        "Magazine Luiza": 6,
+        "Casas Bahia": 41,
         "Mercado Livre": 35,
-        "Casas Bahia": 40,
         "Shopee": 32,
-        "Amazon": 13,
-        "Magazine Luiza": 5
+        "Amazon": 13
       }
     },
     {
@@ -313,6 +313,18 @@
       }
     },
     {
+      "sku": "TI287-2",
+      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
+      "qtd": 63,
+      "fat": 215001,
+      "canais": {
+        "Magazine Luiza": 15,
+        "Casas Bahia": 19,
+        "Shopee": 16,
+        "Mercado Livre": 13
+      }
+    },
+    {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
       "qtd": 62,
@@ -320,18 +332,6 @@
       "canais": {
         "Mercado Livre": 61,
         "Amazon": 1
-      }
-    },
-    {
-      "sku": "TI287-2",
-      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 61,
-      "fat": 207209,
-      "canais": {
-        "Casas Bahia": 19,
-        "Shopee": 16,
-        "Magazine Luiza": 13,
-        "Mercado Livre": 13
       }
     },
     {
@@ -456,25 +456,25 @@
   ],
   "historico_por_dia": {
     "15/08/2026": {
-      "fat": 107094,
-      "peds": 1,
+      "fat": 226965,
+      "peds": 2,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
-        "Magazine Luiza": 107094,
+        "Magazine Luiza": 226965,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "14/08/2026": {
-      "fat": 10522225,
+      "fat": 10445764,
       "peds": 130,
       "canais": {
-        "Mercado Livre": 976016,
-        "Casas Bahia": 4317908,
+        "Mercado Livre": 960157,
+        "Casas Bahia": 4398978,
         "Magazine Luiza": 1213967,
-        "Shopee": 1104301,
+        "Shopee": 962629,
         "Amazon": 2910033,
         "Amazon Fulfillment": 0
       }
