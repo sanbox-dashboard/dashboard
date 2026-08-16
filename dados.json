@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-16T16:20:24.522Z",
-  "gerado_em_br": "16/08/2026, 13:20:24",
+  "gerado_em": "2026-08-16T17:16:43.325Z",
+  "gerado_em_br": "16/08/2026, 14:16:43",
   "dia_referencia": "16/08/2026",
   "dia_ontem": "15/08/2026",
   "resumo_dia": {
-    "faturamento": 3167291,
-    "pedidos": 37,
-    "ticket_medio": 85602.46,
+    "faturamento": 3325489,
+    "pedidos": 45,
+    "ticket_medio": 73899.76,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 234551,
-        "pedidos": 19,
+        "faturamento": 338624,
+        "pedidos": 26,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 54125,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 210727244,
-    "pedidos": 2620,
+    "faturamento": 210885442,
+    "pedidos": 2628,
     "meta_mensal": 8000000,
-    "pct_meta": 2634.1,
-    "projecao_final": 408284035.25,
+    "pct_meta": 2636.1,
+    "projecao_final": 408590543.88,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 17144836,
-        "pedidos": 1047
+        "faturamento": 17248909,
+        "pedidos": 1054
       },
       "Casas Bahia": {
         "faturamento": 70014836,
@@ -73,8 +73,8 @@
         "pedidos": 117
       },
       "Shopee": {
-        "faturamento": 28566894,
-        "pedidos": 270
+        "faturamento": 28621019,
+        "pedidos": 271
       },
       "Amazon": {
         "faturamento": 73581597,
@@ -90,22 +90,22 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 581,
-      "fat": 43926589,
+      "qtd": 582,
+      "fat": 43945588,
       "canais": {
+        "Mercado Livre": 82,
         "Casas Bahia": 238,
         "Amazon": 254,
-        "Shopee": 8,
-        "Mercado Livre": 81
+        "Shopee": 8
       }
     },
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 416,
-      "fat": 5693856,
+      "qtd": 418,
+      "fat": 5713854,
       "canais": {
-        "Mercado Livre": 232,
+        "Mercado Livre": 234,
         "Casas Bahia": 65,
         "Shopee": 50,
         "Amazon": 69
@@ -114,10 +114,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 360,
-      "fat": 4394485,
+      "qtd": 361,
+      "fat": 4410344,
       "canais": {
-        "Mercado Livre": 149,
+        "Mercado Livre": 150,
         "Casas Bahia": 79,
         "Magazine Luiza": 4,
         "Shopee": 20,
@@ -195,11 +195,11 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 103,
-      "fat": 2266010,
+      "qtd": 104,
+      "fat": 2275509,
       "canais": {
+        "Mercado Livre": 65,
         "Amazon": 19,
-        "Mercado Livre": 64,
         "Magazine Luiza": 7,
         "Shopee": 11,
         "Casas Bahia": 2
@@ -456,13 +456,13 @@
   ],
   "historico_por_dia": {
     "16/08/2026": {
-      "fat": 3167291,
-      "peds": 37,
+      "fat": 3325489,
+      "peds": 45,
       "canais": {
-        "Mercado Livre": 234551,
+        "Mercado Livre": 338624,
         "Casas Bahia": 1094250,
         "Magazine Luiza": 746653,
-        "Shopee": 0,
+        "Shopee": 54125,
         "Amazon": 1091837,
         "Amazon Fulfillment": 0
       }
