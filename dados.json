@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-16T22:17:23.264Z",
-  "gerado_em_br": "16/08/2026, 19:17:23",
+  "gerado_em": "2026-08-16T23:16:55.189Z",
+  "gerado_em_br": "16/08/2026, 20:16:55",
   "dia_referencia": "16/08/2026",
   "dia_ontem": "15/08/2026",
   "resumo_dia": {
-    "faturamento": 7250137,
-    "pedidos": 93,
-    "ticket_medio": 77958.46,
+    "faturamento": 9086510,
+    "pedidos": 109,
+    "ticket_medio": 83362.48,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1280764,
-        "pedidos": 56,
+        "faturamento": 1390827,
+        "pedidos": 63,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 2043136,
-        "pedidos": 11,
+        "faturamento": 2200673,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1326523,
-        "pedidos": 8,
+        "faturamento": 2242508,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 2545589,
-        "pedidos": 17,
+        "faturamento": 3198377,
+        "pedidos": 22,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 214680323,
-    "pedidos": 2675,
+    "faturamento": 216516696,
+    "pedidos": 2691,
     "meta_mensal": 8000000,
-    "pct_meta": 2683.5,
-    "projecao_final": 415943125.81,
+    "pct_meta": 2706.5,
+    "projecao_final": 419501098.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 18204648,
-        "pedidos": 1085
+        "faturamento": 18314711,
+        "pedidos": 1092
       },
       "Casas Bahia": {
-        "faturamento": 70898170,
-        "pedidos": 493
+        "faturamento": 71055707,
+        "pedidos": 494
       },
       "Magazine Luiza": {
-        "faturamento": 16898630,
-        "pedidos": 121
+        "faturamento": 17814615,
+        "pedidos": 124
       },
       "Shopee": {
         "faturamento": 28621019,
         "pedidos": 271
       },
       "Amazon": {
-        "faturamento": 74957535,
-        "pedidos": 660
+        "faturamento": 75610323,
+        "pedidos": 665
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 589,
-      "fat": 44541781,
+      "qtd": 592,
+      "fat": 45061231,
       "canais": {
-        "Amazon": 257,
+        "Amazon": 260,
         "Casas Bahia": 241,
         "Mercado Livre": 83,
         "Shopee": 8
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 423,
-      "fat": 5846939,
+      "qtd": 424,
+      "fat": 5856938,
       "canais": {
-        "Mercado Livre": 238,
+        "Mercado Livre": 239,
         "Amazon": 70,
         "Casas Bahia": 65,
         "Shopee": 50
@@ -114,11 +114,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 363,
-      "fat": 4443722,
+      "qtd": 365,
+      "fat": 4473780,
       "canais": {
-        "Mercado Livre": 153,
-        "Casas Bahia": 78,
+        "Mercado Livre": 154,
+        "Casas Bahia": 79,
         "Magazine Luiza": 4,
         "Shopee": 20,
         "Amazon": 108
@@ -181,10 +181,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 120,
-      "fat": 2576910,
+      "qtd": 121,
+      "fat": 2588059,
       "canais": {
-        "Mercado Livre": 51,
+        "Mercado Livre": 52,
         "Amazon": 14,
         "Shopee": 50,
         "Magazine Luiza": 3,
@@ -232,14 +232,14 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 85,
-      "fat": 3292526,
+      "qtd": 87,
+      "fat": 3331484,
       "canais": {
-        "Mercado Livre": 54,
+        "Mercado Livre": 55,
+        "Magazine Luiza": 2,
         "Amazon": 18,
         "Casas Bahia": 5,
         "Shopee": 6,
-        "Magazine Luiza": 1,
         "Outros": 1
       }
     },
@@ -347,6 +347,18 @@
       }
     },
     {
+      "sku": "TI1527",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
+      "qtd": 56,
+      "fat": 503767,
+      "canais": {
+        "Mercado Livre": 43,
+        "Magazine Luiza": 2,
+        "Amazon": 9,
+        "Shopee": 2
+      }
+    },
+    {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
       "qtd": 55,
@@ -356,18 +368,6 @@
         "Amazon": 17,
         "Magazine Luiza": 3,
         "Casas Bahia": 1
-      }
-    },
-    {
-      "sku": "TI1527",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
-      "qtd": 55,
-      "fat": 494408,
-      "canais": {
-        "Magazine Luiza": 2,
-        "Mercado Livre": 42,
-        "Amazon": 9,
-        "Shopee": 2
       }
     },
     {
@@ -456,14 +456,14 @@
   ],
   "historico_por_dia": {
     "16/08/2026": {
-      "fat": 7250137,
-      "peds": 93,
+      "fat": 9086510,
+      "peds": 109,
       "canais": {
-        "Mercado Livre": 1280764,
-        "Casas Bahia": 2043136,
-        "Magazine Luiza": 1326523,
+        "Mercado Livre": 1390827,
+        "Casas Bahia": 2200673,
+        "Magazine Luiza": 2242508,
         "Shopee": 54125,
-        "Amazon": 2545589,
+        "Amazon": 3198377,
         "Amazon Fulfillment": 0
       }
     },
@@ -2812,7 +2812,7 @@
     "739336414": 0,
     "739341142": 12,
     "739341161": 13,
-    "739405183": 375,
+    "739405183": 455,
     "739488413": 0,
     "739514252": 0,
     "739514305": 0,
@@ -2916,7 +2916,7 @@
     "740338707": 60,
     "740348281": 60,
     "740348304": 60,
-    "740353548": 375,
+    "740353548": 455,
     "740353566": 1,
     "740353587": 0,
     "740355157": 0,
@@ -2954,7 +2954,7 @@
     "740396951": 0,
     "740396958": 0,
     "740397930": 0,
-    "740397933": 29,
+    "740397933": 329,
     "740397936": 30,
     "740419494": 0,
     "740505878": 0,
