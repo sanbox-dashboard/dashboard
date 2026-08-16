@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-16T10:19:54.151Z",
-  "gerado_em_br": "16/08/2026, 07:19:54",
+  "gerado_em": "2026-08-16T11:17:32.406Z",
+  "gerado_em_br": "16/08/2026, 08:17:32",
   "dia_referencia": "16/08/2026",
   "dia_ontem": "15/08/2026",
   "resumo_dia": {
-    "faturamento": 643243,
-    "pedidos": 4,
-    "ticket_medio": 160810.75,
+    "faturamento": 979244,
+    "pedidos": 8,
+    "ticket_medio": 122405.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 27358,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 14686,
-        "pedidos": 1,
+        "faturamento": 323329,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 208185597,
-    "pedidos": 2586,
+    "faturamento": 208521598,
+    "pedidos": 2590,
     "meta_mensal": 8000000,
-    "pct_meta": 2602.3,
-    "projecao_final": 403359594.19,
+    "pct_meta": 2606.5,
+    "projecao_final": 404010596.13,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 16910285,
-        "pedidos": 1028
+        "faturamento": 16937643,
+        "pedidos": 1030
       },
       "Casas Bahia": {
-        "faturamento": 68935272,
-        "pedidos": 484
+        "faturamento": 69243915,
+        "pedidos": 486
       },
       "Magazine Luiza": {
         "faturamento": 16200664,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 579,
-      "fat": 43891591,
+      "qtd": 580,
+      "fat": 43909090,
       "canais": {
-        "Casas Bahia": 236,
+        "Casas Bahia": 237,
         "Amazon": 254,
         "Shopee": 8,
         "Mercado Livre": 81
@@ -102,12 +102,12 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 408,
-      "fat": 5614864,
+      "qtd": 410,
+      "fat": 5633862,
       "canais": {
-        "Mercado Livre": 225,
+        "Casas Bahia": 65,
+        "Mercado Livre": 226,
         "Shopee": 50,
-        "Casas Bahia": 64,
         "Amazon": 69
       }
     },
@@ -456,11 +456,11 @@
   ],
   "historico_por_dia": {
     "16/08/2026": {
-      "fat": 643243,
-      "peds": 4,
+      "fat": 979244,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 14686,
+        "Mercado Livre": 27358,
+        "Casas Bahia": 323329,
         "Magazine Luiza": 628557,
         "Shopee": 0,
         "Amazon": 0,
