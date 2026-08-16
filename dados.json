@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-16T20:17:54.084Z",
-  "gerado_em_br": "16/08/2026, 17:17:54",
+  "gerado_em": "2026-08-16T21:16:50.659Z",
+  "gerado_em_br": "16/08/2026, 18:16:50",
   "dia_referencia": "16/08/2026",
   "dia_ontem": "15/08/2026",
   "resumo_dia": {
-    "faturamento": 6148742,
-    "pedidos": 67,
-    "ticket_medio": 91772.27,
+    "faturamento": 6616222,
+    "pedidos": 77,
+    "ticket_medio": 85924.96,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 994653,
-        "pedidos": 37,
+        "faturamento": 1091186,
+        "pedidos": 44,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 2101611,
-        "pedidos": 12,
+        "faturamento": 2472558,
+        "pedidos": 15,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 213548830,
-    "pedidos": 2647,
+    "faturamento": 214032809,
+    "pedidos": 2658,
     "meta_mensal": 8000000,
-    "pct_meta": 2669.4,
-    "projecao_final": 413750858.13,
+    "pct_meta": 2675.4,
+    "projecao_final": 414688567.44,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 17904938,
-        "pedidos": 1065
+        "faturamento": 18001471,
+        "pedidos": 1072
       },
       "Casas Bahia": {
         "faturamento": 70722341,
@@ -77,8 +77,8 @@
         "pedidos": 271
       },
       "Amazon": {
-        "faturamento": 74497058,
-        "pedidos": 654
+        "faturamento": 74884504,
+        "pedidos": 658
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 588,
-      "fat": 44366882,
+      "qtd": 589,
+      "fat": 44541781,
       "canais": {
-        "Amazon": 256,
+        "Amazon": 257,
         "Casas Bahia": 241,
         "Mercado Livre": 83,
         "Shopee": 8
@@ -102,13 +102,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 420,
-      "fat": 5733852,
+      "qtd": 422,
+      "fat": 5836940,
       "canais": {
-        "Mercado Livre": 236,
+        "Mercado Livre": 237,
+        "Amazon": 70,
         "Casas Bahia": 65,
-        "Shopee": 50,
-        "Amazon": 69
+        "Shopee": 50
       }
     },
     {
@@ -127,11 +127,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 199,
-      "fat": 8171144,
+      "qtd": 200,
+      "fat": 8187643,
       "canais": {
         "Casas Bahia": 65,
-        "Amazon": 63,
+        "Amazon": 64,
         "Mercado Livre": 51,
         "Shopee": 16,
         "Magazine Luiza": 3,
@@ -181,15 +181,26 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 118,
-      "fat": 2479150,
+      "qtd": 119,
+      "fat": 2565761,
       "canais": {
+        "Amazon": 14,
         "Mercado Livre": 50,
         "Shopee": 50,
-        "Amazon": 13,
         "Magazine Luiza": 3,
         "Casas Bahia": 1,
         "Outros": 1
+      }
+    },
+    {
+      "sku": "TI1560",
+      "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
+      "qtd": 104,
+      "fat": 776436,
+      "canais": {
+        "Mercado Livre": 52,
+        "Casas Bahia": 51,
+        "Amazon": 1
       }
     },
     {
@@ -203,17 +214,6 @@
         "Magazine Luiza": 7,
         "Shopee": 11,
         "Casas Bahia": 2
-      }
-    },
-    {
-      "sku": "TI1560",
-      "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
-      "qtd": 102,
-      "fat": 759498,
-      "canais": {
-        "Mercado Livre": 50,
-        "Casas Bahia": 51,
-        "Amazon": 1
       }
     },
     {
@@ -456,14 +456,14 @@
   ],
   "historico_por_dia": {
     "16/08/2026": {
-      "fat": 6148742,
-      "peds": 67,
+      "fat": 6616222,
+      "peds": 77,
       "canais": {
-        "Mercado Livre": 994653,
+        "Mercado Livre": 1091186,
         "Casas Bahia": 1867307,
         "Magazine Luiza": 1131046,
         "Shopee": 54125,
-        "Amazon": 2101611,
+        "Amazon": 2472558,
         "Amazon Fulfillment": 0
       }
     },
@@ -480,14 +480,14 @@
       }
     },
     "14/08/2026": {
-      "fat": 10456890,
-      "peds": 140,
+      "fat": 10473389,
+      "peds": 141,
       "canais": {
         "Mercado Livre": 1150655,
         "Casas Bahia": 4139987,
         "Magazine Luiza": 1213967,
         "Shopee": 962629,
-        "Amazon": 2989652,
+        "Amazon": 3006151,
         "Amazon Fulfillment": 0
       }
     },
