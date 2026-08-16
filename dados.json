@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-16T17:16:43.325Z",
-  "gerado_em_br": "16/08/2026, 14:16:43",
+  "gerado_em": "2026-08-16T18:23:44.748Z",
+  "gerado_em_br": "16/08/2026, 15:23:44",
   "dia_referencia": "16/08/2026",
   "dia_ontem": "15/08/2026",
   "resumo_dia": {
-    "faturamento": 3325489,
-    "pedidos": 45,
-    "ticket_medio": 73899.76,
+    "faturamento": 4743595,
+    "pedidos": 55,
+    "ticket_medio": 86247.18,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 338624,
-        "pedidos": 26,
+        "faturamento": 545430,
+        "pedidos": 30,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1094250,
-        "pedidos": 6,
+        "faturamento": 1283125,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 746653,
-        "pedidos": 4,
+        "faturamento": 934203,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1091837,
-        "pedidos": 8,
+        "faturamento": 1926712,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 10871926,
-    "pedidos": 142
+    "faturamento": 10809360,
+    "pedidos": 141
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 210885442,
-    "pedidos": 2628,
+    "faturamento": 212402674,
+    "pedidos": 2637,
     "meta_mensal": 8000000,
-    "pct_meta": 2636.1,
-    "projecao_final": 408590543.88,
+    "pct_meta": 2655,
+    "projecao_final": 411530180.88,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 17248909,
-        "pedidos": 1054
+        "faturamento": 17455715,
+        "pedidos": 1058
       },
       "Casas Bahia": {
-        "faturamento": 70014836,
-        "pedidos": 489
+        "faturamento": 70397150,
+        "pedidos": 491
       },
       "Magazine Luiza": {
-        "faturamento": 16318760,
-        "pedidos": 117
+        "faturamento": 16506310,
+        "pedidos": 119
       },
       "Shopee": {
         "faturamento": 28621019,
         "pedidos": 271
       },
       "Amazon": {
-        "faturamento": 73581597,
-        "pedidos": 652
+        "faturamento": 74322159,
+        "pedidos": 653
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,12 +90,12 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 582,
-      "fat": 43945588,
+      "qtd": 586,
+      "fat": 44174484,
       "canais": {
-        "Mercado Livre": 82,
-        "Casas Bahia": 238,
-        "Amazon": 254,
+        "Mercado Livre": 83,
+        "Amazon": 255,
+        "Casas Bahia": 240,
         "Shopee": 8
       }
     },
@@ -156,14 +156,14 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 137,
-      "fat": 4368110,
+      "qtd": 139,
+      "fat": 4463408,
       "canais": {
+        "Amazon": 19,
+        "Magazine Luiza": 7,
         "Mercado Livre": 38,
-        "Amazon": 18,
         "Casas Bahia": 44,
-        "Shopee": 31,
-        "Magazine Luiza": 6
+        "Shopee": 31
       }
     },
     {
@@ -230,6 +230,19 @@
       }
     },
     {
+      "sku": "TI1740",
+      "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
+      "qtd": 84,
+      "fat": 1194295,
+      "canais": {
+        "Mercado Livre": 64,
+        "Amazon": 15,
+        "Magazine Luiza": 1,
+        "Casas Bahia": 2,
+        "Shopee": 2
+      }
+    },
+    {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
       "qtd": 84,
@@ -241,19 +254,6 @@
         "Shopee": 6,
         "Magazine Luiza": 1,
         "Outros": 1
-      }
-    },
-    {
-      "sku": "TI1740",
-      "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 83,
-      "fat": 1178146,
-      "canais": {
-        "Mercado Livre": 63,
-        "Amazon": 15,
-        "Magazine Luiza": 1,
-        "Casas Bahia": 2,
-        "Shopee": 2
       }
     },
     {
@@ -456,47 +456,47 @@
   ],
   "historico_por_dia": {
     "16/08/2026": {
-      "fat": 3325489,
-      "peds": 45,
+      "fat": 4743595,
+      "peds": 55,
       "canais": {
-        "Mercado Livre": 338624,
-        "Casas Bahia": 1094250,
-        "Magazine Luiza": 746653,
+        "Mercado Livre": 545430,
+        "Casas Bahia": 1283125,
+        "Magazine Luiza": 934203,
         "Shopee": 54125,
-        "Amazon": 1091837,
+        "Amazon": 1926712,
         "Amazon Fulfillment": 0
       }
     },
     "15/08/2026": {
-      "fat": 10871926,
-      "peds": 142,
+      "fat": 10809360,
+      "peds": 141,
       "canais": {
         "Mercado Livre": 812510,
         "Casas Bahia": 4452005,
         "Magazine Luiza": 1087051,
         "Shopee": 1450135,
-        "Amazon": 2991694,
+        "Amazon": 2929128,
         "Amazon Fulfillment": 15999
       }
     },
     "14/08/2026": {
-      "fat": 10747628,
-      "peds": 143,
+      "fat": 10715881,
+      "peds": 142,
       "canais": {
         "Mercado Livre": 1150655,
         "Casas Bahia": 4398978,
         "Magazine Luiza": 1213967,
         "Shopee": 962629,
-        "Amazon": 3021399,
+        "Amazon": 2989652,
         "Amazon Fulfillment": 0
       }
     },
     "13/08/2026": {
-      "fat": 10836363,
-      "peds": 160,
+      "fat": 11029802,
+      "peds": 161,
       "canais": {
         "Mercado Livre": 1061007,
-        "Casas Bahia": 3942294,
+        "Casas Bahia": 4135733,
         "Magazine Luiza": 1171671,
         "Shopee": 1355486,
         "Amazon": 3305905,
