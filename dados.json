@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-17T10:28:51.139Z",
-  "gerado_em_br": "17/08/2026, 07:28:51",
+  "gerado_em": "2026-08-17T11:21:55.883Z",
+  "gerado_em_br": "17/08/2026, 08:21:55",
   "dia_referencia": "17/08/2026",
   "dia_ontem": "16/08/2026",
   "resumo_dia": {
-    "faturamento": 652145,
-    "pedidos": 4,
-    "ticket_medio": 163036.25,
+    "faturamento": 766442,
+    "pedidos": 5,
+    "ticket_medio": 153288.4,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 114297,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 219342262,
-    "pedidos": 2717,
+    "faturamento": 219456559,
+    "pedidos": 2718,
     "meta_mensal": 8000000,
-    "pct_meta": 2741.8,
-    "projecao_final": 399977066,
+    "pct_meta": 2743.2,
+    "projecao_final": 400185489.94,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 18778362,
         "pedidos": 1101
       },
       "Casas Bahia": {
-        "faturamento": 72062030,
-        "pedidos": 503
+        "faturamento": 72176327,
+        "pedidos": 504
       },
       "Magazine Luiza": {
         "faturamento": 18253553,
@@ -102,11 +102,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 417,
-      "fat": 5788005,
+      "qtd": 418,
+      "fat": 5797004,
       "canais": {
+        "Casas Bahia": 68,
         "Mercado Livre": 232,
-        "Casas Bahia": 67,
         "Amazon": 69,
         "Shopee": 49
       }
@@ -455,11 +455,11 @@
   ],
   "historico_por_dia": {
     "17/08/2026": {
-      "fat": 652145,
-      "peds": 4,
+      "fat": 766442,
+      "peds": 5,
       "canais": {
         "Mercado Livre": 213207,
-        "Casas Bahia": 0,
+        "Casas Bahia": 114297,
         "Magazine Luiza": 438938,
         "Shopee": 0,
         "Amazon": 0,
