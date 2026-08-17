@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-17T16:23:29.670Z",
-  "gerado_em_br": "17/08/2026, 13:23:29",
+  "gerado_em": "2026-08-17T17:23:29.906Z",
+  "gerado_em_br": "17/08/2026, 14:23:29",
   "dia_referencia": "17/08/2026",
   "dia_ontem": "16/08/2026",
   "resumo_dia": {
-    "faturamento": 3192237,
-    "pedidos": 50,
-    "ticket_medio": 63844.74,
+    "faturamento": 3842734,
+    "pedidos": 60,
+    "ticket_medio": 64045.57,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 632647,
-        "pedidos": 28,
+        "faturamento": 732711,
+        "pedidos": 34,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1255451,
-        "pedidos": 11,
+        "faturamento": 1636043,
+        "pedidos": 14,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 76424,
-        "pedidos": 1,
+        "faturamento": 246265,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 222267027,
-    "pedidos": 2764,
+    "faturamento": 222917524,
+    "pedidos": 2774,
     "meta_mensal": 8000000,
-    "pct_meta": 2778.3,
-    "projecao_final": 405310461,
+    "pct_meta": 2786.5,
+    "projecao_final": 406496661.41,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 19168535,
-        "pedidos": 1123
+        "faturamento": 19268599,
+        "pedidos": 1129
       },
       "Casas Bahia": {
-        "faturamento": 73731421,
-        "pedidos": 518
+        "faturamento": 74112013,
+        "pedidos": 521
       },
       "Magazine Luiza": {
         "faturamento": 18572088,
         "pedidos": 128
       },
       "Shopee": {
-        "faturamento": 28894140,
-        "pedidos": 274
+        "faturamento": 29063981,
+        "pedidos": 275
       },
       "Amazon": {
         "faturamento": 76800522,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 588,
-      "fat": 45189880,
+      "qtd": 589,
+      "fat": 45207379,
       "canais": {
-        "Casas Bahia": 241,
+        "Casas Bahia": 242,
         "Amazon": 258,
         "Mercado Livre": 81,
         "Shopee": 8
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 426,
-      "fat": 5875336,
+      "qtd": 428,
+      "fat": 5895334,
       "canais": {
-        "Mercado Livre": 237,
+        "Mercado Livre": 239,
         "Amazon": 70,
         "Casas Bahia": 69,
         "Magazine Luiza": 1,
@@ -115,10 +115,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 358,
-      "fat": 4417296,
+      "qtd": 360,
+      "fat": 4445694,
       "canais": {
-        "Casas Bahia": 79,
+        "Casas Bahia": 81,
         "Mercado Livre": 153,
         "Magazine Luiza": 3,
         "Shopee": 18,
@@ -128,13 +128,13 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 196,
-      "fat": 8148030,
+      "qtd": 197,
+      "fat": 8165579,
       "canais": {
+        "Shopee": 17,
         "Mercado Livre": 49,
         "Amazon": 63,
         "Casas Bahia": 64,
-        "Shopee": 16,
         "Magazine Luiza": 3,
         "Outros": 1
       }
@@ -170,10 +170,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 121,
-      "fat": 2588059,
+      "qtd": 122,
+      "fat": 2598058,
       "canais": {
-        "Mercado Livre": 52,
+        "Mercado Livre": 53,
         "Amazon": 14,
         "Shopee": 50,
         "Magazine Luiza": 3,
@@ -285,10 +285,10 @@
     {
       "sku": "TI1090",
       "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 68,
-      "fat": 544312,
+      "qtd": 69,
+      "fat": 552511,
       "canais": {
-        "Mercado Livre": 65,
+        "Mercado Livre": 66,
         "Shopee": 1,
         "Casas Bahia": 2
       }
@@ -457,13 +457,13 @@
   ],
   "historico_por_dia": {
     "17/08/2026": {
-      "fat": 3192237,
-      "peds": 50,
+      "fat": 3842734,
+      "peds": 60,
       "canais": {
-        "Mercado Livre": 632647,
-        "Casas Bahia": 1255451,
+        "Mercado Livre": 732711,
+        "Casas Bahia": 1636043,
         "Magazine Luiza": 757473,
-        "Shopee": 76424,
+        "Shopee": 246265,
         "Amazon": 470242,
         "Amazon Fulfillment": 0
       }
