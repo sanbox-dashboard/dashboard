@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-17T15:21:42.384Z",
-  "gerado_em_br": "17/08/2026, 12:21:42",
+  "gerado_em": "2026-08-17T16:23:29.670Z",
+  "gerado_em_br": "17/08/2026, 13:23:29",
   "dia_referencia": "17/08/2026",
   "dia_ontem": "16/08/2026",
   "resumo_dia": {
-    "faturamento": 2920248,
-    "pedidos": 40,
-    "ticket_medio": 73006.2,
+    "faturamento": 3192237,
+    "pedidos": 50,
+    "ticket_medio": 63844.74,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 528725,
-        "pedidos": 20,
+        "faturamento": 632647,
+        "pedidos": 28,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1201676,
-        "pedidos": 10,
+        "faturamento": 1255451,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 643181,
-        "pedidos": 3,
+        "faturamento": 757473,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 221995038,
-    "pedidos": 2754,
+    "faturamento": 222267027,
+    "pedidos": 2764,
     "meta_mensal": 8000000,
-    "pct_meta": 2774.9,
-    "projecao_final": 404814481.06,
+    "pct_meta": 2778.3,
+    "projecao_final": 405310461,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 19064613,
-        "pedidos": 1115
+        "faturamento": 19168535,
+        "pedidos": 1123
       },
       "Casas Bahia": {
-        "faturamento": 73677646,
-        "pedidos": 517
+        "faturamento": 73731421,
+        "pedidos": 518
       },
       "Magazine Luiza": {
-        "faturamento": 18457796,
-        "pedidos": 127
+        "faturamento": 18572088,
+        "pedidos": 128
       },
       "Shopee": {
         "faturamento": 28894140,
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 424,
-      "fat": 5855338,
+      "qtd": 426,
+      "fat": 5875336,
       "canais": {
-        "Mercado Livre": 235,
+        "Mercado Livre": 237,
         "Amazon": 70,
         "Casas Bahia": 69,
         "Magazine Luiza": 1,
@@ -128,12 +128,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 195,
-      "fat": 8129531,
+      "qtd": 196,
+      "fat": 8148030,
       "canais": {
+        "Mercado Livre": 49,
         "Amazon": 63,
         "Casas Bahia": 64,
-        "Mercado Livre": 48,
         "Shopee": 16,
         "Magazine Luiza": 3,
         "Outros": 1
@@ -157,14 +157,14 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 145,
-      "fat": 4514466,
+      "qtd": 146,
+      "fat": 4621185,
       "canais": {
+        "Magazine Luiza": 8,
         "Mercado Livre": 40,
         "Casas Bahia": 47,
         "Shopee": 32,
-        "Amazon": 19,
-        "Magazine Luiza": 7
+        "Amazon": 19
       }
     },
     {
@@ -246,10 +246,10 @@
     {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 84,
-      "fat": 1209014,
+      "qtd": 85,
+      "fat": 1225163,
       "canais": {
-        "Mercado Livre": 65,
+        "Mercado Livre": 66,
         "Amazon": 14,
         "Magazine Luiza": 1,
         "Casas Bahia": 2,
@@ -306,10 +306,10 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 63,
-      "fat": 215001,
+      "qtd": 64,
+      "fat": 218872,
       "canais": {
-        "Magazine Luiza": 15,
+        "Magazine Luiza": 16,
         "Casas Bahia": 19,
         "Shopee": 16,
         "Mercado Livre": 13
@@ -350,6 +350,19 @@
       }
     },
     {
+      "sku": "TI1565",
+      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
+      "qtd": 54,
+      "fat": 663140,
+      "canais": {
+        "Casas Bahia": 12,
+        "Magazine Luiza": 6,
+        "Amazon": 18,
+        "Shopee": 17,
+        "Mercado Livre": 1
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 54,
@@ -359,19 +372,6 @@
         "Mercado Livre": 24,
         "Casas Bahia": 4,
         "Shopee": 1
-      }
-    },
-    {
-      "sku": "TI1565",
-      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 53,
-      "fat": 658141,
-      "canais": {
-        "Casas Bahia": 11,
-        "Magazine Luiza": 6,
-        "Amazon": 18,
-        "Shopee": 17,
-        "Mercado Livre": 1
       }
     },
     {
@@ -457,12 +457,12 @@
   ],
   "historico_por_dia": {
     "17/08/2026": {
-      "fat": 2920248,
-      "peds": 40,
+      "fat": 3192237,
+      "peds": 50,
       "canais": {
-        "Mercado Livre": 528725,
-        "Casas Bahia": 1201676,
-        "Magazine Luiza": 643181,
+        "Mercado Livre": 632647,
+        "Casas Bahia": 1255451,
+        "Magazine Luiza": 757473,
         "Shopee": 76424,
         "Amazon": 470242,
         "Amazon Fulfillment": 0
