@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-17T20:22:41.575Z",
-  "gerado_em_br": "17/08/2026, 17:22:41",
+  "gerado_em": "2026-08-17T21:22:56.739Z",
+  "gerado_em_br": "17/08/2026, 18:22:56",
   "dia_referencia": "17/08/2026",
   "dia_ontem": "16/08/2026",
   "resumo_dia": {
-    "faturamento": 5756663,
-    "pedidos": 86,
-    "ticket_medio": 66937.94,
+    "faturamento": 6060403,
+    "pedidos": 90,
+    "ticket_medio": 67337.81,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 950295,
-        "pedidos": 45,
+        "faturamento": 978793,
+        "pedidos": 47,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 2246283,
+        "faturamento": 2300603,
         "pedidos": 20,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1275251,
-        "pedidos": 7,
+        "faturamento": 1496173,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 224623009,
-    "pedidos": 2799,
+    "faturamento": 224926749,
+    "pedidos": 2803,
     "meta_mensal": 8000000,
-    "pct_meta": 2807.8,
-    "projecao_final": 409606663.47,
+    "pct_meta": 2811.6,
+    "projecao_final": 410160542.29,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 19486183,
-        "pedidos": 1140
+        "faturamento": 19514681,
+        "pedidos": 1142
       },
       "Casas Bahia": {
-        "faturamento": 74722253,
+        "faturamento": 74776573,
         "pedidos": 527
       },
       "Magazine Luiza": {
-        "faturamento": 19089866,
-        "pedidos": 131
+        "faturamento": 19310788,
+        "pedidos": 133
       },
       "Shopee": {
         "faturamento": 29137057,
@@ -103,12 +103,12 @@
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
       "qtd": 433,
-      "fat": 5944329,
+      "fat": 5945329,
       "canais": {
-        "Casas Bahia": 70,
-        "Mercado Livre": 242,
+        "Mercado Livre": 243,
         "Shopee": 50,
         "Amazon": 70,
+        "Casas Bahia": 69,
         "Magazine Luiza": 1
       }
     },
@@ -128,10 +128,10 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 198,
-      "fat": 8184078,
+      "qtd": 199,
+      "fat": 8202577,
       "canais": {
-        "Mercado Livre": 50,
+        "Mercado Livre": 51,
         "Shopee": 17,
         "Amazon": 63,
         "Casas Bahia": 64,
@@ -157,14 +157,14 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 146,
-      "fat": 4621185,
+      "qtd": 147,
+      "fat": 4703536,
       "canais": {
+        "Amazon": 20,
         "Magazine Luiza": 8,
         "Mercado Livre": 40,
         "Casas Bahia": 47,
-        "Shopee": 32,
-        "Amazon": 19
+        "Shopee": 32
       }
     },
     {
@@ -196,12 +196,12 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 104,
-      "fat": 2275509,
+      "qtd": 105,
+      "fat": 2284308,
       "canais": {
+        "Magazine Luiza": 8,
         "Mercado Livre": 65,
         "Amazon": 19,
-        "Magazine Luiza": 7,
         "Shopee": 11,
         "Casas Bahia": 2
       }
@@ -220,14 +220,14 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 91,
-      "fat": 1036403,
+      "qtd": 92,
+      "fat": 1045102,
       "canais": {
+        "Magazine Luiza": 10,
         "Shopee": 23,
         "Amazon": 20,
         "Casas Bahia": 14,
-        "Mercado Livre": 25,
-        "Magazine Luiza": 9
+        "Mercado Livre": 25
       }
     },
     {
@@ -400,6 +400,17 @@
       }
     },
     {
+      "sku": "TI1522",
+      "desc": "Centrifuga Mueller Fit 15 kg de Roupa molhada Dupla Tampa Branco-127v",
+      "qtd": 51,
+      "fat": 362339,
+      "canais": {
+        "Casas Bahia": 3,
+        "Mercado Livre": 46,
+        "Shopee": 2
+      }
+    },
+    {
       "sku": "TI1456",
       "desc": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244L - Bivolt",
       "qtd": 51,
@@ -420,17 +431,6 @@
         "Shopee": 3,
         "Amazon": 2,
         "Casas Bahia": 4
-      }
-    },
-    {
-      "sku": "TI1522",
-      "desc": "Centrifuga Mueller Fit 15 kg de Roupa molhada Dupla Tampa Branco-127v",
-      "qtd": 50,
-      "fat": 356240,
-      "canais": {
-        "Casas Bahia": 2,
-        "Mercado Livre": 46,
-        "Shopee": 2
       }
     },
     {
@@ -457,12 +457,12 @@
   ],
   "historico_por_dia": {
     "17/08/2026": {
-      "fat": 5756663,
-      "peds": 86,
+      "fat": 6060403,
+      "peds": 90,
       "canais": {
-        "Mercado Livre": 950295,
-        "Casas Bahia": 2246283,
-        "Magazine Luiza": 1275251,
+        "Mercado Livre": 978793,
+        "Casas Bahia": 2300603,
+        "Magazine Luiza": 1496173,
         "Shopee": 527785,
         "Amazon": 757049,
         "Amazon Fulfillment": 0
