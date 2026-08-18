@@ -1,42 +1,42 @@
 {
-  "gerado_em": "2026-08-18T22:19:40.744Z",
-  "gerado_em_br": "18/08/2026, 19:19:40",
+  "gerado_em": "2026-08-18T23:19:03.144Z",
+  "gerado_em_br": "18/08/2026, 20:19:03",
   "dia_referencia": "18/08/2026",
   "dia_ontem": "17/08/2026",
   "resumo_dia": {
-    "faturamento": 10414174,
-    "pedidos": 106,
-    "ticket_medio": 98246.92,
+    "faturamento": 11071082,
+    "pedidos": 114,
+    "ticket_medio": 97114.75,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 806806,
-        "pedidos": 46,
+        "faturamento": 871552,
+        "pedidos": 50,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 4404108,
-        "pedidos": 28,
+        "faturamento": 4608700,
+        "pedidos": 29,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 2453918,
-        "pedidos": 8,
+        "faturamento": 2675553,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 292971,
-        "pedidos": 2,
+        "faturamento": 403842,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 2348935,
-        "pedidos": 21,
+        "faturamento": 2403999,
+        "pedidos": 22,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 10244742,
-    "pedidos": 151
+    "faturamento": 10349883,
+    "pedidos": 152
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 239878573,
-    "pedidos": 2971,
+    "faturamento": 240640622,
+    "pedidos": 2980,
     "meta_mensal": 8000000,
-    "pct_meta": 2998.5,
-    "projecao_final": 413124209.06,
+    "pct_meta": 3008,
+    "projecao_final": 414436626.78,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 20823595,
-        "pedidos": 1220
+        "faturamento": 20888341,
+        "pedidos": 1224
       },
       "Casas Bahia": {
-        "faturamento": 81128570,
-        "pedidos": 567
+        "faturamento": 81438303,
+        "pedidos": 569
       },
       "Magazine Luiza": {
-        "faturamento": 22443277,
-        "pedidos": 145
+        "faturamento": 22664912,
+        "pedidos": 146
       },
       "Shopee": {
-        "faturamento": 29920255,
-        "pedidos": 284
+        "faturamento": 30031126,
+        "pedidos": 285
       },
       "Amazon": {
-        "faturamento": 80355119,
-        "pedidos": 709
+        "faturamento": 80410183,
+        "pedidos": 710
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 605,
-      "fat": 47264547,
+      "qtd": 606,
+      "fat": 47282046,
       "canais": {
+        "Casas Bahia": 253,
         "Amazon": 264,
-        "Casas Bahia": 252,
         "Mercado Livre": 81,
         "Shopee": 8
       }
@@ -102,14 +102,14 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 451,
-      "fat": 6537411,
+      "qtd": 453,
+      "fat": 6557209,
       "canais": {
-        "Mercado Livre": 255,
+        "Mercado Livre": 256,
+        "Shopee": 51,
         "Amazon": 73,
         "Outros": 1,
         "Casas Bahia": 71,
-        "Shopee": 50,
         "Magazine Luiza": 1
       }
     },
@@ -197,10 +197,10 @@
     {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
-      "qtd": 107,
-      "fat": 799563,
+      "qtd": 106,
+      "fat": 791094,
       "canais": {
-        "Mercado Livre": 53,
+        "Mercado Livre": 52,
         "Casas Bahia": 53,
         "Amazon": 1
       }
@@ -219,6 +219,19 @@
       }
     },
     {
+      "sku": "TI1514",
+      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
+      "qtd": 90,
+      "fat": 3277681,
+      "canais": {
+        "Mercado Livre": 57,
+        "Casas Bahia": 7,
+        "Magazine Luiza": 2,
+        "Amazon": 18,
+        "Shopee": 6
+      }
+    },
+    {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
       "qtd": 89,
@@ -229,19 +242,6 @@
         "Magazine Luiza": 10,
         "Shopee": 19,
         "Mercado Livre": 22
-      }
-    },
-    {
-      "sku": "TI1514",
-      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 88,
-      "fat": 3237023,
-      "canais": {
-        "Mercado Livre": 55,
-        "Casas Bahia": 7,
-        "Magazine Luiza": 2,
-        "Amazon": 18,
-        "Shopee": 6
       }
     },
     {
@@ -319,22 +319,22 @@
     {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 61,
-      "fat": 3359295,
+      "qtd": 62,
+      "fat": 3379794,
       "canais": {
+        "Magazine Luiza": 4,
         "Amazon": 21,
         "Mercado Livre": 36,
-        "Magazine Luiza": 3,
         "Casas Bahia": 1
       }
     },
     {
       "sku": "TI1527",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
-      "qtd": 56,
-      "fat": 503267,
+      "qtd": 57,
+      "fat": 512626,
       "canais": {
-        "Mercado Livre": 44,
+        "Mercado Livre": 45,
         "Magazine Luiza": 2,
         "Amazon": 9,
         "Shopee": 1
@@ -388,6 +388,19 @@
       }
     },
     {
+      "sku": "TI1694",
+      "desc": "Fogao a Gas Itatiaia Star New 6 Bocas Mesa Inox Forno 82 Litros-Preto",
+      "qtd": 52,
+      "fat": 896101,
+      "canais": {
+        "Casas Bahia": 5,
+        "Mercado Livre": 36,
+        "Magazine Luiza": 6,
+        "Shopee": 3,
+        "Amazon": 2
+      }
+    },
+    {
       "sku": "TI1522",
       "desc": "Centrifuga Mueller Fit 15 kg de Roupa molhada Dupla Tampa Branco-127v",
       "qtd": 51,
@@ -396,19 +409,6 @@
         "Casas Bahia": 3,
         "Mercado Livre": 46,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1694",
-      "desc": "Fogao a Gas Itatiaia Star New 6 Bocas Mesa Inox Forno 82 Litros-Preto",
-      "qtd": 51,
-      "fat": 887102,
-      "canais": {
-        "Mercado Livre": 36,
-        "Magazine Luiza": 6,
-        "Shopee": 3,
-        "Amazon": 2,
-        "Casas Bahia": 4
       }
     },
     {
@@ -458,23 +458,23 @@
   ],
   "historico_por_dia": {
     "18/08/2026": {
-      "fat": 10414174,
-      "peds": 106,
+      "fat": 11071082,
+      "peds": 114,
       "canais": {
-        "Mercado Livre": 806806,
-        "Casas Bahia": 4404108,
-        "Magazine Luiza": 2453918,
-        "Shopee": 292971,
-        "Amazon": 2348935,
+        "Mercado Livre": 871552,
+        "Casas Bahia": 4608700,
+        "Magazine Luiza": 2675553,
+        "Shopee": 403842,
+        "Amazon": 2403999,
         "Amazon Fulfillment": 0
       }
     },
     "17/08/2026": {
-      "fat": 10244742,
-      "peds": 151,
+      "fat": 10349883,
+      "peds": 152,
       "canais": {
         "Mercado Livre": 1530430,
-        "Casas Bahia": 3845652,
+        "Casas Bahia": 3950793,
         "Magazine Luiza": 2174744,
         "Shopee": 1018012,
         "Amazon": 1675904,
