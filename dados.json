@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-18T09:29:25.412Z",
-  "gerado_em_br": "18/08/2026, 06:29:25",
+  "gerado_em": "2026-08-18T10:24:54.913Z",
+  "gerado_em_br": "18/08/2026, 07:24:54",
   "dia_referencia": "18/08/2026",
   "dia_ontem": "17/08/2026",
   "resumo_dia": {
-    "faturamento": 19512,
-    "pedidos": 1,
-    "ticket_medio": 19512,
+    "faturamento": 192466,
+    "pedidos": 2,
+    "ticket_medio": 96233,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 172954,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 229053998,
-    "pedidos": 2862,
+    "faturamento": 229226952,
+    "pedidos": 2863,
     "meta_mensal": 8000000,
-    "pct_meta": 2863.2,
-    "projecao_final": 394481885.44,
+    "pct_meta": 2865.3,
+    "projecao_final": 394779750.67,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 20004221,
@@ -73,8 +73,8 @@
         "pedidos": 137
       },
       "Shopee": {
-        "faturamento": 29627284,
-        "pedidos": 282
+        "faturamento": 29800238,
+        "pedidos": 283
       },
       "Amazon": {
         "faturamento": 78006184,
@@ -128,12 +128,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 195,
-      "fat": 8164310,
+      "qtd": 196,
+      "fat": 8181859,
       "canais": {
+        "Shopee": 18,
         "Casas Bahia": 64,
         "Mercado Livre": 49,
-        "Shopee": 17,
         "Amazon": 61,
         "Magazine Luiza": 3,
         "Outros": 1
@@ -460,13 +460,13 @@
   ],
   "historico_por_dia": {
     "18/08/2026": {
-      "fat": 19512,
-      "peds": 1,
+      "fat": 192466,
+      "peds": 2,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 19512,
         "Magazine Luiza": 0,
-        "Shopee": 0,
+        "Shopee": 172954,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
