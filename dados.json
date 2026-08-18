@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-18T03:41:23.004Z",
-  "gerado_em_br": "18/08/2026, 00:41:23",
+  "gerado_em": "2026-08-18T04:32:13.004Z",
+  "gerado_em_br": "18/08/2026, 01:32:13",
   "dia_referencia": "17/08/2026",
   "dia_ontem": "16/08/2026",
   "resumo_dia": {
-    "faturamento": 10008178,
-    "pedidos": 147,
-    "ticket_medio": 68082.84,
+    "faturamento": 10016647,
+    "pedidos": 148,
+    "ticket_medio": 67680.05,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1501163,
-        "pedidos": 77,
+        "faturamento": 1509632,
+        "pedidos": 78,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 229026017,
-    "pedidos": 2860,
+    "faturamento": 229034486,
+    "pedidos": 2861,
     "meta_mensal": 8000000,
-    "pct_meta": 2862.8,
-    "projecao_final": 394433695.94,
+    "pct_meta": 2862.9,
+    "projecao_final": 394448281.44,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 19995752,
-        "pedidos": 1171
+        "faturamento": 20004221,
+        "pedidos": 1172
       },
       "Casas Bahia": {
         "faturamento": 76307117,
@@ -194,6 +194,17 @@
       }
     },
     {
+      "sku": "TI1560",
+      "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
+      "qtd": 105,
+      "fat": 782625,
+      "canais": {
+        "Mercado Livre": 51,
+        "Casas Bahia": 53,
+        "Amazon": 1
+      }
+    },
+    {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
       "qtd": 105,
@@ -204,17 +215,6 @@
         "Amazon": 19,
         "Shopee": 11,
         "Casas Bahia": 2
-      }
-    },
-    {
-      "sku": "TI1560",
-      "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
-      "qtd": 104,
-      "fat": 774156,
-      "canais": {
-        "Mercado Livre": 50,
-        "Casas Bahia": 53,
-        "Amazon": 1
       }
     },
     {
@@ -457,10 +457,10 @@
   ],
   "historico_por_dia": {
     "17/08/2026": {
-      "fat": 10008178,
-      "peds": 147,
+      "fat": 10016647,
+      "peds": 148,
       "canais": {
-        "Mercado Livre": 1501163,
+        "Mercado Livre": 1509632,
         "Casas Bahia": 3638355,
         "Magazine Luiza": 2174744,
         "Shopee": 1018012,
