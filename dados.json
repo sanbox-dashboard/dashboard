@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-19T14:30:02.529Z",
-  "gerado_em_br": "19/08/2026, 11:30:02",
+  "gerado_em": "2026-08-19T15:28:03.777Z",
+  "gerado_em_br": "19/08/2026, 12:28:03",
   "dia_referencia": "19/08/2026",
   "dia_ontem": "18/08/2026",
   "resumo_dia": {
-    "faturamento": 2432270,
-    "pedidos": 27,
-    "ticket_medio": 90084.07,
+    "faturamento": 2845446,
+    "pedidos": 33,
+    "ticket_medio": 86225.64,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 160508,
-        "pedidos": 12,
+        "faturamento": 163977,
+        "pedidos": 13,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1332708,
-        "pedidos": 5,
+        "faturamento": 1680689,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 244491633,
-    "pedidos": 3028,
+    "faturamento": 244904809,
+    "pedidos": 3034,
     "meta_mensal": 8000000,
-    "pct_meta": 3056.1,
-    "projecao_final": 398907401.21,
+    "pct_meta": 3061.3,
+    "projecao_final": 399581530.47,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 21602738,
-        "pedidos": 1251
+        "faturamento": 21606207,
+        "pedidos": 1252
       },
       "Casas Bahia": {
         "faturamento": 82528410,
@@ -77,8 +77,8 @@
         "pedidos": 287
       },
       "Amazon": {
-        "faturamento": 81916138,
-        "pedidos": 717
+        "faturamento": 82264119,
+        "pedidos": 721
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 596,
-      "fat": 47217611,
+      "qtd": 597,
+      "fat": 47392509,
       "canais": {
+        "Amazon": 258,
         "Casas Bahia": 250,
-        "Amazon": 257,
         "Mercado Livre": 81,
         "Shopee": 8
       }
@@ -234,14 +234,27 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 88,
-      "fat": 1259148,
+      "qtd": 89,
+      "fat": 1340617,
       "canais": {
-        "Amazon": 23,
+        "Amazon": 24,
         "Casas Bahia": 16,
         "Magazine Luiza": 10,
         "Shopee": 18,
         "Mercado Livre": 21
+      }
+    },
+    {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 82,
+      "fat": 802930,
+      "canais": {
+        "Amazon": 27,
+        "Mercado Livre": 48,
+        "Shopee": 3,
+        "Magazine Luiza": 3,
+        "Casas Bahia": 1
       }
     },
     {
@@ -255,19 +268,6 @@
         "Amazon": 13,
         "Magazine Luiza": 1,
         "Casas Bahia": 2
-      }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 81,
-      "fat": 742941,
-      "canais": {
-        "Amazon": 26,
-        "Mercado Livre": 48,
-        "Shopee": 3,
-        "Magazine Luiza": 3,
-        "Casas Bahia": 1
       }
     },
     {
@@ -460,14 +460,14 @@
   ],
   "historico_por_dia": {
     "19/08/2026": {
-      "fat": 2432270,
-      "peds": 27,
+      "fat": 2845446,
+      "peds": 33,
       "canais": {
-        "Mercado Livre": 160508,
+        "Mercado Livre": 163977,
         "Casas Bahia": 522149,
         "Magazine Luiza": 259300,
         "Shopee": 157190,
-        "Amazon": 1332708,
+        "Amazon": 1680689,
         "Amazon Fulfillment": 0
       }
     },
