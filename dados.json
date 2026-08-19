@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-19T22:21:06.615Z",
-  "gerado_em_br": "19/08/2026, 19:21:06",
+  "gerado_em": "2026-08-19T23:19:40.596Z",
+  "gerado_em_br": "19/08/2026, 20:19:40",
   "dia_referencia": "19/08/2026",
   "dia_ontem": "18/08/2026",
   "resumo_dia": {
-    "faturamento": 7207555,
-    "pedidos": 96,
-    "ticket_medio": 75078.7,
+    "faturamento": 8293119,
+    "pedidos": 102,
+    "ticket_medio": 81305.09,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 626309,
-        "pedidos": 41,
+        "faturamento": 653706,
+        "pedidos": 44,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1765980,
-        "pedidos": 12,
+        "faturamento": 2405903,
+        "pedidos": 13,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1656420,
-        "pedidos": 16,
+        "faturamento": 1896057,
+        "pedidos": 17,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 2614086,
-        "pedidos": 18,
+        "faturamento": 2792693,
+        "pedidos": 19,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 249735868,
-    "pedidos": 3099,
+    "faturamento": 250821432,
+    "pedidos": 3105,
     "meta_mensal": 8000000,
-    "pct_meta": 3121.7,
-    "projecao_final": 407463784.63,
+    "pct_meta": 3135.3,
+    "projecao_final": 409234968,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 22058540,
-        "pedidos": 1279
+        "faturamento": 22085937,
+        "pedidos": 1282
       },
       "Casas Bahia": {
-        "faturamento": 84251190,
-        "pedidos": 587
+        "faturamento": 84891113,
+        "pedidos": 588
       },
       "Magazine Luiza": {
-        "faturamento": 24395751,
-        "pedidos": 163
+        "faturamento": 24635388,
+        "pedidos": 164
       },
       "Shopee": {
         "faturamento": 30562973,
         "pedidos": 292
       },
       "Amazon": {
-        "faturamento": 83197516,
-        "pedidos": 730
+        "faturamento": 83376123,
+        "pedidos": 731
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -158,10 +158,10 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 156,
-      "fat": 5077988,
+      "qtd": 158,
+      "fat": 5099586,
       "canais": {
-        "Mercado Livre": 52,
+        "Mercado Livre": 54,
         "Amazon": 19,
         "Shopee": 32,
         "Casas Bahia": 45,
@@ -437,10 +437,10 @@
     {
       "sku": "TI1608",
       "desc": "Caixa de Som Pulse Torre Sp516 Double 12\"pol LED 2700w - Bivolt",
-      "qtd": 48,
-      "fat": 3893468,
+      "qtd": 49,
+      "fat": 3913467,
       "canais": {
-        "Magazine Luiza": 4,
+        "Magazine Luiza": 5,
         "Casas Bahia": 8,
         "Mercado Livre": 15,
         "Shopee": 18,
@@ -460,14 +460,14 @@
   ],
   "historico_por_dia": {
     "19/08/2026": {
-      "fat": 7207555,
-      "peds": 96,
+      "fat": 8293119,
+      "peds": 102,
       "canais": {
-        "Mercado Livre": 626309,
-        "Casas Bahia": 1765980,
-        "Magazine Luiza": 1656420,
+        "Mercado Livre": 653706,
+        "Casas Bahia": 2405903,
+        "Magazine Luiza": 1896057,
         "Shopee": 482619,
-        "Amazon": 2614086,
+        "Amazon": 2792693,
         "Amazon Fulfillment": 0
       }
     },
