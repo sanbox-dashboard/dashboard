@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-19T13:41:22.198Z",
-  "gerado_em_br": "19/08/2026, 10:41:22",
+  "gerado_em": "2026-08-19T14:30:02.529Z",
+  "gerado_em_br": "19/08/2026, 11:30:02",
   "dia_referencia": "19/08/2026",
   "dia_ontem": "18/08/2026",
   "resumo_dia": {
-    "faturamento": 2411426,
-    "pedidos": 25,
-    "ticket_medio": 96457.04,
+    "faturamento": 2432270,
+    "pedidos": 27,
+    "ticket_medio": 90084.07,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 140079,
-        "pedidos": 11,
+        "faturamento": 160508,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 12675833,
-    "pedidos": 135
+    "faturamento": 12479824,
+    "pedidos": 134
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 244666798,
-    "pedidos": 3027,
+    "faturamento": 244491633,
+    "pedidos": 3028,
     "meta_mensal": 8000000,
-    "pct_meta": 3058.3,
-    "projecao_final": 399193196.74,
+    "pct_meta": 3056.1,
+    "projecao_final": 398907401.21,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 21582309,
-        "pedidos": 1250
+        "faturamento": 21602738,
+        "pedidos": 1251
       },
       "Casas Bahia": {
-        "faturamento": 82724419,
-        "pedidos": 577
+        "faturamento": 82528410,
+        "pedidos": 576
       },
       "Magazine Luiza": {
         "faturamento": 22998631,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 597,
-      "fat": 47235110,
+      "qtd": 596,
+      "fat": 47217611,
       "canais": {
-        "Casas Bahia": 251,
+        "Casas Bahia": 250,
         "Amazon": 257,
         "Mercado Livre": 81,
         "Shopee": 8
@@ -341,6 +341,18 @@
       }
     },
     {
+      "sku": "TI1607",
+      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
+      "qtd": 54,
+      "fat": 1057736,
+      "canais": {
+        "Mercado Livre": 46,
+        "Casas Bahia": 6,
+        "Amazon": 1,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1426",
       "desc": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS - 3500w",
       "qtd": 54,
@@ -348,18 +360,6 @@
       "canais": {
         "Casas Bahia": 10,
         "Mercado Livre": 44
-      }
-    },
-    {
-      "sku": "TI1607",
-      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
-      "qtd": 53,
-      "fat": 1037307,
-      "canais": {
-        "Casas Bahia": 6,
-        "Amazon": 1,
-        "Mercado Livre": 45,
-        "Outros": 1
       }
     },
     {
@@ -460,10 +460,10 @@
   ],
   "historico_por_dia": {
     "19/08/2026": {
-      "fat": 2411426,
-      "peds": 25,
+      "fat": 2432270,
+      "peds": 27,
       "canais": {
-        "Mercado Livre": 140079,
+        "Mercado Livre": 160508,
         "Casas Bahia": 522149,
         "Magazine Luiza": 259300,
         "Shopee": 157190,
@@ -472,11 +472,11 @@
       }
     },
     "18/08/2026": {
-      "fat": 12675833,
-      "peds": 135,
+      "fat": 12479824,
+      "peds": 134,
       "canais": {
         "Mercado Livre": 1415442,
-        "Casas Bahia": 5372667,
+        "Casas Bahia": 5176658,
         "Magazine Luiza": 2749972,
         "Shopee": 453070,
         "Amazon": 2577246,
