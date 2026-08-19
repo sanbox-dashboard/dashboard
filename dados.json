@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-19T15:28:03.777Z",
-  "gerado_em_br": "19/08/2026, 12:28:03",
+  "gerado_em": "2026-08-19T16:27:49.861Z",
+  "gerado_em_br": "19/08/2026, 13:27:49",
   "dia_referencia": "19/08/2026",
   "dia_ontem": "18/08/2026",
   "resumo_dia": {
-    "faturamento": 2845446,
-    "pedidos": 33,
-    "ticket_medio": 86225.64,
+    "faturamento": 3094846,
+    "pedidos": 40,
+    "ticket_medio": 77371.15,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 163977,
-        "pedidos": 13,
+        "faturamento": 218534,
+        "pedidos": 16,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,14 +23,14 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 259300,
-        "pedidos": 3,
+        "faturamento": 378654,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 157190,
-        "pedidos": 2,
+        "faturamento": 232679,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 244904809,
-    "pedidos": 3034,
+    "faturamento": 245154209,
+    "pedidos": 3041,
     "meta_mensal": 8000000,
-    "pct_meta": 3061.3,
-    "projecao_final": 399581530.47,
+    "pct_meta": 3064.4,
+    "projecao_final": 399988446.26,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 21606207,
-        "pedidos": 1252
+        "faturamento": 21660764,
+        "pedidos": 1255
       },
       "Casas Bahia": {
         "faturamento": 82528410,
         "pedidos": 576
       },
       "Magazine Luiza": {
-        "faturamento": 22998631,
-        "pedidos": 150
+        "faturamento": 23117985,
+        "pedidos": 152
       },
       "Shopee": {
-        "faturamento": 30237544,
-        "pedidos": 287
+        "faturamento": 30313033,
+        "pedidos": 289
       },
       "Amazon": {
         "faturamento": 82264119,
@@ -116,11 +116,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 348,
-      "fat": 4381257,
+      "qtd": 350,
+      "fat": 4412975,
       "canais": {
+        "Mercado Livre": 157,
         "Casas Bahia": 77,
-        "Mercado Livre": 155,
         "Amazon": 97,
         "Magazine Luiza": 3,
         "Shopee": 16
@@ -158,12 +158,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 150,
-      "fat": 4736425,
+      "qtd": 151,
+      "fat": 4737488,
       "canais": {
+        "Shopee": 32,
         "Mercado Livre": 48,
         "Casas Bahia": 45,
-        "Shopee": 31,
         "Amazon": 18,
         "Magazine Luiza": 8
       }
@@ -389,6 +389,18 @@
       }
     },
     {
+      "sku": "TI1738",
+      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
+      "qtd": 50,
+      "fat": 1496400,
+      "canais": {
+        "Magazine Luiza": 5,
+        "Amazon": 37,
+        "Shopee": 7,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 50,
@@ -409,18 +421,6 @@
         "Casas Bahia": 3,
         "Mercado Livre": 45,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1738",
-      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
-      "qtd": 49,
-      "fat": 1491401,
-      "canais": {
-        "Amazon": 37,
-        "Magazine Luiza": 4,
-        "Shopee": 7,
-        "Outros": 1
       }
     },
     {
@@ -460,13 +460,13 @@
   ],
   "historico_por_dia": {
     "19/08/2026": {
-      "fat": 2845446,
-      "peds": 33,
+      "fat": 3094846,
+      "peds": 40,
       "canais": {
-        "Mercado Livre": 163977,
+        "Mercado Livre": 218534,
         "Casas Bahia": 522149,
-        "Magazine Luiza": 259300,
-        "Shopee": 157190,
+        "Magazine Luiza": 378654,
+        "Shopee": 232679,
         "Amazon": 1680689,
         "Amazon Fulfillment": 0
       }
