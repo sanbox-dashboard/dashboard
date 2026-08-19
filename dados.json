@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-19T07:35:15.093Z",
-  "gerado_em_br": "19/08/2026, 04:35:15",
+  "gerado_em": "2026-08-19T08:33:33.746Z",
+  "gerado_em_br": "19/08/2026, 05:33:33",
   "dia_referencia": "19/08/2026",
   "dia_ontem": "18/08/2026",
   "resumo_dia": {
-    "faturamento": 155722,
-    "pedidos": 2,
-    "ticket_medio": 77861,
+    "faturamento": 266915,
+    "pedidos": 3,
+    "ticket_medio": 88971.67,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 111193,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 242146998,
-    "pedidos": 2998,
+    "faturamento": 242258191,
+    "pedidos": 2999,
     "meta_mensal": 8000000,
-    "pct_meta": 3026.8,
-    "projecao_final": 395081944.11,
+    "pct_meta": 3028.2,
+    "projecao_final": 395263364.26,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 21178134,
         "pedidos": 1233
       },
       "Casas Bahia": {
-        "faturamento": 82202270,
-        "pedidos": 573
+        "faturamento": 82313463,
+        "pedidos": 574
       },
       "Magazine Luiza": {
         "faturamento": 22895053,
@@ -158,14 +158,14 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 146,
-      "fat": 4695429,
+      "qtd": 147,
+      "fat": 4704628,
       "canais": {
+        "Casas Bahia": 44,
         "Mercado Livre": 46,
         "Shopee": 31,
         "Amazon": 18,
-        "Magazine Luiza": 8,
-        "Casas Bahia": 43
+        "Magazine Luiza": 8
       }
     },
     {
@@ -460,11 +460,11 @@
   ],
   "historico_por_dia": {
     "19/08/2026": {
-      "fat": 155722,
-      "peds": 2,
+      "fat": 266915,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Casas Bahia": 111193,
         "Magazine Luiza": 155722,
         "Shopee": 0,
         "Amazon": 0,
