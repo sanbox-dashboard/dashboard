@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-19T01:04:43.946Z",
-  "gerado_em_br": "18/08/2026, 22:04:43",
+  "gerado_em": "2026-08-19T02:54:34.638Z",
+  "gerado_em_br": "18/08/2026, 23:54:34",
   "dia_referencia": "19/08/2026",
   "dia_ontem": "18/08/2026",
   "resumo_dia": {
-    "faturamento": 148599,
-    "pedidos": 1,
-    "ticket_medio": 148599,
+    "faturamento": 155722,
+    "pedidos": 2,
+    "ticket_medio": 77861,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 148599,
-        "pedidos": 1,
+        "faturamento": 155722,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 11806673,
-    "pedidos": 122
+    "faturamento": 12215728,
+    "pedidos": 128
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 241534811,
-    "pedidos": 2990,
+    "faturamento": 241950989,
+    "pedidos": 2997,
     "meta_mensal": 8000000,
-    "pct_meta": 3019.2,
-    "projecao_final": 394083112.68,
+    "pct_meta": 3024.4,
+    "projecao_final": 394762139.95,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 21139047,
-        "pedidos": 1230
+        "faturamento": 21178134,
+        "pedidos": 1233
       },
       "Casas Bahia": {
-        "faturamento": 81809540,
-        "pedidos": 571
+        "faturamento": 82006261,
+        "pedidos": 572
       },
       "Magazine Luiza": {
-        "faturamento": 22887930,
-        "pedidos": 148
+        "faturamento": 22895053,
+        "pedidos": 149
       },
       "Shopee": {
         "faturamento": 30080354,
         "pedidos": 285
       },
       "Amazon": {
-        "faturamento": 80410183,
-        "pedidos": 710
+        "faturamento": 80583430,
+        "pedidos": 712
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 595,
-      "fat": 47200112,
+      "qtd": 596,
+      "fat": 47217611,
       "canais": {
-        "Casas Bahia": 249,
+        "Casas Bahia": 250,
         "Amazon": 257,
         "Mercado Livre": 81,
         "Shopee": 8
@@ -221,10 +221,10 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 88,
-      "fat": 3238543,
+      "qtd": 89,
+      "fat": 3259542,
       "canais": {
-        "Mercado Livre": 55,
+        "Mercado Livre": 56,
         "Casas Bahia": 7,
         "Magazine Luiza": 2,
         "Amazon": 18,
@@ -412,6 +412,18 @@
       }
     },
     {
+      "sku": "TI1738",
+      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
+      "qtd": 49,
+      "fat": 1491401,
+      "canais": {
+        "Amazon": 37,
+        "Magazine Luiza": 4,
+        "Shopee": 7,
+        "Outros": 1
+      }
+    },
+    {
       "sku": "TI1563",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
       "qtd": 49,
@@ -420,18 +432,6 @@
         "Casas Bahia": 23,
         "Amazon": 25,
         "Shopee": 1
-      }
-    },
-    {
-      "sku": "TI1738",
-      "desc": "Vitrola Toca disco Pulse Morrison Retro com Bluetooth/RCA Marrom - Bivolt",
-      "qtd": 48,
-      "fat": 1441412,
-      "canais": {
-        "Amazon": 36,
-        "Magazine Luiza": 4,
-        "Shopee": 7,
-        "Outros": 1
       }
     },
     {
@@ -460,26 +460,26 @@
   ],
   "historico_por_dia": {
     "19/08/2026": {
-      "fat": 148599,
-      "peds": 1,
+      "fat": 155722,
+      "peds": 2,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
-        "Magazine Luiza": 148599,
+        "Magazine Luiza": 155722,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "18/08/2026": {
-      "fat": 11806673,
-      "peds": 122,
+      "fat": 12215728,
+      "peds": 128,
       "canais": {
-        "Mercado Livre": 1112259,
-        "Casas Bahia": 4979937,
+        "Mercado Livre": 1151346,
+        "Casas Bahia": 5176658,
         "Magazine Luiza": 2749972,
         "Shopee": 453070,
-        "Amazon": 2403999,
+        "Amazon": 2577246,
         "Amazon Fulfillment": 0
       }
     },
