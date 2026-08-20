@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-20T10:26:42.230Z",
-  "gerado_em_br": "20/08/2026, 07:26:42",
+  "gerado_em": "2026-08-20T11:23:26.036Z",
+  "gerado_em_br": "20/08/2026, 08:23:26",
   "dia_referencia": "20/08/2026",
   "dia_ontem": "19/08/2026",
   "resumo_dia": {
-    "faturamento": 483625,
-    "pedidos": 5,
-    "ticket_medio": 96725,
+    "faturamento": 501323,
+    "pedidos": 7,
+    "ticket_medio": 71617.57,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 3469,
-        "pedidos": 1,
+        "faturamento": 21167,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 253639854,
-    "pedidos": 3138,
+    "faturamento": 253657552,
+    "pedidos": 3140,
     "meta_mensal": 8000000,
-    "pct_meta": 3170.5,
-    "projecao_final": 393141773.7,
+    "pct_meta": 3170.7,
+    "projecao_final": 393169205.6,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 22340184,
-        "pedidos": 1295
+        "faturamento": 22357882,
+        "pedidos": 1297
       },
       "Casas Bahia": {
         "faturamento": 86042717,
@@ -157,12 +157,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 159,
-      "fat": 5109625,
+      "qtd": 160,
+      "fat": 5120424,
       "canais": {
+        "Mercado Livre": 55,
         "Shopee": 32,
         "Casas Bahia": 46,
-        "Mercado Livre": 54,
         "Amazon": 19,
         "Magazine Luiza": 8
       }
@@ -457,10 +457,10 @@
   ],
   "historico_por_dia": {
     "20/08/2026": {
-      "fat": 483625,
-      "peds": 5,
+      "fat": 501323,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 3469,
+        "Mercado Livre": 21167,
         "Casas Bahia": 245566,
         "Magazine Luiza": 154781,
         "Shopee": 79809,
