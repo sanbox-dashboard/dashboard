@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-20T14:32:42.439Z",
-  "gerado_em_br": "20/08/2026, 11:32:42",
+  "gerado_em": "2026-08-20T15:30:12.938Z",
+  "gerado_em_br": "20/08/2026, 12:30:12",
   "dia_referencia": "20/08/2026",
   "dia_ontem": "19/08/2026",
   "resumo_dia": {
-    "faturamento": 1757181,
-    "pedidos": 23,
-    "ticket_medio": 76399.17,
+    "faturamento": 2754021,
+    "pedidos": 33,
+    "ticket_medio": 83455.18,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 130600,
-        "pedidos": 10,
+        "faturamento": 183399,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 696288,
-        "pedidos": 7,
+        "faturamento": 1171519,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 614379,
-        "pedidos": 3,
+        "faturamento": 1013570,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 69619,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 255127185,
-    "pedidos": 3158,
+    "faturamento": 256124025,
+    "pedidos": 3168,
     "meta_mensal": 8000000,
-    "pct_meta": 3189.1,
-    "projecao_final": 395447136.75,
+    "pct_meta": 3201.6,
+    "projecao_final": 396992238.75,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 22467315,
-        "pedidos": 1304
+        "faturamento": 22520114,
+        "pedidos": 1305
       },
       "Casas Bahia": {
-        "faturamento": 86707214,
-        "pedidos": 603
+        "faturamento": 87182445,
+        "pedidos": 607
       },
       "Magazine Luiza": {
-        "faturamento": 25249767,
-        "pedidos": 167
+        "faturamento": 25648958,
+        "pedidos": 170
       },
       "Shopee": {
         "faturamento": 31042053,
         "pedidos": 297
       },
       "Amazon": {
-        "faturamento": 84390938,
-        "pedidos": 739
+        "faturamento": 84460557,
+        "pedidos": 741
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -219,14 +219,27 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 92,
-      "fat": 3315399,
+      "qtd": 93,
+      "fat": 3334098,
       "canais": {
+        "Magazine Luiza": 4,
         "Casas Bahia": 8,
         "Mercado Livre": 57,
-        "Magazine Luiza": 3,
         "Amazon": 18,
         "Shopee": 6
+      }
+    },
+    {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 84,
+      "fat": 975868,
+      "canais": {
+        "Amazon": 29,
+        "Mercado Livre": 48,
+        "Shopee": 3,
+        "Magazine Luiza": 3,
+        "Casas Bahia": 1
       }
     },
     {
@@ -240,19 +253,6 @@
         "Magazine Luiza": 10,
         "Shopee": 16,
         "Mercado Livre": 19
-      }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 83,
-      "fat": 915879,
-      "canais": {
-        "Mercado Livre": 48,
-        "Amazon": 28,
-        "Shopee": 3,
-        "Magazine Luiza": 3,
-        "Casas Bahia": 1
       }
     },
     {
@@ -271,12 +271,12 @@
     {
       "sku": "TI1090",
       "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 70,
-      "fat": 560490,
+      "qtd": 71,
+      "fat": 567689,
       "canais": {
+        "Casas Bahia": 3,
         "Mercado Livre": 67,
-        "Shopee": 1,
-        "Casas Bahia": 2
+        "Shopee": 1
       }
     },
     {
@@ -457,14 +457,14 @@
   ],
   "historico_por_dia": {
     "20/08/2026": {
-      "fat": 1757181,
-      "peds": 23,
+      "fat": 2754021,
+      "peds": 33,
       "canais": {
-        "Mercado Livre": 130600,
-        "Casas Bahia": 696288,
-        "Magazine Luiza": 614379,
+        "Mercado Livre": 183399,
+        "Casas Bahia": 1171519,
+        "Magazine Luiza": 1013570,
         "Shopee": 315914,
-        "Amazon": 0,
+        "Amazon": 69619,
         "Amazon Fulfillment": 0
       }
     },
