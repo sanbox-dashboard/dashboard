@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-20T11:23:26.036Z",
-  "gerado_em_br": "20/08/2026, 08:23:26",
+  "gerado_em": "2026-08-20T12:41:51.078Z",
+  "gerado_em_br": "20/08/2026, 09:41:51",
   "dia_referencia": "20/08/2026",
   "dia_ontem": "19/08/2026",
   "resumo_dia": {
-    "faturamento": 501323,
-    "pedidos": 7,
-    "ticket_medio": 71617.57,
+    "faturamento": 898775,
+    "pedidos": 12,
+    "ticket_medio": 74897.92,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,14 +17,14 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 245566,
-        "pedidos": 2,
+        "faturamento": 535074,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 154781,
-        "pedidos": 1,
+        "faturamento": 262725,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 253657552,
-    "pedidos": 3140,
+    "faturamento": 254268779,
+    "pedidos": 3147,
     "meta_mensal": 8000000,
-    "pct_meta": 3170.7,
-    "projecao_final": 393169205.6,
+    "pct_meta": 3178.4,
+    "projecao_final": 394116607.45,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 22357882,
         "pedidos": 1297
       },
       "Casas Bahia": {
-        "faturamento": 86042717,
-        "pedidos": 596
+        "faturamento": 86546000,
+        "pedidos": 602
       },
       "Magazine Luiza": {
-        "faturamento": 24790169,
-        "pedidos": 165
+        "faturamento": 24898113,
+        "pedidos": 166
       },
       "Shopee": {
         "faturamento": 30805948,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 579,
-      "fat": 46320202,
+      "qtd": 581,
+      "fat": 46355200,
       "canais": {
-        "Casas Bahia": 242,
+        "Casas Bahia": 244,
         "Amazon": 251,
         "Mercado Livre": 78,
         "Shopee": 8
@@ -116,11 +116,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 336,
-      "fat": 4303159,
+      "qtd": 337,
+      "fat": 4317358,
       "canais": {
+        "Casas Bahia": 79,
         "Mercado Livre": 152,
-        "Casas Bahia": 78,
         "Amazon": 90,
         "Magazine Luiza": 3,
         "Shopee": 13
@@ -129,13 +129,13 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 194,
-      "fat": 8027231,
+      "qtd": 195,
+      "fat": 8044130,
       "canais": {
+        "Casas Bahia": 66,
         "Amazon": 59,
         "Magazine Luiza": 5,
         "Mercado Livre": 48,
-        "Casas Bahia": 65,
         "Shopee": 16,
         "Outros": 1
       }
@@ -376,6 +376,17 @@
       }
     },
     {
+      "sku": "TI1563",
+      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
+      "qtd": 49,
+      "fat": 1122359,
+      "canais": {
+        "Casas Bahia": 24,
+        "Amazon": 24,
+        "Shopee": 1
+      }
+    },
+    {
       "sku": "TI1426",
       "desc": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS - 3500w",
       "qtd": 49,
@@ -423,17 +434,6 @@
       }
     },
     {
-      "sku": "TI1563",
-      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 48,
-      "fat": 1116160,
-      "canais": {
-        "Casas Bahia": 23,
-        "Amazon": 24,
-        "Shopee": 1
-      }
-    },
-    {
       "sku": "TI1522",
       "desc": "Centrifuga Mueller Fit 15 kg de Roupa molhada Dupla Tampa Branco-127v",
       "qtd": 47,
@@ -457,12 +457,12 @@
   ],
   "historico_por_dia": {
     "20/08/2026": {
-      "fat": 501323,
-      "peds": 7,
+      "fat": 898775,
+      "peds": 12,
       "canais": {
         "Mercado Livre": 21167,
-        "Casas Bahia": 245566,
-        "Magazine Luiza": 154781,
+        "Casas Bahia": 535074,
+        "Magazine Luiza": 262725,
         "Shopee": 79809,
         "Amazon": 0,
         "Amazon Fulfillment": 0
@@ -481,11 +481,11 @@
       }
     },
     "18/08/2026": {
-      "fat": 12442966,
-      "peds": 132,
+      "fat": 12656741,
+      "peds": 134,
       "canais": {
         "Mercado Livre": 1378584,
-        "Casas Bahia": 5176658,
+        "Casas Bahia": 5390433,
         "Magazine Luiza": 2749972,
         "Shopee": 453070,
         "Amazon": 2577246,
