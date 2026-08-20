@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-20T15:30:12.938Z",
-  "gerado_em_br": "20/08/2026, 12:30:12",
+  "gerado_em": "2026-08-20T16:31:39.574Z",
+  "gerado_em_br": "20/08/2026, 13:31:39",
   "dia_referencia": "20/08/2026",
   "dia_ontem": "19/08/2026",
   "resumo_dia": {
-    "faturamento": 2754021,
-    "pedidos": 33,
-    "ticket_medio": 83455.18,
+    "faturamento": 3123917,
+    "pedidos": 36,
+    "ticket_medio": 86775.47,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1013570,
-        "pedidos": 6,
+        "faturamento": 1213815,
+        "pedidos": 8,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 69619,
-        "pedidos": 2,
+        "faturamento": 239270,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 256124025,
-    "pedidos": 3168,
+    "faturamento": 256493921,
+    "pedidos": 3171,
     "meta_mensal": 8000000,
-    "pct_meta": 3201.6,
-    "projecao_final": 396992238.75,
+    "pct_meta": 3206.2,
+    "projecao_final": 397565577.55,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 22520114,
@@ -69,16 +69,16 @@
         "pedidos": 607
       },
       "Magazine Luiza": {
-        "faturamento": 25648958,
-        "pedidos": 170
+        "faturamento": 25849203,
+        "pedidos": 172
       },
       "Shopee": {
         "faturamento": 31042053,
         "pedidos": 297
       },
       "Amazon": {
-        "faturamento": 84460557,
-        "pedidos": 741
+        "faturamento": 84630208,
+        "pedidos": 742
       },
       "Amazon Fulfillment": {
         "faturamento": 4983537,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 581,
-      "fat": 46355200,
+      "qtd": 583,
+      "fat": 46683782,
       "canais": {
-        "Casas Bahia": 244,
-        "Amazon": 251,
+        "Amazon": 252,
+        "Casas Bahia": 245,
         "Mercado Livre": 78,
         "Shopee": 8
       }
@@ -102,11 +102,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 430,
-      "fat": 6421471,
+      "qtd": 431,
+      "fat": 6430370,
       "canais": {
+        "Casas Bahia": 74,
         "Mercado Livre": 239,
-        "Casas Bahia": 73,
         "Amazon": 69,
         "Outros": 1,
         "Shopee": 47,
@@ -457,14 +457,14 @@
   ],
   "historico_por_dia": {
     "20/08/2026": {
-      "fat": 2754021,
-      "peds": 33,
+      "fat": 3123917,
+      "peds": 36,
       "canais": {
         "Mercado Livre": 183399,
         "Casas Bahia": 1171519,
-        "Magazine Luiza": 1013570,
+        "Magazine Luiza": 1213815,
         "Shopee": 315914,
-        "Amazon": 69619,
+        "Amazon": 239270,
         "Amazon Fulfillment": 0
       }
     },
