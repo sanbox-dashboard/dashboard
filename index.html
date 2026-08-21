@@ -499,6 +499,7 @@ tfoot td:first-child{text-align:left;}
           <button class="fbtn on" id="fDia" onclick="filtrar('dia')">📅 Dia</button>
           <button class="fbtn" id="fOntem" onclick="filtrar('ontem')">🌙 Ontem</button>
           <button class="fbtn" id="fMes" onclick="filtrar('mes')">📆 Mês</button>
+          <select id="fMesSel" onchange="selecionarMes()" style="display:none;border:1px solid var(--bd);border-radius:8px;padding:6px 10px;font:700 .7rem 'Nunito';background:var(--wh);color:var(--tx);cursor:pointer;"></select>
           <button class="fbtn" id="fCus" onclick="filtrar('custom')">🗓 Personalizado</button>
         </div>
         <div class="fcustom" id="fCustom">
@@ -1304,6 +1305,10 @@ const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
 // ── STATE ───────────────────────────────────────────────────
 let _modo='dia',_ini=null,_fim=null;
+// Histórico congelado (meses fechados <= corrente-3): lido de historico.json
+const HIST_URL='https://raw.githubusercontent.com/sanbox-dashboard/dashboard/main/historico.json';
+let _histData=null;   // conteúdo do historico.json
+let _mesSelKey='';    // mês escolhido no dropdown, formato "M/YYYY" ('' = mês corrente ao vivo)
 const _canalCache={'Casas Bahia':null,'Magazine Luiza':null,'Shopee':null,'Amazon':null};
 const _canalVidMap={'vCB':'Casas Bahia','vMG':'Magazine Luiza','vSH':'Shopee','vAMZ':'Amazon','vML':'Mercado Livre'};
 const SKUS_EXCLUIR_PROJ=new Set(['TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI287-5','TI287-6','TI1287','TI733-3','TI733-4','TI733-5']);
@@ -1751,6 +1756,86 @@ function renderDash(d){
     <span class="hi">📅 MÊS:</span> ${R(d.tM)} / Meta ${R(d.metaMes)} (${d.pctM}%)<span class="sp">|</span>`;
 }
 
+// ── RENDER DASHBOARD A PARTIR DO HISTÓRICO CONGELADO ────────
+// Converte um mês do historico.json para o formato que renderDash usa,
+// para que a tela fique idêntica a um mês ao vivo.
+function renderDashHistorico(h, key){
+  const R=v=>'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const NOMES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const[mm,yy]=key.split('/').map(Number);
+  const lbl=`${NOMES[mm-1].toUpperCase()}/${yy}`;
+
+  document.getElementById('dRef').textContent=lbl+' · 📦 ARQUIVADO';
+
+  // Cards principais — no histórico, "período" = mês inteiro
+  document.getElementById('kFat').textContent=R(h.faturamento_total);
+  document.getElementById('kFatSub').innerHTML=`${h.pedidos} pedidos — ${lbl}`;
+  document.getElementById('kMes').textContent=R(h.faturamento_total);
+  document.getElementById('kTicket').textContent=R(h.ticket_medio);
+  document.getElementById('kOnt').textContent='—';
+  document.getElementById('kOntSub').innerHTML='(mês arquivado)';
+
+  // Meta: histórico não guarda meta; mostra traço para não confundir
+  document.getElementById('kMeta').textContent='—';
+  const pk=document.getElementById('kPct');pk.textContent='—';pk.className='';
+  // Barras de progresso zeradas (sem meta no arquivo)
+  const fP=document.getElementById('fPct');if(fP)fP.style.width='0%';
+  const fPM=document.getElementById('fPctMes');if(fPM)fPM.style.width='0%';
+
+  // kMesSub / kMesCmv
+  const kMesSub=document.getElementById('kMesSub');if(kMesSub)kMesSub.innerHTML=lbl;
+  const kMesCmv=document.getElementById('kMesCmv');if(kMesCmv)kMesCmv.innerHTML='';
+  const kPed=document.getElementById('kPed');if(kPed)kPed.textContent=h.pedidos.toLocaleString('pt-BR');
+
+  // Canais
+  const totCanal=Object.values(h.por_canal||{}).reduce((s,v)=>s+v.faturamento,0)||1;
+  const canaisArr=CANAIS.map(nm=>{
+    const v=(h.por_canal||{})[nm]||{faturamento:0,pedidos:0};
+    return{nm,f:v.faturamento,p:v.pedidos,pct:(v.faturamento/totCanal*100).toFixed(1)};
+  });
+  document.getElementById('canaisEl').innerHTML=canaisArr.map(c=>{
+    const cor=COR[c.nm]||'#999';
+    return`<div class="cn">
+      <div class="ct"><div class="clogo">${LOGOS[c.nm]||c.nm}</div><span class="cpct" style="color:${cor}">${c.pct}%</span></div>
+      <div class="cv" style="color:${cor}">${R(c.f)}</div>
+      <div class="cm"><span class="cml">Share</span><span class="cmv">${c.pct}%</span></div>
+      <div class="pt"><div class="pf" style="width:${Math.min(+c.pct,100)}%;background:${cor}"></div></div>
+      <div class="cf"><span class="cpe">${c.p} pedidos</span></div>
+    </div>`;
+  }).join('');
+
+  // Top produtos
+  document.getElementById('tProd').textContent=`Top Produtos — ${lbl}`;
+  const tp=h.top_produtos||[];
+  const mP=tp[0]?.faturamento||1;
+  document.getElementById('prodsEl').innerHTML=tp.length?tp.map((p,i)=>`<div class="pi">
+    <div class="prk">${i+1}</div>
+    <div class="pif"><div class="pnm">${p.nome}</div><div class="psb"><span style="color:var(--od);font-weight:800">${p.sku}</span> · <span>${p.unidades} un</span></div></div>
+    <div class="pbw"><div class="pbt"><div class="pbf" style="width:${(p.faturamento/mP*100).toFixed(0)}%"></div></div></div>
+    <div class="pvl">${R(p.faturamento)}</div>
+  </div>`).join(''):'<div style="color:var(--mu);font-size:.72rem;padding:8px">Sem dados</div>';
+
+  // Top fornecedores (marcas)
+  document.getElementById('tForn').textContent=`Top Fornecedores — ${lbl}`;
+  const tm=h.top_marcas||[];
+  const totMk=tm.reduce((s,m)=>s+m.faturamento,0)||1;
+  const mF=tm[0]?.faturamento||1;
+  document.getElementById('fornEl').innerHTML=tm.length?tm.map((f,i)=>`
+    <div class="fi"><div class="fr">${i+1}</div>
+      <div class="fif"><div class="fnm">${f.marca}</div><div class="fsb">${f.unidades} un</div></div>
+      <div class="fg"><div class="fv">${R(f.faturamento)}</div><div class="fp">${(f.faturamento/totMk*100).toFixed(1)}%</div></div>
+    </div>
+    <div class="fbr pt"><div class="pf" style="width:${(f.faturamento/mF*100).toFixed(0)}%;background:var(--or)"></div></div>`).join(''):'';
+
+  // Ticker
+  const tC=[...canaisArr].sort((a,b)=>b.f-a.f)[0];const tP2=tp[0];
+  document.getElementById('ticker').innerHTML=`
+    <span class="hi">📦 ${lbl} (arquivado)</span><span class="sp">|</span>
+    <span class="hi">🏆 ${tC?.nm}</span> — ${R(tC?.f)} (${tC?.pct}%)<span class="sp">|</span>
+    ${tP2?`<span class="hi">🔥 ${tP2.nome}</span> — ${tP2.unidades}un — ${R(tP2.faturamento)}<span class="sp">|</span>`:''}
+    <span class="hi">💰 Faturamento:</span> ${R(h.faturamento_total)} · ${h.pedidos} pedidos · Ticket ${R(h.ticket_medio)}<span class="sp">|</span>`;
+}
+
 // ── FILTROS DASHBOARD ────────────────────────────────────────
 function filtrar(m){
   _modo=m;
@@ -1761,7 +1846,17 @@ function filtrar(m){
     if(el)el.classList.toggle('on',k===m);
   });
   document.getElementById('fCustom').classList.toggle('show',m==='custom');
+  // Dropdown de mês só aparece no modo 'mes'
+  const selEl=document.getElementById('fMesSel');
+  if(selEl) selEl.style.display = (m==='mes') ? 'inline-block' : 'none';
   if(m==='custom')return;
+  if(m==='mes'){
+    // Popula o dropdown (1x) e seleciona o mês corrente por padrão
+    popularDropdownMes();
+    renderMesSelecionado();
+    return;
+  }
+  _mesSelKey=''; // saiu do modo mês
   // Só re-renderiza se o cache estiver completo e válido
   if(!_cache||!_cache.pRows||_cache.pRows.length<=1){
     console.warn('[Filtro] cache ainda não pronto — aguardando load');
@@ -1776,6 +1871,60 @@ function filtrar(m){
     // Não deixa a tela zerada: tenta recarregar os dados
     if(!window._loading) load();
   }
+}
+
+// Popula o dropdown de meses: meses ao vivo (corrente + 2 anteriores) + meses do histórico
+function popularDropdownMes(){
+  const sel=document.getElementById('fMesSel');
+  if(!sel||sel._populado)return;
+  const NOMES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const opts=[];
+  const hoje=new Date();
+  const curIdx=hoje.getFullYear()*12+hoje.getMonth();
+  // Meses ao vivo: corrente e 2 anteriores
+  for(let k=0;k<3;k++){
+    const idx=curIdx-k;
+    const mm=idx%12, yy=Math.floor(idx/12);
+    const key=`${mm+1}/${yy}`;
+    opts.push({key,label:`${NOMES[mm]}/${yy} ${k===0?'(atual)':''}`.trim(),vivo:true});
+  }
+  // Meses do histórico (já congelados)
+  if(_histData&&_histData.meses){
+    Object.keys(_histData.meses).sort((a,b)=>{
+      const[ma,ya]=a.split('/').map(Number),[mb,yb]=b.split('/').map(Number);
+      return yb*100+mb-(ya*100+ma); // mais recente primeiro
+    }).forEach(k=>{
+      const[mm,yy]=k.split('/').map(Number);
+      opts.push({key:`${mm}/${yy}`,label:`${NOMES[mm-1]}/${yy}`,vivo:false});
+    });
+  }
+  sel.innerHTML=opts.map(o=>`<option value="${o.key}">${o.label}</option>`).join('');
+  sel._populado=true;
+}
+
+function selecionarMes(){
+  _mesSelKey=document.getElementById('fMesSel').value;
+  renderMesSelecionado();
+}
+
+// Renderiza o mês escolhido: do Sheets (ao vivo) ou do histórico (congelado)
+function renderMesSelecionado(){
+  const key=_mesSelKey||document.getElementById('fMesSel')?.value||'';
+  _mesSelKey=key;
+  // Mês está no histórico congelado?
+  if(_histData&&_histData.meses&&_histData.meses[key]){
+    renderDashHistorico(_histData.meses[key],key);
+    return;
+  }
+  // Mês ao vivo: processa do Sheets normalmente
+  if(!_cache||!_cache.pRows||_cache.pRows.length<=1){
+    if(!window._loading) load();
+    return;
+  }
+  try{
+    const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);
+    renderDash(d);
+  }catch(e){console.error('[Mês]',e);if(!window._loading)load();}
 }
 function aplicar(){
   const ini=document.getElementById('fIni').value,fim=document.getElementById('fFim').value;
@@ -4128,6 +4277,21 @@ function abrirMargem(){
 // Clock
 setInterval(()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR'),1000);
 load();
+
+// Carregar histórico congelado (meses fechados) em segundo plano
+(async function carregarHistorico(){
+  try{
+    const r=await fetch(HIST_URL+'?t='+Date.now());
+    if(r.ok){
+      _histData=await r.json();
+      const n=_histData&&_histData.meses?Object.keys(_histData.meses).length:0;
+      console.log('[Histórico] '+n+' meses arquivados carregados');
+      // Se o dropdown já foi criado, repovoa para incluir os meses do histórico
+      const sel=document.getElementById('fMesSel');
+      if(sel){sel._populado=false;popularDropdownMes();}
+    }
+  }catch(e){console.warn('[Histórico] não carregado:',e.message);}
+})();
 
 // Auto-refresh a cada 2 minutos.
 // Só recarrega quando a aba está visível (economiza requisições se estiver em background)

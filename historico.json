@@ -1,0 +1,2399 @@
+{
+ "gerado_em": "2026-08-20",
+ "descricao": "Historico congelado de meses fechados (<= maio/2026). Meses recentes continuam ao vivo no dados.json.",
+ "meses": {
+  "12/2025": {
+   "faturamento_total": 1956207.84,
+   "pedidos": 1420,
+   "ticket_medio": 1377.61,
+   "por_canal": {
+    "Mercado Livre": {
+     "faturamento": 662613.26,
+     "pedidos": 459
+    },
+    "Casas Bahia": {
+     "faturamento": 585027.18,
+     "pedidos": 392
+    },
+    "Outros": {
+     "faturamento": 273547.65,
+     "pedidos": 195
+    },
+    "Magazine Luiza": {
+     "faturamento": 257679.85,
+     "pedidos": 218
+    },
+    "Amazon": {
+     "faturamento": 177339.9,
+     "pedidos": 156
+    }
+   },
+   "top_produtos": [
+    {
+     "sku": "TI1514",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bi",
+     "marca": "Mueller",
+     "faturamento": 202626.52,
+     "unidades": 106
+    },
+    {
+     "sku": "TI1562",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - ",
+     "marca": "Mueller",
+     "faturamento": 133285.78,
+     "unidades": 75
+    },
+    {
+     "sku": "TI1571",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 121307.33,
+     "unidades": 116
+    },
+    {
+     "sku": "TI1426",
+     "nome": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS -",
+     "marca": "Philco",
+     "faturamento": 110587.36,
+     "unidades": 37
+    },
+    {
+     "sku": "SS002",
+     "nome": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 85418.01,
+     "unidades": 83
+    },
+    {
+     "sku": "TI1454",
+     "nome": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 81106.63,
+     "unidades": 14
+    },
+    {
+     "sku": "TI1688",
+     "nome": "Cervejeira Imbera CCV144S Porta de Vidro 244L  Full Black - ",
+     "marca": "Imbera",
+     "faturamento": 63277.42,
+     "unidades": 11
+    },
+    {
+     "sku": "TI1486",
+     "nome": "Expositor Vertical Imbera VRS16 485 L Porta Vidro Full Black",
+     "marca": "Imbera",
+     "faturamento": 50086.29,
+     "unidades": 10
+    },
+    {
+     "sku": "TI1526",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto ",
+     "marca": "Mueller",
+     "faturamento": 49189.65,
+     "unidades": 56
+    },
+    {
+     "sku": "TI1456",
+     "nome": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244",
+     "marca": "Imbera",
+     "faturamento": 40758.61,
+     "unidades": 10
+    },
+    {
+     "sku": "SS001",
+     "nome": "Mini System SS-001 SSOUND 200W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 37021.28,
+     "unidades": 46
+    },
+    {
+     "sku": "TI1676",
+     "nome": "Cooktop de Inducao Dako Diplomata 4 Bocas Zonas Flexivel Pre",
+     "marca": "Dako",
+     "faturamento": 36523.37,
+     "unidades": 22
+    },
+    {
+     "sku": "TI1563",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - B",
+     "marca": "Mueller",
+     "faturamento": 35587.96,
+     "unidades": 54
+    },
+    {
+     "sku": "TI1677",
+     "nome": "Maquina de Lavar Midea Wave Impeller 14kg Funcao Turbo & Tim",
+     "marca": "Midea",
+     "faturamento": 33560.51,
+     "unidades": 18
+    },
+    {
+     "sku": "TI857",
+     "nome": "Caixa De Som Bluetooth Acustica Ex Bass Flash Lights Philco ",
+     "marca": "Philco",
+     "faturamento": 31563.34,
+     "unidades": 13
+    },
+    {
+     "sku": "TI1078",
+     "nome": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt",
+     "marca": "Amvox",
+     "faturamento": 30302.72,
+     "unidades": 30
+    },
+    {
+     "sku": "TI1564",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco",
+     "marca": "Mueller",
+     "faturamento": 29682.85,
+     "unidades": 43
+    },
+    {
+     "sku": "TI1602",
+     "nome": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Biv",
+     "marca": "Dako",
+     "faturamento": 26946.46,
+     "unidades": 18
+    },
+    {
+     "sku": "TI1633",
+     "nome": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-B",
+     "marca": "Mueller",
+     "faturamento": 25434.76,
+     "unidades": 15
+    },
+    {
+     "sku": "TI1544",
+     "nome": "Caixa de Som Amplificada Philco PCX26000 Flash Lights 2600W ",
+     "marca": "Philco",
+     "faturamento": 25367.43,
+     "unidades": 14
+    }
+   ],
+   "top_marcas": [
+    {
+     "marca": "Mueller",
+     "faturamento": 828482.06,
+     "unidades": 705
+    },
+    {
+     "marca": "Imbera",
+     "faturamento": 252406.82,
+     "unidades": 48
+    },
+    {
+     "marca": "Philco",
+     "faturamento": 239338.32,
+     "unidades": 131
+    },
+    {
+     "marca": "Dako",
+     "faturamento": 185683.12,
+     "unidades": 117
+    },
+    {
+     "marca": "SSOUND",
+     "faturamento": 134480.26,
+     "unidades": 147
+    },
+    {
+     "marca": "Pulse",
+     "faturamento": 99059.78,
+     "unidades": 60
+    },
+    {
+     "marca": "Amvox",
+     "faturamento": 56048.59,
+     "unidades": 102
+    },
+    {
+     "marca": "Midea",
+     "faturamento": 51789.37,
+     "unidades": 26
+    },
+    {
+     "marca": "Itatiaia",
+     "faturamento": 36618.47,
+     "unidades": 28
+    },
+    {
+     "marca": "Atlas",
+     "faturamento": 31304.39,
+     "unidades": 43
+    },
+    {
+     "marca": "LG",
+     "faturamento": 19684.37,
+     "unidades": 13
+    },
+    {
+     "marca": "Britania",
+     "faturamento": 6480.88,
+     "unidades": 10
+    },
+    {
+     "marca": "Intelbras",
+     "faturamento": 5389.87,
+     "unidades": 11
+    },
+    {
+     "marca": "FOX",
+     "faturamento": 807.0,
+     "unidades": 1
+    },
+    {
+     "marca": "Clarice",
+     "faturamento": 219.9,
+     "unidades": 1
+    }
+   ],
+   "categorias": [
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao",
+     "faturamento": 404933.65,
+     "unidades": 334
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 5 Bocas",
+     "faturamento": 374931.16,
+     "unidades": 208
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Caixa de Som",
+     "faturamento": 335820.98,
+     "unidades": 241
+    },
+    {
+     "categoria": "Refrigerador Industrial",
+     "faturamento": 252406.82,
+     "unidades": 48
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Maquina de Lavar",
+     "faturamento": 166522.75,
+     "unidades": 160
+    },
+    {
+     "categoria": "Eletrodomesticos >> CookTop",
+     "faturamento": 142532.0,
+     "unidades": 163
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Mini System",
+     "faturamento": 122439.29,
+     "unidades": 129
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ar Condicionado",
+     "faturamento": 43970.68,
+     "unidades": 32
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fornos Eletrico",
+     "faturamento": 40176.77,
+     "unidades": 52
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Televisores >> Televisores",
+     "faturamento": 15801.4,
+     "unidades": 10
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Monitor de Audio",
+     "faturamento": 10450.37,
+     "unidades": 16
+    },
+    {
+     "categoria": "Eletrodomesticos >> Geladeira",
+     "faturamento": 8559.23,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Centrifuga de Roupa",
+     "faturamento": 7498.62,
+     "unidades": 12
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Secadoras de Roupas",
+     "faturamento": 6866.3,
+     "unidades": 12
+    },
+    {
+     "categoria": "Automotivo >> Camera Veicular",
+     "faturamento": 5389.87,
+     "unidades": 11
+    },
+    {
+     "categoria": "Eletrodomesticos >> Cervejeira",
+     "faturamento": 2614.03,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Microondas",
+     "faturamento": 2208.29,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Processadores de Alimentos",
+     "faturamento": 1113.4,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 4 Bocas",
+     "faturamento": 1091.9,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Chaleiras e Cafeteiras",
+     "faturamento": 850.6,
+     "unidades": 3
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Climatizador de Ar",
+     "faturamento": 808.09,
+     "unidades": 1
+    },
+    {
+     "categoria": "Informatica >> Moveis >> Cadeira Gamer",
+     "faturamento": 807.0,
+     "unidades": 1
+    }
+   ]
+  },
+  "01/2026": {
+   "faturamento_total": 4273131.84,
+   "pedidos": 3227,
+   "ticket_medio": 1324.18,
+   "por_canal": {
+    "Mercado Livre": {
+     "faturamento": 1700515.5,
+     "pedidos": 1223
+    },
+    "Casas Bahia": {
+     "faturamento": 1216500.56,
+     "pedidos": 867
+    },
+    "Outros": {
+     "faturamento": 584090.3,
+     "pedidos": 394
+    },
+    "Magazine Luiza": {
+     "faturamento": 430405.81,
+     "pedidos": 348
+    },
+    "Amazon": {
+     "faturamento": 291145.26,
+     "pedidos": 354
+    },
+    "Shopee": {
+     "faturamento": 50474.41,
+     "pedidos": 41
+    }
+   },
+   "top_produtos": [
+    {
+     "sku": "TI1562",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - ",
+     "marca": "Mueller",
+     "faturamento": 421508.45,
+     "unidades": 240
+    },
+    {
+     "sku": "TI1514",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bi",
+     "marca": "Mueller",
+     "faturamento": 342103.48,
+     "unidades": 180
+    },
+    {
+     "sku": "TI1571",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 225557.33,
+     "unidades": 220
+    },
+    {
+     "sku": "TI1563",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - B",
+     "marca": "Mueller",
+     "faturamento": 216448.07,
+     "unidades": 319
+    },
+    {
+     "sku": "TI1486",
+     "nome": "Expositor Vertical Imbera VRS16 485 L Porta Vidro Full Black",
+     "marca": "Imbera",
+     "faturamento": 191716.08,
+     "unidades": 37
+    },
+    {
+     "sku": "TI1456",
+     "nome": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244",
+     "marca": "Imbera",
+     "faturamento": 167436.57,
+     "unidades": 45
+    },
+    {
+     "sku": "SS002",
+     "nome": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 160006.93,
+     "unidades": 167
+    },
+    {
+     "sku": "TI1526",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto ",
+     "marca": "Mueller",
+     "faturamento": 98125.94,
+     "unidades": 110
+    },
+    {
+     "sku": "TI1524",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 97280.0,
+     "unidades": 107
+    },
+    {
+     "sku": "TI1455",
+     "nome": "Cervejeira Vertical Imbera CCV315 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 95101.27,
+     "unidades": 17
+    },
+    {
+     "sku": "TI1426",
+     "nome": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS -",
+     "marca": "Philco",
+     "faturamento": 94360.85,
+     "unidades": 32
+    },
+    {
+     "sku": "TI1568",
+     "nome": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco",
+     "marca": "Mueller",
+     "faturamento": 93494.2,
+     "unidades": 66
+    },
+    {
+     "sku": "TI1677",
+     "nome": "Maquina de Lavar Midea Wave Impeller 14kg Funcao Turbo & Tim",
+     "marca": "Midea",
+     "faturamento": 91977.29,
+     "unidades": 49
+    },
+    {
+     "sku": "TI1565",
+     "nome": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto -",
+     "marca": "Mueller",
+     "faturamento": 74833.02,
+     "unidades": 115
+    },
+    {
+     "sku": "TI1667",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - ",
+     "marca": "Mueller",
+     "faturamento": 65479.92,
+     "unidades": 63
+    },
+    {
+     "sku": "TI1454",
+     "nome": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 63994.72,
+     "unidades": 10
+    },
+    {
+     "sku": "TI1276",
+     "nome": "Caixa de Som Pulse Sp512 Flamebox DJ Torre Bluetooth LED TWS",
+     "marca": "Pulse",
+     "faturamento": 63238.66,
+     "unidades": 20
+    },
+    {
+     "sku": "TI1688",
+     "nome": "Cervejeira Imbera CCV144S Porta de Vidro 244L  Full Black - ",
+     "marca": "Imbera",
+     "faturamento": 60380.29,
+     "unidades": 13
+    },
+    {
+     "sku": "TI1525",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 59863.39,
+     "unidades": 64
+    },
+    {
+     "sku": "TI1676",
+     "nome": "Cooktop de Inducao Dako Diplomata 4 Bocas Zonas Flexivel Pre",
+     "marca": "Dako",
+     "faturamento": 59669.38,
+     "unidades": 38
+    }
+   ],
+   "top_marcas": [
+    {
+     "marca": "Mueller",
+     "faturamento": 2258201.4,
+     "unidades": 2077
+    },
+    {
+     "marca": "Imbera",
+     "faturamento": 655512.96,
+     "unidades": 139
+    },
+    {
+     "marca": "Philco",
+     "faturamento": 335130.77,
+     "unidades": 297
+    },
+    {
+     "marca": "Pulse",
+     "faturamento": 217671.47,
+     "unidades": 112
+    },
+    {
+     "marca": "SSOUND",
+     "faturamento": 215038.32,
+     "unidades": 233
+    },
+    {
+     "marca": "Dako",
+     "faturamento": 205485.61,
+     "unidades": 139
+    },
+    {
+     "marca": "Midea",
+     "faturamento": 116180.5,
+     "unidades": 61
+    },
+    {
+     "marca": "Amvox",
+     "faturamento": 72973.88,
+     "unidades": 116
+    },
+    {
+     "marca": "Brastemp",
+     "faturamento": 58918.35,
+     "unidades": 23
+    },
+    {
+     "marca": "Itatiaia",
+     "faturamento": 56777.75,
+     "unidades": 45
+    },
+    {
+     "marca": "Atlas",
+     "faturamento": 43364.04,
+     "unidades": 56
+    },
+    {
+     "marca": "Britania",
+     "faturamento": 12894.05,
+     "unidades": 23
+    },
+    {
+     "marca": "LG",
+     "faturamento": 6396.85,
+     "unidades": 4
+    },
+    {
+     "marca": "FOX",
+     "faturamento": 2495.6,
+     "unidades": 4
+    },
+    {
+     "marca": "Samsung",
+     "faturamento": 2093.41,
+     "unidades": 1
+    }
+   ],
+   "categorias": [
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 5 Bocas",
+     "faturamento": 873403.81,
+     "unidades": 510
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao",
+     "faturamento": 690328.73,
+     "unidades": 592
+    },
+    {
+     "categoria": "Refrigerador Industrial",
+     "faturamento": 655512.96,
+     "unidades": 139
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Maquina de Lavar",
+     "faturamento": 559421.87,
+     "unidades": 504
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Caixa de Som",
+     "faturamento": 472176.34,
+     "unidades": 310
+    },
+    {
+     "categoria": "Eletrodomesticos >> CookTop",
+     "faturamento": 463620.55,
+     "unidades": 605
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Mini System",
+     "faturamento": 200267.26,
+     "unidades": 213
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ar Condicionado",
+     "faturamento": 99874.08,
+     "unidades": 78
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fornos Eletrico",
+     "faturamento": 68638.81,
+     "unidades": 95
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Centrifuga de Roupa",
+     "faturamento": 48586.04,
+     "unidades": 75
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 4 Bocas",
+     "faturamento": 37943.5,
+     "unidades": 32
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Processadores de Alimentos",
+     "faturamento": 33048.57,
+     "unidades": 64
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Chaleiras e Cafeteiras",
+     "faturamento": 18184.33,
+     "unidades": 66
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Monitor de Audio",
+     "faturamento": 14009.09,
+     "unidades": 19
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Secadoras de Roupas",
+     "faturamento": 7392.46,
+     "unidades": 13
+    },
+    {
+     "categoria": "Eletrodomesticos >> Geladeira",
+     "faturamento": 6775.13,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Televisores >> Televisores",
+     "faturamento": 3667.23,
+     "unidades": 2
+    },
+    {
+     "categoria": "Informatica >> Moveis >> Cadeira Gamer",
+     "faturamento": 2495.6,
+     "unidades": 4
+    },
+    {
+     "categoria": "Eletrodomesticos >> Microondas",
+     "faturamento": 2353.6,
+     "unidades": 4
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Batedeira",
+     "faturamento": 1641.79,
+     "unidades": 16
+    },
+    {
+     "categoria": "Automotivo >> Camera Veicular",
+     "faturamento": 845.05,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Mixer de Alimentos",
+     "faturamento": 818.76,
+     "unidades": 4
+    },
+    {
+     "categoria": "Outros",
+     "faturamento": 750.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Frigobar",
+     "faturamento": 720.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Coifas e Depuradores",
+     "faturamento": 715.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Moedor de Cafe",
+     "faturamento": 150.0,
+     "unidades": 1
+    }
+   ]
+  },
+  "02/2026": {
+   "faturamento_total": 4522480.3,
+   "pedidos": 3294,
+   "ticket_medio": 1372.94,
+   "por_canal": {
+    "Mercado Livre": {
+     "faturamento": 2270725.36,
+     "pedidos": 1541
+    },
+    "Casas Bahia": {
+     "faturamento": 808349.46,
+     "pedidos": 582
+    },
+    "Amazon": {
+     "faturamento": 538086.12,
+     "pedidos": 461
+    },
+    "Shopee": {
+     "faturamento": 471034.97,
+     "pedidos": 366
+    },
+    "Magazine Luiza": {
+     "faturamento": 357098.64,
+     "pedidos": 326
+    },
+    "Outros": {
+     "faturamento": 77185.75,
+     "pedidos": 18
+    }
+   },
+   "top_produtos": [
+    {
+     "sku": "TI1677",
+     "nome": "Maquina de Lavar Midea Wave Impeller 14kg Funcao Turbo & Tim",
+     "marca": "Midea",
+     "faturamento": 564575.98,
+     "unidades": 287
+    },
+    {
+     "sku": "TI1562",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - ",
+     "marca": "Mueller",
+     "faturamento": 394698.78,
+     "unidades": 226
+    },
+    {
+     "sku": "TI1571",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 344449.62,
+     "unidades": 338
+    },
+    {
+     "sku": "TI1514",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bi",
+     "marca": "Mueller",
+     "faturamento": 296985.06,
+     "unidades": 157
+    },
+    {
+     "sku": "TI1454",
+     "nome": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 223698.71,
+     "unidades": 38
+    },
+    {
+     "sku": "TI1568",
+     "nome": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco",
+     "marca": "Mueller",
+     "faturamento": 148507.05,
+     "unidades": 105
+    },
+    {
+     "sku": "SS002",
+     "nome": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 120440.76,
+     "unidades": 124
+    },
+    {
+     "sku": "TI1676",
+     "nome": "Cooktop de Inducao Dako Diplomata 4 Bocas Zonas Flexivel Pre",
+     "marca": "Dako",
+     "faturamento": 119490.96,
+     "unidades": 79
+    },
+    {
+     "sku": "TI1524",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 117130.52,
+     "unidades": 132
+    },
+    {
+     "sku": "TI1529",
+     "nome": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido ",
+     "marca": "Mueller",
+     "faturamento": 101185.52,
+     "unidades": 66
+    },
+    {
+     "sku": "TI1526",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto ",
+     "marca": "Mueller",
+     "faturamento": 93472.63,
+     "unidades": 101
+    },
+    {
+     "sku": "TI1690",
+     "nome": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turb",
+     "marca": "Midea",
+     "faturamento": 87123.48,
+     "unidades": 46
+    },
+    {
+     "sku": "TI1563",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - B",
+     "marca": "Mueller",
+     "faturamento": 80072.76,
+     "unidades": 124
+    },
+    {
+     "sku": "TI1633",
+     "nome": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-B",
+     "marca": "Mueller",
+     "faturamento": 71593.35,
+     "unidades": 43
+    },
+    {
+     "sku": "TI1689",
+     "nome": "Refrigerador Expositor Imbera VR08S Int.Branco 244L Luz Inte",
+     "marca": "Imbera",
+     "faturamento": 69311.04,
+     "unidades": 16
+    },
+    {
+     "sku": "TI1525",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 62945.92,
+     "unidades": 69
+    },
+    {
+     "sku": "TI857",
+     "nome": "Caixa De Som Bluetooth Acustica Ex Bass Flash Lights Philco ",
+     "marca": "Philco",
+     "faturamento": 62561.63,
+     "unidades": 28
+    },
+    {
+     "sku": "TI1455",
+     "nome": "Cervejeira Vertical Imbera CCV315 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 61213.91,
+     "unidades": 10
+    },
+    {
+     "sku": "TI1276",
+     "nome": "Caixa de Som Pulse Sp512 Flamebox DJ Torre Bluetooth LED TWS",
+     "marca": "Pulse",
+     "faturamento": 58252.39,
+     "unidades": 19
+    },
+    {
+     "sku": "TI1453",
+     "nome": "Freezer Vertical Imbera EVZ21 576 Litros Full Black Preto - ",
+     "marca": "Imbera",
+     "faturamento": 54462.42,
+     "unidades": 8
+    }
+   ],
+   "top_marcas": [
+    {
+     "marca": "Mueller",
+     "faturamento": 2262209.28,
+     "unidades": 1999
+    },
+    {
+     "marca": "Midea",
+     "faturamento": 656643.2,
+     "unidades": 335
+    },
+    {
+     "marca": "Imbera",
+     "faturamento": 473739.02,
+     "unidades": 88
+    },
+    {
+     "marca": "Dako",
+     "faturamento": 305876.42,
+     "unidades": 199
+    },
+    {
+     "marca": "SSOUND",
+     "faturamento": 178288.03,
+     "unidades": 200
+    },
+    {
+     "marca": "Philco",
+     "faturamento": 168740.66,
+     "unidades": 104
+    },
+    {
+     "marca": "Pulse",
+     "faturamento": 161242.75,
+     "unidades": 80
+    },
+    {
+     "marca": "Itatiaia",
+     "faturamento": 149345.26,
+     "unidades": 144
+    },
+    {
+     "marca": "Brastemp",
+     "faturamento": 49362.35,
+     "unidades": 19
+    },
+    {
+     "marca": "Amvox",
+     "faturamento": 49257.28,
+     "unidades": 98
+    },
+    {
+     "marca": "Britania",
+     "faturamento": 30175.78,
+     "unidades": 80
+    },
+    {
+     "marca": "LG",
+     "faturamento": 19717.25,
+     "unidades": 14
+    },
+    {
+     "marca": "Atlas",
+     "faturamento": 4517.89,
+     "unidades": 6
+    },
+    {
+     "marca": "Intelbras",
+     "faturamento": 2300.84,
+     "unidades": 8
+    },
+    {
+     "marca": "Hamilton Beach",
+     "faturamento": 1076.1,
+     "unidades": 6
+    }
+   ],
+   "categorias": [
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Maquina de Lavar",
+     "faturamento": 1149391.77,
+     "unidades": 810
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao",
+     "faturamento": 999085.61,
+     "unidades": 843
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 5 Bocas",
+     "faturamento": 767407.34,
+     "unidades": 441
+    },
+    {
+     "categoria": "Refrigerador Industrial",
+     "faturamento": 473739.02,
+     "unidades": 88
+    },
+    {
+     "categoria": "Eletrodomesticos >> CookTop",
+     "faturamento": 380440.46,
+     "unidades": 432
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Caixa de Som",
+     "faturamento": 334856.66,
+     "unidades": 242
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Mini System",
+     "faturamento": 157528.05,
+     "unidades": 169
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fornos Eletrico",
+     "faturamento": 97340.38,
+     "unidades": 166
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ar Condicionado",
+     "faturamento": 39891.65,
+     "unidades": 28
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Centrifuga de Roupa",
+     "faturamento": 28203.74,
+     "unidades": 47
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Monitor de Audio",
+     "faturamento": 18180.21,
+     "unidades": 27
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 6 Bocas",
+     "faturamento": 13314.54,
+     "unidades": 13
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Secadoras de Roupas",
+     "faturamento": 11828.17,
+     "unidades": 21
+    },
+    {
+     "categoria": "Eletrodomesticos >> Freezer",
+     "faturamento": 9173.6,
+     "unidades": 4
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Processadores de Alimentos",
+     "faturamento": 8708.01,
+     "unidades": 18
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 4 Bocas",
+     "faturamento": 6752.17,
+     "unidades": 6
+    },
+    {
+     "categoria": "Eletrodomesticos >> Geladeira",
+     "faturamento": 4943.74,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Frigobar",
+     "faturamento": 3578.36,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Cervejeira",
+     "faturamento": 2923.9,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Microondas",
+     "faturamento": 1529.79,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Mixer de Alimentos",
+     "faturamento": 1076.1,
+     "unidades": 6
+    },
+    {
+     "categoria": "Informatica >> Conectividades e Redes >> Cabos e Conectores",
+     "faturamento": 851.6,
+     "unidades": 4
+    },
+    {
+     "categoria": "Casa Moveis e Decoracao >> Seguranca >> Fechaduras",
+     "faturamento": 840.67,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Batedeira",
+     "faturamento": 709.3,
+     "unidades": 7
+    },
+    {
+     "categoria": "Automotivo >> Camera Veicular",
+     "faturamento": 608.57,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Chaleiras e Cafeteiras",
+     "faturamento": 170.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Aspirador de Po",
+     "faturamento": 128.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Sanduicheira",
+     "faturamento": 49.9,
+     "unidades": 1
+    }
+   ]
+  },
+  "03/2026": {
+   "faturamento_total": 5067291.55,
+   "pedidos": 3851,
+   "ticket_medio": 1315.84,
+   "por_canal": {
+    "Mercado Livre": {
+     "faturamento": 2472585.48,
+     "pedidos": 1836
+    },
+    "Casas Bahia": {
+     "faturamento": 1207996.15,
+     "pedidos": 873
+    },
+    "Magazine Luiza": {
+     "faturamento": 489109.07,
+     "pedidos": 364
+    },
+    "Amazon": {
+     "faturamento": 411329.11,
+     "pedidos": 378
+    },
+    "Shopee": {
+     "faturamento": 409102.54,
+     "pedidos": 385
+    },
+    "Outros": {
+     "faturamento": 77169.2,
+     "pedidos": 15
+    }
+   },
+   "top_produtos": [
+    {
+     "sku": "TI1690",
+     "nome": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turb",
+     "marca": "Midea",
+     "faturamento": 393218.96,
+     "unidades": 226
+    },
+    {
+     "sku": "TI1562",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - ",
+     "marca": "Mueller",
+     "faturamento": 321070.35,
+     "unidades": 177
+    },
+    {
+     "sku": "TI1571",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 318927.76,
+     "unidades": 320
+    },
+    {
+     "sku": "TI1529",
+     "nome": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido ",
+     "marca": "Mueller",
+     "faturamento": 225239.91,
+     "unidades": 149
+    },
+    {
+     "sku": "TI1514",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bi",
+     "marca": "Mueller",
+     "faturamento": 196268.61,
+     "unidades": 99
+    },
+    {
+     "sku": "SS002",
+     "nome": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 188101.05,
+     "unidades": 194
+    },
+    {
+     "sku": "TI1454",
+     "nome": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 182217.12,
+     "unidades": 30
+    },
+    {
+     "sku": "TI1426",
+     "nome": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS -",
+     "marca": "Philco",
+     "faturamento": 179425.78,
+     "unidades": 62
+    },
+    {
+     "sku": "TI1563",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - B",
+     "marca": "Mueller",
+     "faturamento": 149383.78,
+     "unidades": 232
+    },
+    {
+     "sku": "TI1524",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 135422.66,
+     "unidades": 151
+    },
+    {
+     "sku": "TI1696-1",
+     "nome": "Ar Condicionado PAC18FB 220V EXT - Philco",
+     "marca": "Philco",
+     "faturamento": 116258.34,
+     "unidades": 64
+    },
+    {
+     "sku": "TI1603",
+     "nome": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Biv",
+     "marca": "Dako",
+     "faturamento": 112086.39,
+     "unidades": 58
+    },
+    {
+     "sku": "TI1526",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto ",
+     "marca": "Mueller",
+     "faturamento": 105589.08,
+     "unidades": 115
+    },
+    {
+     "sku": "TI1568",
+     "nome": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco",
+     "marca": "Mueller",
+     "faturamento": 96561.67,
+     "unidades": 66
+    },
+    {
+     "sku": "TI1453",
+     "nome": "Freezer Vertical Imbera EVZ21 576 Litros Full Black Preto - ",
+     "marca": "Imbera",
+     "faturamento": 92515.99,
+     "unidades": 14
+    },
+    {
+     "sku": "TI1276",
+     "nome": "Caixa de Som Pulse Sp512 Flamebox DJ Torre Bluetooth LED TWS",
+     "marca": "Pulse",
+     "faturamento": 83576.24,
+     "unidades": 26
+    },
+    {
+     "sku": "TI1455",
+     "nome": "Cervejeira Vertical Imbera CCV315 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 78933.69,
+     "unidades": 16
+    },
+    {
+     "sku": "TI1565",
+     "nome": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto -",
+     "marca": "Mueller",
+     "faturamento": 74931.33,
+     "unidades": 120
+    },
+    {
+     "sku": "TI1633",
+     "nome": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-B",
+     "marca": "Mueller",
+     "faturamento": 66839.29,
+     "unidades": 39
+    },
+    {
+     "sku": "TI1676",
+     "nome": "Cooktop de Inducao Dako Diplomata 4 Bocas Zonas Flexivel Pre",
+     "marca": "Dako",
+     "faturamento": 66410.69,
+     "unidades": 42
+    }
+   ],
+   "top_marcas": [
+    {
+     "marca": "Mueller",
+     "faturamento": 2426484.93,
+     "unidades": 2242
+    },
+    {
+     "marca": "Philco",
+     "faturamento": 479559.3,
+     "unidades": 332
+    },
+    {
+     "marca": "Imbera",
+     "faturamento": 408858.58,
+     "unidades": 74
+    },
+    {
+     "marca": "Midea",
+     "faturamento": 406167.91,
+     "unidades": 234
+    },
+    {
+     "marca": "Dako",
+     "faturamento": 357109.32,
+     "unidades": 239
+    },
+    {
+     "marca": "SSOUND",
+     "faturamento": 289933.14,
+     "unidades": 337
+    },
+    {
+     "marca": "Pulse",
+     "faturamento": 284425.77,
+     "unidades": 140
+    },
+    {
+     "marca": "Itatiaia",
+     "faturamento": 167574.19,
+     "unidades": 170
+    },
+    {
+     "marca": "Brastemp",
+     "faturamento": 95340.06,
+     "unidades": 37
+    },
+    {
+     "marca": "Amvox",
+     "faturamento": 90030.84,
+     "unidades": 173
+    },
+    {
+     "marca": "LG",
+     "faturamento": 21277.7,
+     "unidades": 12
+    },
+    {
+     "marca": "Oster",
+     "faturamento": 5138.61,
+     "unidades": 31
+    },
+    {
+     "marca": "Britania",
+     "faturamento": 4143.29,
+     "unidades": 16
+    },
+    {
+     "marca": "Intelbras",
+     "faturamento": 2814.05,
+     "unidades": 9
+    },
+    {
+     "marca": "Bomber",
+     "faturamento": 2558.28,
+     "unidades": 3
+    }
+   ],
+   "categorias": [
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Maquina de Lavar",
+     "faturamento": 1112730.59,
+     "unidades": 854
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao",
+     "faturamento": 1052391.46,
+     "unidades": 878
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Caixa de Som",
+     "faturamento": 656667.04,
+     "unidades": 444
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 5 Bocas",
+     "faturamento": 634153.55,
+     "unidades": 367
+    },
+    {
+     "categoria": "Eletrodomesticos >> CookTop",
+     "faturamento": 431176.03,
+     "unidades": 565
+    },
+    {
+     "categoria": "Refrigerador Industrial",
+     "faturamento": 408858.58,
+     "unidades": 74
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Mini System",
+     "faturamento": 256631.49,
+     "unidades": 283
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ar Condicionado",
+     "faturamento": 180513.68,
+     "unidades": 134
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fornos Eletrico",
+     "faturamento": 98390.61,
+     "unidades": 132
+    },
+    {
+     "categoria": "Eletrodomesticos >> Forno Eletrico de Embutir",
+     "faturamento": 45735.19,
+     "unidades": 26
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 4 Bocas",
+     "faturamento": 28722.62,
+     "unidades": 30
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Processadores de Alimentos",
+     "faturamento": 25599.98,
+     "unidades": 53
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Monitor de Audio",
+     "faturamento": 24738.5,
+     "unidades": 41
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 6 Bocas",
+     "faturamento": 23905.02,
+     "unidades": 23
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Secadoras de Roupas",
+     "faturamento": 22682.98,
+     "unidades": 46
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Centrifuga de Roupa",
+     "faturamento": 9684.42,
+     "unidades": 17
+    },
+    {
+     "categoria": "Eletrodomesticos >> Cervejeira",
+     "faturamento": 7829.7,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Geladeira",
+     "faturamento": 4513.76,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Sanduicheira",
+     "faturamento": 3110.96,
+     "unidades": 32
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Batedeira",
+     "faturamento": 3061.78,
+     "unidades": 28
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Chaleiras e Cafeteiras",
+     "faturamento": 2974.44,
+     "unidades": 25
+    },
+    {
+     "categoria": "Eletrodomesticos >> Coifas e Depuradores",
+     "faturamento": 2735.68,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Televisores >> Televisores",
+     "faturamento": 2483.67,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Frigobar",
+     "faturamento": 2127.24,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Fritadeira",
+     "faturamento": 1932.41,
+     "unidades": 6
+    },
+    {
+     "categoria": "Casa Moveis e Decoracao >> Seguranca >> Fechaduras",
+     "faturamento": 1769.27,
+     "unidades": 5
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Liquidificador",
+     "faturamento": 1659.95,
+     "unidades": 7
+    },
+    {
+     "categoria": "Automotivo >> Camera Veicular",
+     "faturamento": 831.88,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Moedor de Cafe",
+     "faturamento": 780.0,
+     "unidades": 4
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Climatizador de Ar",
+     "faturamento": 659.24,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Aspirador de Po",
+     "faturamento": 645.0,
+     "unidades": 5
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Passadeira A Vapor",
+     "faturamento": 567.83,
+     "unidades": 5
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Bebedouro",
+     "faturamento": 508.0,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Torradeira Eletrica",
+     "faturamento": 344.52,
+     "unidades": 4
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Crepeira",
+     "faturamento": 238.0,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Churrasqueira",
+     "faturamento": 225.04,
+     "unidades": 2
+    },
+    {
+     "categoria": "Informatica >> Conectividades e Redes >> Cabos e Conectores",
+     "faturamento": 212.9,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Grill Eletrico",
+     "faturamento": 193.19,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Mixer de Alimentos",
+     "faturamento": 148.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Informatica >> Conectividades e Redes >> Roteadores",
+     "faturamento": 119.36,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Pipoqueira",
+     "faturamento": 79.02,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Ferro de Passar",
+     "faturamento": 62.84,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Marmita Eletrica",
+     "faturamento": 58.58,
+     "unidades": 1
+    }
+   ]
+  },
+  "04/2026": {
+   "faturamento_total": 4482939.03,
+   "pedidos": 3402,
+   "ticket_medio": 1317.74,
+   "por_canal": {
+    "Mercado Livre": {
+     "faturamento": 2296359.1,
+     "pedidos": 1635
+    },
+    "Casas Bahia": {
+     "faturamento": 697742.91,
+     "pedidos": 549
+    },
+    "Amazon": {
+     "faturamento": 603420.48,
+     "pedidos": 518
+    },
+    "Shopee": {
+     "faturamento": 433696.71,
+     "pedidos": 427
+    },
+    "Magazine Luiza": {
+     "faturamento": 354584.38,
+     "pedidos": 261
+    },
+    "Outros": {
+     "faturamento": 97135.45,
+     "pedidos": 12
+    }
+   },
+   "top_produtos": [
+    {
+     "sku": "TI1690",
+     "nome": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turb",
+     "marca": "Midea",
+     "faturamento": 425749.98,
+     "unidades": 224
+    },
+    {
+     "sku": "TI1562",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - ",
+     "marca": "Mueller",
+     "faturamento": 393272.18,
+     "unidades": 220
+    },
+    {
+     "sku": "TI1571",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 287565.96,
+     "unidades": 281
+    },
+    {
+     "sku": "TI1514",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bi",
+     "marca": "Mueller",
+     "faturamento": 231635.35,
+     "unidades": 118
+    },
+    {
+     "sku": "TI1529",
+     "nome": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido ",
+     "marca": "Mueller",
+     "faturamento": 228159.33,
+     "unidades": 146
+    },
+    {
+     "sku": "SS002",
+     "nome": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 181109.9,
+     "unidades": 182
+    },
+    {
+     "sku": "TI1455",
+     "nome": "Cervejeira Vertical Imbera CCV315 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 148963.82,
+     "unidades": 27
+    },
+    {
+     "sku": "TI1524",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 138121.61,
+     "unidades": 149
+    },
+    {
+     "sku": "TI1526",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto ",
+     "marca": "Mueller",
+     "faturamento": 110956.18,
+     "unidades": 117
+    },
+    {
+     "sku": "TI1563",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - B",
+     "marca": "Mueller",
+     "faturamento": 110766.14,
+     "unidades": 169
+    },
+    {
+     "sku": "TI1569",
+     "nome": "Fogao a Gas Mueller MFV5BB 5 Bocas Preto Fosco Mesa de Vidro",
+     "marca": "Mueller",
+     "faturamento": 88165.93,
+     "unidades": 70
+    },
+    {
+     "sku": "TI1667",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - ",
+     "marca": "Mueller",
+     "faturamento": 80216.32,
+     "unidades": 77
+    },
+    {
+     "sku": "TI1603",
+     "nome": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Biv",
+     "marca": "Dako",
+     "faturamento": 78086.72,
+     "unidades": 39
+    },
+    {
+     "sku": "TI1542",
+     "nome": "Freezer Cervejeira Imbera CCV144 Porta de Vidro 244L FullBla",
+     "marca": "Imbera",
+     "faturamento": 72684.4,
+     "unidades": 16
+    },
+    {
+     "sku": "TI1633",
+     "nome": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-B",
+     "marca": "Mueller",
+     "faturamento": 70473.57,
+     "unidades": 41
+    },
+    {
+     "sku": "TI1568",
+     "nome": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco",
+     "marca": "Mueller",
+     "faturamento": 66863.85,
+     "unidades": 44
+    },
+    {
+     "sku": "TI857",
+     "nome": "Caixa De Som Bluetooth Acustica Ex Bass Flash Lights Philco ",
+     "marca": "Philco",
+     "faturamento": 62341.23,
+     "unidades": 29
+    },
+    {
+     "sku": "TI1276",
+     "nome": "Caixa de Som Pulse Sp512 Flamebox DJ Torre Bluetooth LED TWS",
+     "marca": "Pulse",
+     "faturamento": 61986.18,
+     "unidades": 19
+    },
+    {
+     "sku": "TI1525",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 56829.04,
+     "unidades": 60
+    },
+    {
+     "sku": "TI1426",
+     "nome": "Caixa de Som Amplificada Philco PCX35000 LED Bluetooth TWS -",
+     "marca": "Philco",
+     "faturamento": 56055.24,
+     "unidades": 22
+    }
+   ],
+   "top_marcas": [
+    {
+     "marca": "Mueller",
+     "faturamento": 2563411.93,
+     "unidades": 2259
+    },
+    {
+     "marca": "Midea",
+     "faturamento": 436002.34,
+     "unidades": 229
+    },
+    {
+     "marca": "Imbera",
+     "faturamento": 362179.34,
+     "unidades": 71
+    },
+    {
+     "marca": "Pulse",
+     "faturamento": 256122.38,
+     "unidades": 130
+    },
+    {
+     "marca": "SSOUND",
+     "faturamento": 255888.2,
+     "unidades": 283
+    },
+    {
+     "marca": "Philco",
+     "faturamento": 179862.81,
+     "unidades": 144
+    },
+    {
+     "marca": "Dako",
+     "faturamento": 173216.41,
+     "unidades": 110
+    },
+    {
+     "marca": "Amvox",
+     "faturamento": 73184.54,
+     "unidades": 158
+    },
+    {
+     "marca": "Fischer",
+     "faturamento": 68487.21,
+     "unidades": 38
+    },
+    {
+     "marca": "Itatiaia",
+     "faturamento": 56079.67,
+     "unidades": 50
+    },
+    {
+     "marca": "LG",
+     "faturamento": 17155.89,
+     "unidades": 12
+    },
+    {
+     "marca": "Brastemp",
+     "faturamento": 13432.29,
+     "unidades": 5
+    },
+    {
+     "marca": "Polyvox",
+     "faturamento": 4481.5,
+     "unidades": 4
+    },
+    {
+     "marca": "Rossi",
+     "faturamento": 4070.72,
+     "unidades": 11
+    },
+    {
+     "marca": "Atlas",
+     "faturamento": 3150.99,
+     "unidades": 4
+    }
+   ],
+   "categorias": [
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Maquina de Lavar",
+     "faturamento": 1162452.76,
+     "unidades": 907
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao",
+     "faturamento": 872802.96,
+     "unidades": 731
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 5 Bocas",
+     "faturamento": 747556.68,
+     "unidades": 441
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Caixa de Som",
+     "faturamento": 492517.36,
+     "unidades": 379
+    },
+    {
+     "categoria": "Refrigerador Industrial",
+     "faturamento": 362179.34,
+     "unidades": 71
+    },
+    {
+     "categoria": "Eletrodomesticos >> CookTop",
+     "faturamento": 259897.86,
+     "unidades": 366
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Mini System",
+     "faturamento": 232770.99,
+     "unidades": 244
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fornos Eletrico",
+     "faturamento": 122504.68,
+     "unidades": 162
+    },
+    {
+     "categoria": "Eletrodomesticos >> Forno Eletrico de Embutir",
+     "faturamento": 118294.92,
+     "unidades": 62
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Secadoras de Roupas",
+     "faturamento": 22976.74,
+     "unidades": 41
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 4 Bocas",
+     "faturamento": 15611.55,
+     "unidades": 18
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Monitor de Audio",
+     "faturamento": 14852.02,
+     "unidades": 25
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Processadores de Alimentos",
+     "faturamento": 12400.72,
+     "unidades": 26
+    },
+    {
+     "categoria": "Eletrodomesticos >> Cervejeira",
+     "faturamento": 6285.7,
+     "unidades": 3
+    },
+    {
+     "categoria": "Casa Moveis e Decoracao >> Seguranca >> Automatizador de Portao",
+     "faturamento": 4070.72,
+     "unidades": 11
+    },
+    {
+     "categoria": "Eletrodomesticos >> Frigobar",
+     "faturamento": 4017.7,
+     "unidades": 5
+    },
+    {
+     "categoria": "Eletrodomesticos >> Coifas e Depuradores",
+     "faturamento": 3836.7,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Microondas",
+     "faturamento": 3642.17,
+     "unidades": 2
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ar Condicionado",
+     "faturamento": 2996.74,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 6 Bocas",
+     "faturamento": 2105.2,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Geladeira",
+     "faturamento": 1977.76,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Freezer",
+     "faturamento": 1400.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Outros",
+     "faturamento": 1145.17,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Aspirador de Po",
+     "faturamento": 896.96,
+     "unidades": 2
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Chaleiras e Cafeteiras",
+     "faturamento": 680.0,
+     "unidades": 8
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Batedeira",
+     "faturamento": 586.59,
+     "unidades": 9
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Bebedouro",
+     "faturamento": 540.0,
+     "unidades": 3
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Purificador de Agua",
+     "faturamento": 534.79,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Mixer de Alimentos",
+     "faturamento": 469.86,
+     "unidades": 2
+    },
+    {
+     "categoria": "Industria e Comercio >> Eletroportateis Industriais",
+     "faturamento": 396.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ventilador",
+     "faturamento": 337.18,
+     "unidades": 2
+    },
+    {
+     "categoria": "Instrumento Musicais >> Microfones e Amplificadores >> Microfone Profissional",
+     "faturamento": 323.9,
+     "unidades": 1
+    },
+    {
+     "categoria": "Automotivo >> Camera Veicular",
+     "faturamento": 143.0,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Fritadeira",
+     "faturamento": 135.13,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Marmita Eletrica",
+     "faturamento": 29.29,
+     "unidades": 1
+    }
+   ]
+  },
+  "05/2026": {
+   "faturamento_total": 6157595.46,
+   "pedidos": 4338,
+   "ticket_medio": 1419.45,
+   "por_canal": {
+    "Mercado Livre": {
+     "faturamento": 2758055.82,
+     "pedidos": 1913
+    },
+    "Casas Bahia": {
+     "faturamento": 1169553.88,
+     "pedidos": 762
+    },
+    "Amazon": {
+     "faturamento": 860461.62,
+     "pedidos": 668
+    },
+    "Magazine Luiza": {
+     "faturamento": 835936.39,
+     "pedidos": 534
+    },
+    "Shopee": {
+     "faturamento": 457002.96,
+     "pedidos": 410
+    },
+    "Outros": {
+     "faturamento": 76584.79,
+     "pedidos": 51
+    }
+   },
+   "top_produtos": [
+    {
+     "sku": "TI1690",
+     "nome": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turb",
+     "marca": "Midea",
+     "faturamento": 667664.85,
+     "unidades": 358
+    },
+    {
+     "sku": "TI1529",
+     "nome": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido ",
+     "marca": "Mueller",
+     "faturamento": 517289.88,
+     "unidades": 312
+    },
+    {
+     "sku": "TI1562",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - ",
+     "marca": "Mueller",
+     "faturamento": 450225.4,
+     "unidades": 246
+    },
+    {
+     "sku": "TI1571",
+     "nome": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 275336.18,
+     "unidades": 258
+    },
+    {
+     "sku": "TI1454",
+     "nome": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 257098.0,
+     "unidades": 43
+    },
+    {
+     "sku": "TI1524",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 242857.16,
+     "unidades": 243
+    },
+    {
+     "sku": "TI1514",
+     "nome": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bi",
+     "marca": "Mueller",
+     "faturamento": 169609.92,
+     "unidades": 84
+    },
+    {
+     "sku": "SS002",
+     "nome": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivo",
+     "marca": "SSOUND",
+     "faturamento": 157177.42,
+     "unidades": 151
+    },
+    {
+     "sku": "TI1486",
+     "nome": "Expositor Vertical Imbera VRS16 485 L Porta Vidro Full Black",
+     "marca": "Imbera",
+     "faturamento": 140513.56,
+     "unidades": 25
+    },
+    {
+     "sku": "TI1568",
+     "nome": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco",
+     "marca": "Mueller",
+     "faturamento": 123550.57,
+     "unidades": 80
+    },
+    {
+     "sku": "TI1768",
+     "nome": "Lava e Seca Electrolux  LSC12 12Kg Cinza Onix Inverter com A",
+     "marca": "Electrolux",
+     "faturamento": 120536.57,
+     "unidades": 28
+    },
+    {
+     "sku": "TI1563",
+     "nome": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - B",
+     "marca": "Mueller",
+     "faturamento": 120189.47,
+     "unidades": 217
+    },
+    {
+     "sku": "TI1526",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto ",
+     "marca": "Mueller",
+     "faturamento": 114282.31,
+     "unidades": 118
+    },
+    {
+     "sku": "TI1603",
+     "nome": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Biv",
+     "marca": "Dako",
+     "faturamento": 106694.95,
+     "unidades": 54
+    },
+    {
+     "sku": "TI1456",
+     "nome": "Expositor Vertical Imbera VR08 Porta de Vidro Full Black 244",
+     "marca": "Imbera",
+     "faturamento": 103360.83,
+     "unidades": 24
+    },
+    {
+     "sku": "TI1455",
+     "nome": "Cervejeira Vertical Imbera CCV315 Porta de Vidro Full Black ",
+     "marca": "Imbera",
+     "faturamento": 78909.7,
+     "unidades": 13
+    },
+    {
+     "sku": "TI1276",
+     "nome": "Caixa de Som Pulse Sp512 Flamebox DJ Torre Bluetooth LED TWS",
+     "marca": "Pulse",
+     "faturamento": 76314.81,
+     "unidades": 25
+    },
+    {
+     "sku": "TI1633",
+     "nome": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-B",
+     "marca": "Mueller",
+     "faturamento": 76217.45,
+     "unidades": 45
+    },
+    {
+     "sku": "TI1525",
+     "nome": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco",
+     "marca": "Mueller",
+     "faturamento": 75614.16,
+     "unidades": 76
+    },
+    {
+     "sku": "TI1560",
+     "nome": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltad",
+     "marca": "Mueller",
+     "faturamento": 75365.27,
+     "unidades": 91
+    }
+   ],
+   "top_marcas": [
+    {
+     "marca": "Mueller",
+     "faturamento": 2917527.06,
+     "unidades": 2504
+    },
+    {
+     "marca": "Imbera",
+     "faturamento": 732181.37,
+     "unidades": 132
+    },
+    {
+     "marca": "Midea",
+     "faturamento": 692468.93,
+     "unidades": 370
+    },
+    {
+     "marca": "Pulse",
+     "faturamento": 354499.99,
+     "unidades": 197
+    },
+    {
+     "marca": "Electrolux",
+     "faturamento": 321360.76,
+     "unidades": 132
+    },
+    {
+     "marca": "Itatiaia",
+     "faturamento": 240808.74,
+     "unidades": 223
+    },
+    {
+     "marca": "Dako",
+     "faturamento": 231458.05,
+     "unidades": 141
+    },
+    {
+     "marca": "SSOUND",
+     "faturamento": 224873.32,
+     "unidades": 231
+    },
+    {
+     "marca": "Philco",
+     "faturamento": 210061.31,
+     "unidades": 105
+    },
+    {
+     "marca": "Amvox",
+     "faturamento": 134672.74,
+     "unidades": 303
+    },
+    {
+     "marca": "Fischer",
+     "faturamento": 43622.94,
+     "unidades": 24
+    },
+    {
+     "marca": "Brastemp",
+     "faturamento": 23303.38,
+     "unidades": 10
+    },
+    {
+     "marca": "Benmax",
+     "faturamento": 5991.9,
+     "unidades": 1
+    },
+    {
+     "marca": "Outros",
+     "faturamento": 5157.07,
+     "unidades": 9
+    },
+    {
+     "marca": "LG",
+     "faturamento": 4506.45,
+     "unidades": 3
+    }
+   ],
+   "categorias": [
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Maquina de Lavar",
+     "faturamento": 2132845.41,
+     "unidades": 1433
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao",
+     "faturamento": 1017255.06,
+     "unidades": 830
+    },
+    {
+     "categoria": "Refrigerador Industrial",
+     "faturamento": 732181.37,
+     "unidades": 132
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 5 Bocas",
+     "faturamento": 710036.7,
+     "unidades": 387
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Caixa de Som",
+     "faturamento": 596489.62,
+     "unidades": 543
+    },
+    {
+     "categoria": "Eletrodomesticos >> CookTop",
+     "faturamento": 243312.24,
+     "unidades": 365
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Mini System",
+     "faturamento": 216300.47,
+     "unidades": 219
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fornos Eletrico",
+     "faturamento": 82395.26,
+     "unidades": 103
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 4 Bocas",
+     "faturamento": 76243.4,
+     "unidades": 65
+    },
+    {
+     "categoria": "Eletrodomesticos >> Lavadores >> Secadoras de Roupas",
+     "faturamento": 73128.09,
+     "unidades": 126
+    },
+    {
+     "categoria": "Eletrodomesticos >> Forno Eletrico de Embutir",
+     "faturamento": 64459.59,
+     "unidades": 38
+    },
+    {
+     "categoria": "Eletrodomesticos >> Freezer",
+     "faturamento": 58249.95,
+     "unidades": 25
+    },
+    {
+     "categoria": "Eletrodomesticos >> Fogao de Chao >> 6 Bocas",
+     "faturamento": 51172.98,
+     "unidades": 46
+    },
+    {
+     "categoria": "Ar e Ventilacao >> Ar Condicionado",
+     "faturamento": 38620.72,
+     "unidades": 30
+    },
+    {
+     "categoria": "Eletrodomesticos >> Microondas",
+     "faturamento": 21617.35,
+     "unidades": 14
+    },
+    {
+     "categoria": "Eletrodomesticos >> Frigobar",
+     "faturamento": 9193.61,
+     "unidades": 7
+    },
+    {
+     "categoria": "Eletrodomesticos >> Maquina de Gelo",
+     "faturamento": 5991.9,
+     "unidades": 1
+    },
+    {
+     "categoria": "Outros",
+     "faturamento": 5157.07,
+     "unidades": 9
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Monitor de Audio",
+     "faturamento": 4747.63,
+     "unidades": 7
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Televisores >> Televisores",
+     "faturamento": 1889.8,
+     "unidades": 1
+    },
+    {
+     "categoria": "Eletrodomesticos >> Pequenos Eletroportateis >> Purificador de Agua",
+     "faturamento": 1843.34,
+     "unidades": 3
+    },
+    {
+     "categoria": "Instrumento Musicais >> Microfones e Amplificadores >> Microfone Profissional",
+     "faturamento": 1649.86,
+     "unidades": 5
+    },
+    {
+     "categoria": "Eletronicos, Audio e Video >> Audio >> Boomboxes",
+     "faturamento": 1628.62,
+     "unidades": 1
+    }
+   ]
+  }
+ }
+}
