@@ -1888,14 +1888,14 @@ function popularDropdownMes(){
     const key=`${mm+1}/${yy}`;
     opts.push({key,label:`${NOMES[mm]}/${yy} ${k===0?'(atual)':''}`.trim(),vivo:true});
   }
-  // Meses do histórico (já congelados)
+  // Meses do histórico (já congelados) — usa a chave EXATA do arquivo (com zero à esquerda)
   if(_histData&&_histData.meses){
     Object.keys(_histData.meses).sort((a,b)=>{
       const[ma,ya]=a.split('/').map(Number),[mb,yb]=b.split('/').map(Number);
       return yb*100+mb-(ya*100+ma); // mais recente primeiro
     }).forEach(k=>{
       const[mm,yy]=k.split('/').map(Number);
-      opts.push({key:`${mm}/${yy}`,label:`${NOMES[mm-1]}/${yy}`,vivo:false});
+      opts.push({key:k,label:`${NOMES[mm-1]}/${yy}`,vivo:false}); // key=k mantém "05/2026"
     });
   }
   sel.innerHTML=opts.map(o=>`<option value="${o.key}">${o.label}</option>`).join('');
@@ -1911,9 +1911,10 @@ function selecionarMes(){
 function renderMesSelecionado(){
   const key=_mesSelKey||document.getElementById('fMesSel')?.value||'';
   _mesSelKey=key;
-  // Mês está no histórico congelado?
-  if(_histData&&_histData.meses&&_histData.meses[key]){
-    renderDashHistorico(_histData.meses[key],key);
+  // Procura no histórico tolerando zero à esquerda (ex: "5/2026" acha "05/2026")
+  const hist=buscarMesHistorico(key);
+  if(hist){
+    renderDashHistorico(hist.dados,hist.chave);
     return;
   }
   // Mês ao vivo: processa do Sheets normalmente
@@ -1925,6 +1926,20 @@ function renderMesSelecionado(){
     const d=processDash(_cache.pRows,_cache.iRows,_cache.metas);
     renderDash(d);
   }catch(e){console.error('[Mês]',e);if(!window._loading)load();}
+}
+
+// Acha um mês no histórico independente de zero à esquerda na chave
+function buscarMesHistorico(key){
+  if(!_histData||!_histData.meses||!key)return null;
+  const M=_histData.meses;
+  if(M[key])return{dados:M[key],chave:key};
+  // normaliza: "5/2026" → compara por (mês,ano)
+  const[m,y]=key.split('/').map(Number);
+  for(const k of Object.keys(M)){
+    const[mk,yk]=k.split('/').map(Number);
+    if(mk===m&&yk===y)return{dados:M[k],chave:k};
+  }
+  return null;
 }
 function aplicar(){
   const ini=document.getElementById('fIni').value,fim=document.getElementById('fFim').value;
