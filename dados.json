@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-22T06:34:36.022Z",
-  "gerado_em_br": "22/08/2026, 03:34:36",
+  "gerado_em": "2026-08-22T07:28:50.867Z",
+  "gerado_em_br": "22/08/2026, 04:28:50",
   "dia_referencia": "22/08/2026",
   "dia_ontem": "21/08/2026",
   "resumo_dia": {
-    "faturamento": 184309,
-    "pedidos": 1,
-    "ticket_medio": 184309,
+    "faturamento": 390210,
+    "pedidos": 3,
+    "ticket_medio": 130070,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 16999,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 188902,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 272256355,
-    "pedidos": 3336,
+    "faturamento": 272462256,
+    "pedidos": 3338,
     "meta_mensal": 8000000,
-    "pct_meta": 3403.2,
-    "projecao_final": 383633954.77,
+    "pct_meta": 3405.8,
+    "projecao_final": 383924088,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 24687911,
-        "pedidos": 1373
+        "faturamento": 24704910,
+        "pedidos": 1374
       },
       "Casas Bahia": {
-        "faturamento": 92932222,
-        "pedidos": 648
+        "faturamento": 93121124,
+        "pedidos": 649
       },
       "Magazine Luiza": {
         "faturamento": 28729348,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 581,
-      "fat": 46760786,
+      "qtd": 582,
+      "fat": 46919717,
       "canais": {
-        "Casas Bahia": 244,
+        "Casas Bahia": 245,
         "Amazon": 249,
         "Mercado Livre": 81,
         "Shopee": 7
@@ -387,6 +387,18 @@
       }
     },
     {
+      "sku": "TI1633",
+      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
+      "qtd": 45,
+      "fat": 2547297,
+      "canais": {
+        "Mercado Livre": 21,
+        "Shopee": 2,
+        "Casas Bahia": 5,
+        "Amazon": 17
+      }
+    },
+    {
       "sku": "TI1608",
       "desc": "Caixa de Som Pulse Torre Sp516 Double 12\"pol LED 2700w - Bivolt",
       "qtd": 45,
@@ -397,18 +409,6 @@
         "Casas Bahia": 8,
         "Shopee": 15,
         "Amazon": 3
-      }
-    },
-    {
-      "sku": "TI1633",
-      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 44,
-      "fat": 2530298,
-      "canais": {
-        "Mercado Livre": 20,
-        "Shopee": 2,
-        "Casas Bahia": 5,
-        "Amazon": 17
       }
     },
     {
@@ -458,11 +458,11 @@
   ],
   "historico_por_dia": {
     "22/08/2026": {
-      "fat": 184309,
-      "peds": 1,
+      "fat": 390210,
+      "peds": 3,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Mercado Livre": 16999,
+        "Casas Bahia": 188902,
         "Magazine Luiza": 184309,
         "Shopee": 0,
         "Amazon": 0,
