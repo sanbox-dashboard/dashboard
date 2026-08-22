@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-22T21:18:36.133Z",
-  "gerado_em_br": "22/08/2026, 18:18:36",
+  "gerado_em": "2026-08-22T22:18:16.141Z",
+  "gerado_em_br": "22/08/2026, 19:18:16",
   "dia_referencia": "22/08/2026",
   "dia_ontem": "21/08/2026",
   "resumo_dia": {
-    "faturamento": 7314171,
-    "pedidos": 68,
-    "ticket_medio": 107561.34,
+    "faturamento": 7707362,
+    "pedidos": 76,
+    "ticket_medio": 101412.66,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1436098,
-        "pedidos": 30,
+        "faturamento": 1684767,
+        "pedidos": 37,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1311328,
-        "pedidos": 7,
+        "faturamento": 1455850,
+        "pedidos": 8,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 279907834,
-    "pedidos": 3405,
+    "faturamento": 280301025,
+    "pedidos": 3413,
     "meta_mensal": 8000000,
-    "pct_meta": 3498.8,
-    "projecao_final": 394415584.27,
+    "pct_meta": 3503.8,
+    "projecao_final": 394969626.14,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 26153149,
-        "pedidos": 1403
+        "faturamento": 26401818,
+        "pedidos": 1410
       },
       "Casas Bahia": {
         "faturamento": 95859281,
         "pedidos": 665
       },
       "Magazine Luiza": {
-        "faturamento": 29856367,
-        "pedidos": 199
+        "faturamento": 30000889,
+        "pedidos": 200
       },
       "Shopee": {
         "faturamento": 33095944,
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 422,
-      "fat": 6353839,
+      "qtd": 424,
+      "fat": 6373837,
       "canais": {
-        "Mercado Livre": 236,
+        "Mercado Livre": 238,
         "Casas Bahia": 71,
         "Shopee": 45,
         "Amazon": 68,
@@ -116,10 +116,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 322,
-      "fat": 4221370,
+      "qtd": 323,
+      "fat": 4237229,
       "canais": {
-        "Mercado Livre": 149,
+        "Mercado Livre": 150,
         "Casas Bahia": 78,
         "Magazine Luiza": 5,
         "Amazon": 79,
@@ -194,6 +194,18 @@
       }
     },
     {
+      "sku": "TI1526",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
+      "qtd": 98,
+      "fat": 2073674,
+      "canais": {
+        "Mercado Livre": 60,
+        "Magazine Luiza": 10,
+        "Amazon": 17,
+        "Shopee": 11
+      }
+    },
+    {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
       "qtd": 97,
@@ -204,18 +216,6 @@
         "Amazon": 19,
         "Casas Bahia": 9,
         "Magazine Luiza": 4
-      }
-    },
-    {
-      "sku": "TI1526",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 97,
-      "fat": 2063675,
-      "canais": {
-        "Mercado Livre": 59,
-        "Magazine Luiza": 10,
-        "Amazon": 17,
-        "Shopee": 11
       }
     },
     {
@@ -447,23 +447,27 @@
       }
     },
     {
-      "sku": "TI1789",
-      "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
+      "sku": "TI1700",
+      "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
       "qtd": 41,
-      "fat": 132039,
+      "fat": 928505,
       "canais": {
-        "Mercado Livre": 41
+        "Mercado Livre": 8,
+        "Casas Bahia": 2,
+        "Shopee": 19,
+        "Magazine Luiza": 3,
+        "Amazon": 9
       }
     }
   ],
   "historico_por_dia": {
     "22/08/2026": {
-      "fat": 7314171,
-      "peds": 68,
+      "fat": 7707362,
+      "peds": 76,
       "canais": {
-        "Mercado Livre": 1436098,
+        "Mercado Livre": 1684767,
         "Casas Bahia": 2333265,
-        "Magazine Luiza": 1311328,
+        "Magazine Luiza": 1455850,
         "Shopee": 944798,
         "Amazon": 1288682,
         "Amazon Fulfillment": 0
