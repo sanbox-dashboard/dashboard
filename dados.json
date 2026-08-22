@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-08-22T15:17:36.618Z",
-  "gerado_em_br": "22/08/2026, 12:17:36",
+  "gerado_em": "2026-08-22T16:19:50.273Z",
+  "gerado_em_br": "22/08/2026, 13:19:50",
   "dia_referencia": "22/08/2026",
   "dia_ontem": "21/08/2026",
   "resumo_dia": {
-    "faturamento": 3017238,
-    "pedidos": 30,
-    "ticket_medio": 100574.6,
+    "faturamento": 3850525,
+    "pedidos": 36,
+    "ticket_medio": 106959.03,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 331918,
-        "pedidos": 14,
+        "faturamento": 807547,
+        "pedidos": 19,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1229371,
-        "pedidos": 8,
+        "faturamento": 1587029,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 10061012,
-    "pedidos": 120
+    "faturamento": 10269883,
+    "pedidos": 121
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 275118424,
-    "pedidos": 3365,
+    "faturamento": 276160582,
+    "pedidos": 3372,
     "meta_mensal": 8000000,
-    "pct_meta": 3439,
-    "projecao_final": 387666870.18,
+    "pct_meta": 3452,
+    "projecao_final": 389135365.55,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 25048969,
-        "pedidos": 1387
+        "faturamento": 25524598,
+        "pedidos": 1392
       },
       "Casas Bahia": {
-        "faturamento": 94161593,
-        "pedidos": 656
+        "faturamento": 94728122,
+        "pedidos": 658
       },
       "Magazine Luiza": {
         "faturamento": 29447294,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 586,
-      "fat": 47424889,
+      "qtd": 588,
+      "fat": 47742751,
       "canais": {
-        "Casas Bahia": 248,
+        "Casas Bahia": 250,
         "Amazon": 250,
         "Mercado Livre": 81,
         "Shopee": 7
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 419,
-      "fat": 6323842,
+      "qtd": 420,
+      "fat": 6333841,
       "canais": {
-        "Mercado Livre": 233,
+        "Mercado Livre": 234,
         "Casas Bahia": 71,
         "Shopee": 45,
         "Amazon": 68,
@@ -412,6 +412,17 @@
       }
     },
     {
+      "sku": "TI1607",
+      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
+      "qtd": 44,
+      "fat": 869366,
+      "canais": {
+        "Casas Bahia": 7,
+        "Mercado Livre": 36,
+        "Amazon": 1
+      }
+    },
+    {
       "sku": "TI1568",
       "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
       "qtd": 43,
@@ -422,17 +433,6 @@
         "Mercado Livre": 16,
         "Shopee": 8,
         "Amazon": 4
-      }
-    },
-    {
-      "sku": "TI1607",
-      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
-      "qtd": 43,
-      "fat": 850567,
-      "canais": {
-        "Mercado Livre": 36,
-        "Casas Bahia": 6,
-        "Amazon": 1
       }
     },
     {
@@ -458,11 +458,11 @@
   ],
   "historico_por_dia": {
     "22/08/2026": {
-      "fat": 3017238,
-      "peds": 30,
+      "fat": 3850525,
+      "peds": 36,
       "canais": {
-        "Mercado Livre": 331918,
-        "Casas Bahia": 1229371,
+        "Mercado Livre": 807547,
+        "Casas Bahia": 1587029,
         "Magazine Luiza": 902255,
         "Shopee": 245675,
         "Amazon": 308019,
@@ -470,11 +470,11 @@
       }
     },
     "21/08/2026": {
-      "fat": 10061012,
-      "peds": 120,
+      "fat": 10269883,
+      "peds": 121,
       "canais": {
         "Mercado Livre": 1805885,
-        "Casas Bahia": 2828453,
+        "Casas Bahia": 3037324,
         "Magazine Luiza": 1826652,
         "Shopee": 1707158,
         "Amazon": 1892864,
