@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-22T20:18:46.757Z",
-  "gerado_em_br": "22/08/2026, 17:18:46",
+  "gerado_em": "2026-08-22T21:18:36.133Z",
+  "gerado_em_br": "22/08/2026, 18:18:36",
   "dia_referencia": "22/08/2026",
   "dia_ontem": "21/08/2026",
   "resumo_dia": {
-    "faturamento": 7025462,
-    "pedidos": 66,
-    "ticket_medio": 106446.39,
+    "faturamento": 7314171,
+    "pedidos": 68,
+    "ticket_medio": 107561.34,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1165547,
-        "pedidos": 6,
+        "faturamento": 1311328,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1145754,
-        "pedidos": 7,
+        "faturamento": 1288682,
+        "pedidos": 8,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 279619125,
-    "pedidos": 3403,
+    "faturamento": 279907834,
+    "pedidos": 3405,
     "meta_mensal": 8000000,
-    "pct_meta": 3495.2,
-    "projecao_final": 394008767.05,
+    "pct_meta": 3498.8,
+    "projecao_final": 394415584.27,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 26153149,
@@ -69,16 +69,16 @@
         "pedidos": 665
       },
       "Magazine Luiza": {
-        "faturamento": 29710586,
-        "pedidos": 198
+        "faturamento": 29856367,
+        "pedidos": 199
       },
       "Shopee": {
         "faturamento": 33095944,
         "pedidos": 319
       },
       "Amazon": {
-        "faturamento": 90104790,
-        "pedidos": 774
+        "faturamento": 90247718,
+        "pedidos": 775
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -458,14 +458,14 @@
   ],
   "historico_por_dia": {
     "22/08/2026": {
-      "fat": 7025462,
-      "peds": 66,
+      "fat": 7314171,
+      "peds": 68,
       "canais": {
         "Mercado Livre": 1436098,
         "Casas Bahia": 2333265,
-        "Magazine Luiza": 1165547,
+        "Magazine Luiza": 1311328,
         "Shopee": 944798,
-        "Amazon": 1145754,
+        "Amazon": 1288682,
         "Amazon Fulfillment": 0
       }
     },
