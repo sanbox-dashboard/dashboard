@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-22T12:32:58.555Z",
-  "gerado_em_br": "22/08/2026, 09:32:58",
+  "gerado_em": "2026-08-22T13:28:57.410Z",
+  "gerado_em_br": "22/08/2026, 10:28:57",
   "dia_referencia": "22/08/2026",
   "dia_ontem": "21/08/2026",
   "resumo_dia": {
-    "faturamento": 958549,
-    "pedidos": 10,
-    "ticket_medio": 95854.9,
+    "faturamento": 1954554,
+    "pedidos": 14,
+    "ticket_medio": 139611,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 209935,
-        "pedidos": 5,
+        "faturamento": 261626,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 487037,
-        "pedidos": 3,
+        "faturamento": 719409,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 261577,
-        "pedidos": 2,
+        "faturamento": 835151,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 138368,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 273075594,
-    "pedidos": 3346,
+    "faturamento": 274071599,
+    "pedidos": 3350,
     "meta_mensal": 8000000,
-    "pct_meta": 3413.4,
-    "projecao_final": 384788337,
+    "pct_meta": 3425.9,
+    "projecao_final": 386191798.59,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 24942845,
-        "pedidos": 1379
+        "faturamento": 24994536,
+        "pedidos": 1380
       },
       "Casas Bahia": {
-        "faturamento": 93419259,
-        "pedidos": 651
+        "faturamento": 93651631,
+        "pedidos": 652
       },
       "Magazine Luiza": {
-        "faturamento": 28806616,
-        "pedidos": 194
+        "faturamento": 29380190,
+        "pedidos": 195
       },
       "Shopee": {
         "faturamento": 32252463,
         "pedidos": 311
       },
       "Amazon": {
-        "faturamento": 88959036,
-        "pedidos": 767
+        "faturamento": 89097404,
+        "pedidos": 768
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -129,12 +129,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 187,
-      "fat": 7298826,
+      "qtd": 188,
+      "fat": 7315725,
       "canais": {
+        "Casas Bahia": 63,
         "Shopee": 17,
         "Magazine Luiza": 6,
-        "Casas Bahia": 62,
         "Mercado Livre": 45,
         "Amazon": 55,
         "Outros": 2
@@ -458,14 +458,14 @@
   ],
   "historico_por_dia": {
     "22/08/2026": {
-      "fat": 958549,
-      "peds": 10,
+      "fat": 1954554,
+      "peds": 14,
       "canais": {
-        "Mercado Livre": 209935,
-        "Casas Bahia": 487037,
-        "Magazine Luiza": 261577,
+        "Mercado Livre": 261626,
+        "Casas Bahia": 719409,
+        "Magazine Luiza": 835151,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 138368,
         "Amazon Fulfillment": 0
       }
     },
