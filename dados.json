@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-23T17:17:42.991Z",
-  "gerado_em_br": "23/08/2026, 14:17:43",
+  "gerado_em": "2026-08-23T18:24:29.525Z",
+  "gerado_em_br": "23/08/2026, 15:24:29",
   "dia_referencia": "23/08/2026",
   "dia_ontem": "22/08/2026",
   "resumo_dia": {
-    "faturamento": 3862205,
-    "pedidos": 41,
-    "ticket_medio": 94200.12,
+    "faturamento": 5237125,
+    "pedidos": 54,
+    "ticket_medio": 96983.8,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 871024,
-        "pedidos": 19,
+        "faturamento": 1707438,
+        "pedidos": 28,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 1126033,
-        "pedidos": 7,
+        "faturamento": 1664539,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 286109712,
-    "pedidos": 3476,
+    "faturamento": 287484632,
+    "pedidos": 3489,
     "meta_mensal": 8000000,
-    "pct_meta": 3576.4,
-    "projecao_final": 385626133.57,
+    "pct_meta": 3593.6,
+    "projecao_final": 387479286.61,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 27359489,
-        "pedidos": 1437
+        "faturamento": 28195903,
+        "pedidos": 1446
       },
       "Casas Bahia": {
         "faturamento": 97726470,
@@ -77,8 +77,8 @@
         "pedidos": 327
       },
       "Amazon": {
-        "faturamento": 91402117,
-        "pedidos": 783
+        "faturamento": 91940623,
+        "pedidos": 787
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 586,
-      "fat": 48267673,
+      "qtd": 588,
+      "fat": 48612222,
       "canais": {
-        "Amazon": 253,
+        "Amazon": 255,
         "Casas Bahia": 248,
         "Mercado Livre": 78,
         "Shopee": 7
@@ -102,11 +102,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 414,
-      "fat": 6278697,
+      "qtd": 415,
+      "fat": 6288696,
       "canais": {
+        "Mercado Livre": 233,
         "Casas Bahia": 72,
-        "Mercado Livre": 232,
         "Shopee": 45,
         "Amazon": 63,
         "Outros": 1,
@@ -208,10 +208,10 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 94,
-      "fat": 3681155,
+      "qtd": 95,
+      "fat": 3700814,
       "canais": {
-        "Mercado Livre": 58,
+        "Mercado Livre": 59,
         "Shopee": 5,
         "Amazon": 18,
         "Casas Bahia": 9,
@@ -231,12 +231,12 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 80,
-      "fat": 1586082,
+      "qtd": 81,
+      "fat": 1670071,
       "canais": {
+        "Amazon": 23,
         "Shopee": 16,
         "Mercado Livre": 14,
-        "Amazon": 22,
         "Magazine Luiza": 12,
         "Casas Bahia": 16
       }
@@ -400,6 +400,17 @@
       }
     },
     {
+      "sku": "TI1607",
+      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
+      "qtd": 44,
+      "fat": 1045848,
+      "canais": {
+        "Mercado Livre": 36,
+        "Casas Bahia": 7,
+        "Amazon": 1
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 44,
@@ -438,36 +449,25 @@
       }
     },
     {
-      "sku": "TI1607",
-      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
-      "qtd": 43,
-      "fat": 849567,
-      "canais": {
-        "Casas Bahia": 7,
-        "Mercado Livre": 35,
-        "Amazon": 1
-      }
-    },
-    {
       "sku": "TI1789",
       "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
-      "qtd": 40,
-      "fat": 128610,
+      "qtd": 41,
+      "fat": 131709,
       "canais": {
-        "Mercado Livre": 40
+        "Mercado Livre": 41
       }
     }
   ],
   "historico_por_dia": {
     "23/08/2026": {
-      "fat": 3862205,
-      "peds": 41,
+      "fat": 5237125,
+      "peds": 54,
       "canais": {
-        "Mercado Livre": 871024,
+        "Mercado Livre": 1707438,
         "Casas Bahia": 722508,
         "Magazine Luiza": 837663,
         "Shopee": 236151,
-        "Amazon": 1126033,
+        "Amazon": 1664539,
         "Amazon Fulfillment": 0
       }
     },
