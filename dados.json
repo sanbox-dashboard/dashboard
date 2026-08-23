@@ -1,30 +1,30 @@
 {
-  "gerado_em": "2026-08-23T15:18:55.567Z",
-  "gerado_em_br": "23/08/2026, 12:18:55",
+  "gerado_em": "2026-08-23T16:20:41.014Z",
+  "gerado_em_br": "23/08/2026, 13:20:41",
   "dia_referencia": "23/08/2026",
   "dia_ontem": "22/08/2026",
   "resumo_dia": {
-    "faturamento": 2213069,
-    "pedidos": 26,
-    "ticket_medio": 85118.04,
+    "faturamento": 3430105,
+    "pedidos": 38,
+    "ticket_medio": 90265.92,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 667444,
-        "pedidos": 11,
+        "faturamento": 861025,
+        "pedidos": 18,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 532820,
-        "pedidos": 4,
+        "faturamento": 615199,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 172422,
-        "pedidos": 2,
+        "faturamento": 522871,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 535406,
-        "pedidos": 4,
+        "faturamento": 1126033,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 9879676,
-    "pedidos": 101
+    "faturamento": 9863817,
+    "pedidos": 100
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 284476435,
-    "pedidos": 3462,
+    "faturamento": 285677612,
+    "pedidos": 3473,
     "meta_mensal": 8000000,
-    "pct_meta": 3556,
-    "projecao_final": 383424760.22,
+    "pct_meta": 3571,
+    "projecao_final": 385043737.91,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 27171768,
-        "pedidos": 1430
+        "faturamento": 27349490,
+        "pedidos": 1436
       },
       "Casas Bahia": {
-        "faturamento": 97536782,
-        "pedidos": 677
+        "faturamento": 97619161,
+        "pedidos": 678
       },
       "Magazine Luiza": {
-        "faturamento": 30299917,
-        "pedidos": 203
+        "faturamento": 30650366,
+        "pedidos": 204
       },
       "Shopee": {
         "faturamento": 33892277,
         "pedidos": 327
       },
       "Amazon": {
-        "faturamento": 90811490,
-        "pedidos": 780
+        "faturamento": 91402117,
+        "pedidos": 783
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 584,
-      "fat": 47917877,
+      "qtd": 586,
+      "fat": 48267673,
       "canais": {
-        "Amazon": 251,
+        "Amazon": 253,
         "Casas Bahia": 248,
         "Mercado Livre": 78,
         "Shopee": 7
@@ -119,8 +119,8 @@
       "qtd": 315,
       "fat": 4153234,
       "canais": {
-        "Amazon": 77,
         "Mercado Livre": 146,
+        "Amazon": 77,
         "Casas Bahia": 77,
         "Magazine Luiza": 5,
         "Shopee": 10
@@ -143,11 +143,11 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 158,
-      "fat": 4916095,
+      "qtd": 160,
+      "fat": 4938833,
       "canais": {
+        "Mercado Livre": 60,
         "Shopee": 30,
-        "Mercado Livre": 58,
         "Casas Bahia": 41,
         "Amazon": 21,
         "Magazine Luiza": 8
@@ -425,6 +425,19 @@
       }
     },
     {
+      "sku": "TI1700",
+      "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
+      "qtd": 43,
+      "fat": 942303,
+      "canais": {
+        "Mercado Livre": 10,
+        "Casas Bahia": 2,
+        "Shopee": 19,
+        "Magazine Luiza": 3,
+        "Amazon": 9
+      }
+    },
+    {
       "sku": "TI1607",
       "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
       "qtd": 43,
@@ -433,19 +446,6 @@
         "Casas Bahia": 7,
         "Mercado Livre": 35,
         "Amazon": 1
-      }
-    },
-    {
-      "sku": "TI1700",
-      "desc": "Tanquinho de Lavar Roupa Mueller 10kg Preto com superesfregador -127v",
-      "qtd": 41,
-      "fat": 928505,
-      "canais": {
-        "Mercado Livre": 8,
-        "Casas Bahia": 2,
-        "Shopee": 19,
-        "Magazine Luiza": 3,
-        "Amazon": 9
       }
     },
     {
@@ -460,22 +460,22 @@
   ],
   "historico_por_dia": {
     "23/08/2026": {
-      "fat": 2213069,
-      "peds": 26,
+      "fat": 3430105,
+      "peds": 38,
       "canais": {
-        "Mercado Livre": 667444,
-        "Casas Bahia": 532820,
-        "Magazine Luiza": 172422,
+        "Mercado Livre": 861025,
+        "Casas Bahia": 615199,
+        "Magazine Luiza": 522871,
         "Shopee": 236151,
-        "Amazon": 535406,
+        "Amazon": 1126033,
         "Amazon Fulfillment": 0
       }
     },
     "22/08/2026": {
-      "fat": 9879676,
-      "peds": 101,
+      "fat": 9863817,
+      "peds": 100,
       "canais": {
-        "Mercado Livre": 1797272,
+        "Mercado Livre": 1781413,
         "Casas Bahia": 3477946,
         "Magazine Luiza": 1582456,
         "Shopee": 1504980,
