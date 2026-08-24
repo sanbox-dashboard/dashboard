@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-24T11:24:33.590Z",
-  "gerado_em_br": "24/08/2026, 08:24:33",
+  "gerado_em": "2026-08-24T12:42:41.648Z",
+  "gerado_em_br": "24/08/2026, 09:42:41",
   "dia_referencia": "24/08/2026",
   "dia_ontem": "23/08/2026",
   "resumo_dia": {
-    "faturamento": 1056053,
-    "pedidos": 7,
-    "ticket_medio": 150864.71,
+    "faturamento": 1066052,
+    "pedidos": 8,
+    "ticket_medio": 133256.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9999,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 293397075,
-    "pedidos": 3557,
+    "faturamento": 293407074,
+    "pedidos": 3558,
     "meta_mensal": 8000000,
-    "pct_meta": 3667.5,
-    "projecao_final": 378971221.88,
+    "pct_meta": 3667.6,
+    "projecao_final": 378984137.25,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 29377673,
-        "pedidos": 1481
+        "faturamento": 29387672,
+        "pedidos": 1482
       },
       "Casas Bahia": {
         "faturamento": 99706390,
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 413,
-      "fat": 6278148,
+      "qtd": 414,
+      "fat": 6288147,
       "canais": {
-        "Mercado Livre": 237,
+        "Mercado Livre": 238,
         "Casas Bahia": 68,
         "Shopee": 45,
         "Amazon": 61,
@@ -458,10 +458,10 @@
   ],
   "historico_por_dia": {
     "24/08/2026": {
-      "fat": 1056053,
-      "peds": 7,
+      "fat": 1066052,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 9999,
         "Casas Bahia": 781245,
         "Magazine Luiza": 65294,
         "Shopee": 209514,
