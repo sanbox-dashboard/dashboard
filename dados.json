@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-23T23:17:53.327Z",
-  "gerado_em_br": "23/08/2026, 20:17:53",
+  "gerado_em": "2026-08-24T01:06:50.816Z",
+  "gerado_em_br": "23/08/2026, 22:06:50",
   "dia_referencia": "23/08/2026",
   "dia_ontem": "22/08/2026",
   "resumo_dia": {
-    "faturamento": 9304942,
-    "pedidos": 103,
-    "ticket_medio": 90339.24,
+    "faturamento": 9528250,
+    "pedidos": 107,
+    "ticket_medio": 89049.07,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 2819124,
-        "pedidos": 57,
+        "faturamento": 2846712,
+        "pedidos": 59,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 2762747,
-        "pedidos": 20,
+        "faturamento": 2958467,
+        "pedidos": 22,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 291497623,
-    "pedidos": 3537,
+    "faturamento": 291720931,
+    "pedidos": 3541,
     "meta_mensal": 8000000,
-    "pct_meta": 3643.7,
-    "projecao_final": 392888100.57,
+    "pct_meta": 3646.5,
+    "projecao_final": 376806202.54,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 29307589,
-        "pedidos": 1475
+        "faturamento": 29335177,
+        "pedidos": 1477
       },
       "Casas Bahia": {
         "faturamento": 98840838,
@@ -77,8 +77,8 @@
         "pedidos": 329
       },
       "Amazon": {
-        "faturamento": 93038831,
-        "pedidos": 796
+        "faturamento": 93234551,
+        "pedidos": 798
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -102,10 +102,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 425,
-      "fat": 6390656,
+      "qtd": 426,
+      "fat": 6400655,
       "canais": {
-        "Mercado Livre": 243,
+        "Mercado Livre": 244,
         "Casas Bahia": 72,
         "Shopee": 45,
         "Amazon": 63,
@@ -231,10 +231,10 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 83,
-      "fat": 1835529,
+      "qtd": 84,
+      "fat": 1916998,
       "canais": {
-        "Amazon": 25,
+        "Amazon": 26,
         "Shopee": 16,
         "Mercado Livre": 14,
         "Magazine Luiza": 12,
@@ -460,14 +460,14 @@
   ],
   "historico_por_dia": {
     "23/08/2026": {
-      "fat": 9304942,
-      "peds": 103,
+      "fat": 9528250,
+      "peds": 107,
       "canais": {
-        "Mercado Livre": 2819124,
+        "Mercado Livre": 2846712,
         "Casas Bahia": 1836876,
         "Magazine Luiza": 1406417,
         "Shopee": 410952,
-        "Amazon": 2762747,
+        "Amazon": 2958467,
         "Amazon Fulfillment": 0
       }
     },
