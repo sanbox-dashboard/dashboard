@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-24T10:34:12.499Z",
-  "gerado_em_br": "24/08/2026, 07:34:12",
+  "gerado_em": "2026-08-24T11:24:33.590Z",
+  "gerado_em_br": "24/08/2026, 08:24:33",
   "dia_referencia": "24/08/2026",
   "dia_ontem": "23/08/2026",
   "resumo_dia": {
-    "faturamento": 757904,
-    "pedidos": 5,
-    "ticket_medio": 151580.8,
+    "faturamento": 1056053,
+    "pedidos": 7,
+    "ticket_medio": 150864.71,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 584811,
-        "pedidos": 3,
+        "faturamento": 781245,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 107799,
-        "pedidos": 1,
+        "faturamento": 209514,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 293098926,
-    "pedidos": 3555,
+    "faturamento": 293397075,
+    "pedidos": 3557,
     "meta_mensal": 8000000,
-    "pct_meta": 3663.7,
-    "projecao_final": 378586112.75,
+    "pct_meta": 3667.5,
+    "projecao_final": 378971221.88,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 29377673,
         "pedidos": 1481
       },
       "Casas Bahia": {
-        "faturamento": 99509956,
-        "pedidos": 690
+        "faturamento": 99706390,
+        "pedidos": 691
       },
       "Magazine Luiza": {
         "faturamento": 31599206,
         "pedidos": 207
       },
       "Shopee": {
-        "faturamento": 34215649,
-        "pedidos": 331
+        "faturamento": 34317364,
+        "pedidos": 332
       },
       "Amazon": {
         "faturamento": 93632241,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 587,
-      "fat": 49365431,
+      "qtd": 588,
+      "fat": 49383090,
       "canais": {
-        "Casas Bahia": 244,
+        "Casas Bahia": 245,
         "Amazon": 259,
         "Mercado Livre": 77,
         "Shopee": 7
@@ -336,6 +336,18 @@
       }
     },
     {
+      "sku": "TI1527",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
+      "qtd": 52,
+      "fat": 465016,
+      "canais": {
+        "Shopee": 2,
+        "Mercado Livre": 42,
+        "Magazine Luiza": 2,
+        "Amazon": 6
+      }
+    },
+    {
       "sku": "TI1694",
       "desc": "Fogao a Gas Itatiaia Star New 6 Bocas Mesa Inox Forno 82 Litros-Preto",
       "qtd": 52,
@@ -346,18 +358,6 @@
         "Magazine Luiza": 6,
         "Shopee": 3,
         "Amazon": 2
-      }
-    },
-    {
-      "sku": "TI1527",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 220v",
-      "qtd": 51,
-      "fat": 456017,
-      "canais": {
-        "Mercado Livre": 42,
-        "Magazine Luiza": 2,
-        "Amazon": 6,
-        "Shopee": 1
       }
     },
     {
@@ -458,13 +458,13 @@
   ],
   "historico_por_dia": {
     "24/08/2026": {
-      "fat": 757904,
-      "peds": 5,
+      "fat": 1056053,
+      "peds": 7,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 584811,
+        "Casas Bahia": 781245,
         "Magazine Luiza": 65294,
-        "Shopee": 107799,
+        "Shopee": 209514,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
