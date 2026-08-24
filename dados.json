@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-24T03:00:13.211Z",
-  "gerado_em_br": "24/08/2026, 00:00:13",
+  "gerado_em": "2026-08-24T04:00:27.210Z",
+  "gerado_em_br": "24/08/2026, 01:00:27",
   "dia_referencia": "24/08/2026",
   "dia_ontem": "23/08/2026",
   "resumo_dia": {
-    "faturamento": 65294,
-    "pedidos": 1,
-    "ticket_medio": 65294,
+    "faturamento": 369852,
+    "pedidos": 3,
+    "ticket_medio": 123284,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 196759,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 107799,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 10145242,
-    "pedidos": 115
+    "faturamento": 10148341,
+    "pedidos": 116
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 292403217,
-    "pedidos": 3550,
+    "faturamento": 292710874,
+    "pedidos": 3553,
     "meta_mensal": 8000000,
-    "pct_meta": 3655,
-    "projecao_final": 377687488.63,
+    "pct_meta": 3658.9,
+    "projecao_final": 378084878.92,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 29374574,
-        "pedidos": 1480
+        "faturamento": 29377673,
+        "pedidos": 1481
       },
       "Casas Bahia": {
-        "faturamento": 98925145,
-        "pedidos": 687
+        "faturamento": 99121904,
+        "pedidos": 688
       },
       "Magazine Luiza": {
         "faturamento": 31599206,
         "pedidos": 207
       },
       "Shopee": {
-        "faturamento": 34107850,
-        "pedidos": 330
+        "faturamento": 34215649,
+        "pedidos": 331
       },
       "Amazon": {
         "faturamento": 93632241,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 584,
-      "fat": 49171182,
+      "qtd": 585,
+      "fat": 49188841,
       "canais": {
+        "Casas Bahia": 242,
         "Amazon": 259,
-        "Casas Bahia": 241,
         "Mercado Livre": 77,
         "Shopee": 7
       }
@@ -169,11 +169,11 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 126,
-      "fat": 2805202,
+      "qtd": 127,
+      "fat": 2814601,
       "canais": {
+        "Shopee": 52,
         "Amazon": 17,
-        "Shopee": 51,
         "Mercado Livre": 54,
         "Magazine Luiza": 3,
         "Casas Bahia": 1
@@ -435,6 +435,15 @@
       }
     },
     {
+      "sku": "TI1789",
+      "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
+      "qtd": 42,
+      "fat": 134438,
+      "canais": {
+        "Mercado Livre": 42
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 42,
@@ -445,35 +454,26 @@
         "Casas Bahia": 4,
         "Amazon": 17
       }
-    },
-    {
-      "sku": "TI1789",
-      "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
-      "qtd": 41,
-      "fat": 131339,
-      "canais": {
-        "Mercado Livre": 41
-      }
     }
   ],
   "historico_por_dia": {
     "24/08/2026": {
-      "fat": 65294,
-      "peds": 1,
+      "fat": 369852,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Casas Bahia": 196759,
         "Magazine Luiza": 65294,
-        "Shopee": 0,
+        "Shopee": 107799,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "23/08/2026": {
-      "fat": 10145242,
-      "peds": 115,
+      "fat": 10148341,
+      "peds": 116,
       "canais": {
-        "Mercado Livre": 2886109,
+        "Mercado Livre": 2889208,
         "Casas Bahia": 1921183,
         "Magazine Luiza": 1406417,
         "Shopee": 506550,
