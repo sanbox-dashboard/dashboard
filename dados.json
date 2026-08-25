@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-25T12:41:28.087Z",
-  "gerado_em_br": "25/08/2026, 09:41:28",
+  "gerado_em": "2026-08-25T13:47:03.572Z",
+  "gerado_em_br": "25/08/2026, 10:47:03",
   "dia_referencia": "25/08/2026",
   "dia_ontem": "24/08/2026",
   "resumo_dia": {
-    "faturamento": 1541232,
-    "pedidos": 20,
-    "ticket_medio": 77061.6,
+    "faturamento": 2768166,
+    "pedidos": 30,
+    "ticket_medio": 92272.2,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 59667,
-        "pedidos": 3,
+        "faturamento": 866019,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,14 +23,14 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 857844,
-        "pedidos": 9,
+        "faturamento": 1269322,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 150336,
-        "pedidos": 1,
+        "faturamento": 159440,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 307113660,
-    "pedidos": 3724,
+    "faturamento": 308361813,
+    "pedidos": 3735,
     "meta_mensal": 8000000,
-    "pct_meta": 3838.9,
-    "projecao_final": 380820938.4,
+    "pct_meta": 3854.5,
+    "projecao_final": 382368648.12,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 32384603,
-        "pedidos": 1546
+        "faturamento": 33190955,
+        "pedidos": 1552
       },
       "Casas Bahia": {
-        "faturamento": 102764334,
-        "pedidos": 713
+        "faturamento": 102785553,
+        "pedidos": 714
       },
       "Magazine Luiza": {
-        "faturamento": 34817797,
-        "pedidos": 232
+        "faturamento": 35229275,
+        "pedidos": 235
       },
       "Shopee": {
-        "faturamento": 36613292,
-        "pedidos": 352
+        "faturamento": 36622396,
+        "pedidos": 353
       },
       "Amazon": {
         "faturamento": 95732827,
@@ -291,10 +291,10 @@
     {
       "sku": "TI287-2",
       "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 63,
-      "fat": 211480,
+      "qtd": 65,
+      "fat": 218326,
       "canais": {
-        "Casas Bahia": 19,
+        "Casas Bahia": 21,
         "Shopee": 14,
         "Magazine Luiza": 17,
         "Mercado Livre": 13
@@ -424,14 +424,27 @@
     {
       "sku": "TI1608",
       "desc": "Caixa de Som Pulse Torre Sp516 Double 12\"pol LED 2700w - Bivolt",
-      "qtd": 43,
-      "fat": 3482300,
+      "qtd": 44,
+      "fat": 3678644,
       "canais": {
-        "Casas Bahia": 9,
+        "Casas Bahia": 10,
         "Mercado Livre": 12,
         "Magazine Luiza": 5,
         "Shopee": 15,
         "Amazon": 2
+      }
+    },
+    {
+      "sku": "TI1633",
+      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
+      "qtd": 43,
+      "fat": 2506899,
+      "canais": {
+        "Magazine Luiza": 1,
+        "Mercado Livre": 18,
+        "Shopee": 3,
+        "Casas Bahia": 4,
+        "Amazon": 17
       }
     },
     {
@@ -445,29 +458,17 @@
         "Shopee": 1,
         "Casas Bahia": 6
       }
-    },
-    {
-      "sku": "TI1633",
-      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 42,
-      "fat": 2491000,
-      "canais": {
-        "Mercado Livre": 18,
-        "Shopee": 3,
-        "Casas Bahia": 4,
-        "Amazon": 17
-      }
     }
   ],
   "historico_por_dia": {
     "25/08/2026": {
-      "fat": 1541232,
-      "peds": 20,
+      "fat": 2768166,
+      "peds": 30,
       "canais": {
-        "Mercado Livre": 59667,
+        "Mercado Livre": 866019,
         "Casas Bahia": 221213,
-        "Magazine Luiza": 857844,
-        "Shopee": 150336,
+        "Magazine Luiza": 1269322,
+        "Shopee": 159440,
         "Amazon": 252172,
         "Amazon Fulfillment": 0
       }
@@ -485,11 +486,11 @@
       }
     },
     "23/08/2026": {
-      "fat": 10147635,
-      "peds": 114,
+      "fat": 10168854,
+      "peds": 115,
       "canais": {
         "Mercado Livre": 2627839,
-        "Casas Bahia": 1998952,
+        "Casas Bahia": 2020171,
         "Magazine Luiza": 1406417,
         "Shopee": 506550,
         "Amazon": 3539051,
