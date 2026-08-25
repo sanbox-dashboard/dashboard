@@ -1,42 +1,42 @@
 {
-  "gerado_em": "2026-08-25T17:28:28.907Z",
-  "gerado_em_br": "25/08/2026, 14:28:28",
+  "gerado_em": "2026-08-25T18:35:19.167Z",
+  "gerado_em_br": "25/08/2026, 15:35:19",
   "dia_referencia": "25/08/2026",
   "dia_ontem": "24/08/2026",
   "resumo_dia": {
-    "faturamento": 5184351,
-    "pedidos": 60,
-    "ticket_medio": 86405.85,
+    "faturamento": 6843949,
+    "pedidos": 72,
+    "ticket_medio": 95054.85,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1797575,
-        "pedidos": 23,
+        "faturamento": 2229754,
+        "pedidos": 28,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 1149677,
-        "pedidos": 8,
+        "faturamento": 1234469,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 1404511,
-        "pedidos": 13,
+        "faturamento": 1764033,
+        "pedidos": 15,
         "meta": 0,
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 169893,
-        "pedidos": 3,
+        "faturamento": 496293,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 662695,
-        "pedidos": 13,
+        "faturamento": 1119400,
+        "pedidos": 15,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 12853725,
-    "pedidos": 153
+    "faturamento": 13005879,
+    "pedidos": 154
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 310958445,
-    "pedidos": 3766,
+    "faturamento": 312770197,
+    "pedidos": 3779,
     "meta_mensal": 8000000,
-    "pct_meta": 3887,
-    "projecao_final": 385588471.8,
+    "pct_meta": 3909.6,
+    "projecao_final": 387835044.28,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 34122511,
-        "pedidos": 1566
+        "faturamento": 34554690,
+        "pedidos": 1571
       },
       "Casas Bahia": {
-        "faturamento": 103894464,
-        "pedidos": 721
+        "faturamento": 104131410,
+        "pedidos": 723
       },
       "Magazine Luiza": {
-        "faturamento": 35364464,
-        "pedidos": 236
+        "faturamento": 35723986,
+        "pedidos": 238
       },
       "Shopee": {
-        "faturamento": 36632849,
-        "pedidos": 354
+        "faturamento": 36959249,
+        "pedidos": 356
       },
       "Amazon": {
-        "faturamento": 96143350,
-        "pedidos": 842
+        "faturamento": 96600055,
+        "pedidos": 844
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -191,6 +191,19 @@
       }
     },
     {
+      "sku": "TI1514",
+      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
+      "qtd": 91,
+      "fat": 3620818,
+      "canais": {
+        "Magazine Luiza": 5,
+        "Mercado Livre": 55,
+        "Shopee": 5,
+        "Amazon": 17,
+        "Casas Bahia": 9
+      }
+    },
+    {
       "sku": "TI1676",
       "desc": "Cooktop de Inducao Dako Diplomata 4 Bocas Zonas Flexivel Preto - 220v",
       "qtd": 91,
@@ -200,19 +213,6 @@
         "Amazon": 48,
         "Shopee": 2,
         "Casas Bahia": 3
-      }
-    },
-    {
-      "sku": "TI1514",
-      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 90,
-      "fat": 3602119,
-      "canais": {
-        "Mercado Livre": 55,
-        "Shopee": 5,
-        "Amazon": 17,
-        "Casas Bahia": 9,
-        "Magazine Luiza": 4
       }
     },
     {
@@ -372,6 +372,19 @@
       }
     },
     {
+      "sku": "TI1568",
+      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
+      "qtd": 46,
+      "fat": 769501,
+      "canais": {
+        "Magazine Luiza": 8,
+        "Mercado Livre": 17,
+        "Casas Bahia": 10,
+        "Shopee": 8,
+        "Amazon": 3
+      }
+    },
+    {
       "sku": "TI1607",
       "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
       "qtd": 46,
@@ -409,6 +422,15 @@
       }
     },
     {
+      "sku": "TI1773-1",
+      "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
+      "qtd": 44,
+      "fat": 6366170,
+      "canais": {
+        "Mercado Livre": 44
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 44,
@@ -419,19 +441,6 @@
         "Shopee": 3,
         "Casas Bahia": 4,
         "Amazon": 17
-      }
-    },
-    {
-      "sku": "TI1568",
-      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
-      "qtd": 44,
-      "fat": 740903,
-      "canais": {
-        "Magazine Luiza": 7,
-        "Mercado Livre": 16,
-        "Casas Bahia": 10,
-        "Shopee": 8,
-        "Amazon": 3
       }
     },
     {
@@ -446,36 +455,27 @@
         "Shopee": 15,
         "Amazon": 2
       }
-    },
-    {
-      "sku": "TI1773-1",
-      "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 42,
-      "fat": 5979788,
-      "canais": {
-        "Mercado Livre": 42
-      }
     }
   ],
   "historico_por_dia": {
     "25/08/2026": {
-      "fat": 5184351,
-      "peds": 60,
+      "fat": 6843949,
+      "peds": 72,
       "canais": {
-        "Mercado Livre": 1797575,
-        "Casas Bahia": 1149677,
-        "Magazine Luiza": 1404511,
-        "Shopee": 169893,
-        "Amazon": 662695,
+        "Mercado Livre": 2229754,
+        "Casas Bahia": 1234469,
+        "Magazine Luiza": 1764033,
+        "Shopee": 496293,
+        "Amazon": 1119400,
         "Amazon Fulfillment": 0
       }
     },
     "24/08/2026": {
-      "fat": 12853725,
-      "peds": 153,
+      "fat": 13005879,
+      "peds": 154,
       "canais": {
         "Mercado Livre": 3215632,
-        "Casas Bahia": 3329718,
+        "Casas Bahia": 3481872,
         "Magazine Luiza": 2426041,
         "Shopee": 2355106,
         "Amazon": 1490622,
