@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-25T04:35:15.789Z",
-  "gerado_em_br": "25/08/2026, 01:35:15",
+  "gerado_em": "2026-08-25T05:28:44.557Z",
+  "gerado_em_br": "25/08/2026, 02:28:44",
   "dia_referencia": "25/08/2026",
   "dia_ontem": "24/08/2026",
   "resumo_dia": {
-    "faturamento": 698724,
-    "pedidos": 7,
-    "ticket_medio": 99817.71,
+    "faturamento": 708003,
+    "pedidos": 8,
+    "ticket_medio": 88500.38,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9279,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,14 +54,14 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 306091123,
+    "faturamento": 306078223,
     "pedidos": 3710,
     "meta_mensal": 8000000,
-    "pct_meta": 3826.1,
-    "projecao_final": 379552992.52,
+    "pct_meta": 3826,
+    "projecao_final": 379536996.52,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 32347115,
+        "faturamento": 32334215,
         "pedidos": 1544
       },
       "Casas Bahia": {
@@ -228,11 +228,11 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 81,
-      "fat": 1891541,
+      "qtd": 82,
+      "fat": 1900820,
       "canais": {
+        "Mercado Livre": 15,
         "Magazine Luiza": 13,
-        "Mercado Livre": 14,
         "Amazon": 25,
         "Shopee": 14,
         "Casas Bahia": 15
@@ -461,10 +461,10 @@
   ],
   "historico_por_dia": {
     "25/08/2026": {
-      "fat": 698724,
-      "peds": 7,
+      "fat": 708003,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 9279,
         "Casas Bahia": 0,
         "Magazine Luiza": 548388,
         "Shopee": 150336,
@@ -485,10 +485,10 @@
       }
     },
     "23/08/2026": {
-      "fat": 10169814,
-      "peds": 115,
+      "fat": 10147635,
+      "peds": 114,
       "canais": {
-        "Mercado Livre": 2650018,
+        "Mercado Livre": 2627839,
         "Casas Bahia": 1998952,
         "Magazine Luiza": 1406417,
         "Shopee": 506550,
