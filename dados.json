@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-25T15:38:55.845Z",
-  "gerado_em_br": "25/08/2026, 12:38:55",
+  "gerado_em": "2026-08-25T16:33:26.431Z",
+  "gerado_em_br": "25/08/2026, 13:33:26",
   "dia_referencia": "25/08/2026",
   "dia_ontem": "24/08/2026",
   "resumo_dia": {
-    "faturamento": 3762802,
-    "pedidos": 42,
-    "ticket_medio": 89590.52,
+    "faturamento": 4102969,
+    "pedidos": 48,
+    "ticket_medio": 85478.52,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1307107,
-        "pedidos": 15,
+        "faturamento": 1536958,
+        "pedidos": 18,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 421169,
-        "pedidos": 8,
+        "faturamento": 531485,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 309356449,
-    "pedidos": 3747,
+    "faturamento": 309877063,
+    "pedidos": 3754,
     "meta_mensal": 8000000,
-    "pct_meta": 3867,
-    "projecao_final": 383601996.76,
+    "pct_meta": 3873.5,
+    "projecao_final": 384247558.12,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 33632043,
-        "pedidos": 1558
+        "faturamento": 33861894,
+        "pedidos": 1561
       },
       "Casas Bahia": {
-        "faturamento": 103159651,
-        "pedidos": 716
+        "faturamento": 103340098,
+        "pedidos": 717
       },
       "Magazine Luiza": {
         "faturamento": 35229275,
@@ -77,8 +77,8 @@
         "pedidos": 354
       },
       "Amazon": {
-        "faturamento": 95901824,
-        "pedidos": 837
+        "faturamento": 96012140,
+        "pedidos": 840
       },
       "Amazon Fulfillment": {
         "faturamento": 4390792,
@@ -90,25 +90,25 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 608,
-      "fat": 49383816,
+      "qtd": 610,
+      "fat": 49600878,
       "canais": {
-        "Amazon": 270,
+        "Mercado Livre": 88,
+        "Amazon": 271,
         "Casas Bahia": 245,
-        "Mercado Livre": 87,
         "Shopee": 6
       }
     },
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 418,
-      "fat": 6643553,
+      "qtd": 419,
+      "fat": 6731957,
       "canais": {
         "Shopee": 46,
+        "Amazon": 65,
         "Mercado Livre": 236,
         "Casas Bahia": 70,
-        "Amazon": 64,
         "Outros": 1,
         "Magazine Luiza": 1
       }
@@ -129,10 +129,10 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 189,
-      "fat": 6885642,
+      "qtd": 190,
+      "fat": 6905491,
       "canais": {
-        "Mercado Livre": 45,
+        "Mercado Livre": 46,
         "Casas Bahia": 64,
         "Amazon": 53,
         "Shopee": 18,
@@ -278,11 +278,11 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 65,
-      "fat": 503891,
+      "qtd": 66,
+      "fat": 514330,
       "canais": {
+        "Mercado Livre": 41,
         "Shopee": 8,
-        "Mercado Livre": 40,
         "Casas Bahia": 1,
         "Magazine Luiza": 1,
         "Amazon": 15
@@ -360,6 +360,18 @@
       }
     },
     {
+      "sku": "TI1565",
+      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
+      "qtd": 47,
+      "fat": 867154,
+      "canais": {
+        "Amazon": 21,
+        "Magazine Luiza": 8,
+        "Casas Bahia": 11,
+        "Shopee": 7
+      }
+    },
+    {
       "sku": "TI1607",
       "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
       "qtd": 46,
@@ -381,18 +393,6 @@
         "Casas Bahia": 23,
         "Amazon": 20,
         "Shopee": 1
-      }
-    },
-    {
-      "sku": "TI1565",
-      "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 46,
-      "fat": 862741,
-      "canais": {
-        "Amazon": 20,
-        "Magazine Luiza": 8,
-        "Casas Bahia": 11,
-        "Shopee": 7
       }
     },
     {
@@ -462,14 +462,14 @@
   ],
   "historico_por_dia": {
     "25/08/2026": {
-      "fat": 3762802,
-      "peds": 42,
+      "fat": 4102969,
+      "peds": 48,
       "canais": {
-        "Mercado Livre": 1307107,
+        "Mercado Livre": 1536958,
         "Casas Bahia": 595311,
         "Magazine Luiza": 1269322,
         "Shopee": 169893,
-        "Amazon": 421169,
+        "Amazon": 531485,
         "Amazon Fulfillment": 0
       }
     },
@@ -486,11 +486,11 @@
       }
     },
     "23/08/2026": {
-      "fat": 10168854,
-      "peds": 115,
+      "fat": 10349301,
+      "peds": 116,
       "canais": {
         "Mercado Livre": 2627839,
-        "Casas Bahia": 2020171,
+        "Casas Bahia": 2200618,
         "Magazine Luiza": 1406417,
         "Shopee": 506550,
         "Amazon": 3539051,
