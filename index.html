@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sanbox — Central de Vendas</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--or:#F5A623;--od:#D4881A;--bg:#F2F5F9;--wh:#fff;--bd:#E2E8F0;--tx:#1A1F2E;--mu:#7A8799;--dm:#E2E8F0;--gr:#16A34A;--re:#DC2626;--sh:0 1px 8px rgba(0,0,0,.07);}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -80,10 +81,13 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;height:4px;backgroun
 .ct{display:flex;align-items:center;justify-content:space-between;}
 .clogo{display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:3px 7px;height:28px;min-width:68px;}
 .cpct{font-family:'Bebas Neue';font-size:.9rem;}
-.cv{font-family:'Bebas Neue';font-size:1.35rem;line-height:1;}
-.cm{display:flex;justify-content:space-between;}
+.cv{font-family:'Bebas Neue';font-size:1.55rem;line-height:1;}
+.cm{display:flex;justify-content:space-between;align-items:baseline;}
 .cml{font-size:.52rem;font-weight:800;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;}
 .cmv{font-size:.6rem;font-weight:700;color:var(--mu);}
+/* Linha da Meta Dia destacada (maior que a linha "Ontem") */
+.cm-meta .cml{font-size:.62rem;color:var(--tx);}
+.cm-meta .cmv{font-size:.82rem;font-weight:800;color:var(--tx);}
 .cf{display:flex;justify-content:space-between;align-items:center;}
 .cpe{font-size:.54rem;font-weight:800;color:var(--mu);}
 .dl{font-size:.52rem;font-weight:800;padding:2px 5px;border-radius:99px;}
@@ -434,6 +438,176 @@ tfoot td:first-child{text-align:left;}
 #loginBtn{width:100%;background:#f97316;border:none;border-radius:8px;padding:11px;font-size:.82rem;font-weight:800;color:#fff;cursor:pointer;transition:background .15s;}
 #loginBtn:hover{background:#ea6c00;}
 #loginErr{font-size:.68rem;color:#f87171;margin-top:10px;min-height:16px;}
+/* ══════════════════════════════════════════════════════════════
+   GIRO × PARCELAS — estilo próprio (portado do painel Giro x Parcelas)
+   Tudo escopado em #gpRoot e com classes prefixadas "gp" para não
+   colidir com o CSS do dashboard.
+   ══════════════════════════════════════════════════════════════ */
+#gpRoot{
+  --g-bg:#EAEFF0; --g-surface:#FFFFFF; --g-surface2:#F4F7F7; --g-line:#D3DDDF; --g-lineS:#E4EBEC;
+  --g-ink:#0E1719; --g-ink2:#3B4E52; --g-muted:#657C81;
+  --g-accent:#0F86A0; --g-accentS:#DCEEF2;
+  --g-crit:#BB3F2C; --g-critS:#F7E2DE;
+  --g-warn:#B8791C; --g-warnS:#F8ECD8;
+  --g-good:#2F7D5B; --g-goodS:#DDEEE6;
+  --g-neutral:#7C8F94; --g-neutralS:#E7EDEE;
+  --g-shadow:0 1px 2px rgba(14,23,25,.05),0 8px 24px -16px rgba(14,23,25,.35);
+  background:var(--g-bg);color:var(--g-ink);
+  font-family:"IBM Plex Sans",'Nunito',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:15px;line-height:1.55;border-radius:11px;padding:22px 20px 30px;
+  border:1px solid var(--g-line);
+}
+#gpRoot *{box-sizing:border-box}
+#gpRoot h1,#gpRoot h2,#gpRoot h3{font-family:"Familjen Grotesk","IBM Plex Sans",sans-serif;margin:0;text-wrap:balance}
+#gpRoot .gpeyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--g-muted);font-weight:600}
+#gpRoot .gpnum{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+#gpRoot .gphead{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;
+  padding-bottom:18px;border-bottom:2px solid var(--g-ink);margin-bottom:20px}
+#gpRoot .gphead h1{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.022em;line-height:1.02;margin-top:6px}
+#gpRoot .gpsub{color:var(--g-ink2);max-width:62ch;margin-top:9px;font-size:14px}
+#gpRoot .gpstamp{text-align:right;font-size:12.5px;color:var(--g-muted);line-height:1.7}
+#gpRoot .gpstamp b{color:var(--g-ink);font-weight:600}
+
+#gpRoot .gpcontrols{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;background:var(--g-surface);
+  border:1px solid var(--g-line);border-radius:3px;padding:13px 15px;margin-bottom:22px}
+#gpRoot .gpctl{display:flex;flex-direction:column;gap:5px}
+#gpRoot .gpctl label{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--g-muted);font-weight:600}
+#gpRoot select,#gpRoot input[type=search]{font:inherit;font-size:13.5px;padding:6px 9px;border:1px solid var(--g-line);
+  border-radius:3px;background:var(--g-surface);color:var(--g-ink);max-width:260px}
+#gpRoot select:focus,#gpRoot input:focus{outline:2px solid var(--g-accent);outline-offset:-1px}
+#gpRoot .gpsegw{display:flex;border:1px solid var(--g-line);border-radius:3px;overflow:hidden}
+#gpRoot .gpsegw button{font:inherit;font-size:12.5px;font-weight:500;padding:6px 11px;border:0;cursor:pointer;
+  background:var(--g-surface);color:var(--g-ink2);border-right:1px solid var(--g-line)}
+#gpRoot .gpsegw button:last-child{border-right:0}
+#gpRoot .gpsegw button[aria-pressed="true"]{background:var(--g-ink);color:var(--g-bg)}
+#gpRoot .gpreset{font:inherit;font-size:12.5px;padding:6px 12px;border:1px solid var(--g-line);border-radius:3px;
+  background:var(--g-surface);color:var(--g-ink2);cursor:pointer}
+#gpRoot .gpxls{font:inherit;font-size:12.5px;font-weight:600;padding:6px 12px;border:0;border-radius:3px;
+  background:#217346;color:#fff;cursor:pointer}
+#gpRoot .gpscope{margin-left:auto;font-size:12.5px;color:var(--g-muted);text-align:right;line-height:1.5}
+#gpRoot .gpscope b{color:var(--g-ink)}
+
+#gpRoot .gptabs{display:flex;gap:2px;margin-bottom:-1px;position:relative;z-index:2}
+#gpRoot .gptabs button{font:inherit;font-family:"Familjen Grotesk",sans-serif;font-size:14.5px;font-weight:600;
+  padding:9px 18px;border:1px solid var(--g-line);border-bottom:0;border-radius:3px 3px 0 0;
+  background:var(--g-surface2);color:var(--g-muted);cursor:pointer}
+#gpRoot .gptabs button[aria-selected="true"]{background:var(--g-surface);color:var(--g-ink);box-shadow:inset 0 3px 0 var(--g-accent)}
+#gpRoot .gppanel{border-top:1px solid var(--g-line);padding-top:26px;display:block}
+#gpRoot .gppanel[hidden]{display:none}
+
+#gpRoot .gpkpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1px;background:var(--g-line);
+  border:1px solid var(--g-line);border-radius:3px;overflow:hidden;margin-bottom:24px}
+#gpRoot .gpkpi{background:var(--g-surface);padding:15px 15px 13px}
+#gpRoot .gpkpi .gplab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g-muted);font-weight:600}
+#gpRoot .gpkpi .gpval{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:25px;font-weight:600;letter-spacing:-.02em;margin-top:7px;line-height:1.1}
+#gpRoot .gpkpi .gpfoot{font-size:12.5px;color:var(--g-muted);margin-top:4px}
+#gpRoot .gpkpi.is-crit .gpval{color:var(--g-crit)} #gpRoot .gpkpi.is-accent .gpval{color:var(--g-accent)}
+#gpRoot .gpkpi.is-warn .gpval{color:var(--g-warn)} #gpRoot .gpkpi.is-good .gpval{color:var(--g-good)}
+
+#gpRoot .gpcallout{display:flex;gap:14px;align-items:flex-start;background:var(--g-warnS);
+  border:1px solid var(--g-warn);border-left-width:4px;border-radius:3px;padding:14px 16px;margin:0 0 26px}
+#gpRoot .gpcallout .gpci{flex:none;width:22px;height:22px;border-radius:50%;background:var(--g-warn);color:var(--g-surface);
+  display:grid;place-items:center;font-weight:700;font-size:14px;margin-top:1px}
+#gpRoot .gpcallout p{margin:0;font-size:13.8px;color:var(--g-ink2);max-width:94ch;line-height:1.55}
+#gpRoot .gpcallout b{color:var(--g-ink)}
+
+#gpRoot .gpsec{margin-bottom:34px}
+#gpRoot .gpshead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+#gpRoot .gpshead h2{font-size:20px;font-weight:600;letter-spacing:-.012em}
+#gpRoot .gpshead p{margin:0;color:var(--g-muted);font-size:13.5px}
+
+#gpRoot .gpcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+#gpRoot .gpcard{background:var(--g-surface);border:1px solid var(--g-line);border-radius:3px;padding:14px 15px;
+  text-align:left;cursor:pointer;font:inherit;color:inherit;
+  border-left:4px solid var(--c,var(--g-neutral));transition:transform .12s ease,box-shadow .12s ease}
+#gpRoot .gpcard:hover{transform:translateY(-2px);box-shadow:var(--g-shadow)}
+#gpRoot .gpcard[aria-pressed="true"]{background:var(--cs,var(--g-neutralS));box-shadow:var(--g-shadow)}
+#gpRoot .gpcard .gpct{font-weight:600;font-size:14.5px;display:flex;align-items:center;gap:8px}
+#gpRoot .gpcard .gpcn{font-family:"IBM Plex Mono",monospace;font-size:23px;font-weight:600;margin-top:8px;color:var(--c)}
+#gpRoot .gpcard .gpcd{font-size:12.5px;color:var(--g-ink2);margin-top:6px;line-height:1.45}
+#gpRoot .gpdot{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none;display:inline-block}
+
+#gpRoot .gptools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+#gpRoot .gpchip{font:inherit;font-size:12.5px;font-weight:500;padding:6px 12px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--g-line);background:var(--g-surface);color:var(--g-ink2)}
+#gpRoot .gpchip[aria-pressed="true"]{background:var(--g-ink);color:var(--g-bg);border-color:var(--g-ink)}
+#gpRoot .gpcount{font-size:12.5px;color:var(--g-muted);margin-left:auto}
+
+#gpRoot .gptw{overflow-x:auto;border:1px solid var(--g-line);border-radius:3px;background:var(--g-surface);max-height:70vh}
+#gpRoot .gptw table{border-collapse:collapse;width:100%;min-width:1120px;font-size:13.5px}
+#gpRoot .gptw th{position:sticky;top:0;z-index:2;background:var(--g-surface2);text-align:right;padding:10px 12px;
+  font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--g-muted);font-weight:600;
+  border-bottom:1px solid var(--g-line);cursor:pointer;white-space:nowrap;user-select:none}
+#gpRoot .gptw th:first-child,#gpRoot .gptw td:first-child{text-align:left}
+#gpRoot .gptw th:hover{color:var(--g-ink)}
+#gpRoot .gptw th .gpar{opacity:.45;font-size:9px}
+#gpRoot .gptw td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--g-lineS);vertical-align:middle;white-space:nowrap}
+#gpRoot .gptw td:first-child{white-space:normal}
+#gpRoot .gptw tr.gprow{cursor:pointer}
+#gpRoot .gptw tr.gprow:hover td,#gpRoot .gptw tr.gprow.open td{background:var(--g-surface2)}
+#gpRoot .gpsku{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px}
+#gpRoot .gpnm{color:var(--g-muted);font-size:12px;display:block;max-width:330px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;margin-top:1px}
+#gpRoot .gppill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+  padding:2px 9px;border-radius:999px;background:var(--cs);color:var(--c);white-space:nowrap}
+#gpRoot .gppill .gpdot{width:6px;height:6px}
+#gpRoot .gpna{color:var(--g-muted)}
+#gpRoot .gptagm{font-size:11px;color:var(--g-muted);font-family:"IBM Plex Mono",monospace}
+
+#gpRoot tr.gpdet td{padding:0;background:var(--g-surface2);border-bottom:1px solid var(--g-line)}
+#gpRoot .gpdetin{padding:18px 16px 22px;display:grid;gap:18px;max-width:1100px;white-space:normal}
+#gpRoot .gpfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+#gpRoot .gpfact .gpfl{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--g-muted);font-weight:600}
+#gpRoot .gpfact .gpfv{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:500;margin-top:3px}
+#gpRoot .gpfl{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--g-muted);font-weight:600}
+#gpRoot .gpfv{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:500;margin-top:3px}
+#gpRoot .gppcs{display:flex;gap:9px;flex-wrap:wrap}
+#gpRoot .gppc{border:1px solid var(--g-line);border-left:3px solid var(--c);border-radius:3px;background:var(--g-surface);
+  padding:9px 12px;min-width:158px}
+#gpRoot .gppc .gppn{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--g-muted);font-weight:600}
+#gpRoot .gppc .gppn span{letter-spacing:0;text-transform:none;font-weight:400}
+#gpRoot .gppc .gppd{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:16px;
+  font-weight:600;margin-top:3px;color:var(--c)}
+#gpRoot .gppc .gppv{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:13.5px;margin-top:1px}
+#gpRoot .gppc .gpps{font-size:11.5px;color:var(--c);font-weight:600;margin-top:3px}
+#gpRoot .gppc .gppf{font-size:11px;color:var(--g-muted);margin-top:1px}
+#gpRoot .gptl{position:relative;padding:34px 0 50px;margin-top:2px;max-width:1080px}
+#gpRoot .gptl .gpaxis{position:absolute;left:0;right:0;top:44px;height:2px;background:var(--g-line)}
+#gpRoot .gptl .gpsegb{position:absolute;top:40px;height:10px;border-radius:5px}
+#gpRoot .gptl .gpmk{position:absolute;top:36px;width:12px;height:12px;border-radius:50%;transform:translateX(-6px);
+  border:2px solid var(--g-surface2);box-shadow:0 0 0 1px currentColor}
+#gpRoot .gptl .gplb{position:absolute;font-size:10.5px;font-family:"IBM Plex Mono",monospace;color:var(--g-muted);white-space:nowrap}
+#gpRoot .gptl .gplb.top{top:8px} #gpRoot .gptl .gplb.bot{top:62px} #gpRoot .gptl .gplb.bot2{top:80px}
+#gpRoot .gptl .gpnow{position:absolute;top:22px;bottom:26px;width:2px;background:var(--g-ink);transform:translateX(-1px)}
+#gpRoot .gplegend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--g-ink2);align-items:center}
+#gpRoot .gplegend span{display:inline-flex;align-items:center;gap:6px}
+#gpRoot .gpsw{width:11px;height:11px;border-radius:3px;flex:none}
+
+#gpRoot .gpchart{background:var(--g-surface);border:1px solid var(--g-line);border-radius:3px;padding:20px 18px 14px}
+#gpRoot .gpbars{display:flex;gap:10px;align-items:flex-end;height:210px;padding-top:6px;overflow-x:auto}
+#gpRoot .gpbcol{flex:1;min-width:42px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;height:100%}
+#gpRoot .gpbseg{border-radius:4px 4px 0 0;min-height:2px}
+#gpRoot .gpbcol .gpvl{text-align:center;font-size:10.5px;color:var(--g-ink2);font-family:"IBM Plex Mono",monospace;
+  font-variant-numeric:tabular-nums;padding-bottom:5px;white-space:nowrap}
+#gpRoot .gpbcol .gpxl{text-align:center;font-size:11px;color:var(--g-muted);font-family:"IBM Plex Mono",monospace;
+  padding-top:8px;border-top:1px solid var(--g-line);margin-top:4px}
+#gpRoot .gpgauge{display:inline-block;width:70px;height:7px;border-radius:4px;background:var(--g-line);
+  overflow:hidden;vertical-align:middle;margin-right:7px;position:relative}
+#gpRoot .gpgauge i{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+#gpRoot .gpnotes{background:var(--g-surface);border:1px solid var(--g-line);border-radius:3px;padding:20px 22px}
+#gpRoot .gpnotes h3{font-size:15px;font-weight:600;margin-bottom:6px}
+#gpRoot .gpnotes ul{margin:0 0 16px;padding-left:20px;color:var(--g-ink2);font-size:13.5px}
+#gpRoot .gpnotes li{margin-bottom:5px}
+#gpRoot .gpnotes code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--g-surface2);
+  padding:1px 5px;border-radius:3px}
+#gpRoot .gpfooter{margin-top:30px;padding-top:16px;border-top:1px solid var(--g-line);font-size:12.5px;color:var(--g-muted)}
+#gpTip{position:fixed;z-index:9999;background:#0E1719;color:#EAEFF0;font-size:12px;padding:7px 10px;
+  border-radius:4px;pointer-events:none;opacity:0;transition:opacity .1s;white-space:nowrap;
+  font-family:"IBM Plex Mono",monospace}
+@media(max-width:640px){#gpRoot .gpstamp,#gpRoot .gpscope{text-align:left}}
+
 </style>
 </head>
 <body>
@@ -457,7 +631,7 @@ tfoot td:first-child{text-align:left;}
     <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
-    <button class="tab"     onclick="aba('vGiro',this)">🐢 Baixo Giro</button>
+    <button class="tab"     onclick="aba('vGiro',this)">🐢 Giro x Parcelas</button>
     <button class="tab"     onclick="aba('vVG',this)">📊 Vendas Geral</button>
     <button class="tab"     onclick="aba('vML',this)">🟡 Mercado Livre</button>
     <button class="tab"     onclick="aba('vCB',this)">🔵 Casas Bahia</button>
@@ -712,97 +886,148 @@ tfoot td:first-child{text-align:left;}
     </div>
 
 
-    <!-- ══ BAIXO GIRO (PARADOS + CAPITAL MORTO) ═══════════════ -->
+    <!-- ══ GIRO × PARCELAS (giro real × estoque Novo Galpão) ═══ -->
     <div class="panel" id="vGiro">
+     <div id="gpRoot">
+      <div class="gphead">
+        <div>
+          <div class="gpeyebrow">Estoque Novo Galpão &middot; Notas de entrada &middot; Vendas Olist Tiny</div>
+          <h1>Giro x Parcelas</h1>
+          <p class="gpsub">Cada SKU cruzado com a sua <b>última nota de entrada</b>, o estoque líquido no Novo Galpão (<b>já descontado o RMA</b>), a <b>venda real registrada nos pedidos</b> e o calendário de parcelas da compra. A pergunta: <b>o produto vende rápido o bastante para pagar a própria parcela?</b></p>
+        </div>
+        <div class="gpstamp">
+          Data-base <b id="gpHoje">—</b><br>
+          Notas <b id="gpJanNota">—</b> &middot; Vendas <b id="gpJanVenda">—</b><br>
+          <b id="gpNSku">0</b> SKUs &middot; <b id="gpNNotas">0</b> notas de entrada
+          <span id="gpLive" style="display:inline-flex;align-items:center;gap:5px;margin-top:4px;color:#0F86A0;font-weight:600"></span>
+        </div>
+      </div>
 
-      <!-- Filtros -->
-      <div class="card" style="padding:10px 16px;">
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
-          <span class="flbl">Período análise:</span>
-          <select id="giroDias" class="fsel" onchange="renderBaixoGiro()">
-            <option value="30">30 dias</option>
-            <option value="60">60 dias</option>
-            <option value="90" selected>90 dias</option>
-            <option value="180">180 dias</option>
-          </select>
-          <span class="flbl">Parado há mais de:</span>
-          <select id="giroParado" class="fsel" onchange="renderBaixoGiro()">
-            <option value="30">30 dias</option>
-            <option value="60" selected>60 dias</option>
-            <option value="90">90 dias</option>
-          </select>
-          <span class="flbl">Marca:</span>
-          <select id="giroMarca" class="fsel" onchange="renderBaixoGiro()">
-            <option value="">Todas</option>
-          </select>
-          <span class="flbl">Capital mín:</span>
-          <input type="number" id="giroCapMin" value="500" min="0" step="100" style="width:80px;border:1px solid var(--bd);border-radius:6px;padding:3px 6px;font:.65rem 'Nunito';" onchange="renderBaixoGiro()">
-          <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
-            <span style="font-size:.6rem;font-weight:700;color:var(--mu)" id="giroStatus">--</span>
-            <button onclick="giroResetColunas()" title="Restaurar ordem padrão das colunas" style="background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:var(--mu);cursor:pointer;white-space:nowrap;">
-              ↺ Colunas
-            </button>
-            <button onclick="exportarBaixoGiro()" title="Exportar plano de ação para Excel" style="background:#217346;border:none;border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
-              📥 Excel
-            </button>
+      <div class="gpcontrols">
+        <div class="gpctl"><label for="gpFForn">Fornecedor</label>
+          <select id="gpFForn"><option value="">Todos</option></select></div>
+        <div class="gpctl"><label for="gpFMarca">Marca</label>
+          <select id="gpFMarca"><option value="">Todas</option></select></div>
+        <div class="gpctl"><label for="gpFQ">Buscar</label>
+          <input type="search" id="gpFQ" placeholder="SKU ou produto…"></div>
+        <div class="gpctl"><label>Ritmo de venda medido em</label>
+          <div class="gpsegw" id="gpFWin">
+            <button data-w="30">30 d</button><button data-w="60">60 d</button>
+            <button data-w="90" aria-pressed="true">90 d</button><button data-w="120">tudo</button>
+          </div></div>
+        <button class="gpreset" id="gpFReset">Limpar</button>
+        <button class="gpxls" id="gpFXls">📥 Excel</button>
+        <div class="gpscope" id="gpScope"></div>
+      </div>
+
+      <div class="gptabs" role="tablist">
+        <button role="tab" id="gpT1" aria-selected="true">Estoque x parcelas</button>
+        <button role="tab" id="gpT2" aria-selected="false">Ritmo de venda vs parcela</button>
+      </div>
+
+      <div class="gppanel" id="gpP1" role="tabpanel">
+        <div class="gpkpis" id="gpKpis"></div>
+        <div class="gpcallout" id="gpCallout"></div>
+        <div class="gpsec">
+          <div class="gpshead"><h2>Semáforo</h2><p>Clique para filtrar a tabela.</p></div>
+          <div class="gpcards" id="gpCards"></div>
+        </div>
+        <div class="gpsec">
+          <div class="gpshead"><h2>SKU a SKU</h2><p>Clique numa linha para abrir a linha do tempo de parcelas e a projeção de estoque.</p></div>
+          <div class="gptools"><span class="gpcount" id="gpCnt"></span></div>
+          <div class="gptw"><table id="gpTb1">
+            <thead><tr>
+              <th data-k="sku">SKU / Produto <span class="gpar">↕</span></th>
+              <th data-k="marca">Marca <span class="gpar">↕</span></th>
+              <th data-k="status">Situação <span class="gpar">↕</span></th>
+              <th data-k="saldo">Estoque <span class="gpar">↕</span></th>
+              <th data-k="valor_estoque">R$ parado <span class="gpar">↕</span></th>
+              <th data-k="data_entrada">Última entrada <span class="gpar">↕</span></th>
+              <th data-k="unw">Venda <span class="gpar">↕</span></th>
+              <th data-k="vd">Venda/dia <span class="gpar">↕</span></th>
+              <th data-k="dz">Zera em <span class="gpar">↕</span></th>
+              <th data-k="ult_venc">Última parcela <span class="gpar">↕</span></th>
+              <th data-k="gap">Folga <span class="gpar">↕</span></th>
+            </tr></thead><tbody id="gpTb1b"></tbody>
+          </table></div>
+        </div>
+        <div class="gpsec">
+          <div class="gpshead"><h2>Calendário de pagamento</h2><p>Parcelas rateadas por SKU, dentro do recorte filtrado.</p></div>
+          <div class="gpchart">
+            <div class="gplegend" style="margin-bottom:12px">
+              <span><i class="gpsw" style="background:var(--g-crit)"></i> Vencido</span>
+              <span><i class="gpsw" style="background:var(--g-accent)"></i> A vencer</span>
+            </div>
+            <div class="gpbars" id="gpBars"></div>
           </div>
         </div>
       </div>
 
-      <!-- Info -->
-      <div class="card" style="padding:8px 14px;background:rgba(220,38,38,.05);border-left:3px solid var(--re);">
-        <div style="font-size:.62rem;color:var(--tx);line-height:1.5;">
-          <b style="color:var(--re)">🐢 Sobre a métrica:</b> SKUs com <b>estoque > 0</b> que atendem <b>pelo menos um</b> critério: parado há X dias <b>OU</b> giro ≤ 30% (vendeu ≤30% do estoque no período).
-          As colunas <b style="color:var(--re)">10% estoque</b> e <b style="color:#C2410C">30% estoque</b> mostram o giro% na faixa correspondente (giro >10% cai na coluna dos 30%).
-          <b>Excluídos:</b> SKUs espelho (-V, -A, -ML), kits (KIT*), marcas Knup/MXT e o SKU TI516-1.
-          <b style="color:var(--or)">💡 Arraste os títulos das colunas</b> para reordená-las como preferir.
+      <div class="gppanel" id="gpP2" role="tabpanel" hidden>
+        <div class="gpkpis" id="gpKpis2"></div>
+        <div class="gpcallout" id="gpCallout2"></div>
+        <div class="gpsec">
+          <div class="gpshead"><h2>Quem não vende o suficiente para pagar a parcela</h2>
+            <p>Ritmo necessário = o que falta pagar ÷ preço médio de venda ÷ dias até a última parcela.</p></div>
+          <div class="gptools">
+            <button class="gpchip" id="gpChipAll" aria-pressed="false">Mostrar também quem está no ritmo</button>
+            <span class="gpcount" id="gpCnt2"></span>
+          </div>
+          <div class="gptw"><table id="gpTb2">
+            <thead><tr>
+              <th data-k="sku">SKU / Produto <span class="gpar">↕</span></th>
+              <th data-k="marca">Marca <span class="gpar">↕</span></th>
+              <th data-k="saldo">Estoque <span class="gpar">↕</span></th>
+              <th data-k="vd">Vende/dia <span class="gpar">↕</span></th>
+              <th data-k="nec">Precisa/dia <span class="gpar">↕</span></th>
+              <th data-k="cob">Cobertura <span class="gpar">↕</span></th>
+              <th data-k="valor_aberto">Falta pagar <span class="gpar">↕</span></th>
+              <th data-k="recproj">Receita projetada <span class="gpar">↕</span></th>
+              <th data-k="falta">Buraco <span class="gpar">↕</span></th>
+              <th data-k="dias_ate_ult">Vence em <span class="gpar">↕</span></th>
+            </tr></thead><tbody id="gpTb2b"></tbody>
+          </table></div>
         </div>
-      </div>
-
-      <!-- KPIs -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0;">
-        <div class="card" style="border-left:4px solid var(--re);padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">SKUs em Baixo Giro</div>
-          <div id="giroKQtd" style="font:900 1.6rem 'Bebas Neue';color:var(--re);line-height:1.1;">--</div>
-          <div id="giroKQtdSub" style="font-size:.58rem;color:var(--mu)">produtos com estoque parado</div>
-        </div>
-        <div class="card" style="border-left:4px solid #C2410C;padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Capital Parado</div>
-          <div id="giroKCap" style="font:900 1.6rem 'Bebas Neue';color:#C2410C;line-height:1.1;">--</div>
-          <div id="giroKCapSub" style="font-size:.58rem;color:var(--mu)">custo × estoque</div>
-        </div>
-        <div class="card" style="border-left:4px solid #7C3AED;padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Valor Potencial Venda</div>
-          <div id="giroKVenda" style="font:900 1.6rem 'Bebas Neue';color:#7C3AED;line-height:1.1;">--</div>
-          <div id="giroKVendaSub" style="font-size:.58rem;color:var(--mu)">se vender todo estoque</div>
-        </div>
-        <div class="card" style="border-left:4px solid var(--or);padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Urgência Crítica</div>
-          <div id="giroKUrg" style="font:900 1.6rem 'Bebas Neue';color:var(--or);line-height:1.1;">--</div>
-          <div id="giroKUrgSub" style="font-size:.58rem;color:var(--mu)">SKUs em vermelho 🔴</div>
-        </div>
-      </div>
-
-      <!-- Ranking por marca -->
-      <div class="card">
-        <div class="atitle">
-          <div class="atit"><div class="pdot"></div>Capital Parado por Marca</div>
-        </div>
-        <div id="giroRankMarca" style="padding:8px 0;"></div>
-      </div>
-
-      <!-- Tabela detalhada -->
-      <div class="card">
-        <div class="atitle">
-          <div class="atit"><div class="pdot"></div>Plano de Ação — SKUs para Girar</div>
-        </div>
-        <div class="tscroll">
-          <div id="giroTbWrap" style="overflow-x:auto;max-height:65vh;">
-            <div class="lt" style="padding:30px;text-align:center">Abrindo aba Baixo Giro...</div>
+        <div class="gpsec">
+          <div class="gpnotes">
+            <h3>Como esta aba calcula</h3>
+            <ul>
+              <li><b>Falta pagar</b> = soma das parcelas ainda não vencidas da última nota de entrada, rateada para o SKU pela sua fatia no valor da nota.</li>
+              <li><b>Precisa/dia</b> = (falta pagar ÷ preço médio de venda do SKU) ÷ dias até a última parcela vencer.</li>
+              <li><b>Vende/dia</b> = venda real registrada nos pedidos, na janela escolhida lá em cima, com as mesmas situações válidas do painel de vendas.</li>
+              <li><b>Buraco</b> = falta pagar − (vende/dia × dias até vencer × preço médio).</li>
+              <li><b>Estoque insuficiente</b>: mesmo vendendo tudo o que está no Novo Galpão, ao preço médio, não dá para cobrir o que falta pagar.</li>
+            </ul>
           </div>
         </div>
       </div>
 
+      <div class="gpsec">
+        <div class="gpnotes">
+          <h3>Como cada número foi montado</h3>
+          <ul>
+            <li><b>Notas de entrada:</b> <code>tinyerp_notas_detalhes</code> com coluna B = <code>E</code>, lidas ao vivo da planilha KONDADO de notas.</li>
+            <li><b>Itens:</b> <code>tinyerp_notas_detalhes_itens</code> só com a coluna L (natureza) vazia — exclui <code>ENTRADA DE DEVOLUCAO</code> e <code>VENDA DE MERCADORIAS PARA CONSUMIDOR FINAL</code>.</li>
+            <li><b>Parcelas:</b> <code>tinyerp_notas_detalhes_parcelas</code>. A data de vencimento vem vazia, então o vencimento é <b>emissão + prazo em dias</b>.</li>
+            <li><b>Vendas:</b> <code>tinyerp_pedidos_detalhes_itens</code>, situações válidas: aprovado, preparando envio, faturado, pronto para envio, enviando, enviado, entregue.</li>
+            <li><b>Estoque:</b> <code>tinyerp_estoque_produto_depo</code> — <b>Novo Galpão menos Depósito RMA Novo</b>. SKU que zera nessa conta sai do painel. <b>Marca e preço:</b> <code>tinyerp_produtos</code>.</li>
+            <li><b>Rateio:</b> uma nota traz vários SKUs; valor e parcelas são rateados pela fatia do item no valor da nota.</li>
+            <li><b>SKUs fora do painel:</b> códigos que começam com <code>KIT</code> e os que contêm <code>-ML</code>, <code>-V</code>, <code>-A</code>, <code>TI1287</code> ou <code>TI733</code>.</li>
+            <li><b>Sem nota de entrada no período</b> entra em <i>Já pago, parado</i>: a compra é anterior à janela.</li>
+          </ul>
+          <h3>Ressalvas</h3>
+          <ul>
+            <li>Só o <b>Novo Galpão, líquido de RMA</b>, conta como estoque. Amazon Full, Magalu Full, ML, Betim e Outlet ficam de fora.</li>
+            <li>A venda é do canal todo, não só do que saiu deste galpão.</li>
+            <li><b>Preço médio</b> é o praticado nos pedidos da janela; sem venda, usa o preço do cadastro.</li>
+            <li>A janela de notas é curta (~4 meses). Produto comprado na última semana ainda não teve tempo de mostrar giro.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gpfooter">Fonte: planilhas KONDADO (Olist Tiny) — notas, itens, parcelas, pedidos, estoque por depósito e cadastro de produtos. Atualiza ao vivo a cada abertura da aba.</div>
+     </div>
+     <div id="gpTip"></div>
     </div><!-- /vGiro -->
 
 
@@ -865,7 +1090,7 @@ tfoot td:first-child{text-align:left;}
       <!-- COMPARATIVO (primeiro, raiz) -->
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="mlCompTit">Comparativo Top 10 — Ontem vs Anteontem</span></div>
+          <div class="atit"><div class="pdot"></div><span id="mlCompTit">Comparativo — Top 5 mês anterior + Top 10 mês atual</span></div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <span class="flbl">Dia A:</span>
             <input type="date" id="mlDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
@@ -878,9 +1103,11 @@ tfoot td:first-child{text-align:left;}
             <button class="abtn on"  id="mlFiltAll" onclick="setMLFilt('all',this)"  style="background:var(--or);border-color:var(--or);color:#fff">Todos</button>
             <button class="abtn"     id="mlFiltUp"  onclick="setMLFilt('up',this)">▲ Subiram</button>
             <button class="abtn"     id="mlFiltDn"  onclick="setMLFilt('dn',this)">▼ Caíram</button>
+            <button class="abtn" title="Descarta todos os SKUs fixados e volta ao Top automático" onclick="compUndoAll('ml')">↺ Lista auto</button>
           </div>
         </div>
-        <div class="tscroll"><div id="mlCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+        <datalist id="mlSkuList"></datalist>
+        <div class="tscroll" style="overflow-x:auto"><div id="mlCompWrap" style="min-width:1180px"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
       </div>
 
       <!-- PRODUTOS DO DIA A -->
@@ -919,7 +1146,7 @@ tfoot td:first-child{text-align:left;}
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vCBCompTit">Comparativo Top 10</span></div>
+          <div class="atit"><div class="pdot"></div><span id="vCBCompTit">Comparativo — Top 5 mês anterior + Top 10 mês atual</span></div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <span class="flbl">Dia A:</span>
             <input type="date" id="vCBDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
@@ -932,9 +1159,11 @@ tfoot td:first-child{text-align:left;}
             <button class="abtn on"  id="vCBFAll" onclick="setCanalFilt('Casas Bahia','vCB','all',this)"  style="background:#0052A5;border-color:#0052A5;color:#fff">Todos</button>
             <button class="abtn"     id="vCBFUp"  onclick="setCanalFilt('Casas Bahia','vCB','up',this)">▲ Subiram</button>
             <button class="abtn"     id="vCBFDn"  onclick="setCanalFilt('Casas Bahia','vCB','dn',this)">▼ Caíram</button>
+            <button class="abtn" title="Descarta os SKUs fixados e volta ao Top automático" onclick="compUndoAll('vCB')">↺ Lista auto</button>
           </div>
         </div>
-        <div class="tscroll"><div id="vCBCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+        <datalist id="vCBSkuList"></datalist>
+        <div class="tscroll" style="overflow-x:auto"><div id="vCBCompWrap" style="min-width:1180px"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
@@ -965,7 +1194,7 @@ tfoot td:first-child{text-align:left;}
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vMGCompTit">Comparativo Top 10</span></div>
+          <div class="atit"><div class="pdot"></div><span id="vMGCompTit">Comparativo — Top 5 mês anterior + Top 10 mês atual</span></div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <span class="flbl">Dia A:</span>
             <input type="date" id="vMGDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
@@ -978,9 +1207,11 @@ tfoot td:first-child{text-align:left;}
             <button class="abtn on"  id="vMGFAll" onclick="setCanalFilt('Magazine Luiza','vMG','all',this)"  style="background:#CC0066;border-color:#CC0066;color:#fff">Todos</button>
             <button class="abtn"     id="vMGFUp"  onclick="setCanalFilt('Magazine Luiza','vMG','up',this)">▲ Subiram</button>
             <button class="abtn"     id="vMGFDn"  onclick="setCanalFilt('Magazine Luiza','vMG','dn',this)">▼ Caíram</button>
+            <button class="abtn" title="Descarta os SKUs fixados e volta ao Top automático" onclick="compUndoAll('vMG')">↺ Lista auto</button>
           </div>
         </div>
-        <div class="tscroll"><div id="vMGCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+        <datalist id="vMGSkuList"></datalist>
+        <div class="tscroll" style="overflow-x:auto"><div id="vMGCompWrap" style="min-width:1180px"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
@@ -1011,7 +1242,7 @@ tfoot td:first-child{text-align:left;}
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vSHCompTit">Comparativo Top 10</span></div>
+          <div class="atit"><div class="pdot"></div><span id="vSHCompTit">Comparativo — Top 5 mês anterior + Top 10 mês atual</span></div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <span class="flbl">Dia A:</span>
             <input type="date" id="vSHDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
@@ -1024,9 +1255,11 @@ tfoot td:first-child{text-align:left;}
             <button class="abtn on"  id="vSHFAll" onclick="setCanalFilt('Shopee','vSH','all',this)"  style="background:#EE4D2D;border-color:#EE4D2D;color:#fff">Todos</button>
             <button class="abtn"     id="vSHFUp"  onclick="setCanalFilt('Shopee','vSH','up',this)">▲ Subiram</button>
             <button class="abtn"     id="vSHFDn"  onclick="setCanalFilt('Shopee','vSH','dn',this)">▼ Caíram</button>
+            <button class="abtn" title="Descarta os SKUs fixados e volta ao Top automático" onclick="compUndoAll('vSH')">↺ Lista auto</button>
           </div>
         </div>
-        <div class="tscroll"><div id="vSHCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+        <datalist id="vSHSkuList"></datalist>
+        <div class="tscroll" style="overflow-x:auto"><div id="vSHCompWrap" style="min-width:1180px"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
@@ -1057,7 +1290,7 @@ tfoot td:first-child{text-align:left;}
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
-          <div class="atit"><div class="pdot"></div><span id="vAMZCompTit">Comparativo Top 10</span></div>
+          <div class="atit"><div class="pdot"></div><span id="vAMZCompTit">Comparativo — Top 5 mês anterior + Top 10 mês atual</span></div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <span class="flbl">Dia A:</span>
             <input type="date" id="vAMZDiaA" style="border:1px solid var(--bd);border-radius:6px;padding:3px 7px;font:.65rem 'Nunito';">
@@ -1070,9 +1303,11 @@ tfoot td:first-child{text-align:left;}
             <button class="abtn on"  id="vAMZFAll" onclick="setCanalFilt('Amazon','vAMZ','all',this)"  style="background:#E47911;border-color:#E47911;color:#fff">Todos</button>
             <button class="abtn"     id="vAMZFUp"  onclick="setCanalFilt('Amazon','vAMZ','up',this)">▲ Subiram</button>
             <button class="abtn"     id="vAMZFDn"  onclick="setCanalFilt('Amazon','vAMZ','dn',this)">▼ Caíram</button>
+            <button class="abtn" title="Descarta os SKUs fixados e volta ao Top automático" onclick="compUndoAll('vAMZ')">↺ Lista auto</button>
           </div>
         </div>
-        <div class="tscroll"><div id="vAMZCompWrap"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
+        <datalist id="vAMZSkuList"></datalist>
+        <div class="tscroll" style="overflow-x:auto"><div id="vAMZCompWrap" style="min-width:1180px"><div class="lt" style="padding:20px;text-align:center">Carregando...</div></div></div>
       </div>
       <div class="card">
         <div class="atitle" style="flex-wrap:wrap;gap:10px;">
@@ -1651,6 +1886,16 @@ function processDash(pRows,iRows,metas){
   }
   const canaisOnt=CANAIS.map(nm=>({nm,f:_cOnt[nm].f,p:_cOnt[nm].p}));
 
+  // Meta de ontem por canal (do dia _ontRef, para calcular % de ontem em cada card)
+  const _metaOntCanal=metas.dias?.[_ontRef]||{};
+  // Anexa fOnt (faturamento ontem) e mOnt (meta ontem) a cada canal do período
+  canais.forEach(c=>{
+    const _o=_cOnt[c.nm]||{f:0};
+    c.fOnt=_o.f;
+    c.mOnt=_metaOntCanal[c.nm]||0;
+    c.pctOnt=c.mOnt>0?(c.fOnt/c.mOnt*100):null;
+  });
+
   return{tP,nP,tM,nM,tO,nO,metaTot,metaMes:metas.metaMes,pctP:+pctP,pctM:+pctM,canais,canaisMes,canaisOnt,topP,topF};
 }
 
@@ -1713,20 +1958,30 @@ function renderDash(d){
   document.getElementById('kTicket').textContent=R(d.nP>0?d.tP/d.nP:0);
   document.getElementById('kOnt').textContent=R(d.tO);
   const _metaOnt=(_cache?.metas?.dias?.[_ontRef]||{}).total||0;
-  const _pctOnt=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999).toFixed(1):null;
+  const _pctOntV=_metaOnt>0?Math.min(d.tO/_metaOnt*100,999):null;
   {
-    // CMV de ontem: usar faturamento de ontem por canal * % do GE Finance
-    document.getElementById('kOntSub').innerHTML=`${d.nO} pedidos${_pctOnt?` · ${_pctOnt}% da meta`:''}`;
+    let _pctHtml='';
+    if(_pctOntV!=null){
+      const _cor=_pctOntV>=100?'#16a34a':_pctOntV>=70?'#d97706':'#dc2626';
+      _pctHtml=` · <span style="color:${_cor};font-weight:800">${_pctOntV.toFixed(1)}% da meta</span>`;
+    }
+    document.getElementById('kOntSub').innerHTML=`${d.nO} pedidos${_pctHtml}`;
   }
   setTimeout(()=>{document.getElementById('fPct').style.width=Math.min(d.pctP,100)+'%';document.getElementById('fPctMes').style.width=Math.min(d.pctM,100)+'%';},200);
 
   document.getElementById('canaisEl').innerHTML=d.canais.map(c=>{
   const cor=COR[c.nm]||'#999';
+  // Linha "Ontem" (só texto, sem barra própria) — em todos os canais
+  const _pctOntTxt=c.pctOnt!=null?c.pctOnt.toFixed(1)+'%':'—';
+  const _corPct=c.pctOnt!=null?(c.pctOnt>=100?'#16a34a':c.pctOnt>=70?'#d97706':'#dc2626'):'#999';
+  const _ontemLinha=`<div class="cm" style="margin-top:3px"><span class="cml">Ontem</span>
+    <span class="cmv">${R(c.fOnt)} · <span style="color:${_corPct};font-weight:800">${_pctOntTxt}</span></span></div>`;
   return`<div class="cn">
     <div class="ct"><div class="clogo">${LOGOS[c.nm]||c.nm}</div><span class="cpct" style="color:${cor}">${c.pct}%</span></div>
     <div class="cv" style="color:${cor}">${R(c.f)}</div>
-    <div class="cm"><span class="cml">Meta Dia</span><span class="cmv">${R(c.m)}</span></div>
+    <div class="cm cm-meta"><span class="cml">Meta Dia</span><span class="cmv">${R(c.m)}</span></div>
     <div class="pt"><div class="pf" style="width:${Math.min(c.pct,100)}%;background:${cor}"></div></div>
+    ${_ontemLinha}
     <div class="cf"><span class="cpe">${c.p} pedidos</span><span class="dl ${dCls(c.pct)}">${dLbl(c.pct)}</span></div>
   </div>`;}).join('');
 
@@ -2555,12 +2810,9 @@ function aba(id,btn){
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
   if(id==='vGiro'){
-    // Precisa dos dados de estoque para funcionar; carrega se ainda não tiver
-    if(!_estC){
-      loadEstoque().then(()=>renderBaixoGiro());
-    } else {
-      renderBaixoGiro();
-    }
+    // Giro × Parcelas: dados ao vivo próprios (cadastro + Novo Galpão + vendas)
+    if(!_gpData) loadGiroParc();
+    else renderGiroParc();
   }
   if(id==='vMetas')loadMetas();
   if(id==='vVG')loadVG();
@@ -3404,6 +3656,164 @@ function isCanal(eNome, eNum, canalNome){
   return false;
 }
 
+// ══════════════════════════════════════════════════════════════
+// COMPARATIVO POR CANAL — Top 5 mês anterior + Top 10 mês atual
+// Lista fixa e editável: cada posição pode ser trocada por outro
+// SKU e a escolha fica salva no navegador (localStorage), por canal.
+// Usado por ML, Casas Bahia, Magalu, Shopee e Amazon.
+// ══════════════════════════════════════════════════════════════
+const COMP_KEY='sanbox_comp_fix_v1';
+const COMP_KEY_OLD='sanbox_mlcomp_fix_v1';   // versão anterior, só ML
+let _compFix=null;
+function compFixAll(){
+  if(_compFix)return _compFix;
+  try{_compFix=JSON.parse(localStorage.getItem(COMP_KEY))||{};}catch(e){_compFix={};}
+  // migra a chave antiga (quando o recurso só existia no ML)
+  if(!_compFix.ml){
+    try{const o=JSON.parse(localStorage.getItem(COMP_KEY_OLD));if(o&&(o.prev||o.atual))_compFix.ml=o;}catch(e){}
+  }
+  return _compFix;
+}
+function compFix(scope){
+  const all=compFixAll();
+  if(!all[scope])all[scope]={prev:{},atual:{}};
+  if(!all[scope].prev)all[scope].prev={};
+  if(!all[scope].atual)all[scope].atual={};
+  return all[scope];
+}
+function compFixSave(){try{localStorage.setItem(COMP_KEY,JSON.stringify(compFixAll()));}catch(e){console.warn('[Comp] sem localStorage',e);}}
+function compRerender(scope){
+  if(scope==='ml'){renderMLComp();return;}
+  const cn=_canalVidMap[scope];
+  if(cn&&_canalCache[cn])renderCanalComp(cn,scope,_canalCache[cn]);
+}
+function compSwap(scope,bloco,idx,valor){
+  const sku=(valor||'').trim().toUpperCase().split(' ')[0];
+  const f=compFix(scope);
+  if(!sku)delete f[bloco][idx]; else f[bloco][idx]=sku;
+  compFixSave();compRerender(scope);
+}
+function compUndo(scope,bloco,idx){delete compFix(scope)[bloco][idx];compFixSave();compRerender(scope);}
+function compUndoAll(scope){compFixAll()[scope]={prev:{},atual:{}};compFixSave();compRerender(scope);}
+function compEdit(scope,bloco,idx){
+  const cel=document.getElementById(`cSwap_${scope}_${bloco}_${idx}`);
+  if(!cel)return;
+  cel.innerHTML=`<input list="${scope}SkuList" id="cSwapIn_${scope}_${bloco}_${idx}" placeholder="SKU…"
+    style="width:88px;border:1px solid var(--or);border-radius:5px;padding:2px 5px;font:800 .6rem 'Nunito';text-transform:uppercase"
+    onchange="compSwap('${scope}','${bloco}',${idx},this.value)"
+    onkeydown="if(event.key==='Escape')compRerender('${scope}')">`;
+  const inp=document.getElementById(`cSwapIn_${scope}_${bloco}_${idx}`);
+  if(inp)inp.focus();
+}
+
+const COMP_MESN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+
+// Renderiza a tabela do comparativo. cfg:
+//  scope, data{byDia,mesPrevData,mesAtualData,mesPrev,anoPrev,mesAtual,anoAtual},
+//  diaA, diaB, filt, titEl, wrapEl, dlEl, cor
+function renderCompTabela(cfg){
+  const{scope,data,diaA,diaB,filt,titEl,wrapEl,dlEl,cor}=cfg;
+  const{byDia,mesPrevData,mesAtualData}=data;
+  const fix=compFix(scope);
+
+  // Sempre os últimos 15 dias antes do Dia A
+  const diasPrev=[];
+  for(let i=15;i>=1;i--) diasPrev.push(mlOffset(diaA,-i));
+
+  const lblPrev =COMP_MESN[data.mesPrev-1] +'/'+String(data.anoPrev).slice(2);
+  const lblAtual=COMP_MESN[data.mesAtual-1]+'/'+String(data.anoAtual).slice(2);
+  const nFix=Object.keys(fix.prev).length+Object.keys(fix.atual).length;
+  const tit=document.getElementById(titEl);
+  if(tit)tit.textContent=`Comparativo — Top 5 ${lblPrev} + Top 10 ${lblAtual} · ${fmtDia(diaA)} vs ${fmtDia(diaB)}`
+    +(nFix?` · ${nFix} SKU fixado${nFix>1?'s':''}`:'');
+
+  // datalist de SKUs conhecidos (para a troca manual)
+  const todos={};
+  Object.entries(mesAtualData||{}).forEach(([s,d])=>todos[s]=d.desc);
+  Object.entries(mesPrevData ||{}).forEach(([s,d])=>{if(!todos[s])todos[s]=d.desc;});
+  Object.values(byDia).forEach(p=>Object.entries(p).forEach(([s,d])=>{if(!todos[s])todos[s]=d.desc;}));
+  const dl=document.getElementById(dlEl);
+  if(dl&&dl.dataset.n!==String(Object.keys(todos).length)){
+    dl.innerHTML=Object.keys(todos).sort().map(s=>`<option value="${s}">${s} — ${(todos[s]||'').substring(0,40)}</option>`).join('');
+    dl.dataset.n=String(Object.keys(todos).length);
+  }
+
+  // Monta a linha de um SKU (mesmo que não tenha vendido no Dia A)
+  const linha=sku=>{
+    const a=byDia[diaA]?.[sku]||{qtd:0,fat:0};
+    const b=byDia[diaB]?.[sku]||{qtd:0,fat:0};
+    const meta=mesAtualData?.[sku]||mesPrevData?.[sku]||byDia[diaA]?.[sku]||{};
+    let desc=meta.desc,idProd=meta.idProd;
+    if(!desc){for(const p of Object.values(byDia)){if(p[sku]){desc=p[sku].desc;idProd=p[sku].idProd;break;}}}
+    return{sku,desc:desc||sku,idProd,hist:diasPrev.map(d=>(byDia[d]?.[sku]?.qtd||0)),
+           qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};
+  };
+  const topDe=(obj,n)=>Object.entries(obj||{}).sort((x,y)=>y[1].qtd-x[1].qtd).slice(0,n).map(e=>e[0]);
+
+  const autoPrev=topDe(mesPrevData,5),autoAtual=topDe(mesAtualData,10);
+  let blocos=[
+    {id:'prev', tit:`Top 5 — ${lblPrev} (mês anterior)`, c:'#0052A5',
+     skus:Array.from({length:5 },(_,i)=>fix.prev[i] ||autoPrev[i] ||null)},
+    {id:'atual',tit:`Top 10 — ${lblAtual} (mês atual)`,  c:'var(--od)',
+     skus:Array.from({length:10},(_,i)=>fix.atual[i]||autoAtual[i]||null)}
+  ].map(bl=>({...bl,linhas:bl.skus.map((s,i)=>s?{...linha(s),_i:i,_b:bl.id,_fix:!!fix[bl.id][i]}:null).filter(Boolean)}));
+
+  if(filt==='up')blocos=blocos.map(b=>({...b,linhas:b.linhas.filter(d=>d.qtdB>d.qtdA)}));
+  if(filt==='dn')blocos=blocos.map(b=>({...b,linhas:b.linhas.filter(d=>d.qtdB<d.qtdA)}));
+
+  const wrap=document.getElementById(wrapEl);
+  if(!wrap)return;
+  if(!blocos.some(b=>b.linhas.length)){
+    wrap.innerHTML='<div class="lt" style="padding:20px;text-align:center">Sem dados para os filtros selecionados</div>';
+    return;
+  }
+
+  const NCOL=3+diasPrev.length+6;
+  const cgCols='<col style="width:30px"><col style="width:78px"><col style="width:190px">'
+    +diasPrev.map(()=>'<col style="width:44px">').join('')
+    +'<col style="width:56px"><col style="width:52px"><col style="width:70px"><col style="width:92px"><col style="width:74px"><col style="width:52px">';
+  const thD=d=>`<th style="padding:5px 3px;font-size:.58rem;font-weight:900;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;color:var(--mu)">${fmtDia(d).slice(0,5)}</th>`;
+
+  let h=`<table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:.68rem;"><colgroup>${cgCols}</colgroup>
+    <thead><tr>
+      ${THL('#')}${THL('SKU')}${THL('Produto')}
+      ${diasPrev.map(d=>thD(d)).join('')}
+      <th style="padding:5px 4px;font-size:.58rem;font-weight:900;border-bottom:2px solid var(--bd);text-align:right;background:rgba(245,166,35,.08);color:var(--or);white-space:nowrap">${fmtDia(diaA).slice(0,5)}▼</th>
+      ${THR(fmtDia(diaB).slice(0,5))}${THL('Var')}${THR('Fat')}${THL('Est')}${THL('')}
+    </tr></thead><tbody>`;
+
+  blocos.forEach(bl=>{
+    if(!bl.linhas.length)return;
+    h+=`<tr><td colspan="${NCOL}" style="padding:6px 8px;background:var(--bg);border-bottom:1px solid var(--bd);
+      font:900 .6rem 'Nunito';letter-spacing:.1em;text-transform:uppercase;color:${bl.c}">${bl.tit}</td></tr>`;
+    bl.linhas.forEach((d,i)=>{
+      const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
+      const hCells=d.hist.map(v=>v>0
+        ?`<td style="padding:5px 3px;text-align:right;font-weight:700;color:var(--tx);font-size:.66rem">${v}</td>`
+        :`<td style="padding:5px 3px;text-align:right;color:var(--dm);font-size:.66rem">—</td>`).join('');
+      const pin=d._fix?`<span title="SKU fixado manualmente" style="color:var(--or)">📌</span> `:'';
+      h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
+        ${TDL(i+1,'var(--or)',true)}
+        <td style="padding:5px 4px;text-align:left;font-weight:800;color:var(--od)">${pin}${d.sku}</td>
+        ${TDL(d.desc.substring(0,34),'')}
+        ${hCells}
+        <td style="padding:5px 4px;text-align:right;font-weight:800;color:${cor};background:rgba(245,166,35,.05)">${d.qtdA}</td>
+        <td style="padding:5px 4px;text-align:right;font-weight:700">${d.qtdB}</td>
+        <td style="padding:5px 4px;text-align:left;font-size:.64rem">${diffIcon(d.qtdB,d.qtdA)}</td>
+        <td style="padding:5px 4px;text-align:right;font-weight:700;color:var(--od)">${R(d.fatA)}</td>
+        <td style="padding:5px 4px;text-align:left">${estBadge(d.idProd)}</td>
+        <td id="cSwap_${scope}_${d._b}_${d._i}" style="padding:5px 4px;text-align:left;white-space:nowrap">
+          <button title="Trocar SKU desta posição" onclick="compEdit('${scope}','${d._b}',${d._i})"
+            style="background:none;border:1px solid var(--bd);border-radius:5px;padding:1px 5px;font-size:.6rem;cursor:pointer;color:var(--mu)">✎</button>
+          ${d._fix?`<button title="Voltar ao automático" onclick="compUndo('${scope}','${d._b}',${d._i})"
+            style="background:none;border:1px solid var(--bd);border-radius:5px;padding:1px 5px;font-size:.6rem;cursor:pointer;color:var(--or)">↺</button>`:''}
+        </td>
+      </tr>`;
+    });
+  });
+  wrap.innerHTML=h+'</tbody></table>';
+}
+
 function processarCanal(pRows, iRows, canalNome){
   if(_canalCache[canalNome]) return _canalCache[canalNome];
 
@@ -3529,56 +3939,11 @@ function renderCanalKpis(vid, data){
 
 function renderCanalComp(canal, vid, data){
   const st=_canalState[vid]||{};
-  const dA=st.diaA||data.ante, dB=st.diaB||data.ontem;
-  const filt=st.filt||'all';
-  const g=id=>document.getElementById(vid+id);
-
-  // Últimos 10 dias antes do Dia A
-  const diasPrev=[];
-  for(let i=10;i>=1;i--) diasPrev.push(mlOffset(dA,-i));
-  g('CompTit').textContent=`Comparativo Top 10 — ${fmtDia(dA)} vs ${fmtDia(dB)}`;
-
-  const dAData=data.byDia[dA]||{};
-  let lista=Object.entries(dAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10)
-    .map(([sku,a])=>{
-      const b=data.byDia[dB]?.[sku]||{qtd:0,fat:0};
-      const hist=diasPrev.map(d=>(data.byDia[d]?.[sku]?.qtd||0));
-      return{sku,desc:a.desc,idProd:a.idProd,hist,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};
-    });
-  if(filt==='up')lista=lista.filter(d=>d.qtdB>d.qtdA);
-  if(filt==='dn')lista=lista.filter(d=>d.qtdB<d.qtdA);
-  if(!lista.length){g('CompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados</div>';return;}
-
-  const cor=COR[canal]||'#999';
-  const cgCols='<col style="width:32px"><col style="width:75px"><col>'
-    +diasPrev.map(()=>'<col style="width:50px">').join('')
-    +'<col style="width:75px"><col style="width:75px"><col style="width:70px"><col style="width:95px"><col style="width:75px">';
-  const CGD=`<colgroup>${cgCols}</colgroup>`;
-  const thDia=d=>`<th style="padding:3px 4px;font-size:.48rem;font-weight:900;letter-spacing:.03em;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;color:var(--mu)">${fmtDia(d).slice(0,5)}</th>`;
-
-  let h=`<table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:.65rem;">${CGD}<thead><tr>
-    ${THL('#')}${THL('SKU')}${THL('Produto')}
-    ${diasPrev.map(d=>thDia(d)).join('')}
-    <th style="padding:3px 4px;font-size:.48rem;font-weight:900;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;background:rgba(245,166,35,.08);color:var(--or);white-space:nowrap">${fmtDia(dA).slice(0,5)}▼</th>
-    ${THR(fmtDia(dB).slice(0,5))}${THL('Var')}${THR('Fat')}${THL('Est')}
-  </tr></thead><tbody>`;
-
-  lista.forEach((d,i)=>{
-    const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
-    const hCells=d.hist.map(v=>v>0
-      ?`<td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--mu);font-size:.62rem">${v}</td>`
-      :`<td style="padding:3px 4px;text-align:right;color:var(--dm);font-size:.62rem">—</td>`).join('');
-    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
-      ${TDL(i+1,'var(--or)',true)}${TDL(d.sku,'var(--od)',true)}${TDL(d.desc.substring(0,30),'')}
-      ${hCells}
-      <td style="padding:3px 4px;text-align:right;font-weight:800;color:${cor};background:rgba(245,166,35,.05)">${d.qtdA}</td>
-      <td style="padding:3px 4px;text-align:right;font-weight:700">${d.qtdB}</td>
-      <td style="padding:3px 4px;text-align:left;font-size:.6rem">${diffIcon(d.qtdB,d.qtdA)}</td>
-      <td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--od)">${R(d.fatA)}</td>
-      <td style="padding:3px 4px;text-align:left">${estBadge(d.idProd)}</td>
-    </tr>`;
+  renderCompTabela({
+    scope:vid, data, diaA:st.diaA||data.ante, diaB:st.diaB||data.ontem,
+    filt:st.filt||'all', titEl:vid+'CompTit', wrapEl:vid+'CompWrap',
+    dlEl:vid+'SkuList', cor:COR[canal]||'#999'
   });
-  g('CompWrap').innerHTML=h+'</tbody></table>';
 }
 
 function sortCanalLista(vid, campo){
@@ -3950,62 +4315,13 @@ function renderMLKpis(){
   }
 }
 
+// ── Comparativo ML (usa o renderizador compartilhado) ─────────
 function renderMLComp(){
   if(!_mlC)return;
-  const{byDia}=_mlC;
-  const diaA=_mlDiaA,diaB=_mlDiaB;
-
-  // Últimos 10 dias antes do Dia A
-  const diasPrev=[];
-  for(let i=10;i>=1;i--) diasPrev.push(mlOffset(diaA,-i));
-  document.getElementById('mlCompTit').textContent=`Comparativo Top 10 — ${fmtDia(diaA)} vs ${fmtDia(diaB)}`;
-
-  const diaAData=byDia[diaA]||{};
-  let lista=Object.entries(diaAData).sort((a,b)=>b[1].qtd-a[1].qtd).slice(0,10)
-    .map(([sku,a])=>{
-      const b=byDia[diaB]?.[sku]||{qtd:0,fat:0};
-      const hist=diasPrev.map(d=>(byDia[d]?.[sku]?.qtd||0));
-      return{sku,desc:a.desc,idProd:a.idProd,hist,qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};
-    });
-  if(_mlFilt==='up') lista=lista.filter(d=>d.qtdB>d.qtdA);
-  if(_mlFilt==='dn') lista=lista.filter(d=>d.qtdB<d.qtdA);
-
-  if(!lista.length){
-    document.getElementById('mlCompWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">Sem dados para os filtros selecionados</div>';
-    return;
-  }
-
-  const cgCols='<col style="width:32px"><col style="width:75px"><col>'
-    +diasPrev.map(()=>'<col style="width:48px">').join('')
-    +'<col style="width:72px"><col style="width:72px"><col style="width:68px"><col style="width:95px"><col style="width:72px">';
-  const CGD=`<colgroup>${cgCols}</colgroup>`;
-  const thD=d=>`<th style="padding:3px 4px;font-size:.48rem;font-weight:900;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;white-space:nowrap;color:var(--mu)">${fmtDia(d).slice(0,5)}</th>`;
-
-  let h=`<table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:.65rem;">${CGD}
-    <thead><tr>
-      ${THL('#')}${THL('SKU')}${THL('Produto')}
-      ${diasPrev.map(d=>thD(d)).join('')}
-      <th style="padding:3px 4px;font-size:.48rem;font-weight:900;text-transform:uppercase;border-bottom:2px solid var(--bd);text-align:right;background:rgba(245,166,35,.08);color:var(--or);white-space:nowrap">${fmtDia(diaA).slice(0,5)}▼</th>
-      ${THR(fmtDia(diaB).slice(0,5))}${THL('Var')}${THR('Fat')}${THL('Est')}
-    </tr></thead><tbody>`;
-
-  lista.forEach((d,i)=>{
-    const rowBg=((_estC?.estMap[d.idProd]||0)===0&&d.idProd)?'background:rgba(220,38,38,.04);':'';
-    const hCells=d.hist.map(v=>v>0
-      ?`<td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--mu);font-size:.6rem">${v}</td>`
-      :`<td style="padding:3px 4px;text-align:right;color:var(--dm);font-size:.6rem">—</td>`).join('');
-    h+=`<tr style="border-bottom:1px solid var(--bg);${rowBg}">
-      ${TDL(i+1,'var(--or)',true)}${TDL(d.sku,'var(--od)',true)}${TDL(d.desc.substring(0,30),'')}
-      ${hCells}
-      <td style="padding:3px 4px;text-align:right;font-weight:800;color:#C8A000;background:rgba(245,166,35,.05)">${d.qtdA}</td>
-      <td style="padding:3px 4px;text-align:right;font-weight:700">${d.qtdB}</td>
-      <td style="padding:3px 4px;text-align:left;font-size:.6rem">${diffIcon(d.qtdB,d.qtdA)}</td>
-      <td style="padding:3px 4px;text-align:right;font-weight:700;color:var(--od)">${R(d.fatA)}</td>
-      <td style="padding:3px 4px;text-align:left">${estBadge(d.idProd)}</td>
-    </tr>`;
+  renderCompTabela({
+    scope:'ml', data:_mlC, diaA:_mlDiaA, diaB:_mlDiaB, filt:_mlFilt||'all',
+    titEl:'mlCompTit', wrapEl:'mlCompWrap', dlEl:'mlSkuList', cor:'#C8A000'
   });
-  h+='</tbody></table>';
-  document.getElementById('mlCompWrap').innerHTML=h;
 }
 
 function renderMLLista(){
@@ -4707,300 +5023,564 @@ function skuExcluidoGiro(sku,marca){
   return false;
 }
 
-function renderBaixoGiro(){
-  if(!_estC){
-    document.getElementById('giroTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando dados de estoque...</div>';
-    return;
-  }
-  if(!_cache||!_cache.iRows){
-    document.getElementById('giroTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Aguardando dados de pedidos...</div>';
-    return;
-  }
+// ══════════════════════════════════════════════════════════════
+// GIRO × PARCELAS — 100% AO VIVO
+// Fontes: KOND_ID (produtos, estoque por depósito, pedidos itens)
+//       + NOTAS_ID (notas de entrada, itens da nota, parcelas)
+// Replica exatamente o painel "Giro x Parcelas" com dados do dia.
+// ══════════════════════════════════════════════════════════════
+const NOTAS_ID = '1AZ2zXJ3KsNfVmm_8eRUSZ6A8bcDxgHSiyakwMUC0HhE';
 
-  const{prodMap,estMap,iRows,nomeMap}=_estC;
-  const iRowsK=_cache.iRows; // referência primária
+let _gpData=null, _gpView=[], _gpNNotas=0, _gpJan={n0:null,n1:null,v0:null,v1:null};
+const _gpS={win:90,forn:'',marca:'',q:'',status:null,showAll:false,
+            sort1:'valor_estoque',dir1:-1,sort2:'falta',dir2:-1};
+const GP_HOJE=(()=>{const d=new Date();d.setHours(0,0,0,0);return d;})();
+const GP_VALIDAS=new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue']);
+const GP_STATUS={
+  critico :{lab:'Já pago, parado',      c:'var(--g-crit)',   cs:'var(--g-critS)',
+    desc:'A compra já está quitada e o produto continua no galpão — todas as parcelas venceram, ou não há nota de entrada no período.'},
+  atencao :{lab:'Gira depois de pagar', c:'var(--g-warn)',   cs:'var(--g-warnS)',
+    desc:'No ritmo de venda atual o estoque só acaba depois da última parcela vencer.'},
+  sem_giro:{lab:'Sem venda na janela',  c:'var(--g-neutral)',cs:'var(--g-neutralS)',
+    desc:'Nenhuma venda registrada no período escolhido, com estoque no galpão.'},
+  ok      :{lab:'Gira antes de pagar',  c:'var(--g-good)',   cs:'var(--g-goodS)',
+    desc:'O estoque acaba antes da última parcela. É o cenário que se quer.'}
+};
+const GP_ORDER=['critico','atencao','sem_giro','ok'];
 
-  const diasSel=parseInt(document.getElementById('giroDias').value)||90;
-  const paradoMin=parseInt(document.getElementById('giroParado').value)||60;
-  const filtM=document.getElementById('giroMarca').value;
-  const capMin=parseFloat(document.getElementById('giroCapMin').value)||0;
+// ── helpers de formatação (idênticos ao painel original) ──
+const gpNF=(v,d=0)=>v==null||isNaN(v)?'—':v.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const gpMoney=v=>v==null||isNaN(v)?'—':'R$ '+(Math.abs(v)>=1e6?(v/1e6).toLocaleString('pt-BR',{maximumFractionDigits:2})+' mi'
+  :v.toLocaleString('pt-BR',{maximumFractionDigits:0}));
+const gpMoney0=v=>v==null||isNaN(v)?'—':'R$ '+v.toLocaleString('pt-BR',{maximumFractionDigits:0});
+const gpDt =s=>s?s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4):'—';
+const gpDtS=s=>s?s.slice(8,10)+'/'+s.slice(5,7):'—';
+const gpN=v=>{const n=parseFloat(String(v==null?'':v).replace(',','.'));return isNaN(n)?0:n;};
+function gpParseBR(s){ // M/D/YYYY
+  s=String(s||'').trim().split(' ')[0]; if(s.indexOf('/')<0)return null;
+  const p=s.split('/'); if(p.length<3)return null;
+  const d=new Date(+p[2],+p[0]-1,+p[1]); return isNaN(d)?null:d;
+}
+const gpISO=d=>d?`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`:null;
+const gpAddD=(d,n)=>{const x=new Date(d.getTime());x.setDate(x.getDate()+n);return x;};
+const gpDiff=(a,b)=>Math.round((a-b)/86400000);
 
-  // Preencher dropdown de marcas 1x
-  const marcaSel=document.getElementById('giroMarca');
-  if(marcaSel.options.length<=1){
-    const marcas=new Set();
-    Object.values(prodMap).forEach(p=>{if(p.marca)marcas.add(p.marca);});
-    [...marcas].sort().forEach(m=>{
-      const o=document.createElement('option');
-      o.value=m;o.textContent=m;marcaSel.appendChild(o);
-    });
-  }
+// Exclusões do painel: KIT*, -V, -A, -ML, TI1287*, TI733*
+function gpExcluido(sku){
+  const s=(sku||'').toUpperCase().trim();
+  if(!s)return true;
+  if(s.startsWith('KIT'))return true;
+  if(s.endsWith('-V')||s.endsWith('-A')||s.endsWith('-ML'))return true;
+  if(s.indexOf('TI1287')===0||s.indexOf('TI733')===0)return true;
+  return false;
+}
 
-  // Janela de análise
-  const hoje=new Date();
-  const dIni=new Date();dIni.setDate(dIni.getDate()-diasSel);
-
-  // Vendas por SKU no período + última data de venda + histórico completo
-  const vendasMap={};  // id → qtd vendida no período
-  const fatMap={};     // id → faturamento no período
-  const ultVenda={};   // id → data da venda mais recente
-  const vendAll={};    // id → qtd vendida em todo o histórico
-  const fatAll={};     // id → faturamento em todo o histórico
-  const VALIDAS_SET=VALIDAS; // reutiliza global
-  for(let i=1;i<iRowsK.length;i++){
-    const r=iRowsK[i];
-    const idProd=(r[I.IDPROD]||'').trim();
-    const sit=(r[I.SIT]||'').toLowerCase().trim();
-    const datStr=(r[I.DATA]||'').trim();
-    if(!idProd||!datStr||!VALIDAS_SET.has(sit))continue;
-    const pp=datStr.split('/');if(pp.length<3)continue;
-    const d=new Date(+pp[2],+pp[0]-1,+pp[1]);
-    if(!ultVenda[idProd]||d>ultVenda[idProd])ultVenda[idProd]=d;
-    const qtd=parseFloat((r[I.QTD]||'1').replace(',','.'))||1;
-    const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
-    // Histórico completo (usado como fallback do preço médio)
-    vendAll[idProd]=(vendAll[idProd]||0)+qtd;
-    fatAll[idProd]=(fatAll[idProd]||0)+qtd*vu;
-    // Só conta vendas dentro do período de análise
-    if(d<dIni)continue;
-    vendasMap[idProd]=(vendasMap[idProd]||0)+qtd;
-    fatMap[idProd]=(fatMap[idProd]||0)+qtd*vu;
-  }
-
-  // Monta lista de baixo giro
-  const lista=[];
-  let totalCap=0, totalPot=0, urgCrit=0;
-  for(const [id,p] of Object.entries(prodMap)){
-    const sku=(p.sku||'').trim();
-    if(!sku)continue;
-    if(skuExcluidoGiro(sku,p.marca))continue;
-    if(filtM&&p.marca!==filtM)continue;
-    const est=estMap[id]||0;
-    if(est<=0)continue; // só quem tem estoque
-
-    const vend=vendasMap[id]||0;
-    const fatPeriodo=fatMap[id]||0;
-    // Dias sem venda: se nunca vendeu, considera 999 (nunca)
-    let diasSem=999;
-    if(ultVenda[id]){
-      diasSem=Math.floor((hoje-ultVenda[id])/(1000*60*60*24));
+async function gpBatch(id,ranges){
+  const q=ranges.map(r=>'ranges='+encodeURIComponent(r)).join('&');
+  const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values:batchGet?${q}&key=${KEY}`);
+  const d=await r.json();
+  if(d.error)throw new Error(d.error.message);
+  return (d.valueRanges||[]).map(v=>v.values||[]);
+}
+// Junta faixas de colunas alinhadas por linha.
+// CRÍTICO: o Sheets corta células vazias no fim da linha, então cada bloco
+// precisa ser preenchido até a sua largura nominal — senão as colunas
+// seguintes escorregam de posição.
+function gpZip(blocks,widths){
+  const n=Math.max(...blocks.map(b=>b.length));
+  const out=[];
+  for(let i=0;i<n;i++){
+    const row=[];
+    for(let b=0;b<blocks.length;b++){
+      const src=blocks[b][i]||[];
+      for(let c=0;c<widths[b];c++) row.push(src[c]!==undefined?src[c]:'');
     }
-    // Giro percentual: vendas do período ÷ estoque atual
-    const giroPct=est>0?(vend/est*100):999;
-    // Faixa: até 10% (crítico) ou entre 10% e 30% (atenção)
-    const faixa=giroPct<=10?'10':(giroPct<=30?'30':'');
-
-    // Critério de entrada (OU): parado há X dias OU giro ≤ 30%
-    const paradoOk=diasSem>=paradoMin;
-    const giroFraco=giroPct<=30;
-    if(!paradoOk&&!giroFraco)continue; // gira bem (>30%) e teve venda recente → fora
-
-    // Custo e capital
-    const custo=parseFloat(p.custo||'0')||0;
-    const capParado=custo*est;
-    if(capParado<capMin)continue;
-
-    // Preço médio: 1) vendas do período → 2) histórico completo → 3) cadastro
-    // O cadastro é o menos confiável (às vezes vem igual ao custo)
-    let precoMedio=0;
-    if(vend>0) precoMedio=fatPeriodo/vend;
-    else if((vendAll[id]||0)>0) precoMedio=fatAll[id]/vendAll[id];
-    else precoMedio=parseFloat(p.preco||'0')||0;
-    // Cobertura estimada: se vendeu, quantos dias durará o estoque no ritmo atual
-    const rateDia=vend/diasSel;
-    const cobertura=rateDia>0?est/rateDia:999;
-    // Valor potencial de venda (se der saída em tudo pelo preço médio)
-    const potVenda=est*precoMedio;
-    // Desconto máximo mantendo margem 10% (custo / 0.90 = preço mínimo)
-    const precoMinComMg=custo>0?custo/0.90:0;
-    const descMax=precoMedio>0&&precoMinComMg>0?Math.max(0,(1-precoMinComMg/precoMedio)*100):0;
-
-    // Urgência: 🔴 crítico | 🟡 atenção | 🟢 monitorar
-    // Considera dias parado, capital e giro percentual
-    let urg='🟢', urgN=1;
-    if((diasSem>=90||giroPct<=3)&&capParado>=5000){urg='🔴';urgN=3;urgCrit++;}
-    else if(diasSem>=60||capParado>=2000||giroPct<=5){urg='🟡';urgN=2;}
-
-    lista.push({
-      id,sku,nome:(nomeMap&&nomeMap[id])||p.nome||sku,mk:p.marca||'',
-      est,vend,diasSem,cobertura,giroPct,faixa,
-      custo,capParado,precoMedio,potVenda,descMax,
-      urg,urgN,fatPeriodo,
-      ultVenda:ultVenda[id]?ultVenda[id].toLocaleDateString('pt-BR'):'—'
-    });
-    totalCap+=capParado;
-    totalPot+=potVenda;
+    out.push(row);
   }
-
-  // Ordenar por capital parado desc (mais capital primeiro = maior impacto financeiro)
-  lista.sort((a,b)=>b.urgN*1e12+b.capParado-(a.urgN*1e12+a.capParado));
-
-  _giroData={lista,totalCap,totalPot,urgCrit,diasSel,paradoMin};
-
-  // KPIs
-  const R=v=>'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
-  const diasMedia=lista.length>0?Math.round(lista.reduce((s,l)=>s+Math.min(l.diasSem,365),0)/lista.length):0;
-  document.getElementById('giroKQtd').textContent=lista.length.toLocaleString('pt-BR');
-  document.getElementById('giroKQtdSub').textContent=`média ${diasMedia}d sem venda`;
-  document.getElementById('giroKCap').textContent=R(totalCap);
-  document.getElementById('giroKCapSub').textContent=`${lista.length} SKUs travados`;
-  document.getElementById('giroKVenda').textContent=R(totalPot);
-  document.getElementById('giroKVendaSub').textContent=`margem potencial R$ ${(totalPot-totalCap).toLocaleString('pt-BR',{maximumFractionDigits:0})}`;
-  document.getElementById('giroKUrg').textContent=urgCrit;
-  document.getElementById('giroKUrgSub').textContent=`>90 dias + R$5k capital`;
-  document.getElementById('giroStatus').textContent=`${lista.length} SKUs | período ${diasSel}d`;
-
-  // Ranking por marca
-  const porMarca={};
-  lista.forEach(l=>{
-    if(!l.mk)return;
-    if(!porMarca[l.mk])porMarca[l.mk]={cap:0,qtd:0,pot:0};
-    porMarca[l.mk].cap+=l.capParado;
-    porMarca[l.mk].qtd++;
-    porMarca[l.mk].pot+=l.potVenda;
-  });
-  const rank=Object.entries(porMarca).map(([mk,d])=>({mk,...d})).sort((a,b)=>b.cap-a.cap).slice(0,10);
-  const maxCap=Math.max(...rank.map(r=>r.cap),1);
-  let hr=`<div style="display:flex;flex-direction:column;gap:6px;padding:0 8px;">`;
-  rank.forEach(r=>{
-    const pct=(r.cap/maxCap*100).toFixed(1);
-    hr+=`<div style="display:grid;grid-template-columns:130px 1fr 80px 130px 90px;gap:10px;align-items:center;font-size:.66rem;">
-      <div style="font-weight:800;color:var(--od)">${r.mk}</div>
-      <div style="background:var(--bg);border-radius:4px;height:12px;overflow:hidden;">
-        <div style="background:#C2410C;height:100%;width:${pct}%;border-radius:4px;"></div>
-      </div>
-      <div style="text-align:right;font-weight:800;color:var(--re)">${r.qtd} SKUs</div>
-      <div style="text-align:right;font-weight:800;color:#C2410C">${R(r.cap)}</div>
-      <div style="text-align:right;font-size:.6rem;color:var(--mu)">${(r.cap/totalCap*100).toFixed(1)}%</div>
-    </div>`;
-  });
-  hr+=`</div>`;
-  document.getElementById('giroRankMarca').innerHTML=hr;
-
-  // Tabela detalhada
-  if(lista.length===0){
-    document.getElementById('giroTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center;color:var(--gr)">✅ Nenhum SKU com baixo giro nos filtros aplicados</div>';
-    return;
-  }
-
-  const nBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
-
-  // ── Definição das colunas (reordenáveis via drag-and-drop) ──
-  // Cada coluna: key, label, align, e função render(l) que devolve o HTML da célula
-  const COLS_DEF={
-    urg:   {label:'Urg', align:'center', color:'var(--mu)', render:l=>`<span style="font-size:.85rem">${l.urg}</span>`},
-    sku:   {label:'SKU', align:'left', color:'var(--or)', render:l=>`<span style="font-weight:800;color:var(--or)">${l.sku}</span>`},
-    nome:  {label:'Produto', align:'left', color:'var(--mu)', render:l=>`<span style="color:var(--tx)">${l.nome.substring(0,55)}</span>`},
-    mk:    {label:'Marca', align:'left', color:'var(--mu)', render:l=>`<span style="color:var(--mu);font-weight:700">${l.mk||'—'}</span>`},
-    est:   {label:'Estoque', align:'right', color:'var(--or)', render:l=>`<span style="font-weight:800;color:var(--or)">${nBR(l.est)}</span>`},
-    dias:  {label:'Dias s/ venda', align:'right', color:'var(--re)', render:l=>{const s=l.diasSem>=999?'Nunca':`${l.diasSem}d`;return `<span style="font-weight:800;color:${l.diasSem>=90?'var(--re)':(l.diasSem>=60?'#C2410C':'var(--od)')}">${s}</span>`;}},
-    ult:   {label:'Última venda', align:'right', color:'var(--mu)', render:l=>`<span style="font-size:.58rem;color:var(--mu)">${l.ultVenda}</span>`},
-    f10:   {label:'10% estoque', align:'right', color:'var(--re)', title:'Giro ≤ 10% do estoque', render:l=>{const g=l.giroPct>=999?'0%':l.giroPct.toFixed(1)+'%';return l.faixa==='10'?`<span style="font-weight:800;color:var(--re)">${g}</span>`:'<span style="color:var(--dm)">—</span>';}},
-    f30:   {label:'30% estoque', align:'right', color:'#C2410C', title:'Giro entre 10% e 30% do estoque', render:l=>{const g=l.giroPct>=999?'0%':l.giroPct.toFixed(1)+'%';return l.faixa==='30'?`<span style="font-weight:800;color:#C2410C">${g}</span>`:'<span style="color:var(--dm)">—</span>';}},
-    vend:  {label:`Vendas ${diasSel}d`, align:'right', color:'var(--mu)', render:l=>`<span style="font-weight:700;color:${l.vend===0?'var(--re)':'var(--tx)'}">${nBR(l.vend)}</span>`},
-    cap:   {label:'Capital Parado', align:'right', color:'#C2410C', render:l=>`<span style="font-weight:900;color:#C2410C">${R(l.capParado)}</span>`},
-    desc:  {label:'Desc. Máx', align:'right', color:'#7C3AED', render:l=>`<span style="font-weight:800;color:${l.descMax>=30?'var(--gr)':(l.descMax>=15?'#7C3AED':'var(--mu)')}">${l.descMax.toFixed(1)}%</span>`}
-  };
-  // Ordem atual (persiste na sessão). Default = ordem pedida pelo usuário.
-  if(!window._giroColOrder){
-    const saved=sessionStorage.getItem('giro_col_order');
-    window._giroColOrder=saved?JSON.parse(saved):['urg','sku','nome','mk','est','dias','ult','f10','f30','vend','cap','desc'];
-  }
-  const ordem=window._giroColOrder.filter(k=>COLS_DEF[k]); // segurança
-
-  let h=`<table style="width:100%;border-collapse:collapse;font-size:.62rem;min-width:1200px;">
-    <thead style="position:sticky;top:0;background:var(--wh);z-index:2;">
-      <tr>`;
-  ordem.forEach(key=>{
-    const c=COLS_DEF[key];
-    h+=`<th draggable="true" data-col="${key}"
-      ondragstart="giroDragStart(event,'${key}')" ondragover="giroDragOver(event)"
-      ondrop="giroDrop(event,'${key}')" ondragend="giroDragEnd(event)"
-      title="${c.title||'Arraste para reordenar'}"
-      style="padding:5px 8px;text-align:${c.align};font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--bd);color:${c.color};cursor:grab;user-select:none;white-space:nowrap;">${c.label}</th>`;
-  });
-  h+=`</tr></thead><tbody>`;
-
-  lista.forEach((l,i)=>{
-    const bg=i%2===1?'background:rgba(0,0,0,.02);':'';
-    h+=`<tr style="border-bottom:1px solid var(--bg);${bg}">`;
-    ordem.forEach(key=>{
-      const c=COLS_DEF[key];
-      h+=`<td style="padding:5px 8px;text-align:${c.align};">${c.render(l)}</td>`;
-    });
-    h+=`</tr>`;
-  });
-
-  h+=`</tbody></table>`;
-  document.getElementById('giroTbWrap').innerHTML=h;
+  return out;
 }
 
-// ── Drag-and-drop das colunas do Baixo Giro ──
-let _giroDragCol=null;
-function giroDragStart(e,key){_giroDragCol=key;e.dataTransfer.effectAllowed='move';}
-function giroDragOver(e){e.preventDefault();e.dataTransfer.dropEffect='move';
-  const th=e.target.closest('th');if(th)th.style.borderLeft='3px solid var(--or)';}
-function giroDragEnd(e){document.querySelectorAll('#giroTbWrap th').forEach(th=>th.style.borderLeft='');}
-function giroDrop(e,destKey){
-  e.preventDefault();
-  document.querySelectorAll('#giroTbWrap th').forEach(th=>th.style.borderLeft='');
-  if(!_giroDragCol||_giroDragCol===destKey)return;
-  const ord=window._giroColOrder;
-  const from=ord.indexOf(_giroDragCol), to=ord.indexOf(destKey);
-  if(from<0||to<0)return;
-  ord.splice(from,1);           // remove da posição antiga
-  ord.splice(to,0,_giroDragCol);// insere na nova posição
-  sessionStorage.setItem('giro_col_order',JSON.stringify(ord));
-  _giroDragCol=null;
-  renderBaixoGiro(); // re-renderiza com a nova ordem
-}
-function giroResetColunas(){
-  window._giroColOrder=['urg','sku','nome','mk','est','dias','ult','f10','f30','vend','cap','desc'];
-  sessionStorage.removeItem('giro_col_order');
-  renderBaixoGiro();
-}
-
-function exportarBaixoGiro(){
-  if(!_giroData||_giroData.lista.length===0){
-    alert('Nenhum dado para exportar. Ajuste os filtros primeiro.');
-    return;
-  }
+async function loadGiroParc(){
+  const wrap=document.getElementById('gpTb1b');
+  if(wrap)wrap.innerHTML='<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--g-muted)">⏳ Carregando ao vivo: cadastro, Novo Galpão, vendas, notas de entrada e parcelas…</td></tr>';
   try{
-    const {lista,diasSel,paradoMin}=_giroData;
-    const rBR=v=>(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
-    const esc=s=>{const t=String(s||'');return/[;"\n\r]/.test(t)?`"${t.replace(/"/g,'""')}"`:t;};
+    // Cadastro precisa de índice por nome de coluna → leitura direta
+    const [prodRows,depoRows,pitRows]=await Promise.all([
+      fetchSheet(KOND_ID,'A:AZ','tinyerp_produtos'),
+      fetchSheet(KOND_ID,'A:E','tinyerp_estoque_produto_depo'),
+      fetchSheet(KOND_ID,'A:L','tinyerp_pedidos_detalhes_itens'),
+    ]);
+    // Planilha de notas: só as faixas de coluna necessárias (sheets são largas)
+    const [ndA,ndG,ndJ,ndAY]=await gpBatch(NOTAS_ID,[
+      'tinyerp_notas_detalhes!A:C','tinyerp_notas_detalhes!G:G',
+      'tinyerp_notas_detalhes!J:J','tinyerp_notas_detalhes!AY:AY']);
+    const [itA,itCD,itI,itK,itL]=await gpBatch(NOTAS_ID,[
+      'tinyerp_notas_detalhes_itens!A:A','tinyerp_notas_detalhes_itens!C:D',
+      'tinyerp_notas_detalhes_itens!I:I','tinyerp_notas_detalhes_itens!K:K',
+      'tinyerp_notas_detalhes_itens!L:L']);
+    const [paA,paD,paG]=await gpBatch(NOTAS_ID,[
+      'tinyerp_notas_detalhes_parcelas!A:A','tinyerp_notas_detalhes_parcelas!D:D',
+      'tinyerp_notas_detalhes_parcelas!G:G']);
 
-    const headers=['Urgência','SKU','Produto','Marca','Estoque','Dias s/ Venda','Última Venda',
-      '10% estoque (giro%)','30% estoque (giro%)',`Vendas ${diasSel}d`,'Capital Parado (R$)','Custo Unit (R$)','Preço Médio (R$)','Desconto Máx (%)','Valor Potencial (R$)'];
-    const linhas=[headers.map(esc).join(';')];
+    // ── 1. Cadastro ──
+    const ph=prodRows[0]||[];
+    const iSku=ph.indexOf('codigo'),iMarca=ph.indexOf('marca'),iNome=ph.indexOf('nome'),iPreco=ph.indexOf('preco');
+    const prod={};
+    for(let i=1;i<prodRows.length;i++){
+      const r=prodRows[i];const id=(r[0]||'').trim();if(!id)continue;
+      prod[id]={sku:(r[iSku]||'').trim(),marca:(r[iMarca]||'').trim(),
+                nome:iNome>=0?(r[iNome]||'').trim():'',preco:iPreco>=0?gpN(r[iPreco]):0};
+    }
+    // ── 2. Estoque Novo Galpão líquido de RMA ──
+    const ng={},rma={};
+    for(let i=1;i<depoRows.length;i++){
+      const r=depoRows[i];const id=(r[0]||'').trim();if(!id)continue;
+      const dep=(r[3]||'').trim(),sal=gpN(r[4]);
+      if(dep==='Novo Galpao')ng[id]=(ng[id]||0)+sal;
+      else if(dep==='Deposito RMA Novo')rma[id]=(rma[id]||0)+sal;
+    }
+    // ── 3. Giro real de vendas (janela de 120 dias) ──
+    const giro={};let v0=null,v1=null;
+    for(let i=1;i<pitRows.length;i++){
+      const r=pitRows[i];const id=(r[3]||'').trim();if(!id)continue;
+      if(!GP_VALIDAS.has((r[9]||'').trim().toLowerCase()))continue;
+      const d=gpParseBR(r[11]);if(!d)continue;
+      const dias=gpDiff(GP_HOJE,d);
+      if(dias<0||dias>=120)continue;
+      if(!v0||d<v0)v0=d; if(!v1||d>v1)v1=d;
+      const q=gpN(r[4]),vu=gpN(r[6]);
+      let g=giro[id];if(!g){g={un30:0,un60:0,un90:0,untot:0,rec:0,ped:0,ult:null};giro[id]=g;}
+      if(dias<30)g.un30+=q; if(dias<60)g.un60+=q; if(dias<90)g.un90+=q;
+      g.untot+=q;g.rec+=q*vu;g.ped++;
+      if(!g.ult||d>g.ult)g.ult=d;
+    }
+    _gpJan.v0=gpISO(v0);_gpJan.v1=gpISO(v1);
 
-    let tCap=0,tPot=0;
-    lista.forEach(l=>{
-      tCap+=l.capParado;tPot+=l.potVenda;
-      const giroTxt=(l.giroPct>=999?0:l.giroPct).toFixed(1);
-      linhas.push([
-        l.urg,l.sku,l.nome,l.mk||'',l.est,
-        l.diasSem>=999?'Nunca':l.diasSem,l.ultVenda,
-        l.faixa==='10'?giroTxt:'',
-        l.faixa==='30'?giroTxt:'',
-        l.vend,rBR(l.capParado),rBR(l.custo),rBR(l.precoMedio),l.descMax.toFixed(1),rBR(l.potVenda)
-      ].map(esc).join(';'));
+    // ── 4. Notas de entrada + itens + parcelas ──
+    const nd=gpZip([ndA,ndG,ndJ,ndAY],[3,1,1,1]);   // [id,tipo,numero, dataemissao, valor, cliente_nome]
+    const notas={};let n0=null,n1=null;
+    for(let i=1;i<nd.length;i++){
+      const r=nd[i];if(!r[0]||r[1]!=='E')continue;
+      const em=gpParseBR(r[3]);if(!em||gpDiff(GP_HOJE,em)<0)continue;
+      notas[r[0]]={nf:(r[2]||'').trim(),emis:em,valor:gpN(r[4]),forn:(r[5]||'').trim()};
+      if(!n0||em<n0)n0=em; if(!n1||em>n1)n1=em;
+    }
+    _gpNNotas=Object.keys(notas).length;
+    _gpJan.n0=gpISO(n0);_gpJan.n1=gpISO(n1);
+
+    const it=gpZip([itA,itCD,itI,itK,itL],[1,2,1,1,1]); // [nota_id, idproduto, codigo, quantidade, valortotal, natureza]
+    const itens={};
+    for(let i=1;i<it.length;i++){
+      const r=it[i];const nid=(r[0]||'').trim();
+      if(!nid||!notas[nid])continue;
+      if(String(r[5]||'').trim())continue;             // só natureza VAZIA = compra
+      const pid=(r[1]||'').trim();if(!pid)continue;
+      (itens[nid]=itens[nid]||[]).push({pid,q:gpN(r[3]),tot:gpN(r[4])});
+    }
+    const pa=gpZip([paA,paD,paG],[1,1,1]);          // [nota_id, dias, valor]
+    const parc={};
+    for(let i=1;i<pa.length;i++){
+      const r=pa[i];const nid=(r[0]||'').trim();
+      if(!nid||!notas[nid])continue;
+      (parc[nid]=parc[nid]||[]).push({dias:Math.round(gpN(r[1])),valor:gpN(r[2])});
+    }
+
+    // entradas por produto (rateio pela fatia do item no valor da nota)
+    const ent={};
+    for(const nid in itens){
+      const n=notas[nid],lst=itens[nid];
+      const soma=lst.reduce((s,x)=>s+x.tot,0);
+      if(soma<=0)continue;
+      lst.forEach(x=>{
+        (ent[x.pid]=ent[x.pid]||[]).push({nid,nf:n.nf,emis:n.emis,forn:n.forn,
+          q:x.q,vsku:n.valor*x.tot/soma,nvalor:n.valor});
+      });
+    }
+
+    // ── 5. Linha por SKU ──
+    const arr=[];
+    const ids=new Set([...Object.keys(ng),...Object.keys(giro),...Object.keys(ent)]);
+    ids.forEach(pid=>{
+      const p=prod[pid]; if(!p||!p.sku||gpExcluido(p.sku))return;
+      const ngv=ng[pid]||0,rmav=rma[pid]||0,saldo=Math.max(0,ngv-rmav);
+      if(saldo<=0)return;
+      const g=giro[pid]||{un30:0,un60:0,un90:0,untot:0,rec:0,ped:0,ult:null};
+      const pm=g.untot>0?g.rec/g.untot:null;
+      const d={sku:p.sku,nome:p.nome||p.sku,marca:p.marca||null,
+        saldo,ng:ngv,rma:rmav,preco:p.preco||null,
+        preco_medio:pm,preco_ref:pm!=null?pm:(p.preco||null),
+        un30:g.un30,un60:g.un60,un90:g.un90,un_tot:g.untot,rec_tot:g.rec,n_ped:g.ped,
+        ult_venda:gpISO(g.ult),
+        fornecedor:null,nota:null,nf:null,data_entrada:null,dias_desde:null,
+        qtd_entrada:null,qtd_total:null,n_notas:null,custo_unit:null,valor_sku:null,valor_estoque:null,
+        n_parcelas:null,n_vencidas:null,pct_pago:null,parc_sku:null,valor_aberto:null,
+        prox_venc:null,ult_venc:null,dias_ate_ult:null,parcelas:[]};
+      const es=(ent[pid]||[]).slice().sort((a,b)=>a.emis-b.emis);
+      if(es.length){
+        const u=es[es.length-1];
+        const cu=u.q?u.vsku/u.q:0;
+        d.fornecedor=u.forn||null;d.nota=u.nid;d.nf=u.nf;
+        d.data_entrada=gpISO(u.emis);d.dias_desde=gpDiff(GP_HOJE,u.emis);
+        d.qtd_entrada=u.q;d.qtd_total=es.reduce((s,e)=>s+e.q,0);d.n_notas=es.length;
+        d.custo_unit=cu;d.valor_sku=u.vsku;d.valor_estoque=saldo*cu;
+        const ps=(parc[u.nid]||[]).slice().sort((a,b)=>a.dias-b.dias);
+        const rat=u.nvalor?u.vsku/u.nvalor:0;
+        d.parcelas=ps.map((x,i)=>{
+          const venc=gpAddD(u.emis,x.dias);
+          return {n:i+1,dias:x.dias,venc:gpISO(venc),valor:x.valor,
+                  valor_sku:x.valor*rat,vencida:venc<GP_HOJE};
+        });
+        if(d.parcelas.length){
+          d.n_parcelas=d.parcelas.length;
+          d.n_vencidas=d.parcelas.filter(x=>x.vencida).length;
+          const tot=d.parcelas.reduce((s,x)=>s+x.valor_sku,0);
+          d.parc_sku=tot;
+          d.valor_aberto=d.parcelas.filter(x=>!x.vencida).reduce((s,x)=>s+x.valor_sku,0);
+          d.pct_pago=tot?100*d.parcelas.filter(x=>x.vencida).reduce((s,x)=>s+x.valor_sku,0)/tot:0;
+          const ab=d.parcelas.filter(x=>!x.vencida);
+          d.prox_venc=ab.length?ab[0].venc:null;
+          d.ult_venc=d.parcelas[d.parcelas.length-1].venc;
+          d.dias_ate_ult=gpDiff(new Date(d.ult_venc+'T00:00:00'),GP_HOJE);
+        }
+      }
+      arr.push(d);
     });
-    linhas.push(['','','TOTAL','','','','','','','',
-      rBR(tCap),'','','',rBR(tPot)].map(esc).join(';'));
-
-    const csv='\uFEFF'+linhas.join('\r\n');
-    const dt=new Date().toISOString().slice(0,10).replace(/-/g,'');
-    const nome=`baixo_giro_${dt}_${paradoMin}d.csv`;
-    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=url;a.download=nome;
-    document.body.appendChild(a);a.click();
-    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
+    _gpData=arr;
+    gpPopularFiltros();
+    gpBind();
+    renderGiroParc();
   }catch(e){
-    console.error('[ExportGiro]',e);
-    alert('Erro ao exportar: '+e.message);
+    console.error('[GiroParc]',e);
+    if(wrap)wrap.innerHTML=`<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--g-crit)">Erro ao carregar: ${e.message}</td></tr>`;
   }
+}
+
+function gpPopularFiltros(){
+  const fs=[...new Set(_gpData.map(d=>d.fornecedor).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const ms=[...new Set(_gpData.map(d=>d.marca).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const sf=document.getElementById('gpFForn'),sm=document.getElementById('gpFMarca');
+  if(sf){sf.innerHTML='<option value="">Todos</option>';fs.forEach(f=>sf.add(new Option(f,f)));}
+  if(sm){sm.innerHTML='<option value="">Todas</option>';ms.forEach(m=>sm.add(new Option(m,m)));}
+  document.getElementById('gpNSku').textContent=gpNF(_gpData.length);
+  document.getElementById('gpNNotas').textContent=gpNF(_gpNNotas);
+  document.getElementById('gpHoje').textContent=GP_HOJE.toLocaleDateString('pt-BR');
+  document.getElementById('gpJanNota').textContent=(_gpJan.n0?gpDtS(_gpJan.n0):'—')+'–'+(_gpJan.n1?gpDtS(_gpJan.n1):'—');
+  document.getElementById('gpJanVenda').textContent=(_gpJan.v0?gpDtS(_gpJan.v0):'—')+'–'+(_gpJan.v1?gpDtS(_gpJan.v1):'—');
+  document.getElementById('gpLive').innerHTML='● ao vivo · '+new Date().toLocaleTimeString('pt-BR');
+}
+
+function gpDerive(d){
+  const w=_gpS.win,un=w===30?d.un30:w===60?d.un60:w===90?d.un90:d.un_tot;
+  const dias=w===120?120:w, vd=un/dias;
+  const dz=vd>0?d.saldo/vd:null;
+  const gap=(dz!=null&&d.dias_ate_ult!=null)?dz-d.dias_ate_ult:null;
+  let status;
+  if(!d.nota||d.n_vencidas===d.n_parcelas)status='critico';
+  else if(vd<=0)status='sem_giro';
+  else if(gap!=null&&gap>0)status='atencao';
+  else status='ok';
+  const pr=d.preco_ref,ab=d.valor_aberto,dv=d.dias_ate_ult;
+  let nec=null,recproj=null,falta=null,cob=null,insuf=false;
+  if(ab>1&&dv>0&&pr>0){
+    nec=(ab/pr)/dv; recproj=vd*dv*pr; falta=Math.max(0,ab-recproj);
+    cob=nec>0?vd/nec:null; insuf=(d.saldo*pr)<ab;
+  }
+  return Object.assign({},d,{unw:un,vd,dz,gap,status,nec,recproj,falta,cob,insuf});
+}
+function gpApply(){
+  _gpView=_gpData.map(gpDerive).filter(d=>{
+    if(_gpS.forn&&d.fornecedor!==_gpS.forn)return false;
+    if(_gpS.marca&&d.marca!==_gpS.marca)return false;
+    if(_gpS.q){const q=_gpS.q.toLowerCase();
+      if(!((d.sku||'').toLowerCase().includes(q)||(d.nome||'').toLowerCase().includes(q)))return false;}
+    return true;
+  });
+}
+function gpRenderScope(){
+  const un=_gpView.reduce((s,d)=>s+d.saldo,0),parts=[];
+  if(_gpS.forn)parts.push(_gpS.forn); if(_gpS.marca)parts.push('marca '+_gpS.marca); if(_gpS.q)parts.push('"'+_gpS.q+'"');
+  document.getElementById('gpScope').innerHTML=
+    `<b>${gpNF(_gpView.length)}</b> SKUs no recorte &middot; <b>${gpNF(un)}</b> un no galpão<br>`+
+    (parts.length?'filtro: '+parts.join(' · '):'sem filtro de fornecedor ou marca');
+}
+function gpRenderKpis(){
+  const ws=_gpView, un=ws.reduce((s,d)=>s+d.saldo,0), val=ws.reduce((s,d)=>s+(d.valor_estoque||0),0);
+  let venc=0,ab=0;
+  ws.forEach(d=>d.parcelas.forEach(p=>{p.vencida?venc+=p.valor_sku:ab+=p.valor_sku}));
+  const crit=ws.filter(d=>d.status==='critico');
+  const k=[
+    {lab:'Estoque no Novo Galpão',val:gpNF(un)+' un',foot:ws.length+' SKUs com saldo'},
+    {lab:'Capital em estoque',val:gpMoney(val),foot:ws.filter(d=>d.custo_unit!=null).length+' SKUs com custo conhecido',cls:'is-accent'},
+    {lab:'Parcelas já vencidas',val:gpMoney(venc),foot:'rateado por SKU no recorte',cls:'is-crit'},
+    {lab:'Parcelas a vencer',val:gpMoney(ab),foot:'compromisso ainda por pagar'},
+    {lab:'Pago e ainda parado',val:gpMoney(crit.reduce((s,d)=>s+(d.valor_estoque||0),0)),
+     foot:crit.length+' SKUs · '+gpNF(crit.reduce((s,d)=>s+d.saldo,0))+' un · custo em '+crit.filter(d=>d.custo_unit!=null).length,cls:'is-crit'}
+  ];
+  document.getElementById('gpKpis').innerHTML=k.map(x=>
+    `<div class="gpkpi ${x.cls||''}"><div class="gplab">${x.lab}</div><div class="gpval">${x.val}</div><div class="gpfoot">${x.foot}</div></div>`).join('');
+  const sv=ws.filter(d=>d.un_tot<=0);
+  document.getElementById('gpCallout').innerHTML=
+    `<div class="gpci">!</div><p><b>Estoque parado de verdade.</b> No recorte atual, <b>${gpNF(sv.length)}</b> SKUs
+     (<b>${gpNF(sv.reduce((s,d)=>s+d.saldo,0))}</b> unidades líquidas no galpão) não tiveram <b>nenhuma</b> venda registrada em todo o período —
+     nem na janela de ${_gpS.win===120?'120':_gpS.win} dias, nem antes.</p>`;
+}
+function gpRenderCards(){
+  const el=document.getElementById('gpCards');
+  el.innerHTML=GP_ORDER.map(s=>{
+    const g=_gpView.filter(d=>d.status===s);
+    const un=g.reduce((a,b)=>a+b.saldo,0),rs=g.reduce((a,b)=>a+(b.valor_estoque||0),0);
+    return `<button class="gpcard" style="--c:${GP_STATUS[s].c};--cs:${GP_STATUS[s].cs}" data-s="${s}" aria-pressed="${_gpS.status===s}">
+      <div class="gpct"><i class="gpdot"></i>${GP_STATUS[s].lab}</div>
+      <div class="gpcn">${g.length} <span style="font-size:13px;font-weight:500;color:var(--g-muted)">SKUs</span></div>
+      <div class="gpcd">${gpNF(un)} un${rs>0?' · '+gpMoney(rs):''}<br>${GP_STATUS[s].desc}</div></button>`;
+  }).join('');
+  el.querySelectorAll('.gpcard').forEach(b=>b.onclick=()=>{_gpS.status=_gpS.status===b.dataset.s?null:b.dataset.s;renderGiroParc();});
+}
+function gpPill(s){const t=GP_STATUS[s];return `<span class="gppill" style="--c:${t.c};--cs:${t.cs}"><i class="gpdot"></i>${t.lab}</span>`;}
+function gpSortBy(arr,k,dir){
+  return arr.sort((a,b)=>{let x=a[k],y=b[k];
+    if(x==null&&y==null)return 0;if(x==null)return 1;if(y==null)return -1;
+    if(typeof x==='string')return x.localeCompare(y)*dir;return (x-y)*dir;});
+}
+function gpRenderT1(){
+  let v=_gpView.slice();
+  if(_gpS.status)v=v.filter(d=>d.status===_gpS.status);
+  gpSortBy(v,_gpS.sort1,_gpS.dir1);
+  document.getElementById('gpCnt').textContent=`${v.length} de ${_gpView.length} SKUs`;
+  const tb=document.getElementById('gpTb1b');
+  tb.innerHTML=v.map((d,i)=>{
+    const gap=d.gap==null?'<span class="gpna">—</span>'
+      :`<span class="gpnum" style="color:${d.gap>0?'var(--g-crit)':'var(--g-good)'};font-weight:600">${d.gap>0?'+':''}${gpNF(d.gap)} d</span>`;
+    return `<tr class="gprow" data-i="${i}">
+      <td><span class="gpsku">${d.sku}</span><span class="gpnm">${d.nome||'—'}</span></td>
+      <td class="gptagm">${d.marca||'—'}</td>
+      <td>${gpPill(d.status)}</td>
+      <td class="gpnum">${gpNF(d.saldo)}</td>
+      <td class="gpnum">${d.valor_estoque?gpMoney0(d.valor_estoque):'<span class="gpna">—</span>'}</td>
+      <td class="gpnum">${gpDt(d.data_entrada)}${d.qtd_entrada?' <span class="gpna">· '+gpNF(d.qtd_entrada)+' un</span>':''}</td>
+      <td class="gpnum">${d.unw>0?gpNF(d.unw)+' un':'<span class="gppill" style="--c:var(--g-crit);--cs:var(--g-critS)">0</span>'}</td>
+      <td class="gpnum">${gpNF(d.vd,2)}</td>
+      <td class="gpnum">${d.dz!=null?gpNF(Math.min(d.dz,9999))+' d':'<span class="gpna">—</span>'}</td>
+      <td class="gpnum">${d.ult_venc?gpDt(d.ult_venc):'<span class="gpna">—</span>'}</td>
+      <td>${gap}</td></tr>`;
+  }).join('')||'<tr><td colspan="11" style="text-align:center;padding:34px;color:var(--g-muted)">Nenhum SKU com esses filtros.</td></tr>';
+  tb.querySelectorAll('tr.gprow').forEach(tr=>tr.onclick=()=>gpToggle(tr,v[+tr.dataset.i],11));
+}
+function gpToggle(tr,d,cols){
+  const tb=tr.parentNode,nx=tr.nextElementSibling;
+  if(nx&&nx.classList.contains('gpdet')){nx.remove();tr.classList.remove('open');return;}
+  tb.querySelectorAll('tr.gpdet').forEach(x=>x.remove());
+  tb.querySelectorAll('tr.gprow').forEach(x=>x.classList.remove('open'));
+  tr.classList.add('open');
+  const r=document.createElement('tr');r.className='gpdet';
+  r.innerHTML=`<td colspan="${cols}"><div class="gpdetin">${gpDetail(d)}</div></td>`;
+  tr.after(r);
+}
+function gpDetail(d){
+  const f=[
+    ['Fornecedor',d.fornecedor||'—'],['Marca',d.marca||'—'],['NF',d.nf||'—'],
+    ['Comprado',d.qtd_entrada?gpNF(d.qtd_entrada)+' un por '+gpMoney0(d.valor_sku):'—'],
+    ['Custo unitário',d.custo_unit?gpMoney0(d.custo_unit):'—'],
+    ['Preço médio de venda',d.preco_ref?gpMoney0(d.preco_ref):'—'],
+    ['Entradas no período',d.n_notas?gpNF(d.n_notas)+' nota(s) · '+gpNF(d.qtd_total)+' un':'—'],
+    ['Parcelas',d.n_parcelas?`${gpNF(d.n_vencidas)} de ${gpNF(d.n_parcelas)} vencidas (${gpNF(d.pct_pago,0)}% do valor)`:'—'],
+    ['Venda no período todo',d.un_tot?gpNF(d.un_tot)+' un · '+gpMoney0(d.rec_tot):'nenhuma'],
+    ['Venda 30 / 60 / 90 d',`${gpNF(d.un30)} / ${gpNF(d.un60)} / ${gpNF(d.un90)} un`],
+    ['Última venda',d.ult_venda?gpDt(d.ult_venda):'—'],
+    ['Estoque no galpão',gpNF(d.saldo)+' un'],
+    ['Estoque parado',d.valor_estoque?gpMoney0(d.valor_estoque):'—']
+  ].map(([a,b])=>`<div class="gpfact"><div class="gpfl">${a}</div><div class="gpfv">${b}</div></div>`).join('');
+  return `<div class="gpfacts">${f}</div>${gpParcList(d)}${gpTimeline(d)}`;
+}
+function gpParcList(d){
+  if(!d.parcelas||!d.parcelas.length)
+    return `<div><div class="gpfl">Parcelas</div><div class="gpfv" style="color:var(--g-muted);font-size:13px">
+      ${d.nota?'nota sem parcela registrada':'sem nota de entrada no período — compra anterior à janela'}</div></div>`;
+  const tot=d.parcelas.reduce((s,p)=>s+p.valor_sku,0);
+  const items=d.parcelas.map(p=>{
+    const dd=gpDiff(new Date(p.venc+'T00:00:00'),GP_HOJE);
+    const est=p.vencida?(dd===0?'vence hoje':`vencida há ${gpNF(-dd)} d`):`vence em ${gpNF(dd)} d`;
+    const c=p.vencida?'var(--g-crit)':'var(--g-accent)';
+    return `<div class="gppc" style="--c:${c}">
+      <div class="gppn">${p.n}ª de ${d.parcelas.length} <span>· ${p.dias} d de prazo</span></div>
+      <div class="gppd">${gpDt(p.venc)}</div>
+      <div class="gppv">${gpMoney0(p.valor_sku)}</div>
+      <div class="gpps">${est}</div>
+      <div class="gppf">nota inteira ${gpMoney0(p.valor)}</div></div>`;
+  }).join('');
+  return `<div><div class="gpfl" style="margin-bottom:8px">Parcelas da NF ${d.nf||''} — ${gpMoney0(tot)} rateados para este SKU
+    <span style="text-transform:none;letter-spacing:0;font-weight:400">(vencimento = emissão ${gpDt(d.data_entrada)} + prazo em dias)</span></div>
+    <div class="gppcs">${items}</div></div>`;
+}
+function gpTimeline(d){
+  if(!d.data_entrada||!d.parcelas.length)return '';
+  const t0=Math.min(new Date(d.data_entrada+'T00:00:00').getTime(),
+    ...d.parcelas.map(p=>new Date(p.venc+'T00:00:00').getTime()));
+  const ends=[GP_HOJE.getTime()+30*864e5];
+  d.parcelas.forEach(p=>ends.push(new Date(p.venc+'T00:00:00').getTime()));
+  const zera=d.dz!=null?GP_HOJE.getTime()+d.dz*864e5:null;
+  const horizon=Math.max(...ends),t1=horizon+(horizon-t0)*0.10;
+  const fora=zera!=null&&zera>t1;
+  const pos=t=>((t-t0)/(t1-t0))*100;
+  const edge=x=>x<9?'transform:none':(x>88?'transform:translateX(-100%)':'transform:translateX(-50%)');
+  const nowX=pos(GP_HOJE.getTime());
+  const marks=d.parcelas.map((p,i)=>{
+    const c=p.vencida?'var(--g-crit)':'var(--g-accent)',x=pos(new Date(p.venc+'T00:00:00').getTime());
+    return `<i class="gpmk" style="left:${x}%;background:${p.vencida?c:'var(--g-surface2)'};color:${c}"></i>
+      <span class="gplb ${i%2?'bot':'top'}" style="left:${x}%;${edge(x)};color:${c}">${gpDtS(p.venc)}${d.parcelas.length>4?'':' · '+gpMoney0(p.valor_sku)}</span>`;
+  }).join('');
+  let zb;
+  if(zera!=null&&!fora){const zx=pos(zera);
+    zb=`<span class="gpsegb" style="left:${nowX}%;width:${Math.max(0,zx-nowX)}%;background:var(--g-good);opacity:.4"></span>
+     <span class="gplb bot2" style="left:${zx}%;${edge(zx)};color:var(--g-good)">estoque zera ${gpDtS(gpISO(new Date(zera)))}</span>`;
+  }else if(zera!=null){
+    zb=`<span class="gpsegb" style="left:${nowX}%;width:${100-nowX}%;background:linear-gradient(90deg,var(--g-good),transparent);opacity:.5"></span>
+     <span class="gplb bot2" style="left:100%;transform:translateX(-100%);color:var(--g-warn)">estoque zera em ${gpNF(d.dz)} dias — além da escala &rsaquo;&rsaquo;</span>`;
+  }else{
+    zb=`<span class="gplb bot2" style="left:100%;transform:translateX(-100%);color:var(--g-muted)">sem venda na janela de ${_gpS.win===120?'120':_gpS.win} dias</span>`;
+  }
+  return `<div>
+    <div class="gplegend" style="margin-bottom:2px">
+      <span><i class="gpsw" style="background:var(--g-crit)"></i> parcela vencida</span>
+      <span><i class="gpsw" style="background:var(--g-surface2);box-shadow:0 0 0 1.5px var(--g-accent) inset"></i> parcela a vencer</span>
+      <span><i class="gpsw" style="background:var(--g-good);opacity:.45"></i> estoque escoando no ritmo de venda</span>
+      <span><i class="gpsw" style="background:var(--g-ink);width:3px"></i> hoje</span>
+    </div>
+    <div class="gptl"><span class="gpaxis"></span>
+      <span class="gpsegb" style="left:0;width:${nowX}%;background:var(--g-line)"></span>${zb}
+      <i class="gpmk" style="left:${pos(new Date(d.data_entrada+'T00:00:00').getTime())}%;background:var(--g-ink2);color:var(--g-ink2)"></i>
+      <span class="gplb bot2" style="left:0;transform:none">entrada ${gpDtS(d.data_entrada)} · ${gpNF(d.qtd_entrada)} un</span>
+      <span class="gpnow" style="left:${nowX}%"></span>${marks}
+    </div></div>`;
+}
+function gpRenderT2(){
+  const base=_gpView.filter(d=>d.nec!=null);
+  let v=_gpS.showAll?base.slice():base.filter(d=>d.falta>0);
+  gpSortBy(v,_gpS.sort2,_gpS.dir2);
+  document.getElementById('gpCnt2').textContent=`${v.length} de ${base.length} SKUs com parcela em aberto`;
+  const und=base.filter(d=>d.falta>0);
+  const k=[
+    {lab:'Abaixo do ritmo',val:gpNF(und.length)+' SKUs',foot:'de '+base.length+' com parcela a vencer',cls:'is-warn'},
+    {lab:'Buraco projetado',val:gpMoney(und.reduce((s,d)=>s+d.falta,0)),foot:'receita que falta até vencer',cls:'is-crit'},
+    {lab:'Total a pagar no recorte',val:gpMoney(base.reduce((s,d)=>s+d.valor_aberto,0)),foot:'parcelas ainda não vencidas'},
+    {lab:'Estoque não cobre',val:gpNF(und.filter(d=>d.insuf).length)+' SKUs',foot:'nem vendendo todo o saldo do galpão',cls:'is-crit'},
+    {lab:'No ritmo',val:gpNF(base.length-und.length)+' SKUs',foot:'vendem o bastante para pagar',cls:'is-good'}
+  ];
+  document.getElementById('gpKpis2').innerHTML=k.map(x=>
+    `<div class="gpkpi ${x.cls||''}"><div class="gplab">${x.lab}</div><div class="gpval">${x.val}</div><div class="gpfoot">${x.foot}</div></div>`).join('');
+  const semp=_gpView.filter(d=>d.valor_aberto>1&&d.dias_ate_ult>0&&!(d.preco_ref>0)).length;
+  document.getElementById('gpCallout2').innerHTML=
+    `<div class="gpci">!</div><p>O ritmo é medido na janela de <b>${_gpS.win===120?'todo o período (120 dias)':_gpS.win+' dias'}</b> — mude lá em cima para ver como o quadro muda.
+     ${semp?`<b>${semp}</b> SKUs ficaram de fora desta conta por não terem preço de venda nem no histórico nem no cadastro.`:''}</p>`;
+  const tb=document.getElementById('gpTb2b');
+  tb.innerHTML=v.map((d,i)=>{
+    const cob=d.cob==null?'—':Math.round(d.cob*100);
+    const cc=d.cob>=1?'var(--g-good)':d.cob>=.5?'var(--g-warn)':'var(--g-crit)';
+    return `<tr class="gprow" data-i="${i}">
+      <td><span class="gpsku">${d.sku}</span><span class="gpnm">${d.nome||'—'}</span>
+        ${d.insuf?'<span class="gppill" style="--c:var(--g-crit);--cs:var(--g-critS);margin-top:3px">estoque não cobre</span>':''}</td>
+      <td class="gptagm">${d.marca||'—'}</td>
+      <td class="gpnum">${gpNF(d.saldo)}</td>
+      <td class="gpnum">${gpNF(d.vd,2)}</td>
+      <td class="gpnum">${gpNF(d.nec,2)}</td>
+      <td><span class="gpgauge"><i style="width:${Math.min(100,cob)}%;background:${cc}"></i></span><span class="gpnum" style="color:${cc};font-weight:600">${cob}%</span></td>
+      <td class="gpnum">${gpMoney0(d.valor_aberto)}</td>
+      <td class="gpnum">${gpMoney0(d.recproj)}</td>
+      <td class="gpnum" style="color:${d.falta>0?'var(--g-crit)':'var(--g-good)'};font-weight:600">${d.falta>0?gpMoney0(d.falta):'no ritmo'}</td>
+      <td class="gpnum">${gpNF(d.dias_ate_ult)} d <span class="gpna">${gpDtS(d.ult_venc)}</span></td></tr>`;
+  }).join('')||'<tr><td colspan="10" style="text-align:center;padding:34px;color:var(--g-muted)">Nenhum SKU com esses filtros.</td></tr>';
+  tb.querySelectorAll('tr.gprow').forEach(tr=>tr.onclick=()=>gpToggle(tr,v[+tr.dataset.i],10));
+}
+function gpRenderChart(){
+  const months={};
+  _gpView.forEach(d=>d.parcelas.forEach(p=>{const m=p.venc.slice(0,7);
+    months[m]=months[m]||{v:0,a:0};p.vencida?months[m].v+=p.valor_sku:months[m].a+=p.valor_sku;}));
+  const keys=Object.keys(months).sort(),el=document.getElementById('gpBars');
+  if(!keys.length){el.innerHTML='<div style="color:var(--g-muted);padding:20px">Nenhuma parcela no recorte.</div>';return;}
+  const max=Math.max(...keys.map(k=>months[k].v+months[k].a));
+  const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  const tip=document.getElementById('gpTip');
+  el.innerHTML=keys.map(k=>{
+    const m=months[k],tot=m.v+m.a;
+    const cpt=tot>=1e6?(tot/1e6).toLocaleString('pt-BR',{maximumFractionDigits:2})+' mi'
+             :Math.round(tot/1000).toLocaleString('pt-BR')+' mil';
+    const lab=MN[+k.slice(5,7)-1]+'/'+k.slice(2,4);
+    return `<div class="gpbcol" data-t="${lab}: ${gpMoney0(tot)}${m.v?' · vencido '+gpMoney0(m.v):''}${m.a?' · a vencer '+gpMoney0(m.a):''}">
+      <div style="flex:1"></div><div class="gpvl">${cpt}</div>
+      ${m.a?`<div class="gpbseg" style="height:${(m.a/max)*100}%;background:var(--g-accent)"></div>`:''}
+      ${m.v?`<div class="gpbseg" style="height:${(m.v/max)*100}%;background:var(--g-crit);border-radius:${m.a?'0':'4px 4px 0 0'}"></div>`:''}
+      <div class="gpxl">${lab}</div></div>`;
+  }).join('');
+  el.querySelectorAll('.gpbcol').forEach(c=>{
+    c.onmousemove=e=>{tip.textContent=c.dataset.t;tip.style.opacity=1;
+      tip.style.left=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8)+'px';tip.style.top=(e.clientY-34)+'px';};
+    c.onmouseleave=()=>tip.style.opacity=0;});
+}
+function renderGiroParc(){
+  if(!_gpData)return;
+  gpApply();gpRenderScope();gpRenderKpis();gpRenderCards();gpRenderT1();gpRenderT2();gpRenderChart();
+}
+
+let _gpBound=false;
+function gpBind(){
+  if(_gpBound)return; _gpBound=true;
+  document.getElementById('gpFForn').onchange=e=>{_gpS.forn=e.target.value;renderGiroParc();};
+  document.getElementById('gpFMarca').onchange=e=>{_gpS.marca=e.target.value;renderGiroParc();};
+  document.getElementById('gpFQ').oninput=e=>{_gpS.q=e.target.value;renderGiroParc();};
+  document.getElementById('gpFWin').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    _gpS.win=+b.dataset.w;
+    document.getElementById('gpFWin').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    renderGiroParc();});
+  document.getElementById('gpFReset').onclick=()=>{
+    _gpS.forn='';_gpS.marca='';_gpS.q='';_gpS.status=null;
+    document.getElementById('gpFForn').value='';document.getElementById('gpFMarca').value='';document.getElementById('gpFQ').value='';
+    renderGiroParc();};
+  document.getElementById('gpFXls').onclick=exportarGiroParc;
+  document.getElementById('gpChipAll').onclick=e=>{_gpS.showAll=!_gpS.showAll;e.target.setAttribute('aria-pressed',_gpS.showAll);gpRenderT2();};
+  document.querySelectorAll('#gpTb1 th').forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k; if(_gpS.sort1===k)_gpS.dir1*=-1;else{_gpS.sort1=k;_gpS.dir1=(k==='sku'||k==='marca')?1:-1;}
+    document.querySelectorAll('#gpTb1 th .gpar').forEach(a=>a.textContent='↕');
+    th.querySelector('.gpar').textContent=_gpS.dir1>0?'↑':'↓'; gpRenderT1();});
+  document.querySelectorAll('#gpTb2 th').forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k; if(_gpS.sort2===k)_gpS.dir2*=-1;else{_gpS.sort2=k;_gpS.dir2=(k==='sku'||k==='marca')?1:-1;}
+    document.querySelectorAll('#gpTb2 th .gpar').forEach(a=>a.textContent='↕');
+    th.querySelector('.gpar').textContent=_gpS.dir2>0?'↑':'↓'; gpRenderT2();});
+  document.querySelectorAll('#gpRoot [role=tab]').forEach(t=>t.onclick=()=>{
+    document.querySelectorAll('#gpRoot [role=tab]').forEach(x=>x.setAttribute('aria-selected',x===t));
+    document.getElementById('gpP1').hidden=(t.id!=='gpT1');
+    document.getElementById('gpP2').hidden=(t.id!=='gpT2');});
+}
+
+// ── Export Excel (CSV UTF-8 com BOM) ──
+function exportarGiroParc(){
+  if(!_gpView||!_gpView.length){alert('Nada para exportar.');return;}
+  const H=['SKU','Produto','Marca','Fornecedor','NF','Situacao','Estoque','Custo unit','R$ parado',
+           'Ultima entrada','Qtd entrada','Notas periodo','Qtd total','Venda janela','Venda/dia','Zera em (d)',
+           'Un 30d','Un 60d','Un 90d','Un total','Receita','Ultima venda','Preco medio',
+           'Parcelas','Vencidas','% pago','Valor aberto','Proximo venc','Ultima parcela','Vence em (d)','Folga (d)',
+           'Precisa/dia','Cobertura %','Receita projetada','Buraco'];
+  const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+  const n2=v=>v==null||isNaN(v)?'':String(v).replace('.',',');
+  const linhas=[H.map(q).join(';')];
+  _gpView.forEach(d=>{
+    linhas.push([d.sku,d.nome,d.marca,d.fornecedor,d.nf,GP_STATUS[d.status].lab,
+      n2(d.saldo),n2(d.custo_unit&&d.custo_unit.toFixed(2)),n2(d.valor_estoque&&d.valor_estoque.toFixed(2)),
+      d.data_entrada?gpDt(d.data_entrada):'',n2(d.qtd_entrada),n2(d.n_notas),n2(d.qtd_total),
+      n2(d.unw),n2(d.vd&&d.vd.toFixed(3)),n2(d.dz!=null?Math.round(d.dz):null),
+      n2(d.un30),n2(d.un60),n2(d.un90),n2(d.un_tot),n2(d.rec_tot&&d.rec_tot.toFixed(2)),
+      d.ult_venda?gpDt(d.ult_venda):'',n2(d.preco_ref&&d.preco_ref.toFixed(2)),
+      n2(d.n_parcelas),n2(d.n_vencidas),n2(d.pct_pago!=null?d.pct_pago.toFixed(1):null),
+      n2(d.valor_aberto&&d.valor_aberto.toFixed(2)),d.prox_venc?gpDt(d.prox_venc):'',
+      d.ult_venc?gpDt(d.ult_venc):'',n2(d.dias_ate_ult),n2(d.gap!=null?Math.round(d.gap):null),
+      n2(d.nec&&d.nec.toFixed(3)),n2(d.cob!=null?Math.round(d.cob*100):null),
+      n2(d.recproj&&d.recproj.toFixed(2)),n2(d.falta&&d.falta.toFixed(2))
+    ].map(q).join(';'));
+  });
+  const blob=new Blob(['\uFEFF'+linhas.join('\r\n')],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`Giro_x_Parcelas_${gpISO(GP_HOJE)}.csv`;
+  a.click();URL.revokeObjectURL(a.href);
 }
 
 
