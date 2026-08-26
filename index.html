@@ -1010,14 +1010,15 @@ tfoot td:first-child{text-align:left;}
             <li><b>Itens:</b> <code>tinyerp_notas_detalhes_itens</code> só com a coluna L (natureza) vazia — exclui <code>ENTRADA DE DEVOLUCAO</code> e <code>VENDA DE MERCADORIAS PARA CONSUMIDOR FINAL</code>.</li>
             <li><b>Parcelas:</b> <code>tinyerp_notas_detalhes_parcelas</code>. A data de vencimento vem vazia, então o vencimento é <b>emissão + prazo em dias</b>.</li>
             <li><b>Vendas:</b> <code>tinyerp_pedidos_detalhes_itens</code>, situações válidas: aprovado, preparando envio, faturado, pronto para envio, enviando, enviado, entregue.</li>
-            <li><b>Estoque:</b> <code>tinyerp_estoque_produto_depo</code> — <b>Novo Galpão menos Depósito RMA Novo</b>. SKU que zera nessa conta sai do painel. <b>Marca e preço:</b> <code>tinyerp_produtos</code>.</li>
+            <li><b>Estoque:</b> <code>tinyerp_estoque_produto_depo</code> — <b>Novo Galpão menos Depósito RMA Novo menos estoque reservado</b> (coluna D de <code>tinyerp_estoque_produto</code>, saldo já comprometido com pedidos). SKU que zera nessa conta sai do painel. <b>Marca e preço:</b> <code>tinyerp_produtos</code>.</li>
             <li><b>Rateio:</b> uma nota traz vários SKUs; valor e parcelas são rateados pela fatia do item no valor da nota.</li>
-            <li><b>SKUs fora do painel:</b> códigos que começam com <code>KIT</code> e os que contêm <code>-ML</code>, <code>-V</code>, <code>-A</code>, <code>TI1287</code> ou <code>TI733</code>.</li>
+            <li><b>SKUs fora do painel:</b> códigos que começam com <code>KIT</code>, os que terminam em <code>-ML</code>, <code>-V</code> ou <code>-A</code>, os que começam com <code>TI1287</code> ou <code>TI733</code>, e ainda <code>TI287</code>, <code>TI287-1</code> a <code>TI287-4</code> e <code>TI516-1</code>.</li>
             <li><b>Sem nota de entrada no período</b> entra em <i>Já pago, parado</i>: a compra é anterior à janela.</li>
+            <li><b>Pago à vista:</b> nota com <b>parcela única</b> vencendo <b>até 2 dias</b> da emissão da NF — inclui o mesmo dia e vencimentos anteriores à emissão. Nota com várias parcelas continua no fluxo normal, mesmo que uma delas caia nessa janela — ainda há compromisso à frente.</li>
           </ul>
           <h3>Ressalvas</h3>
           <ul>
-            <li>Só o <b>Novo Galpão, líquido de RMA</b>, conta como estoque. Amazon Full, Magalu Full, ML, Betim e Outlet ficam de fora.</li>
+            <li>Só o <b>Novo Galpão, líquido de RMA e de reservas</b>, conta como estoque. Amazon Full, Magalu Full, ML, Betim e Outlet ficam de fora.</li>
             <li>A venda é do canal todo, não só do que saiu deste galpão.</li>
             <li><b>Preço médio</b> é o praticado nos pedidos da janela; sem venda, usa o preço do cadastro.</li>
             <li>A janela de notas é curta (~4 meses). Produto comprado na última semana ainda não teve tempo de mostrar giro.</li>
@@ -1534,7 +1535,7 @@ const CANAIS  = ['Mercado Livre','Casas Bahia','Magazine Luiza','Shopee','Amazon
 const COR     = {'Mercado Livre':'#C8A000','Casas Bahia':'#0052A5','Magazine Luiza':'#CC0066','Shopee':'#EE4D2D','Amazon':'#E47911','Amazon Fulfillment':'#FF9900'};
 
 // Cols: tinyerp_pedidos_detalhes
-const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,FRETE:59,SIT:62,DATA:64,TRANSP:42,ESTADO:17,DFAT:21,DENV:20};
+const C={ID:0,ENOME:26,ENUM:28,TOTAL:56,FRETE:59,SIT:62,DATA:64,TRANSP:42,TRANSP2:51,FENVIO:41,DEPOSITO:22,ESTADO:17,DFAT:21,DENV:20};
 // Cols: tinyerp_pedidos_detalhes_itens
 const I={ID:0,DESC:2,IDPROD:3,QTD:4,VUNIT:6,SIT:9,DATA:11};
 
@@ -5043,10 +5044,20 @@ const GP_STATUS={
     desc:'No ritmo de venda atual o estoque só acaba depois da última parcela vencer.'},
   sem_giro:{lab:'Sem venda na janela',  c:'var(--g-neutral)',cs:'var(--g-neutralS)',
     desc:'Nenhuma venda registrada no período escolhido, com estoque no galpão.'},
+  avista  :{lab:'Pago à vista',         c:'var(--g-accent)', cs:'var(--g-accentS)',
+    desc:'Nota com parcela única vencendo até 2 dias da emissão da NF — compra quitada à vista, sem parcela em aberto.'},
   ok      :{lab:'Gira antes de pagar',  c:'var(--g-good)',   cs:'var(--g-goodS)',
     desc:'O estoque acaba antes da última parcela. É o cenário que se quer.'}
 };
-const GP_ORDER=['critico','atencao','sem_giro','ok'];
+const GP_ORDER=['critico','atencao','sem_giro','avista','ok'];
+// Compra à vista: UMA parcela só, vencendo até 2 dias depois da emissão
+// da nota (inclui vencimento no mesmo dia e datas anteriores à emissão).
+// Nota com várias parcelas segue no fluxo normal, mesmo que alguma delas
+// caia nessa janela — ainda há compromisso à frente.
+const GP_AVISTA_DIAS=2;
+function gpAVista(d){
+  return !!d.nota && d.n_parcelas===1 && d.parcelas[0] && d.parcelas[0].dias<=GP_AVISTA_DIAS;
+}
 
 // ── helpers de formatação (idênticos ao painel original) ──
 const gpNF=(v,d=0)=>v==null||isNaN(v)?'—':v.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
@@ -5066,12 +5077,14 @@ const gpAddD=(d,n)=>{const x=new Date(d.getTime());x.setDate(x.getDate()+n);retu
 const gpDiff=(a,b)=>Math.round((a-b)/86400000);
 
 // Exclusões do painel: KIT*, -V, -A, -ML, TI1287*, TI733*
+const GP_SKU_FORA=new Set(['TI287','TI287-1','TI287-2','TI287-3','TI287-4','TI516-1']);
 function gpExcluido(sku){
   const s=(sku||'').toUpperCase().trim();
   if(!s)return true;
   if(s.startsWith('KIT'))return true;
   if(s.endsWith('-V')||s.endsWith('-A')||s.endsWith('-ML'))return true;
   if(s.indexOf('TI1287')===0||s.indexOf('TI733')===0)return true;
+  if(GP_SKU_FORA.has(s))return true;
   return false;
 }
 
@@ -5105,10 +5118,11 @@ async function loadGiroParc(){
   if(wrap)wrap.innerHTML='<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--g-muted)">⏳ Carregando ao vivo: cadastro, Novo Galpão, vendas, notas de entrada e parcelas…</td></tr>';
   try{
     // Cadastro precisa de índice por nome de coluna → leitura direta
-    const [prodRows,depoRows,pitRows]=await Promise.all([
+    const [prodRows,depoRows,pitRows,resvRows]=await Promise.all([
       fetchSheet(KOND_ID,'A:AZ','tinyerp_produtos'),
       fetchSheet(KOND_ID,'A:E','tinyerp_estoque_produto_depo'),
       fetchSheet(KOND_ID,'A:L','tinyerp_pedidos_detalhes_itens'),
+      fetchSheet(KOND_ID,'A:D','tinyerp_estoque_produto'),
     ]);
     // Planilha de notas: só as faixas de coluna necessárias (sheets são largas)
     const [ndA,ndG,ndJ,ndAY]=await gpBatch(NOTAS_ID,[
@@ -5131,7 +5145,15 @@ async function loadGiroParc(){
       prod[id]={sku:(r[iSku]||'').trim(),marca:(r[iMarca]||'').trim(),
                 nome:iNome>=0?(r[iNome]||'').trim():'',preco:iPreco>=0?gpN(r[iPreco]):0};
     }
-    // ── 2. Estoque Novo Galpão líquido de RMA ──
+    // ── 2a. Estoque reservado (col D de tinyerp_estoque_produto) ──
+    // É saldo já comprometido com pedidos, então não conta como disponível.
+    const resv={};
+    for(let i=1;i<resvRows.length;i++){
+      const r=resvRows[i];const id=(r[0]||'').trim();if(!id)continue;
+      const q=gpN(r[3]);
+      if(q>0)resv[id]=(resv[id]||0)+q;
+    }
+    // ── 2b. Estoque Novo Galpão líquido de RMA ──
     const ng={},rma={};
     for(let i=1;i<depoRows.length;i++){
       const r=depoRows[i];const id=(r[0]||'').trim();if(!id)continue;
@@ -5202,12 +5224,13 @@ async function loadGiroParc(){
     const ids=new Set([...Object.keys(ng),...Object.keys(giro),...Object.keys(ent)]);
     ids.forEach(pid=>{
       const p=prod[pid]; if(!p||!p.sku||gpExcluido(p.sku))return;
-      const ngv=ng[pid]||0,rmav=rma[pid]||0,saldo=Math.max(0,ngv-rmav);
+      const ngv=ng[pid]||0,rmav=rma[pid]||0,rsv=resv[pid]||0;
+      const saldo=Math.max(0,ngv-rmav-rsv);
       if(saldo<=0)return;
       const g=giro[pid]||{un30:0,un60:0,un90:0,untot:0,rec:0,ped:0,ult:null};
       const pm=g.untot>0?g.rec/g.untot:null;
       const d={sku:p.sku,nome:p.nome||p.sku,marca:p.marca||null,
-        saldo,ng:ngv,rma:rmav,preco:p.preco||null,
+        saldo,ng:ngv,rma:rmav,resv:rsv,preco:p.preco||null,
         preco_medio:pm,preco_ref:pm!=null?pm:(p.preco||null),
         un30:g.un30,un60:g.un60,un90:g.un90,un_tot:g.untot,rec_tot:g.rec,n_ped:g.ped,
         ult_venda:gpISO(g.ult),
@@ -5275,7 +5298,8 @@ function gpDerive(d){
   const dz=vd>0?d.saldo/vd:null;
   const gap=(dz!=null&&d.dias_ate_ult!=null)?dz-d.dias_ate_ult:null;
   let status;
-  if(!d.nota||d.n_vencidas===d.n_parcelas)status='critico';
+  if(gpAVista(d))status='avista';
+  else if(!d.nota||d.n_vencidas===d.n_parcelas)status='critico';
   else if(vd<=0)status='sem_giro';
   else if(gap!=null&&gap>0)status='atencao';
   else status='ok';
@@ -5308,13 +5332,16 @@ function gpRenderKpis(){
   let venc=0,ab=0;
   ws.forEach(d=>d.parcelas.forEach(p=>{p.vencida?venc+=p.valor_sku:ab+=p.valor_sku}));
   const crit=ws.filter(d=>d.status==='critico');
+  const av=ws.filter(d=>d.status==='avista');
   const k=[
     {lab:'Estoque no Novo Galpão',val:gpNF(un)+' un',foot:ws.length+' SKUs com saldo'},
     {lab:'Capital em estoque',val:gpMoney(val),foot:ws.filter(d=>d.custo_unit!=null).length+' SKUs com custo conhecido',cls:'is-accent'},
     {lab:'Parcelas já vencidas',val:gpMoney(venc),foot:'rateado por SKU no recorte',cls:'is-crit'},
     {lab:'Parcelas a vencer',val:gpMoney(ab),foot:'compromisso ainda por pagar'},
     {lab:'Pago e ainda parado',val:gpMoney(crit.reduce((s,d)=>s+(d.valor_estoque||0),0)),
-     foot:crit.length+' SKUs · '+gpNF(crit.reduce((s,d)=>s+d.saldo,0))+' un · custo em '+crit.filter(d=>d.custo_unit!=null).length,cls:'is-crit'}
+     foot:crit.length+' SKUs · '+gpNF(crit.reduce((s,d)=>s+d.saldo,0))+' un (não inclui compra à vista)',cls:'is-crit'},
+    {lab:'Comprado à vista',val:gpMoney(av.reduce((s,d)=>s+(d.valor_estoque||0),0)),
+     foot:av.length+' SKUs · '+gpNF(av.reduce((s,d)=>s+d.saldo,0))+' un · sem parcela em aberto',cls:'is-accent'}
   ];
   document.getElementById('gpKpis').innerHTML=k.map(x=>
     `<div class="gpkpi ${x.cls||''}"><div class="gplab">${x.lab}</div><div class="gpval">${x.val}</div><div class="gpfoot">${x.foot}</div></div>`).join('');
@@ -5387,7 +5414,7 @@ function gpDetail(d){
     ['Venda no período todo',d.un_tot?gpNF(d.un_tot)+' un · '+gpMoney0(d.rec_tot):'nenhuma'],
     ['Venda 30 / 60 / 90 d',`${gpNF(d.un30)} / ${gpNF(d.un60)} / ${gpNF(d.un90)} un`],
     ['Última venda',d.ult_venda?gpDt(d.ult_venda):'—'],
-    ['Estoque no galpão',gpNF(d.saldo)+' un'],
+    ['Estoque no galpão',gpNF(d.saldo)+' un'+(d.rma||d.resv?` <span style="font-size:11px;color:var(--g-muted)">(${gpNF(d.ng)} − ${gpNF(d.rma)} RMA${d.resv?' − '+gpNF(d.resv)+' reserv.':''})</span>`:'')],
     ['Estoque parado',d.valor_estoque?gpMoney0(d.valor_estoque):'—']
   ].map(([a,b])=>`<div class="gpfact"><div class="gpfl">${a}</div><div class="gpfv">${b}</div></div>`).join('');
   return `<div class="gpfacts">${f}</div>${gpParcList(d)}${gpTimeline(d)}`;
@@ -5902,6 +5929,62 @@ function frGetPeriodos(){
   return {ini:ini,fim:fim,iniAnt:iniAnt,fimAnt:fimAnt};
 }
 
+// Nome da transportadora de um pedido.
+//
+// `forma_frete` (col 42) é o nome do SERVIÇO contratado; `nome_transportador`
+// (col 51) é a transportadora de fato. A mesma empresa aparece sob vários
+// serviços — a TEX Courier, por exemplo, chega como "Servico Expresso",
+// "Total Express" e com o campo vazio, somando 3.283 envios espalhados
+// em três linhas diferentes da tabela.
+//
+// FR_CANON: transportadoras que devem ser consolidadas num nome só.
+// Tem prioridade sobre forma_frete.
+const FR_CANON={
+  'TEX COURIER S.A':'TEX Courier',
+  'TEX COURIER':'TEX Courier',
+  'MERCADO ENVIOS PLACES':'Mercado Envios'   // "Coleta Normal" é o mesmo serviço
+};
+// FR_ALIAS: só arruma a grafia quando forma_frete está vazio e caímos
+// na razão social crua ("ALFA TRANSPORTES LTDA" → "Alfa Transportes").
+const FR_ALIAS={
+  'ALFA TRANSPORTES LTDA':'Alfa Transportes',
+  'TRILOG EXPRESS LTDA':'Trilog Express',
+  'TRILOG LOGISTICA LTDA':'Trilog',
+  'BRASIL WEB TRANSPORTES E LOGISTICA S A':'Brasil Web',
+  'REDIVIX TRANSPORTES LTDA. (REV)':'MMA Cargas',
+  'TECMAR TRANSPORTES LTDA':'TECMAR TRANSPORTES LTDA.',
+  'ATUAL CARGAS TRANSPORTES LTDA':'Atual Transportadora',
+  'RIO EXPRESS CARGAS':'Rio Express Carga',
+  'MAGALU ENTREGAS':'Magalu Entregas',
+  'CORREIOS 2':'Correios'
+};
+function frNorm(v){return (v||'').trim().toUpperCase().replace(/\s+/g,' ');}
+
+// Terceiro nível: quando forma_frete E nome_transportador estão vazios,
+// `forma_envio` (col 41) ainda diz por qual malha o pedido saiu.
+// Códigos do Tiny: M = Mercado Envios, S = sem transportadora,
+// X = transportadora contratada (aí não há o que deduzir).
+const FR_ENVIO={
+  'M':'Mercado Envios',
+  'TOTALEXPRESS':'TEX Courier',
+  'SHOPEE_ENVIOS':'Shopee Envios',
+  'MAGALU_ENTREGAS':'Magalu Entregas',
+  'S':'Sem transportadora'
+};
+// Rótulos de serviço em forma_frete que na verdade são a mesma malha.
+const FR_SERV={'COLETA NORMAL':'Mercado Envios'};
+function frTransp(r){
+  var t2=(r[C.TRANSP2]||'').trim();
+  var k2=frNorm(t2);
+  if(k2&&FR_CANON[k2]) return FR_CANON[k2];   // consolida a transportadora
+  var t=(r[C.TRANSP]||'').trim();
+  if(t) return FR_SERV[frNorm(t)]||t;          // senão, o serviço informado
+  if(t2) return FR_ALIAS[k2]||t2;              // senão, a razão social
+  // nada nos dois campos: cai para a malha de envio
+  if(frNorm(r[C.DEPOSITO])==='DEPOSITO AMAZONFULL') return 'Amazon FBA';
+  return FR_ENVIO[frNorm(r[C.FENVIO])]||'Não informado';
+}
+
 function frParseDate(dat){
   if(!dat) return null;
   var p=dat.split('/');
@@ -5952,7 +6035,10 @@ function renderFrete(){
     var id=(r[C.ID]||'').trim();
     var sit=(r[C.SIT]||'').toLowerCase().trim();
     var dat=(r[C.DATA]||'').trim();
-    var tr=(r[C.TRANSP]||'').trim()||'Não informado';
+    // forma_frete é o campo principal, mas vem vazio em ~30% dos pedidos
+    // (Mercado Envios / Full, onde o marketplace faz a coleta). Nesses casos
+    // cai para nome_transportador, que muitas vezes tem a transportadora real.
+    var tr=frTransp(r);
     var est=(r[C.ESTADO]||'').trim().toUpperCase()||'N/I';
     var cn=canal(r[C.ENOME],r[C.ENUM]);
 
