@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-08-26T07:42:44.800Z",
-  "gerado_em_br": "26/08/2026, 04:42:44",
+  "gerado_em": "2026-08-26T08:39:07.418Z",
+  "gerado_em_br": "26/08/2026, 05:39:07",
   "dia_referencia": "26/08/2026",
   "dia_ontem": "25/08/2026",
   "resumo_dia": {
-    "faturamento": 381997,
-    "pedidos": 6,
-    "ticket_medio": 63666.17,
+    "faturamento": 715651,
+    "pedidos": 8,
+    "ticket_medio": 89456.38,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 333654,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,19 +54,19 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 321005338,
-    "pedidos": 3883,
+    "faturamento": 321338992,
+    "pedidos": 3885,
     "meta_mensal": 8000000,
-    "pct_meta": 4012.6,
-    "projecao_final": 382737133.77,
+    "pct_meta": 4016.7,
+    "projecao_final": 383134952,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 37834851,
         "pedidos": 1625
       },
       "Casas Bahia": {
-        "faturamento": 105570270,
-        "pedidos": 732
+        "faturamento": 105903924,
+        "pedidos": 734
       },
       "Magazine Luiza": {
         "faturamento": 36930493,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 612,
-      "fat": 49305557,
+      "qtd": 613,
+      "fat": 49464488,
       "canais": {
+        "Casas Bahia": 245,
         "Amazon": 272,
-        "Casas Bahia": 244,
         "Mercado Livre": 90,
         "Shopee": 6
       }
@@ -116,12 +116,12 @@
     {
       "sku": "TI1529",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-127v",
-      "qtd": 290,
-      "fat": 4062593,
+      "qtd": 291,
+      "fat": 4076792,
       "canais": {
+        "Casas Bahia": 74,
         "Mercado Livre": 141,
         "Shopee": 11,
-        "Casas Bahia": 73,
         "Amazon": 61,
         "Magazine Luiza": 4
       }
@@ -459,11 +459,11 @@
   ],
   "historico_por_dia": {
     "26/08/2026": {
-      "fat": 381997,
-      "peds": 6,
+      "fat": 715651,
+      "peds": 8,
       "canais": {
         "Mercado Livre": 25198,
-        "Casas Bahia": 0,
+        "Casas Bahia": 333654,
         "Magazine Luiza": 276129,
         "Shopee": 0,
         "Amazon": 80670,
