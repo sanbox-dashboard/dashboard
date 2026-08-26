@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-08-26T10:32:02.206Z",
-  "gerado_em_br": "26/08/2026, 07:32:02",
+  "gerado_em": "2026-08-26T11:26:35.909Z",
+  "gerado_em_br": "26/08/2026, 08:26:35",
   "dia_referencia": "26/08/2026",
   "dia_ontem": "25/08/2026",
   "resumo_dia": {
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 14697093,
+    "faturamento": 14766998,
     "pedidos": 170
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 321744460,
+    "faturamento": 321814365,
     "pedidos": 3891,
     "meta_mensal": 8000000,
-    "pct_meta": 4021.8,
-    "projecao_final": 383618394.62,
+    "pct_meta": 4022.7,
+    "projecao_final": 383701742.88,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 38091886,
-        "pedidos": 1629
+        "faturamento": 38239603,
+        "pedidos": 1630
       },
       "Casas Bahia": {
         "faturamento": 105914195,
@@ -73,8 +73,8 @@
         "pedidos": 247
       },
       "Shopee": {
-        "faturamento": 38080042,
-        "pedidos": 369
+        "faturamento": 38002230,
+        "pedidos": 368
       },
       "Amazon": {
         "faturamento": 97788875,
@@ -239,6 +239,19 @@
       }
     },
     {
+      "sku": "TI1740",
+      "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
+      "qtd": 71,
+      "fat": 1280682,
+      "canais": {
+        "Mercado Livre": 54,
+        "Shopee": 2,
+        "Amazon": 13,
+        "Magazine Luiza": 1,
+        "Casas Bahia": 1
+      }
+    },
+    {
       "sku": "TI1090",
       "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
       "qtd": 70,
@@ -247,19 +260,6 @@
         "Mercado Livre": 64,
         "Casas Bahia": 5,
         "Shopee": 1
-      }
-    },
-    {
-      "sku": "TI1740",
-      "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
-      "qtd": 70,
-      "fat": 1132965,
-      "canais": {
-        "Mercado Livre": 53,
-        "Shopee": 2,
-        "Amazon": 13,
-        "Magazine Luiza": 1,
-        "Casas Bahia": 1
       }
     },
     {
@@ -471,13 +471,13 @@
       }
     },
     "25/08/2026": {
-      "fat": 14697093,
+      "fat": 14766998,
       "peds": 170,
       "canais": {
-        "Mercado Livre": 5484717,
+        "Mercado Livre": 5632434,
         "Casas Bahia": 2673329,
         "Magazine Luiza": 2694411,
-        "Shopee": 1617086,
+        "Shopee": 1539274,
         "Amazon": 2227550,
         "Amazon Fulfillment": 0
       }
