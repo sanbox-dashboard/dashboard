@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-26T04:36:19.082Z",
-  "gerado_em_br": "26/08/2026, 01:36:19",
+  "gerado_em": "2026-08-26T05:31:11.914Z",
+  "gerado_em_br": "26/08/2026, 02:31:11",
   "dia_referencia": "26/08/2026",
   "dia_ontem": "25/08/2026",
   "resumo_dia": {
-    "faturamento": 293128,
-    "pedidos": 2,
-    "ticket_medio": 146564,
+    "faturamento": 301327,
+    "pedidos": 3,
+    "ticket_medio": 100442.33,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 16999,
-        "pedidos": 1,
+        "faturamento": 25198,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 320916469,
-    "pedidos": 3879,
+    "faturamento": 320924668,
+    "pedidos": 3880,
     "meta_mensal": 8000000,
-    "pct_meta": 4011.5,
-    "projecao_final": 382631174.58,
+    "pct_meta": 4011.6,
+    "projecao_final": 382640950.31,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 37826652,
-        "pedidos": 1624
+        "faturamento": 37834851,
+        "pedidos": 1625
       },
       "Casas Bahia": {
         "faturamento": 105570270,
@@ -239,6 +239,17 @@
       }
     },
     {
+      "sku": "TI1090",
+      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
+      "qtd": 70,
+      "fat": 560240,
+      "canais": {
+        "Mercado Livre": 64,
+        "Casas Bahia": 5,
+        "Shopee": 1
+      }
+    },
+    {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
       "qtd": 70,
@@ -262,17 +273,6 @@
         "Magazine Luiza": 4,
         "Amazon": 21,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1090",
-      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 69,
-      "fat": 552041,
-      "canais": {
-        "Mercado Livre": 63,
-        "Casas Bahia": 5,
-        "Shopee": 1
       }
     },
     {
@@ -459,10 +459,10 @@
   ],
   "historico_por_dia": {
     "26/08/2026": {
-      "fat": 293128,
-      "peds": 2,
+      "fat": 301327,
+      "peds": 3,
       "canais": {
-        "Mercado Livre": 16999,
+        "Mercado Livre": 25198,
         "Casas Bahia": 0,
         "Magazine Luiza": 276129,
         "Shopee": 0,
