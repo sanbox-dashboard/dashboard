@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-08-26T03:01:26.090Z",
-  "gerado_em_br": "26/08/2026, 00:01:26",
+  "gerado_em": "2026-08-26T04:36:19.082Z",
+  "gerado_em_br": "26/08/2026, 01:36:19",
   "dia_referencia": "26/08/2026",
   "dia_ontem": "25/08/2026",
   "resumo_dia": {
-    "faturamento": 276129,
-    "pedidos": 1,
-    "ticket_medio": 276129,
+    "faturamento": 293128,
+    "pedidos": 2,
+    "ticket_medio": 146564,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 16999,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 14478214,
-    "pedidos": 167
+    "faturamento": 14697093,
+    "pedidos": 170
   },
   "resumo_mes": {
     "mes": "8/2026",
-    "faturamento": 320680591,
-    "pedidos": 3875,
+    "faturamento": 320916469,
+    "pedidos": 3879,
     "meta_mensal": 8000000,
-    "pct_meta": 4008.5,
-    "projecao_final": 382349935.42,
+    "pct_meta": 4011.5,
+    "projecao_final": 382631174.58,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 37590774,
-        "pedidos": 1620
+        "faturamento": 37826652,
+        "pedidos": 1624
       },
       "Casas Bahia": {
         "faturamento": 105570270,
@@ -350,6 +350,15 @@
       }
     },
     {
+      "sku": "TI1773-1",
+      "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
+      "qtd": 50,
+      "fat": 7907978,
+      "canais": {
+        "Mercado Livre": 50
+      }
+    },
+    {
       "sku": "TI1147",
       "desc": "Forno De Bancada Eletrico  Philco PFE60I 60Litros 2000W 220V - Cinza",
       "qtd": 50,
@@ -357,15 +366,6 @@
       "canais": {
         "Mercado Livre": 49,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1773-1",
-      "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 49,
-      "fat": 7714787,
-      "canais": {
-        "Mercado Livre": 49
       }
     },
     {
@@ -433,10 +433,10 @@
     {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 44,
-      "fat": 2523898,
+      "qtd": 45,
+      "fat": 2540897,
       "canais": {
-        "Mercado Livre": 19,
+        "Mercado Livre": 20,
         "Magazine Luiza": 1,
         "Shopee": 3,
         "Casas Bahia": 4,
@@ -446,23 +446,23 @@
     {
       "sku": "TI1766",
       "desc": "Micro-Ondas de Embutir Electrolux ME3EP 34L com Painel Digital  Preto - 127v",
-      "qtd": 43,
-      "fat": 731053,
+      "qtd": 44,
+      "fat": 745852,
       "canais": {
         "Magazine Luiza": 23,
+        "Mercado Livre": 5,
         "Amazon": 6,
         "Shopee": 5,
-        "Casas Bahia": 5,
-        "Mercado Livre": 4
+        "Casas Bahia": 5
       }
     }
   ],
   "historico_por_dia": {
     "26/08/2026": {
-      "fat": 276129,
-      "peds": 1,
+      "fat": 293128,
+      "peds": 2,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 16999,
         "Casas Bahia": 0,
         "Magazine Luiza": 276129,
         "Shopee": 0,
@@ -471,10 +471,10 @@
       }
     },
     "25/08/2026": {
-      "fat": 14478214,
-      "peds": 167,
+      "fat": 14697093,
+      "peds": 170,
       "canais": {
-        "Mercado Livre": 5265838,
+        "Mercado Livre": 5484717,
         "Casas Bahia": 2673329,
         "Magazine Luiza": 2694411,
         "Shopee": 1617086,
