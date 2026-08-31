@@ -3677,9 +3677,10 @@ function compFixAll(){
 }
 function compFix(scope){
   const all=compFixAll();
-  if(!all[scope])all[scope]={prev:{},atual:{}};
+  if(!all[scope])all[scope]={};
   if(!all[scope].prev)all[scope].prev={};
   if(!all[scope].atual)all[scope].atual={};
+  if(!all[scope].apostas)all[scope].apostas={};   // bloco 100% manual
   return all[scope];
 }
 function compFixSave(){try{localStorage.setItem(COMP_KEY,JSON.stringify(compFixAll()));}catch(e){console.warn('[Comp] sem localStorage',e);}}
@@ -3695,7 +3696,15 @@ function compSwap(scope,bloco,idx,valor){
   compFixSave();compRerender(scope);
 }
 function compUndo(scope,bloco,idx){delete compFix(scope)[bloco][idx];compFixSave();compRerender(scope);}
-function compUndoAll(scope){compFixAll()[scope]={prev:{},atual:{}};compFixSave();compRerender(scope);}
+function compUndoAll(scope){compFixAll()[scope]={prev:{},atual:{},apostas:{}};compFixSave();compRerender(scope);}
+// Apostas: bloco livre, sem Top automático. 5 vagas por canal.
+const COMP_APOSTAS=5;
+// acha o primeiro slot livre e já abre o campo de digitação
+function compAposta(scope){
+  const f=compFix(scope);
+  for(let i=0;i<COMP_APOSTAS;i++) if(!f.apostas[i]) return compEdit(scope,'apostas',i);
+  alert('As '+COMP_APOSTAS+' vagas de apostas já estão preenchidas. Remova uma com o botão ↺ para liberar espaço.');
+}
 function compEdit(scope,bloco,idx){
   const cel=document.getElementById(`cSwap_${scope}_${bloco}_${idx}`);
   if(!cel)return;
@@ -3713,7 +3722,7 @@ const COMP_MESN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','no
 //  scope, data{byDia,mesPrevData,mesAtualData,mesPrev,anoPrev,mesAtual,anoAtual},
 //  diaA, diaB, filt, titEl, wrapEl, dlEl, cor
 function renderCompTabela(cfg){
-  const{scope,data,diaA,diaB,filt,titEl,wrapEl,dlEl,cor}=cfg;
+  const{scope,data,diaA,diaB,filt,titEl,wrapEl,dlEl,cor,canal}=cfg;
   const{byDia,mesPrevData,mesAtualData}=data;
   const fix=compFix(scope);
 
@@ -3724,9 +3733,11 @@ function renderCompTabela(cfg){
   const lblPrev =COMP_MESN[data.mesPrev-1] +'/'+String(data.anoPrev).slice(2);
   const lblAtual=COMP_MESN[data.mesAtual-1]+'/'+String(data.anoAtual).slice(2);
   const nFix=Object.keys(fix.prev).length+Object.keys(fix.atual).length;
+  const nAp=Object.keys(fix.apostas).length;
   const tit=document.getElementById(titEl);
   if(tit)tit.textContent=`Comparativo — Top 5 ${lblPrev} + Top 10 ${lblAtual} · ${fmtDia(diaA)} vs ${fmtDia(diaB)}`
-    +(nFix?` · ${nFix} SKU fixado${nFix>1?'s':''}`:'');
+    +(nFix?` · ${nFix} SKU fixado${nFix>1?'s':''}`:'')
+    +(nAp?` · ${nAp} aposta${nAp>1?'s':''}`:'');
 
   // datalist de SKUs conhecidos (para a troca manual)
   const todos={};
@@ -3756,7 +3767,10 @@ function renderCompTabela(cfg){
     {id:'prev', tit:`Top 5 — ${lblPrev} (mês anterior)`, c:'#0052A5',
      skus:Array.from({length:5 },(_,i)=>fix.prev[i] ||autoPrev[i] ||null)},
     {id:'atual',tit:`Top 10 — ${lblAtual} (mês atual)`,  c:'var(--od)',
-     skus:Array.from({length:10},(_,i)=>fix.atual[i]||autoAtual[i]||null)}
+     skus:Array.from({length:10},(_,i)=>fix.atual[i]||autoAtual[i]||null)},
+    // Bloco livre: sem Top automático, só o que for escolhido à mão.
+    {id:'apostas',tit:`Apostas ${canal}`, c:'#7C3AED', add:true,
+     skus:Array.from({length:COMP_APOSTAS},(_,i)=>fix.apostas[i]||null)}
   ].map(bl=>({...bl,linhas:bl.skus.map((s,i)=>s?{...linha(s),_i:i,_b:bl.id,_fix:!!fix[bl.id][i]}:null).filter(Boolean)}));
 
   if(filt==='up')blocos=blocos.map(b=>({...b,linhas:b.linhas.filter(d=>d.qtdB>d.qtdA)}));
@@ -3764,7 +3778,7 @@ function renderCompTabela(cfg){
 
   const wrap=document.getElementById(wrapEl);
   if(!wrap)return;
-  if(!blocos.some(b=>b.linhas.length)){
+  if(!blocos.some(b=>b.id!=='apostas'&&b.linhas.length)){
     wrap.innerHTML='<div class="lt" style="padding:20px;text-align:center">Sem dados para os filtros selecionados</div>';
     return;
   }
@@ -3784,7 +3798,7 @@ function renderCompTabela(cfg){
     </tr></thead><tbody>`;
 
   blocos.forEach(bl=>{
-    if(!bl.linhas.length)return;
+    if(!bl.linhas.length&&!bl.add)return;
     h+=`<tr><td colspan="${NCOL}" style="padding:6px 8px;background:var(--bg);border-bottom:1px solid var(--bd);
       font:900 .6rem 'Nunito';letter-spacing:.1em;text-transform:uppercase;color:${bl.c}">${bl.tit}</td></tr>`;
     bl.linhas.forEach((d,i)=>{
@@ -3811,6 +3825,19 @@ function renderCompTabela(cfg){
         </td>
       </tr>`;
     });
+    if(bl.add){
+      const livres=bl.skus.filter(x=>!x).length;
+      const prox=bl.skus.findIndex(x=>!x);
+      h+=`<tr style="border-bottom:1px solid var(--bg)">
+        <td colspan="${NCOL}" id="cSwap_${scope}_apostas_${prox<0?0:prox}" style="padding:8px 10px">`
+        +(livres>0
+          ? `<button onclick="compAposta('${scope}')" style="background:none;border:1px dashed var(--bd);border-radius:6px;
+               padding:4px 12px;font:800 .62rem 'Nunito';cursor:pointer;color:#7C3AED">
+               + Adicionar aposta</button>
+             <span style="font-size:.6rem;color:var(--mu);margin-left:8px">${livres} de ${COMP_APOSTAS} vaga${livres>1?'s':''} livre${livres>1?'s':''}</span>`
+          : `<span style="font-size:.6rem;color:var(--mu)">${COMP_APOSTAS} de ${COMP_APOSTAS} vagas usadas — remova uma com ↺ para liberar espaço</span>`)
+        +`</td></tr>`;
+    }
   });
   wrap.innerHTML=h+'</tbody></table>';
 }
@@ -3941,7 +3968,7 @@ function renderCanalKpis(vid, data){
 function renderCanalComp(canal, vid, data){
   const st=_canalState[vid]||{};
   renderCompTabela({
-    scope:vid, data, diaA:st.diaA||data.ante, diaB:st.diaB||data.ontem,
+    scope:vid, canal, data, diaA:st.diaA||data.ante, diaB:st.diaB||data.ontem,
     filt:st.filt||'all', titEl:vid+'CompTit', wrapEl:vid+'CompWrap',
     dlEl:vid+'SkuList', cor:COR[canal]||'#999'
   });
@@ -4320,7 +4347,7 @@ function renderMLKpis(){
 function renderMLComp(){
   if(!_mlC)return;
   renderCompTabela({
-    scope:'ml', data:_mlC, diaA:_mlDiaA, diaB:_mlDiaB, filt:_mlFilt||'all',
+    scope:'ml', canal:'Mercado Livre', data:_mlC, diaA:_mlDiaA, diaB:_mlDiaB, filt:_mlFilt||'all',
     titEl:'mlCompTit', wrapEl:'mlCompWrap', dlEl:'mlSkuList', cor:'#C8A000'
   });
 }
