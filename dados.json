@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-09-02T00:57:57.642Z",
-  "gerado_em_br": "01/09/2026, 21:57:57",
+  "gerado_em": "2026-09-02T05:34:14.204Z",
+  "gerado_em_br": "02/09/2026, 02:34:14",
   "dia_referencia": "02/09/2026",
   "dia_ontem": "01/09/2026",
   "resumo_dia": {
-    "faturamento": 292828,
-    "pedidos": 2,
-    "ticket_medio": 146414,
+    "faturamento": 699336,
+    "pedidos": 5,
+    "ticket_medio": 139867.2,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 292828,
-        "pedidos": 2,
+        "faturamento": 699336,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 7784049,
-    "pedidos": 99
+    "faturamento": 8272829,
+    "pedidos": 104
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 8076877,
-    "pedidos": 101,
+    "faturamento": 8972165,
+    "pedidos": 109,
     "meta_mensal": 7620000.03,
-    "pct_meta": 106,
-    "projecao_final": 121153155,
+    "pct_meta": 117.7,
+    "projecao_final": 134582475,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 1872083,
-        "pedidos": 44
+        "faturamento": 1890101,
+        "pedidos": 46
       },
       "Casas Bahia": {
-        "faturamento": 2273745,
-        "pedidos": 20
+        "faturamento": 2478211,
+        "pedidos": 21
       },
       "Magazine Luiza": {
-        "faturamento": 2242938,
-        "pedidos": 18
+        "faturamento": 2649446,
+        "pedidos": 21
       },
       "Shopee": {
-        "faturamento": 1248231,
-        "pedidos": 12
+        "faturamento": 1514527,
+        "pedidos": 14
       },
       "Amazon": {
         "faturamento": 422380,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 632,
-      "fat": 50207579,
+      "qtd": 633,
+      "fat": 50225238,
       "canais": {
-        "Casas Bahia": 251,
+        "Casas Bahia": 252,
         "Amazon": 274,
         "Mercado Livre": 102,
         "Shopee": 5
@@ -168,14 +168,14 @@
     {
       "sku": "TI1766",
       "desc": "Micro-Ondas de Embutir Electrolux ME3EP 34L com Painel Digital  Preto - 127v",
-      "qtd": 126,
-      "fat": 2251170,
+      "qtd": 130,
+      "fat": 2302566,
       "canais": {
+        "Magazine Luiza": 74,
+        "Shopee": 15,
         "Mercado Livre": 8,
-        "Magazine Luiza": 71,
         "Casas Bahia": 19,
-        "Amazon": 14,
-        "Shopee": 14
+        "Amazon": 14
       }
     },
     {
@@ -347,10 +347,10 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 53,
-      "fat": 452540,
+      "qtd": 54,
+      "fat": 463439,
       "canais": {
-        "Mercado Livre": 36,
+        "Mercado Livre": 37,
         "Amazon": 9,
         "Magazine Luiza": 2,
         "Shopee": 5,
@@ -457,25 +457,25 @@
   ],
   "historico_por_dia": {
     "02/09/2026": {
-      "fat": 292828,
-      "peds": 2,
+      "fat": 699336,
+      "peds": 5,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
-        "Magazine Luiza": 292828,
+        "Magazine Luiza": 699336,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "01/09/2026": {
-      "fat": 7784049,
-      "peds": 99,
+      "fat": 8272829,
+      "peds": 104,
       "canais": {
-        "Mercado Livre": 1872083,
-        "Casas Bahia": 2273745,
+        "Mercado Livre": 1890101,
+        "Casas Bahia": 2478211,
         "Magazine Luiza": 1950110,
-        "Shopee": 1248231,
+        "Shopee": 1514527,
         "Amazon": 422380,
         "Amazon Fulfillment": 0
       }
