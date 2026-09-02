@@ -1528,6 +1528,10 @@ const KEY      = 'AIzaSyCpFaibN_ct8r2ywjIlKByvZkxok5ytqXI';
 const KOND_ID  = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
 const METAS_ID = '1eloyFGbm53vZB1RJJZt99vXDKecgjKmZyal4n_UmwIk';
 const EST_ID   = '1d4ORz_TloSJPBq8LZMrbD7YoPZSUFONExKg1heEBFrU';
+// Segunda planilha KONDADO: notas de entrada, itens, parcelas e OC.
+// Serve de fallback quando as abas 'filhas' do KOND vêm vazias.
+const NOTAS_ID = '1AZ2zXJ3KsNfVmm_8eRUSZ6A8bcDxgHSiyakwMUC0HhE';
+let _ocInfo={fonte:'KOND',linhas:0};   // origem efetiva dos itens de OC
 
 const VALIDAS = new Set(['aprovado','preparando envio','faturado','pronto para envio','enviando','enviado','entregue'])
 const VALIDAS_ML = new Set([...VALIDAS,'em aberto']); // ML inclui 'em aberto';
@@ -2593,13 +2597,25 @@ const DEPOS_OK=new Set(['deposito amazonfull','novo galpao']);
 async function loadEstoque(){
   document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando estoque...</div>';
   try{
-    const[depoRows,prodRows,estProdRows,ocDetRows,ocItRows]=await Promise.all([
+    const[depoRows,prodRows,estProdRows,ocDetRows,ocItRows0]=await Promise.all([
       fetchSheet(EST_ID,'A:H','tinyerp_estoque_produto_depo'),
       fetchSheet(EST_ID,'A:AZ','tinyerp_produtos'),
       fetchSheet(EST_ID,'A:Z','tinyerp_estoque_produto'),
       fetchSheet(EST_ID,'A:D','tinyerp_ordem_compra_detalhes'),
       fetchSheet(EST_ID,'A:F','tinyerp_ordem_compra_detalhes_itens'),
     ]);
+    // FALLBACK DE OC — a aba de itens da ordem de compra no KOND às vezes
+    // vem zerada pelo Kondado (só o cabeçalho). Quando isso acontece, busca
+    // a mesma aba na planilha de notas, que costuma estar populada.
+    let ocItRows=ocItRows0, _ocFonte='KOND';
+    if(!ocItRows||ocItRows.length<2){
+      try{
+        const alt=await fetchSheet(NOTAS_ID,'A:F','tinyerp_ordem_compra_detalhes_itens');
+        if(alt&&alt.length>1){ocItRows=alt;_ocFonte='ALT';
+          console.warn('[OC] itens vazios no KOND — usando a planilha de notas ('+(alt.length-1)+' linhas)');}
+      }catch(e){console.warn('[OC] fallback indisponível',e);}
+    }
+    _ocInfo={fonte:_ocFonte,linhas:(ocItRows?ocItRows.length-1:0)};
     // SKU, marca, nome, custo e preço por id
     const pHeader=prodRows[0]||[];
     const iSku=pHeader.indexOf('codigo'),iMarca=pHeader.indexOf('marca');
@@ -2810,7 +2826,12 @@ function renderEst(){
   window._estListaFiltrada=lista; // para exportação
   window._estDias=dias;
 
-  document.getElementById('eStatus').textContent=`${lista.length} produtos | ${dias} dias`;
+  const _el=document.getElementById('eStatus');
+  _el.textContent=`${lista.length} produtos | ${dias} dias`;
+  // Sinaliza quando a coluna OC veio da planilha alternativa
+  if(_ocInfo.fonte==='ALT'){
+    _el.innerHTML+=` <span title="A aba tinyerp_ordem_compra_detalhes_itens do KOND está vazia; a coluna OC foi lida da planilha de notas (${_ocInfo.linhas} linhas)." style="color:var(--or);font-weight:800;cursor:help">· OC via fallback ⚠</span>`;
+  }
 
   if(!lista.length){document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Nenhum produto encontrado</div>';return;}
 
@@ -5125,7 +5146,6 @@ function skuExcluidoGiro(sku,marca){
 //       + NOTAS_ID (notas de entrada, itens da nota, parcelas)
 // Replica exatamente o painel "Giro x Parcelas" com dados do dia.
 // ══════════════════════════════════════════════════════════════
-const NOTAS_ID = '1AZ2zXJ3KsNfVmm_8eRUSZ6A8bcDxgHSiyakwMUC0HhE';
 
 let _gpData=null, _gpView=[], _gpNNotas=0, _gpJan={n0:null,n1:null,v0:null,v1:null};
 const _gpS={win:90,forn:'',marca:'',q:'',status:null,showAll:false,
