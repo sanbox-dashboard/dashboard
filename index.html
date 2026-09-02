@@ -1603,6 +1603,74 @@ function canal(nome,num){
   return 'Outros';
 }
 
+// ── CADASTRO GLOBAL DE MARCAS ────────────────────────────────
+// A marca oficial vem da coluna `marca` de tinyerp_produtos, indexada por
+// SKU. Assim, qualquer marca nova que entre no cadastro (com venda ou só
+// com estoque) é reconhecida automaticamente em TODAS as abas — não é mais
+// preciso adicionar palavra-chave no código.
+// A lista de palavras-chave abaixo virou apenas plano B, para SKU que ainda
+// não esteja no cadastro ou esteja sem marca preenchida.
+let _mkPorSku=null;        // SKU (maiúsculo) → marca
+let _mkTodas=new Set();    // todas as marcas conhecidas (cadastro + vendas)
+function marcaRegistrar(pRows){
+  if(!pRows||!pRows.length)return;
+  const h=pRows[0]||[];
+  const iSku=h.indexOf('codigo'), iMk=h.indexOf('marca');
+  if(iSku<0||iMk<0)return;
+  _mkPorSku=_mkPorSku||{};
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const sku=(r[iSku]||'').trim().toUpperCase();
+    const mk=(r[iMk]||'').trim();
+    if(!sku||!mk)continue;
+    _mkPorSku[sku]=mk;
+    _mkTodas.add(mk);
+  }
+}
+// Marca de um item: cadastro primeiro, descrição como fallback.
+function marcaSku(sku,desc){
+  if(sku&&_mkPorSku){
+    const m=_mkPorSku[String(sku).trim().toUpperCase()];
+    if(m)return m;
+  }
+  const m2=marca(desc);
+  if(m2&&m2!=='Outros')_mkTodas.add(m2);
+  return m2;
+}
+// Garante que o cadastro de produtos foi lido antes de qualquer agregação
+// por marca. Memoizado: busca uma vez só, mesmo com várias abas pedindo.
+let _mkPromise=null;
+function garantirCadastroMarcas(){
+  if(_mkPorSku)return Promise.resolve();
+  if(!_mkPromise){
+    _mkPromise=fetchSheet(KOND_ID,'A:Z','tinyerp_produtos')
+      .then(pR=>{marcaRegistrar(pR);marcaSincronizarSelects();})
+      .catch(e=>{console.warn('[Marcas] cadastro indisponível, usando descrição',e);_mkPorSku=_mkPorSku||{};});
+  }
+  return _mkPromise;
+}
+
+// Re-preenche todos os selects de marca já existentes na página, para que
+// uma marca descoberta numa aba apareça imediatamente nas outras.
+function marcaSincronizarSelects(){
+  ['eMarca','vgMarca'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&el.options.length)marcaPreencherSelect(el);
+  });
+}
+// Preenche um <select> com todas as marcas conhecidas, mantendo a seleção.
+function marcaPreencherSelect(el,extras){
+  if(!el)return;
+  const atual=el.value;
+  const todas=new Set(_mkTodas);
+  (extras||[]).forEach(m=>{if(m)todas.add(m);});
+  el.innerHTML='<option value="">Todas</option>';
+  [...todas].sort((a,b)=>a.localeCompare(b,'pt-BR')).forEach(m=>{
+    const o=document.createElement('option');o.value=m;o.textContent=m;el.appendChild(o);
+  });
+  if(atual&&todas.has(atual))el.value=atual;
+}
+
 function marca(desc){
   const d=(desc||'').toLowerCase();
   const M=[['Mueller','mueller'],['Mueller','muller'],['Imbera','imbera'],['Itatiaia','itatiaia'],
@@ -1816,8 +1884,9 @@ function processDash(pRows,iRows,metas){
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const valItem=qtd*vu;
     const fretRat=rateio(id,valItem);
-    const fat=valItem+fretRat;const mk=marca(desc);const nm=desc.substring(0,58);
+    const fat=valItem+fretRat;const nm=desc.substring(0,58);
     const skuItem=(r[I.SKU]||r[1]||'').trim();
+    const mk=marcaSku(skuItem,desc);
     if(skuExcluido(skuItem))continue; // exclui SKUs proibidos
     if(!prodMap[nm])prodMap[nm]={q:0,f:0,idProd,sku:skuItem};
     prodMap[nm].q+=qtd;prodMap[nm].f+=fat;
@@ -2457,7 +2526,7 @@ function processarMarcas(pRows,iRows){
     if(!VALIDAS.has(sit)||!dat||fat===0)continue;
     const p=dat.split('/');if(p.length<3)continue;
     const mk2=`${+p[0]}/${p[2]}`;meses.add(mk2);
-    const m=marca(r[I.DESC]||''),cn=pedCanal[idPed]||'Outros';
+    const m=marcaSku(r[I.SKU]||r[1]||'',r[I.DESC]||''),cn=pedCanal[idPed]||'Outros';
     if(!data[m])data[m]={};if(!data[m][cn])data[m][cn]={};
     data[m][cn][mk2]=(data[m][cn][mk2]||0)+fat;
   }
@@ -2632,12 +2701,11 @@ async function loadEstoque(){
     _estC={prodMap,estMap:estLiqMap,estMapBruto:estMap,reservPorSku,ocPorSku,iRows,skuMap};
     if(_cache)_cache.metas; // já carregado
 
-    // Popula select de marcas
-    const marcasSet=new Set();
-    Object.values(prodMap).forEach(p=>{if(p.marca)marcasSet.add(p.marca);});
-    const sel=document.getElementById('eMarca');
-    sel.innerHTML='<option value="">Todas</option>';
-    [...marcasSet].sort().forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});
+    // Popula select de marcas a partir do cadastro global
+    marcaRegistrar(prodRows);
+    marcaPreencherSelect(document.getElementById('eMarca'),
+      Object.values(prodMap).map(p=>p.marca));
+    marcaSincronizarSelects();
 
     // Adiciona nomeMap e skuMap ao cache compartilhado
     _estC.nomeMap=nomeMap;
@@ -2718,7 +2786,7 @@ function renderEst(){
     const mediaDia=vend/dias;
     const prev=Math.max(0,est-mediaDia*dias);
     const nome=nomeMap[id]||sku||id;
-    const mk=p.marca||marca(nome);
+    const mk=p.marca||marcaSku(sku,nome);
     const fat=fatMap[id]||0;
     const oc=(ocPorSku&&sku)?(ocPorSku[sku.toUpperCase()]||0):0;
     return{id,sku,nome,mk,est,vend,falta,fat,oc,estoque:est};
@@ -2792,6 +2860,7 @@ function aba(id,btn){
   if(id==='vCat'&&!_catC&&_cache){
     document.getElementById('catTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando categorias...</div>';
     fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pRows=>{
+      marcaRegistrar(pRows);
       _catC=processarCat(_cache.pRows,_cache.iRows,pRows);
       // Inicia inputs de mês com padrão: últimos 7 meses
       const now=new Date();
@@ -2806,7 +2875,7 @@ function aba(id,btn){
 
   if(id==='vMarca'&&!_marcaC&&_cache){
     document.getElementById('marcaTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando marcas...</div>';
-    setTimeout(()=>{_marcaC=processarMarcas(_cache.pRows,_cache.iRows);renderMarcaTable();},10);
+    garantirCadastroMarcas().then(()=>{_marcaC=processarMarcas(_cache.pRows,_cache.iRows);renderMarcaTable();});
   } else if(id==='vMarca'&&_marcaC) renderMarcaTable();
 
   if(id==='vEstoque'&&!_estC)loadEstoque();
@@ -3222,6 +3291,7 @@ async function loadMetas(){
       _catMesLoading = true;
       document.getElementById('catMesTbWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">⏳ Carregando categorias em background...</div>';
       fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pR=>{
+        marcaRegistrar(pR);
         _catC=processarCat(_cache.pRows,_cache.iRows,pR);
         renderCatMesTb();
         _catMesLoading = false;
@@ -3401,7 +3471,7 @@ function processarVG(pRows, iRows, ymdI, ymdF){
     const vu=parseFloat((r[I.VUNIT]||'0').replace(',','.'))||0;
     const valItem=qtd*vu;
     const fat=valItem+rateio(idPed,valItem);
-    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0,cat:catTiny(desc),mk:marca(desc)};
+    if(!skuMap[sku])skuMap[sku]={desc,total:0,ML:0,CB:0,MG:0,SH:0,AMZ:0,fat:0,cat:catTiny(desc),mk:marcaSku(sku,desc)};
     skuMap[sku].total+=qtd;
     skuMap[sku].fat+=fat;
     if(skuMap[sku][cnKey]!==undefined) skuMap[sku][cnKey]+=qtd;
@@ -3426,19 +3496,18 @@ function aplicarVG(){
   _vgFim=toYMD(toMDY(fim));
   if(!_cache)return;
   document.getElementById('vgStatus').textContent='Processando...';
-  setTimeout(()=>{
+  garantirCadastroMarcas().then(()=>{
     _vgCache=processarVG(_cache.pRows,_cache.iRows,_vgIni,_vgFim);
     // Popula selects de categoria e marca
-    const cats=new Set(), mks=new Set();
-    Object.values(_vgCache).forEach(p=>{if(p.cat)cats.add(p.cat);if(p.mk)mks.add(p.mk);});
+    const cats=new Set(), mks=[];
+    Object.values(_vgCache).forEach(p=>{if(p.cat)cats.add(p.cat);if(p.mk)mks.push(p.mk);});
     const selCat=document.getElementById('vgCat');
-    const selMk=document.getElementById('vgMarca');
     selCat.innerHTML='<option value="">Todas</option>';
-    selMk.innerHTML='<option value="">Todas</option>';
     [...cats].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;selCat.appendChild(o);});
-    [...mks].sort().forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;selMk.appendChild(o);});
+    // marcas: cadastro completo, não só as que venderam no período
+    marcaPreencherSelect(document.getElementById('vgMarca'),mks);
     renderVG(_vgCache);
-  },10);
+  });
 }
 
 function renderVG(skuMap){
@@ -3626,19 +3695,18 @@ function loadVG(){
     _vgFim=`${y}${m}${String(new Date(y,n.getMonth()+1,0).getDate()).padStart(2,'0')}`;
   }
   document.getElementById('vgStatus').textContent='Processando...';
-  setTimeout(()=>{
+  garantirCadastroMarcas().then(()=>{
     _vgCache=processarVG(_cache.pRows,_cache.iRows,_vgIni,_vgFim);
     // Popula selects de categoria e marca
-    const cats=new Set(), mks=new Set();
-    Object.values(_vgCache).forEach(p=>{if(p.cat)cats.add(p.cat);if(p.mk)mks.add(p.mk);});
+    const cats=new Set(), mks=[];
+    Object.values(_vgCache).forEach(p=>{if(p.cat)cats.add(p.cat);if(p.mk)mks.push(p.mk);});
     const selCat=document.getElementById('vgCat');
-    const selMk=document.getElementById('vgMarca');
     selCat.innerHTML='<option value="">Todas</option>';
-    selMk.innerHTML='<option value="">Todas</option>';
     [...cats].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;selCat.appendChild(o);});
-    [...mks].sort().forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;selMk.appendChild(o);});
+    // marcas: cadastro completo, não só as que venderam no período
+    marcaPreencherSelect(document.getElementById('vgMarca'),mks);
     renderVG(_vgCache);
-  },10);
+  });
 }
 
 // ── ENGINE GENÉRICA PARA ABAS DE CANAL ───────────────────────
