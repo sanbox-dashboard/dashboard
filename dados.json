@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-06T02:53:44.461Z",
-  "gerado_em_br": "05/09/2026, 23:53:44",
+  "gerado_em": "2026-09-06T07:37:24.543Z",
+  "gerado_em_br": "06/09/2026, 04:37:24",
   "dia_referencia": "06/09/2026",
   "dia_ontem": "05/09/2026",
   "resumo_dia": {
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 12206676,
-    "pedidos": 165
+    "faturamento": 12222649,
+    "pedidos": 167
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 61762165,
-    "pedidos": 793,
+    "faturamento": 61778138,
+    "pedidos": 795,
     "meta_mensal": 7620000.03,
-    "pct_meta": 810.5,
-    "projecao_final": 308810825,
+    "pct_meta": 810.7,
+    "projecao_final": 308890690,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9002965,
-        "pedidos": 325
+        "faturamento": 9013264,
+        "pedidos": 326
       },
       "Casas Bahia": {
         "faturamento": 18116256,
@@ -73,8 +73,8 @@
         "pedidos": 79
       },
       "Shopee": {
-        "faturamento": 10001701,
-        "pedidos": 101
+        "faturamento": 10007375,
+        "pedidos": 102
       },
       "Amazon": {
         "faturamento": 14102306,
@@ -102,11 +102,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 446,
-      "fat": 9350943,
+      "qtd": 447,
+      "fat": 9361242,
       "canais": {
+        "Mercado Livre": 280,
         "Casas Bahia": 69,
-        "Mercado Livre": 279,
         "Shopee": 38,
         "Amazon": 55,
         "Magazine Luiza": 4,
@@ -392,6 +392,17 @@
       }
     },
     {
+      "sku": "TI1564",
+      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
+      "qtd": 46,
+      "fat": 281554,
+      "canais": {
+        "Shopee": 33,
+        "Magazine Luiza": 9,
+        "Casas Bahia": 4
+      }
+    },
+    {
       "sku": "TI1550",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
       "qtd": 46,
@@ -415,17 +426,6 @@
         "Shopee": 5,
         "Casas Bahia": 6,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1564",
-      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
-      "qtd": 45,
-      "fat": 275655,
-      "canais": {
-        "Shopee": 32,
-        "Magazine Luiza": 9,
-        "Casas Bahia": 4
       }
     },
     {
@@ -468,13 +468,13 @@
       }
     },
     "05/09/2026": {
-      "fat": 12206676,
-      "peds": 165,
+      "fat": 12222649,
+      "peds": 167,
       "canais": {
-        "Mercado Livre": 1881210,
+        "Mercado Livre": 1891509,
         "Casas Bahia": 3409625,
         "Magazine Luiza": 2859285,
-        "Shopee": 1822126,
+        "Shopee": 1827800,
         "Amazon": 2234430,
         "Amazon Fulfillment": 0
       }
