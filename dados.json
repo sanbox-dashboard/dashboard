@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-09-07T05:40:16.967Z",
-  "gerado_em_br": "07/09/2026, 02:40:16",
+  "gerado_em": "2026-09-07T11:33:36.797Z",
+  "gerado_em_br": "07/09/2026, 08:33:36",
   "dia_referencia": "07/09/2026",
   "dia_ontem": "06/09/2026",
   "resumo_dia": {
-    "faturamento": 1249952,
-    "pedidos": 9,
-    "ticket_medio": 138883.56,
+    "faturamento": 1610893,
+    "pedidos": 12,
+    "ticket_medio": 134241.08,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -17,8 +17,8 @@
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 134116,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 347860,
-        "pedidos": 2,
+        "faturamento": 574685,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,27 +54,27 @@
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 72924976,
-    "pedidos": 937,
+    "faturamento": 73265898,
+    "pedidos": 939,
     "meta_mensal": 7620000.03,
-    "pct_meta": 957,
-    "projecao_final": 312535611.43,
+    "pct_meta": 961.5,
+    "projecao_final": 313996705.71,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 10300174,
-        "pedidos": 381
+        "faturamento": 10280155,
+        "pedidos": 380
       },
       "Casas Bahia": {
-        "faturamento": 21244874,
-        "pedidos": 157
+        "faturamento": 21378990,
+        "pedidos": 158
       },
       "Magazine Luiza": {
         "faturamento": 13018432,
         "pedidos": 98
       },
       "Shopee": {
-        "faturamento": 11897354,
-        "pedidos": 118
+        "faturamento": 12124179,
+        "pedidos": 120
       },
       "Amazon": {
         "faturamento": 16361880,
@@ -116,12 +116,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 206,
-      "fat": 6763324,
+      "qtd": 207,
+      "fat": 6764387,
       "canais": {
+        "Shopee": 53,
         "Magazine Luiza": 15,
         "Mercado Livre": 84,
-        "Shopee": 52,
         "Casas Bahia": 30,
         "Amazon": 25
       }
@@ -142,11 +142,11 @@
     {
       "sku": "TI1766",
       "desc": "Micro-Ondas de Embutir Electrolux ME3EP 34L com Painel Digital  Preto - 127v",
-      "qtd": 190,
-      "fat": 3167922,
+      "qtd": 192,
+      "fat": 3193920,
       "canais": {
-        "Shopee": 23,
-        "Casas Bahia": 25,
+        "Casas Bahia": 26,
+        "Shopee": 24,
         "Magazine Luiza": 95,
         "Mercado Livre": 18,
         "Amazon": 29
@@ -458,13 +458,13 @@
   ],
   "historico_por_dia": {
     "07/09/2026": {
-      "fat": 1249952,
-      "peds": 9,
+      "fat": 1610893,
+      "peds": 12,
       "canais": {
         "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Casas Bahia": 134116,
         "Magazine Luiza": 653655,
-        "Shopee": 347860,
+        "Shopee": 574685,
         "Amazon": 248437,
         "Amazon Fulfillment": 0
       }
@@ -482,10 +482,10 @@
       }
     },
     "05/09/2026": {
-      "fat": 12479607,
-      "peds": 166,
+      "fat": 12459588,
+      "peds": 165,
       "canais": {
-        "Mercado Livre": 1846541,
+        "Mercado Livre": 1826522,
         "Casas Bahia": 3717225,
         "Magazine Luiza": 2859285,
         "Shopee": 1822126,
