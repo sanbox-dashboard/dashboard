@@ -608,9 +608,105 @@ tfoot td:first-child{text-align:left;}
   font-family:"IBM Plex Mono",monospace}
 @media(max-width:640px){#gpRoot .gpstamp,#gpRoot .gpscope{text-align:left}}
 
+/* ══════════════════════════════════════════════════════════════
+   MODO TV — painel em tela cheia para TV de 42" (1920×1080)
+   O #vDash real é MOVIDO para dentro de #tvBox, então o auto-refresh
+   continua atualizando os mesmos nós. Ao sair, volta para o lugar.
+   Tudo dimensionado em vw/vh para caber sem rolagem.
+   ══════════════════════════════════════════════════════════════ */
+#tvBox{position:fixed;inset:0;z-index:9000;background:var(--bg);display:none;
+  flex-direction:column;padding:1.4vh 1.2vw;overflow:hidden;}
+body.tv-on{overflow:hidden;}
+body.tv-on #tvBox{display:flex;}
+#tvBox #vDash{display:flex!important;flex-direction:column;gap:1vh;height:100%;padding-top:0;}
+
+/* some com o que não serve na TV */
+#tvBox .filtro,#tvBox .hr .btn-sm,#tvBox .bsep,#tvBox .bsub{display:none!important;}
+#tvBox .hdr{flex:none;padding:0 .2vw .6vh;border-bottom:2px solid var(--bd);}
+#tvBox .hdr svg{height:4.4vh;}
+#tvBox .dlbl{font-size:.75vw;letter-spacing:.12em;}
+#tvBox .dval{font-size:1.5vw;}
+#tvBox .clock{font-size:1.5vw;font-weight:900;}
+#tvBox .live{font-size:.85vw;}
+#tvBox .live .dot{width:.7vw;height:.7vw;}
+
+/* KPIs */
+#tvBox .kr{flex:none;gap:.7vw;}
+#tvBox .kpi{padding:1.3vh 1vw;border-radius:14px;}
+#tvBox .kl{font-size:.78vw;letter-spacing:.14em;margin-bottom:.4vh;}
+#tvBox .kv{font-size:3.1vw!important;line-height:1;margin-bottom:.4vh;}
+#tvBox #kPeds{font-size:3.6vw!important;}
+#tvBox #kOnt{font-size:2.5vw!important;}
+#tvBox .ks{font-size:.82vw;}
+#tvBox .pl{font-size:.8vw;}
+#tvBox .pt{height:.7vh;}
+
+/* Canais */
+#tvBox .cr{flex:none;gap:.7vw;}
+#tvBox .cn{padding:1.2vh 1vw;gap:.7vh;border-radius:14px;}
+#tvBox .clogo{height:4vh;min-width:6vw;padding:.4vh .7vw;}
+#tvBox .clogo img,#tvBox .clogo svg{max-height:2.8vh!important;}
+#tvBox .cpct{font-size:1.5vw;}
+#tvBox .cv{font-size:2.5vw;}
+#tvBox .cml{font-size:.72vw;}
+#tvBox .cmv{font-size:.86vw;}
+#tvBox .cm-meta .cml{font-size:.86vw;}
+#tvBox .cm-meta .cmv{font-size:1.15vw;}
+#tvBox .cpe{font-size:.76vw;}
+#tvBox .dl{font-size:.74vw;padding:.3vh .5vw;}
+
+/* Blocos de baixo ocupam a altura restante */
+#tvBox .br{flex:1;min-height:0;gap:.7vw;}
+#tvBox .pn{padding:1.2vh 1.1vw;border-radius:14px;min-height:0;overflow:hidden;}
+#tvBox .pti{font-size:.82vw;letter-spacing:.16em;margin-bottom:1vh;}
+#tvBox .pdot{width:.55vw;height:.55vw;}
+#tvBox .prl,#tvBox .fl{gap:.5vh;flex:1;min-height:0;overflow:hidden;}
+#tvBox .pi,#tvBox .fi{padding:.75vh .8vw;border-radius:9px;}
+#tvBox .prk{font-size:1.5vw;min-width:1.6vw;}
+#tvBox .pnm{font-size:1vw;}
+#tvBox .psb{font-size:.76vw;}
+#tvBox .pbw{width:5vw;}
+#tvBox .pbt{height:.5vh;}
+#tvBox .pvl{font-size:1.35vw;min-width:5vw;}
+#tvBox .fr{font-size:1.7vw;min-width:1.8vw;}
+#tvBox .fnm{font-size:1.05vw;}
+#tvBox .fsb{font-size:.76vw;}
+#tvBox .fv{font-size:1.5vw;}
+#tvBox .fp{font-size:.78vw;}
+#tvBox .tk{flex:none;padding:.6vh 1vw;}
+#tvBox .ti{font-size:.92vw;}
+
+/* Botão Sair */
+#tvSair{position:fixed;top:1.2vh;right:1vw;z-index:9100;background:var(--or);color:#fff;
+  border:0;border-radius:10px;padding:.9vh 1.4vw;font:900 1vw 'Nunito';cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.22);opacity:.28;transition:opacity .18s;}
+#tvSair:hover{opacity:1;}
+body:not(.tv-on) #tvSair{display:none;}
+
 </style>
 </head>
 <body>
+
+<!-- ══ LOGIN ══ Fica no topo do body para cobrir a tela desde o primeiro
+     paint. O script mais abaixo remove este bloco se a sessão já estiver
+     autenticada (validade de 8h em sessionStorage). -->
+<div id="loginOverlay">
+  <div id="loginBox">
+    <svg height="44" viewBox="0 0 210 58" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:14px">
+      <rect x="0" y="0" width="56" height="56" rx="12" fill="#F5A623"/>
+      <rect x="11" y="11" width="34" height="34" rx="7" fill="white"/>
+      <rect x="19" y="20" width="13" height="7" rx="2" fill="#F5A623"/>
+      <text x="66" y="43" font-family="Nunito" font-weight="900" font-size="36" fill="#ffffff">san</text>
+      <text x="130" y="43" font-family="Nunito" font-weight="900" font-size="36" fill="#F5A623">box</text>
+    </svg>
+    <div id="loginLogo">Central de Vendas</div>
+    <div id="loginSub">Acesso restrito. Informe a senha para continuar.</div>
+    <input type="password" id="loginInput" placeholder="Senha" autocomplete="current-password"
+           onkeydown="if(event.key==='Enter')loginCheck()">
+    <button id="loginBtn" onclick="loginCheck()">Entrar</button>
+    <div id="loginErr"></div>
+  </div>
+</div>
 
 <div id="ov">
   <svg class="pulse" height="50" viewBox="0 0 210 58" xmlns="http://www.w3.org/2000/svg">
@@ -662,6 +758,7 @@ tfoot td:first-child{text-align:left;}
         <div class="hr">
           <button class="btn-sm" onclick="load()">⟳ Atualizar</button>
           <button class="btn-sm" onclick="exportarParaAnalista()" title="Exportar dados para o Analista de Vendas">📤 Exportar p/ Analista</button>
+          <button class="btn-sm" onclick="tvEntrar(false)" title="Exibir o painel em tela cheia para TV">📺 Modo TV</button>
           <div class="live"><div class="dot"></div><span id="sLbl">AO VIVO</span></div>
           <div class="clock" id="clock">--:--:--</div>
         </div>
@@ -4723,6 +4820,113 @@ function abrirMargem(){
 }
 
 // Clock
+// ══════════════════════════════════════════════════════════════
+// MODO TV — painel do Dashboard em tela cheia para TV de 42"
+// Move o #vDash real para dentro do overlay (não clona), então o
+// auto-refresh continua alimentando os mesmos elementos.
+// ══════════════════════════════════════════════════════════════
+let _tvAncora=null;    // onde o #vDash estava antes
+let _tvWake=null;      // wake lock, para a TV não apagar a tela
+const TV_KEY='sanbox_tv_auto';
+
+// Preferência: por padrão o painel ABRE em modo TV. Depois que o usuário
+// clica em "Sair", a escolha fica gravada e ele passa a abrir normal —
+// só volta ao modo TV quando clicarem no botão de novo.
+function tvAutoLigado(){
+  try{ return localStorage.getItem(TV_KEY)!=='0'; }catch(e){ return true; }
+}
+function tvAutoDefinir(v){
+  try{ localStorage.setItem(TV_KEY, v?'1':'0'); }catch(e){}
+}
+
+async function tvEntrar(auto){
+  if(document.body.classList.contains('tv-on'))return;
+  const dash=document.getElementById('vDash'), box=document.getElementById('tvBox');
+  if(!dash||!box)return;
+  // guarda a posição original para devolver depois
+  _tvAncora=document.createComment('vDash');
+  dash.parentNode.insertBefore(_tvAncora,dash);
+  box.appendChild(dash);
+  document.body.classList.add('tv-on');
+  // garante que a aba Dashboard esteja marcada como ativa ao voltar
+  dash.classList.add('on');
+  if(!auto)tvAutoDefinir(true);         // entrada manual religa o padrão
+  try{ if(document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen(); }
+  catch(e){ /* bloqueado sem gesto do usuário — ver tvFullscreenNoPrimeiroClique */ }
+  if(auto)tvFullscreenNoPrimeiroClique();
+  try{ if(navigator.wakeLock) _tvWake=await navigator.wakeLock.request('screen'); }catch(e){}
+  if(!auto&&typeof load==='function')load();   // dados frescos ao entrar manualmente
+}
+
+// Na abertura automática o navegador recusa tela cheia por falta de gesto.
+// Então esperamos o primeiro clique ou tecla e pedimos ali, uma única vez.
+function tvFullscreenNoPrimeiroClique(){
+  if(document.fullscreenElement)return;
+  const pedir=async()=>{
+    document.removeEventListener('click',pedir);
+    document.removeEventListener('keydown',pedir);
+    if(!document.body.classList.contains('tv-on'))return;
+    try{ if(document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen(); }catch(e){}
+  };
+  document.addEventListener('click',pedir);
+  document.addEventListener('keydown',pedir);
+}
+
+async function tvSair(){
+  if(!document.body.classList.contains('tv-on'))return;
+  const dash=document.getElementById('vDash');
+  document.body.classList.remove('tv-on');
+  tvAutoDefinir(false);                 // não abre mais sozinho até pedirem
+  if(dash&&_tvAncora&&_tvAncora.parentNode){
+    _tvAncora.parentNode.insertBefore(dash,_tvAncora);
+    _tvAncora.remove();
+  }
+  _tvAncora=null;
+  try{ if(_tvWake){await _tvWake.release();_tvWake=null;} }catch(e){}
+  try{ if(document.fullscreenElement&&document.exitFullscreen) await document.exitFullscreen(); }catch(e){}
+}
+
+// Arranque: entra em modo TV sozinho, a menos que o usuário tenha saído
+// alguma vez nesse navegador.
+// Roda no carregamento da página. Se houver tela de senha no ar, espera
+// ela sair antes de entrar (não é o caso hoje, mas fica protegido).
+let _tvArrancou=false;
+function tvArrancar(){
+  if(_tvArrancou)return;
+  if(!tvAutoLigado()){_tvArrancou=true;return;}
+  if(!document.getElementById('tvBox'))return;         // DOM ainda incompleto
+  if(document.getElementById('loginOverlay')){         // travado no login
+    if(!tvArrancar._t)tvArrancar._t=setInterval(()=>{
+      if(!document.getElementById('loginOverlay')){
+        clearInterval(tvArrancar._t);tvArrancar._t=null;tvArrancar();
+      }
+    },400);
+    return;
+  }
+  _tvArrancou=true;
+  tvEntrar(true);
+}
+// Dispara assim que o DOM estiver pronto (ou já agora, se estiver).
+if(document.readyState==='loading')
+  document.addEventListener('DOMContentLoaded',tvArrancar);
+else
+  tvArrancar();
+
+// Esc sai do modo TV
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.body.classList.contains('tv-on'))tvSair();
+});
+// Sair do fullscreen pelo navegador também desliga o modo TV
+document.addEventListener('fullscreenchange',()=>{
+  if(!document.fullscreenElement&&document.body.classList.contains('tv-on'))tvSair();
+});
+// Se a tela voltar do modo de espera, reobtém o wake lock
+document.addEventListener('visibilitychange',async()=>{
+  if(document.visibilityState==='visible'&&document.body.classList.contains('tv-on')&&!_tvWake){
+    try{ if(navigator.wakeLock) _tvWake=await navigator.wakeLock.request('screen'); }catch(e){}
+  }
+});
+
 setInterval(()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('pt-BR'),1000);
 load();
 
@@ -6309,7 +6513,7 @@ function renderFrete(){
 
 // ── LOGIN ────────────────────────────────────────────────────
 (function(){
-  var HASH = '33aeb9a6d4c1a8d826fb636e0cceeee22212e7d3b9bd9273a680d416bc3f4a6c';
+  var HASH = 'd1fba7e4b771e77c62406b121d6aea4407f8df4452056d18672f8c08f1e28c4e';
   var HORAS = 8;
   var KEY_EXP  = 'sb_exp';
   var KEY_AUTH = 'sb_auth';
@@ -6344,6 +6548,7 @@ function renderFrete(){
         marcarAutenticado();
         var ov = document.getElementById('loginOverlay');
         if(ov){ ov.style.opacity='0'; ov.style.transition='opacity .3s'; setTimeout(function(){ov.remove();}, 300); }
+        if(typeof tvArrancar==='function') setTimeout(tvArrancar, 350);
       } else {
         var err = document.getElementById('loginErr');
         if(err) err.textContent = 'Senha incorreta. Tente novamente.';
@@ -6357,6 +6562,10 @@ function renderFrete(){
   if(jaAutenticado()){
     var ov = document.getElementById('loginOverlay');
     if(ov) ov.remove();
+    if(typeof tvArrancar==='function') tvArrancar();
+  } else {
+    var inp = document.getElementById('loginInput');
+    if(inp) inp.focus();
   }
 })();
 
@@ -6424,5 +6633,7 @@ function canalAtalho(vid, dias) {
 
 
 </script>
+<div id="tvBox"></div>
+<button id="tvSair" onclick="tvSair()" title="Voltar ao modo normal (Esc)">✕ Sair do Modo TV</button>
 </body>
 </html>
