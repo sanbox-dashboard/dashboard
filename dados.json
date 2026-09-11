@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-11T02:58:24.668Z",
-  "gerado_em_br": "10/09/2026, 23:58:24",
+  "gerado_em": "2026-09-11T07:56:11.306Z",
+  "gerado_em_br": "11/09/2026, 04:56:11",
   "dia_referencia": "11/09/2026",
   "dia_ontem": "10/09/2026",
   "resumo_dia": {
-    "faturamento": 320473,
-    "pedidos": 1,
-    "ticket_medio": 320473,
+    "faturamento": 578118,
+    "pedidos": 5,
+    "ticket_medio": 115623.6,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 30898,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 226747,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 14643607,
-    "pedidos": 257
+    "faturamento": 14675944,
+    "pedidos": 260
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 144032650,
-    "pedidos": 1962,
+    "faturamento": 144322632,
+    "pedidos": 1969,
     "meta_mensal": 7620000.03,
-    "pct_meta": 1890.2,
-    "projecao_final": 392816318.18,
+    "pct_meta": 1894,
+    "projecao_final": 393607178.18,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 19943372,
-        "pedidos": 824
+        "faturamento": 19974270,
+        "pedidos": 826
       },
       "Casas Bahia": {
         "faturamento": 38464631,
@@ -73,16 +73,16 @@
         "pedidos": 202
       },
       "Shopee": {
-        "faturamento": 24870655,
-        "pedidos": 256
+        "faturamento": 25097402,
+        "pedidos": 258
       },
       "Amazon": {
         "faturamento": 35174205,
         "pedidos": 389
       },
       "Amazon Fulfillment": {
-        "faturamento": 48666,
-        "pedidos": 4
+        "faturamento": 81003,
+        "pedidos": 7
       }
     }
   },
@@ -142,11 +142,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 192,
-      "fat": 3639031,
+      "qtd": 193,
+      "fat": 3654230,
       "canais": {
+        "Shopee": 6,
         "Casas Bahia": 64,
-        "Shopee": 5,
         "Amazon": 11,
         "Mercado Livre": 105,
         "Magazine Luiza": 7
@@ -377,10 +377,10 @@
     {
       "sku": "TI1564",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
-      "qtd": 48,
-      "fat": 332121,
+      "qtd": 49,
+      "fat": 338020,
       "canais": {
-        "Shopee": 36,
+        "Shopee": 37,
         "Amazon": 1,
         "Magazine Luiza": 8,
         "Casas Bahia": 3
@@ -461,27 +461,27 @@
   ],
   "historico_por_dia": {
     "11/09/2026": {
-      "fat": 320473,
-      "peds": 1,
+      "fat": 578118,
+      "peds": 5,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 30898,
         "Casas Bahia": 0,
         "Magazine Luiza": 320473,
-        "Shopee": 0,
+        "Shopee": 226747,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "10/09/2026": {
-      "fat": 14643607,
-      "peds": 257,
+      "fat": 14675944,
+      "peds": 260,
       "canais": {
         "Mercado Livre": 2509319,
         "Casas Bahia": 4574746,
         "Magazine Luiza": 2560697,
         "Shopee": 3405926,
         "Amazon": 1579750,
-        "Amazon Fulfillment": 10669
+        "Amazon Fulfillment": 43006
       }
     },
     "09/09/2026": {
