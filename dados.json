@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-09-12T10:04:21.680Z",
-  "gerado_em_br": "12/09/2026, 07:04:21",
+  "gerado_em": "2026-09-12T13:51:19.993Z",
+  "gerado_em_br": "12/09/2026, 10:51:20",
   "dia_referencia": "12/09/2026",
   "dia_ontem": "11/09/2026",
   "resumo_dia": {
-    "faturamento": 240969,
-    "pedidos": 5,
-    "ticket_medio": 48193.8,
+    "faturamento": 1992429,
+    "pedidos": 29,
+    "ticket_medio": 68704.45,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 26938,
-        "pedidos": 2,
+        "faturamento": 169258,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 42933,
-        "pedidos": 1,
+        "faturamento": 1271990,
+        "pedidos": 9,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 153999,
-        "pedidos": 1,
+        "faturamento": 396518,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 17099,
-        "pedidos": 1,
+        "faturamento": 154663,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 13321008,
+    "faturamento": 13320628,
     "pedidos": 171
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 157583966,
-    "pedidos": 2137,
+    "faturamento": 159335046,
+    "pedidos": 2161,
     "meta_mensal": 7620000.03,
-    "pct_meta": 2068,
-    "projecao_final": 393959915,
+    "pct_meta": 2091,
+    "projecao_final": 398337615,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 22015598,
-        "pedidos": 889
+        "faturamento": 22168217,
+        "pedidos": 900
       },
       "Casas Bahia": {
-        "faturamento": 43217420,
-        "pedidos": 316
+        "faturamento": 44446477,
+        "pedidos": 324
       },
       "Magazine Luiza": {
         "faturamento": 25897037,
         "pedidos": 206
       },
       "Shopee": {
-        "faturamento": 27291199,
-        "pedidos": 282
+        "faturamento": 27523039,
+        "pedidos": 283
       },
       "Amazon": {
-        "faturamento": 38557673,
-        "pedidos": 427
+        "faturamento": 38695237,
+        "pedidos": 431
       },
       "Amazon Fulfillment": {
         "faturamento": 113670,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 533,
-      "fat": 27875780,
+      "qtd": 537,
+      "fat": 28221860,
       "canais": {
-        "Amazon": 244,
-        "Casas Bahia": 221,
+        "Casas Bahia": 224,
+        "Amazon": 245,
         "Outros": 1,
         "Shopee": 2,
         "Mercado Livre": 65
@@ -103,10 +103,10 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 472,
-      "fat": 9414979,
+      "qtd": 474,
+      "fat": 9435577,
       "canais": {
-        "Mercado Livre": 303,
+        "Mercado Livre": 305,
         "Casas Bahia": 74,
         "Amazon": 50,
         "Shopee": 40,
@@ -130,12 +130,12 @@
     {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
-      "qtd": 205,
-      "fat": 6996613,
+      "qtd": 206,
+      "fat": 7114827,
       "canais": {
+        "Mercado Livre": 81,
         "Casas Bahia": 31,
         "Shopee": 57,
-        "Mercado Livre": 80,
         "Magazine Luiza": 19,
         "Amazon": 18
       }
@@ -143,10 +143,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 185,
-      "fat": 3642270,
+      "qtd": 186,
+      "fat": 3656269,
       "canais": {
-        "Casas Bahia": 62,
+        "Casas Bahia": 63,
         "Magazine Luiza": 8,
         "Shopee": 5,
         "Mercado Livre": 99,
@@ -156,12 +156,12 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 154,
-      "fat": 3496996,
+      "qtd": 153,
+      "fat": 3487697,
       "canais": {
         "Amazon": 60,
-        "Shopee": 48,
         "Mercado Livre": 41,
+        "Shopee": 47,
         "Magazine Luiza": 5
       }
     },
@@ -182,12 +182,12 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 139,
-      "fat": 2178296,
+      "qtd": 141,
+      "fat": 2189274,
       "canais": {
-        "Shopee": 50,
+        "Mercado Livre": 4,
+        "Shopee": 51,
         "Amazon": 66,
-        "Mercado Livre": 3,
         "Magazine Luiza": 16,
         "Casas Bahia": 4
       }
@@ -195,12 +195,12 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 126,
-      "fat": 4686281,
+      "qtd": 127,
+      "fat": 4705980,
       "canais": {
+        "Amazon": 14,
         "Casas Bahia": 11,
         "Mercado Livre": 83,
-        "Amazon": 13,
         "Magazine Luiza": 13,
         "Shopee": 6
       }
@@ -208,12 +208,12 @@
     {
       "sku": "TI857",
       "desc": "Caixa De Som Bluetooth Acustica Ex Bass Flash Lights Philco PCX30000- 2500W",
-      "qtd": 99,
-      "fat": 2660107,
+      "qtd": 100,
+      "fat": 2677566,
       "canais": {
+        "Mercado Livre": 57,
         "Shopee": 31,
         "Magazine Luiza": 5,
-        "Mercado Livre": 56,
         "Casas Bahia": 5,
         "Amazon": 2
       }
@@ -266,6 +266,18 @@
       }
     },
     {
+      "sku": "TI287-2",
+      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
+      "qtd": 69,
+      "fat": 407161,
+      "canais": {
+        "Mercado Livre": 20,
+        "Casas Bahia": 14,
+        "Shopee": 9,
+        "Magazine Luiza": 26
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 68,
@@ -276,18 +288,6 @@
         "Shopee": 6,
         "Casas Bahia": 6,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI287-2",
-      "desc": "Microfone Com Fio Knup KP-M0011, Cabo 3 Metros *",
-      "qtd": 67,
-      "fat": 398585,
-      "canais": {
-        "Casas Bahia": 14,
-        "Mercado Livre": 18,
-        "Shopee": 9,
-        "Magazine Luiza": 26
       }
     },
     {
@@ -342,10 +342,10 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 57,
-      "fat": 962095,
+      "qtd": 58,
+      "fat": 970824,
       "canais": {
-        "Amazon": 14,
+        "Amazon": 15,
         "Shopee": 4,
         "Magazine Luiza": 9,
         "Mercado Livre": 27,
@@ -391,11 +391,11 @@
     {
       "sku": "TI1609",
       "desc": "Fogao a Gas Itatiaia Electra Glass Plus 4 Bocas Mesa de Vidro - Bivolt",
-      "qtd": 45,
-      "fat": 582737,
+      "qtd": 47,
+      "fat": 599335,
       "canais": {
+        "Casas Bahia": 28,
         "Mercado Livre": 12,
-        "Casas Bahia": 26,
         "Shopee": 2,
         "Magazine Luiza": 2,
         "Amazon": 3
@@ -427,13 +427,27 @@
     {
       "sku": "TI516",
       "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
-      "qtd": 40,
-      "fat": 973351,
+      "qtd": 41,
+      "fat": 990810,
       "canais": {
-        "Shopee": 15,
+        "Shopee": 16,
         "Mercado Livre": 13,
         "Casas Bahia": 5,
         "Magazine Luiza": 7
+      }
+    },
+    {
+      "sku": "TI1739",
+      "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
+      "qtd": 40,
+      "fat": 448023,
+      "canais": {
+        "Amazon": 5,
+        "Mercado Livre": 10,
+        "Amazon Fulfillment": 9,
+        "Shopee": 14,
+        "Casas Bahia": 1,
+        "Magazine Luiza": 1
       }
     },
     {
@@ -448,43 +462,29 @@
         "Mercado Livre": 12,
         "Casas Bahia": 2
       }
-    },
-    {
-      "sku": "TI1739",
-      "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 38,
-      "fat": 427295,
-      "canais": {
-        "Amazon Fulfillment": 9,
-        "Amazon": 4,
-        "Mercado Livre": 9,
-        "Shopee": 14,
-        "Casas Bahia": 1,
-        "Magazine Luiza": 1
-      }
     }
   ],
   "historico_por_dia": {
     "12/09/2026": {
-      "fat": 240969,
-      "peds": 5,
+      "fat": 1992429,
+      "peds": 29,
       "canais": {
-        "Mercado Livre": 26938,
-        "Casas Bahia": 42933,
+        "Mercado Livre": 169258,
+        "Casas Bahia": 1271990,
         "Magazine Luiza": 0,
-        "Shopee": 153999,
-        "Amazon": 17099,
+        "Shopee": 396518,
+        "Amazon": 154663,
         "Amazon Fulfillment": 0
       }
     },
     "11/09/2026": {
-      "fat": 13321008,
+      "fat": 13320628,
       "peds": 171,
       "canais": {
-        "Mercado Livre": 1870156,
+        "Mercado Livre": 1880455,
         "Casas Bahia": 5172408,
         "Magazine Luiza": 775152,
-        "Shopee": 2266545,
+        "Shopee": 2255866,
         "Amazon": 2801474,
         "Amazon Fulfillment": 32667
       }
