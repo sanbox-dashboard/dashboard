@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-09-12T05:23:23.644Z",
-  "gerado_em_br": "12/09/2026, 02:23:23",
+  "gerado_em": "2026-09-12T10:04:21.680Z",
+  "gerado_em_br": "12/09/2026, 07:04:21",
   "dia_referencia": "12/09/2026",
   "dia_ontem": "11/09/2026",
   "resumo_dia": {
-    "faturamento": 162498,
-    "pedidos": 2,
-    "ticket_medio": 81249,
+    "faturamento": 240969,
+    "pedidos": 5,
+    "ticket_medio": 48193.8,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8499,
-        "pedidos": 1,
+        "faturamento": 26938,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 42933,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 17099,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 13310009,
-    "pedidos": 170
+    "faturamento": 13321008,
+    "pedidos": 171
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 157494496,
-    "pedidos": 2133,
+    "faturamento": 157583966,
+    "pedidos": 2137,
     "meta_mensal": 7620000.03,
-    "pct_meta": 2066.9,
-    "projecao_final": 393736240,
+    "pct_meta": 2068,
+    "projecao_final": 393959915,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 21997159,
-        "pedidos": 888
+        "faturamento": 22015598,
+        "pedidos": 889
       },
       "Casas Bahia": {
-        "faturamento": 43174487,
-        "pedidos": 315
+        "faturamento": 43217420,
+        "pedidos": 316
       },
       "Magazine Luiza": {
         "faturamento": 25897037,
@@ -77,12 +77,12 @@
         "pedidos": 282
       },
       "Amazon": {
-        "faturamento": 38540574,
-        "pedidos": 426
+        "faturamento": 38557673,
+        "pedidos": 427
       },
       "Amazon Fulfillment": {
-        "faturamento": 102671,
-        "pedidos": 9
+        "faturamento": 113670,
+        "pedidos": 10
       }
     }
   },
@@ -90,11 +90,11 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 532,
-      "fat": 27858681,
+      "qtd": 533,
+      "fat": 27875780,
       "canais": {
+        "Amazon": 244,
         "Casas Bahia": 221,
-        "Amazon": 243,
         "Outros": 1,
         "Shopee": 2,
         "Mercado Livre": 65
@@ -168,12 +168,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 144,
-      "fat": 5417751,
+      "qtd": 145,
+      "fat": 5436190,
       "canais": {
+        "Mercado Livre": 35,
         "Casas Bahia": 46,
         "Amazon": 34,
-        "Mercado Livre": 34,
         "Outros": 2,
         "Shopee": 18,
         "Magazine Luiza": 10
@@ -452,10 +452,10 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 37,
-      "fat": 416296,
+      "qtd": 38,
+      "fat": 427295,
       "canais": {
-        "Amazon Fulfillment": 8,
+        "Amazon Fulfillment": 9,
         "Amazon": 4,
         "Mercado Livre": 9,
         "Shopee": 14,
@@ -466,27 +466,27 @@
   ],
   "historico_por_dia": {
     "12/09/2026": {
-      "fat": 162498,
-      "peds": 2,
+      "fat": 240969,
+      "peds": 5,
       "canais": {
-        "Mercado Livre": 8499,
-        "Casas Bahia": 0,
+        "Mercado Livre": 26938,
+        "Casas Bahia": 42933,
         "Magazine Luiza": 0,
         "Shopee": 153999,
-        "Amazon": 0,
+        "Amazon": 17099,
         "Amazon Fulfillment": 0
       }
     },
     "11/09/2026": {
-      "fat": 13310009,
-      "peds": 170,
+      "fat": 13321008,
+      "peds": 171,
       "canais": {
         "Mercado Livre": 1870156,
         "Casas Bahia": 5172408,
         "Magazine Luiza": 775152,
         "Shopee": 2266545,
         "Amazon": 2801474,
-        "Amazon Fulfillment": 21668
+        "Amazon Fulfillment": 32667
       }
     },
     "10/09/2026": {
@@ -2739,7 +2739,7 @@
     "740127704": 9,
     "740127906": 9,
     "740161390": 1,
-    "740161392": 442,
+    "740161392": 440,
     "740170697": 73,
     "740177307": 1,
     "740177327": 0,
