@@ -1,24 +1,24 @@
 {
-  "gerado_em": "2026-09-15T05:47:39.775Z",
-  "gerado_em_br": "15/09/2026, 02:47:39",
+  "gerado_em": "2026-09-15T11:03:09.152Z",
+  "gerado_em_br": "15/09/2026, 08:03:09",
   "dia_referencia": "15/09/2026",
   "dia_ontem": "14/09/2026",
   "resumo_dia": {
-    "faturamento": 230316,
-    "pedidos": 4,
-    "ticket_medio": 57579,
+    "faturamento": 653661,
+    "pedidos": 13,
+    "ticket_medio": 50281.62,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 20938,
-        "pedidos": 2,
+        "faturamento": 163110,
+        "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 69029,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 212144,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 10273686,
-    "pedidos": 185
+    "faturamento": 10173794,
+    "pedidos": 184
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 189788196,
-    "pedidos": 2652,
+    "faturamento": 190111649,
+    "pedidos": 2660,
     "meta_mensal": 7620000.03,
-    "pct_meta": 2490.7,
-    "projecao_final": 379576392,
+    "pct_meta": 2494.9,
+    "projecao_final": 380223298,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 26731657,
-        "pedidos": 1110
+        "faturamento": 26873829,
+        "pedidos": 1114
       },
       "Casas Bahia": {
-        "faturamento": 55684876,
-        "pedidos": 416
+        "faturamento": 55753905,
+        "pedidos": 418
       },
       "Magazine Luiza": {
         "faturamento": 31250791,
         "pedidos": 251
       },
       "Shopee": {
-        "faturamento": 33816205,
-        "pedidos": 347
+        "faturamento": 33928457,
+        "pedidos": 349
       },
       "Amazon": {
         "faturamento": 41688959,
@@ -157,10 +157,10 @@
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
       "qtd": 154,
-      "fat": 3419664,
+      "fat": 3421414,
       "canais": {
-        "Shopee": 50,
-        "Mercado Livre": 42,
+        "Mercado Livre": 43,
+        "Shopee": 49,
         "Magazine Luiza": 6,
         "Amazon": 56
       }
@@ -268,11 +268,11 @@
     {
       "sku": "TI1563",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 71,
-      "fat": 930191,
+      "qtd": 72,
+      "fat": 936090,
       "canais": {
+        "Shopee": 16,
         "Casas Bahia": 30,
-        "Shopee": 15,
         "Magazine Luiza": 15,
         "Amazon": 11
       }
@@ -314,6 +314,17 @@
       }
     },
     {
+      "sku": "TI1556",
+      "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
+      "qtd": 61,
+      "fat": 498949,
+      "canais": {
+        "Casas Bahia": 39,
+        "Mercado Livre": 18,
+        "Amazon": 4
+      }
+    },
+    {
       "sku": "TI1758",
       "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
       "qtd": 60,
@@ -340,24 +351,13 @@
       }
     },
     {
-      "sku": "TI1556",
-      "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
-      "qtd": 59,
-      "fat": 485991,
-      "canais": {
-        "Amazon": 4,
-        "Mercado Livre": 17,
-        "Casas Bahia": 38
-      }
-    },
-    {
       "sku": "TI1564",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
-      "qtd": 55,
-      "fat": 371614,
+      "qtd": 56,
+      "fat": 377413,
       "canais": {
+        "Casas Bahia": 5,
         "Shopee": 43,
-        "Casas Bahia": 4,
         "Amazon": 1,
         "Magazine Luiza": 7
       }
@@ -467,25 +467,25 @@
   ],
   "historico_por_dia": {
     "15/09/2026": {
-      "fat": 230316,
-      "peds": 4,
+      "fat": 653661,
+      "peds": 13,
       "canais": {
-        "Mercado Livre": 20938,
-        "Casas Bahia": 0,
+        "Mercado Livre": 163110,
+        "Casas Bahia": 69029,
         "Magazine Luiza": 153613,
-        "Shopee": 0,
+        "Shopee": 212144,
         "Amazon": 55765,
         "Amazon Fulfillment": 0
       }
     },
     "14/09/2026": {
-      "fat": 10273686,
-      "peds": 185,
+      "fat": 10173794,
+      "peds": 184,
       "canais": {
         "Mercado Livre": 1795157,
         "Casas Bahia": 3760330,
         "Magazine Luiza": 1043908,
-        "Shopee": 2626869,
+        "Shopee": 2526977,
         "Amazon": 1047422,
         "Amazon Fulfillment": 0
       }
