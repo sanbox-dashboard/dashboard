@@ -1713,6 +1713,7 @@ function canal(nome,num){
 // não esteja no cadastro ou esteja sem marca preenchida.
 let _mkPorSku=null;        // SKU (maiúsculo) → marca
 let _mkTodas=new Set();    // todas as marcas conhecidas (cadastro + vendas)
+let _prodPorSku={};        // SKU (maiúsculo) → {nome, marca, id} — catálogo completo
 function marcaRegistrar(pRows){
   if(!pRows||!pRows.length)return;
   const h=pRows[0]||[];
@@ -1726,6 +1727,19 @@ function marcaRegistrar(pRows){
     if(!sku||!mk)continue;
     _mkPorSku[sku]=mk;
     _mkTodas.add(mk);
+  }
+  // guarda também nome e id, para buscar SKU que nunca vendeu num canal
+  const iNome=h.indexOf('nome'), iId=h.indexOf('id');
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];
+    const sku=(r[iSku]||'').trim().toUpperCase();
+    if(!sku)continue;
+    const ant=_prodPorSku[sku]||{};
+    _prodPorSku[sku]={
+      nome: (iNome>=0?(r[iNome]||'').trim():'')||ant.nome||'',
+      marca:(r[iMk]||'').trim()||ant.marca||'',
+      id:   (iId>=0?(r[iId]||'').trim():'')||ant.id||''
+    };
   }
 }
 // Marca de um item: cadastro primeiro, descrição como fallback.
@@ -1744,7 +1758,7 @@ let _mkPromise=null;
 function garantirCadastroMarcas(){
   if(_mkPorSku)return Promise.resolve();
   if(!_mkPromise){
-    _mkPromise=fetchSheet(KOND_ID,'A:Z','tinyerp_produtos')
+    _mkPromise=fetchSheet(KOND_ID,'A:AZ','tinyerp_produtos')
       .then(pR=>{marcaRegistrar(pR);marcaSincronizarSelects();})
       .catch(e=>{console.warn('[Marcas] cadastro indisponível, usando descrição',e);_mkPorSku=_mkPorSku||{};});
   }
@@ -1843,9 +1857,20 @@ const CATS=['Audio','Coifas e Depuradores','Pequenos Eletroportateis','Fogao de 
   'Ar Condicionado','Climatizador de Ar','CookTop','Fornos Eletrico','Freezer','Frigobar',
   'Geladeira','Microondas','Refrigerador Industrial','Outros'];
 
+// Semente histórica. NÃO é mais a lista exibida: a aba Marcas monta as linhas
+// a partir das marcas que realmente aparecem nos dados (marcasDe), senão uma
+// marca nova — Wanke, Panasonic, Agratto… — fica invisível e o faturamento
+// dela some do total.
 const MARCAS_LISTA=['Mueller','Imbera','Itatiaia','Atlas','Midea','Philco','Amvox','Dako','Pulse',
   'SSOUND','Mallory','Britania','Mondial','Electrolux','Brastemp','Consul','LG','Samsung',
   'Multilaser','Intelbras','Knup','Best','Suggar','Cadence','Arno','Tramontina','Fischer','Outros'];
+// Todas as marcas presentes no agregado + o cadastro global + a semente.
+function marcasDe(data){
+  const s=new Set(MARCAS_LISTA);
+  Object.keys(data||{}).forEach(m=>{if(m)s.add(m);});
+  if(typeof _mkTodas!=='undefined')_mkTodas.forEach(m=>s.add(m));
+  return [...s];
+}
 
 function mesKey(dat){const p=dat.split('/');return`${+p[0]}/${p[2]}`;}
 function nomeMes(k){const[m,y]=k.split('/');return['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'][+m]+'/'+y.slice(2);}
@@ -2643,7 +2668,7 @@ function renderMarcaTable(){
     document.getElementById('marcaTit').textContent=`Marcas × Canal — ${nomeMes(mesA)}`;
     let h=`<table><thead><tr>${th('Marca','',true)}${CANAIS.map(c=>th(c.split(' ')[0]==='Magazine'?'Magalu':c.split(' ')[0],COR[c])).join('')}${th('Total')}</tr></thead><tbody>`;
     const tots={total:0};CANAIS.forEach(c=>tots[c]=0);
-    const mkOrd=[...MARCAS_LISTA].sort((a,b)=>CANAIS.reduce((s,c)=>s+(data[b]?.[c]?.[mesA]||0),0)-CANAIS.reduce((s,c)=>s+(data[a]?.[c]?.[mesA]||0),0));
+    const mkOrd=marcasDe(data).sort((a,b)=>CANAIS.reduce((s,c)=>s+(data[b]?.[c]?.[mesA]||0),0)-CANAIS.reduce((s,c)=>s+(data[a]?.[c]?.[mesA]||0),0));
     for(const mk of mkOrd){
       const mData=data[mk]||{};let total=0;
       const vals=CANAIS.map(c=>{const v=mData[c]?.[mesA]||0;total+=v;tots[c]+=v;return v;});
@@ -2657,7 +2682,7 @@ function renderMarcaTable(){
     document.getElementById('marcaTit').textContent=`${_marcaCanal} — Marcas por Mês`;
     let h=`<table><thead><tr>${th('Marca','',true)}${meses.map(m=>th(nomeMes(m),cor)).join('')}${th('Total')}</tr></thead><tbody>`;
     const tots={};meses.forEach(m=>tots[m]=0);let gT=0;
-    const mkOrd=[...MARCAS_LISTA].sort((a,b)=>meses.reduce((s,m)=>s+(data[b]?.[_marcaCanal]?.[m]||0),0)-meses.reduce((s,m)=>s+(data[a]?.[_marcaCanal]?.[m]||0),0));
+    const mkOrd=marcasDe(data).sort((a,b)=>meses.reduce((s,m)=>s+(data[b]?.[_marcaCanal]?.[m]||0),0)-meses.reduce((s,m)=>s+(data[a]?.[_marcaCanal]?.[m]||0),0));
     for(const mk of mkOrd){
       const cData=data[mk]?.[_marcaCanal]||{};let total=0;
       const cells=meses.map(m=>{const v=cData[m]||0;tots[m]+=v;total+=v;return tdZ(v);}).join('');
@@ -2674,7 +2699,7 @@ function renderMarcaTable(){
   const NM=['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
   let h2=`<table><thead><tr>${th('Marca','',true)}${mesesAno.map(m=>th(NM[+m.split('/')[0]])).join('')}${th('Total')}</tr></thead><tbody>`;
   const tots2={};mesesAno.forEach(m=>tots2[m]=0);let gT2=0;
-  const mkOrd2=[...MARCAS_LISTA].sort((a,b)=>mesesAno.reduce((s,m)=>s+CANAIS.reduce((ss,c)=>ss+(data[b]?.[c]?.[m]||0),0),0)-mesesAno.reduce((s,m)=>s+CANAIS.reduce((ss,c)=>ss+(data[a]?.[c]?.[m]||0),0),0));
+  const mkOrd2=marcasDe(data).sort((a,b)=>mesesAno.reduce((s,m)=>s+CANAIS.reduce((ss,c)=>ss+(data[b]?.[c]?.[m]||0),0),0)-mesesAno.reduce((s,m)=>s+CANAIS.reduce((ss,c)=>ss+(data[a]?.[c]?.[m]||0),0),0));
   for(const mk of mkOrd2){
     let total=0;
     const cells=mesesAno.map(m=>{const v=CANAIS.reduce((s,c)=>s+(data[mk]?.[c]?.[m]||0),0);tots2[m]+=v;total+=v;return tdZ(v);}).join('');
@@ -2977,7 +3002,7 @@ function aba(id,btn){
 
   if(id==='vCat'&&!_catC&&_cache){
     document.getElementById('catTbWrap').innerHTML='<div class="lt" style="padding:20px;text-align:center">⏳ Processando categorias...</div>';
-    fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pRows=>{
+    fetchSheet(KOND_ID,'A:AZ','tinyerp_produtos').then(pRows=>{
       marcaRegistrar(pRows);
       _catC=processarCat(_cache.pRows,_cache.iRows,pRows);
       // Inicia inputs de mês com padrão: últimos 7 meses
@@ -3408,7 +3433,7 @@ async function loadMetas(){
     } else if(_cache && !_catMesLoading){
       _catMesLoading = true;
       document.getElementById('catMesTbWrap').innerHTML='<div class="lt" style="padding:16px;text-align:center">⏳ Carregando categorias em background...</div>';
-      fetchSheet(KOND_ID,'A:Z','tinyerp_produtos').then(pR=>{
+      fetchSheet(KOND_ID,'A:AZ','tinyerp_produtos').then(pR=>{
         marcaRegistrar(pR);
         _catC=processarCat(_cache.pRows,_cache.iRows,pR);
         renderCatMesTb();
@@ -3909,6 +3934,10 @@ const COMP_MESN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','no
 //  diaA, diaB, filt, titEl, wrapEl, dlEl, cor
 function renderCompTabela(cfg){
   const{scope,data,diaA,diaB,filt,titEl,wrapEl,dlEl,cor,canal}=cfg;
+  // o catálogo alimenta a busca de SKU das apostas; carrega se ainda não veio
+  if(!Object.keys(_prodPorSku).length&&typeof garantirCadastroMarcas==='function'){
+    garantirCadastroMarcas().then(()=>compRerender(scope));
+  }
   const{byDia,mesPrevData,mesAtualData}=data;
   const fix=compFix(scope);
 
@@ -3930,6 +3959,8 @@ function renderCompTabela(cfg){
   Object.entries(mesAtualData||{}).forEach(([s,d])=>todos[s]=d.desc);
   Object.entries(mesPrevData ||{}).forEach(([s,d])=>{if(!todos[s])todos[s]=d.desc;});
   Object.values(byDia).forEach(p=>Object.entries(p).forEach(([s,d])=>{if(!todos[s])todos[s]=d.desc;}));
+  // catálogo completo: permite apostar em SKU que ainda não vendeu neste canal
+  Object.entries(_prodPorSku).forEach(([s,p])=>{if(!todos[s])todos[s]=p.nome||s;});
   const dl=document.getElementById(dlEl);
   if(dl&&dl.dataset.n!==String(Object.keys(todos).length)){
     dl.innerHTML=Object.keys(todos).sort().map(s=>`<option value="${s}">${s} — ${(todos[s]||'').substring(0,40)}</option>`).join('');
@@ -3943,6 +3974,11 @@ function renderCompTabela(cfg){
     const meta=mesAtualData?.[sku]||mesPrevData?.[sku]||byDia[diaA]?.[sku]||{};
     let desc=meta.desc,idProd=meta.idProd;
     if(!desc){for(const p of Object.values(byDia)){if(p[sku]){desc=p[sku].desc;idProd=p[sku].idProd;break;}}}
+    // sem venda no canal: busca nome e id no cadastro de produtos
+    if(!desc||!idProd){
+      const cad=_prodPorSku[String(sku).toUpperCase()];
+      if(cad){ desc=desc||cad.nome; idProd=idProd||cad.id; }
+    }
     return{sku,desc:desc||sku,idProd,hist:diasPrev.map(d=>(byDia[d]?.[sku]?.qtd||0)),
            qtdA:a.qtd,fatA:a.fat,qtdB:b.qtd};
   };
