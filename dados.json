@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-17T05:42:35.578Z",
-  "gerado_em_br": "17/09/2026, 02:42:35",
+  "gerado_em": "2026-09-17T10:56:48.907Z",
+  "gerado_em_br": "17/09/2026, 07:56:48",
   "dia_referencia": "17/09/2026",
   "dia_ontem": "16/09/2026",
   "resumo_dia": {
-    "faturamento": 232167,
-    "pedidos": 4,
-    "ticket_medio": 58041.75,
+    "faturamento": 290417,
+    "pedidos": 9,
+    "ticket_medio": 32268.56,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 178832,
-        "pedidos": 3,
+        "faturamento": 226528,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 53335,
-        "pedidos": 1,
+        "faturamento": 63889,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 212489487,
-    "pedidos": 2989,
+    "faturamento": 212547737,
+    "pedidos": 2994,
     "meta_mensal": 7620000.03,
-    "pct_meta": 2788.6,
-    "projecao_final": 374981447.65,
+    "pct_meta": 2789.3,
+    "projecao_final": 375084241.76,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 32053342,
-        "pedidos": 1265
+        "faturamento": 32101038,
+        "pedidos": 1269
       },
       "Casas Bahia": {
         "faturamento": 63947789,
@@ -73,8 +73,8 @@
         "pedidos": 276
       },
       "Shopee": {
-        "faturamento": 37279061,
-        "pedidos": 392
+        "faturamento": 37289615,
+        "pedidos": 393
       },
       "Amazon": {
         "faturamento": 44295668,
@@ -265,6 +265,19 @@
       }
     },
     {
+      "sku": "TI1633",
+      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
+      "qtd": 79,
+      "fat": 3695341,
+      "canais": {
+        "Mercado Livre": 42,
+        "Shopee": 7,
+        "Casas Bahia": 8,
+        "Amazon": 21,
+        "Magazine Luiza": 1
+      }
+    },
+    {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
       "qtd": 78,
@@ -274,19 +287,6 @@
         "Amazon": 20,
         "Casas Bahia": 2,
         "Magazine Luiza": 4
-      }
-    },
-    {
-      "sku": "TI1633",
-      "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 78,
-      "fat": 3678642,
-      "canais": {
-        "Mercado Livre": 41,
-        "Shopee": 7,
-        "Casas Bahia": 8,
-        "Amazon": 21,
-        "Magazine Luiza": 1
       }
     },
     {
@@ -353,10 +353,10 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 56,
-      "fat": 617077,
+      "qtd": 57,
+      "fat": 627226,
       "canais": {
-        "Mercado Livre": 12,
+        "Mercado Livre": 13,
         "Shopee": 20,
         "Casas Bahia": 2,
         "Amazon": 11,
@@ -428,13 +428,13 @@
     {
       "sku": "TI1526",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Preto - 127v",
-      "qtd": 47,
-      "fat": 574890,
+      "qtd": 48,
+      "fat": 584829,
       "canais": {
+        "Mercado Livre": 19,
         "Magazine Luiza": 11,
         "Amazon": 11,
         "Shopee": 4,
-        "Mercado Livre": 18,
         "Casas Bahia": 3
       }
     },
@@ -468,13 +468,13 @@
   ],
   "historico_por_dia": {
     "17/09/2026": {
-      "fat": 232167,
-      "peds": 4,
+      "fat": 290417,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 178832,
+        "Mercado Livre": 226528,
         "Casas Bahia": 0,
         "Magazine Luiza": 0,
-        "Shopee": 53335,
+        "Shopee": 63889,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
