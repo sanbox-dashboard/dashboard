@@ -1,12 +1,12 @@
 {
-  "gerado_em": "2026-09-18T01:00:05.191Z",
-  "gerado_em_br": "17/09/2026, 22:00:05",
+  "gerado_em": "2026-09-18T05:47:12.658Z",
+  "gerado_em_br": "18/09/2026, 02:47:12",
   "dia_referencia": "18/09/2026",
   "dia_ontem": "17/09/2026",
   "resumo_dia": {
-    "faturamento": 407386,
-    "pedidos": 3,
-    "ticket_medio": 135795.33,
+    "faturamento": 554872,
+    "pedidos": 6,
+    "ticket_medio": 92478.67,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 407386,
-        "pedidos": 3,
+        "faturamento": 545373,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
@@ -35,8 +35,8 @@
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 9499,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 8098193,
-    "pedidos": 124
+    "faturamento": 8523025,
+    "pedidos": 134
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 220938417,
-    "pedidos": 3113,
+    "faturamento": 221510735,
+    "pedidos": 3126,
     "meta_mensal": 8600005,
-    "pct_meta": 2569,
-    "projecao_final": 368230695,
+    "pct_meta": 2575.7,
+    "projecao_final": 369184558.33,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 32923911,
-        "pedidos": 1313
+        "faturamento": 33171045,
+        "pedidos": 1320
       },
       "Casas Bahia": {
-        "faturamento": 66717923,
-        "pedidos": 523
+        "faturamento": 66719500,
+        "pedidos": 524
       },
       "Magazine Luiza": {
-        "faturamento": 35034457,
-        "pedidos": 284
+        "faturamento": 35294136,
+        "pedidos": 287
       },
       "Shopee": {
         "faturamento": 39282420,
         "pedidos": 417
       },
       "Amazon": {
-        "faturamento": 46046157,
-        "pedidos": 550
+        "faturamento": 46110085,
+        "pedidos": 552
       },
       "Amazon Fulfillment": {
         "faturamento": 124339,
@@ -142,12 +142,12 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 167,
-      "fat": 3470149,
+      "qtd": 168,
+      "fat": 3479648,
       "canais": {
+        "Amazon": 60,
         "Magazine Luiza": 7,
         "Shopee": 55,
-        "Amazon": 59,
         "Mercado Livre": 46
       }
     },
@@ -167,11 +167,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 147,
-      "fat": 5492763,
+      "qtd": 149,
+      "fat": 5529051,
       "canais": {
+        "Mercado Livre": 50,
         "Shopee": 20,
-        "Mercado Livre": 48,
         "Amazon": 28,
         "Casas Bahia": 40,
         "Magazine Luiza": 10,
@@ -181,11 +181,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 138,
-      "fat": 3513786,
+      "qtd": 139,
+      "fat": 3669470,
       "canais": {
+        "Mercado Livre": 59,
         "Casas Bahia": 57,
-        "Mercado Livre": 58,
         "Magazine Luiza": 8,
         "Shopee": 5,
         "Amazon": 10
@@ -220,12 +220,12 @@
     {
       "sku": "TI1556",
       "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
-      "qtd": 100,
-      "fat": 853775,
+      "qtd": 101,
+      "fat": 908204,
       "canais": {
+        "Amazon": 7,
         "Casas Bahia": 66,
         "Mercado Livre": 25,
-        "Amazon": 6,
         "Shopee": 3
       }
     },
@@ -254,13 +254,13 @@
     {
       "sku": "TI1563",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 88,
-      "fat": 1027344,
+      "qtd": 89,
+      "fat": 1033543,
       "canais": {
+        "Magazine Luiza": 18,
         "Shopee": 23,
         "Casas Bahia": 36,
-        "Amazon": 12,
-        "Magazine Luiza": 17
+        "Amazon": 12
       }
     },
     {
@@ -315,10 +315,10 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 63,
-      "fat": 691820,
+      "qtd": 65,
+      "fat": 712118,
       "canais": {
-        "Mercado Livre": 17,
+        "Mercado Livre": 19,
         "Magazine Luiza": 2,
         "Shopee": 21,
         "Casas Bahia": 2,
@@ -376,6 +376,18 @@
       }
     },
     {
+      "sku": "TI516",
+      "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
+      "qtd": 54,
+      "fat": 1192557,
+      "canais": {
+        "Casas Bahia": 7,
+        "Mercado Livre": 16,
+        "Magazine Luiza": 10,
+        "Shopee": 21
+      }
+    },
+    {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
       "qtd": 54,
@@ -398,18 +410,6 @@
         "Casas Bahia": 9,
         "Amazon": 1,
         "Shopee": 4
-      }
-    },
-    {
-      "sku": "TI516",
-      "desc": "Caixa de Som Amplificada Pulse 2200W SP500 Potente Bluetooth",
-      "qtd": 53,
-      "fat": 1178258,
-      "canais": {
-        "Mercado Livre": 16,
-        "Magazine Luiza": 10,
-        "Casas Bahia": 6,
-        "Shopee": 21
       }
     },
     {
@@ -467,26 +467,26 @@
   ],
   "historico_por_dia": {
     "18/09/2026": {
-      "fat": 407386,
-      "peds": 3,
+      "fat": 554872,
+      "peds": 6,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
-        "Magazine Luiza": 407386,
+        "Magazine Luiza": 545373,
         "Shopee": 0,
-        "Amazon": 0,
+        "Amazon": 9499,
         "Amazon Fulfillment": 0
       }
     },
     "17/09/2026": {
-      "fat": 8098193,
-      "peds": 124,
+      "fat": 8523025,
+      "peds": 134,
       "canais": {
-        "Mercado Livre": 1004651,
-        "Casas Bahia": 2770134,
-        "Magazine Luiza": 579346,
+        "Mercado Livre": 1251785,
+        "Casas Bahia": 2771711,
+        "Magazine Luiza": 701038,
         "Shopee": 2056694,
-        "Amazon": 1684068,
+        "Amazon": 1738497,
         "Amazon Fulfillment": 0
       }
     },
