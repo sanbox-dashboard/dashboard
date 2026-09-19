@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-19T08:30:50.824Z",
-  "gerado_em_br": "19/09/2026, 05:30:50",
+  "gerado_em": "2026-09-19T12:51:42.388Z",
+  "gerado_em_br": "19/09/2026, 09:51:42",
   "dia_referencia": "19/09/2026",
   "dia_ontem": "18/09/2026",
   "resumo_dia": {
-    "faturamento": 333788,
-    "pedidos": 4,
-    "ticket_medio": 83447,
+    "faturamento": 877668,
+    "pedidos": 8,
+    "ticket_medio": 109708.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 14198,
-        "pedidos": 2,
+        "faturamento": 257789,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,8 +29,8 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 300289,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 229663500,
-    "pedidos": 3245,
+    "faturamento": 230207380,
+    "pedidos": 3249,
     "meta_mensal": 8600005,
-    "pct_meta": 2670.5,
-    "projecao_final": 362626578.95,
+    "pct_meta": 2676.8,
+    "projecao_final": 363485336.84,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 34124083,
-        "pedidos": 1373
+        "faturamento": 34367674,
+        "pedidos": 1374
       },
       "Casas Bahia": {
         "faturamento": 70783526,
@@ -73,8 +73,8 @@
         "pedidos": 299
       },
       "Shopee": {
-        "faturamento": 40242658,
-        "pedidos": 427
+        "faturamento": 40542947,
+        "pedidos": 430
       },
       "Amazon": {
         "faturamento": 46860633,
@@ -142,13 +142,13 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 169,
-      "fat": 3412485,
+      "qtd": 170,
+      "fat": 3421784,
       "canais": {
+        "Shopee": 56,
         "Amazon": 60,
         "Mercado Livre": 46,
-        "Magazine Luiza": 8,
-        "Shopee": 55
+        "Magazine Luiza": 8
       }
     },
     {
@@ -292,12 +292,12 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 70,
-      "fat": 762863,
+      "qtd": 71,
+      "fat": 774862,
       "canais": {
+        "Shopee": 22,
         "Mercado Livre": 24,
         "Magazine Luiza": 2,
-        "Shopee": 21,
         "Casas Bahia": 2,
         "Amazon": 11,
         "Amazon Fulfillment": 10
@@ -341,6 +341,18 @@
       }
     },
     {
+      "sku": "TI1564",
+      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
+      "qtd": 60,
+      "fat": 398109,
+      "canais": {
+        "Shopee": 47,
+        "Magazine Luiza": 6,
+        "Casas Bahia": 6,
+        "Amazon": 1
+      }
+    },
+    {
       "sku": "TI1760",
       "desc": "Fogao 4 Bocas Atlas Coliseum Plus Forno 48 litros Mesa em Inox Acendimento Manual- Preto",
       "qtd": 60,
@@ -351,18 +363,6 @@
         "Amazon": 1,
         "Casas Bahia": 4,
         "Shopee": 2
-      }
-    },
-    {
-      "sku": "TI1564",
-      "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
-      "qtd": 59,
-      "fat": 392210,
-      "canais": {
-        "Shopee": 46,
-        "Magazine Luiza": 6,
-        "Casas Bahia": 6,
-        "Amazon": 1
       }
     },
     {
@@ -467,13 +467,13 @@
   ],
   "historico_por_dia": {
     "19/09/2026": {
-      "fat": 333788,
-      "peds": 4,
+      "fat": 877668,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 14198,
+        "Mercado Livre": 257789,
         "Casas Bahia": 190793,
         "Magazine Luiza": 128797,
-        "Shopee": 0,
+        "Shopee": 300289,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
