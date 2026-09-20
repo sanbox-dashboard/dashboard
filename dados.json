@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-20T17:55:57.874Z",
-  "gerado_em_br": "20/09/2026, 14:55:57",
+  "gerado_em": "2026-09-20T20:23:17.072Z",
+  "gerado_em_br": "20/09/2026, 17:23:17",
   "dia_referencia": "20/09/2026",
   "dia_ontem": "19/09/2026",
   "resumo_dia": {
-    "faturamento": 4035070,
-    "pedidos": 42,
-    "ticket_medio": 96073.1,
+    "faturamento": 4452628,
+    "pedidos": 56,
+    "ticket_medio": 79511.21,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 413767,
-        "pedidos": 18,
+        "faturamento": 521969,
+        "pedidos": 26,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,20 +23,20 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 497500,
-        "pedidos": 3,
-        "meta": 0,
-        "pct_meta": null
-      },
-      "Shopee": {
-        "faturamento": 660624,
+        "faturamento": 597123,
         "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
+      "Shopee": {
+        "faturamento": 838660,
+        "pedidos": 6,
+        "meta": 0,
+        "pct_meta": null
+      },
       "Amazon": {
-        "faturamento": 1551695,
-        "pedidos": 9,
+        "faturamento": 1583392,
+        "pedidos": 12,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 240353665,
-    "pedidos": 3395,
+    "faturamento": 240771223,
+    "pedidos": 3409,
     "meta_mensal": 8600005,
-    "pct_meta": 2794.8,
-    "projecao_final": 360530497.5,
+    "pct_meta": 2799.7,
+    "projecao_final": 361156834.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 35858809,
-        "pedidos": 1437
+        "faturamento": 35967011,
+        "pedidos": 1445
       },
       "Casas Bahia": {
         "faturamento": 74249668,
         "pedidos": 585
       },
       "Magazine Luiza": {
-        "faturamento": 37921093,
-        "pedidos": 310
+        "faturamento": 38020716,
+        "pedidos": 311
       },
       "Shopee": {
-        "faturamento": 41822334,
-        "pedidos": 442
+        "faturamento": 42000370,
+        "pedidos": 444
       },
       "Amazon": {
-        "faturamento": 49434447,
-        "pedidos": 592
+        "faturamento": 49466144,
+        "pedidos": 595
       },
       "Amazon Fulfillment": {
         "faturamento": 124339,
@@ -129,12 +129,12 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 172,
-      "fat": 3440977,
+      "qtd": 175,
+      "fat": 3470824,
       "canais": {
-        "Mercado Livre": 46,
-        "Amazon": 63,
-        "Shopee": 56,
+        "Shopee": 57,
+        "Mercado Livre": 47,
+        "Amazon": 64,
         "Magazine Luiza": 7
       }
     },
@@ -256,11 +256,11 @@
     {
       "sku": "TI1563",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 93,
-      "fat": 1056362,
+      "qtd": 94,
+      "fat": 1062261,
       "canais": {
+        "Amazon": 15,
         "Casas Bahia": 36,
-        "Amazon": 14,
         "Magazine Luiza": 19,
         "Shopee": 24
       }
@@ -268,11 +268,11 @@
     {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 81,
-      "fat": 3723949,
+      "qtd": 83,
+      "fat": 3756947,
       "canais": {
-        "Amazon": 22,
-        "Mercado Livre": 45,
+        "Mercado Livre": 46,
+        "Amazon": 23,
         "Casas Bahia": 8,
         "Shopee": 5,
         "Magazine Luiza": 1
@@ -356,6 +356,18 @@
       }
     },
     {
+      "sku": "TI1602",
+      "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
+      "qtd": 59,
+      "fat": 1775473,
+      "canais": {
+        "Mercado Livre": 42,
+        "Amazon": 12,
+        "Magazine Luiza": 4,
+        "Shopee": 1
+      }
+    },
+    {
       "sku": "TI1560",
       "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
       "qtd": 59,
@@ -364,18 +376,6 @@
         "Mercado Livre": 9,
         "Casas Bahia": 48,
         "Magazine Luiza": 2
-      }
-    },
-    {
-      "sku": "TI1602",
-      "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 58,
-      "fat": 1761174,
-      "canais": {
-        "Amazon": 12,
-        "Mercado Livre": 41,
-        "Magazine Luiza": 4,
-        "Shopee": 1
       }
     },
     {
@@ -403,6 +403,18 @@
       }
     },
     {
+      "sku": "TI1580",
+      "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro Branco-Bivolt",
+      "qtd": 51,
+      "fat": 633039,
+      "canais": {
+        "Mercado Livre": 22,
+        "Amazon": 12,
+        "Magazine Luiza": 14,
+        "Casas Bahia": 3
+      }
+    },
+    {
       "sku": "TI1758",
       "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
       "qtd": 51,
@@ -411,6 +423,18 @@
         "Magazine Luiza": 18,
         "Mercado Livre": 19,
         "Casas Bahia": 9,
+        "Amazon": 1,
+        "Shopee": 4
+      }
+    },
+    {
+      "sku": "TI1090",
+      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
+      "qtd": 50,
+      "fat": 399420,
+      "canais": {
+        "Mercado Livre": 38,
+        "Casas Bahia": 7,
         "Amazon": 1,
         "Shopee": 4
       }
@@ -430,30 +454,6 @@
       }
     },
     {
-      "sku": "TI1580",
-      "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro Branco-Bivolt",
-      "qtd": 50,
-      "fat": 618700,
-      "canais": {
-        "Mercado Livre": 21,
-        "Amazon": 12,
-        "Magazine Luiza": 14,
-        "Casas Bahia": 3
-      }
-    },
-    {
-      "sku": "TI1090",
-      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 49,
-      "fat": 391321,
-      "canais": {
-        "Mercado Livre": 37,
-        "Casas Bahia": 7,
-        "Amazon": 1,
-        "Shopee": 4
-      }
-    },
-    {
       "sku": "TI1768",
       "desc": "Lava e Seca Electrolux  LSC12 12Kg Cinza Onix Inverter com Agua Quente e Lavagem Inteligente-127v",
       "qtd": 44,
@@ -469,14 +469,14 @@
   ],
   "historico_por_dia": {
     "20/09/2026": {
-      "fat": 4035070,
-      "peds": 42,
+      "fat": 4452628,
+      "peds": 56,
       "canais": {
-        "Mercado Livre": 413767,
+        "Mercado Livre": 521969,
         "Casas Bahia": 796635,
-        "Magazine Luiza": 497500,
-        "Shopee": 660624,
-        "Amazon": 1551695,
+        "Magazine Luiza": 597123,
+        "Shopee": 838660,
+        "Amazon": 1583392,
         "Amazon Fulfillment": 0
       }
     },
