@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-20T20:23:17.072Z",
-  "gerado_em_br": "20/09/2026, 17:23:17",
+  "gerado_em": "2026-09-20T22:57:53.263Z",
+  "gerado_em_br": "20/09/2026, 19:57:53",
   "dia_referencia": "20/09/2026",
   "dia_ontem": "19/09/2026",
   "resumo_dia": {
-    "faturamento": 4452628,
-    "pedidos": 56,
-    "ticket_medio": 79511.21,
+    "faturamento": 4857128,
+    "pedidos": 69,
+    "ticket_medio": 70393.16,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 521969,
-        "pedidos": 26,
+        "faturamento": 597692,
+        "pedidos": 33,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,20 +23,20 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 597123,
-        "pedidos": 4,
-        "meta": 0,
-        "pct_meta": null
-      },
-      "Shopee": {
-        "faturamento": 838660,
+        "faturamento": 778468,
         "pedidos": 6,
         "meta": 0,
         "pct_meta": null
       },
+      "Shopee": {
+        "faturamento": 979788,
+        "pedidos": 9,
+        "meta": 0,
+        "pct_meta": null
+      },
       "Amazon": {
-        "faturamento": 1583392,
-        "pedidos": 12,
+        "faturamento": 1589696,
+        "pedidos": 13,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 240771223,
-    "pedidos": 3409,
+    "faturamento": 241175723,
+    "pedidos": 3422,
     "meta_mensal": 8600005,
-    "pct_meta": 2799.7,
-    "projecao_final": 361156834.5,
+    "pct_meta": 2804.4,
+    "projecao_final": 361763584.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 35967011,
-        "pedidos": 1445
+        "faturamento": 36042734,
+        "pedidos": 1452
       },
       "Casas Bahia": {
         "faturamento": 74249668,
         "pedidos": 585
       },
       "Magazine Luiza": {
-        "faturamento": 38020716,
-        "pedidos": 311
+        "faturamento": 38202061,
+        "pedidos": 313
       },
       "Shopee": {
-        "faturamento": 42000370,
-        "pedidos": 444
+        "faturamento": 42141498,
+        "pedidos": 447
       },
       "Amazon": {
-        "faturamento": 49466144,
-        "pedidos": 595
+        "faturamento": 49472448,
+        "pedidos": 596
       },
       "Amazon Fulfillment": {
         "faturamento": 124339,
@@ -129,11 +129,11 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 175,
-      "fat": 3470824,
+      "qtd": 176,
+      "fat": 3481873,
       "canais": {
+        "Mercado Livre": 48,
         "Shopee": 57,
-        "Mercado Livre": 47,
         "Amazon": 64,
         "Magazine Luiza": 7
       }
@@ -155,14 +155,14 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 163,
-      "fat": 1939839,
+      "qtd": 165,
+      "fat": 1950957,
       "canais": {
+        "Shopee": 77,
+        "Mercado Livre": 7,
         "Amazon": 62,
-        "Shopee": 76,
         "Magazine Luiza": 15,
-        "Casas Bahia": 4,
-        "Mercado Livre": 6
+        "Casas Bahia": 4
       }
     },
     {
@@ -194,6 +194,19 @@
       }
     },
     {
+      "sku": "TI1514",
+      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
+      "qtd": 113,
+      "fat": 3948911,
+      "canais": {
+        "Shopee": 8,
+        "Amazon": 15,
+        "Casas Bahia": 6,
+        "Magazine Luiza": 13,
+        "Mercado Livre": 71
+      }
+    },
+    {
       "sku": "TI1556",
       "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
       "qtd": 113,
@@ -203,19 +216,6 @@
         "Mercado Livre": 28,
         "Amazon": 7,
         "Shopee": 3
-      }
-    },
-    {
-      "sku": "TI1514",
-      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 112,
-      "fat": 3929912,
-      "canais": {
-        "Amazon": 15,
-        "Casas Bahia": 6,
-        "Magazine Luiza": 13,
-        "Mercado Livre": 71,
-        "Shopee": 7
       }
     },
     {
@@ -405,13 +405,27 @@
     {
       "sku": "TI1580",
       "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro Branco-Bivolt",
-      "qtd": 51,
-      "fat": 633039,
+      "qtd": 52,
+      "fat": 646038,
       "canais": {
-        "Mercado Livre": 22,
+        "Mercado Livre": 23,
         "Amazon": 12,
         "Magazine Luiza": 14,
         "Casas Bahia": 3
+      }
+    },
+    {
+      "sku": "TI1607",
+      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
+      "qtd": 51,
+      "fat": 1261043,
+      "canais": {
+        "Mercado Livre": 33,
+        "Outros": 1,
+        "Amazon": 3,
+        "Casas Bahia": 8,
+        "Shopee": 2,
+        "Magazine Luiza": 4
       }
     },
     {
@@ -440,20 +454,6 @@
       }
     },
     {
-      "sku": "TI1607",
-      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
-      "qtd": 50,
-      "fat": 1242074,
-      "canais": {
-        "Mercado Livre": 32,
-        "Outros": 1,
-        "Amazon": 3,
-        "Casas Bahia": 8,
-        "Shopee": 2,
-        "Magazine Luiza": 4
-      }
-    },
-    {
       "sku": "TI1768",
       "desc": "Lava e Seca Electrolux  LSC12 12Kg Cinza Onix Inverter com Agua Quente e Lavagem Inteligente-127v",
       "qtd": 44,
@@ -469,14 +469,14 @@
   ],
   "historico_por_dia": {
     "20/09/2026": {
-      "fat": 4452628,
-      "peds": 56,
+      "fat": 4857128,
+      "peds": 69,
       "canais": {
-        "Mercado Livre": 521969,
+        "Mercado Livre": 597692,
         "Casas Bahia": 796635,
-        "Magazine Luiza": 597123,
-        "Shopee": 838660,
-        "Amazon": 1583392,
+        "Magazine Luiza": 778468,
+        "Shopee": 979788,
+        "Amazon": 1589696,
         "Amazon Fulfillment": 0
       }
     },
