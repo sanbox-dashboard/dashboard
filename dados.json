@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-21T00:56:17.311Z",
-  "gerado_em_br": "20/09/2026, 21:56:17",
+  "gerado_em": "2026-09-21T05:56:27.983Z",
+  "gerado_em_br": "21/09/2026, 02:56:27",
   "dia_referencia": "21/09/2026",
   "dia_ontem": "20/09/2026",
   "resumo_dia": {
-    "faturamento": 205964,
-    "pedidos": 1,
-    "ticket_medio": 205964,
+    "faturamento": 214063,
+    "pedidos": 2,
+    "ticket_medio": 107031.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 8099,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 5043385,
-    "pedidos": 79
+    "faturamento": 5698885,
+    "pedidos": 87
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 241432328,
-    "pedidos": 3430,
+    "faturamento": 242095927,
+    "pedidos": 3439,
     "meta_mensal": 8600005,
-    "pct_meta": 2807.4,
-    "projecao_final": 344903325.71,
+    "pct_meta": 2815.1,
+    "projecao_final": 345851324.29,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 36114896,
-        "pedidos": 1460
+        "faturamento": 36172333,
+        "pedidos": 1463
       },
       "Casas Bahia": {
-        "faturamento": 74194829,
-        "pedidos": 582
+        "faturamento": 74447901,
+        "pedidos": 584
       },
       "Magazine Luiza": {
         "faturamento": 38408025,
         "pedidos": 314
       },
       "Shopee": {
-        "faturamento": 42141498,
-        "pedidos": 447
+        "faturamento": 42358799,
+        "pedidos": 449
       },
       "Amazon": {
-        "faturamento": 49505766,
-        "pedidos": 598
+        "faturamento": 49641555,
+        "pedidos": 600
       },
       "Amazon Fulfillment": {
         "faturamento": 124339,
@@ -103,13 +103,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 385,
-      "fat": 7628609,
+      "qtd": 386,
+      "fat": 7638728,
       "canais": {
+        "Amazon": 41,
         "Casas Bahia": 61,
         "Shopee": 41,
         "Mercado Livre": 240,
-        "Amazon": 40,
         "Magazine Luiza": 3
       }
     },
@@ -129,11 +129,11 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 175,
-      "fat": 3396002,
+      "qtd": 176,
+      "fat": 3405301,
       "canais": {
+        "Shopee": 57,
         "Mercado Livre": 49,
-        "Shopee": 56,
         "Amazon": 63,
         "Magazine Luiza": 7
       }
@@ -221,10 +221,10 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 103,
-      "fat": 2394699,
+      "qtd": 104,
+      "fat": 2403098,
       "canais": {
-        "Shopee": 15,
+        "Shopee": 16,
         "Mercado Livre": 44,
         "Casas Bahia": 10,
         "Magazine Luiza": 9,
@@ -268,12 +268,12 @@
     {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 82,
-      "fat": 3739948,
+      "qtd": 83,
+      "fat": 3754947,
       "canais": {
+        "Casas Bahia": 9,
         "Mercado Livre": 45,
         "Amazon": 23,
-        "Casas Bahia": 8,
         "Shopee": 5,
         "Magazine Luiza": 1
       }
@@ -415,6 +415,18 @@
       }
     },
     {
+      "sku": "TI1090",
+      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
+      "qtd": 50,
+      "fat": 399320,
+      "canais": {
+        "Mercado Livre": 38,
+        "Casas Bahia": 7,
+        "Amazon": 1,
+        "Shopee": 4
+      }
+    },
+    {
       "sku": "TI1607",
       "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
       "qtd": 50,
@@ -426,18 +438,6 @@
         "Casas Bahia": 7,
         "Shopee": 2,
         "Magazine Luiza": 4
-      }
-    },
-    {
-      "sku": "TI1090",
-      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 49,
-      "fat": 391221,
-      "canais": {
-        "Mercado Livre": 37,
-        "Casas Bahia": 7,
-        "Amazon": 1,
-        "Shopee": 4
       }
     },
     {
@@ -469,10 +469,10 @@
   ],
   "historico_por_dia": {
     "21/09/2026": {
-      "fat": 205964,
-      "peds": 1,
+      "fat": 214063,
+      "peds": 2,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 8099,
         "Casas Bahia": 0,
         "Magazine Luiza": 205964,
         "Shopee": 0,
@@ -481,14 +481,14 @@
       }
     },
     "20/09/2026": {
-      "fat": 5043385,
-      "peds": 79,
+      "fat": 5698885,
+      "peds": 87,
       "canais": {
-        "Mercado Livre": 704153,
-        "Casas Bahia": 843113,
+        "Mercado Livre": 753491,
+        "Casas Bahia": 1096185,
         "Magazine Luiza": 778468,
-        "Shopee": 979788,
-        "Amazon": 1623014,
+        "Shopee": 1197089,
+        "Amazon": 1758803,
         "Amazon Fulfillment": 0
       }
     },
