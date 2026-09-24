@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-24T07:09:59.161Z",
-  "gerado_em_br": "24/09/2026, 04:09:59",
+  "gerado_em": "2026-09-24T13:10:49.515Z",
+  "gerado_em_br": "24/09/2026, 10:10:49",
   "dia_referencia": "24/09/2026",
   "dia_ontem": "23/09/2026",
   "resumo_dia": {
-    "faturamento": 422399,
-    "pedidos": 7,
-    "ticket_medio": 60342.71,
+    "faturamento": 1137719,
+    "pedidos": 18,
+    "ticket_medio": 63206.61,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 32887,
-        "pedidos": 3,
+        "faturamento": 447276,
+        "pedidos": 11,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 64954,
+        "pedidos": 1,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 9099,
-        "pedidos": 1,
+        "faturamento": 245076,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 7417008,
+    "faturamento": 8169351,
     "pedidos": 147
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 265363015,
-    "pedidos": 3849,
+    "faturamento": 266830678,
+    "pedidos": 3860,
     "meta_mensal": 8600005,
-    "pct_meta": 3085.6,
-    "projecao_final": 331703768.75,
+    "pct_meta": 3102.7,
+    "projecao_final": 333538347.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 42220757,
-        "pedidos": 1682
+        "faturamento": 43387489,
+        "pedidos": 1690
       },
       "Casas Bahia": {
         "faturamento": 83607752,
@@ -73,12 +73,12 @@
         "pedidos": 348
       },
       "Shopee": {
-        "faturamento": 45320861,
-        "pedidos": 485
+        "faturamento": 45385815,
+        "pedidos": 486
       },
       "Amazon": {
-        "faturamento": 51387398,
-        "pedidos": 649
+        "faturamento": 51623375,
+        "pedidos": 651
       },
       "Amazon Fulfillment": {
         "faturamento": 124339,
@@ -129,10 +129,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 183,
-      "fat": 3328593,
+      "qtd": 184,
+      "fat": 3337692,
       "canais": {
-        "Amazon": 63,
+        "Amazon": 64,
         "Shopee": 55,
         "Mercado Livre": 58,
         "Magazine Luiza": 7
@@ -154,13 +154,13 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 157,
-      "fat": 5772782,
+      "qtd": 158,
+      "fat": 5789881,
       "canais": {
+        "Amazon": 32,
         "Shopee": 19,
         "Casas Bahia": 33,
         "Mercado Livre": 63,
-        "Amazon": 31,
         "Magazine Luiza": 9,
         "Outros": 2
       }
@@ -259,10 +259,10 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 88,
-      "fat": 1041045,
+      "qtd": 89,
+      "fat": 1052044,
       "canais": {
-        "Mercado Livre": 39,
+        "Mercado Livre": 40,
         "Shopee": 23,
         "Casas Bahia": 3,
         "Amazon": 12,
@@ -405,10 +405,10 @@
     {
       "sku": "TI1607",
       "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
-      "qtd": 51,
-      "fat": 1080801,
+      "qtd": 52,
+      "fat": 1098190,
       "canais": {
-        "Mercado Livre": 36,
+        "Mercado Livre": 37,
         "Outros": 1,
         "Amazon": 3,
         "Casas Bahia": 6,
@@ -429,6 +429,18 @@
       }
     },
     {
+      "sku": "TI1090",
+      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
+      "qtd": 48,
+      "fat": 383622,
+      "canais": {
+        "Mercado Livre": 37,
+        "Shopee": 5,
+        "Casas Bahia": 5,
+        "Amazon": 1
+      }
+    },
+    {
       "sku": "TI1581",
       "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro-Preto",
       "qtd": 47,
@@ -437,18 +449,6 @@
         "Magazine Luiza": 6,
         "Mercado Livre": 39,
         "Casas Bahia": 2
-      }
-    },
-    {
-      "sku": "TI1090",
-      "desc": "Forno de Bancada Eletrico  Philco PFE60I 60 Litros 1600W 127V - Cinza",
-      "qtd": 47,
-      "fat": 375523,
-      "canais": {
-        "Mercado Livre": 36,
-        "Shopee": 5,
-        "Casas Bahia": 5,
-        "Amazon": 1
       }
     },
     {
@@ -467,22 +467,22 @@
   ],
   "historico_por_dia": {
     "24/09/2026": {
-      "fat": 422399,
-      "peds": 7,
+      "fat": 1137719,
+      "peds": 18,
       "canais": {
-        "Mercado Livre": 32887,
+        "Mercado Livre": 447276,
         "Casas Bahia": 0,
         "Magazine Luiza": 380413,
-        "Shopee": 0,
-        "Amazon": 9099,
+        "Shopee": 64954,
+        "Amazon": 245076,
         "Amazon Fulfillment": 0
       }
     },
     "23/09/2026": {
-      "fat": 7417008,
+      "fat": 8169351,
       "peds": 147,
       "canais": {
-        "Mercado Livre": 2370703,
+        "Mercado Livre": 3123046,
         "Casas Bahia": 2436245,
         "Magazine Luiza": 1012162,
         "Shopee": 985989,
