@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-26T21:48:36.211Z",
-  "gerado_em_br": "26/09/2026, 18:48:36",
+  "gerado_em": "2026-09-27T00:12:48.620Z",
+  "gerado_em_br": "26/09/2026, 21:12:48",
   "dia_referencia": "26/09/2026",
   "dia_ontem": "25/09/2026",
   "resumo_dia": {
-    "faturamento": 3525849,
-    "pedidos": 62,
-    "ticket_medio": 56868.53,
+    "faturamento": 4169705,
+    "pedidos": 70,
+    "ticket_medio": 59567.21,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 823883,
-        "pedidos": 34,
+        "faturamento": 1017393,
+        "pedidos": 39,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 445952,
-        "pedidos": 4,
+        "faturamento": 896298,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 283586729,
-    "pedidos": 4133,
+    "faturamento": 284230585,
+    "pedidos": 4141,
     "meta_mensal": 8600005,
-    "pct_meta": 3297.5,
-    "projecao_final": 327215456.54,
+    "pct_meta": 3305,
+    "projecao_final": 315811761.11,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 48084905,
-        "pedidos": 1836
+        "faturamento": 48278415,
+        "pedidos": 1841
       },
       "Casas Bahia": {
         "faturamento": 88460462,
         "pedidos": 686
       },
       "Magazine Luiza": {
-        "faturamento": 43072724,
-        "pedidos": 360
+        "faturamento": 43523070,
+        "pedidos": 363
       },
       "Shopee": {
         "faturamento": 48821187,
@@ -129,10 +129,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 191,
-      "fat": 3331984,
+      "qtd": 192,
+      "fat": 3343033,
       "canais": {
-        "Mercado Livre": 61,
+        "Mercado Livre": 62,
         "Shopee": 59,
         "Amazon": 64,
         "Magazine Luiza": 7
@@ -178,6 +178,20 @@
       }
     },
     {
+      "sku": "TI1529",
+      "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
+      "qtd": 128,
+      "fat": 4640727,
+      "canais": {
+        "Mercado Livre": 41,
+        "Casas Bahia": 56,
+        "Amazon": 15,
+        "Shopee": 5,
+        "Outros": 5,
+        "Magazine Luiza": 6
+      }
+    },
+    {
       "sku": "TI1078",
       "desc": "Caixa de som ACA 1000 NewX Amvox LED PowerX TWS 1000W Bivolt-Sem FM",
       "qtd": 128,
@@ -189,20 +203,6 @@
         "Mercado Livre": 45,
         "Casas Bahia": 18,
         "Shopee": 41
-      }
-    },
-    {
-      "sku": "TI1529",
-      "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 127,
-      "fat": 4485043,
-      "canais": {
-        "Casas Bahia": 56,
-        "Amazon": 15,
-        "Mercado Livre": 40,
-        "Shopee": 5,
-        "Outros": 5,
-        "Magazine Luiza": 6
       }
     },
     {
@@ -235,10 +235,10 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 103,
-      "fat": 1198680,
+      "qtd": 104,
+      "fat": 1209679,
       "canais": {
-        "Mercado Livre": 52,
+        "Mercado Livre": 53,
         "Shopee": 24,
         "Magazine Luiza": 2,
         "Casas Bahia": 3,
@@ -284,6 +284,18 @@
       }
     },
     {
+      "sku": "TI1580",
+      "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro Branco-Bivolt",
+      "qtd": 69,
+      "fat": 844621,
+      "canais": {
+        "Magazine Luiza": 22,
+        "Casas Bahia": 5,
+        "Amazon": 15,
+        "Mercado Livre": 27
+      }
+    },
+    {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
       "qtd": 69,
@@ -307,18 +319,6 @@
         "Mercado Livre": 14,
         "Amazon": 5,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1580",
-      "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro Branco-Bivolt",
-      "qtd": 68,
-      "fat": 833822,
-      "canais": {
-        "Casas Bahia": 5,
-        "Magazine Luiza": 21,
-        "Amazon": 15,
-        "Mercado Livre": 27
       }
     },
     {
@@ -466,12 +466,12 @@
   ],
   "historico_por_dia": {
     "26/09/2026": {
-      "fat": 3525849,
-      "peds": 62,
+      "fat": 4169705,
+      "peds": 70,
       "canais": {
-        "Mercado Livre": 823883,
+        "Mercado Livre": 1017393,
         "Casas Bahia": 1191903,
-        "Magazine Luiza": 445952,
+        "Magazine Luiza": 896298,
         "Shopee": 953175,
         "Amazon": 110936,
         "Amazon Fulfillment": 0
