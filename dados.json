@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-09-28T03:36:16.542Z",
-  "gerado_em_br": "28/09/2026, 00:36:16",
+  "gerado_em": "2026-09-28T10:32:32.132Z",
+  "gerado_em_br": "28/09/2026, 07:32:32",
   "dia_referencia": "28/09/2026",
   "dia_ontem": "27/09/2026",
   "resumo_dia": {
-    "faturamento": 146142,
-    "pedidos": 2,
-    "ticket_medio": 73071,
+    "faturamento": 619365,
+    "pedidos": 6,
+    "ticket_medio": 103227.5,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 15439,
-        "pedidos": 1,
+        "faturamento": 353866,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,8 +23,8 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 130703,
-        "pedidos": 1,
+        "faturamento": 265499,
+        "pedidos": 2,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 5488018,
-    "pedidos": 116
+    "faturamento": 5893458,
+    "pedidos": 115
   },
   "resumo_mes": {
     "mes": "9/2026",
-    "faturamento": 291471882,
-    "pedidos": 4268,
+    "faturamento": 292350545,
+    "pedidos": 4271,
     "meta_mensal": 8600005,
-    "pct_meta": 3389.2,
-    "projecao_final": 312291302.14,
+    "pct_meta": 3399.4,
+    "projecao_final": 313232726.79,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 49440452,
-        "pedidos": 1922
+        "faturamento": 50419022,
+        "pedidos": 1925
       },
       "Casas Bahia": {
         "faturamento": 90637851,
         "pedidos": 697
       },
       "Magazine Luiza": {
-        "faturamento": 44927482,
-        "pedidos": 370
+        "faturamento": 45062278,
+        "pedidos": 371
       },
       "Shopee": {
-        "faturamento": 49909950,
-        "pedidos": 537
+        "faturamento": 49675247,
+        "pedidos": 536
       },
       "Amazon": {
         "faturamento": 54799601,
@@ -471,25 +471,25 @@
   ],
   "historico_por_dia": {
     "28/09/2026": {
-      "fat": 146142,
-      "peds": 2,
+      "fat": 619365,
+      "peds": 6,
       "canais": {
-        "Mercado Livre": 15439,
+        "Mercado Livre": 353866,
         "Casas Bahia": 0,
-        "Magazine Luiza": 130703,
+        "Magazine Luiza": 265499,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "27/09/2026": {
-      "fat": 5488018,
-      "peds": 116,
+      "fat": 5893458,
+      "peds": 115,
       "canais": {
-        "Mercado Livre": 1099752,
+        "Mercado Livre": 1739895,
         "Casas Bahia": 1267427,
         "Magazine Luiza": 1273709,
-        "Shopee": 1224632,
+        "Shopee": 989929,
         "Amazon": 622498,
         "Amazon Fulfillment": 0
       }
