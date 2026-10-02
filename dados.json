@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-10-02T02:00:01.482Z",
-  "gerado_em_br": "01/10/2026, 23:00:01",
+  "gerado_em": "2026-10-02T08:22:14.238Z",
+  "gerado_em_br": "02/10/2026, 05:22:14",
   "dia_referencia": "02/10/2026",
   "dia_ontem": "01/10/2026",
   "resumo_dia": {
-    "faturamento": 189617,
-    "pedidos": 2,
-    "ticket_medio": 94808.5,
+    "faturamento": 305439,
+    "pedidos": 9,
+    "ticket_medio": 33937.67,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 117591,
+        "pedidos": 7,
         "meta": 0,
         "pct_meta": null
       },
@@ -23,7 +23,7 @@
         "pct_meta": null
       },
       "Magazine Luiza": {
-        "faturamento": 189617,
+        "faturamento": 187848,
         "pedidos": 2,
         "meta": 0,
         "pct_meta": null
@@ -49,27 +49,27 @@
     }
   },
   "ontem": {
-    "faturamento": 10281786,
-    "pedidos": 136
+    "faturamento": 10764684,
+    "pedidos": 143
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 10471403,
-    "pedidos": 138,
+    "faturamento": 11070123,
+    "pedidos": 152,
     "meta_mensal": 8600005,
-    "pct_meta": 121.8,
-    "projecao_final": 162306746.5,
+    "pct_meta": 128.7,
+    "projecao_final": 171586906.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 3919833,
-        "pedidos": 78
+        "faturamento": 4102969,
+        "pedidos": 90
       },
       "Casas Bahia": {
         "faturamento": 2526690,
         "pedidos": 16
       },
       "Magazine Luiza": {
-        "faturamento": 1922429,
+        "faturamento": 1920660,
         "pedidos": 16
       },
       "Shopee": {
@@ -77,8 +77,8 @@
         "pedidos": 19
       },
       "Amazon": {
-        "faturamento": 921776,
-        "pedidos": 9
+        "faturamento": 1339129,
+        "pedidos": 11
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -90,12 +90,12 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 395,
-      "fat": 13376704,
+      "qtd": 396,
+      "fat": 13394703,
       "canais": {
+        "Amazon": 198,
         "Mercado Livre": 38,
         "Magazine Luiza": 1,
-        "Amazon": 197,
         "Casas Bahia": 156,
         "Outros": 2,
         "Shopee": 1
@@ -104,12 +104,12 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 285,
-      "fat": 5078429,
+      "qtd": 286,
+      "fat": 5088128,
       "canais": {
+        "Magazine Luiza": 2,
         "Casas Bahia": 60,
         "Shopee": 44,
-        "Magazine Luiza": 1,
         "Mercado Livre": 152,
         "Amazon": 28
       }
@@ -117,11 +117,11 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 229,
-      "fat": 3567042,
+      "qtd": 231,
+      "fat": 3589040,
       "canais": {
+        "Mercado Livre": 88,
         "Shopee": 60,
-        "Mercado Livre": 86,
         "Amazon": 73,
         "Magazine Luiza": 10
       }
@@ -129,12 +129,12 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 198,
-      "fat": 5745995,
+      "qtd": 199,
+      "fat": 5762994,
       "canais": {
+        "Amazon": 45,
         "Magazine Luiza": 14,
         "Mercado Livre": 85,
-        "Amazon": 44,
         "Shopee": 20,
         "Casas Bahia": 33,
         "Outros": 2
@@ -169,13 +169,27 @@
     {
       "sku": "TI1556",
       "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
-      "qtd": 145,
-      "fat": 1410760,
+      "qtd": 146,
+      "fat": 1416519,
       "canais": {
-        "Mercado Livre": 36,
+        "Mercado Livre": 37,
         "Casas Bahia": 90,
         "Shopee": 7,
         "Amazon": 12
+      }
+    },
+    {
+      "sku": "TI1529",
+      "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
+      "qtd": 141,
+      "fat": 5930053,
+      "canais": {
+        "Mercado Livre": 43,
+        "Magazine Luiza": 10,
+        "Shopee": 13,
+        "Casas Bahia": 48,
+        "Amazon": 22,
+        "Outros": 5
       }
     },
     {
@@ -190,20 +204,6 @@
         "Casas Bahia": 3,
         "Amazon": 12,
         "Amazon Fulfillment": 10
-      }
-    },
-    {
-      "sku": "TI1529",
-      "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 140,
-      "fat": 5928670,
-      "canais": {
-        "Magazine Luiza": 10,
-        "Mercado Livre": 42,
-        "Shopee": 13,
-        "Casas Bahia": 48,
-        "Amazon": 22,
-        "Outros": 5
       }
     },
     {
@@ -262,10 +262,10 @@
     {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 87,
-      "fat": 2157655,
+      "qtd": 89,
+      "fat": 2186383,
       "canais": {
-        "Mercado Livre": 58,
+        "Mercado Livre": 60,
         "Magazine Luiza": 4,
         "Amazon": 22,
         "Casas Bahia": 2,
@@ -337,10 +337,10 @@
     {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 60,
-      "fat": 2336496,
+      "qtd": 61,
+      "fat": 2356295,
       "canais": {
-        "Mercado Livre": 47,
+        "Mercado Livre": 48,
         "Shopee": 1,
         "Casas Bahia": 2,
         "Magazine Luiza": 3,
@@ -398,6 +398,18 @@
       }
     },
     {
+      "sku": "TI1603",
+      "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
+      "qtd": 48,
+      "fat": 1195215,
+      "canais": {
+        "Mercado Livre": 40,
+        "Amazon": 6,
+        "Casas Bahia": 1,
+        "Shopee": 1
+      }
+    },
+    {
       "sku": "TI1564",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa Vidro Branco - Bivolt",
       "qtd": 48,
@@ -407,6 +419,17 @@
         "Magazine Luiza": 5,
         "Casas Bahia": 4,
         "Amazon": 1
+      }
+    },
+    {
+      "sku": "TI1112",
+      "desc": "Torradeira Eletrica Multi CE141 2 Fatias 127V Vermelha - 700W",
+      "qtd": 48,
+      "fat": 80012,
+      "canais": {
+        "Amazon": 11,
+        "Mercado Livre": 29,
+        "Shopee": 8
       }
     },
     {
@@ -443,53 +466,30 @@
         "Mercado Livre": 42,
         "Magazine Luiza": 6
       }
-    },
-    {
-      "sku": "TI1560",
-      "desc": "Fogao a Gas Mueller MFI4BC 4 Bocas Preto Fosco Mesa Esmaltada - Bivolt",
-      "qtd": 47,
-      "fat": 394025,
-      "canais": {
-        "Mercado Livre": 12,
-        "Casas Bahia": 32,
-        "Shopee": 1,
-        "Magazine Luiza": 2
-      }
-    },
-    {
-      "sku": "TI1112",
-      "desc": "Torradeira Eletrica Multi CE141 2 Fatias 127V Vermelha - 700W",
-      "qtd": 47,
-      "fat": 79313,
-      "canais": {
-        "Mercado Livre": 29,
-        "Amazon": 10,
-        "Shopee": 8
-      }
     }
   ],
   "historico_por_dia": {
     "02/10/2026": {
-      "fat": 189617,
-      "peds": 2,
+      "fat": 305439,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 117591,
         "Casas Bahia": 0,
-        "Magazine Luiza": 189617,
+        "Magazine Luiza": 187848,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
     },
     "01/10/2026": {
-      "fat": 10281786,
-      "peds": 136,
+      "fat": 10764684,
+      "peds": 143,
       "canais": {
-        "Mercado Livre": 3919833,
+        "Mercado Livre": 3985378,
         "Casas Bahia": 2526690,
         "Magazine Luiza": 1732812,
         "Shopee": 1180675,
-        "Amazon": 921776,
+        "Amazon": 1339129,
         "Amazon Fulfillment": 0
       }
     },
