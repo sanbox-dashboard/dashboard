@@ -1904,8 +1904,12 @@ async function getMetas(){
     // Linha com "mes/ano" + valor = meta do mês (ex: "abril/2026", "6.783.181,30")
     // Linha com header "Data | Mercado Livre | Casas Bahia | Magazine Luiza | Shopee | Amazon | Meta Total Dia"
     // Linhas seguintes = dados por dia: "DD/MM/YYYY | ml | cb | mg | sh | amz | total"
-    const rows=await fetchSheet(METAS_ID,'A1:H400');
-    let metaMes=0;const dias={};
+    const rows=await fetchSheet(METAS_ID,'A1:H800');
+    let metaMes=0;const dias={};const metaPorMes={};
+    const MESNOME=['janeiro','fevereiro','março','abril','maio','junho',
+                   'julho','agosto','setembro','outubro','novembro','dezembro'];
+    const _ag=new Date();
+    const mesCorrente=`${MESNOME[_ag.getMonth()]}/${_ag.getFullYear()}`;
     let iML=-1,iCB=-1,iMG=-1,iSH=-1,iAMZ=-1,iTOT=-1,iDATA=-1;
 
     for(const r of rows){
@@ -1928,7 +1932,7 @@ async function getMetas(){
 
       // Meta do mês: "mes/ano" ou "mes/ano" formato
       if(c0.match(/^[a-zA-ZÀ-ú]+\/\d{4}$/i)&&r[1]){
-        metaMes=N(r[1]);continue;
+        metaPorMes[c0.toLowerCase().replace('ç','ç')]=N(r[1]);continue;
       }
 
       // Meta por dia: DD/MM/YYYY
@@ -1945,7 +1949,22 @@ async function getMetas(){
         dias[key]={'Mercado Livre':ml,'Casas Bahia':cb,'Magazine Luiza':mg,'Shopee':sh,'Amazon':amz,'total':tot||ml+cb+mg+sh+amz};
       }
     }
-    console.log('[Metas] Mês:',metaMes,'| Dias com meta:',Object.keys(dias).length);
+    // A planilha acumula um bloco por mês. Antes pegávamos o ÚLTIMO bloco lido,
+    // o que fazia o card "Vendas do mês" mostrar a meta do mês seguinte assim que
+    // ele era cadastrado. Agora casamos pelo mês corrente; se não houver bloco,
+    // soma as metas diárias do mês; em último caso, usa o último bloco da planilha.
+    const _chaves=Object.keys(metaPorMes);
+    metaMes=metaPorMes[mesCorrente]||0;
+    if(!metaMes){
+      const _m=_ag.getMonth()+1,_y=_ag.getFullYear();
+      metaMes=Object.entries(dias).reduce((acc,[k,v])=>{
+        const p=k.split('/');
+        return (+p[0]===_m&&+p[2]===_y)?acc+(v.total||0):acc;
+      },0);
+      if(!metaMes&&_chaves.length)metaMes=metaPorMes[_chaves[_chaves.length-1]];
+      if(metaMes)console.warn('[Metas] bloco "'+mesCorrente+'" não encontrado — meta do mês derivada das metas diárias');
+    }
+    console.log('[Metas] Mês:',mesCorrente,'=',metaMes,'| Dias com meta:',Object.keys(dias).length);
     if(Object.keys(dias).length>0) console.log('[Metas] Exemplo:',Object.entries(dias)[0]);
     return{metaMes,dias};
   }catch(e){console.warn('[Metas]',e.message);return{metaMes:0,dias:{}};}
