@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-11T03:57:08.225Z",
-  "gerado_em_br": "11/10/2026, 00:57:08",
+  "gerado_em": "2026-10-11T10:40:13.426Z",
+  "gerado_em_br": "11/10/2026, 07:40:13",
   "dia_referencia": "11/10/2026",
   "dia_ontem": "10/10/2026",
   "resumo_dia": {
-    "faturamento": 577424,
-    "pedidos": 6,
-    "ticket_medio": 96237.33,
+    "faturamento": 1235270,
+    "pedidos": 15,
+    "ticket_medio": 82351.33,
     "meta_total": 215860,
-    "pct_meta": 267.5,
+    "pct_meta": 572.3,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8698,
-        "pedidos": 2,
+        "faturamento": 24795,
+        "pedidos": 5,
         "meta": 95380,
-        "pct_meta": 9.1
+        "pct_meta": 26
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -29,16 +29,16 @@
         "pct_meta": 2936.7
       },
       "Shopee": {
-        "faturamento": 52752,
-        "pedidos": 1,
+        "faturamento": 452104,
+        "pedidos": 4,
         "meta": 20080,
-        "pct_meta": 262.7
+        "pct_meta": 2251.5
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 242397,
+        "pedidos": 3,
         "meta": 47690,
-        "pct_meta": 0
+        "pct_meta": 508.3
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 29304605,
-    "pedidos": 369
+    "faturamento": 29450990,
+    "pedidos": 370
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 138701008,
-    "pedidos": 1811,
+    "faturamento": 139505239,
+    "pedidos": 1821,
     "meta_mensal": 8600005,
-    "pct_meta": 1612.8,
-    "projecao_final": 390884658.91,
+    "pct_meta": 1622.2,
+    "projecao_final": 393151128.09,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 31146331,
-        "pedidos": 817
+        "faturamento": 31162428,
+        "pedidos": 820
       },
       "Casas Bahia": {
         "faturamento": 18730703,
@@ -73,12 +73,12 @@
         "pedidos": 124
       },
       "Shopee": {
-        "faturamento": 33546505,
-        "pedidos": 378
+        "faturamento": 33945857,
+        "pedidos": 381
       },
       "Amazon": {
-        "faturamento": 39931178,
-        "pedidos": 336
+        "faturamento": 40319960,
+        "pedidos": 340
       },
       "Amazon Fulfillment": {
         "faturamento": 108089,
@@ -116,11 +116,11 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 250,
-      "fat": 11123401,
+      "qtd": 252,
+      "fat": 11427885,
       "canais": {
-        "Shopee": 34,
-        "Amazon": 57,
+        "Shopee": 35,
+        "Amazon": 58,
         "Casas Bahia": 33,
         "Mercado Livre": 111,
         "Magazine Luiza": 13,
@@ -143,11 +143,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 221,
-      "fat": 12189531,
+      "qtd": 222,
+      "fat": 12329030,
       "canais": {
+        "Shopee": 40,
         "Amazon": 33,
-        "Shopee": 39,
         "Mercado Livre": 86,
         "Casas Bahia": 43,
         "Magazine Luiza": 15,
@@ -157,10 +157,10 @@
     {
       "sku": "TI1739",
       "desc": "Caixa de Som Pulse X Boombox SP626 Bluetooth/Aux/Tws IPX6 - 220W",
-      "qtd": 179,
-      "fat": 6681744,
+      "qtd": 180,
+      "fat": 6777543,
       "canais": {
-        "Shopee": 68,
+        "Shopee": 69,
         "Casas Bahia": 8,
         "Amazon Fulfillment": 5,
         "Mercado Livre": 84,
@@ -183,11 +183,11 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 133,
-      "fat": 1111460,
+      "qtd": 134,
+      "fat": 1154706,
       "canais": {
+        "Amazon": 20,
         "Shopee": 88,
-        "Amazon": 19,
         "Magazine Luiza": 13,
         "Mercado Livre": 9,
         "Casas Bahia": 4
@@ -209,13 +209,13 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 104,
-      "fat": 2558422,
+      "qtd": 105,
+      "fat": 2635034,
       "canais": {
+        "Amazon": 15,
         "Mercado Livre": 54,
         "Magazine Luiza": 8,
         "Shopee": 21,
-        "Amazon": 14,
         "Casas Bahia": 5,
         "Outros": 2
       }
@@ -464,26 +464,26 @@
   ],
   "historico_por_dia": {
     "11/10/2026": {
-      "fat": 577424,
-      "peds": 6,
+      "fat": 1235270,
+      "peds": 15,
       "canais": {
-        "Mercado Livre": 8698,
+        "Mercado Livre": 24795,
         "Casas Bahia": 0,
         "Magazine Luiza": 515974,
-        "Shopee": 52752,
-        "Amazon": 0,
+        "Shopee": 452104,
+        "Amazon": 242397,
         "Amazon Fulfillment": 0
       }
     },
     "10/10/2026": {
-      "fat": 29304605,
-      "peds": 369,
+      "fat": 29450990,
+      "peds": 370,
       "canais": {
         "Mercado Livre": 2365158,
         "Casas Bahia": 1894614,
         "Magazine Luiza": 1936774,
         "Shopee": 8577354,
-        "Amazon": 14530705,
+        "Amazon": 14677090,
         "Amazon Fulfillment": 0
       }
     },
