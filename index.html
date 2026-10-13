@@ -5017,10 +5017,29 @@ async function loadGEData() { /* desativado */ }
 
 
 // ── COMISSÕES v3 ─────────────────────────────────────────────
-var COM_VEND = [
-  { nome:'Julia', ini:'JU', cor:'#7c3aed', bg:'#ede9fe', canais:['Amazon','Casas Bahia','Magazine Luiza'], eqMin:2 },
-  { nome:'Davi',  ini:'DV', cor:'#0369a1', bg:'#e0f2fe', canais:['Mercado Livre','Shopee'], eqMin:2 }
+// Divisão de canais por vendedora, com histórico: a aba deixa escolher meses
+// anteriores, e o fechamento de cada mês tem que manter a divisão que valia
+// naquele momento. `desde` é o primeiro mês (YYYY-MM) em que a divisão vale.
+var COM_VEND_HIST = [
+  { desde:'0000-00', vends:[
+    { nome:'Julia', ini:'JU', cor:'#7c3aed', bg:'#ede9fe', canais:['Amazon','Casas Bahia','Magazine Luiza'], eqMin:2 },
+    { nome:'Davi',  ini:'DV', cor:'#0369a1', bg:'#e0f2fe', canais:['Mercado Livre','Shopee'], eqMin:2 }
+  ]},
+  // A partir do fechamento de setembro/2026
+  { desde:'2026-09', vends:[
+    { nome:'Julia Costa',  ini:'JC', cor:'#7c3aed', bg:'#ede9fe', canais:['Amazon','Casas Bahia','Shopee'], eqMin:2 },
+    { nome:'Julia Aguiar', ini:'JA', cor:'#0369a1', bg:'#e0f2fe', canais:['Mercado Livre','Magazine Luiza'], eqMin:2 }
+  ]}
 ];
+// Divisão vigente no mês selecionado (chaves YYYY-MM comparam direto como texto).
+function comVendedores(mes){
+  var m = mes || comMesKey();
+  var sel = COM_VEND_HIST[0].vends;
+  for(var i=0;i<COM_VEND_HIST.length;i++){
+    if(m >= COM_VEND_HIST[i].desde) sel = COM_VEND_HIST[i].vends;
+  }
+  return sel;
+}
 
 var _comHist = {};
 var _comMes  = '';
@@ -5181,6 +5200,19 @@ function comBuscarCmvHistorico(mes) {
 function comR(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function comRs(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{maximumFractionDigits:0}); }
 
+// Arredondamento de borda por faixa: o resultado sobe para o patamar quando
+// fica a um passo dele. Cada faixa tem a sua própria tolerância.
+// A % exibida continua sendo a real; o badge mostra a elevação.
+var COM_ARRED = [
+  { de:89.01, para:90  },
+  { de:99.80, para:100 }
+];
+function comPctBonus(pct){
+  for(var i=0;i<COM_ARRED.length;i++){
+    if(pct>=COM_ARRED[i].de && pct<COM_ARRED[i].para) return COM_ARRED[i].para;
+  }
+  return pct;
+}
 function comBonBase(pct){
   // Bônus base apenas pela % da meta atingida (sem CMV)
   if(pct<90)  return 0;
@@ -5206,12 +5238,14 @@ function comCalc(v, dados){
     var pct = d.meta>0 ? d.vend/d.meta*100 : 0;
     return {
       canal:cn, meta:d.meta, vend:d.vend, pct:pct,
-      base: comBonBase(pct),
+      base: comBonBase(comPctBonus(pct)),
+      pctEf: comPctBonus(pct),
+      arred: comPctBonus(pct)!==pct,
       extra: 0
     };
   });
   // Bônus equilíbrio: 2+ canais batendo 100%+ (sem exigir CMV)
-  var ok  = cd.filter(function(c){ return c.pct>=100; }).length;
+  var ok  = cd.filter(function(c){ return c.pctEf>=100; }).length;
   var bonEq = ok>=v.eqMin ? 500 : 0;
   var total = cd.reduce(function(s,c){ return s+c.base+c.extra; },0) + bonEq;
   return {cd:cd, bonEq:bonEq, ok:ok, total:total};
@@ -5230,7 +5264,7 @@ function renderComissao(){
 
   var dados = comGetDados();
 
-  var out = COM_VEND.map(function(v){
+  var out = comVendedores(mes).map(function(v){
     var res = comCalc(v, dados);
 
     var chHtml = res.cd.map(function(c){
@@ -5242,6 +5276,8 @@ function renderComissao(){
       var txtCol = pct>=100?'#14532d':pct>=90?'#713f12':pct>=70?'#7c2d12':'#7f1d1d';
 
       var baseClass  = c.base>0 ?'cv2-badge cv2-badge-base':'cv2-badge cv2-badge-zero';
+      var baseTxt    = 'Base '+comR(c.base)
+        +(c.arred?' <span title="Fechou em '+pctTxt+' — elevado a '+c.pctEf+'% pela regra de borda" style="opacity:.85">↑'+c.pctEf+'%</span>':'');
 
       // Barra de progresso - altura achatada
       var thermoHtml = '<div style="position:relative;height:16px;background:var(--bd);border-radius:8px;overflow:hidden;margin:6px 0 4px;">'
@@ -5257,7 +5293,7 @@ function renderComissao(){
         +'<div style="font-size:.65rem;color:var(--mu);margin-bottom:2px">Meta: '+comR(c.meta)+'</div>'
         +thermoHtml
         +'<div class="cv2-bonuses">'
-          +'<span class="'+baseClass+'">Base '+comR(c.base)+'</span>'
+          +'<span class="'+baseClass+'">'+baseTxt+'</span>'
         +'</div>'
       +'</div>';
     }).join('');
