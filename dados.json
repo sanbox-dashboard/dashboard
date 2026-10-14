@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-14T05:47:23.410Z",
-  "gerado_em_br": "14/10/2026, 02:47:23",
+  "gerado_em": "2026-10-14T11:09:47.125Z",
+  "gerado_em_br": "14/10/2026, 08:09:47",
   "dia_referencia": "14/10/2026",
   "dia_ontem": "13/10/2026",
   "resumo_dia": {
-    "faturamento": 355164,
-    "pedidos": 5,
-    "ticket_medio": 71032.8,
+    "faturamento": 533300,
+    "pedidos": 7,
+    "ticket_medio": 76185.71,
     "meta_total": 276207,
-    "pct_meta": 128.6,
+    "pct_meta": 193.1,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 28851,
-        "pedidos": 3,
+        "faturamento": 206987,
+        "pedidos": 5,
         "meta": 122045,
-        "pct_meta": 23.6
+        "pct_meta": 169.6
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -49,24 +49,24 @@
     }
   },
   "ontem": {
-    "faturamento": 10338886,
-    "pedidos": 163
+    "faturamento": 10802864,
+    "pedidos": 164
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 177908526,
-    "pedidos": 2360,
+    "faturamento": 178550640,
+    "pedidos": 2363,
     "meta_mensal": 8600005,
-    "pct_meta": 2068.7,
-    "projecao_final": 393940307.57,
+    "pct_meta": 2076.2,
+    "projecao_final": 395362131.43,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 37440340,
-        "pedidos": 1023
+        "faturamento": 38027013,
+        "pedidos": 1025
       },
       "Casas Bahia": {
-        "faturamento": 21136789,
-        "pedidos": 173
+        "faturamento": 21192230,
+        "pedidos": 174
       },
       "Magazine Luiza": {
         "faturamento": 19720396,
@@ -100,6 +100,20 @@
       }
     },
     {
+      "sku": "TI1529",
+      "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
+      "qtd": 252,
+      "fat": 13794906,
+      "canais": {
+        "Mercado Livre": 111,
+        "Shopee": 47,
+        "Amazon": 43,
+        "Casas Bahia": 33,
+        "Magazine Luiza": 13,
+        "Outros": 5
+      }
+    },
+    {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
       "qtd": 252,
@@ -111,20 +125,6 @@
         "Casas Bahia": 31,
         "Magazine Luiza": 12,
         "Outros": 1
-      }
-    },
-    {
-      "sku": "TI1529",
-      "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 250,
-      "fat": 13792140,
-      "canais": {
-        "Mercado Livre": 109,
-        "Shopee": 47,
-        "Amazon": 43,
-        "Casas Bahia": 33,
-        "Magazine Luiza": 13,
-        "Outros": 5
       }
     },
     {
@@ -184,10 +184,10 @@
     {
       "sku": "TI1556",
       "desc": "Secadora de Roupa Mueller Sun 8kg com Timer Ar Quente 6 Cabides-127v",
-      "qtd": 125,
-      "fat": 1372180,
+      "qtd": 126,
+      "fat": 1377179,
       "canais": {
-        "Casas Bahia": 66,
+        "Casas Bahia": 67,
         "Shopee": 9,
         "Amazon": 14,
         "Mercado Livre": 36
@@ -204,6 +204,19 @@
         "Magazine Luiza": 19,
         "Mercado Livre": 1,
         "Amazon": 15
+      }
+    },
+    {
+      "sku": "TI1514",
+      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
+      "qtd": 107,
+      "fat": 2591722,
+      "canais": {
+        "Mercado Livre": 56,
+        "Magazine Luiza": 23,
+        "Shopee": 12,
+        "Amazon": 12,
+        "Casas Bahia": 4
       }
     },
     {
@@ -231,19 +244,6 @@
         "Mercado Livre": 51,
         "Casas Bahia": 5,
         "Outros": 2
-      }
-    },
-    {
-      "sku": "TI1514",
-      "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 106,
-      "fat": 2573123,
-      "canais": {
-        "Mercado Livre": 55,
-        "Magazine Luiza": 23,
-        "Shopee": 12,
-        "Amazon": 12,
-        "Casas Bahia": 4
       }
     },
     {
@@ -463,10 +463,10 @@
   ],
   "historico_por_dia": {
     "14/10/2026": {
-      "fat": 355164,
-      "peds": 5,
+      "fat": 533300,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 28851,
+        "Mercado Livre": 206987,
         "Casas Bahia": 0,
         "Magazine Luiza": 145764,
         "Shopee": 180549,
@@ -475,11 +475,11 @@
       }
     },
     "13/10/2026": {
-      "fat": 10338886,
-      "peds": 163,
+      "fat": 10802864,
+      "peds": 164,
       "canais": {
-        "Mercado Livre": 913572,
-        "Casas Bahia": 1201049,
+        "Mercado Livre": 1322109,
+        "Casas Bahia": 1256490,
         "Magazine Luiza": 1795917,
         "Shopee": 3269376,
         "Amazon": 3157632,
