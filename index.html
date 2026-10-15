@@ -1148,6 +1148,10 @@ body:not(.tv-on) #tvSair{display:none;}
           <select id="vgMarca" onchange="renderVG(_vgCache)" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';color:var(--tx);">
             <option value="">Todas</option>
           </select>
+          <span class="flbl">SKU:</span>
+          <input type="search" id="vgSku" placeholder="SKU ou produto…" oninput="renderVG(_vgCache)"
+                 title="Busca por SKU ou nome do produto. Separe por vírgula para procurar vários: TI1529, TI1667"
+                 style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';color:var(--tx);width:170px;">
           <span class="flbl">Ordenar por:</span>
           <div style="display:flex;gap:3px;flex-wrap:wrap;" id="vgOrdBtns">
             <button class="abtn on" id="vgOrdTotal" onclick="ordenarVG('total',this)" style="background:var(--or);border-color:var(--or);color:#fff">Total ▼</button>
@@ -3672,16 +3676,36 @@ function aplicarVG(){
   });
 }
 
+// Filtro de busca da aba Vendas Geral. Casa com SKU ou nome do produto;
+// a vírgula separa vários termos ("TI1529, TI1667" traz os dois).
+// Devolve null quando o campo está vazio, para não filtrar nada.
+function vgFiltroSku(){
+  const raw=(document.getElementById('vgSku')?.value||'').trim().toLowerCase();
+  if(!raw) return null;
+  const termos=raw.split(',').map(t=>t.trim()).filter(Boolean);
+  if(!termos.length) return null;
+  return function(sku,desc){
+    const sk=(sku||'').toLowerCase(), ds=(desc||'').toLowerCase();
+    return termos.some(t=>sk.includes(t)||ds.includes(t));
+  };
+}
+
 function renderVG(skuMap){
+  if(!skuMap) return;
   // Filtros categoria e marca
   const filtCat=document.getElementById('vgCat')?.value||'';
   const filtMk=document.getElementById('vgMarca')?.value||'';
+  const fSku=vgFiltroSku();
+  const totalSemFiltro=Object.keys(skuMap).length;
   let lista=Object.entries(skuMap);
   if(filtCat) lista=lista.filter(([,d])=>d.cat===filtCat);
   if(filtMk)  lista=lista.filter(([,d])=>d.mk===filtMk);
+  if(fSku)    lista=lista.filter(([sku,d])=>fSku(sku,d.desc));
   lista.sort((a,b)=>b[1][_vgOrdem]-a[1][_vgOrdem]);
 
-  document.getElementById('vgStatus').textContent=`${lista.length} produtos`;
+  document.getElementById('vgStatus').textContent=
+    lista.length===totalSemFiltro?`${lista.length} produtos`
+                                 :`${lista.length} de ${totalSemFiltro} produtos`;
 
   if(!lista.length){
     document.getElementById('vgTableWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Sem dados no período</div>';
@@ -3751,9 +3775,11 @@ function exportarVG(){
     // Aplica os MESMOS filtros da renderVG (categoria, marca, ordenação)
     const filtCat=document.getElementById('vgCat')?.value||'';
     const filtMk=document.getElementById('vgMarca')?.value||'';
+    const fSku=vgFiltroSku();
     let lista=Object.entries(_vgCache);
     if(filtCat) lista=lista.filter(([,d])=>d.cat===filtCat);
     if(filtMk)  lista=lista.filter(([,d])=>d.mk===filtMk);
+    if(fSku)    lista=lista.filter(([sku,d])=>fSku(sku,d.desc));
     lista.sort((a,b)=>b[1][_vgOrdem]-a[1][_vgOrdem]);
 
     if(!lista.length){
