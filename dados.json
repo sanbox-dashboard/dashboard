@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-17T11:21:07.522Z",
-  "gerado_em_br": "17/10/2026, 08:21:07",
+  "gerado_em": "2026-10-17T14:56:14.440Z",
+  "gerado_em_br": "17/10/2026, 11:56:14",
   "dia_referencia": "17/10/2026",
   "dia_ontem": "16/10/2026",
   "resumo_dia": {
-    "faturamento": 737420,
-    "pedidos": 5,
-    "ticket_medio": 147484,
+    "faturamento": 1731551,
+    "pedidos": 37,
+    "ticket_medio": 46798.68,
     "meta_total": 298273,
-    "pct_meta": 247.2,
+    "pct_meta": 580.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 9199,
-        "pedidos": 1,
+        "faturamento": 269132,
+        "pedidos": 25,
         "meta": 131795,
-        "pct_meta": 7
+        "pct_meta": 204.2
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -23,22 +23,22 @@
         "pct_meta": 0
       },
       "Magazine Luiza": {
-        "faturamento": 675285,
-        "pedidos": 3,
+        "faturamento": 944658,
+        "pedidos": 5,
         "meta": 24278,
-        "pct_meta": 2781.5
+        "pct_meta": 3891
       },
       "Shopee": {
-        "faturamento": 52936,
-        "pedidos": 1,
+        "faturamento": 245540,
+        "pedidos": 3,
         "meta": 27746,
-        "pct_meta": 190.8
+        "pct_meta": 885
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 272221,
+        "pedidos": 4,
         "meta": 65898,
-        "pct_meta": 0
+        "pct_meta": 413.1
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 6818406,
-    "pedidos": 121
+    "faturamento": 6802407,
+    "pedidos": 120
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 201893927,
-    "pedidos": 2750,
+    "faturamento": 202875058,
+    "pedidos": 2782,
     "meta_mensal": 8600005,
-    "pct_meta": 2347.6,
-    "projecao_final": 368159513.94,
+    "pct_meta": 2359,
+    "projecao_final": 369948635.18,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 42722746,
-        "pedidos": 1260
+        "faturamento": 42969679,
+        "pedidos": 1284
       },
       "Casas Bahia": {
         "faturamento": 26523006,
         "pedidos": 209
       },
       "Magazine Luiza": {
-        "faturamento": 24786377,
-        "pedidos": 194
+        "faturamento": 25055750,
+        "pedidos": 196
       },
       "Shopee": {
-        "faturamento": 51375870,
-        "pedidos": 554
+        "faturamento": 51568474,
+        "pedidos": 556
       },
       "Amazon": {
-        "faturamento": 55517069,
-        "pedidos": 513
+        "faturamento": 55789290,
+        "pedidos": 517
       },
       "Amazon Fulfillment": {
         "faturamento": 214016,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 330,
-      "fat": 6697624,
+      "qtd": 332,
+      "fat": 6719622,
       "canais": {
-        "Mercado Livre": 189,
+        "Mercado Livre": 191,
         "Shopee": 76,
         "Magazine Luiza": 12,
         "Amazon": 53
@@ -102,11 +102,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 300,
-      "fat": 13631193,
+      "qtd": 303,
+      "fat": 13635342,
       "canais": {
+        "Mercado Livre": 156,
         "Magazine Luiza": 19,
-        "Mercado Livre": 153,
         "Casas Bahia": 32,
         "Shopee": 48,
         "Amazon": 43,
@@ -130,14 +130,14 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 212,
-      "fat": 9337201,
+      "qtd": 214,
+      "fat": 9356673,
       "canais": {
-        "Mercado Livre": 25,
+        "Amazon": 46,
+        "Mercado Livre": 26,
         "Casas Bahia": 56,
         "Shopee": 82,
-        "Magazine Luiza": 4,
-        "Amazon": 45
+        "Magazine Luiza": 4
       }
     },
     {
@@ -184,11 +184,11 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 122,
-      "fat": 2857387,
+      "qtd": 124,
+      "fat": 2894585,
       "canais": {
+        "Mercado Livre": 70,
         "Magazine Luiza": 25,
-        "Mercado Livre": 68,
         "Shopee": 13,
         "Amazon": 12,
         "Casas Bahia": 4
@@ -210,33 +210,33 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 106,
-      "fat": 2757531,
+      "qtd": 112,
+      "fat": 2808111,
       "canais": {
-        "Mercado Livre": 53,
+        "Mercado Livre": 55,
+        "Shopee": 25,
+        "Amazon": 15,
         "Magazine Luiza": 10,
         "Casas Bahia": 5,
-        "Shopee": 23,
-        "Amazon": 13,
         "Outros": 2
       }
     },
     {
       "sku": "TI1789",
       "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
-      "qtd": 103,
-      "fat": 294587,
+      "qtd": 105,
+      "fat": 300585,
       "canais": {
-        "Mercado Livre": 103
+        "Mercado Livre": 105
       }
     },
     {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 103,
-      "fat": 1417733,
+      "qtd": 104,
+      "fat": 1432732,
       "canais": {
-        "Mercado Livre": 70,
+        "Mercado Livre": 71,
         "Casas Bahia": 4,
         "Amazon": 21,
         "Magazine Luiza": 6,
@@ -269,6 +269,18 @@
       }
     },
     {
+      "sku": "TI1603",
+      "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
+      "qtd": 73,
+      "fat": 2420016,
+      "canais": {
+        "Mercado Livre": 53,
+        "Shopee": 7,
+        "Amazon": 11,
+        "Casas Bahia": 2
+      }
+    },
+    {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
       "qtd": 72,
@@ -277,18 +289,6 @@
         "Mercado Livre": 68,
         "Amazon": 2,
         "Magazine Luiza": 2
-      }
-    },
-    {
-      "sku": "TI1603",
-      "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 72,
-      "fat": 2402507,
-      "canais": {
-        "Shopee": 7,
-        "Amazon": 11,
-        "Mercado Livre": 52,
-        "Casas Bahia": 2
       }
     },
     {
@@ -379,6 +379,19 @@
       }
     },
     {
+      "sku": "TI1568",
+      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
+      "qtd": 44,
+      "fat": 2649303,
+      "canais": {
+        "Magazine Luiza": 7,
+        "Shopee": 21,
+        "Amazon": 11,
+        "Mercado Livre": 4,
+        "Casas Bahia": 1
+      }
+    },
+    {
       "sku": "TI1609",
       "desc": "Fogao a Gas Itatiaia Electra Glass Plus 4 Bocas Mesa de Vidro - Bivolt",
       "qtd": 44,
@@ -391,16 +404,27 @@
       }
     },
     {
-      "sku": "TI1568",
-      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
-      "qtd": 43,
-      "fat": 2635704,
+      "sku": "TI1758",
+      "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
+      "qtd": 42,
+      "fat": 3523333,
       "canais": {
-        "Shopee": 21,
-        "Magazine Luiza": 6,
-        "Amazon": 11,
-        "Mercado Livre": 4,
-        "Casas Bahia": 1
+        "Mercado Livre": 18,
+        "Magazine Luiza": 8,
+        "Casas Bahia": 13,
+        "Shopee": 3
+      }
+    },
+    {
+      "sku": "TI1525",
+      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
+      "qtd": 42,
+      "fat": 885288,
+      "canais": {
+        "Mercado Livre": 21,
+        "Shopee": 6,
+        "Magazine Luiza": 2,
+        "Amazon": 13
       }
     },
     {
@@ -425,30 +449,6 @@
       }
     },
     {
-      "sku": "TI1758",
-      "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
-      "qtd": 41,
-      "fat": 3490534,
-      "canais": {
-        "Magazine Luiza": 8,
-        "Mercado Livre": 17,
-        "Casas Bahia": 13,
-        "Shopee": 3
-      }
-    },
-    {
-      "sku": "TI1525",
-      "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 41,
-      "fat": 875889,
-      "canais": {
-        "Mercado Livre": 20,
-        "Shopee": 6,
-        "Magazine Luiza": 2,
-        "Amazon": 13
-      }
-    },
-    {
       "sku": "TI1550",
       "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
       "qtd": 41,
@@ -463,22 +463,22 @@
   ],
   "historico_por_dia": {
     "17/10/2026": {
-      "fat": 737420,
-      "peds": 5,
+      "fat": 1731551,
+      "peds": 37,
       "canais": {
-        "Mercado Livre": 9199,
+        "Mercado Livre": 269132,
         "Casas Bahia": 0,
-        "Magazine Luiza": 675285,
-        "Shopee": 52936,
-        "Amazon": 0,
+        "Magazine Luiza": 944658,
+        "Shopee": 245540,
+        "Amazon": 272221,
         "Amazon Fulfillment": 0
       }
     },
     "16/10/2026": {
-      "fat": 6818406,
-      "peds": 121,
+      "fat": 6802407,
+      "peds": 120,
       "canais": {
-        "Mercado Livre": 1239501,
+        "Mercado Livre": 1223502,
         "Casas Bahia": 2227937,
         "Magazine Luiza": 678188,
         "Shopee": 2135300,
@@ -487,10 +487,10 @@
       }
     },
     "15/10/2026": {
-      "fat": 8510039,
-      "peds": 146,
+      "fat": 8513038,
+      "peds": 147,
       "canais": {
-        "Mercado Livre": 1933695,
+        "Mercado Livre": 1936694,
         "Casas Bahia": 1091166,
         "Magazine Luiza": 2286580,
         "Shopee": 2306849,
