@@ -1882,12 +1882,80 @@ function sortMeses(arr){return arr.sort((a,b)=>{const[ma,ya]=a.split('/');const[
 
 function setLoad(p,t){document.getElementById('lb').style.width=p+'%';if(t)document.getElementById('lt').textContent=t;}
 
+// ── BUSCA COM TIMEOUT E RETENTATIVA ──────────────────────────
+// Sem timeout, um fetch pendurado (sinal fraco, rádio do celular dormindo)
+// nunca resolve: o finally do load() não roda, window._loading fica preso em
+// true e o auto-refresh passa a pular todos os ciclos. O painel só volta no
+// botão Atualizar — foi exatamente o sintoma relatado no celular.
+const FETCH_TIMEOUT_MS = 60000;
+const FETCH_TENTATIVAS  = 3;
+async function fetchJSON(url,_tent){
+  const tent=_tent||1;
+  let ctl=null,timer=null;
+  try{ if(typeof AbortController!=='undefined') ctl=new AbortController(); }catch(e){}
+  if(ctl) timer=setTimeout(function(){ try{ctl.abort();}catch(e){} },FETCH_TIMEOUT_MS);
+  try{
+    const r=await fetch(url, ctl?{signal:ctl.signal}:undefined);
+    if(timer)clearTimeout(timer);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return await r.json();
+  }catch(e){
+    if(timer)clearTimeout(timer);
+    if(tent<FETCH_TENTATIVAS){
+      console.warn('[fetch] tentativa '+tent+' falhou ('+e.message+') — repetindo');
+      await new Promise(function(res){setTimeout(res,1500*tent);});
+      return fetchJSON(url,tent+1);
+    }
+    throw e;
+  }
+}
+
 async function fetchSheet(id,range,aba){
   const enc=aba?encodeURIComponent(aba+'!'+range):range;
-  const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${enc}?key=${KEY}`);
-  const d=await r.json();
+  const d=await fetchJSON(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${enc}?key=${KEY}`);
   if(d.error)throw new Error(d.error.message);
   return d.values||[];
+}
+
+// ── PEDIDOS: só as colunas que o mapa C usa ──────────────────
+// A:BQ traz as 69 colunas da aba e passa de 45 MB — as colunas de observação
+// e endereço sozinhas respondem pela maior parte disso. No celular esse
+// payload é o que derruba a carga. Aqui buscamos só as 14 colunas usadas e
+// remontamos a linha com os valores nos índices originais, então o mapa C e
+// todo o código que lê r[C.X] continuam valendo sem alteração.
+const PED_FAIXAS=[
+  {r:'A:A',   i:0,  n:1},  // id_pedido
+  {r:'R:R',   i:17, n:1},  // cliente_uf
+  {r:'U:W',   i:20, n:3},  // data_envio, data_faturamento, deposito
+  {r:'AA:AA', i:26, n:1},  // ecommerce_nomeecommerce
+  {r:'AC:AC', i:28, n:1},  // ecommerce_numeropedidoecommerce
+  {r:'AP:AQ', i:41, n:2},  // forma_envio, forma_frete
+  {r:'AZ:AZ', i:51, n:1},  // nome_transportador
+  {r:'BE:BE', i:56, n:1},  // total_pedido
+  {r:'BH:BH', i:59, n:1},  // valor_frete
+  {r:'BK:BK', i:62, n:1},  // pedido_situacao
+  {r:'BM:BM', i:64, n:1}   // pedido_data_pedido
+];
+async function fetchPedidos(){
+  const q=PED_FAIXAS.map(function(f){
+    return 'ranges='+encodeURIComponent('tinyerp_pedidos_detalhes!'+f.r);
+  }).join('&');
+  const d=await fetchJSON(`https://sheets.googleapis.com/v4/spreadsheets/${KOND_ID}/values:batchGet?${q}&key=${KEY}`);
+  if(d.error)throw new Error(d.error.message);
+  const blocos=(d.valueRanges||[]).map(function(v){return v.values||[];});
+  if(blocos.length!==PED_FAIXAS.length) throw new Error('Resposta de pedidos incompleta');
+  const n=Math.max.apply(null,blocos.map(function(b){return b.length;}));
+  const out=[];
+  for(let i=0;i<n;i++){
+    const row=[];
+    for(let b=0;b<PED_FAIXAS.length;b++){
+      const f=PED_FAIXAS[b], src=blocos[b][i]||[];
+      // o Sheets corta células vazias no fim da faixa: preenche até a largura
+      for(let c=0;c<f.n;c++) row[f.i+c]=src[c]!==undefined?src[c]:'';
+    }
+    out.push(row);
+  }
+  return out;
 }
 
 // ── TABLE HELPERS ────────────────────────────────────────────
@@ -3063,8 +3131,10 @@ function aba(id,btn){
 const DASH_CACHE_KEY='sanbox_dash_cache_v1';
 const DASH_CACHE_TTL=10*60*1000; // 10 minutos
 
+let _loadInicio=0, _ultimoLoadOk=0;
 async function load(){
   window._loading = true;
+  _loadInicio = Date.now();
   const firstLoad = !_cache;
   let usedCache = false;
 
@@ -3101,7 +3171,7 @@ async function load(){
     if(firstLoad && !usedCache) setLoad(20,'Buscando dados...');
     const [metas, pRows, iRowsResult] = await Promise.all([
       getMetas(),
-      fetchSheet(KOND_ID,'A:BQ','tinyerp_pedidos_detalhes'),
+      fetchPedidos(),
       fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
     ]);
     if(firstLoad && !usedCache) setLoad(90,'Processando...');
@@ -3113,7 +3183,10 @@ async function load(){
         document.getElementById('sLbl').textContent='AO VIVO';
         return; // sai sem tocar no _cache nem na tela
       }
-      // sem cache anterior: deixa seguir para mostrar estado (evita travar no 1º load)
+      // Sem cache anterior: antes caía aqui e renderizava tudo zerado com o
+      // selo "AO VIVO" — indistinguível de um dia sem vendas. Agora vira erro
+      // explícito, que a tela de carregamento mostra com botão de repetir.
+      throw new Error('Não vieram dados de pedidos. Verifique a conexão.');
     }
     _cache={pRows,iRows:iRowsResult,metas};
     const d=processDash(pRows,iRowsResult,metas);
@@ -3123,6 +3196,7 @@ async function load(){
     }
     renderDash(d);
     document.getElementById('sLbl').textContent='AO VIVO';
+    _ultimoLoadOk=Date.now();
     if(firstLoad && !usedCache) setLoad(100);
     console.log(`[OK] R$${d.tP.toFixed(2)} | Mês R$${d.tM.toFixed(2)}`);
 
@@ -3148,7 +3222,12 @@ async function load(){
     setTimeout(_preProcessCanal, 3000); // começa 3s após o load (deixa UI respirar)
   }catch(e){
     console.error('[Load]',e);
-    if(firstLoad) document.getElementById('lt').textContent='❌ '+e.message;
+    if(firstLoad){
+      const lt=document.getElementById('lt');
+      if(lt) lt.innerHTML='❌ '+e.message
+        +'<br><button onclick="load()" style="margin-top:12px;background:var(--or);border:0;border-radius:8px;'
+        +'padding:8px 18px;font:800 .72rem \'Nunito\';color:#fff;cursor:pointer">↻ Tentar de novo</button>';
+    }
     document.getElementById('sLbl').textContent='ERRO';
   }finally{
     window._loading = false;
@@ -5031,9 +5110,27 @@ load();
 // e nunca durante uma carga já em andamento.
 setInterval(function(){
   if(document.hidden) return;      // aba em segundo plano → pula
-  if(window._loading) return;      // já está carregando → pula
+  // Carga em andamento normalmente bloqueia a próxima. Mas se ficou presa
+  // (fetch pendurado antes do timeout), o painel ficaria parado para sempre:
+  // depois de 3 min assume que travou e recarrega assim mesmo.
+  if(window._loading && (Date.now()-_loadInicio) < 3*60*1000) return;
   load();
 }, 2*60*1000);
+
+// O celular congela a aba em segundo plano: o timer de 2 min não roda e, ao
+// voltar, a tela mostra dados velhos (ou zerados, se a carga foi interrompida).
+// Ao reexibir, recarrega se a última carga boa já passou do intervalo.
+document.addEventListener('visibilitychange',function(){
+  if(document.hidden) return;
+  if(window._loading && (Date.now()-_loadInicio) < 3*60*1000) return;
+  if(Date.now()-_ultimoLoadOk > 2*60*1000) load();
+});
+// Volta pelo histórico do navegador (bfcache): a página é restaurada congelada.
+window.addEventListener('pageshow',function(ev){
+  if(!ev.persisted) return;
+  if(window._loading && (Date.now()-_loadInicio) < 3*60*1000) return;
+  load();
+});
 
 // GE Finance desativado — dados de CMV/margem removidos do dashboard
 async function loadGEData() { /* desativado */ }
