@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-23T06:56:11.647Z",
-  "gerado_em_br": "23/10/2026, 03:56:11",
+  "gerado_em": "2026-10-23T12:25:57.957Z",
+  "gerado_em_br": "23/10/2026, 09:25:57",
   "dia_referencia": "23/10/2026",
   "dia_ontem": "22/10/2026",
   "resumo_dia": {
-    "faturamento": 116619,
-    "pedidos": 3,
-    "ticket_medio": 38873,
+    "faturamento": 240640,
+    "pedidos": 10,
+    "ticket_medio": 24064,
     "meta_total": 218792,
-    "pct_meta": 53.3,
+    "pct_meta": 110,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 68104,
+        "pedidos": 6,
         "meta": 96675,
-        "pct_meta": 0
+        "pct_meta": 70.4
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -29,10 +29,10 @@
         "pct_meta": 63.6
       },
       "Shopee": {
-        "faturamento": 91975,
-        "pedidos": 1,
+        "faturamento": 147892,
+        "pedidos": 2,
         "meta": 20353,
-        "pct_meta": 451.9
+        "pct_meta": 726.6
       },
       "Amazon": {
         "faturamento": 13322,
@@ -49,32 +49,32 @@
     }
   },
   "ontem": {
-    "faturamento": 6498288,
-    "pedidos": 109
+    "faturamento": 6577066,
+    "pedidos": 107
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 246322577,
-    "pedidos": 3535,
+    "faturamento": 246525376,
+    "pedidos": 3540,
     "meta_mensal": 8600005,
-    "pct_meta": 2864.2,
-    "projecao_final": 331999995.09,
+    "pct_meta": 2866.6,
+    "projecao_final": 332273332.87,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 52849604,
-        "pedidos": 1726
+        "faturamento": 53182368,
+        "pedidos": 1731
       },
       "Casas Bahia": {
-        "faturamento": 33383281,
-        "pedidos": 268
+        "faturamento": 33197399,
+        "pedidos": 267
       },
       "Magazine Luiza": {
         "faturamento": 33335604,
         "pedidos": 262
       },
       "Shopee": {
-        "faturamento": 63072205,
-        "pedidos": 674
+        "faturamento": 63128122,
+        "pedidos": 675
       },
       "Amazon": {
         "faturamento": 62389107,
@@ -105,7 +105,7 @@
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
       "qtd": 361,
-      "fat": 7011372,
+      "fat": 7012172,
       "canais": {
         "Mercado Livre": 216,
         "Magazine Luiza": 15,
@@ -195,10 +195,10 @@
     {
       "sku": "TI1789",
       "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
-      "qtd": 118,
-      "fat": 339572,
+      "qtd": 119,
+      "fat": 342571,
       "canais": {
-        "Mercado Livre": 118
+        "Mercado Livre": 119
       }
     },
     {
@@ -258,13 +258,13 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 71,
-      "fat": 2683038,
+      "qtd": 70,
+      "fat": 2666139,
       "canais": {
-        "Casas Bahia": 2,
         "Mercado Livre": 51,
         "Shopee": 9,
-        "Amazon": 9
+        "Amazon": 9,
+        "Casas Bahia": 1
       }
     },
     {
@@ -292,13 +292,25 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 57,
-      "fat": 1026273,
+      "qtd": 58,
+      "fat": 1035672,
       "canais": {
-        "Mercado Livre": 36,
+        "Mercado Livre": 37,
         "Shopee": 6,
         "Magazine Luiza": 2,
         "Amazon": 13
+      }
+    },
+    {
+      "sku": "TI1758",
+      "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
+      "qtd": 56,
+      "fat": 4271374,
+      "canais": {
+        "Mercado Livre": 24,
+        "Magazine Luiza": 11,
+        "Casas Bahia": 18,
+        "Shopee": 3
       }
     },
     {
@@ -312,18 +324,6 @@
         "Shopee": 6,
         "Casas Bahia": 6,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1758",
-      "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
-      "qtd": 55,
-      "fat": 4238575,
-      "canais": {
-        "Mercado Livre": 23,
-        "Magazine Luiza": 11,
-        "Casas Bahia": 18,
-        "Shopee": 3
       }
     },
     {
@@ -464,23 +464,23 @@
   ],
   "historico_por_dia": {
     "23/10/2026": {
-      "fat": 116619,
-      "peds": 3,
+      "fat": 240640,
+      "peds": 10,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 68104,
         "Casas Bahia": 0,
         "Magazine Luiza": 11322,
-        "Shopee": 91975,
+        "Shopee": 147892,
         "Amazon": 13322,
         "Amazon Fulfillment": 0
       }
     },
     "22/10/2026": {
-      "fat": 6498288,
-      "peds": 109,
+      "fat": 6577066,
+      "peds": 107,
       "canais": {
-        "Mercado Livre": 1553765,
-        "Casas Bahia": 636655,
+        "Mercado Livre": 1818425,
+        "Casas Bahia": 450773,
         "Magazine Luiza": 1527893,
         "Shopee": 2337200,
         "Amazon": 442325,
@@ -2775,9 +2775,9 @@
     "740329303": 0,
     "740329321": 0,
     "740329346": 0,
-    "740338707": 15,
-    "740348281": 15,
-    "740348304": 15,
+    "740338707": 65,
+    "740348281": 57,
+    "740348304": 28,
     "740353548": 542,
     "740353566": 0,
     "740353587": 0,
