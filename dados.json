@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-23T17:41:21.428Z",
-  "gerado_em_br": "23/10/2026, 14:41:21",
+  "gerado_em": "2026-10-23T20:58:27.617Z",
+  "gerado_em_br": "23/10/2026, 17:58:27",
   "dia_referencia": "23/10/2026",
   "dia_ontem": "22/10/2026",
   "resumo_dia": {
-    "faturamento": 2293008,
-    "pedidos": 50,
-    "ticket_medio": 45860.16,
+    "faturamento": 3059946,
+    "pedidos": 62,
+    "ticket_medio": 49353.97,
     "meta_total": 218792,
-    "pct_meta": 1048,
+    "pct_meta": 1398.6,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 480994,
-        "pedidos": 31,
+        "faturamento": 577073,
+        "pedidos": 38,
         "meta": 96675,
-        "pct_meta": 497.5
+        "pct_meta": 596.9
       },
       "Casas Bahia": {
         "faturamento": 109434,
@@ -23,16 +23,16 @@
         "pct_meta": 307.3
       },
       "Magazine Luiza": {
-        "faturamento": 541673,
-        "pedidos": 4,
+        "faturamento": 1026694,
+        "pedidos": 7,
         "meta": 17809,
-        "pct_meta": 3041.6
+        "pct_meta": 5765
       },
       "Shopee": {
-        "faturamento": 721877,
-        "pedidos": 7,
+        "faturamento": 907235,
+        "pedidos": 8,
         "meta": 20353,
-        "pct_meta": 3546.8
+        "pct_meta": 4457.5
       },
       "Amazon": {
         "faturamento": 439030,
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 6577066,
+    "faturamento": 6516543,
     "pedidos": 107
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 248577744,
-    "pedidos": 3580,
+    "faturamento": 249475946,
+    "pedidos": 3593,
     "meta_mensal": 8600005,
-    "pct_meta": 2890.4,
-    "projecao_final": 335039568,
+    "pct_meta": 2900.9,
+    "projecao_final": 336250188.09,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 53595258,
-        "pedidos": 1756
+        "faturamento": 53691337,
+        "pedidos": 1763
       },
       "Casas Bahia": {
-        "faturamento": 33306833,
-        "pedidos": 268
+        "faturamento": 33608676,
+        "pedidos": 270
       },
       "Magazine Luiza": {
-        "faturamento": 33865955,
-        "pedidos": 265
+        "faturamento": 34350976,
+        "pedidos": 268
       },
       "Shopee": {
-        "faturamento": 63702107,
-        "pedidos": 680
+        "faturamento": 63887465,
+        "pedidos": 681
       },
       "Amazon": {
-        "faturamento": 62814815,
-        "pedidos": 583
+        "faturamento": 62644236,
+        "pedidos": 582
       },
       "Amazon Fulfillment": {
         "faturamento": 214016,
@@ -102,12 +102,12 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 365,
-      "fat": 12841880,
+      "qtd": 366,
+      "fat": 12857479,
       "canais": {
+        "Mercado Livre": 210,
         "Magazine Luiza": 31,
         "Amazon": 46,
-        "Mercado Livre": 209,
         "Casas Bahia": 29,
         "Outros": 1,
         "Shopee": 49
@@ -129,14 +129,14 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 219,
-      "fat": 9203612,
+      "qtd": 221,
+      "fat": 9222110,
       "canais": {
+        "Magazine Luiza": 7,
         "Shopee": 86,
+        "Casas Bahia": 45,
         "Mercado Livre": 36,
-        "Amazon": 47,
-        "Casas Bahia": 44,
-        "Magazine Luiza": 6
+        "Amazon": 47
       }
     },
     {
@@ -181,10 +181,10 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 124,
-      "fat": 2938593,
+      "qtd": 126,
+      "fat": 2956991,
       "canais": {
-        "Mercado Livre": 68,
+        "Mercado Livre": 70,
         "Shopee": 25,
         "Magazine Luiza": 10,
         "Amazon": 15,
@@ -195,24 +195,38 @@
     {
       "sku": "TI1789",
       "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
-      "qtd": 120,
-      "fat": 345570,
+      "qtd": 121,
+      "fat": 348569,
       "canais": {
-        "Mercado Livre": 120
+        "Mercado Livre": 121
       }
     },
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 117,
-      "fat": 9017428,
+      "qtd": 118,
+      "fat": 9034527,
       "canais": {
         "Amazon": 72,
         "Outros": 2,
-        "Casas Bahia": 28,
+        "Casas Bahia": 29,
         "Shopee": 2,
         "Mercado Livre": 12,
         "Magazine Luiza": 1
+      }
+    },
+    {
+      "sku": "TI1602",
+      "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
+      "qtd": 113,
+      "fat": 1689456,
+      "canais": {
+        "Magazine Luiza": 7,
+        "Mercado Livre": 79,
+        "Amazon": 20,
+        "Outros": 1,
+        "Casas Bahia": 4,
+        "Shopee": 2
       }
     },
     {
@@ -226,20 +240,6 @@
         "Magazine Luiza": 17,
         "Mercado Livre": 1,
         "Amazon": 8
-      }
-    },
-    {
-      "sku": "TI1602",
-      "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 112,
-      "fat": 1675757,
-      "canais": {
-        "Mercado Livre": 79,
-        "Amazon": 20,
-        "Outros": 1,
-        "Magazine Luiza": 6,
-        "Casas Bahia": 4,
-        "Shopee": 2
       }
     },
     {
@@ -258,11 +258,11 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 70,
-      "fat": 2666139,
+      "qtd": 71,
+      "fat": 2835438,
       "canais": {
+        "Shopee": 10,
         "Mercado Livre": 51,
-        "Shopee": 9,
         "Amazon": 9,
         "Casas Bahia": 1
       }
@@ -290,6 +290,18 @@
       }
     },
     {
+      "sku": "TI1758",
+      "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
+      "qtd": 59,
+      "fat": 4985952,
+      "canais": {
+        "Magazine Luiza": 12,
+        "Mercado Livre": 26,
+        "Casas Bahia": 18,
+        "Shopee": 3
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
       "qtd": 58,
@@ -300,18 +312,6 @@
         "Mercado Livre": 22,
         "Casas Bahia": 6,
         "Magazine Luiza": 1
-      }
-    },
-    {
-      "sku": "TI1758",
-      "desc": "Caixa de Som  Amplificada Torre Philco PCX39000 15\"pol Funcao Fumaca TWS 3900W-Bivolt",
-      "qtd": 58,
-      "fat": 4953653,
-      "canais": {
-        "Mercado Livre": 26,
-        "Magazine Luiza": 11,
-        "Casas Bahia": 18,
-        "Shopee": 3
       }
     },
     {
@@ -449,41 +449,41 @@
       }
     },
     {
-      "sku": "TI1607",
-      "desc": "Fogao a Gas Dako Supreme Glass 5 Bocas Titanium Timer Digital-Bivolt",
+      "sku": "TI1581",
+      "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro-Preto",
       "qtd": 38,
-      "fat": 1216296,
+      "fat": 682929,
       "canais": {
-        "Mercado Livre": 22,
-        "Magazine Luiza": 5,
-        "Amazon": 8,
-        "Shopee": 2,
-        "Casas Bahia": 1
+        "Mercado Livre": 29,
+        "Casas Bahia": 1,
+        "Amazon": 5,
+        "Outros": 1,
+        "Magazine Luiza": 2
       }
     }
   ],
   "historico_por_dia": {
     "23/10/2026": {
-      "fat": 2293008,
-      "peds": 50,
+      "fat": 3059946,
+      "peds": 62,
       "canais": {
-        "Mercado Livre": 480994,
+        "Mercado Livre": 577073,
         "Casas Bahia": 109434,
-        "Magazine Luiza": 541673,
-        "Shopee": 721877,
+        "Magazine Luiza": 1026694,
+        "Shopee": 907235,
         "Amazon": 439030,
         "Amazon Fulfillment": 0
       }
     },
     "22/10/2026": {
-      "fat": 6577066,
+      "fat": 6516543,
       "peds": 107,
       "canais": {
         "Mercado Livre": 1818425,
-        "Casas Bahia": 450773,
+        "Casas Bahia": 560829,
         "Magazine Luiza": 1527893,
         "Shopee": 2337200,
-        "Amazon": 442325,
+        "Amazon": 271746,
         "Amazon Fulfillment": 0
       }
     },
@@ -500,11 +500,11 @@
       }
     },
     "20/10/2026": {
-      "fat": 9499429,
-      "peds": 154,
+      "fat": 9691216,
+      "peds": 155,
       "canais": {
         "Mercado Livre": 1852666,
-        "Casas Bahia": 1426606,
+        "Casas Bahia": 1618393,
         "Magazine Luiza": 2183725,
         "Shopee": 1697415,
         "Amazon": 2337517,
