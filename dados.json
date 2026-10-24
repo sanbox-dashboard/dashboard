@@ -1,14 +1,14 @@
 {
-  "gerado_em": "2026-10-24T03:14:55.563Z",
-  "gerado_em_br": "24/10/2026, 00:14:55",
+  "gerado_em": "2026-10-24T08:37:32.336Z",
+  "gerado_em_br": "24/10/2026, 05:37:32",
   "dia_referencia": "24/10/2026",
   "dia_ontem": "23/10/2026",
   "resumo_dia": {
-    "faturamento": 225593,
-    "pedidos": 2,
-    "ticket_medio": 112796.5,
+    "faturamento": 339972,
+    "pedidos": 3,
+    "ticket_medio": 113324,
     "meta_total": 195230,
-    "pct_meta": 115.6,
+    "pct_meta": 174.1,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 0,
@@ -29,10 +29,10 @@
         "pct_meta": 1419.6
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 114379,
+        "pedidos": 1,
         "meta": 18161,
-        "pct_meta": 0
+        "pct_meta": 629.8
       },
       "Amazon": {
         "faturamento": 0,
@@ -54,11 +54,11 @@
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 250902197,
-    "pedidos": 3627,
+    "faturamento": 251016576,
+    "pedidos": 3628,
     "meta_mensal": 8600005,
-    "pct_meta": 2917.5,
-    "projecao_final": 324082004.46,
+    "pct_meta": 2918.8,
+    "projecao_final": 324229744,
     "por_canal": {
       "Mercado Livre": {
         "faturamento": 53947398,
@@ -73,8 +73,8 @@
         "pedidos": 272
       },
       "Shopee": {
-        "faturamento": 64251021,
-        "pedidos": 686
+        "faturamento": 64365400,
+        "pedidos": 687
       },
       "Amazon": {
         "faturamento": 62782863,
@@ -90,13 +90,13 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 363,
-      "fat": 7030442,
+      "qtd": 364,
+      "fat": 7039741,
       "canais": {
+        "Shopee": 73,
         "Mercado Livre": 219,
         "Amazon": 57,
-        "Magazine Luiza": 15,
-        "Shopee": 72
+        "Magazine Luiza": 15
       }
     },
     {
@@ -462,13 +462,13 @@
   ],
   "historico_por_dia": {
     "24/10/2026": {
-      "fat": 225593,
-      "peds": 2,
+      "fat": 339972,
+      "peds": 3,
       "canais": {
         "Mercado Livre": 0,
         "Casas Bahia": 0,
         "Magazine Luiza": 225593,
-        "Shopee": 0,
+        "Shopee": 114379,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
