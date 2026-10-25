@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-25T05:39:37.354Z",
-  "gerado_em_br": "25/10/2026, 02:39:37",
+  "gerado_em": "2026-10-25T10:41:57.002Z",
+  "gerado_em_br": "25/10/2026, 07:41:57",
   "dia_referencia": "25/10/2026",
   "dia_ontem": "24/10/2026",
   "resumo_dia": {
-    "faturamento": 147141,
-    "pedidos": 1,
-    "ticket_medio": 147141,
+    "faturamento": 388524,
+    "pedidos": 7,
+    "ticket_medio": 55503.43,
     "meta_total": 201240,
-    "pct_meta": 73.1,
+    "pct_meta": 193.1,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 30117,
+        "pedidos": 3,
         "meta": 88920,
-        "pct_meta": 0
+        "pct_meta": 33.9
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -23,10 +23,10 @@
         "pct_meta": 0
       },
       "Magazine Luiza": {
-        "faturamento": 147141,
-        "pedidos": 1,
+        "faturamento": 358407,
+        "pedidos": 4,
         "meta": 16380,
-        "pct_meta": 898.3
+        "pct_meta": 2188.1
       },
       "Shopee": {
         "faturamento": 0,
@@ -54,23 +54,23 @@
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 257675334,
-    "pedidos": 3720,
+    "faturamento": 257916717,
+    "pedidos": 3726,
     "meta_mensal": 8600005,
-    "pct_meta": 2996.2,
-    "projecao_final": 319517414.16,
+    "pct_meta": 2999,
+    "projecao_final": 319816729.08,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 55684095,
-        "pedidos": 1825
+        "faturamento": 55714212,
+        "pedidos": 1828
       },
       "Casas Bahia": {
         "faturamento": 35029196,
         "pedidos": 285
       },
       "Magazine Luiza": {
-        "faturamento": 36537188,
-        "pedidos": 289
+        "faturamento": 36748454,
+        "pedidos": 292
       },
       "Shopee": {
         "faturamento": 65299285,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 364,
-      "fat": 12688290,
+      "qtd": 365,
+      "fat": 12703289,
       "canais": {
-        "Magazine Luiza": 34,
+        "Magazine Luiza": 35,
         "Mercado Livre": 210,
         "Casas Bahia": 29,
         "Amazon": 41,
@@ -316,10 +316,10 @@
     {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 55,
-      "fat": 1010715,
+      "qtd": 56,
+      "fat": 1020114,
       "canais": {
-        "Mercado Livre": 38,
+        "Mercado Livre": 39,
         "Shopee": 3,
         "Magazine Luiza": 2,
         "Amazon": 12
@@ -423,6 +423,18 @@
       }
     },
     {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 39,
+      "fat": 1331737,
+      "canais": {
+        "Magazine Luiza": 11,
+        "Mercado Livre": 4,
+        "Amazon": 16,
+        "Shopee": 8
+      }
+    },
+    {
       "sku": "TI1604",
       "desc": "Fogao a Gas Dako Supreme Titanium com Mesa Inox 4 Bocas - Bivolt",
       "qtd": 39,
@@ -436,37 +448,27 @@
       }
     },
     {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "sku": "TI1699",
+      "desc": "Tanquinho de Lavar Roupa Mueller 10kg Branco com superesfregador -127v",
       "qtd": 38,
-      "fat": 1325138,
+      "fat": 370506,
       "canais": {
-        "Magazine Luiza": 10,
-        "Mercado Livre": 4,
-        "Amazon": 16,
-        "Shopee": 8
-      }
-    },
-    {
-      "sku": "TI1433",
-      "desc": "Fogao a Gas Esmaltec Laguna 4027 Preto de Bancada GLP",
-      "qtd": 38,
-      "fat": 110032,
-      "canais": {
-        "Mercado Livre": 33,
-        "Shopee": 4,
-        "Magazine Luiza": 1
+        "Mercado Livre": 21,
+        "Magazine Luiza": 5,
+        "Shopee": 7,
+        "Casas Bahia": 2,
+        "Amazon": 3
       }
     }
   ],
   "historico_por_dia": {
     "25/10/2026": {
-      "fat": 147141,
-      "peds": 1,
+      "fat": 388524,
+      "peds": 7,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 30117,
         "Casas Bahia": 0,
-        "Magazine Luiza": 147141,
+        "Magazine Luiza": 358407,
         "Shopee": 0,
         "Amazon": 0,
         "Amazon Fulfillment": 0
