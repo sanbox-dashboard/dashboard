@@ -2810,25 +2810,34 @@ const DEPOS_OK=new Set(['deposito amazonfull','novo galpao']);
 async function loadEstoque(){
   document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Carregando estoque...</div>';
   try{
-    const[depoRows,prodRows,estProdRows,ocDetRows,ocItRows0]=await Promise.all([
+    const[depoRows,prodRows,estProdRows,ocDetRows0,ocItRows0]=await Promise.all([
       fetchSheet(EST_ID,'A:H','tinyerp_estoque_produto_depo'),
       fetchSheet(EST_ID,'A:AZ','tinyerp_produtos'),
       fetchSheet(EST_ID,'A:Z','tinyerp_estoque_produto'),
       fetchSheet(EST_ID,'A:D','tinyerp_ordem_compra_detalhes'),
       fetchSheet(EST_ID,'A:F','tinyerp_ordem_compra_detalhes_itens'),
     ]);
-    // FALLBACK DE OC — a aba de itens da ordem de compra no KOND às vezes
-    // vem zerada pelo Kondado (só o cabeçalho). Quando isso acontece, busca
-    // a mesma aba na planilha de notas, que costuma estar populada.
-    let ocItRows=ocItRows0, _ocFonte='KOND';
+    // FONTE DE OC — cabeçalho e itens têm que sair da MESMA planilha.
+    // A aba de itens no KOND vem zerada pelo Kondado; antes só os itens
+    // caíam no fallback e o cabeçalho continuava vindo do KOND, que está
+    // congelado: OC já recebida seguia marcada como situação 3 (quantidade
+    // fantasma) e OC nova nem existia lá (quantidade faltando). Agora as
+    // duas abas vêm juntas da planilha que de fato tem os itens.
+    let ocDetRows=ocDetRows0, ocItRows=ocItRows0, _ocFonte='KOND';
     if(!ocItRows||ocItRows.length<2){
       try{
-        const alt=await fetchSheet(NOTAS_ID,'A:F','tinyerp_ordem_compra_detalhes_itens');
-        if(alt&&alt.length>1){ocItRows=alt;_ocFonte='ALT';
-          console.warn('[OC] itens vazios no KOND — usando a planilha de notas ('+(alt.length-1)+' linhas)');}
+        const [altDet,altIt]=await Promise.all([
+          fetchSheet(NOTAS_ID,'A:D','tinyerp_ordem_compra_detalhes'),
+          fetchSheet(NOTAS_ID,'A:F','tinyerp_ordem_compra_detalhes_itens')
+        ]);
+        if(altIt&&altIt.length>1&&altDet&&altDet.length>1){
+          ocDetRows=altDet; ocItRows=altIt; _ocFonte='ALT';
+          console.warn('[OC] itens vazios no KOND — cabeçalho e itens vindo da planilha de notas ('
+            +(altDet.length-1)+' OCs / '+(altIt.length-1)+' itens)');
+        }
       }catch(e){console.warn('[OC] fallback indisponível',e);}
     }
-    _ocInfo={fonte:_ocFonte,linhas:(ocItRows?ocItRows.length-1:0)};
+    _ocInfo={fonte:_ocFonte,linhas:(ocItRows?ocItRows.length-1:0),ocs:(ocDetRows?ocDetRows.length-1:0)};
     // SKU, marca, nome, custo e preço por id
     const pHeader=prodRows[0]||[];
     const iSku=pHeader.indexOf('codigo'),iMarca=pHeader.indexOf('marca');
@@ -2848,28 +2857,23 @@ async function loadEstoque(){
     }
 
     // ── OCs em situação 3 (aprovada em andamento) ───────────────
-    // 1. Identifica IDs de OC com situacao === '3' E data até o mês vigente.
-    //    OCs com data de meses futuros só passam a contar quando aquele mês
-    //    começar (ex: OC de 15/08 só entra a partir de 01/08).
-    const _hojeOC=new Date();
-    const _limiteOC=_hojeOC.getFullYear()*12+_hojeOC.getMonth(); // ano*12+mês vigente
+    // Toda OC em situação 3 conta, inclusive as com entrega programada para
+    // meses à frente: é compra confirmada, estoque a caminho. (Antes havia um
+    // corte por mês vigente que escondia as entregas de nov/dez.)
     const ocIdsAtivas=new Set();
-    let _ocFuturasIgnoradas=0;
+    let _ocFuturas=0;
+    const _hojeOC=new Date();
+    const _limiteOC=_hojeOC.getFullYear()*12+_hojeOC.getMonth();
     for(let i=1;i<ocDetRows.length;i++){
       const r=ocDetRows[i];
       const id=(r[0]||'').trim();
       const sit=(r[2]||'').trim();
       if(!id||sit!=='3')continue;
-      // Data no formato M/D/YYYY (col D)
-      const dStr=(r[3]||'').trim();
-      const pp=dStr.split('/');
-      if(pp.length>=3){
-        const mesOC=(+pp[2])*12+(+pp[0]-1);
-        if(mesOC>_limiteOC){_ocFuturasIgnoradas++;continue;} // mês futuro: ignora por ora
-      }
+      const pp=(r[3]||'').trim().split('/');   // data em M/D/YYYY (col D)
+      if(pp.length>=3&&((+pp[2])*12+(+pp[0]-1))>_limiteOC)_ocFuturas++;
       ocIdsAtivas.add(id);
     }
-    if(_ocFuturasIgnoradas>0)console.log(`[OC] ${_ocFuturasIgnoradas} OC(s) de meses futuros ignoradas`);
+    if(_ocFuturas>0)console.log(`[OC] ${_ocFuturas} OC(s) com entrega programada para meses futuros — incluídas`);
     // 2. Soma quantidade por SKU nos itens dessas OCs
     // Ignora linhas com SKU em branco
     const ocPorSku={}; // sku (uppercase) → qtd
@@ -3043,7 +3047,7 @@ function renderEst(){
   _el.textContent=`${lista.length} produtos | ${dias} dias`;
   // Sinaliza quando a coluna OC veio da planilha alternativa
   if(_ocInfo.fonte==='ALT'){
-    _el.innerHTML+=` <span title="A aba tinyerp_ordem_compra_detalhes_itens do KOND está vazia; a coluna OC foi lida da planilha de notas (${_ocInfo.linhas} linhas)." style="color:var(--or);font-weight:800;cursor:help">· OC via fallback ⚠</span>`;
+    _el.innerHTML+=` <span title="A aba de itens de ordem de compra do KOND está vazia. A coluna OC está sendo lida da planilha de notas — cabeçalho e itens juntos (${_ocInfo.ocs} OCs / ${_ocInfo.linhas} itens)." style="color:var(--or);font-weight:800;cursor:help">· OC via fallback ⚠</span>`;
   }
 
   if(!lista.length){document.getElementById('estTbWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">Nenhum produto encontrado</div>';return;}
