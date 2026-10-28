@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-10-28T03:57:04.692Z",
-  "gerado_em_br": "28/10/2026, 00:57:04",
+  "gerado_em": "2026-10-28T10:24:41.568Z",
+  "gerado_em_br": "28/10/2026, 07:24:41",
   "dia_referencia": "28/10/2026",
   "dia_ontem": "27/10/2026",
   "resumo_dia": {
-    "faturamento": 367939,
-    "pedidos": 4,
-    "ticket_medio": 91984.75,
+    "faturamento": 413105,
+    "pedidos": 8,
+    "ticket_medio": 51638.13,
     "meta_total": 257501,
-    "pct_meta": 142.9,
+    "pct_meta": 160.4,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 7839,
-        "pedidos": 1,
+        "faturamento": 48166,
+        "pedidos": 4,
         "meta": 113779,
-        "pct_meta": 6.9
+        "pct_meta": 42.3
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -29,10 +29,10 @@
         "pct_meta": 1718.1
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 4839,
+        "pedidos": 1,
         "meta": 23954,
-        "pct_meta": 0
+        "pct_meta": 20.2
       },
       "Amazon": {
         "faturamento": 0,
@@ -54,15 +54,15 @@
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 283141857,
-    "pedidos": 4061,
+    "faturamento": 283187023,
+    "pedidos": 4065,
     "meta_mensal": 8600005,
-    "pct_meta": 3292.3,
-    "projecao_final": 313478484.54,
+    "pct_meta": 3292.9,
+    "projecao_final": 313528489.75,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 63293832,
-        "pedidos": 2006
+        "faturamento": 63334159,
+        "pedidos": 2009
       },
       "Casas Bahia": {
         "faturamento": 38605019,
@@ -73,8 +73,8 @@
         "pedidos": 335
       },
       "Shopee": {
-        "faturamento": 71104020,
-        "pedidos": 750
+        "faturamento": 71108859,
+        "pedidos": 751
       },
       "Amazon": {
         "faturamento": 67034485,
@@ -190,11 +190,11 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 119,
-      "fat": 2489146,
+      "qtd": 120,
+      "fat": 2498415,
       "canais": {
+        "Mercado Livre": 65,
         "Magazine Luiza": 12,
-        "Mercado Livre": 64,
         "Shopee": 28,
         "Casas Bahia": 4,
         "Amazon": 11
@@ -289,6 +289,19 @@
       }
     },
     {
+      "sku": "TI1705",
+      "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
+      "qtd": 59,
+      "fat": 1350101,
+      "canais": {
+        "Mercado Livre": 41,
+        "Magazine Luiza": 4,
+        "Amazon": 10,
+        "Shopee": 3,
+        "Casas Bahia": 1
+      }
+    },
+    {
       "sku": "TI1740",
       "desc": "Maquina de Lavar Mueller Energy Automatica 8kg Ciclo Rapido BCO-220v",
       "qtd": 59,
@@ -298,19 +311,6 @@
         "Magazine Luiza": 3,
         "Shopee": 1,
         "Amazon": 2
-      }
-    },
-    {
-      "sku": "TI1705",
-      "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 58,
-      "fat": 1330202,
-      "canais": {
-        "Magazine Luiza": 4,
-        "Mercado Livre": 40,
-        "Amazon": 10,
-        "Shopee": 3,
-        "Casas Bahia": 1
       }
     },
     {
@@ -462,13 +462,13 @@
   ],
   "historico_por_dia": {
     "28/10/2026": {
-      "fat": 367939,
-      "peds": 4,
+      "fat": 413105,
+      "peds": 8,
       "canais": {
-        "Mercado Livre": 7839,
+        "Mercado Livre": 48166,
         "Casas Bahia": 0,
         "Magazine Luiza": 360100,
-        "Shopee": 0,
+        "Shopee": 4839,
         "Amazon": 0,
         "Amazon Fulfillment": 0
       }
@@ -2505,8 +2505,8 @@
     "738278999": 0,
     "738279005": 0,
     "738279477": 0,
-    "738279484": 44,
-    "738279487": 20,
+    "738279484": 144,
+    "738279487": 110,
     "738280443": 0,
     "738280461": 0,
     "738284460": 0,
@@ -2529,12 +2529,12 @@
     "738371264": 0,
     "738404666": 0,
     "738411764": 48,
-    "738447201": 33,
+    "738447201": 133,
     "738447204": 140,
-    "738447225": 52,
+    "738447225": 102,
     "738447284": 0,
     "738447334": 0,
-    "738447372": 90,
+    "738447372": 187,
     "738454055": 55,
     "738465970": 55,
     "738466039": 55,
