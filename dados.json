@@ -1,26 +1,26 @@
 {
-  "gerado_em": "2026-10-31T08:19:13.384Z",
-  "gerado_em_br": "31/10/2026, 05:19:13",
+  "gerado_em": "2026-10-31T15:00:15.571Z",
+  "gerado_em_br": "31/10/2026, 12:00:15",
   "dia_referencia": "31/10/2026",
   "dia_ontem": "30/10/2026",
   "resumo_dia": {
-    "faturamento": 34624,
-    "pedidos": 2,
-    "ticket_medio": 17312,
+    "faturamento": 715695,
+    "pedidos": 21,
+    "ticket_medio": 34080.71,
     "meta_total": 203649,
-    "pct_meta": 17,
+    "pct_meta": 351.4,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 132788,
+        "pedidos": 12,
         "meta": 89985,
-        "pct_meta": 0
+        "pct_meta": 147.6
       },
       "Casas Bahia": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 208538,
+        "pedidos": 3,
         "meta": 33152,
-        "pct_meta": 0
+        "pct_meta": 629
       },
       "Magazine Luiza": {
         "faturamento": 34145,
@@ -29,16 +29,16 @@
         "pct_meta": 206
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 110992,
+        "pedidos": 2,
         "meta": 18944,
-        "pct_meta": 0
+        "pct_meta": 585.9
       },
       "Amazon": {
-        "faturamento": 479,
-        "pedidos": 1,
+        "faturamento": 229232,
+        "pedidos": 3,
         "meta": 44992,
-        "pct_meta": 1.1
+        "pct_meta": 509.5
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -54,31 +54,31 @@
   },
   "resumo_mes": {
     "mes": "10/2026",
-    "faturamento": 294900104,
-    "pedidos": 4298,
+    "faturamento": 295330933,
+    "pedidos": 4315,
     "meta_mensal": 8600005,
-    "pct_meta": 3429.1,
-    "projecao_final": 294900104,
+    "pct_meta": 3434.1,
+    "projecao_final": 295330933,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 66655512,
-        "pedidos": 2166
+        "faturamento": 66788300,
+        "pedidos": 2178
       },
       "Casas Bahia": {
-        "faturamento": 41892911,
-        "pedidos": 342
+        "faturamento": 42101449,
+        "pedidos": 345
       },
       "Magazine Luiza": {
         "faturamento": 44825044,
         "pedidos": 357
       },
       "Shopee": {
-        "faturamento": 71337731,
+        "faturamento": 71198481,
         "pedidos": 758
       },
       "Amazon": {
-        "faturamento": 68574729,
-        "pedidos": 641
+        "faturamento": 68803482,
+        "pedidos": 643
       },
       "Amazon Fulfillment": {
         "faturamento": 214016,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 357,
-      "fat": 6975709,
+      "qtd": 359,
+      "fat": 6996107,
       "canais": {
-        "Mercado Livre": 230,
+        "Mercado Livre": 232,
         "Shopee": 67,
         "Magazine Luiza": 20,
         "Amazon": 40
@@ -116,12 +116,12 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 218,
-      "fat": 8844618,
+      "qtd": 219,
+      "fat": 8853417,
       "canais": {
+        "Casas Bahia": 39,
         "Shopee": 87,
         "Mercado Livre": 40,
-        "Casas Bahia": 38,
         "Amazon": 45,
         "Magazine Luiza": 8
       }
@@ -129,13 +129,13 @@
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 196,
-      "fat": 11804516,
+      "qtd": 197,
+      "fat": 11969505,
       "canais": {
+        "Amazon": 47,
         "Mercado Livre": 74,
         "Shopee": 39,
         "Casas Bahia": 33,
-        "Amazon": 46,
         "Outros": 1,
         "Magazine Luiza": 3
       }
@@ -143,13 +143,13 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 141,
-      "fat": 1268357,
+      "qtd": 145,
+      "fat": 1287823,
       "canais": {
-        "Amazon": 21,
-        "Shopee": 96,
+        "Casas Bahia": 3,
+        "Shopee": 98,
+        "Amazon": 22,
         "Magazine Luiza": 21,
-        "Casas Bahia": 2,
         "Mercado Livre": 1
       }
     },
@@ -269,10 +269,10 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 68,
-      "fat": 2773496,
+      "qtd": 69,
+      "fat": 2792155,
       "canais": {
-        "Mercado Livre": 48,
+        "Mercado Livre": 49,
         "Amazon": 8,
         "Casas Bahia": 2,
         "Shopee": 10
@@ -463,14 +463,14 @@
   ],
   "historico_por_dia": {
     "31/10/2026": {
-      "fat": 34624,
-      "peds": 2,
+      "fat": 715695,
+      "peds": 21,
       "canais": {
-        "Mercado Livre": 0,
-        "Casas Bahia": 0,
+        "Mercado Livre": 132788,
+        "Casas Bahia": 208538,
         "Magazine Luiza": 34145,
-        "Shopee": 0,
-        "Amazon": 479,
+        "Shopee": 110992,
+        "Amazon": 229232,
         "Amazon Fulfillment": 0
       }
     },
@@ -595,13 +595,13 @@
       }
     },
     "20/10/2026": {
-      "fat": 9379998,
-      "peds": 151,
+      "fat": 9358391,
+      "peds": 150,
       "canais": {
         "Mercado Livre": 1807668,
         "Casas Bahia": 1618393,
         "Magazine Luiza": 2183725,
-        "Shopee": 1431195,
+        "Shopee": 1409588,
         "Amazon": 2337517,
         "Amazon Fulfillment": 0
       }
@@ -619,13 +619,13 @@
       }
     },
     "18/10/2026": {
-      "fat": 5214425,
-      "peds": 106,
+      "fat": 4985790,
+      "peds": 105,
       "canais": {
         "Mercado Livre": 1111434,
         "Casas Bahia": 1057243,
         "Magazine Luiza": 518730,
-        "Shopee": 1610339,
+        "Shopee": 1381704,
         "Amazon": 916679,
         "Amazon Fulfillment": 0
       }
@@ -2280,8 +2280,8 @@
     "737268553": 0,
     "737268555": 0,
     "737268999": 0,
-    "737269127": 32,
-    "737269134": 16,
+    "737269127": 106,
+    "737269134": 19,
     "737269151": 96,
     "737274017": 0,
     "737274067": 0,
@@ -2671,7 +2671,7 @@
     "739336407": 0,
     "739336411": 0,
     "739336414": 0,
-    "739341142": 3,
+    "739341142": 23,
     "739341161": 10,
     "739405183": 525,
     "739488413": 0,
