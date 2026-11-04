@@ -1,18 +1,18 @@
 {
-  "gerado_em": "2026-11-04T02:54:01.258Z",
-  "gerado_em_br": "03/11/2026, 23:54:01",
+  "gerado_em": "2026-11-04T10:27:12.495Z",
+  "gerado_em_br": "04/11/2026, 07:27:12",
   "dia_referencia": "04/11/2026",
   "dia_ontem": "03/11/2026",
   "resumo_dia": {
-    "faturamento": 17793,
-    "pedidos": 1,
-    "ticket_medio": 17793,
+    "faturamento": 335776,
+    "pedidos": 13,
+    "ticket_medio": 25828.92,
     "meta_total": 0,
     "pct_meta": null,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 21856,
+        "pedidos": 4,
         "meta": 0,
         "pct_meta": null
       },
@@ -29,14 +29,14 @@
         "pct_meta": null
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 268890,
+        "pedidos": 5,
         "meta": 0,
         "pct_meta": null
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 27237,
+        "pedidos": 3,
         "meta": 0,
         "pct_meta": null
       },
@@ -49,20 +49,20 @@
     }
   },
   "ontem": {
-    "faturamento": 14534905,
-    "pedidos": 190
+    "faturamento": 14736654,
+    "pedidos": 194
   },
   "resumo_mes": {
     "mes": "11/2026",
-    "faturamento": 29996173,
-    "pedidos": 441,
+    "faturamento": 30515905,
+    "pedidos": 457,
     "meta_mensal": 9500001,
-    "pct_meta": 315.7,
-    "projecao_final": 224971297.5,
+    "pct_meta": 321.2,
+    "projecao_final": 228869287.5,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 8954360,
-        "pedidos": 242
+        "faturamento": 8995915,
+        "pedidos": 247
       },
       "Casas Bahia": {
         "faturamento": 2920768,
@@ -73,12 +73,12 @@
         "pedidos": 36
       },
       "Shopee": {
-        "faturamento": 5106084,
-        "pedidos": 48
+        "faturamento": 5375536,
+        "pedidos": 54
       },
       "Amazon": {
-        "faturamento": 8714949,
-        "pedidos": 91
+        "faturamento": 8923674,
+        "pedidos": 96
       },
       "Amazon Fulfillment": {
         "faturamento": 108089,
@@ -143,11 +143,11 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 153,
-      "fat": 1442965,
+      "qtd": 156,
+      "fat": 1537332,
       "canais": {
-        "Shopee": 99,
-        "Amazon": 27,
+        "Amazon": 28,
+        "Shopee": 101,
         "Magazine Luiza": 23,
         "Casas Bahia": 3,
         "Mercado Livre": 1
@@ -170,12 +170,12 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 138,
-      "fat": 2311800,
+      "qtd": 140,
+      "fat": 2319913,
       "canais": {
-        "Amazon": 11,
+        "Shopee": 25,
+        "Amazon": 12,
         "Mercado Livre": 87,
-        "Shopee": 24,
         "Magazine Luiza": 12,
         "Casas Bahia": 4
       }
@@ -192,11 +192,11 @@
     {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 96,
-      "fat": 1455623,
+      "qtd": 97,
+      "fat": 1467122,
       "canais": {
+        "Amazon": 14,
         "Mercado Livre": 74,
-        "Amazon": 13,
         "Casas Bahia": 3,
         "Magazine Luiza": 4,
         "Outros": 1,
@@ -220,10 +220,10 @@
     {
       "sku": "TI1563",
       "desc": "Cooktop a Gas Mueller 5 bocas Tripla Chama Mesa de Vidro - Bivolt",
-      "qtd": 90,
-      "fat": 659903,
+      "qtd": 91,
+      "fat": 713302,
       "canais": {
-        "Shopee": 46,
+        "Shopee": 47,
         "Casas Bahia": 22,
         "Magazine Luiza": 19,
         "Amazon": 2,
@@ -271,10 +271,10 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 71,
-      "fat": 2809813,
+      "qtd": 72,
+      "fat": 2825367,
       "canais": {
-        "Amazon": 13,
+        "Amazon": 14,
         "Mercado Livre": 46,
         "Casas Bahia": 2,
         "Shopee": 10
@@ -295,11 +295,11 @@
     {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 59,
-      "fat": 1851409,
+      "qtd": 60,
+      "fat": 1871108,
       "canais": {
+        "Mercado Livre": 38,
         "Amazon": 14,
-        "Mercado Livre": 37,
         "Shopee": 5,
         "Magazine Luiza": 3
       }
@@ -307,10 +307,10 @@
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 56,
-      "fat": 625324,
+      "qtd": 57,
+      "fat": 636023,
       "canais": {
-        "Shopee": 23,
+        "Shopee": 24,
         "Magazine Luiza": 10,
         "Amazon": 3,
         "Mercado Livre": 19,
@@ -333,12 +333,12 @@
     {
       "sku": "TI1604",
       "desc": "Fogao a Gas Dako Supreme Titanium com Mesa Inox 4 Bocas - Bivolt",
-      "qtd": 53,
-      "fat": 1701796,
+      "qtd": 54,
+      "fat": 1711995,
       "canais": {
+        "Shopee": 3,
         "Amazon": 27,
         "Mercado Livre": 18,
-        "Shopee": 2,
         "Magazine Luiza": 2,
         "Casas Bahia": 4
       }
@@ -467,26 +467,26 @@
   ],
   "historico_por_dia": {
     "04/11/2026": {
-      "fat": 17793,
-      "peds": 1,
+      "fat": 335776,
+      "peds": 13,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 21856,
         "Casas Bahia": 0,
         "Magazine Luiza": 17793,
-        "Shopee": 0,
-        "Amazon": 0,
+        "Shopee": 268890,
+        "Amazon": 27237,
         "Amazon Fulfillment": 0
       }
     },
     "03/11/2026": {
-      "fat": 14534905,
-      "peds": 190,
+      "fat": 14736654,
+      "peds": 194,
       "canais": {
-        "Mercado Livre": 3172202,
+        "Mercado Livre": 3191901,
         "Casas Bahia": 815653,
         "Magazine Luiza": 1237211,
-        "Shopee": 2025702,
-        "Amazon": 7284137,
+        "Shopee": 2026264,
+        "Amazon": 7465625,
         "Amazon Fulfillment": 0
       }
     },
