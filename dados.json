@@ -1,20 +1,20 @@
 {
-  "gerado_em": "2026-11-10T01:52:30.873Z",
-  "gerado_em_br": "09/11/2026, 22:52:30",
+  "gerado_em": "2026-11-10T09:14:06.691Z",
+  "gerado_em_br": "10/11/2026, 06:14:06",
   "dia_referencia": "10/11/2026",
   "dia_ontem": "09/11/2026",
   "resumo_dia": {
-    "faturamento": 256933,
-    "pedidos": 2,
-    "ticket_medio": 128466.5,
+    "faturamento": 598071,
+    "pedidos": 9,
+    "ticket_medio": 66452.33,
     "meta_total": 348490,
-    "pct_meta": 73.7,
+    "pct_meta": 171.6,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 10728,
+        "pedidos": 2,
         "meta": 168318,
-        "pct_meta": 0
+        "pct_meta": 6.4
       },
       "Casas Bahia": {
         "faturamento": 0,
@@ -23,22 +23,22 @@
         "pct_meta": 0
       },
       "Magazine Luiza": {
-        "faturamento": 256933,
-        "pedidos": 2,
+        "faturamento": 360440,
+        "pedidos": 3,
         "meta": 30686,
-        "pct_meta": 837.3
+        "pct_meta": 1174.6
       },
       "Shopee": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 113496,
+        "pedidos": 1,
         "meta": 58061,
-        "pct_meta": 0
+        "pct_meta": 195.5
       },
       "Amazon": {
-        "faturamento": 0,
-        "pedidos": 0,
+        "faturamento": 113407,
+        "pedidos": 3,
         "meta": 67493,
-        "pct_meta": 0
+        "pct_meta": 168
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 15014238,
-    "pedidos": 243
+    "faturamento": 16053222,
+    "pedidos": 258
   },
   "resumo_mes": {
     "mes": "11/2026",
-    "faturamento": 135888685,
-    "pedidos": 1706,
+    "faturamento": 137268807,
+    "pedidos": 1728,
     "meta_mensal": 9500001,
-    "pct_meta": 1430.4,
-    "projecao_final": 407666055,
+    "pct_meta": 1444.9,
+    "projecao_final": 411806421,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 26757337,
-        "pedidos": 633
+        "faturamento": 26847670,
+        "pedidos": 640
       },
       "Casas Bahia": {
         "faturamento": 12522539,
         "pedidos": 91
       },
       "Magazine Luiza": {
-        "faturamento": 14608246,
-        "pedidos": 120
+        "faturamento": 14711753,
+        "pedidos": 121
       },
       "Shopee": {
-        "faturamento": 16938173,
-        "pedidos": 164
+        "faturamento": 17051669,
+        "pedidos": 165
       },
       "Amazon": {
-        "faturamento": 64620318,
-        "pedidos": 691
+        "faturamento": 65693104,
+        "pedidos": 704
       },
       "Amazon Fulfillment": {
         "faturamento": 324267,
@@ -90,11 +90,11 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 316,
-      "fat": 6407304,
+      "qtd": 317,
+      "fat": 6487663,
       "canais": {
+        "Amazon": 57,
         "Magazine Luiza": 25,
-        "Amazon": 56,
         "Mercado Livre": 193,
         "Shopee": 42
       }
@@ -102,11 +102,11 @@
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 299,
-      "fat": 4876751,
+      "qtd": 300,
+      "fat": 4889610,
       "canais": {
         "Magazine Luiza": 42,
-        "Amazon": 57,
+        "Amazon": 58,
         "Mercado Livre": 165,
         "Shopee": 16,
         "Casas Bahia": 18,
@@ -116,13 +116,13 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 269,
-      "fat": 4480299,
+      "qtd": 270,
+      "fat": 4564998,
       "canais": {
+        "Shopee": 56,
         "Amazon": 100,
         "Mercado Livre": 70,
         "Casas Bahia": 37,
-        "Shopee": 55,
         "Magazine Luiza": 7
       }
     },
@@ -142,10 +142,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 155,
-      "fat": 17349261,
+      "qtd": 159,
+      "fat": 17684363,
       "canais": {
-        "Amazon": 139,
+        "Amazon": 143,
         "Mercado Livre": 4,
         "Casas Bahia": 7,
         "Magazine Luiza": 2,
@@ -170,12 +170,12 @@
     {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 149,
-      "fat": 1537128,
+      "qtd": 150,
+      "fat": 1541497,
       "canais": {
+        "Amazon": 34,
         "Magazine Luiza": 23,
         "Shopee": 90,
-        "Amazon": 33,
         "Mercado Livre": 1,
         "Casas Bahia": 2
       }
@@ -219,11 +219,11 @@
     {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 99,
-      "fat": 1664742,
+      "qtd": 100,
+      "fat": 1678541,
       "canais": {
+        "Mercado Livre": 60,
         "Amazon": 33,
-        "Mercado Livre": 59,
         "Magazine Luiza": 4,
         "Casas Bahia": 2,
         "Outros": 1
@@ -269,11 +269,11 @@
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 82,
-      "fat": 1092398,
+      "qtd": 84,
+      "fat": 1115396,
       "canais": {
-        "Magazine Luiza": 12,
-        "Mercado Livre": 29,
+        "Magazine Luiza": 13,
+        "Mercado Livre": 30,
         "Amazon": 11,
         "Casas Bahia": 2,
         "Shopee": 27,
@@ -283,11 +283,11 @@
     {
       "sku": "TI1603",
       "desc": "Fogao a Gas Dako Magister Inox Style 5 Bocas Mesa Inox - Bivolt",
-      "qtd": 81,
-      "fat": 2629634,
+      "qtd": 82,
+      "fat": 2648293,
       "canais": {
+        "Mercado Livre": 40,
         "Amazon": 33,
-        "Mercado Livre": 39,
         "Casas Bahia": 1,
         "Shopee": 8
       }
@@ -307,10 +307,10 @@
     {
       "sku": "TI1705",
       "desc": "Forno Eletrico de Embutir Mueller 70 Litros Espellho Funcao Fryer MFE70K - 220V",
-      "qtd": 68,
-      "fat": 2696928,
+      "qtd": 69,
+      "fat": 2716227,
       "canais": {
-        "Mercado Livre": 43,
+        "Mercado Livre": 44,
         "Shopee": 8,
         "Amazon": 13,
         "Magazine Luiza": 4
@@ -392,11 +392,11 @@
     {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 48,
-      "fat": 4976867,
+      "qtd": 50,
+      "fat": 5011645,
       "canais": {
+        "Amazon": 42,
         "Mercado Livre": 7,
-        "Amazon": 40,
         "Shopee": 1
       }
     },
@@ -464,26 +464,26 @@
   ],
   "historico_por_dia": {
     "10/11/2026": {
-      "fat": 256933,
-      "peds": 2,
+      "fat": 598071,
+      "peds": 9,
       "canais": {
-        "Mercado Livre": 0,
+        "Mercado Livre": 10728,
         "Casas Bahia": 0,
-        "Magazine Luiza": 256933,
-        "Shopee": 0,
-        "Amazon": 0,
+        "Magazine Luiza": 360440,
+        "Shopee": 113496,
+        "Amazon": 113407,
         "Amazon Fulfillment": 0
       }
     },
     "09/11/2026": {
-      "fat": 15014238,
-      "peds": 243,
+      "fat": 16053222,
+      "peds": 258,
       "canais": {
-        "Mercado Livre": 1784975,
+        "Mercado Livre": 1864580,
         "Casas Bahia": 1331487,
         "Magazine Luiza": 2103850,
         "Shopee": 2119770,
-        "Amazon": 7671156,
+        "Amazon": 8630535,
         "Amazon Fulfillment": 0
       }
     },
