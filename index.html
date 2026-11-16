@@ -381,6 +381,16 @@ tfoot td:first-child{text-align:left;}
 .cv2-footer{padding:12px 18px;border-top:1px solid var(--bd);display:flex;flex-direction:column;gap:8px;}
 .cv2-eq{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:8px;padding:8px 12px;}
 .cv2-grand{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#f0fdf4,#eff6ff);border-radius:8px;padding:10px 14px;border:1px solid #bbf7d0;}
+/* Regra de Margem de Contribuição — informativa: o painel não tem dados de
+   margem (GE Finance desativado), então mostra a condição sem calculá-la. */
+.cv2-mc{background:var(--bg);border:1px dashed var(--bd);border-left:3px solid #7c3aed;border-radius:8px;padding:8px 12px;}
+.cv2-mc-hd{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.cv2-mc-tit{font-size:.7rem;font-weight:800;color:var(--tx);}
+.cv2-mc-tag{font-size:.52rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7c3aed;background:#ede9fe;border-radius:99px;padding:2px 7px;white-space:nowrap;}
+.cv2-mc-li{display:flex;align-items:baseline;gap:6px;font-size:.62rem;color:var(--mu);margin-top:5px;line-height:1.45;}
+.cv2-mc-li b{color:var(--tx);font-weight:800;}
+.cv2-mc-val{font-size:.66rem;font-weight:900;color:#7c3aed;white-space:nowrap;}
+.cv2-mc-nota{font-size:.56rem;color:var(--mu);margin-top:6px;padding-top:5px;border-top:1px solid var(--bd);line-height:1.4;}
 /* Regras resumo */
 .cv2-rules{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;}
 .cv2-rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:12px;}
@@ -5330,6 +5340,13 @@ function comRs(v){ return 'R$ '+(v||0).toLocaleString('pt-BR',{maximumFractionDi
 // Arredondamento de borda por faixa: o resultado sobe para o patamar quando
 // fica a um passo dele. Cada faixa tem a sua própria tolerância.
 // A % exibida continua sendo a real; o badge mostra a elevação.
+// Regra de Margem de Contribuição (informativa — ver bloco .cv2-mc).
+// O painel não tem dados de margem desde que o GE Finance foi desativado,
+// então a condição é exibida, não calculada.
+var COM_MC_MIN_TXT   = '11%';
+var COM_MC_EXTRA_TXT = '12,5%';
+var COM_MC_EXTRA_VAL = 500;
+
 var COM_ARRED = [
   { de:89.01, para:90  },
   { de:99.80, para:100 }
@@ -5452,6 +5469,19 @@ function renderComissao(){
             +'<div style="font-size:.62rem;color:var(--mu)">'+eqTxt+'</div>'
           +'</div>'
           +'<div style="font-size:.9rem;font-weight:900;color:'+(eqOk?'#2563eb':'var(--mu)')+'">'+comR(res.bonEq)+'</div>'
+        +'</div>'
+        +'<div class="cv2-mc">'
+          +'<div class="cv2-mc-hd">'
+            +'<span class="cv2-mc-tit">📊 Margem de Contribuição</span>'
+            +'<span class="cv2-mc-tag">condição</span>'
+          +'</div>'
+          +'<div class="cv2-mc-li"><span>Mínimo de <b>'+COM_MC_MIN_TXT+'</b> para receber <b>qualquer</b> bônus de meta.</span></div>'
+          +'<div class="cv2-mc-li">'
+            +'<span>Atingindo <b>'+COM_MC_EXTRA_TXT+'</b>, bônus adicional de</span>'
+            +'<span class="cv2-mc-val">+ '+comR(COM_MC_EXTRA_VAL)+' *</span>'
+          +'</div>'
+          +'<div class="cv2-mc-nota">* desde que o canal bata <b>100% da meta de vendas</b>.<br>'
+            +'Valor informativo: o painel não recebe os dados de margem, então o total abaixo não aplica esta regra.</div>'
         +'</div>'
         +'<div class="cv2-grand">'
           +'<div>'
