@@ -711,6 +711,23 @@ body:not(.tv-on) #tvSair{display:none;}
 .mg-leg{font-size:.6rem;color:var(--mu);font-weight:700;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
 .mg-leg b{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:middle;}
 @media(max-width:700px){.mg-bar{width:54px;}}
+
+#vMargem .fr-tbl{font-size:.84rem;}
+#vMargem .fr-tbl thead th{font-size:.68rem;padding:10px 14px;}
+#vMargem .fr-tbl tbody td{padding:10px 14px;}
+#vMargem .mg-sec-h h3{font-size:.95rem;}
+#vMargem .mg-sec-h span{font-size:.72rem;}
+#vMargem .mg-dl{font-size:.72rem;}
+#vMargem .mg-chip{font-size:.7rem;}
+#vMargem .mg-leg{font-size:.7rem;}
+#vMargem .fr-kpi-lbl{font-size:.66rem;}
+#vMargem .fr-kpi-val{font-size:1.6rem;}
+#vMargem .fr-kpi-sub{font-size:.72rem;}
+#vMargem .fr-ctrl label,#vMargem .mg-status>span{font-size:.72rem!important;}
+#vMargem .fr-ctrl select,#vMargem .fr-ctrl input[type=date]{font-size:.78rem;}
+#vMargem #mgJanela{font-size:.76rem!important;}
+#vMargem #mgStatus{font-size:.7rem!important;}
+#vMargem .btn-sm{font-size:.66rem;}
 </style>
 </head>
 <body>
@@ -752,6 +769,7 @@ body:not(.tv-on) #tvSair{display:none;}
   <div class="tabbar">
     <button class="tab on"  onclick="aba('vDash',this)">📊 Dashboard</button>
     <button class="tab"     onclick="aba('vMetas',this)">🎯 Metas Diárias</button>
+    <button class="tab"     onclick="aba('vMargem',this);renderMargem()">📈 Margens</button>
     <button class="tab"     onclick="aba('vCat',this)">📦 Categorias</button>
     <button class="tab"     onclick="aba('vMarca',this)">🏷 Marcas</button>
     <button class="tab"     onclick="aba('vEstoque',this)">📋 Estoque</button>
@@ -762,9 +780,7 @@ body:not(.tv-on) #tvSair{display:none;}
     <button class="tab"     onclick="aba('vMG',this)">🟣 Magazine Luiza</button>
     <button class="tab"     onclick="aba('vSH',this)">🟠 Shopee</button>
     <button class="tab"     onclick="aba('vAMZ',this)">🟤 Amazon</button>
-    <button class="tab"     onclick="aba('vCancel',this);renderCancel()">❌ Cancelamentos</button>
     <button class="tab"     onclick="aba('vComissao',this);renderComissao()">💰 Comissões</button>
-    <button class="tab"     onclick="aba('vMargem',this);renderMargem()">📈 Margens</button>
     <button class="tab"     onclick="aba('vFrete',this);renderFrete()">🚚 Frete</button>
   </div>
 
@@ -1459,85 +1475,6 @@ body:not(.tv-on) #tvSair{display:none;}
       </div>
     </div><!-- /vAMZ -->
     <!-- ══ CANCELAMENTOS POR MÊS × CANAL ═══════════════════════ -->
-    <div class="panel" id="vCancel">
-
-      <!-- Filtros -->
-      <div class="card" style="padding:10px 16px;">
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
-          <span class="flbl">Período:</span>
-          <input type="date" id="cancIni" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
-          <span class="flbl">até</span>
-          <input type="date" id="cancFim" style="border:1px solid var(--bd);border-radius:6px;padding:3px 8px;font:.65rem 'Nunito';">
-          <button class="faply" onclick="renderCancel()">Aplicar</button>
-          <div style="width:1px;height:20px;background:var(--bd);"></div>
-          <span class="flbl">Atalhos:</span>
-          <button class="abtn" onclick="cancPreset('mes')">Este mês</button>
-          <button class="abtn" onclick="cancPreset('anterior')">Mês anterior</button>
-          <button class="abtn" onclick="cancPreset('6meses')">Últimos 6 meses</button>
-          <button class="abtn" onclick="cancPreset('ano')">Ano atual</button>
-          <button class="abtn" onclick="cancPreset('todos')">Todo histórico</button>
-          <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
-            <span style="font-size:.6rem;font-weight:700;color:var(--mu)" id="cancStatus">--</span>
-            <button onclick="exportarCancel()" title="Exportar dados filtrados para Excel" style="background:#217346;border:none;border-radius:6px;padding:4px 10px;font:800 .62rem 'Nunito';color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
-              📥 Excel
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Info -->
-      <div class="card" style="padding:8px 14px;background:rgba(8,145,178,.05);border-left:3px solid #0891B2;">
-        <div style="font-size:.62rem;color:var(--tx);line-height:1.5;">
-          <b style="color:#0891B2">ℹ️ Sobre a métrica:</b> Contamos apenas <b>cancelamentos reais</b> — pedidos que foram <b>faturados ou enviados</b> antes de serem cancelados.
-          Pedidos que nunca chegaram a ser pagos (o cliente criou e abandonou) <b>NÃO entram aqui</b>, pois não representam venda perdida real. Esses aparecem no KPI abaixo como "não-pagos descartados".
-        </div>
-      </div>
-
-      <!-- KPIs -->
-      <div id="cancKpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0;">
-        <div class="card" style="border-left:4px solid var(--re);padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Pedidos Cancelados</div>
-          <div id="cancTotQtd" style="font:900 1.6rem 'Bebas Neue';color:var(--re);line-height:1.1;">--</div>
-          <div id="cancTotQtdSub" style="font-size:.58rem;color:var(--mu)">cancelamentos efetivos</div>
-        </div>
-        <div class="card" style="border-left:4px solid #C2410C;padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Valor Cancelado</div>
-          <div id="cancTotVal" style="font:900 1.6rem 'Bebas Neue';color:#C2410C;line-height:1.1;">--</div>
-          <div id="cancTotValSub" style="font-size:.58rem;color:var(--mu)">valor total (com frete)</div>
-        </div>
-        <div class="card" style="border-left:4px solid #7C3AED;padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Ticket Médio Cancelado</div>
-          <div id="cancTkt" style="font:900 1.6rem 'Bebas Neue';color:#7C3AED;line-height:1.1;">--</div>
-          <div id="cancTktSub" style="font-size:.58rem;color:var(--mu)">valor por pedido</div>
-        </div>
-        <div class="card" style="border-left:4px solid var(--or);padding:10px 14px;">
-          <div style="font-size:.55rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)">Taxa Cancelamento</div>
-          <div id="cancTaxa" style="font:900 1.6rem 'Bebas Neue';color:var(--or);line-height:1.1;">--</div>
-          <div id="cancTaxaSub" style="font-size:.58rem;color:var(--mu)">% pedidos cancelados</div>
-        </div>
-      </div>
-
-      <!-- Tabela mensal por canal -->
-      <div class="card">
-        <div class="atitle">
-          <div class="atit"><div class="pdot"></div>Cancelamentos por Mês × Canal</div>
-        </div>
-        <div class="tscroll">
-          <div id="cancTableWrap" style="overflow-x:auto;">
-            <div class="lt" style="padding:30px;text-align:center">Abrindo aba Cancelamentos...</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ranking canais -->
-      <div class="card">
-        <div class="atitle">
-          <div class="atit"><div class="pdot"></div>Ranking de Canais por Cancelamentos</div>
-        </div>
-        <div id="cancRanking" style="padding:8px 0;"></div>
-      </div>
-
-    </div><!-- /vCancel -->
 
 
 
@@ -1795,7 +1732,7 @@ function marcaRegistrar(pRows){
     _mkTodas.add(mk);
   }
   // guarda também nome e id, para buscar SKU que nunca vendeu num canal
-  const iNome=h.indexOf('nome'), iId=h.indexOf('id');
+  const iNome=h.indexOf('nome'), iId=h.indexOf('id'), iCt=h.indexOf('categoria');
   for(let i=1;i<pRows.length;i++){
     const r=pRows[i];
     const sku=(r[iSku]||'').trim().toUpperCase();
@@ -1804,7 +1741,8 @@ function marcaRegistrar(pRows){
     _prodPorSku[sku]={
       nome: (iNome>=0?(r[iNome]||'').trim():'')||ant.nome||'',
       marca:(r[iMk]||'').trim()||ant.marca||'',
-      id:   (iId>=0?(r[iId]||'').trim():'')||ant.id||''
+      id:   (iId>=0?(r[iId]||'').trim():'')||ant.id||'',
+      cat:  (iCt>=0?(r[iCt]||'').trim():'')||ant.cat||''
     };
   }
 }
@@ -6257,6 +6195,7 @@ function cancPreset(kind){
 }
 
 function renderCancel(){
+  if(!document.getElementById('cancTableWrap'))return; // aba removida do dash
   if(!_cache||!_cache.pRows){
     document.getElementById('cancTableWrap').innerHTML='<div class="lt" style="padding:30px;text-align:center">⏳ Aguardando carregamento de pedidos...</div>';
     return;
@@ -6968,11 +6907,13 @@ function mgMarca(sku){
   }
   return m||'Sem marca';
 }
+// Mesma classificação da aba Categorias: catTiny() sobre a categoria do cadastro do Tiny.
+// Se o SKU não estiver no cadastro, usa a categoria que veio do Ge Finance, pela mesma regra.
 function mgCat(sku){
-  const c=((_mgData.skus[sku]||[])[1]||'').trim();
-  if(!c||/^sem categoria$/i.test(c))return'Sem categoria';
-  const p=c.split('>>').map(x=>x.trim()).filter(Boolean);
-  return p.length>1?p[0]+' › '+p[1]:p[0];
+  const k=String(sku||'').trim().toUpperCase();
+  let c=(_prodPorSku[k]||{}).cat||(_prodPorSku[k.replace(/-(A|ML|FBA|FULL)$/,'')]||{}).cat||'';
+  if(!c)c=(_mgData.skus[sku]||[])[1]||'';
+  return catTiny(c);
 }
 async function mgCarregar(forcar){
   if(_mgData&&!forcar&&Date.now()-_mgEm<10*60*1000)return _mgData;
@@ -7056,7 +6997,7 @@ async function renderMargem(forcar){
   const wrap=document.getElementById('mgWrap'),kp=document.getElementById('mgKpis'),st=document.getElementById('mgStatus');
   if(!wrap)return;
   if(!_mgData)wrap.innerHTML='<div style="text-align:center;padding:40px;color:var(--mu)">⏳ Buscando margens do Ge Finance...</div>';
-  try{await mgCarregar(forcar===true);}
+  try{await Promise.all([mgCarregar(forcar===true),(typeof garantirCadastroMarcas==='function'?garantirCadastroMarcas():Promise.resolve()).catch(()=>{})]);}
   catch(e){
     kp.innerHTML='';
     wrap.innerHTML='<div class="card" style="text-align:center;padding:34px;color:var(--mu)">Não consegui carregar as margens do Ge Finance ('+mgEsc(e.message||e)+').<br><button class="btn-sm" style="margin-top:10px" onclick="mgRecarregar()">Tentar de novo</button></div>';
