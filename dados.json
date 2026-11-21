@@ -1,44 +1,44 @@
 {
-  "gerado_em": "2026-11-21T15:59:18.128Z",
-  "gerado_em_br": "21/11/2026, 12:59:18",
+  "gerado_em": "2026-11-21T21:33:56.407Z",
+  "gerado_em_br": "21/11/2026, 18:33:56",
   "dia_referencia": "21/11/2026",
   "dia_ontem": "20/11/2026",
   "resumo_dia": {
-    "faturamento": 4975278,
-    "pedidos": 77,
-    "ticket_medio": 64614,
+    "faturamento": 11006960,
+    "pedidos": 161,
+    "ticket_medio": 68366.21,
     "meta_total": 181681,
-    "pct_meta": 2738.5,
+    "pct_meta": 6058.4,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 759442,
-        "pedidos": 18,
+        "faturamento": 1777140,
+        "pedidos": 37,
         "meta": 80019,
-        "pct_meta": 949.1
+        "pct_meta": 2220.9
       },
       "Casas Bahia": {
-        "faturamento": 469636,
-        "pedidos": 3,
+        "faturamento": 562979,
+        "pedidos": 4,
         "meta": 13075,
-        "pct_meta": 3591.9
+        "pct_meta": 4305.8
       },
       "Magazine Luiza": {
-        "faturamento": 329123,
-        "pedidos": 5,
+        "faturamento": 1099807,
+        "pedidos": 10,
         "meta": 15870,
-        "pct_meta": 2073.9
+        "pct_meta": 6930.1
       },
       "Shopee": {
-        "faturamento": 491319,
-        "pedidos": 6,
+        "faturamento": 851510,
+        "pedidos": 9,
         "meta": 30796,
-        "pct_meta": 1595.4
+        "pct_meta": 2765
       },
       "Amazon": {
-        "faturamento": 2925758,
-        "pedidos": 45,
+        "faturamento": 6715524,
+        "pedidos": 101,
         "meta": 41921,
-        "pct_meta": 6979.2
+        "pct_meta": 16019.5
       },
       "Amazon Fulfillment": {
         "faturamento": 0,
@@ -49,36 +49,36 @@
     }
   },
   "ontem": {
-    "faturamento": 18003363,
-    "pedidos": 280
+    "faturamento": 17984864,
+    "pedidos": 279
   },
   "resumo_mes": {
     "mes": "11/2026",
-    "faturamento": 359547747,
-    "pedidos": 5158,
+    "faturamento": 365576589,
+    "pedidos": 5242,
     "meta_mensal": 9500001,
-    "pct_meta": 3784.7,
-    "projecao_final": 513639638.57,
+    "pct_meta": 3848.2,
+    "projecao_final": 522252270,
     "por_canal": {
       "Mercado Livre": {
-        "faturamento": 69071035,
-        "pedidos": 1545
+        "faturamento": 70070234,
+        "pedidos": 1563
       },
       "Casas Bahia": {
-        "faturamento": 27748428,
-        "pedidos": 204
+        "faturamento": 27841771,
+        "pedidos": 205
       },
       "Magazine Luiza": {
-        "faturamento": 30794661,
-        "pedidos": 256
+        "faturamento": 31565345,
+        "pedidos": 261
       },
       "Shopee": {
-        "faturamento": 44424890,
-        "pedidos": 436
+        "faturamento": 44785081,
+        "pedidos": 439
       },
       "Amazon": {
-        "faturamento": 187060030,
-        "pedidos": 2701
+        "faturamento": 190865455,
+        "pedidos": 2758
       },
       "Amazon Fulfillment": {
         "faturamento": 324267,
@@ -90,10 +90,10 @@
     {
       "sku": "TI1690",
       "desc": "Maquina de Lavar Midea Wave Agitator Branca 13Kg Funcao Turbo-127v",
-      "qtd": 877,
-      "fat": 72899218,
+      "qtd": 900,
+      "fat": 74349239,
       "canais": {
-        "Amazon": 861,
+        "Amazon": 884,
         "Casas Bahia": 9,
         "Mercado Livre": 5,
         "Magazine Luiza": 2
@@ -102,11 +102,11 @@
     {
       "sku": "TI1571",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Preto Fosco Mesa Esmaltado - Bivolt",
-      "qtd": 514,
-      "fat": 3655502,
+      "qtd": 520,
+      "fat": 3660146,
       "canais": {
+        "Amazon": 320,
         "Shopee": 52,
-        "Amazon": 314,
         "Casas Bahia": 37,
         "Mercado Livre": 107,
         "Magazine Luiza": 4
@@ -115,37 +115,37 @@
     {
       "sku": "TI1667",
       "desc": "Fogao a Gas Mueller MFI5BC 5 Bocas Titanio Mesa Esmaltado - Bivolt",
-      "qtd": 354,
-      "fat": 11410948,
+      "qtd": 359,
+      "fat": 11669523,
       "canais": {
+        "Amazon": 104,
+        "Mercado Livre": 188,
+        "Shopee": 38,
         "Magazine Luiza": 28,
-        "Amazon": 101,
-        "Shopee": 37,
-        "Mercado Livre": 187,
         "Casas Bahia": 1
       }
     },
     {
       "sku": "TI1529",
       "desc": "Maquina De Lavar Mueller Energy Ciclo Rapido 8kg Branco-127v 127v Branco",
-      "qtd": 255,
-      "fat": 4031164,
+      "qtd": 258,
+      "fat": 4071681,
       "canais": {
-        "Amazon": 141,
+        "Amazon": 143,
+        "Shopee": 11,
         "Mercado Livre": 55,
         "Casas Bahia": 16,
-        "Shopee": 10,
         "Magazine Luiza": 33
       }
     },
     {
       "sku": "TI1562",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox Sem Timer - Bivolt",
-      "qtd": 210,
-      "fat": 6008683,
+      "qtd": 213,
+      "fat": 6031268,
       "canais": {
-        "Amazon": 87,
-        "Mercado Livre": 61,
+        "Amazon": 89,
+        "Mercado Livre": 62,
         "Shopee": 32,
         "Casas Bahia": 26,
         "Magazine Luiza": 4
@@ -154,11 +154,11 @@
     {
       "sku": "TI1514",
       "desc": "Fogao a Gas Mueller 5 bocas Decorato Vetro Inox com Timer-Bivolt",
-      "qtd": 202,
-      "fat": 12743726,
+      "qtd": 204,
+      "fat": 12780724,
       "canais": {
+        "Mercado Livre": 89,
         "Amazon": 48,
-        "Mercado Livre": 87,
         "Shopee": 19,
         "Casas Bahia": 3,
         "Magazine Luiza": 44,
@@ -166,28 +166,28 @@
       }
     },
     {
-      "sku": "TI1789",
-      "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
-      "qtd": 173,
-      "fat": 505594,
-      "canais": {
-        "Mercado Livre": 170,
-        "Amazon": 1,
-        "Shopee": 1,
-        "Magazine Luiza": 1
-      }
-    },
-    {
       "sku": "TI1565",
       "desc": "Cooktop a Gas Mueller 5 bocas Ultra Chama Mesa Vidro Preto - Bivolt",
-      "qtd": 173,
-      "fat": 2535531,
+      "qtd": 174,
+      "fat": 2539900,
       "canais": {
+        "Amazon": 56,
         "Shopee": 89,
-        "Amazon": 55,
         "Magazine Luiza": 25,
         "Casas Bahia": 3,
         "Mercado Livre": 1
+      }
+    },
+    {
+      "sku": "TI1789",
+      "desc": "Cooktop de Inducao Midea 1 Boca Portatil Painel Digital Preto - 220v",
+      "qtd": 174,
+      "fat": 508363,
+      "canais": {
+        "Mercado Livre": 171,
+        "Amazon": 1,
+        "Shopee": 1,
+        "Magazine Luiza": 1
       }
     },
     {
@@ -205,11 +205,11 @@
     {
       "sku": "TI1602",
       "desc": "Fogao a Gas Dako Magister Inox Style 4 Bocas Mesa Inox - Bivolt",
-      "qtd": 160,
-      "fat": 3579441,
+      "qtd": 164,
+      "fat": 3625537,
       "canais": {
-        "Mercado Livre": 57,
-        "Amazon": 92,
+        "Amazon": 95,
+        "Mercado Livre": 58,
         "Magazine Luiza": 7,
         "Outros": 1,
         "Shopee": 2,
@@ -219,34 +219,34 @@
     {
       "sku": "TI1524",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 127v",
-      "qtd": 143,
-      "fat": 1926317,
+      "qtd": 145,
+      "fat": 2007855,
       "canais": {
-        "Amazon": 47,
+        "Shopee": 13,
+        "Amazon": 48,
         "Mercado Livre": 71,
         "Magazine Luiza": 10,
-        "Casas Bahia": 3,
-        "Shopee": 12
+        "Casas Bahia": 3
       }
     },
     {
       "sku": "TI1773-1",
       "desc": "Maquina de Lavar Midea Wave Agitador 15KG 13 programas com Timer Digital - Branco  - 127v",
-      "qtd": 140,
-      "fat": 6425902,
+      "qtd": 142,
+      "fat": 6460680,
       "canais": {
-        "Amazon": 131,
+        "Amazon": 133,
         "Mercado Livre": 9
       }
     },
     {
       "sku": "SS002",
       "desc": "Mini System SS-002 SSOUND 330W CD/MP3 Bluetooth Radio - Bivolt",
-      "qtd": 138,
-      "fat": 4389712,
+      "qtd": 141,
+      "fat": 4602209,
       "canais": {
-        "Mercado Livre": 44,
-        "Amazon": 31,
+        "Amazon": 33,
+        "Mercado Livre": 45,
         "Magazine Luiza": 13,
         "Shopee": 47,
         "Casas Bahia": 3
@@ -255,12 +255,12 @@
     {
       "sku": "TI1580",
       "desc": "Fogao a Gas Dako Supreme Glass 4 Bocas Sem Tampa Mesa Vidro Branco-Bivolt",
-      "qtd": 119,
-      "fat": 4714803,
+      "qtd": 123,
+      "fat": 4763899,
       "canais": {
-        "Amazon": 57,
+        "Magazine Luiza": 29,
+        "Amazon": 58,
         "Mercado Livre": 29,
-        "Magazine Luiza": 26,
         "Casas Bahia": 6,
         "Shopee": 1
       }
@@ -305,12 +305,23 @@
     {
       "sku": "TI1881",
       "desc": "Maquina de Lavar Midea Wave Agitador 14kg  Funcao Turbo & Timer MA512W140A/WK  - 127v",
-      "qtd": 88,
-      "fat": 578432,
+      "qtd": 89,
+      "fat": 580031,
       "canais": {
-        "Amazon": 70,
+        "Amazon": 71,
         "Mercado Livre": 17,
         "Shopee": 1
+      }
+    },
+    {
+      "sku": "TI1454",
+      "desc": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black 569L-220v",
+      "qtd": 77,
+      "fat": 5798639,
+      "canais": {
+        "Amazon": 70,
+        "Mercado Livre": 6,
+        "Casas Bahia": 1
       }
     },
     {
@@ -326,23 +337,12 @@
       }
     },
     {
-      "sku": "TI1454",
-      "desc": "Cervejeira Vertical Imbera CCV355 Porta de Vidro Full Black 569L-220v",
-      "qtd": 72,
-      "fat": 5532624,
-      "canais": {
-        "Amazon": 67,
-        "Mercado Livre": 4,
-        "Casas Bahia": 1
-      }
-    },
-    {
       "sku": "TI1844",
       "desc": "Maquina de Lavar Panasonic 18Kg  Intuitive Lavagem Eficiente - 127v",
-      "qtd": 71,
-      "fat": 11314529,
+      "qtd": 72,
+      "fat": 11515338,
       "canais": {
-        "Amazon": 55,
+        "Amazon": 56,
         "Magazine Luiza": 6,
         "Mercado Livre": 10
       }
@@ -361,15 +361,41 @@
       }
     },
     {
+      "sku": "TI1568",
+      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
+      "qtd": 69,
+      "fat": 6828896,
+      "canais": {
+        "Mercado Livre": 37,
+        "Amazon": 3,
+        "Shopee": 21,
+        "Magazine Luiza": 6,
+        "Outros": 1,
+        "Casas Bahia": 1
+      }
+    },
+    {
       "sku": "TI1633",
       "desc": "Fogao a Gas Mueller Decorato 5 Bocas Inox com Mesa de Inox-Bivolt",
-      "qtd": 68,
-      "fat": 5601273,
+      "qtd": 69,
+      "fat": 5741261,
       "canais": {
-        "Amazon": 36,
+        "Amazon": 37,
         "Mercado Livre": 20,
         "Shopee": 7,
         "Casas Bahia": 5
+      }
+    },
+    {
+      "sku": "TI1550",
+      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
+      "qtd": 64,
+      "fat": 1761416,
+      "canais": {
+        "Amazon": 54,
+        "Magazine Luiza": 5,
+        "Shopee": 1,
+        "Mercado Livre": 4
       }
     },
     {
@@ -386,39 +412,13 @@
       }
     },
     {
-      "sku": "TI1568",
-      "desc": "Fogao a Gas Mueller MFV5BF 5 Bocas Mesa de Vidro Preto Fosco - Bivolt",
-      "qtd": 63,
-      "fat": 6069434,
-      "canais": {
-        "Mercado Livre": 31,
-        "Amazon": 3,
-        "Shopee": 21,
-        "Magazine Luiza": 6,
-        "Outros": 1,
-        "Casas Bahia": 1
-      }
-    },
-    {
-      "sku": "TI1550",
-      "desc": "Tanquinho de Lavar Roupa Mueller Big 20,1kg Sistema de Drenagem -127v",
-      "qtd": 63,
-      "fat": 1704427,
-      "canais": {
-        "Amazon": 53,
-        "Magazine Luiza": 5,
-        "Shopee": 1,
-        "Mercado Livre": 4
-      }
-    },
-    {
       "sku": "TI1525",
       "desc": "Tanquinho de Lavar Roupa Mueller Plus 4,5kg 40 Litros Branco - 220v",
-      "qtd": 61,
-      "fat": 1652382,
+      "qtd": 62,
+      "fat": 1662041,
       "canais": {
+        "Mercado Livre": 36,
         "Amazon": 16,
-        "Mercado Livre": 35,
         "Shopee": 5,
         "Magazine Luiza": 3,
         "Casas Bahia": 2
@@ -460,22 +460,22 @@
   ],
   "historico_por_dia": {
     "21/11/2026": {
-      "fat": 4975278,
-      "peds": 77,
+      "fat": 11006960,
+      "peds": 161,
       "canais": {
-        "Mercado Livre": 759442,
-        "Casas Bahia": 469636,
-        "Magazine Luiza": 329123,
-        "Shopee": 491319,
-        "Amazon": 2925758,
+        "Mercado Livre": 1777140,
+        "Casas Bahia": 562979,
+        "Magazine Luiza": 1099807,
+        "Shopee": 851510,
+        "Amazon": 6715524,
         "Amazon Fulfillment": 0
       }
     },
     "20/11/2026": {
-      "fat": 18003363,
-      "peds": 280,
+      "fat": 17984864,
+      "peds": 279,
       "canais": {
-        "Mercado Livre": 3653622,
+        "Mercado Livre": 3635123,
         "Casas Bahia": 1315374,
         "Magazine Luiza": 634153,
         "Shopee": 1002961,
@@ -484,14 +484,14 @@
       }
     },
     "19/11/2026": {
-      "fat": 16164765,
-      "peds": 256,
+      "fat": 16180424,
+      "peds": 257,
       "canais": {
         "Mercado Livre": 1910410,
         "Casas Bahia": 627240,
         "Magazine Luiza": 475908,
         "Shopee": 1580044,
-        "Amazon": 11570803,
+        "Amazon": 11586462,
         "Amazon Fulfillment": 0
       }
     },
@@ -1893,7 +1893,7 @@
     "735340834": 1,
     "735361836": 0,
     "735364987": 2,
-    "735365131": 1296,
+    "735365131": 1290,
     "735373966": 0,
     "735374192": 0,
     "735374195": 0,
@@ -1947,7 +1947,7 @@
     "735633291": 0,
     "735633294": 0,
     "735633297": 0,
-    "735668786": 91,
+    "735668786": 90,
     "735674315": 0,
     "735674318": 0,
     "735674321": 0,
@@ -1960,7 +1960,7 @@
     "735703016": 0,
     "735706901": 0,
     "735706915": 0,
-    "735712099": 91,
+    "735712099": 90,
     "735712155": 75,
     "735720550": 0,
     "735720681": 0,
@@ -2082,12 +2082,12 @@
     "736313591": 0,
     "736313594": 0,
     "736313597": 0,
-    "736313664": 4,
+    "736313664": 2,
     "736331010": 0,
     "736331013": 0,
     "736331016": 0,
-    "736368373": 4,
-    "736368550": 4,
+    "736368373": 2,
+    "736368550": 2,
     "736458541": 0,
     "736458544": 0,
     "736458547": 0,
@@ -2277,9 +2277,9 @@
     "737268553": 0,
     "737268555": 0,
     "737268999": 0,
-    "737269127": 82,
+    "737269127": 137,
     "737269134": 16,
-    "737269151": 82,
+    "737269151": 136,
     "737274017": 0,
     "737274067": 0,
     "737281328": 0,
@@ -2385,7 +2385,7 @@
     "737764849": 0,
     "737764889": 0,
     "737764935": 0,
-    "737828562": 148,
+    "737828562": 170,
     "737828602": 0,
     "737828845": 0,
     "737828903": 23,
@@ -2394,13 +2394,13 @@
     "737830897": 0,
     "737830901": 0,
     "737830903": 34,
-    "737830911": 11,
-    "737830913": 27,
-    "737830918": 57,
-    "737830920": 19,
+    "737830911": 10,
+    "737830913": 62,
+    "737830918": 78,
+    "737830920": 54,
     "737830933": 35,
     "737830935": 0,
-    "737830938": 285,
+    "737830938": 421,
     "737830940": 3,
     "737830942": 0,
     "737830944": 0,
@@ -2456,12 +2456,12 @@
     "738043063": 0,
     "738043685": 0,
     "738043696": 0,
-    "738043710": 14,
+    "738043710": 43,
     "738043721": 10,
-    "738043732": 30,
+    "738043732": 37,
     "738043743": 0,
     "738071828": 0,
-    "738095683": 1296,
+    "738095683": 1290,
     "738115828": 0,
     "738115837": 0,
     "738115840": 99,
@@ -2470,16 +2470,16 @@
     "738123529": 15,
     "738123533": 36,
     "738123539": 17,
-    "738124481": 281,
-    "738124483": 184,
+    "738124481": 301,
+    "738124483": 181,
     "738124485": 80,
-    "738124488": 167,
+    "738124488": 166,
     "738124499": 15,
-    "738124501": 18,
+    "738124501": 16,
     "738124506": 57,
     "738124509": 65,
     "738124528": 10,
-    "738124530": 140,
+    "738124530": 126,
     "738132124": 0,
     "738152667": 0,
     "738152773": 13,
@@ -2490,7 +2490,7 @@
     "738159917": 0,
     "738159997": 0,
     "738194799": 0,
-    "738202469": 184,
+    "738202469": 181,
     "738248448": 0,
     "738248452": 0,
     "738262566": 0,
@@ -2503,7 +2503,7 @@
     "738278999": 0,
     "738279005": 0,
     "738279477": 0,
-    "738279484": 95,
+    "738279484": 89,
     "738279487": 122,
     "738280443": 0,
     "738280461": 0,
@@ -2527,8 +2527,8 @@
     "738371264": 0,
     "738404666": 0,
     "738411764": 45,
-    "738447201": 144,
-    "738447204": 40,
+    "738447201": 140,
+    "738447204": 28,
     "738447225": 148,
     "738447284": 0,
     "738447334": 0,
@@ -2548,7 +2548,7 @@
     "738588265": 0,
     "738610349": 0,
     "738622174": 465,
-    "738622195": 549,
+    "738622195": 546,
     "738646948": 80,
     "738678411": 25,
     "738679731": 25,
@@ -2577,7 +2577,7 @@
     "738765543": 0,
     "738765552": 5,
     "738765554": 9,
-    "738765556": 104,
+    "738765556": 99,
     "738765558": 14,
     "738771444": 0,
     "738771446": 0,
@@ -2616,10 +2616,10 @@
     "739050959": 0,
     "739050961": 0,
     "739051809": 1,
-    "739059588": 7,
+    "739059588": 3,
     "739059590": 7,
     "739059592": 49,
-    "739059594": 223,
+    "739059594": 220,
     "739059596": 24,
     "739059598": 11,
     "739059605": 4,
@@ -2669,8 +2669,8 @@
     "739336411": 0,
     "739336414": 0,
     "739341142": 23,
-    "739341161": 23,
-    "739405183": 661,
+    "739341161": 33,
+    "739405183": 584,
     "739488413": 0,
     "739514252": 0,
     "739514305": 0,
@@ -2678,7 +2678,7 @@
     "739668322": 0,
     "739717476": 0,
     "739717526": 0,
-    "739764978": 281,
+    "739764978": 301,
     "739865060": 32,
     "739865072": 0,
     "739866087": 42,
@@ -2689,14 +2689,14 @@
     "739867731": 0,
     "739895757": 14,
     "739963023": 7,
-    "739963026": 4,
-    "739963029": 70,
+    "739963026": 25,
+    "739963029": 86,
     "739963031": 61,
     "739980207": 2,
     "739980214": 14,
     "739980223": 0,
     "739980225": 28,
-    "739980231": 67,
+    "739980231": 66,
     "739980233": 13,
     "739980249": 24,
     "739980331": 3,
@@ -2730,9 +2730,9 @@
     "740127702": 8,
     "740127704": 9,
     "740127906": 9,
-    "740161390": 27,
+    "740161390": 26,
     "740161392": 215,
-    "740170697": 88,
+    "740170697": 87,
     "740177307": 0,
     "740177327": 0,
     "740196430": 0,
@@ -2774,17 +2774,17 @@
     "740338707": 142,
     "740348281": 142,
     "740348304": 142,
-    "740353548": 661,
+    "740353548": 584,
     "740353566": 0,
     "740353587": 0,
     "740355157": 0,
     "740355174": 0,
     "740355243": 0,
-    "740355245": 27,
-    "740356623": 27,
-    "740356686": 57,
+    "740355245": 33,
+    "740356623": 62,
+    "740356686": 78,
     "740356739": 0,
-    "740356747": 19,
+    "740356747": 54,
     "740356812": 35,
     "740356848": 0,
     "740370672": 0,
@@ -2812,7 +2812,7 @@
     "740396951": 0,
     "740396958": 0,
     "740397930": 0,
-    "740397933": 60,
+    "740397933": 52,
     "740397936": 8,
     "740419494": 0,
     "740505878": 0,
@@ -2914,13 +2914,13 @@
     "741033944": 0,
     "741033965": 15,
     "741033968": 0,
-    "741038588": 18,
+    "741038588": 14,
     "741038655": 2,
-    "741062994": 6,
+    "741062994": 40,
     "741063000": 34,
     "741063006": 9,
     "741063008": 7,
-    "741063014": 44,
+    "741063014": 61,
     "741063016": 30,
     "741063019": 84,
     "741063036": 6,
@@ -2943,7 +2943,7 @@
     "741145701": 0,
     "741203922": 3,
     "741203952": 47,
-    "741203954": 35,
+    "741203954": 31,
     "741203957": 27,
     "741203959": 16,
     "741203961": 0,
@@ -2954,7 +2954,7 @@
     "741204089": 37,
     "741204091": 28,
     "741204173": 20,
-    "741271185": 719,
+    "741271185": 711,
     "741315913": 33,
     "741409602": 20,
     "741409604": 20,
