@@ -38,6 +38,28 @@ jobs:
           const E = JSON.parse(fs.readFileSync('/tmp/e.json')).values || [];
           const M = JSON.parse(fs.readFileSync('/tmp/m.json')).values || [];
 
+          // Situação corrigida dos pedidos de D-33 a D-3 (status_pedidos.json, gerado 1x por dia
+          // a partir da planilha "Pedidos Fluxo de Caixa"). Só a situação é trocada; o Kondado
+          // continua sendo a fonte de todo o resto. Casa por nº do pedido e nº do pedido no e-commerce.
+          try {
+            const S = JSON.parse(fs.readFileSync('status_pedidos.json'));
+            const isoD = s => { const p=String(s||'').trim().split('/'); return p.length===3 ? p[2]+'-'+p[0].padStart(2,'0')+'-'+p[1].padStart(2,'0') : ''; };
+            const porId = {}; let mudou = 0;
+            for (let i=1;i<P.length;i++) {
+              const r=P[i], dt=isoD(r[64]);
+              if(!dt||dt<S.janela.inicio||dt>S.janela.fim) continue;
+              let c=S.n[String(r[60]||'').trim()];
+              if(c===undefined) c=S.e[String(r[28]||'').trim()];
+              if(c===undefined) c=S.e[String(r[61]||'').trim()];
+              if(c===undefined) continue;
+              const t=S.codigos[c]; if(!t) continue;
+              if(String(r[62]||'').trim().toLowerCase()!==t.toLowerCase()){ r[62]=t; mudou++; }
+              const id=String(r[0]||'').trim(); if(id) porId[id]=t;
+            }
+            for (let i=1;i<I.length;i++) { const t=porId[String(I[i][0]||'').trim()]; if(t) I[i][9]=t; }
+            console.log('Status corrigidos:', mudou, '| janela', S.janela.inicio, 'a', S.janela.fim);
+          } catch(e) { console.log('status_pedidos.json nao aplicado:', e.message); }
+
           const N = s => parseFloat((s||'0').toString().replace(/\./g,'').replace(',','.')) || 0;
           const ymd = s => { const p=(s||'').split('/'); return p.length<3?'':p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0'); };
           const dmy = s => { const p=(s||'').split('/'); return p.length<3?s:p[1].padStart(2,'0')+'/'+p[0].padStart(2,'0')+'/'+p[2]; };

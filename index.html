@@ -1932,7 +1932,7 @@ const PED_FAIXAS=[
   {r:'AP:AQ', i:41, n:2},  // forma_envio, forma_frete
   {r:'AZ:AZ', i:51, n:1},  // nome_transportador
   {r:'BE:BE', i:56, n:1},  // total_pedido
-  {r:'BH:BH', i:59, n:1},  // valor_frete
+  {r:'BH:BJ', i:59, n:3},  // valor_frete, pedido_numero, pedido_numero_ecommerce
   {r:'BK:BK', i:62, n:1},  // pedido_situacao
   {r:'BM:BM', i:64, n:1}   // pedido_data_pedido
 ];
@@ -1956,6 +1956,56 @@ async function fetchPedidos(){
     out.push(row);
   }
   return out;
+}
+
+
+// ── SITUAÇÃO DOS PEDIDOS: correção diária (status_pedidos.json) ──
+// A planilha do Kondado continua sendo a fonte de tudo, mas só atualiza a
+// situação dos pedidos dos últimos 3 dias. Um job diário (06:00) lê a planilha
+// "Pedidos Fluxo de Caixa" e grava a situação atual dos pedidos de D-33 a D-3.
+// Aqui essa situação é aplicada por cima das linhas do Kondado — SÓ a situação,
+// nenhum outro campo — casando pelo número do pedido e, se não achar, pelo
+// número do pedido no e-commerce. Como é aplicada logo após a leitura, todas
+// as abas que usam pedidos/itens já enxergam a situação corrigida.
+const ST_URL='https://sanbox-dashboard.github.io/dashboard/status_pedidos.json';
+let _stData=null,_stEm=0,_stPorId={},_stInfo={aplicado:false};
+async function stCarregar(){
+  if(_stData&&Date.now()-_stEm<30*60*1000)return _stData;
+  try{
+    const j=await fetchJSON(ST_URL+'?t='+Date.now());
+    if(j&&j.n&&j.janela&&j.codigos){_stData=j;_stEm=Date.now();}
+  }catch(e){console.warn('[Status] status_pedidos.json indisponível — usando só a situação do Kondado',e&&e.message||e);}
+  return _stData;
+}
+function stIso(s){const p=String(s||'').trim().split('/');return p.length===3?p[2]+'-'+p[0].padStart(2,'0')+'-'+p[1].padStart(2,'0'):'';}
+function stAplicar(pRows,iRows){
+  const S=_stData;_stPorId={};
+  if(!S||!pRows){_stInfo={aplicado:false};return 0;}
+  const ini=S.janela.inicio,fim=S.janela.fim;let casados=0,mudou=0;
+  for(let i=1;i<pRows.length;i++){
+    const r=pRows[i];const dt=stIso(r[C.DATA]);
+    if(!dt||dt<ini||dt>fim)continue;
+    let c=S.n[String(r[60]||'').trim()];
+    if(c===undefined)c=S.e[String(r[C.ENUM]||'').trim()];
+    if(c===undefined)c=S.e[String(r[61]||'').trim()];
+    if(c===undefined)continue;
+    const t=S.codigos[c];if(!t)continue;
+    casados++;
+    if(String(r[C.SIT]||'').trim().toLowerCase()!==t.toLowerCase()){r[C.SIT]=t;mudou++;}
+    const id=String(r[C.ID]||'').trim();if(id)_stPorId[id]=t;
+  }
+  stAplicarItens(iRows,I.ID,I.SIT);
+  _stInfo={aplicado:true,casados,mudou,ini,fim,gerado:S.gerado_em};
+  console.log('[Status] '+mudou+' situações corrigidas de '+casados+' pedidos ('+ini+' a '+fim+', gerado '+S.gerado_em+')');
+  return mudou;
+}
+// Itens carregam a situação do pedido numa coluna própria: corrige pelo id do pedido.
+function stAplicarItens(rows,iId,iSit){
+  if(!rows||!_stPorId)return;
+  for(let i=1;i<rows.length;i++){
+    const r=rows[i];const t=_stPorId[String(r[iId]||'').trim()];
+    if(t&&r[iSit]!==t)r[iSit]=t;
+  }
 }
 
 // ── TABLE HELPERS ────────────────────────────────────────────
@@ -3176,8 +3226,11 @@ async function load(){
     const [metas, pRows, iRowsResult] = await Promise.all([
       getMetas(),
       fetchPedidos(),
-      fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];})
+      fetchSheet(KOND_ID,'A:N','tinyerp_pedidos_detalhes_itens').catch(e=>{console.warn('[Itens]',e);return[];}),
+      stCarregar()
     ]);
+    // Situação corrigida (D-33 a D-3) por cima das linhas do Kondado, antes de qualquer cálculo
+    if(pRows&&pRows.length>1)stAplicar(pRows,iRowsResult);
     if(firstLoad && !usedCache) setLoad(90,'Processando...');
     // Proteção: se o fetch voltou vazio (erro momentâneo do Sheets), NÃO sobrescreve
     // o cache bom que já temos. Evita a tela zerar e exigir refresh manual.
@@ -5720,6 +5773,7 @@ async function loadGiroParc(){
     }
     // ── 3. Giro real de vendas (janela de 120 dias) ──
     const giro={};let v0=null,v1=null;
+    stAplicarItens(pitRows,0,9);   // situação corrigida (D-33 a D-3), a mesma do resto do dash
     for(let i=1;i<pitRows.length;i++){
       const r=pitRows[i];const id=(r[3]||'').trim();if(!id)continue;
       if(!GP_VALIDAS.has((r[9]||'').trim().toLowerCase()))continue;

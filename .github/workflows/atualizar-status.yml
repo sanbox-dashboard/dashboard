@@ -1,0 +1,29 @@
+name: Atualizar Status dos Pedidos
+
+# Uma vez por dia, 06:00 de Brasília (09:00 UTC).
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Gerar status_pedidos.json
+        run: node .github/scripts/gerar-status.js
+
+      - name: Commit e push
+        run: |
+          git config user.name "Sanbox Bot"
+          git config user.email "contato@sanbox.com.br"
+          git add status_pedidos.json
+          git diff --staged --quiet && echo "Sem mudanças" || (git commit -m "🔄 Status dos pedidos $(date -u '+%d/%m/%Y %H:%M')" && git pull --rebase -q && git push && echo "✅ Push OK")
