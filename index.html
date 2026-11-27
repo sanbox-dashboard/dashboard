@@ -1896,9 +1896,13 @@ async function fetchJSON(url,_tent){
   if(ctl) timer=setTimeout(function(){ try{ctl.abort();}catch(e){} },FETCH_TIMEOUT_MS);
   try{
     const r=await fetch(url, ctl?{signal:ctl.signal}:undefined);
-    if(timer)clearTimeout(timer);
     if(!r.ok) throw new Error('HTTP '+r.status);
-    return await r.json();
+    // O timer só é desligado depois de o corpo chegar inteiro. Antes ele era
+    // desligado ao receber o cabeçalho: se o download (são vários MB) parasse
+    // no meio, nada o cancelava e a carga ficava pendurada.
+    const j=await r.json();
+    if(timer)clearTimeout(timer);
+    return j;
   }catch(e){
     if(timer)clearTimeout(timer);
     if(tent<FETCH_TENTATIVAS){
@@ -1972,7 +1976,17 @@ let _stData=null,_stEm=0,_stPorId={},_stInfo={aplicado:false};
 async function stCarregar(){
   if(_stData&&Date.now()-_stEm<30*60*1000)return _stData;
   try{
-    const j=await fetchJSON(ST_URL+'?t='+Date.now());
+    // Busca curta e sem repetição (10 s): a correção de situação é um complemento
+    // e nunca pode segurar a carga do dashboard. Se falhar, usa a última lida.
+    let ctl=null,tm=null;
+    try{if(typeof AbortController!=='undefined')ctl=new AbortController();}catch(e){}
+    if(ctl)tm=setTimeout(function(){try{ctl.abort();}catch(e){}},10000);
+    let j=null;
+    try{
+      const r=await fetch(ST_URL+'?t='+Date.now(),ctl?{signal:ctl.signal}:undefined);
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      j=await r.json();
+    }finally{if(tm)clearTimeout(tm);}
     if(j&&j.n&&j.janela&&j.codigos){_stData=j;_stEm=Date.now();}
   }catch(e){console.warn('[Status] status_pedidos.json indisponível — usando só a situação do Kondado',e&&e.message||e);}
   return _stData;
